@@ -881,6 +881,17 @@ All through `$B958` (voice 1) or `$B93A` (voice 2), four bytes a sound from
   of two minus 3 (at least 1); the frequency's high byte is that level plus
   the mantissa's top four bits. It is silent underground and in the
   descent. Benson's tick is voice 3 (`$8DCD`, `$8DF9`).
+- **Benson's tick** is one held note. `$B910` loads voice 3 from `$B921`
+  (frequency 0, pulse width `$800`, attack 0, decay 0, sustain 15, release
+  0) and sets its control to `$41`, pulse and gate on; `$D418` = `$0F`
+  leaves voice 3 connected. Nothing else in the code writes `$D40E`-`$D414`
+  except the printer's two stores to `$D40F`, so the gate is never turned
+  off. The printer writes (glyph AND `$3F`) + `$30` each frame; a blank
+  (`$20`, from `$A0`) becomes `$D0` + `$30`, which carries out to 0, and the
+  pause writes 0 (`$8DCD`). The low byte stays 0, so the pitch is
+  `$D40F` × 256 × 985248 / 2^24 = `$D40F` × 15.03 Hz: A `$31` 737 Hz to
+  Z `$4A` 1112 Hz; the digits 0-9 land on `$30`-`$39`, so 1-9 sound like
+  A-I; ? ! ' are `$5D`-`$5F`, the highest.
 
 ## Save and load
 
