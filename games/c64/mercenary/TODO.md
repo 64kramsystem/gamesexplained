@@ -1,14 +1,14 @@
 # Mercenary — TODO
 
-Tier: Silver (100 % of 50,703 tracked bytes explained; facts, features,
+Tier: Silver (claimed by air; 100 % of 50,703 tracked bytes explained; facts, features,
 listing and minisite built; copy `agent-draft`).
 
 ## For Gold
 
 A human pass over the How it works page and the Maps page, section by
 section: cut what is dull, expand what is interesting, rewrite the
-clichés, add what the agent missed. Set `steward` and `tier:
-silver-claimed` when the pass begins, and record the outcome in `copy`.
+clichés, add what the agent missed. The pass is under way (`steward`: air,
+`tier: silver-claimed`); record the outcome in `copy`.
 
 ## For Platinum
 
