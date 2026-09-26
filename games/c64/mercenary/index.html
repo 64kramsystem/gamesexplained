@@ -57,18 +57,66 @@ code{font-family:var(--fm);font-size:.82em;background:var(--chip);color:var(--ch
 .city-go{flex:1 1 300px}
 .city-fly{flex:1 1 330px}
 .city-label{font-family:var(--fm);font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--ink-mute);margin:0}
-.city-presets{display:flex;flex-wrap:wrap;gap:6px}
+.city-presets{display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:6px}
+.city-presets select{font-family:var(--fm);font-size:12px;background:var(--surface-2);color:var(--ink);border:1px solid var(--line);border-radius:7px;padding:6px 8px;cursor:pointer;min-width:0;width:100%}
+.city-presets select:hover{border-color:var(--violet)}
+.city-all-row{margin-top:12px}
+.city-wrap #city-all{font-size:14px;font-weight:600;padding:10px 18px;border:2px solid var(--violet);color:var(--violet);background:transparent;border-radius:9px}
+.city-wrap #city-all:hover{background:var(--violet);color:#fff}
+.city-wrap #city-all[aria-pressed="true"]{background:var(--violet);color:#fff}
 .city-pad{display:grid;grid-template-columns:repeat(3,1fr);gap:6px}
 .city-wrap button{font-family:var(--fm);font-size:12px;background:var(--surface-2);color:var(--ink);border:1px solid var(--line);border-radius:7px;padding:6px 9px;cursor:pointer;touch-action:none;user-select:none;-webkit-user-select:none}
 .city-wrap button:hover{border-color:var(--violet)}
 .city-wrap button.city-held,.city-wrap button[aria-pressed="true"]{background:var(--violet);border-color:var(--violet);color:#fff}
-.city-presets button{font-size:11.5px;padding:5px 8px}
 .city-speed{font-family:var(--fm);font-size:12px;color:var(--ink-soft);display:flex;gap:8px;align-items:center}
 .city-speed input{accent-color:var(--violet);flex:1 1 auto;min-width:80px}
 .city-speed span{min-width:7em;text-align:right}
 .city-toggles{display:flex;gap:8px;flex-wrap:wrap;margin-top:4px}
 .city-stat{font-family:var(--fm);font-size:11.5px;color:var(--ink-mute);line-height:1.7}
 @media(max-width:560px){.city-aside{flex-direction:row;flex-wrap:wrap}#city-map{width:150px;height:150px}}
+/* outside */
+.out-wrap{max-width:640px;margin:0 auto}
+.out-map{display:block;width:100%;height:auto;background:var(--surface-2);border-radius:6px}
+.out-map text{font-family:var(--fm);font-size:12px;fill:var(--ink)}
+.out-map .out-sub{font-size:10.5px;fill:var(--ink-mute)}
+.out-map .out-pt{cursor:pointer}
+.out-map .out-pt:hover circle,.out-map .out-pt.on circle{stroke:var(--violet);stroke-width:3}
+.out-tbl{margin-top:8px}
+.out-tbl tr.on td{background:var(--hl)}
+.out-tbl td:nth-child(2),.out-tbl td:nth-child(3),.out-tbl td:nth-child(4){font-family:var(--fm);font-size:12.5px;white-space:nowrap}
+.out-rev{background:var(--ink);color:var(--surface);padding:0 2px;border-radius:2px}
+.out-note{font-size:14px;color:var(--ink-mute)}
+.out-models{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+.out-models figure{margin:0}
+.out-models svg{display:block;width:100%;height:auto;background:var(--surface-2);border-radius:6px}
+.out-models figcaption{font-family:var(--fm);font-size:12px;color:var(--ink-soft);margin-top:6px;line-height:1.5}
+@media(max-width:640px){.out-models{grid-template-columns:1fr 1fr}.out-tbl{display:block;overflow-x:auto}}
+/* objects */
+.obj-wrap{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.05fr);gap:18px;align-items:start}
+.obj-filter{grid-column:1/-1;display:flex;flex-wrap:wrap;gap:6px}
+.obj-filter button{font-family:var(--fm);font-size:12px;background:var(--surface-2);color:var(--ink);border:1px solid var(--line);border-radius:7px;padding:5px 9px;cursor:pointer}
+.obj-filter button:hover{border-color:var(--violet)}
+.obj-filter button[aria-pressed="true"]{background:var(--violet);border-color:var(--violet);color:#fff}
+.obj-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(74px,1fr));gap:6px;max-height:560px;overflow-y:auto;padding:2px}
+.obj-cell{background:var(--surface-2);border:1px solid var(--line-soft);border-radius:6px;padding:4px 4px 3px;cursor:pointer;text-align:center;min-width:0}
+.obj-cell:hover{border-color:var(--violet)}
+.obj-cell:focus-visible{outline:2px solid var(--violet);outline-offset:1px}
+.obj-cell[aria-selected="true"]{border-color:var(--violet);box-shadow:0 0 0 2px var(--violet)}
+.obj-cell svg{display:block;width:100%;height:auto}
+.obj-cell span{display:block;font-family:var(--fm);font-size:10px;color:var(--ink-soft);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.obj-detail{position:sticky;top:70px;min-width:0}
+.obj-big{display:block;width:100%;height:auto;background:#000;border-radius:6px;cursor:grab;touch-action:none}
+.obj-big:active{cursor:grabbing}
+.obj-detail h3{font-size:20px;margin:12px 0 2px}
+.obj-kind{font-family:var(--fm);font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--ink-mute);margin:0}
+.obj-detail p{margin:8px 0;font-size:15px}
+.obj-chips{display:flex;flex-wrap:wrap;gap:5px;margin:8px 0}
+.obj-chips span{font-family:var(--fm);font-size:11px;border:1px solid var(--line);border-radius:10px;padding:1px 8px;color:var(--ink-soft)}
+.obj-facts{border-collapse:collapse;width:100%;font-size:13.5px}
+.obj-facts th,.obj-facts td{border-bottom:1px solid var(--line-soft);padding:5px 6px;text-align:left;vertical-align:top}
+.obj-facts th{font-family:var(--fm);font-size:11px;font-weight:400;letter-spacing:.06em;text-transform:uppercase;color:var(--ink-mute);white-space:nowrap}
+.obj-note{grid-column:1/-1;font-size:14px;color:var(--ink-mute)}
+@media(max-width:760px){.obj-wrap{grid-template-columns:1fr}.obj-detail{position:static;order:-1}.obj-grid{max-height:340px}}
 /* lead-lift */
 .lift-grid{display:grid;grid-template-columns:1fr 1fr;gap:18px}
 .lift-grid img{width:100%;image-rendering:pixelated;border-radius:6px;display:block}
@@ -505,7 +553,8 @@ code{font-family:var(--fm);font-size:.82em;background:var(--chip);color:var(--ch
           <div class="city-screen" id="city-screen" tabindex="0" role="img" aria-label="The view, drawn with the game's own arithmetic. Focus it to fly with the keyboard.">
             <canvas id="city-cv" width="320" height="136"></canvas>
           </div>
-          <p class="city-keys" id="city-keys">Click the view, then <kbd>←</kbd> <kbd>→</kbd> turn, <kbd>↑</kbd> <kbd>↓</kbd> nose up and down, <kbd>W</kbd> <kbd>S</kbd> forward and back, <kbd>R</kbd> <kbd>F</kbd> climb and descend, <kbd>Q</kbd> <kbd>E</kbd> roll.</p>
+          <div class="city-all-row"><button type="button" id="city-all" aria-pressed="false">Render all buildings</button></div>
+          <p class="city-keys" id="city-keys">Click the view, then <kbd>←</kbd> <kbd>→</kbd> turn, <kbd>↓</kbd> <kbd>↑</kbd> nose up and down, <kbd>W</kbd> <kbd>S</kbd> forward and back, <kbd>R</kbd> <kbd>F</kbd> climb and descend, <kbd>Q</kbd> <kbd>E</kbd> roll.</p>
           <p class="city-note" id="city-note" hidden></p>
         </div>
         <div class="city-aside">
@@ -520,17 +569,16 @@ code{font-family:var(--fm);font-size:.82em;background:var(--chip);color:var(--ch
           <div class="city-presets" id="city-presets"></div>
           <div class="city-toggles">
             <button type="button" id="city-foot" aria-pressed="false">On foot</button>
-            <button type="button" id="city-all" aria-pressed="false">Every building</button>
           </div>
         </div>
         <div class="city-group city-fly">
           <p class="city-label">Fly</p>
           <div class="city-pad" id="city-pad">
             <button type="button" data-act="rollL" title="Roll left (Q)">Roll ⟲</button>
-            <button type="button" data-act="up" title="Nose up (↑)">Nose up</button>
+            <button type="button" data-act="up" title="Nose up (↓)">Nose up</button>
             <button type="button" data-act="rollR" title="Roll right (E)">Roll ⟳</button>
             <button type="button" data-act="left" title="Turn left (←)">◀ Turn</button>
-            <button type="button" data-act="down" title="Nose down (↓)">Nose down</button>
+            <button type="button" data-act="down" title="Nose down (↑)">Nose down</button>
             <button type="button" data-act="right" title="Turn right (→)">Turn ▶</button>
             <button type="button" data-act="fwd" title="Forward (W)">Forward</button>
             <button type="button" data-act="climb" title="Climb (R)">Climb</button>
@@ -539,24 +587,45 @@ code{font-family:var(--fm);font-size:.82em;background:var(--chip);color:var(--ch
             <button type="button" data-act="sink" title="Descend (F)">Descend</button>
             <button type="button" data-act="face" title="Turn to face north">Face north</button>
           </div>
-          <label class="city-speed">Step <input type="range" id="city-speed" min="0" max="100" value="45"> <span id="city-speed-v"></span></label>
+          <label class="city-speed">Speed <input type="range" id="city-speed" min="0" max="100" value="45"> <span id="city-speed-v"></span></label>
         </div>
       </div>
       <div class="city-stat" id="city-stat"></div>
     </div>
-    <p class="cap"><b>160 × 136</b> multicolour pixels, drawn by the page with the game's view code ported routine by routine (<code>$A544</code>, <code>$94E0</code>, <code>$A320</code>, <code>$AFD5</code>, <code>$9054</code>, <code>$96D8</code>, <code>$96E7</code>, <code>$A75C</code>, <code>$99DD</code>) in its two-byte logarithmic floats (tables <code>$5800</code> to <code>$5BFF</code>), from the models named at <code>$2600</code> and <code>$2700</code> and the roads at <code>$2C00</code> to <code>$2FFF</code>, all read from the listing. Checked against the same routines run in a 6502 simulator: 15,000 random views identical byte for byte. The pictures the game displayed in two snapshots match too, apart from the objects, which this view leaves out. <b>Every building</b> draws the models of all squares but 00-00 at once, which the game never does. The map shows the roads listed for the view (bright), the window of squares they come from, and the square whose building is loaded.</p>
+    <p class="cap"><b>160 × 136</b> multicolour pixels, drawn by the page with the game's view code ported routine by routine (<code>$A544</code>, <code>$94E0</code>, <code>$A320</code>, <code>$AFD5</code>, <code>$9054</code>, <code>$96D8</code>, <code>$96E7</code>, <code>$A75C</code>, <code>$99DD</code>) in its two-byte logarithmic floats (tables <code>$5800</code> to <code>$5BFF</code>), from the models named at <code>$2600</code> and <code>$2700</code> and the roads at <code>$2C00</code> to <code>$2FFF</code>, all read from the listing. Checked against the same routines run in a 6502 simulator: 15,000 random views identical byte for byte. The pictures the game displayed in two snapshots match too, apart from the objects, which this view leaves out. <b>Render all buildings</b> draws the models of all squares but 00-00 at once, which the game never does; the roads stay the ones the game draws for the square you are in. The map shows the roads listed for the view (bright), the window of squares they come from, and the square whose building is loaded.</p>
   </div>
+  <p>The square's model is loaded by <code>$9575</code> only when the high byte of your X or Y changes (<code>$94FE</code>-<code>$952F</code>), from the table at <code>$2600</code>/<code>$2700</code>, and drawn only while your height is under 65536. From higher up you see the roads instead: they are drawn from height 2048 up, as lines between the centres of the squares they join, and from height <code>$200000</code> a fixed picture of 13 roads replaces them (<code>$902A</code>). So a building is never in view from outside its square, and roads are never in view from the ground. The flying view above has a switch to draw every building at once; the game does 1/256 of that work.</p>
   <div class="plate">
     <div class="lift-grid">
       <div><img src="reference/one-building-a-0808-facing-north.png" alt="At 08-08, near its north edge, facing north: an empty horizon"><p class="cap"><b>08-08, facing north, 3072 units from the edge.</b> Bosher Stadium stands in the next square, dead ahead. Nothing is drawn.</p></div>
       <div><img src="reference/one-building-b-0807-facing-north.png" alt="Three thousand units further on, in 08-07: the stadium on the horizon"><p class="cap"><b>6144 units further on, in 08-07.</b> The same stadium, now drawn, far off on the horizon.</p></div>
     </div>
   </div>
-  <p>The square's model is loaded by <code>$9575</code> only when the high byte of your X or Y changes (<code>$94FE</code>-<code>$952F</code>), from the table at <code>$2600</code>/<code>$2700</code>, and drawn only while your height is under 65536. From higher up you see the roads instead: they are drawn from height 2048 up, as lines between the centres of the squares they join, and from height <code>$200000</code> a fixed picture of 13 roads replaces them (<code>$902A</code>). So a building is never in view from outside its square, and roads are never in view from the ground. The flying view above has a switch to draw every building at once; the game does 1/256 of that work.</p>
+</section>
+
+<section id="outside">
+  <p class="fig">02 · Outside the city</p>
+  <h2 class="t">Exotic destinations: all the places outside the city</h2>
+  <p class="lede">The city of Targ is 16 squares a side, in a world of 256. The game puts four things out in the wasteland: two lifts down to hangars, a pyramid and a mast.</p>
+  <div class="plate">
+    <div class="out-wrap"><svg id="out-map" class="out-map" viewBox="0 0 640 640" role="img" aria-label="Top-down map of the whole world, to scale, north up, with the city and everything placed outside it"></svg></div>
+    <p class="cap">The whole world from above, north up, to scale: 256 squares a side, each 65,536 units. Drawn from the game's bytes: the object positions (<code>$2480</code>-<code>$25FF</code>, <code>$2880</code>-<code>$293F</code>) and the lift squares at <code>$B4B6</code>/<code>$B4BE</code>. Squares are numbered as the LOC readout numbers them, from −128 to 127, X growing east and Y south. Inside the dashed line LOC shows the square, negatives in reversed figures; beyond it LOC prints <code>**</code> and no roads are drawn (<code>$B64C</code>). Click a place to find it in the table.</p>
+  </div>
+  <table class="lift-tbl out-tbl">
+    <thead><tr><th>Place</th><th>LOC</th><th>X, Y</th><th>From where you land</th><th>What is there</th></tr></thead>
+    <tbody id="out-rows"></tbody>
+  </table>
+  <p class="out-note">Walking times are at the walk's measured pace, about 100 steps of 80 units in 14 seconds, in a straight line from where you land at 08-08.</p>
+  <p>No building is ever drawn outside the city: the game loads a model only for squares 0 to 15 on both axes (<code>$952B</code>). So the two lifts out here are objects instead, 61 and 62, each a cage of four stacked squares 1,024 units across, standing on the patch where the E key works, the middle bytes <code>$70</code> to <code>$73</code> of X and Y (<code>$B40C</code>). Below them are two hangar complexes of their own. Hangar 6 has 3 rooms. Hangar 7 has 7, and object 3, the jet, starts there.</p>
+  <div class="plate">
+    <div class="out-models" id="out-models"></div>
+    <p class="cap">The three models from their bytes (<code>$2800</code>/<code>$2840</code>), seen from the side, each to its own scale: a model's coordinates are signed bytes in steps of 16 units. All three objects are fixed (bit 4 of <code>$29C0</code>), so T takes one only while the Kitchen Sink is carried (<code>$980B</code>).</p>
+  </div>
+  <p>The pyramid is object 56. Carried, it lets D drop an object in mid-air, where the object stays at your height (<code>$98FE</code>). The mast is object 50. It has no name to print, and nothing in the code refers to it by address. What it is for is unknown.</p>
 </section>
 
 <section id="lift">
-  <p class="fig">02 · Bug</p>
+  <p class="fig">03 · Bug</p>
   <h2 class="t">Bug: stand on one patch of grass at the start and E takes you into the Colony Craft</h2>
   <p class="lede">You crash-land at 08-08, and the Colony Craft hangs straight above you at ALT 64997. There is no lift on the ground here. But one invisible patch of grass, 1,024 units a side and about 14 seconds' walk from where you land, answers the E key as if it were the lift on the Colony Craft's deck. The ride goes down into the Colony Craft's hangar, and E again brings you up on its deck. The published solutions all fly there.</p>
   <div class="plate">
@@ -583,7 +652,7 @@ code{font-family:var(--fm);font-size:.82em;background:var(--chip);color:var(--ch
     <div class="lift-ctl"><button id="lift-next" type="button">Step</button><button id="lift-reset" type="button">Start again</button><span id="lift-msg"></span></div>
     <p class="cap">The E key's test, one instruction group at a time, with the values it reads on the Colony Craft's deck and on the grass under it.</p>
   </div>
-  <p>The ride down ends in room 8, the Colony Craft's hangar, whichever end you started from. The ride up from room 8 adds <code>$40FF00</code> to your height, which puts you on the deck. The game does not know how you got in.</p>
+  <p>The ride down ends in room 8, the Colony Craft's hangar, whichever end you started from. The ride up from room 8 is the same ride as every other lift's. It starts in the room, and once it reaches the surface side, <code>$A312</code> adds <code>$40FF00</code> to your height on every pass, so it ends on the deck. The game does not know how you got in. The underground has no height of its own: a room is a separate box, and no room lies below any point of the city.</p>
   <div class="plate">
     <div class="lift-grid lift-grid-3">
       <div><img src="reference/lift-0808-room8-hangar.png" alt="Room 8, the Colony Craft's hangar, reached by pressing E on the grass at 08-08"><p class="cap"><b>E on the grass</b>: down into room 8, the Colony Craft's hangar.</p></div>
@@ -605,7 +674,7 @@ code{font-family:var(--fm);font-size:.82em;background:var(--chip);color:var(--ch
 </section>
 
 <section id="blind">
-  <p class="fig">03 · Secret</p>
+  <p class="fig">04 · Secret</p>
   <h2 class="t">Secret: shoot a building from the next square and nobody notices</h2>
   <p class="lede">A building shot from outside its square is destroyed, but the game never counts it, never names it, and nobody comes after you for it.</p>
   <div class="plate">
@@ -622,7 +691,7 @@ code{font-family:var(--fm);font-size:.82em;background:var(--chip);color:var(--ch
 </section>
 
 <section id="signs">
-  <p class="fig">04 · Joke</p>
+  <p class="fig">05 · Joke</p>
   <h2 class="t">Shooting the Commodore sign makes you a TRAITOR</h2>
   <p class="lede">Ten squares of the city hold billboards: five with the Commodore logo, five with Atari's. Destroying either kind gets a verdict.</p>
   <div class="plate">
@@ -637,7 +706,7 @@ code{font-family:var(--fm);font-size:.82em;background:var(--chip);color:var(--ch
 </section>
 
 <section id="frame">
-  <p class="fig">05 · The screen</p>
+  <p class="fig">06 · The screen</p>
   <h2 class="t">One frame, rebuilt from memory</h2>
   <p class="lede">The view is a bitmap of 160 by 136 wide pixels, and there are two of them: the game draws into one while you look at the other.</p>
   <div class="plate">
@@ -655,7 +724,7 @@ code{font-family:var(--fm);font-size:.82em;background:var(--chip);color:var(--ch
 </section>
 
 <section id="flight-fly">
-  <p class="fig">06 · Flying</p>
+  <p class="fig">07 · Flying</p>
   <h2 class="t">The flight model, pass by pass</h2>
   <p class="lede">Every craft but the interstellar ship runs the same flying step once a pass, with its handling read from a 16-byte record: take-off needs speed, the climb fades above the craft's ceiling, and a touchdown crashes only on a steep drop or a steep nose.</p>
   <div class="plate flight-plate" id="flight-widget" tabindex="0" aria-label="Flight model: pick a craft, press throttle keys and move the stick">
@@ -709,7 +778,7 @@ code{font-family:var(--fm);font-size:.82em;background:var(--chip);color:var(--ch
 </section>
 
 <section id="flight-records">
-  <p class="fig">07 · The craft</p>
+  <p class="fig">08 · The craft</p>
   <h2 class="t">Eleven motion records</h2>
   <p class="lede">Each craft's handling is sixteen bytes at <code>$9DAD</code>, copied to <code>$BEA0</code> when you board and after every airborne pass.</p>
   <div class="plate">
@@ -722,7 +791,7 @@ code{font-family:var(--fm);font-size:.82em;background:var(--chip);color:var(--ch
 </section>
 
 <section id="flight-top">
-  <p class="fig">08 · Top speeds</p>
+  <p class="fig">09 · Top speeds</p>
   <h2 class="t">Top speeds: Zzap!64's table, to the digit</h2>
   <p class="lede">With key 0 and then + held until the game refuses it, the port's top speeds are the figures Zzap!64 printed in May 1986.</p>
   <div class="plate">
@@ -735,7 +804,7 @@ code{font-family:var(--fm);font-size:.82em;background:var(--chip);color:var(--ch
 </section>
 
 <section id="rooms-underground">
-  <p class="fig">09 · The underground</p>
+  <p class="fig">10 · The underground</p>
   <h2 class="t">The underground: 174 rooms, each a box with doors drawn on its walls</h2>
   <p class="lede">Below the city every room is a record of a few bytes: three sizes, two colours and four bytes for each door, drawn as a wire box with the doors' outlines on its walls.</p>
   <div class="plate">
@@ -745,10 +814,25 @@ code{font-family:var(--fm);font-size:.82em;background:var(--chip);color:var(--ch
   <p>A room's record starts with its X size, its height and its Y size, in units of 256 (a city square is 65,536 across). Then come two colours: the view is filled with the first and the lines are drawn in the second. Each door is four bytes: its kind, which wall it is in and which door of the next room you come out of, then the room it leads to and its position on the wall. The list ends with a 0, or with <code>$80</code> for a dark room.</p>
 </section>
 
+<section id="objects">
+  <p class="fig">11 · Objects</p>
+  <h2 class="t">All 64 objects: every craft, key, crate and sofa</h2>
+  <p class="lede">Everything the game draws apart from the city and the rooms is one of 64 objects: the craft you fly, the things you carry, the furniture, the signs on the walls, even the Colony Craft.</p>
+  <div class="plate">
+    <div class="obj-wrap">
+      <div class="obj-filter" id="obj-filter" role="group" aria-label="Show"></div>
+      <div class="obj-grid" id="obj-grid" role="listbox" aria-label="Objects"><p class="obj-note">This catalogue reads the game from <code>listing.json</code>, so it needs the built site.</p></div>
+      <div class="obj-detail" id="obj-detail" aria-live="polite"></div>
+    </div>
+    <p class="cap">Every model drawn from its bytes, through the pointers at <code>$2800</code>/<code>$2840</code>: the last vertex number, then three signed bytes a vertex (X, height, Y) in steps of 16 units, then the edges (<code>$97AB</code>-<code>$97F9</code>). There are no faces, so every edge shows. Where each object starts, its room and its flags are the game's tables at the start (<code>$2480</code>-<code>$25FF</code>, <code>$2880</code>-<code>$29FF</code>). Drag the large view to turn it.</p>
+  </div>
+  <p>An object is a position, a room, a model and a byte of flags. Room 0 is the surface and <code>$FF</code> is carried or out of play. The flags decide what T can do with it: a fixed object needs the Kitchen Sink carried and a heavy one needs the Antigrav or the Sink (<code>$980B</code>, <code>$9817</code>). Objects 0 to 7 are the craft B can board, and 8 to 15 are the ones the game moves itself, among them your missile, the attack ship and its missile. Twenty-two of them have names, which Benson prints when you take them.</p>
+</section>
+
 <!-- benson: Benson's message window, how a message is stored, the event scripts, money in BCD.
      Needs benson.css, ../../lib/c64.js, window.MERC_GAME = C64.load('listing.json'), then benson.js. -->
 <section id="benson-window">
-  <p class="fig">10 · Benson's message window</p>
+  <p class="fig">12 · Benson's message window</p>
   <h2 class="t">Benson's message window</h2>
   <p class="lede">Benson, the craft's computer, speaks through a strip of 23 cells at the bottom of the panel, one character a frame.</p>
   <div class="plate benson-plate">
@@ -779,7 +863,7 @@ code{font-family:var(--fm);font-size:.82em;background:var(--chip);color:var(--ch
 </section>
 
 <section id="benson-store">
-  <p class="fig">11 · How a message is stored</p>
+  <p class="fig">13 · How a message is stored</p>
   <h2 class="t">How a message is stored</h2>
   <p class="lede">A message is a list of one-byte tokens, most of them numbers of words in a dictionary.</p>
   <div class="plate benson-plate">
@@ -801,7 +885,7 @@ code{font-family:var(--fm);font-size:.82em;background:var(--chip);color:var(--ch
 </section>
 
 <section id="benson-scripts">
-  <p class="fig">12 · The event scripts</p>
+  <p class="fig">14 · The event scripts</p>
   <h2 class="t">The event scripts</h2>
   <p class="lede">What Benson says, and when, comes from 51 scripts in a small byte code, run one operation per pass of the main loop.</p>
   <div class="plate benson-plate">
@@ -817,7 +901,7 @@ code{font-family:var(--fm);font-size:.82em;background:var(--chip);color:var(--ch
 </section>
 
 <section id="benson-money">
-  <p class="fig">13 · Money in BCD</p>
+  <p class="fig">15 · Money in BCD</p>
   <h2 class="t">Money in BCD, and a purchase without subtraction</h2>
   <p class="lede">The credits are eight decimal digits in four bytes, and the scripts have no way to subtract: a purchase adds the price's ten's complement.</p>
   <div class="plate benson-plate">
@@ -843,7 +927,7 @@ code{font-family:var(--fm);font-size:.82em;background:var(--chip);color:var(--ch
 </section>
 
 <section id="math-numbers">
-  <p class="fig">14 · Numbers</p>
+  <p class="fig">16 · Numbers</p>
   <h2 class="t">Two-byte numbers, multiplied by adding logarithms</h2>
   <p class="lede">The 3D view works in two-byte floats, a mantissa and a power of two, and multiplies two of them by adding their logarithms from a 256-byte table.</p>
   <div class="plate math-calc">
@@ -893,7 +977,7 @@ code{font-family:var(--fm);font-size:.82em;background:var(--chip);color:var(--ch
 </section>
 
 <section id="math-lines">
-  <p class="fig">15 · Lines</p>
+  <p class="fig">17 · Lines</p>
   <h2 class="t">Drawing a line: eight routines, one per octant</h2>
   <p class="lede">Each edge in the view is drawn by one of eight short routines that step along the longer axis, add a slope byte to an 8-bit counter (or subtract it), and step sideways whenever the counter wraps.</p>
   <div class="plate math-lineplate">
@@ -936,7 +1020,7 @@ code{font-family:var(--fm);font-size:.82em;background:var(--chip);color:var(--ch
 </section>
 
 <section id="keys">
-  <p class="fig">16 · Controls</p>
+  <p class="fig">18 · Controls</p>
   <h2 class="t">The keys, as the game reads them</h2>
   <p class="lede">The game scans the keyboard itself and turns each key into a number, row × 8 + column, with 64 added for SHIFT and 128 for CTRL. The joystick goes in port 2.</p>
   <div class="plate tablewrap">
@@ -962,7 +1046,7 @@ code{font-family:var(--fm);font-size:.82em;background:var(--chip);color:var(--ch
 </section>
 
 <section id="opening">
-  <p class="fig">17 · The opening</p>
+  <p class="fig">19 · The opening</p>
   <h2 class="t">The opening: a countdown, then a crash</h2>
   <p class="lede">The game opens in space, runs its own event script through a failing Novadrive, and drops you in the middle of the city with 9000 credits.</p>
   <div class="plate">
@@ -979,7 +1063,7 @@ code{font-family:var(--fm);font-size:.82em;background:var(--chip);color:var(--ch
 </section>
 
 <section id="reset">
-  <p class="fig">18 · Protection</p>
+  <p class="fig">20 · Protection</p>
   <h2 class="t">The reset button hangs the original</h2>
   <p class="lede">Novagen's disk makes the game look like a cartridge, so that pressing reset runs one of the game's own loops instead of handing the machine back.</p>
   <div class="plate">
@@ -1002,7 +1086,7 @@ $217C  JMP $2170</pre>
 </section>
 
 <section id="odd">
-  <p class="fig">19 · Odds and ends</p>
+  <p class="fig">21 · Odds and ends</p>
   <h2 class="t">Things a pilot would not know</h2>
   <p class="lede">Small things found in the code and checked in the emulator.</p>
   <div class="plate">
@@ -1491,11 +1575,13 @@ window.MERC_GAME.catch(() => {});
         project(i, X, H, Y);
       }
     }
-    // $96E7 draw_building: edges from the last down; after the pen split with ORA, then AND
-    function drawModel(m) {
+    // $96E7 draw_building: edges from the last down; after the pen split with ORA, then AND.
+    // noRoads leaves out the edges to the road ends, points 60-63 (for the page's all-buildings view).
+    function drawModel(m, noRoads) {
       orMode = true;
       for (let k = m.from.length - 1; k >= 0; k--) {
         if (k === m.pen) orMode = false;
+        if (noRoads && (m.from[k] >= 60 || m.to[k] >= 60)) continue;
         edge(m.from[k], m.to[k]);
       }
     }
@@ -1634,7 +1720,10 @@ window.MERC_GAME.catch(() => {});
       if (R.B7 && !((S.h >> 16) & 255)) { projectModel(model, (S.x >> 16) & 255, (S.y >> 16) & 255); drawModel(model); }
     }
     // Every building at once: what the game avoids by loading one. Each square's model is
-    // loaded, turned and drawn with its own road ends, 00-00 excepted (square 0 is "outside").
+    // loaded, turned and drawn, 00-00 excepted (square 0 is "outside"). A model's roads are two
+    // kerbs from its square's edge to the centre of the square where the road ends (points
+    // 60-63), so every square a road crosses would draw that road again, from its own edge: only
+    // the eye's square keeps them, and only below 65536, where the game draws its building.
     const allModels = [];
     function passAll(out, base) {
       bits = out; page = base || 0; count.v = count.e = 0;
@@ -1657,7 +1746,7 @@ window.MERC_GAME.catch(() => {});
           const Y = i24f((((t >> 4) - ((S.y >> 16) & 255) - (0x80 < ((S.y >> 8) & 255) ? 1 : 0)) & 255), (0x80 - ((S.y >> 8) & 255)) & 255, 0);
           project(60 + k, X, H0, Y);
         }
-        drawModel(m);
+        drawModel(m, sq !== R.B7 || !!((S.h >> 16) & 255));
       }
       R.sqx = -1;                               // the slots are spent: reload the square next pass
     }
@@ -1799,41 +1888,79 @@ window.MERC_GAME.catch(() => {});
       S.foot = on;
       $('city-foot').setAttribute('aria-pressed', on ? 'true' : 'false');
     }
+    // Go to: places by kind. On foot, level, looking at the square's building: from its south
+    // side facing north (heading 0), further off for a tall one; the signs stand edge-on to
+    // north, so from the east. The hangars are the lift squares $B4B6/$B4BE, entries 1-8, seen
+    // from south of the lift patch (middle bytes $70-$73).
     const H = s => parseInt(s, 16);
-    const PRESETS = [
-      ['Crash site, 08-08', { x: H('088800'), y: H('088800'), h: 0x3F, head: 311, foot: true }],
-      ['Bosher Stadium from 08-07', { x: H('088000'), y: H('07C000'), h: 0x3F, head: 0, foot: true }],
-      ['Commodore sign, 13-04', { x: H('0DA800'), y: H('048000'), h: 0x3F, head: 256, foot: true }],
-      ["Sabins Cube, 12-03", { x: H('0C7B00'), y: H('03B000'), h: 0x3F, head: 0, foot: true }],
-      ['Height 8,192', { x: H('088000'), y: H('0B0000'), h: 0x2000, head: 0, pitch: 548, roll: 0 }],
-      ['Height 65,536', { x: H('080000'), y: H('120000'), h: 0x10000, head: 0, pitch: 562, roll: 0 }],
-      ['Height 524,288', { x: H('080000'), y: H('180000'), h: 0x80000, head: 0, pitch: 600, roll: 0 }],
-      ['Just below $200000', { x: H('080000'), y: H('280000'), h: 0x1F8000, head: 0, pitch: 620, roll: 0 }],
-      ['Just above $200000', { x: H('080000'), y: H('280000'), h: 0x208000, head: 0, pitch: 620, roll: 0 }],
+    const at = (sqx, sqy, mx, my, head) => ({ x: (sqx & 255) << 16 | mx << 8, y: (sqy & 255) << 16 | my << 8, h: 0x3F, head, foot: true });
+    const sq = t => t.split('-').map(Number);
+    const building = (t, my) => { const [x, y] = sq(t); return at(x, y, 0x80, my, 0); };
+    const GOTO = [
+      ['Buildings', [
+        ['Crash site, 08-08', { x: H('088800'), y: H('088800'), h: 0x3F, head: 311, foot: true }],
+        ['Bosher Stadium, 08-07', building('08-07', 0xA4)],
+        ['Coach and Horses, 15-02', building('15-02', 0x9C)],
+        ['Jordan Airport, 12-13', building('12-13', 0xA6)],
+        ['Mechanoid Fort, 01-04', building('01-04', 0xA0)],
+        ['Moorby Arch, 10-01', building('10-01', 0x9C)],
+        ['Novabill, 03-08', building('03-08', 0xB0)],
+        ['Sabins Cube, 12-03', { x: H('0C7B00'), y: H('03B000'), h: 0x3F, head: 0, foot: true }],
+        ['Science Museum, 03-01', building('03-01', 0xA0)],
+        ['St. Stallards, 06-03', building('06-03', 0xAC)],
+        ['The author\'s advert, 02-03', building('02-03', 0xB0)],
+        ['The brother-in-law\'s house, 07-09', building('07-09', 0xA0)],
+        ['Tyler Point, 07-00', building('07-00', 0xB0)],
+        ['Vector Henge, 02-04', building('02-04', 0xA0)],
+        ['Walton Monument, 06-00', building('06-00', 0xA4)],
+      ]],
+      ['Hangars', [['1, 09-06', '09-06'], ['2, 09-05', '09-05'], ['3, 03-00', '03-00'], ['4, 11-13', '11-13'],
+        ['5, 03-15 (the Pass)', '03-15'], ['6, 81-35, outside the city', '81-35'], ['7, 136-136, LOC **', '136-136'],
+        ['8, 08-08, the Colony Craft', '08-08']].map(([t, s]) => { const [x, y] = sq(s); return ['Hangar ' + t, at(x, y, 0x78, 0x8C, 0)]; })],
+      ['Signs', [['Commodore', ['13-04', '03-13', '09-13', '04-15', '09-15']], ['Atari', ['14-05', '14-08', '12-11', '06-15', '11-15']]]
+        .flatMap(([n, l]) => l.map(t => { const [x, y] = sq(t); return [n + ', ' + t, at(x, y, 0xA8, 0x80, 256)]; }))],
+      ['Heights', [
+        ['8,192', { x: H('088000'), y: H('0B0000'), h: 0x2000, head: 0, pitch: 548, roll: 0 }],
+        ['65,536', { x: H('080000'), y: H('120000'), h: 0x10000, head: 0, pitch: 562, roll: 0 }],
+        ['524,288', { x: H('080000'), y: H('180000'), h: 0x80000, head: 0, pitch: 600, roll: 0 }],
+        ['Just below $200000', { x: H('080000'), y: H('280000'), h: 0x1F8000, head: 0, pitch: 620, roll: 0 }],
+        ['Just above $200000', { x: H('080000'), y: H('280000'), h: 0x208000, head: 0, pitch: 620, roll: 0 }],
+      ]],
     ];
-    const pbox = $('city-presets');
-    PRESETS.forEach(([label, p]) => {
-      const b = document.createElement('button'); b.type = 'button'; b.textContent = label;
-      b.addEventListener('click', () => {
-        Object.assign(S, { roll: 0, pitch: 512 }, p);
-        setFoot(!!p.foot);
-        if (p.foot) Object.assign(S, p);
-        draw(); kick();
+    // after any control, the keys fly again
+    const refocus = () => $('city-screen').focus({ preventScroll: true });
+    function go(p) {
+      Object.assign(S, { roll: 0, pitch: 512 }, p);
+      setFoot(!!p.foot);
+      if (p.foot) Object.assign(S, p);
+      draw(); kick();
+    }
+    const pbox = $('city-presets'), selects = [];
+    GOTO.forEach(([kind, places]) => {
+      const sel = document.createElement('select');
+      sel.setAttribute('aria-label', 'Go to: ' + kind);
+      sel.add(new Option(kind, ''));
+      places.forEach(([label], i) => sel.add(new Option(label, i)));
+      sel.addEventListener('change', () => {
+        if (sel.value === '') return;
+        selects.forEach(o => { if (o !== sel) o.value = ''; });
+        go(places[+sel.value][1]); refocus();
       });
-      pbox.appendChild(b);
+      selects.push(sel); pbox.appendChild(sel);
     });
-    $('city-foot').addEventListener('click', () => { setFoot(!S.foot); draw(); });
-    $('city-all').addEventListener('click', () => { allMode = !allMode; $('city-all').setAttribute('aria-pressed', allMode ? 'true' : 'false'); draw(); kick(); });
+    $('city-foot').addEventListener('click', () => { setFoot(!S.foot); draw(); refocus(); });
+    $('city-all').addEventListener('click', () => { allMode = !allMode; $('city-all').setAttribute('aria-pressed', allMode ? 'true' : 'false'); draw(); kick(); refocus(); });
 
     // the step: units a frame, 16 to 16384 on a log scale
     const speedIn = $('city-speed'), speedOut = $('city-speed-v');
     const step = () => Math.round(16 * Math.pow(1024, speedIn.value / 100));
     const showStep = () => { speedOut.textContent = step().toLocaleString('en-GB') + ' a frame'; };
     speedIn.addEventListener('input', showStep); showStep();
+    speedIn.addEventListener('pointerup', refocus);
 
     // held controls, from the buttons and the keyboard
     const held = new Set();
-    const KEYS = { ArrowLeft: 'left', ArrowRight: 'right', ArrowUp: 'up', ArrowDown: 'down', w: 'fwd', s: 'back', r: 'climb', f: 'sink', q: 'rollL', e: 'rollR' };
+    const KEYS = { ArrowLeft: 'left', ArrowRight: 'right', ArrowUp: 'down', ArrowDown: 'up', w: 'fwd', s: 'back', r: 'climb', f: 'sink', q: 'rollL', e: 'rollR' };
     const pad = $('city-pad');
     const buttonOf = act => pad.querySelector('[data-act="' + act + '"]');
     function press(act, on) {
@@ -1848,7 +1975,7 @@ window.MERC_GAME.catch(() => {});
     pad.querySelectorAll('button').forEach(b => {
       const act = b.dataset.act;
       b.addEventListener('pointerdown', ev => { ev.preventDefault(); b.setPointerCapture(ev.pointerId); press(act, true); });
-      const up = () => press(act, false);
+      const up = () => { press(act, false); refocus(); };
       b.addEventListener('pointerup', up); b.addEventListener('pointercancel', up); b.addEventListener('lostpointercapture', up);
       b.addEventListener('keydown', ev => { if (ev.key === 'Enter' || ev.key === ' ') { ev.preventDefault(); press(act, true); } });
       b.addEventListener('keyup', ev => { if (ev.key === 'Enter' || ev.key === ' ') press(act, false); });
@@ -1900,7 +2027,7 @@ window.MERC_GAME.catch(() => {});
     }
     let running = false, last = 0, visible = true;
     function frame(t) {
-      const dt = Math.min(0.1, (t - last) / 1000 || 1 / 60); last = t;
+      const dt = Math.max(0, Math.min(0.1, (t - last) / 1000 || 1 / 60)); last = t;
       const moving = held.size > 0;
       if (moving) move(dt);
       const spinning = spin(dt);
@@ -1911,8 +2038,367 @@ window.MERC_GAME.catch(() => {});
     if ('IntersectionObserver' in window) new IntersectionObserver(es => { visible = es[0].isIntersecting; if (visible) kick(); }).observe(cv);
 
     // start at the crash site
-    pbox.firstChild.click();
+    selects[0].value = '0'; go(GOTO[0][1][0][1]);
   }
+})();
+</script>
+<script>
+/* outside */
+// The world outside the city, to scale, from the object tables and the lift squares.
+(function () {
+  'use strict';
+  const $ = id => document.getElementById(id);
+  if (!$('outside') || !window.MERC_GAME) return;
+  window.MERC_GAME.then(G => {
+    const ram = G.ram, NS = 'http://www.w3.org/2000/svg';
+    const hex = (n, w) => n.toString(16).toUpperCase().padStart(w || 2, '0');
+    const s24 = v => (v >= 0x800000 ? v - 0x1000000 : v);
+    // object o's X and Y, 24 bits each: high $2540/$25C0, middle $2480/$2500, low $2880/$2900
+    const pos = o => ({ x: ram[0x2540 + o] << 16 | ram[0x2480 + o] << 8 | ram[0x2880 + o],
+                        y: ram[0x25C0 + o] << 16 | ram[0x2500 + o] << 8 | ram[0x2900 + o] });
+    const LAND = { x: 0x088800, y: 0x088800 };                 // where the opening leaves you
+    const PLACES = [
+      { o: 61, name: 'Hangar 6 lift', what: 'Object 61, a lift cage. Lift entry 6: E rides down to hangar 6, a complex of 3 rooms.' },
+      { o: 62, name: 'Hangar 7 lift', what: 'Object 62, a lift cage. Lift entry 7: E rides down to hangar 7, 7 rooms, where the jet (object 3) starts.' },
+      { o: 56, name: 'The pyramid', what: 'Object 56. Carried, it lets D drop objects in mid-air.' },
+      { o: 50, name: 'The mast', what: 'Object 50, unnamed. What it is for is unknown.' },
+    ];
+    PLACES.forEach(p => Object.assign(p, pos(p.o)));
+    // the LOC readout: -99..99, negatives in reversed figures, ** beyond
+    const locPart = v => { const q = s24(v) >> 16; if (q > 99 || q < -99) return '**';
+      const t = String(Math.abs(q)).padStart(2, '0'); return q < 0 ? '<span class="out-rev">' + t + '</span>' : t; };
+    const loc = p => locPart(p.x) + '-' + locPart(p.y);
+    const coord = v => '$' + hex(v >> 16 & 255) + ':' + hex(v >> 8 & 255) + ':' + hex(v & 255);
+    const DIRS = ['north', 'north-east', 'east', 'south-east', 'south', 'south-west', 'west', 'north-west'];
+    function from(p) {
+      const dx = (s24(p.x) - LAND.x) / 65536, dy = (s24(p.y) - LAND.y) / 65536, d = Math.hypot(dx, dy);
+      const dir = DIRS[Math.round(((Math.atan2(dx, -dy) * 180 / Math.PI + 360) % 360) / 45) % 8];
+      const hours = d * 65536 / (8000 / 14) / 3600;
+      return Math.round(d) + ' squares ' + dir + '<br>about ' + (hours < 10 ? hours.toFixed(1) : Math.round(hours)) + ' hours on foot';
+    }
+
+    // the table
+    const rows = $('out-rows');
+    PLACES.forEach((p, i) => {
+      const tr = document.createElement('tr'); tr.id = 'out-row-' + i;
+      tr.innerHTML = '<td>' + p.name + '</td><td>' + loc(p) + '</td><td>' + coord(p.x) + '<br>' + coord(p.y) + '</td><td>' + from(p) + '</td><td>' + p.what + '</td>';
+      rows.appendChild(tr);
+    });
+
+    // the map: 600 px for 256 squares, -128 at the left and top
+    const svg = $('out-map'), M = 20, K = 600 / 256;
+    const px = v => M + (s24(v) / 65536 + 128) * K;
+    const sq = q => M + (q + 128) * K;
+    const css = n => getComputedStyle(document.documentElement).getPropertyValue(n).trim();
+    const el = (tag, at, parent) => { const e = document.createElementNS(NS, tag); for (const k in at) e.setAttribute(k, at[k]); (parent || svg).appendChild(e); return e; };
+    const text = (x, y, t, cls, anchor) => { const e = el('text', { x, y, class: cls || '', 'text-anchor': anchor || 'start' }); e.textContent = t; return e; };
+    for (let q = -128; q <= 128; q += 16) {
+      el('line', { x1: sq(q), y1: M, x2: sq(q), y2: M + 600, stroke: css('--line-soft'), 'stroke-width': 1 });
+      el('line', { x1: M, y1: sq(q), x2: M + 600, y2: sq(q), stroke: css('--line-soft'), 'stroke-width': 1 });
+    }
+    el('rect', { x: M, y: M, width: 600, height: 600, fill: 'none', stroke: css('--line'), 'stroke-width': 1 });
+    // LOC shows -99..99
+    el('rect', { x: sq(-99), y: sq(-99), width: 199 * K, height: 199 * K, fill: 'none', stroke: css('--ink-mute'), 'stroke-width': 1, 'stroke-dasharray': '5 4' });
+    text(sq(99) - 4, sq(-99) + 14, 'LOC −99 to 99', 'out-sub', 'end');
+    text(sq(99) - 4, sq(99) + 14, 'LOC ** beyond', 'out-sub', 'end');
+    // the city, its lifts and where you land
+    el('rect', { x: sq(0), y: sq(0), width: 16 * K, height: 16 * K, fill: css('--amber'), 'fill-opacity': .25, stroke: css('--amber'), 'stroke-width': 1.5 });
+    text(sq(16) + 6, sq(8) + 4, 'the city, 00-00 to 15-15', '');
+    for (const n of [1, 2, 3, 4, 5, 8]) el('circle', { cx: sq(ram[0xB4B6 + n] + 0.45), cy: sq(ram[0xB4BE + n] + 0.45), r: 1.6, fill: css('--ink') });
+    text(M + 8, M + 16, 'N ↑', '');
+    // the axis numbers
+    for (const q of [-128, -64, 0, 64, 127]) { text(sq(q), M - 6, String(q), 'out-sub', 'middle'); }
+    // lines from the landing, then the places
+    const lx = px(LAND.x), ly = px(LAND.y);
+    PLACES.forEach(p => el('line', { x1: lx, y1: ly, x2: px(p.x), y2: px(p.y), stroke: css('--ink-mute'), 'stroke-width': 1, 'stroke-dasharray': '2 4' }));
+    el('circle', { cx: lx, cy: ly, r: 3, fill: css('--coral') });
+    const pts = PLACES.map((p, i) => {
+      const g = el('g', { class: 'out-pt', tabindex: 0, role: 'button', 'aria-label': p.name });
+      const x = px(p.x), y = px(p.y);
+      el('circle', { cx: x, cy: y, r: 6, fill: css('--violet'), stroke: css('--surface'), 'stroke-width': 2 }, g);
+      const right = x < 470, up = s24(p.y) > 0x600000;
+      text(right ? x + 11 : x - 11, y + (up ? -8 : 4), p.name, '', right ? 'start' : 'end').setAttribute('pointer-events', 'none');
+      g.appendChild(svg.lastChild);
+      const sqn = v => String(s24(v) >> 16).replace('-', '−');
+      const t2 = text(right ? x + 11 : x - 11, y + (up ? 6 : 18), 'square ' + sqn(p.x) + ', ' + sqn(p.y), 'out-sub', right ? 'start' : 'end');
+      g.appendChild(t2);
+      const pick = () => {
+        pts.forEach(q => q.classList.remove('on')); g.classList.add('on');
+        rows.querySelectorAll('tr').forEach(r => r.classList.remove('on'));
+        const r = $('out-row-' + i); r.classList.add('on'); r.scrollIntoView({ block: 'nearest', behavior: 'smooth' });
+      };
+      g.addEventListener('click', pick);
+      g.addEventListener('keydown', e => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); pick(); } });
+      return g;
+    });
+
+    // the models, from the side: +0 the last vertex; three signed bytes a vertex (X, height, Y);
+    // then an edge count e, below $80 e + 1 edges of one byte (two nibbles), else (e AND $7F) + 1
+    // edges of two bytes
+    const s8 = b => (b > 127 ? b - 256 : b);
+    function model(o) {
+      const at = ram[0x2800 + o] | ram[0x2840 + o] << 8, n = ram[at] + 1, V = [], E = [];
+      let q = at + 1;
+      for (let i = 0; i < n; i++, q += 3) V.push([s8(ram[q]), s8(ram[q + 1]), s8(ram[q + 2])]);
+      const e = ram[q++];
+      if (e < 0x80) for (let i = 0; i <= e; i++, q++) E.push([ram[q] >> 4, ram[q] & 15]);
+      else for (let i = 0; i <= (e & 0x7F); i++, q += 2) E.push([ram[q], ram[q + 1]]);
+      return { at, V, E };
+    }
+    const box = $('out-models');
+    for (const [o, label] of [[56, 'The pyramid, object 56'], [50, 'The mast, object 50'], [61, 'A lift cage, objects 61 and 62']]) {
+      const m = model(o), xs = m.V.map(v => v[0]), hs = m.V.map(v => v[1]);
+      const x0 = Math.min(...xs), x1 = Math.max(...xs), h1 = Math.max(...hs), W = 200, Hh = 150, P = 14;
+      const k = Math.min((W - 2 * P) / (x1 - x0 || 1), (Hh - 2 * P) / (h1 || 1));
+      const fig = document.createElement('figure');
+      const sv = document.createElementNS(NS, 'svg'); sv.setAttribute('viewBox', '0 0 ' + W + ' ' + Hh);
+      sv.setAttribute('role', 'img'); sv.setAttribute('aria-label', label + ', from the side');
+      const cx = W / 2 - (x0 + x1) / 2 * k, base = Hh - P;
+      el('line', { x1: 0, y1: base, x2: W, y2: base, stroke: css('--line'), 'stroke-width': 1 }, sv);
+      for (const [a, b] of m.E) {
+        if (!m.V[a] || !m.V[b]) continue;
+        el('line', { x1: cx + m.V[a][0] * k, y1: base - m.V[a][1] * k, x2: cx + m.V[b][0] * k, y2: base - m.V[b][1] * k, stroke: css('--ink'), 'stroke-width': 1.5, 'stroke-linecap': 'round' }, sv);
+      }
+      fig.appendChild(sv);
+      const cap = document.createElement('figcaption');
+      cap.innerHTML = label + ' at <code>$' + hex(m.at, 4) + '</code><br>' + ((x1 - x0) * 16).toLocaleString('en-GB') + ' units across, ' + (h1 * 16).toLocaleString('en-GB') + ' high';
+      fig.appendChild(cap); box.appendChild(fig);
+    }
+  }, () => {});
+})();
+</script>
+<script>
+/* objects */
+// The 64 objects: every model drawn from its bytes, with where it starts and what its flags
+// and the code make of it. Names are canned message n where the game prints one ($29C0 bit 3,
+// and the Mechanoid); the rest are described by their shapes.
+(function () {
+  'use strict';
+  const $ = id => document.getElementById(id);
+  if (!$('objects') || !window.MERC_GAME) return;
+  const KINDS = [['craft', 'Craft'], ['moving', 'Moved by the game'], ['take', 'Things to take'], ['key', 'Keys'],
+    ['room', 'Furniture and fittings'], ['sign', 'Signs'], ['out', 'Out of doors']];
+  // [kind, label, what the code does with it]
+  const O = {
+    0: ['craft', "The brother-in-law's new ship", 'Hovers 32,769 units up and moves south along column 00 by 1/256 of a square every surface pass, wrapping from row 15 back to row 0 (<code>$85C5</code>). Shooting it starts script 27. Top speed 11,475 in the air.'],
+    1: ['craft', 'Dominion Dart', 'Stands at the crash site, where script 0 offers it for sale for 5,000 credits. Top speed 4,950 in the air, 9,900 with the Poweramp.'],
+    2: ['craft', 'Car', 'Ground only, top speed 825. Parked at Jordan Airport.'],
+    3: ['craft', 'Jet', 'Starts in hangar 7, under the lift at <code>**-**</code>, far outside the city. Top speed 7,400.'],
+    4: ['craft', 'Palyar diamond', 'Starts in hangar 3, under 03-00. Top speed 1,650, and its climb gives out at ALT 14000.'],
+    5: ['craft', 'Land Dart', 'Ground only, top speed 3,837. Starts in hangar 2, under 09-05. The game gives it no name.'],
+    6: ['craft', 'CHEESE', 'A flying wedge of cheese, top speed 9,900. Starts in the room beside hangar 4, under 11-13.'],
+    7: ['craft', 'Interstellar ship', 'The escape. Starts in the dark hangar 5, under 03-15, which the lift reaches only with the Pass. Script 7 asks for the Novadrive before it will launch.'],
+    8: ['moving', 'Your missile', 'Fired from a craft on the surface, it flies along the view at 4,096 units a pass for 16 passes (<code>$886A</code>).'],
+    9: ['moving', 'Object 9', 'One of the objects the game moves (8 to 15, <code>$8690</code>), drawn as a Dart and out of play at the start. What it is used for is unknown.'],
+    10: ['moving', 'The wreck', 'Out of play until the crash landing puts it at the crash site, under your feet.'],
+    11: ['moving', 'Object 11', 'One of the objects the game moves (8 to 15), drawn as a Dart and out of play at the start. What it is used for is unknown.'],
+    12: ['moving', 'MECHANOID', 'Stands in the Mechanoid briefing room. Taking it runs script 12, THE MECHANOID DEMANDS THAT YOU PUT HIM DOWN. The Interview room asks for it.'],
+    13: ['moving', 'Object 13', 'One of the objects the game moves (8 to 15), drawn as a Dart and out of play at the start. What it is used for is unknown.'],
+    14: ['moving', "The attacker's missile", 'Aimed at you once when it is launched, and not steered after.'],
+    15: ['moving', 'The attack ship', 'Homes in on you by 1/32 of the distance every pass. Hitting it prints ENEMY SHIP DESTROYED.'],
+    16: ['take', 'PHOTON EMITTER', 'Carried, or lying in the room, it lights the 20 dark rooms (<code>$941A</code>, <code>$9425</code>).'],
+    24: ['take', 'ANTI TIME BOMB', 'Carried, it turns a hit on a destroyed building into its repair (<code>$87AF</code>, <code>$8816</code>).'],
+    25: ['take', 'NOVADRIVE', 'The interstellar ship will not launch without it: NOVADRIVE REQUIRED (script 7).'],
+    26: ['take', 'METAL DETECTOR', 'Carried on the surface, low down, the message window takes the colour of the square’s owner: blue for the Mechanoids, green for the Palyars, red for nobody (<code>$B542</code>).'],
+    27: ['take', 'ANTIGRAV', 'Carried, it lets T take heavy objects (<code>$9817</code>).'],
+    28: ['take', 'POWERAMP', 'Carried in the Dominion Dart, it doubles the thrust and raises the ceiling (<code>$9F8A</code>, <code>$A050</code>).'],
+    29: ['take', 'NEUTRON FUEL', 'Heavy. The Engine room and the Mechanoid fuel stores ask for it (scripts 3 and 20).'],
+    30: ['take', 'ANTENNA', 'With it in the Communication room, or carried there, the radio works (script 2).'],
+    31: ['take', 'ENERGY CRYSTAL', 'The Power room and the Mechanoid power room ask for it (scripts 14 and 22).'],
+    32: ['take', 'COFFIN', 'A coffin.'],
+    33: ['room', 'Board on a tripod', 'In the Conference room. No name: canned message 33 is a copy of 34’s, LARGE BOX.'],
+    34: ['take', 'LARGE BOX', 'The Stores and the Mechanoid stores ask for it (scripts 15 and 23).'],
+    35: ['take', 'USEFUL ARMAMENT', 'A gun, drawn flat.'],
+    36: ['room', 'Kitchen cabinet', 'In the Kitchen, beside the Kitchen Sink.'],
+    37: ['room', 'Falling graph', 'On the wall of the Exchequer: a line that falls out of its frame.'],
+    38: ['take', 'GOLD', 'The Exchequer asks for it (script 5).'],
+    39: ['room', 'Sofa', 'With the lamp and the fireplace.'],
+    40: ['take', 'SIGHTS', 'Carried, it turns on the gun sight, sprite 0 (<code>$9374</code>).'],
+    41: ['take', 'MEDICAL SUPPLIES', 'The Infirmary asks for them (script 9).'],
+    42: ['take', 'ESSENTIAL 12939 SUPPLY', 'A crate with PEPSI drawn on its side. The Conference room asks for it (script 4).'],
+    43: ['take', 'WINCHESTER', 'A bottle. The Laboratory and the Mechanoid laboratory ask for it (scripts 17 and 25).'],
+    44: ['take', 'CATERING PROVISIONS', 'The Kitchen asks for them (script 6).'],
+    45: ['take', 'DATABANK', 'The Control room asks for it (script 18).'],
+    46: ['take', 'PASS', 'Without it the lift at 03-15 answers PASS HOLDERS ONLY (<code>$B434</code>).'],
+    47: ['take', 'KITCHEN SINK', 'Carried, it lets T take fixed and heavy objects too (<code>$980B</code>).'],
+    48: ['take', 'Cobweb', 'Fixed, so it takes the Kitchen Sink to lift it. Carried, no door is locked (<code>$948E</code>). The game never names it.'],
+    49: ['room', 'Standard lamp', 'With the sofa and the fireplace.'],
+    50: ['out', 'Mast', 'A guyed mast 2,032 units tall, out in the wasteland at −34-11. What it is for is unknown.'],
+    51: ['room', 'Fireplace', 'With the sofa and the lamp.'],
+    52: ['room', 'Radio console', 'Fills a wall of the Communication room. With the Antenna there, it answers.'],
+    53: ['room', 'Table', 'In the Palyar briefing room.'],
+    54: ['room', 'Chair', 'In the Palyar briefing room, with the table.'],
+    55: ['room', 'Bed', 'In the Infirmary.'],
+    56: ['out', 'Pyramid', 'Out in the wasteland at −75-−39, 2,752 units a side. Carried, it lets D drop an object in mid-air (<code>$98FE</code>).'],
+    57: ['sign', 'Skull and crossbones', 'Marks the door from room $90 into the mirror booth.'],
+    58: ['sign', 'Skull and crossbones', 'Marks the door into dark hangar 5.'],
+    59: ['sign', 'Skull and crossbones', 'Marks the door into the prison.'],
+    60: ['sign', 'Skull and crossbones', 'Marks the door that drops you out of the Colony Craft.'],
+    61: ['out', 'Lift cage', 'The lift to hangar 6, at 81-35, where no building can be drawn. The cage covers the patch where E works.'],
+    62: ['out', 'Lift cage', 'The lift to hangar 7, at <code>**-**</code>.'],
+    63: ['out', 'The Colony Craft', 'Hangs over 08-08 at ALT 64997. Its model is a box 4,080 units across and 1,024 high.'],
+  };
+  const KEYS = { 17: 'triangle', 18: 'trapezoid', 19: 'pentagon', 20: 'house', 21: 'upside-down trapezoid', 22: 'hexagon', 23: 'bevelled' };
+  for (const k in KEYS) O[k] = ['key', 'Key ' + k, 'Opens the doors drawn with the ' + KEYS[k] + ' outline, door type ' + (k - 8) + ' (<code>$9493</code>).' + (k == 23 ? ' Among them hangar 8’s three doors, in the Colony Craft.' : '')];
+
+  window.MERC_GAME.then(G => {
+    const ram = G.ram, NS = 'http://www.w3.org/2000/svg';
+    const R = window.MercRooms, RG = R ? R.build(ram) : null;
+    const hex = (n, w) => n.toString(16).toUpperCase().padStart(w || 2, '0');
+    const s8 = b => (b > 127 ? b - 256 : b);
+    const s24 = v => (v >= 0x800000 ? v - 0x1000000 : v);
+    function model(o) {
+      const at = ram[0x2800 + o] | ram[0x2840 + o] << 8, n = ram[at] + 1, V = [], E = [];
+      let q = at + 1;
+      for (let i = 0; i < n; i++, q += 3) V.push([s8(ram[q]), s8(ram[q + 1]), s8(ram[q + 2])]);
+      const e = ram[q++];
+      if (e < 0x80) for (let i = 0; i <= e; i++, q++) E.push([ram[q] >> 4, ram[q] & 15]);
+      else for (let i = 0; i <= (e & 0x7F); i++, q += 2) E.push([ram[q], ram[q + 1]]);
+      return { at, V, E: E.filter(([a, b]) => V[a] && V[b]) };
+    }
+    const obj = [];
+    for (let o = 0; o < 64; o++) {
+      const m = model(o), ax = k => m.V.map(v => v[k]);
+      const size = [0, 1, 2].map(k => (Math.max(...ax(k)) - Math.min(...ax(k))) * 16);
+      obj.push({ o, m, size, room: ram[0x2940 + o], flags: ram[0x29C0 + o],
+        x: ram[0x2540 + o] << 16 | ram[0x2480 + o] << 8 | ram[0x2880 + o],
+        h: ram[0x2580 + o] << 16 | ram[0x24C0 + o] << 8 | ram[0x28C0 + o],
+        y: ram[0x25C0 + o] << 16 | ram[0x2500 + o] << 8 | ram[0x2900 + o], info: O[o] });
+    }
+    const shared = {};
+    obj.forEach(b => (shared[b.m.at] = shared[b.m.at] || []).push(b.o));
+
+    // a view from above and to one side: turn by yaw about the vertical, tilt by pitch
+    function proj(m, yaw, pitch, W, H, pad) {
+      const cy = Math.cos(yaw), sy = Math.sin(yaw), cp = Math.cos(pitch), sp = Math.sin(pitch);
+      const P = m.V.map(([x, h, y]) => { const u = x * cy - y * sy, d = x * sy + y * cy; return [u, -h * cp + d * sp]; });
+      return P;
+    }
+    function fit(P, W, H, pad, box) {
+      const xs = P.map(p => p[0]), ys = P.map(p => p[1]);
+      const b = box || { x0: Math.min(...xs), x1: Math.max(...xs), y0: Math.min(...ys), y1: Math.max(...ys) };
+      const k = Math.min((W - 2 * pad) / ((b.x1 - b.x0) || 1), (H - 2 * pad) / ((b.y1 - b.y0) || 1));
+      const ox = W / 2 - (b.x0 + b.x1) / 2 * k, oy = H / 2 - (b.y0 + b.y1) / 2 * k;
+      return P.map(([x, y]) => [ox + x * k, oy + y * k]);
+    }
+    const css = n => getComputedStyle(document.documentElement).getPropertyValue(n).trim();
+    function thumb(b) {
+      const W = 80, H = 60, P = fit(proj(b.m, 0.6, 0.45), W, H, 5);
+      let d = '';
+      for (const [a, c] of b.m.E) d += 'M' + P[a][0].toFixed(1) + ' ' + P[a][1].toFixed(1) + 'L' + P[c][0].toFixed(1) + ' ' + P[c][1].toFixed(1);
+      return '<svg viewBox="0 0 ' + W + ' ' + H + '" aria-hidden="true"><path d="' + d + '" fill="none" stroke="' + css('--ink') + '" stroke-width="1" stroke-linecap="round"/></svg>';
+    }
+
+    // where it starts
+    const sq = v => { const q = s24(v) >> 16; return q > 99 || q < -99 ? '**' : (q < 0 ? '−' : '') + String(Math.abs(q)).padStart(2, '0'); };
+    function where(b) {
+      if (b.room === 0xFF) return 'Out of play (room <code>$FF</code>)';
+      if (b.room === 0) {
+        let t = 'On the surface at LOC ' + sq(b.x) + '-' + sq(b.y);
+        const h = s24(b.h);
+        if (h > 0) t += ', ' + h.toLocaleString('en-GB') + ' units up';
+        return t;
+      }
+      return 'Room <code>$' + hex(b.room) + '</code>' + (RG ? (() => { const l = R.roomLabel(RG, b.room).replace(/^\S+\s?/, ''); return l ? ', ' + l.replace(/^\((.*)\)$/, '$1') : ''; })() : '');
+    }
+    function chips(b) {
+      const f = b.flags, c = [];
+      if (f & 0x10) c.push('fixed: needs the Kitchen Sink');
+      if (f & 0x20) c.push('heavy: needs the Antigrav or the Sink');
+      if (f & 0x08) c.push('named when taken');
+      if (f & 0x04) c.push('taking or boarding it starts a script');
+      if (b.o < 8) c.push('B boards it');
+      return c.map(t => '<span>' + t + '</span>').join('');
+    }
+
+    // the picker
+    const grid = $('obj-grid'), det = $('obj-detail'), filt = $('obj-filter');
+    grid.innerHTML = '';
+    let kind = 'all', cur = 1;
+    const cells = obj.map(b => {
+      const d = document.createElement('div');
+      d.className = 'obj-cell'; d.setAttribute('role', 'option'); d.tabIndex = -1; d.dataset.o = b.o;
+      d.innerHTML = thumb(b) + '<span>' + b.o + ' ' + b.info[1] + '</span>';
+      d.title = b.o + ': ' + b.info[1];
+      d.addEventListener('click', () => pick(b.o, true));
+      grid.appendChild(d);
+      return d;
+    });
+    grid.addEventListener('keydown', e => {
+      const vis = cells.filter(c => !c.hidden), i = vis.findIndex(c => +c.dataset.o === cur);
+      const cols = Math.max(1, Math.round(grid.clientWidth / (vis[0] ? vis[0].offsetWidth + 6 : 80)));
+      const step = { ArrowRight: 1, ArrowLeft: -1, ArrowDown: cols, ArrowUp: -cols }[e.key];
+      if (step === undefined) return;
+      e.preventDefault();
+      const n = vis[Math.max(0, Math.min(vis.length - 1, i + step))];
+      if (n) pick(+n.dataset.o, true);
+    });
+    [['all', 'All 64'], ...KINDS].forEach(([k, label]) => {
+      const bt = document.createElement('button'); bt.type = 'button'; bt.textContent = label;
+      bt.setAttribute('aria-pressed', k === 'all' ? 'true' : 'false');
+      bt.addEventListener('click', () => {
+        kind = k; filt.querySelectorAll('button').forEach(x => x.setAttribute('aria-pressed', x === bt ? 'true' : 'false'));
+        cells.forEach((c, o) => { c.hidden = k !== 'all' && obj[o].info[0] !== k; });
+        const first = cells.find(c => !c.hidden); if (first && cells[cur].hidden) pick(+first.dataset.o, false);
+      });
+      filt.appendChild(bt);
+    });
+
+    // the detail: a large turning view and the facts
+    let yaw = 0.6, pitch = 0.45, spin = true, raf = 0, bigBox = null;
+    const reduce = window.matchMedia && matchMedia('(prefers-reduced-motion: reduce)').matches;
+    function drawBig() {
+      const cv = $('obj-big'); if (!cv) return;
+      const g = cv.getContext('2d'), W = cv.width, H = cv.height, b = obj[cur];
+      g.fillStyle = '#000'; g.fillRect(0, 0, W, H);
+      const P = fit(proj(b.m, yaw, pitch), W, H, 22, bigBox);
+      g.strokeStyle = '#fff'; g.lineWidth = 1.5; g.lineCap = 'round'; g.beginPath();
+      for (const [a, c] of b.m.E) { g.moveTo(P[a][0], P[a][1]); g.lineTo(P[c][0], P[c][1]); }
+      g.stroke();
+    }
+    // one frame box for every angle, so the model turns without the scale breathing
+    function boxFor(m) {
+      const r = Math.max(...m.V.map(([x, , y]) => Math.hypot(x, y)), 1), hs = m.V.map(v => v[1]);
+      const h0 = Math.min(...hs), h1 = Math.max(...hs), cp = Math.cos(pitch), sp = Math.sin(pitch);
+      return { x0: -r, x1: r, y0: -h1 * cp - r * sp, y1: -h0 * cp + r * sp };
+    }
+    let visible = true;
+    function loop() { raf = 0; if (!spin || reduce || !visible) return; yaw += 0.012; drawBig(); raf = requestAnimationFrame(loop); }
+    const go = () => { if (!raf) raf = requestAnimationFrame(loop); };
+    function pick(o, focus) {
+      cur = o;
+      cells.forEach(c => c.setAttribute('aria-selected', +c.dataset.o === o ? 'true' : 'false'));
+      if (focus) { cells[o].focus({ preventScroll: true }); cells[o].scrollIntoView({ block: 'nearest' }); }
+      grid.setAttribute('aria-activedescendant', '');
+      const b = obj[o], [k, name, what] = b.info, m = b.m;
+      const others = shared[m.at].filter(x => x !== o);
+      const kindName = (KINDS.find(x => x[0] === k) || [0, ''])[1];
+      det.innerHTML = '<canvas id="obj-big" class="obj-big" width="520" height="340" role="img" aria-label="' + name.replace(/"/g, '') + ', a wire model; drag to turn it"></canvas>' +
+        '<p class="obj-kind">Object ' + o + ' · ' + kindName + '</p><h3>' + name + '</h3><p>' + what + '</p>' +
+        '<div class="obj-chips">' + chips(b) + '</div>' +
+        '<table class="obj-facts"><tbody>' +
+        '<tr><th>Starts</th><td>' + where(b) + '</td></tr>' +
+        '<tr><th>Size</th><td>' + b.size[0].toLocaleString('en-GB') + ' × ' + b.size[2].toLocaleString('en-GB') + ' units, ' + b.size[1].toLocaleString('en-GB') + ' high</td></tr>' +
+        '<tr><th>Model</th><td><code><a href="source.html#' + hex(m.at, 4) + '">$' + hex(m.at, 4) + '</a></code>, ' + m.V.length + ' points, ' + m.E.length + ' edges' + (others.length ? '; also drawn for ' + others.map(x => 'object ' + x).join(', ') : '') + '</td></tr>' +
+        '<tr><th>Flags</th><td><code>$' + hex(b.flags) + '</code> at <code>$' + hex(0x29C0 + o, 4) + '</code></td></tr>' +
+        '</tbody></table>';
+      bigBox = boxFor(m);
+      const cv = $('obj-big');
+      let drag = null;
+      cv.addEventListener('pointerdown', e => { drag = { x: e.clientX, y: e.clientY, yaw, pitch }; spin = false; cv.setPointerCapture(e.pointerId); });
+      cv.addEventListener('pointermove', e => {
+        if (!drag) return;
+        yaw = drag.yaw + (e.clientX - drag.x) * 0.01;
+        pitch = Math.max(-0.2, Math.min(1.5, drag.pitch + (e.clientY - drag.y) * 0.01));
+        bigBox = boxFor(m); drawBig();
+      });
+      const end = () => { drag = null; };
+      cv.addEventListener('pointerup', end); cv.addEventListener('pointercancel', end);
+      drawBig(); go();
+    }
+    if ('IntersectionObserver' in window) new IntersectionObserver(es => { visible = es[0].isIntersecting; if (visible) go(); }).observe(det);
+    pick(1, false);
+  }, () => {});
 })();
 </script>
 <script>

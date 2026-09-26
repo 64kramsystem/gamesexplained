@@ -548,6 +548,18 @@ Weapons and moving objects therefore run only on the surface.
   from door 0's placement (room 8: X `$08:$20`, Y `$08:$80`, as in the live
   test). No room name is printed on a lift arrival: the name is printed only
   when a door wipe ends (`$AEE4`).
+- **The underground has no altitude.** Underground is the flag `$A8` and
+  the room `$CD`; a room is its own box, and the ride ends with the height
+  at `$00:00:80`, 128 units above that room's floor (`$A2FA`-`$A307`). The
+  ride has no shaft length: each pass `$A24A` recomputes the height from the
+  stage `$CC` (0-14) and step `$CB`, a sawtooth of about −200 to 1,500
+  units, mostly hidden behind the shaft's colour bands (`$BB37`). Going up
+  (from stage 0, `$B46A`) the player is put on the surface at stage 12
+  (`$A292`); going down (from stage 13, `$B44D`) into the room at stage 8
+  (`$A2D4`). A ride up from room 8 sets `$FA` (`$B45D`), and `$A312` then
+  adds `$40FF00` to each surface-side height, so the same ride ends on the
+  deck. (Traced; the heights are from the code, not measured, apart from
+  the live arrival at `$40:$FF:$51`.)
 - **Bug: the 08-08 lift works from the ground.** Nothing on the ground at
   08-08 is a lift: the square's model (`$CEF6`) is runway marks and a
   spinning pyramid. Entry 8 is the deck's lift, and the deck lies over
