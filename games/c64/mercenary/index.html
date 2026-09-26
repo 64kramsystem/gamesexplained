@@ -67,6 +67,7 @@ code{font-family:var(--fm);font-size:.82em;background:var(--chip);color:var(--ch
 .city-pad{display:grid;grid-template-columns:repeat(3,1fr);gap:6px}
 .city-wrap button{font-family:var(--fm);font-size:12px;background:var(--surface-2);color:var(--ink);border:1px solid var(--line);border-radius:7px;padding:6px 9px;cursor:pointer;touch-action:none;user-select:none;-webkit-user-select:none}
 .city-wrap button:hover{border-color:var(--violet)}
+.city-pad button[data-act="level"],.city-pad button[data-act="face"]{border-style:dotted;border-width:1.5px}
 .city-wrap button.city-held,.city-wrap button[aria-pressed="true"]{background:var(--violet);border-color:var(--violet);color:#fff}
 .city-speed{font-family:var(--fm);font-size:12px;color:var(--ink-soft);display:flex;gap:8px;align-items:center}
 .city-speed input{accent-color:var(--violet);flex:1 1 auto;min-width:80px}
@@ -1888,24 +1889,25 @@ window.MERC_GAME.catch(() => {});
       S.foot = on;
       $('city-foot').setAttribute('aria-pressed', on ? 'true' : 'false');
     }
-    // Go to: places by kind. On foot, level, looking at the square's building: from its south
-    // side facing north (heading 0), further off for a tall one; the signs stand edge-on to
+    // Go to: places by kind. The buildings from ALT 36, level, looking at the square's building:
+    // from its south side facing north (heading 0), further off for a tall one; the rest on foot; the signs stand edge-on to
     // north, so from the east. The hangars are the lift squares $B4B6/$B4BE, entries 1-8, seen
     // from south of the lift patch (middle bytes $70-$73).
     const H = s => parseInt(s, 16);
     const at = (sqx, sqy, mx, my, head) => ({ x: (sqx & 255) << 16 | mx << 8, y: (sqy & 255) << 16 | my << 8, h: 0x3F, head, foot: true });
+    const ALT36 = 0x940;                         // 2368 units: the panel reads ALT 00036
     const sq = t => t.split('-').map(Number);
-    const building = (t, my) => { const [x, y] = sq(t); return at(x, y, 0x80, my, 0); };
+    const building = (t, my) => { const [x, y] = sq(t); return Object.assign(at(x, y, 0x80, my, 0), { h: ALT36, foot: false }); };
     const GOTO = [
       ['Buildings', [
-        ['Crash site, 08-08', { x: H('088800'), y: H('088800'), h: 0x3F, head: 311, foot: true }],
+        ['Crash site, 08-08', { x: H('088800'), y: H('088800'), h: ALT36, head: 311 }],
         ['Bosher Stadium, 08-07', building('08-07', 0xA4)],
         ['Coach and Horses, 15-02', building('15-02', 0x9C)],
         ['Jordan Airport, 12-13', building('12-13', 0xA6)],
         ['Mechanoid Fort, 01-04', building('01-04', 0xA0)],
         ['Moorby Arch, 10-01', building('10-01', 0x9C)],
         ['Novabill, 03-08', building('03-08', 0xB0)],
-        ['Sabins Cube, 12-03', { x: H('0C7B00'), y: H('03B000'), h: 0x3F, head: 0, foot: true }],
+        ['Sabins Cube, 12-03', { x: H('0C7B00'), y: H('03B000'), h: ALT36, head: 0 }],
         ['Science Museum, 03-01', building('03-01', 0xA0)],
         ['St. Stallards, 06-03', building('06-03', 0xAC)],
         ['The author\'s advert, 02-03', building('02-03', 0xB0)],
@@ -1915,8 +1917,7 @@ window.MERC_GAME.catch(() => {});
         ['Walton Monument, 06-00', building('06-00', 0xA4)],
       ]],
       ['Hangars', [['1, 09-06', '09-06'], ['2, 09-05', '09-05'], ['3, 03-00', '03-00'], ['4, 11-13', '11-13'],
-        ['5, 03-15 (the Pass)', '03-15'], ['6, 81-35, outside the city', '81-35'], ['7, 136-136, LOC **', '136-136'],
-        ['8, 08-08, the Colony Craft', '08-08']].map(([t, s]) => { const [x, y] = sq(s); return ['Hangar ' + t, at(x, y, 0x78, 0x8C, 0)]; })],
+        ['5, 03-15 (the Pass)', '03-15'], ['6, 81-35, outside the city', '81-35'], ['7, 136-136, LOC **', '136-136']].map(([t, s]) => { const [x, y] = sq(s); return ['Hangar ' + t, at(x, y, 0x78, 0x8C, 0)]; })],
       ['Signs', [['Commodore', ['13-04', '03-13', '09-13', '04-15', '09-15']], ['Atari', ['14-05', '14-08', '12-11', '06-15', '11-15']]]
         .flatMap(([n, l]) => l.map(t => { const [x, y] = sq(t); return [n + ', ' + t, at(x, y, 0xA8, 0x80, 256)]; }))],
       ['Heights', [
