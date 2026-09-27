@@ -60,7 +60,7 @@ th{font-weight:700;color:var(--ink-soft)}
 .pl-pad button{font-size:18px;border:1px solid var(--line);border-radius:10px;background:var(--surface-2)}
 .pl-pad button.on{background:var(--ink);color:#fff}
 @media (pointer:coarse){.pl-pad{display:grid}}
-.pl-mod{margin-top:18px;display:flex;gap:10px;flex-wrap:wrap;align-items:center}
+.pl-mod{margin-top:10px;display:flex;gap:10px;flex-wrap:wrap;align-items:center}
 .pl-list{margin:0 0 14px;padding-left:20px}
 #alive-cv{display:block;max-width:100%;height:auto;margin-top:14px;border-radius:6px}
 section table{margin:6px 0 18px}
@@ -94,6 +94,10 @@ section table{margin:6px 0 18px}
       <button type="button" data-act="load" title="CTRL + L: load a position">Load</button>
       <span class="pl-status" id="pl-status" aria-live="polite"></span>
     </div>
+    <div class="pl-mod">
+      <button type="button" id="alive-on" aria-pressed="false">🚗✈️ Mod: Targ Traffic</button>
+      <span class="pl-status" id="alive-status"></span>
+    </div>
     <ul class="pl-keys" id="pl-keys">
       <li><kbd>←</kbd> <kbd>→</kbd> <kbd>↑</kbd> <kbd>↓</kbd> the joystick</li>
       <li><kbd>F</kbd> or right <kbd>Ctrl</kbd> fire</li>
@@ -110,21 +114,16 @@ section table{margin:6px 0 18px}
       <button type="button" data-pad="6">↙</button><button type="button" data-pad="2">↓</button><button type="button" data-pad="10">↘</button>
     </div>
     <p class="cap" id="pl-cap">The game's own screen, drawn from the port's memory each frame the way the video chip would: the view's two bitmaps, the panel in the game's character set, the gun sight sprite. <b>Native resolution</b> draws the same view (the same edges, dots and horizon, from the same positions) as sharp lines at the screen's own resolution.</p>
+    <div id="alive-panel" hidden>
+      <canvas id="alive-cv" width="440" height="440" role="img" aria-label="Map of the city: the roads, you, and the traffic"></canvas>
+      <p class="cap" id="alive-cap">Targ Traffic can be switched on at any time; the traffic appears at once and the game carries on. Switched off, the game is the original again. On the map north is up, <b>blue</b> is Palyar and <b>red</b> Mechanoid, a square is a car and a triangle a craft, and the amber disc is you.</p>
+    </div>
   </div>
 </section>
 <section id="alive">
   <p class="fig">01 · Mod</p>
-  <h2 class="t">The City Comes Alive: traffic on the roads and in the sky</h2>
+  <h2 class="t">Targ Traffic: traffic on the roads and in the sky</h2>
   <p class="lede">Targ's roads are empty and its sky nearly so. This mod fills them with cars and craft the game already knows how to draw. Each one belongs to the Palyars or the Mechanoids, and shooting one brings that side's attack ship after you.</p>
-  <div class="plate">
-    <div class="pl-mod">
-      <button type="button" id="alive-on" aria-pressed="false">The City Comes Alive</button>
-      <button type="button" id="alive-map" aria-pressed="false">Show the traffic map</button>
-      <span class="pl-status" id="alive-status"></span>
-    </div>
-    <canvas id="alive-cv" width="440" height="440" hidden role="img" aria-label="Map of the city: the roads, you, and the traffic"></canvas>
-    <p class="cap" id="alive-cap">Switch it on at any time; the traffic appears at once and the game carries on. Switched off, the game is the original again. On the map north is up, <b>blue</b> is Palyar and <b>red</b> Mechanoid, a square is a car and a triangle a craft, and the amber disc is you.</p>
-  </div>
   <h3>What moves</h3>
   <table>
     <tr><th>Traffic</th><th>Where it goes</th></tr>
@@ -6335,7 +6334,7 @@ function makeDisplay(opts) {
 </script>
 <script>
 /* alive */
-/* alive: The City Comes Alive, a mod. Traffic for Targ built only from what the game has: its
+/* alive: Targ Traffic, a mod. Traffic for Targ built only from what the game has: its
    car and craft models, its road table, its lifts, its airbase and airport, the Colony Craft.
    Every vehicle is drawn by the game's own object routine (draw_object, through object slot 9,
    one of the three Dart slots in the moving range that the game never moves), so near ones are
@@ -6674,7 +6673,7 @@ function makeDisplay(opts) {
     rt.alive = api;
     return api;
   }
-  // --- the page's controls: the switch and the traffic map (kept across a restart) -------------
+  // --- the page's control: one switch for the mod and its traffic map (kept across a restart) ---
   let wanted = false;
   function attachPage(rt) {
     const api = attach(rt);
@@ -6682,7 +6681,7 @@ function makeDisplay(opts) {
     return api;
   }
   function wire() {
-    const btn = document.getElementById('alive-on'), mapBtn = document.getElementById('alive-map');
+    const btn = document.getElementById('alive-on'), panel = document.getElementById('alive-panel');
     const cv = document.getElementById('alive-cv'), stat = document.getElementById('alive-status');
     if (!btn) return;
     const cur = () => window.MercPlay && window.MercPlay.rt && window.MercPlay.rt.alive;
@@ -6692,9 +6691,9 @@ function makeDisplay(opts) {
       const a = cur(); if (a) a.set(wanted);
       const n = k => (a ? a.mod.V.filter(k).length : 0);
       stat.textContent = wanted ? (a ? 'On: ' + n(v => v.kind === 'car') + ' cars, ' + n(v => v.kind === 'air' && !v.colony) + ' craft, ' + n(v => v.colony) + ' Colony shuttles.' : 'On from the start of the game.') : 'Off: the original game.';
+      showMap = wanted; panel.hidden = !showMap; if (showMap) requestAnimationFrame(drawMap);
     });
-    let showMap = false;
-    mapBtn.addEventListener('click', () => { showMap = !showMap; mapBtn.setAttribute('aria-pressed', String(showMap)); cv.hidden = !showMap; if (showMap) requestAnimationFrame(drawMap); });
+    let showMap = false;                          // the map shows while the mod is on
     const css = n => getComputedStyle(document.documentElement).getPropertyValue(n).trim() || '#888';
     let lastDraw = 0;
     function drawMap(now) {
