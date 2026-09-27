@@ -119,15 +119,11 @@ code{font-family:var(--fm);font-size:.82em;background:var(--chip);color:var(--ch
 .obj-note{grid-column:1/-1;font-size:14px;color:var(--ink-mute)}
 @media(max-width:760px){.obj-wrap{grid-template-columns:1fr}.obj-detail{position:static;order:-1}.obj-grid{max-height:340px}}
 /* benson's voice */
-.bv-ctl{display:flex;flex-wrap:wrap;gap:8px 10px;align-items:center;margin:0 0 10px}
-.bv-field{font-family:var(--fm);font-size:12px;color:var(--ink-soft);display:flex;gap:8px;align-items:center;min-width:0}
-.bv-wide{flex:1 1 320px}
-.bv-field input,.bv-field select{font-family:var(--fm);font-size:13px;background:var(--surface-2);color:var(--ink);border:1px solid var(--line);border-radius:7px;padding:6px 9px;flex:1 1 auto;min-width:0;width:100%}
-.bv-field input{text-transform:uppercase;letter-spacing:.06em}
-.bv-ctl button{font-family:var(--fm);font-size:12.5px;background:var(--surface-2);color:var(--ink);border:1px solid var(--line);border-radius:7px;padding:6px 12px;cursor:pointer}
-.bv-ctl button:hover{border-color:var(--violet)}
-#bv-say{background:var(--violet);border-color:var(--violet);color:#fff}
-.bv-roll{display:block;width:100%;height:230px;border:1px solid var(--line);border-radius:8px;background:#fff}
+.bv-say{flex:1 1 320px}
+.bv-say input{flex:1 1 12em;min-width:0;text-transform:uppercase;letter-spacing:.06em}
+.benson-plate #bv-say{background:var(--violet);border-color:var(--violet);color:#fff}
+.bv-roll{display:block;width:100%;height:230px;border:1px solid var(--line);border-radius:8px;background:#fff;margin-top:14px}
+.benson-plate .bv-roll,.benson-plate .bv-scope{image-rendering:auto}
 .bv-row{display:grid;grid-template-columns:minmax(0,1.25fr) minmax(0,1fr);gap:14px;margin-top:12px}
 .bv-regs{font-family:var(--fm);font-size:12px;border:1px solid var(--line);border-radius:8px;padding:8px 10px;background:var(--surface);min-width:0}
 .bv-regs table{border-collapse:collapse;width:100%}
@@ -333,7 +329,7 @@ code{font-family:var(--fm);font-size:.82em;background:var(--chip);color:var(--ch
 }
 .benson-plate button:hover { border-color: var(--violet); }
 .benson-plate button[aria-pressed="true"] { background: var(--violet); border-color: var(--violet); color: #fff; }
-.benson-plate select, .benson-plate input[type=number], .benson-plate input[type=search] {
+.benson-plate select, .benson-plate input[type=number], .benson-plate input[type=search], .benson-plate input[type=text] {
   font-family: var(--fm); font-size: 12.5px; color: var(--ink); background: var(--surface);
   border: 1px solid var(--line); border-radius: 7px; padding: 6px 8px; max-width: 100%;
 }
@@ -342,20 +338,11 @@ code{font-family:var(--fm);font-size:.82em;background:var(--chip);color:var(--ch
 .benson-field select { flex: 1 1 14em; min-width: 0; width: 100%; }
 .benson-field input[type=number] { width: 9.5em; }
 .benson-wide { flex: 1 1 100%; }
-.benson-check { font-family: var(--fm); font-size: 12.5px; color: var(--ink-soft); display: flex; gap: 6px; align-items: center; cursor: pointer; }
-.benson-soundnote { font-family: var(--fm); font-size: 12px; color: var(--coral); }
 .benson-need { font-family: var(--fm); font-size: 13px; color: var(--coral); margin: 12px 0 0; }
 
 /* 1. the window */
 .benson-screen { background: #000; border-radius: 6px; padding: 12px; line-height: 0; max-width: 100%; display: inline-block; }
 .benson-screen canvas { width: 864px; height: auto; }
-.benson-time { margin: 14px 0 0; }
-.benson-bar { width: 100%; height: 14px; cursor: pointer; }
-.benson-time input[type=range] { width: 100%; margin: 4px 0 0; accent-color: var(--violet); }
-.benson-stats { font-family: var(--fm); font-size: 12.5px; color: var(--ink-soft); display: flex; flex-wrap: wrap; gap: 4px 18px; margin: 6px 0 0; min-height: 1.6em; }
-.benson-stats b { color: var(--ink); font-weight: 500; }
-.benson-tapewrap { margin: 14px 0 0; overflow-x: auto; }
-.benson-tape { background: var(--surface); }
 
 /* 2. the message store */
 .benson-browser { display: grid; grid-template-columns: minmax(220px, 300px) minmax(0, 1fr); gap: 18px; align-items: start; }
@@ -420,7 +407,7 @@ code{font-family:var(--fm);font-size:.82em;background:var(--chip);color:var(--ch
 .benson-un { opacity: .6; }
 .benson-flash { animation: benson-flash 1.6s ease-out; }
 @keyframes benson-flash { 0% { background: var(--hl); } 100% { background: transparent; } }
-.benson-code code a, .benson-list code a, .benson-detail code a, .benson-sum code a, .benson-sales code a, .benson-stats code a { color: inherit; text-decoration: none; }
+.benson-code code a, .benson-list code a, .benson-detail code a, .benson-sum code a, .benson-sales code a { color: inherit; text-decoration: none; }
 
 /* 4. money */
 .benson-presets { display: flex; flex-wrap: wrap; gap: 6px; }
@@ -860,55 +847,29 @@ code{font-family:var(--fm);font-size:.82em;background:var(--chip);color:var(--ch
 <!-- benson: Benson's message window, how a message is stored, the event scripts, money in BCD.
      Needs benson.css, ../../lib/c64.js, window.MERC_GAME = C64.load('listing.json'), then benson.js. -->
 <section id="benson-window">
-  <p class="fig">12 · Benson's message window</p>
-  <h2 class="t">Benson's message window</h2>
-  <p class="lede">Benson, the craft's computer, speaks through a strip of 23 cells at the bottom of the panel, one character a frame.</p>
+  <p class="fig">12 · Benson</p>
+  <h2 class="t">Benson prints a character a frame, and every character is a note</h2>
+  <p class="lede">Benson, the craft's computer, speaks through a strip of 23 cells at the bottom of the panel. Under his words runs a tick: one square wave that sounds for the whole game, retuned every frame from the character he has just printed. A blank sets its pitch to zero, and the note falls silent.</p>
   <div class="plate benson-plate">
     <div class="benson-screen"><canvas id="benson-win" width="864" height="96" role="img" aria-label="Benson's message window and its frame, drawn from the game's screen codes and character set"></canvas></div>
     <div class="benson-ctl">
       <label class="benson-field benson-wide">Message <select id="benson-pick"></select></label>
     </div>
     <div class="benson-ctl">
-      <button type="button" id="benson-play" aria-pressed="false">Play</button>
-      <button type="button" id="benson-back">Frame &minus;1</button>
-      <button type="button" id="benson-step">Frame +1</button>
-      <button type="button" id="benson-restart">Restart</button>
-      <label class="benson-check"><input type="checkbox" id="benson-slow"> Quarter speed</label>
-      <label class="benson-check"><input type="checkbox" id="benson-sound" checked> Sound (the tick)</label>
-      <span class="benson-soundnote" id="benson-soundnote" aria-live="polite"></span>
-    </div>
-    <div class="benson-time">
-      <canvas id="benson-bar" class="benson-bar" width="860" height="14" role="img" aria-label="Timeline: dark where the window moves, light where it holds still"></canvas>
-      <input type="range" id="benson-seek" min="0" max="1" value="0" aria-label="Frame">
-    </div>
-    <div class="benson-stats" id="benson-stats"></div>
-    <div class="benson-tapewrap"><canvas id="benson-tape" class="benson-tape" role="img" aria-label="Every character the printer puts into the window, 25 to a line; the first two of each line scroll off before the pause"></canvas></div>
-    <div class="benson-ctl"><label class="benson-field">Window colour <select id="benson-colour"></select></label></div>
-    <p class="cap">The window and its frame are rows 21-23 of the screen matrix at <code>$5C00</code>, drawn with the character set at <code>$7800</code> in the colours the code sets: ink from <code>$BBC2</code>, paper from <code>$BA3D</code>. The player is a port of the printer <code>$8DC3</code>. A test runs the game's own code in a 6502 simulator beside it and gets the same window, tick and state on every frame of all 219 messages; the finished "DO YOU WANT TO BUY?" matches the play snapshot byte for byte and the reference screenshot pixel for pixel.</p>
-    <p class="benson-need" hidden></p>
-  </div>
-  <p>Each character moves the window one cell left and enters at the right. After 25 characters the printer stops for 99 frames, so a line lasts 124 frames, about 2.5 seconds, and the next line pushes it out. The window is 23 cells wide, so the first two characters of every line scroll off before the pause: the author pads each line with blanks to centre it.</p>
-</section>
-
-<section id="benson-voice">
-  <p class="fig">13 · Benson's voice</p>
-  <h2 class="t">Benson's voice is one note, retuned for every letter</h2>
-  <p class="lede">The tick under Benson's messages is a single square wave that sounds for the whole game. Each frame the printer sets its pitch from the character it has just printed; a blank sets the pitch to zero, and the note falls silent.</p>
-  <div class="plate">
-    <div class="bv-ctl">
-      <label class="bv-field bv-wide">Say <input type="text" id="bv-text" value="CRASH LANDED ON TARG" maxlength="120" spellcheck="false" autocomplete="off"></label>
+      <label class="benson-field bv-say">Or type <input type="text" id="bv-text" maxlength="200" spellcheck="false" autocomplete="off" aria-label="Text for Benson to print"></label>
       <button type="button" id="bv-say">Say it</button>
       <button type="button" id="bv-stop">Stop</button>
     </div>
-    <div class="bv-ctl"><label class="bv-field bv-wide">or a message from the game <select id="bv-pick"></select></label></div>
     <canvas id="bv-roll" class="bv-roll" role="img" aria-label="The tick's pitch frame by frame: one bar a character, labelled with it; blanks and the pause after each line are silent"></canvas>
     <div class="bv-row">
-      <div class="bv-regs" id="bv-regs" aria-live="off"></div>
+      <div class="bv-regs" id="bv-regs"></div>
       <div class="bv-scopewrap"><canvas id="bv-scope" class="bv-scope" role="img" aria-label="The square wave voice 3 plays during one frame"></canvas><p class="bv-scopecap" id="bv-scopecap"></p></div>
     </div>
-    <p class="cap">The sound is the site's model of the SID playing the printer's own writes, one a frame: the port of <code>$8DC3</code> from Benson's window above, which matches the game's code in a 6502 simulator on every frame of every message. Typed text is fed to that port as a literal, as a script's print would feed it, so it scrolls, pauses and ticks as the game would print it. Letters, digits, spaces and <code>* + , - . / ? ! '</code> only; the game's character set has nothing else.</p>
+    <div class="benson-ctl"><label class="benson-field">Window colour <select id="benson-colour"></select></label></div>
+    <p class="cap">The window and its frame are rows 21-23 of the screen matrix at <code>$5C00</code>, drawn with the character set at <code>$7800</code> in the colours the code sets: ink from <code>$BBC2</code>, paper from <code>$BA3D</code>. The player is a port of the printer <code>$8DC3</code>. A test runs the game's own code in a 6502 simulator beside it and gets the same window, tick and state on every frame of all 219 messages; the finished "DO YOU WANT TO BUY?" matches the play snapshot byte for byte and the reference screenshot pixel for pixel. The sound is the site's model of the SID playing the printer's writes to <code>$D40F</code>, one a frame, and the window, the roll and the registers follow it. Typed text goes to the same port as a literal, as a script's print would feed it: letters, digits, spaces and <code>* + , - . / ? ! '</code> only, since the game's character set has nothing else.</p>
     <p class="benson-need" hidden></p>
   </div>
+  <p>Each character moves the window one cell left and enters at the right. After 25 characters the printer stops for 99 frames, so a line lasts 124 frames, about 2.5 seconds, and the next line pushes it out. The window is 23 cells wide, so the first two characters of every line scroll off before the pause: the author pads each line with blanks to centre it.</p>
   <p>At start-up <code>$B910</code> copies 25 bytes from <code>$B921</code> into the SID, <code>$D400</code> to <code>$D418</code>, then sets voice 3's control to <code>$41</code>: the pulse wave, gate on. Voice 3's pulse width is <code>$800</code>, half of 4096, so its wave is square. Attack is 0 and sustain 15, so the note reaches full volume at once and stays there. Nothing turns the gate off again. The only other code that touches voice 3 is the printer, and it writes one register: <code>$D40F</code>, the high byte of the frequency.</p>
   <pre class="bv-asm"><span class="bv-c">; $8DC3, once a frame while a message prints</span>
 8DC7  CMP #$1A     <span class="bv-c">; 26 frames into the line?</span>
@@ -929,7 +890,7 @@ code{font-family:var(--fm);font-size:.82em;background:var(--chip);color:var(--ch
 </section>
 
 <section id="benson-store">
-  <p class="fig">14 · How a message is stored</p>
+  <p class="fig">13 · How a message is stored</p>
   <h2 class="t">How a message is stored</h2>
   <p class="lede">A message is a list of one-byte tokens, most of them numbers of words in a dictionary.</p>
   <div class="plate benson-plate">
@@ -951,7 +912,7 @@ code{font-family:var(--fm);font-size:.82em;background:var(--chip);color:var(--ch
 </section>
 
 <section id="benson-scripts">
-  <p class="fig">15 · The event scripts</p>
+  <p class="fig">14 · The event scripts</p>
   <h2 class="t">The event scripts</h2>
   <p class="lede">What Benson says, and when, comes from 51 scripts in a small byte code, run one operation per pass of the main loop.</p>
   <div class="plate benson-plate">
@@ -967,7 +928,7 @@ code{font-family:var(--fm);font-size:.82em;background:var(--chip);color:var(--ch
 </section>
 
 <section id="benson-money">
-  <p class="fig">16 · Money in BCD</p>
+  <p class="fig">15 · Money in BCD</p>
   <h2 class="t">Money in BCD, and a purchase without subtraction</h2>
   <p class="lede">The credits are eight decimal digits in four bytes, and the scripts have no way to subtract: a purchase adds the price's ten's complement.</p>
   <div class="plate benson-plate">
@@ -993,7 +954,7 @@ code{font-family:var(--fm);font-size:.82em;background:var(--chip);color:var(--ch
 </section>
 
 <section id="math-numbers">
-  <p class="fig">17 · Numbers</p>
+  <p class="fig">16 · Numbers</p>
   <h2 class="t">Two-byte numbers, multiplied by adding logarithms</h2>
   <p class="lede">The 3D view works in two-byte floats, a mantissa and a power of two, and multiplies two of them by adding their logarithms from a 256-byte table.</p>
   <div class="plate math-calc">
@@ -1043,7 +1004,7 @@ code{font-family:var(--fm);font-size:.82em;background:var(--chip);color:var(--ch
 </section>
 
 <section id="math-lines">
-  <p class="fig">18 · Lines</p>
+  <p class="fig">17 · Lines</p>
   <h2 class="t">Drawing a line: eight routines, one per octant</h2>
   <p class="lede">Each edge in the view is drawn by one of eight short routines that step along the longer axis, add a slope byte to an 8-bit counter (or subtract it), and step sideways whenever the counter wraps.</p>
   <div class="plate math-lineplate">
@@ -1086,7 +1047,7 @@ code{font-family:var(--fm);font-size:.82em;background:var(--chip);color:var(--ch
 </section>
 
 <section id="keys">
-  <p class="fig">19 · Controls</p>
+  <p class="fig">18 · Controls</p>
   <h2 class="t">The keys, as the game reads them</h2>
   <p class="lede">The game scans the keyboard itself and turns each key into a number, row × 8 + column, with 64 added for SHIFT and 128 for CTRL. The joystick goes in port 2.</p>
   <div class="plate tablewrap">
@@ -1112,7 +1073,7 @@ code{font-family:var(--fm);font-size:.82em;background:var(--chip);color:var(--ch
 </section>
 
 <section id="opening">
-  <p class="fig">20 · The opening</p>
+  <p class="fig">19 · The opening</p>
   <h2 class="t">The opening: a countdown, then a crash</h2>
   <p class="lede">The game opens in space, runs its own event script through a failing Novadrive, and drops you in the middle of the city with 9000 credits.</p>
   <div class="plate">
@@ -1129,7 +1090,7 @@ code{font-family:var(--fm);font-size:.82em;background:var(--chip);color:var(--ch
 </section>
 
 <section id="reset">
-  <p class="fig">21 · Protection</p>
+  <p class="fig">20 · Protection</p>
   <h2 class="t">The reset button hangs the original</h2>
   <p class="lede">Novagen's disk makes the game look like a cartridge, so that pressing reset runs one of the game's own loops instead of handing the machine back.</p>
   <div class="plate">
@@ -1152,7 +1113,7 @@ $217C  JMP $2170</pre>
 </section>
 
 <section id="odd">
-  <p class="fig">22 · Odds and ends</p>
+  <p class="fig">21 · Odds and ends</p>
   <h2 class="t">Things a pilot would not know</h2>
   <p class="lede">Small things found in the code and checked in the emulator.</p>
   <div class="plate">
@@ -2466,195 +2427,6 @@ window.MERC_GAME.catch(() => {});
     if ('IntersectionObserver' in window) new IntersectionObserver(es => { visible = es[0].isIntersecting; if (visible) go(); }).observe(det);
     pick(1, false);
   }, () => {});
-})();
-</script>
-<script>
-/* benson's voice */
-// The tick as sound and pictures: the printer port (window.MercBenson, from the Benson script)
-// gives the $D40F write of every frame; the site's SID model (site/lib/sid.js) plays them on
-// voice 3 as $B910 sets it up; a piano roll, the registers and one frame of the wave follow the
-// sound.
-(function () {
-  'use strict';
-  const $ = id => document.getElementById(id);
-  if (!$('benson-voice') || !window.MERC_GAME) return;
-  const need = m => { const p = document.querySelector('#benson-voice .benson-need'); p.textContent = m; p.hidden = false; };
-  // window.MercBenson is set by a script further down the page: wait for the whole document
-  const parsed = new Promise(r => (document.readyState === 'loading' ? document.addEventListener('DOMContentLoaded', r) : r()));
-  Promise.all([window.MERC_GAME, parsed]).then(([G]) => { if (!window.MercBenson) return need('The Benson script did not load.'); start(G.ram, window.MercBenson); },
-    () => need('This widget reads the game from listing.json, which the built site serves: open the page from the site, not from disk.'));
-
-  function start(ram, B) {
-    const CLOCK = 985248, STEP = 256 * CLOCK / 16777216, FPS = CLOCK / (312 * 63);
-    const NAMES = ['C', 'C#', 'D', 'D#', 'E', 'F', 'F#', 'G', 'G#', 'A', 'A#', 'B'];
-    const note = hz => { const n = Math.round(12 * Math.log2(hz / 440) + 57); return NAMES[((n % 12) + 12) % 12] + Math.floor(n / 12); };
-    const hex = (v, w) => '$' + v.toString(16).toUpperCase().padStart(w || 2, '0');
-    // the window's glyph codes as text: 0-9 digits, $0A-$0F * + , - . /, $6D ? $6E ! $6F ', else ASCII
-    const glyph = c => { c &= 0x7F; return c < 10 ? String(c) : c < 16 ? '*+,-./'[c - 10] : c === 0x6D ? '?' : c === 0x6E ? '!' : c === 0x6F ? "'" : c === 0x20 ? ' ' : String.fromCharCode(c); };
-    const code = ch => { if (ch >= 'A' && ch <= 'Z') return ch.charCodeAt(0); if (ch >= '0' && ch <= '9') return +ch; if (ch === ' ') return 0x20;
-      const i = '*+,-./'.indexOf(ch); if (i >= 0) return 10 + i; return { '?': 0x6D, '!': 0x6E, "'": 0x6F }[ch]; };
-    const pitch = c => { let f = c & 0x3F; if (f === 0x20) f = 0xD0; return (f + 0x30) & 255; };   // $8DEE-$8DF7
-
-    // the table of pitches: every character the set has, by the value it writes
-    { const by = new Map();
-      const chars = [...'ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789*+,-./?!\''];
-      for (const ch of chars) { const v = pitch(code(ch)); (by.get(v) || by.set(v, []).get(v)).push(ch); }
-      $('bv-alpha').innerHTML = [...by.keys()].sort((a, b) => a - b).map(v =>
-        '<tr><td>' + hex(v) + '</td><td>' + (v * STEP).toFixed(1) + '</td><td>' + note(v * STEP) + '</td><td>' + by.get(v).join(' ') + '</td></tr>').join('') +
-        '<tr><td>$00</td><td>0</td><td>silence</td><td>blank</td></tr>'; }
-
-    // a run of the printer: per frame the value written to $D40F (or -1) and the glyph entered
-    const msgs = B.allMessages(ram);
-    function runText(t) {
-      const cs = [...t.toUpperCase()].map(code).filter(c => c !== undefined).slice(0, 200);
-      if (!cs.length) return null;
-      const m = ram.slice(), a = 0x0200;                        // op byte, $FF, the literal, 0
-      m[a] = 1; m[a + 1] = 0xFF; cs.forEach((c, i) => { m[a + 2 + i] = c | (i === cs.length - 1 ? 0x80 : 0); }); m[a + 2 + cs.length] = 0;
-      return B.runMessage(m, { how: 'print', a, e0: 0, e1: 0x7D });
-    }
-    function runMsg(x) {
-      const mm = msgs[x];
-      return B.runMessage(ram, Object.assign(mm.kind === 'canned' ? { how: 'canned', n: mm.n } : { how: 'print', a: mm.a }, { e0: mm.e0, e1: mm.e1 }));
-    }
-    const pick = $('bv-pick');
-    pick.innerHTML = '<option value="">choose one</option>' + msgs.map((mm, i) => '<option value="' + i + '">' + mm.text.slice(0, 70).replace(/[&<]/g, c => (c === '&' ? '&amp;' : '&lt;')) + '</option>').join('');
-
-    // the timeline: every frame, but each 99-frame pause drawn short
-    let run = null, cols = [], cur = -1;
-    function layout(r) {
-      const F = r.frames, out = [];
-      let quiet = 0;
-      for (let k = 1; k < F.length; k++) {
-        const f = F[k];
-        const voiced = f.ch >= 0;
-        if (!voiced) { quiet++; continue; }
-        if (quiet) { out.push({ gap: quiet, k0: k - quiet, k1: k - 1 }); quiet = 0; }
-        out.push({ k, v: f.sid, ch: f.ch });
-      }
-      if (quiet) out.push({ gap: quiet, k0: F.length - quiet, k1: F.length - 1 });
-      return out;
-    }
-    const roll = $('bv-roll'), LO = 0x30, HI = 0x60;
-    function drawRoll() {
-      const dpr = window.devicePixelRatio || 1, W = roll.clientWidth, H = roll.clientHeight;
-      if (!W) return;
-      roll.width = Math.round(W * dpr); roll.height = Math.round(H * dpr);
-      const g = roll.getContext('2d'); g.setTransform(dpr, 0, 0, dpr, 0, 0); g.clearRect(0, 0, W, H);
-      const L = 58, T = 10, Bt = H - 30, y = v => Bt - (v - LO) * (Bt - T) / (HI - LO);
-      g.font = '10px ' + (getComputedStyle(roll).getPropertyValue('--fm').trim() || 'monospace');
-      for (let v = LO; v <= HI; v += 8) {
-        const yy = Math.round(y(v)) + .5; g.fillStyle = '#e0ded8'; g.fillRect(L, yy, W - L, 1);
-        g.fillStyle = '#80838a'; g.fillText(hex(v) + ' ' + Math.round(v * STEP) + ' Hz', 2, yy + 3);
-      }
-      g.fillStyle = '#80838a'; g.fillText('$00 off', 2, Bt + 20);
-      if (!cols.length) return;
-      const GAP = 26, n = cols.reduce((a, c) => a + (c.gap ? 0 : 1), 0), gaps = cols.filter(c => c.gap).length;
-      const cw = Math.max(3, Math.min(22, (W - L - 8 - gaps * GAP) / Math.max(1, n)));
-      let x = L + 4;
-      for (const c of cols) {
-        c.x = x;
-        if (c.gap) {
-          g.fillStyle = '#f1efea'; g.fillRect(x + 2, T, GAP - 4, Bt - T);
-          g.save(); g.translate(x + GAP / 2 + 3, Bt - 4); g.rotate(-Math.PI / 2); g.fillStyle = '#80838a';
-          g.fillText(c.gap + ' frames silent', 0, 0); g.restore();
-          c.w = GAP; x += GAP; continue;
-        }
-        c.w = cw;
-        const on = c.k === cur, past = cur >= 0 && c.k < cur;
-        if (c.v > 0) {
-          g.fillStyle = on ? '#d04a3a' : '#2a8a4a'; g.globalAlpha = on || past || cur < 0 ? 1 : .45;
-          g.fillRect(x + .5, y(c.v) - 3, cw - 1, 6);
-          g.globalAlpha = 1;
-        } else { g.fillStyle = '#d5d3cc'; g.fillRect(x + .5, Bt + 6, cw - 1, 2); }
-        if (cw >= 8) { g.fillStyle = on ? '#d04a3a' : '#55585f'; g.textAlign = 'center'; g.fillText(glyph(c.ch) === ' ' ? '·' : glyph(c.ch), x + cw / 2, Bt + 20); g.textAlign = 'start'; }
-        x += cw;
-      }
-      if (cur >= 0) {                                             // the play head
-        const c = cols.find(c => (c.gap ? cur >= c.k0 && cur <= c.k1 : c.k === cur));
-        if (c) { const px = c.gap ? c.x + c.w * (cur - c.k0 + .5) / c.gap : c.x + c.w / 2; g.fillStyle = '#d04a3a'; g.fillRect(Math.round(px), T - 6, 1, Bt - T + 10); }
-      }
-    }
-
-    // the registers and one frame of the wave
-    const init = ram.subarray(0xB921, 0xB921 + 25);
-    const regs = $('bv-regs'), scope = $('bv-scope'), scap = $('bv-scopecap');
-    function showRegs(v) {
-      const r = (a, val, what, live) => '<tr' + (live ? ' class="bv-live"' : '') + '><td>' + hex(a, 4) + '</td><td>' + hex(val) + '</td><td>' + what + '</td></tr>';
-      regs.innerHTML = '<div><b>Voice 3</b>, envelope at full</div><div class="bv-env"></div><table>' +
-        r(0xD40E, init[14], 'frequency, low byte: never written') +
-        r(0xD40F, v, v ? 'frequency, high byte: ' + hex(v * 256, 4) + ', ' + (v * STEP).toFixed(1) + ' Hz, ' + note(v * STEP) : 'frequency, high byte: 0, the oscillator stops', true) +
-        r(0xD410, init[16], 'pulse width, low byte') + r(0xD411, init[17], 'pulse width, high nibble: ' + hex((init[17] & 15) << 8 | init[16], 3) + ' of $FFF, a square wave') +
-        r(0xD412, 0x41, 'control: pulse on, gate on (<code>$B91B</code>)') + r(0xD413, init[19], 'attack 0, decay 0') + r(0xD414, init[20], 'sustain 15, release 0') +
-        r(0xD418, init[24], 'volume 15, filter off, voice 3 connected') + '</table>';
-    }
-    function drawScope(v) {
-      const dpr = window.devicePixelRatio || 1, W = scope.clientWidth, H = scope.clientHeight;
-      if (!W) return;
-      scope.width = Math.round(W * dpr); scope.height = Math.round(H * dpr);
-      const g = scope.getContext('2d'); g.setTransform(dpr, 0, 0, dpr, 0, 0); g.fillStyle = '#000'; g.fillRect(0, 0, W, H);
-      g.strokeStyle = '#2a8a4a'; g.globalAlpha = .5; g.beginPath(); g.moveTo(0, H / 2); g.lineTo(W, H / 2); g.stroke(); g.globalAlpha = 1;
-      const hz = v * STEP, cyc = hz / FPS, top = H * .2, bot = H * .8;
-      g.strokeStyle = '#8fe38f'; g.lineWidth = 1.5; g.beginPath();
-      if (!v) { g.moveTo(0, H / 2); g.lineTo(W, H / 2); }
-      else {
-        const half = W / cyc / 2; let x = 0, hi = true; g.moveTo(0, top);
-        while (x < W) { const nx = Math.min(W, x + half); g.lineTo(nx, hi ? top : bot); if (nx < W) g.lineTo(nx, hi ? bot : top); x = nx; hi = !hi; }
-      }
-      g.stroke();
-      scap.textContent = v ? 'One frame, 1/50 s: ' + cyc.toFixed(1) + ' cycles of a square wave at ' + hz.toFixed(1) + ' Hz' : 'One frame, 1/50 s: frequency 0, no wave';
-    }
-
-    // the sound: the printer's $D40F values, one a frame, through the SID model's voice 3
-    let host = null, busy = false, queue = [], raf = 0, playing = false;
-    function driver() {
-      const sid = new Uint8Array(25); let seq = [], i = 0, on = false;
-      return {
-        sid,
-        init(t) { seq = t.seq; i = 0; on = true; for (let r = 0; r < 25; r++) sid[r] = t.init[r]; sid[18] = 0x41; },
-        stop() { on = false; sid[15] = 0; },
-        play() { if (!on) return; if (i < seq.length) { if (seq[i] >= 0) sid[15] = seq[i]; i++; } else { on = false; sid[15] = 0; } },
-        playing() { return on; },
-        voice(x) { return x === 2 ? { k: i } : null; },
-      };
-    }
-    function ensure() {
-      if (host) return Promise.resolve(host);
-      const ready = window.C64Sid ? Promise.resolve() : new Promise((res, rej) => {
-        const sc = document.createElement('script'); sc.src = '../../lib/sid.js'; sc.onload = res; sc.onerror = () => rej(new Error('sid.js did not load')); document.head.appendChild(sc);
-      });
-      return ready.then(() => window.C64Sid.host({ driver, data: null, gain: 0.3, onFrame: s => queue.push(s) })).then(h => (host = h));
-    }
-    function say(r) {
-      if (!r) return;
-      run = r; cols = layout(r); cur = -1; drawRoll(); showRegs(0); drawScope(0);
-      if (busy) return;
-      busy = true;
-      ensure().then(h => {
-        busy = false; h.ctx.resume(); queue = [];
-        const seq = r.frames.slice(1).map(f => f.sid);
-        h.send({ cmd: 'start', tune: { seq, init: Array.from(init) } });
-        playing = true; if (!raf) raf = requestAnimationFrame(loop);
-      }).catch(e => { busy = false; need('No sound: ' + e.message); });
-    }
-    function loop() {
-      raf = requestAnimationFrame(loop);
-      const now = host.ctx.currentTime - (host.ctx.outputLatency || 0);
-      let s = null;
-      while (queue.length && queue[0].t <= now) s = queue.shift();
-      if (!s) return;
-      const k = s.v[2].k, v = s.v[2].freq >> 8;
-      if (k !== cur) { cur = k; drawRoll(); showRegs(v); drawScope(v); }
-      if (!s.playing) { cancelAnimationFrame(raf); raf = 0; playing = false; }
-    }
-    const text = $('bv-text');
-    $('bv-say').onclick = () => { pick.value = ''; say(runText(text.value)); };
-    text.addEventListener('keydown', e => { if (e.key === 'Enter') { e.preventDefault(); $('bv-say').click(); } });
-    pick.onchange = () => { if (pick.value !== '') { text.value = msgs[+pick.value].text.slice(0, 120); say(runMsg(+pick.value)); } };
-    $('bv-stop').onclick = () => { if (host) host.send({ cmd: 'stop' }); };
-    // before any sound: the default text, drawn
-    run = runText(text.value); cols = layout(run); drawRoll(); showRegs(pitch(code('C'))); drawScope(pitch(code('C')));
-    window.addEventListener('resize', () => { drawRoll(); drawScope(cur >= 0 && run ? Math.max(0, run.frames[cur] ? run.frames[cur].sid : 0) : pitch(code('C'))); });
-  }
 })();
 </script>
 <script>
@@ -5457,12 +5229,12 @@ window.MERC_GAME.catch(() => {});
       stop() { on = false; sid[15] = 0; },
       play() { if (!on) return; if (i < seq.length) sid[15] = seq[i++]; else { on = false; sid[15] = 0; } },
       playing() { return on; },
+      voice(x) { return x === 2 ? { k: i } : null; },             // the printer frame just played
     };
   }
 
   const core = { MT, PR, WIN, WIN_N, OPENING, allMessages, runMessage, printerSettings, scriptIns, adcDec, BCD, describe,
     triggers, saleTable, scriptListing, HIGHLIGHTS, NOTES, paintGlyph, paintWindow, paintCells, panelColours, FRAME, objectName, tickDriver };
-  if (typeof window !== 'undefined') window.MercBenson = core;          // for Benson's voice (#benson-voice)
   if (typeof module !== 'undefined' && module.exports) { module.exports = core; return; }
   if (typeof document === 'undefined') return;
 
@@ -5524,11 +5296,13 @@ window.MERC_GAME.catch(() => {});
   /* ------------------------------------------------------------------------------------------
      1. The window, playing a message as $8DC3 does. */
   function buildPlayer(ram, msgs, byKey, state) {
-    const cv = $('benson-win'), tape = $('benson-tape'), bar = $('benson-bar'), seek = $('benson-seek');
-    const pick = $('benson-pick'), btnPlay = $('benson-play'), stats = $('benson-stats'), slow = $('benson-slow'), snd = $('benson-sound');
-    let cur = null, run = null, f = 0, playing = false, t0 = 0, f0 = 0, raf = 0, tapeImg = null, barImg = null;
+    const cv = $('benson-win'), pick = $('benson-pick'), text = $('bv-text');
+    const roll = $('bv-roll'), regs = $('bv-regs'), scope = $('bv-scope'), scap = $('bv-scopecap');
+    const INIT = ram.subarray(0xB921, 0xB921 + 25), STEP = 256 * 985248 / 16777216;
+    let run = null, f = 0, cols = [], picked = null, spoken = '';
     let lastWin = ram.slice(WIN, WIN + WIN_N);                       // the hand-over's window: MERCENARY
-    let sound = null, soundBusy = false;
+    let sound = null, soundBusy = false, noSound = false, queue = [], heard = false;
+    let playing = false, raf = 0, t0 = 0, sent = 0, token = 0, useClock = false;
 
     const og1 = document.createElement('optgroup'), og2 = document.createElement('optgroup');
     og1.label = 'In the scripts (op 1), by address'; og2.label = 'Canned messages 0-63';
@@ -5538,140 +5312,210 @@ window.MERC_GAME.catch(() => {});
         : h4(m.a) + ': ' + (m.text || '(blank)');
       (m.kind === 'canned' ? og2 : og1).appendChild(o);
     }
-    pick.append(og2, og1);
+    const own = document.createElement('option'); own.value = ''; own.textContent = 'Your own text, typed below';
+    pick.append(own, og2, og1);
 
-    function load(key, keepWin) {
-      cur = byKey.get(key); pick.value = key;
-      run = run2(ram, cur, state, keepWin ? lastWin : ram.slice(WIN, WIN + WIN_N));
-      lastWin = run.frames[run.frames.length - 1].win;
-      seek.max = run.frames.length - 1;
-      renderTape(); renderBar();
-      stop(); show(0);
+    // characters: the window's glyph codes as text, typed text as codes, and the tick's value
+    const glyph = c => { c &= 0x7F; return c < 10 ? String(c) : c < 16 ? '*+,-./'[c - 10] : c === 0x6D ? '?' : c === 0x6E ? '!' : c === 0x6F ? "'" : c === 0x20 ? ' ' : String.fromCharCode(c); };
+    const codeOf = ch => { if (ch >= 'A' && ch <= 'Z') return ch.charCodeAt(0); if (ch >= '0' && ch <= '9') return +ch; if (ch === ' ') return 0x20;
+      const i = '*+,-./'.indexOf(ch); if (i >= 0) return 10 + i; return { '?': 0x6D, '!': 0x6E, "'": 0x6F }[ch]; };
+    const pitch = c => { let v = c & 0x3F; if (v === 0x20) v = 0xD0; return (v + 0x30) & 0xFF; };   // $8DEE-$8DF7
+    const NAMES = ['C', 'C#', 'D', 'D#', 'E', 'F', 'F#', 'G', 'G#', 'A', 'A#', 'B'];
+    const note = hz => { const n = Math.round(12 * Math.log2(hz / 440) + 57); return NAMES[((n % 12) + 12) % 12] + Math.floor(n / 12); };
+
+    // every character's pitch, for the table under the section
+    if ($('bv-alpha')) {
+      const by = new Map();
+      for (const ch of 'ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789*+,-./?!\'') { const v = pitch(codeOf(ch)); (by.get(v) || by.set(v, []).get(v)).push(ch); }
+      $('bv-alpha').innerHTML = [...by.keys()].sort((a, b) => a - b).map(v =>
+        '<tr><td>' + h2(v) + '</td><td>' + (v * STEP).toFixed(1) + '</td><td>' + note(v * STEP) + '</td><td>' + by.get(v).join(' ') + '</td></tr>').join('') +
+        '<tr><td>$00</td><td>0</td><td>silence</td><td>blank</td></tr>';
     }
-    function show(k) {
-      f = Math.max(0, Math.min(run.frames.length - 1, k)); seek.value = f;
-      const F = run.frames[f], N = run.frames.length - 1;
-      blit(cv, paintWindow(ram, ram, F.win, state.ink), 4);
-      drawTape(F); drawBar();
-      let what;
-      if (f === 0) what = 'before the first frame';
-      else if (F.e6 === 0) what = 'the printer has stopped';
-      else if (F.ch >= 0) what = 'moving: ' + F.e0 + ' of 25';
-      else what = 'still until it reaches ' + cur.e1;
-      const tick = F.sid < 0 ? 'no write' : F.sid === 0 ? '$00, silent' : h2(F.sid) + ', ' + Math.round(F.sid * 256 * 985248 / 16777216) + ' Hz';
-      stats.innerHTML =
-        '<span><b>frame ' + f + '</b> of ' + N + ', ' + (f / PAL_HZ).toFixed(2) + ' s</span>' +
-        '<span>line <b>' + (f ? F.line + 1 : 1) + '</b> of ' + run.lines + '</span>' +
-        '<span>' + code(0xE0) + ' = ' + F.e0 + ', ' + what + '</span>' +
-        '<span>' + code(0xE6) + ' = ' + h2(F.e6) + '</span>' +
-        '<span>the tick, ' + code(0xD40F) + ' = ' + tick + '</span>';
+
+    // a run of the printer port: a message as the game prints it, or typed text as a literal
+    const msgRun = (key, win) => run2(ram, byKey.get(key), state, win);
+    function textRun(t, win) {
+      const cs = [...t.toUpperCase()].map(codeOf).filter(c => c !== undefined).slice(0, 200);
+      if (!cs.length) return null;
+      const m = ram.slice(), a = 0x0200;                            // op byte, $FF, the literal, 0
+      m[a] = 1; m[a + 1] = 0xFF; cs.forEach((c, i) => { m[a + 2 + i] = c | (i === cs.length - 1 ? 0x80 : 0); }); m[a + 2 + cs.length] = 0;
+      return runMessage(m, { how: 'print', a, e0: 0, e1: 0x7D, win });
     }
-    // the stream: every character the printer puts in, 25 to a line; the first two of each line
-    // leave the window on the left before the pause
-    const S = 2, CELL = 16, GAP = 8, ROW = 22, X0 = 28, Y0 = 18;
-    const cellX = k => X0 + k * CELL + (k >= 2 ? GAP : 0);
-    function renderTape() {
-      const lines = Math.max(1, run.lines);
-      tapeImg = document.createElement('canvas'); tapeImg.width = cellX(25) + 4; tapeImg.height = Y0 + lines * ROW;
-      const ctx = tapeImg.getContext('2d'), mute = cssVar(tape, '--benson-mute', '#80838a');
-      ctx.font = '11px ' + cssVar(tape, '--fm', 'monospace'); ctx.fillStyle = mute; ctx.textBaseline = 'alphabetic';
-      ctx.fillText('off', X0 + 6, 12); ctx.fillText('the window: 23 cells', cellX(2) + 4, 12);
-      for (let L = 0; L < lines; L++) {
-        const y = Y0 + L * ROW, st = run.lineStart[L] || 0, en = L + 1 < run.lineStart.length ? run.lineStart[L + 1] : run.stream.length;
-        const codes = run.stream.slice(st, en);
-        ctx.fillStyle = mute; ctx.fillText(String(L + 1), 6, y + 12);
-        if (!codes.length) continue;
-        const tmp = document.createElement('canvas');
-        blit(tmp, paintCells(ram, codes, state.ink), S);
-        ctx.drawImage(tmp, 0, 0, Math.min(2, codes.length) * CELL, CELL, X0, y, Math.min(2, codes.length) * CELL, CELL);
-        if (codes.length > 2) ctx.drawImage(tmp, 2 * CELL, 0, (codes.length - 2) * CELL, CELL, cellX(2), y, (codes.length - 2) * CELL, CELL);
+
+    // the roll: every frame that moves the window, one bar each; each pause drawn short
+    function layout(r) {
+      const out = []; let quiet = 0;
+      for (let k = 1; k < r.frames.length; k++) {
+        const F = r.frames[k];
+        if (F.ch < 0) { quiet++; continue; }
+        if (quiet) { out.push({ gap: quiet, k0: k - quiet, k1: k - 1 }); quiet = 0; }
+        out.push({ k, v: F.sid, ch: F.ch });
       }
-      tape.width = tapeImg.width; tape.height = tapeImg.height;
+      if (quiet) out.push({ gap: quiet, k0: r.frames.length - quiet, k1: r.frames.length - 1 });
+      return out;
     }
-    function drawTape(F) {
-      const ctx = tape.getContext('2d'); ctx.clearRect(0, 0, tape.width, tape.height); ctx.drawImage(tapeImg, 0, 0);
-      let shown = -1; for (let j = f; j >= 0; j--) if (run.frames[j].pos >= 0) { shown = run.frames[j].pos; break; }
-      const paper = cssVar(tape, '--surface', '#ffffff'), ink = cssVar(tape, '--benson-head', '#c25a00');
-      for (let L = 0; L < run.lineStart.length; L++) {
-        const st = run.lineStart[L], en = L + 1 < run.lineStart.length ? run.lineStart[L + 1] : run.stream.length, y = Y0 + L * ROW;
-        for (let k = 0; k < en - st; k++) {
-          const idx = st + k, x = cellX(k);
-          if (idx > shown) { ctx.globalAlpha = 0.85; ctx.fillStyle = paper; ctx.fillRect(x, y, CELL, CELL); ctx.globalAlpha = 1; }
-          else if (k < 2) { ctx.globalAlpha = 0.55; ctx.fillStyle = paper; ctx.fillRect(x, y, CELL, CELL); ctx.globalAlpha = 1; }
-          if (idx === shown && F.ch >= 0) { ctx.strokeStyle = ink; ctx.lineWidth = 2; ctx.strokeRect(x + 1, y + 1, CELL - 2, CELL - 2); }
+    const LO = 0x30, HI = 0x60;
+    function drawRoll() {
+      const dpr = window.devicePixelRatio || 1, W = roll.clientWidth, H = roll.clientHeight;
+      if (!W) return;
+      roll.width = Math.round(W * dpr); roll.height = Math.round(H * dpr);
+      const g = roll.getContext('2d'); g.setTransform(dpr, 0, 0, dpr, 0, 0); g.clearRect(0, 0, W, H);
+      const L = 58, T = 10, Bt = H - 30, y = v => Bt - (v - LO) * (Bt - T) / (HI - LO);
+      g.font = '10px ' + cssVar(roll, '--fm', 'monospace');
+      for (let v = LO; v <= HI; v += 8) {
+        const yy = Math.round(y(v)) + .5; g.fillStyle = '#e0ded8'; g.fillRect(L, yy, W - L, 1);
+        g.fillStyle = '#80838a'; g.fillText(h2(v) + ' ' + Math.round(v * STEP) + ' Hz', 2, yy + 3);
+      }
+      g.fillText('$00 off', 2, Bt + 20);
+      if (!cols.length) return;
+      const avail = W - L - 8, gaps = cols.filter(c => c.gap).length, n = cols.length - gaps;
+      const GAP = gaps ? Math.min(26, avail * 0.25 / gaps) : 0, cw = Math.min(22, (avail - gaps * GAP) / Math.max(1, n));
+      let x = L + 4;
+      for (const c of cols) {
+        c.x = x;
+        if (c.gap) {
+          g.fillStyle = '#f1efea'; g.fillRect(x + 1, T, GAP - 2, Bt - T);
+          if (GAP >= 12) { g.save(); g.translate(x + GAP / 2 + 3, Bt - 4); g.rotate(-Math.PI / 2); g.fillStyle = '#80838a'; g.fillText(c.gap + ' frames silent', 0, 0); g.restore(); }
+          c.w = GAP; x += GAP; continue;
         }
+        c.w = cw;
+        const on = c.k === f, past = playing && c.k < f;
+        if (c.v > 0) {
+          g.fillStyle = on ? '#d04a3a' : '#2a8a4a'; g.globalAlpha = on || past || !playing ? 1 : .45;
+          g.fillRect(x + (cw > 3 ? .5 : 0), y(c.v) - 3, Math.max(1, cw - 1), 6); g.globalAlpha = 1;
+        } else { g.fillStyle = '#d5d3cc'; g.fillRect(x, Bt + 6, Math.max(1, cw - 1), 2); }
+        if (cw >= 8) { g.fillStyle = on ? '#d04a3a' : '#55585f'; g.textAlign = 'center'; const t = glyph(c.ch); g.fillText(t === ' ' ? '·' : t, x + cw / 2, Bt + 20); g.textAlign = 'start'; }
+        x += cw;
+      }
+      if (f > 0) {                                                   // the play head
+        const c = cols.find(c => (c.gap ? f >= c.k0 && f <= c.k1 : c.k === f));
+        if (c) { const px = c.gap ? c.x + c.w * (f - c.k0 + .5) / c.gap : c.x + c.w / 2; g.fillStyle = '#d04a3a'; g.fillRect(Math.round(px), T - 6, 1, Bt - T + 10); }
       }
     }
-    // the timeline: frames that move the window dark, still frames light
-    function renderBar() {
-      const W = 860, H = 14, N = run.frames.length - 1;
-      barImg = document.createElement('canvas'); barImg.width = W; barImg.height = H;
-      const ctx = barImg.getContext('2d'), mv = cssVar(bar, '--benson-move', '#2f3136'), st = cssVar(bar, '--benson-hold', '#d5d3cc');
-      for (let k = 1; k <= N; k++) {
-        const x0 = Math.floor((k - 1) / N * W), x1 = Math.floor(k / N * W);
-        ctx.fillStyle = run.frames[k].ch >= 0 ? mv : st; ctx.fillRect(x0, 2, Math.max(1, x1 - x0), H - 4);
-      }
-      bar.width = W; bar.height = H;
+    // voice 3's registers, and one frame of its wave
+    function showRegs(v) {
+      const r = (a, val, what, live) => '<tr' + (live ? ' class="bv-live"' : '') + '><td>' + h4(a) + '</td><td>' + h2(val) + '</td><td>' + what + '</td></tr>';
+      regs.innerHTML = '<div><b>Voice 3</b>, envelope at full</div><div class="bv-env"></div><table>' +
+        r(0xD40E, INIT[14], 'frequency, low byte: never written') +
+        r(0xD40F, v, v ? 'frequency, high byte: ' + h4(v * 256) + ', ' + (v * STEP).toFixed(1) + ' Hz, ' + note(v * STEP) : 'frequency, high byte: 0, the oscillator stops', true) +
+        r(0xD410, INIT[16], 'pulse width, low byte') + r(0xD411, INIT[17], 'pulse width, high nibble: $' + ((INIT[17] & 15) << 8 | INIT[16]).toString(16).toUpperCase() + ' of $FFF, a square wave') +
+        r(0xD412, 0x41, 'control: pulse on, gate on (' + code(0xB91B) + ')') + r(0xD413, INIT[19], 'attack 0, decay 0') + r(0xD414, INIT[20], 'sustain 15, release 0') +
+        r(0xD418, INIT[24], 'volume 15, filter off, voice 3 connected') + '</table>';
     }
-    function drawBar() {
-      const ctx = bar.getContext('2d'), N = run.frames.length - 1; ctx.clearRect(0, 0, bar.width, bar.height); ctx.drawImage(barImg, 0, 0);
-      ctx.fillStyle = cssVar(bar, '--benson-head', '#c25a00'); ctx.fillRect(Math.round(f / N * (bar.width - 3)), 0, 3, bar.height);
+    function drawScope(v) {
+      const dpr = window.devicePixelRatio || 1, W = scope.clientWidth, H = scope.clientHeight;
+      if (!W) return;
+      scope.width = Math.round(W * dpr); scope.height = Math.round(H * dpr);
+      const g = scope.getContext('2d'); g.setTransform(dpr, 0, 0, dpr, 0, 0); g.fillStyle = '#000'; g.fillRect(0, 0, W, H);
+      g.strokeStyle = '#2a8a4a'; g.globalAlpha = .5; g.beginPath(); g.moveTo(0, H / 2); g.lineTo(W, H / 2); g.stroke(); g.globalAlpha = 1;
+      const hz = v * STEP, cyc = hz / PAL_HZ, top = H * .2, bot = H * .8;
+      g.strokeStyle = '#8fe38f'; g.lineWidth = 1.5; g.beginPath();
+      if (!v) { g.moveTo(0, H / 2); g.lineTo(W, H / 2); }
+      else {
+        const half = W / cyc / 2; let x = 0, hi = true; g.moveTo(0, top);
+        while (x < W) { const nx = Math.min(W, x + half); g.lineTo(nx, hi ? top : bot); if (nx < W) g.lineTo(nx, hi ? bot : top); x = nx; hi = !hi; }
+      }
+      g.stroke();
+      scap.textContent = v ? 'One frame, 1/50 s: ' + cyc.toFixed(1) + ' cycles of a square wave at ' + hz.toFixed(1) + ' Hz' : 'One frame, 1/50 s: frequency 0, no wave';
     }
 
-    const rate = () => (slow.checked ? 0.25 : 1);
+    // one frame of the run: the window, the roll's head, the registers, the wave
+    let shownV = -1;
+    function show(k) {
+      f = Math.max(0, Math.min(run.frames.length - 1, k));
+      const F = run.frames[f];
+      blit(cv, paintWindow(ram, ram, F.win, state.ink), 4);
+      drawRoll();
+      const v = Math.max(0, F.sid);
+      if (v !== shownV) { shownV = v; showRegs(v); drawScope(v); }
+    }
+    function setRun(r) { run = r; cols = layout(r); shownV = -1; show(0); }
+
+    // playing: the window follows the sound's own frames; without sound, the clock
+    function stop() {
+      playing = false; cancelAnimationFrame(raf); raf = 0;
+      if (sound) sound.send({ cmd: 'stop' });
+    }
+    function play(r) {
+      if (!r) return;
+      stop(); setRun(r);
+      lastWin = r.frames[r.frames.length - 1].win;                  // the next message starts from this one's end
+      playing = true; heard = false; queue = []; sent = 0; useClock = noSound; t0 = performance.now();
+      const my = ++token;
+      startSound(my);
+      raf = requestAnimationFrame(loop);
+    }
     function loop(now) {
       if (!playing) return;
-      const k = f0 + Math.floor((now - t0) / 1000 * PAL_HZ * rate());
-      if (k >= run.frames.length - 1) { show(run.frames.length - 1); stop(); return; }
+      raf = requestAnimationFrame(loop);
+      let k;
+      if (useClock) k = Math.floor((now - t0) / 1000 * PAL_HZ);
+      else {
+        if (!sent) return;                                           // the sound is still loading
+        const t = sound.ctx.currentTime - (sound.ctx.outputLatency || 0);
+        let snap = null;
+        while (queue.length && queue[0].t <= t) { const q = queue.shift(); if (q.run === token) snap = q; }
+        if (!snap) {                                                 // no frames 1.5 s after the start: this time, the clock
+          if (!heard && now - sent > 1500) { useClock = true; t0 = now - f / PAL_HZ * 1000; }
+          return;
+        }
+        heard = true; k = snap.v[2].k;
+      }
+      if (k >= run.frames.length - 1) { show(run.frames.length - 1); stop(); drawRoll(); return; }
       if (k !== f) show(k);
-      raf = requestAnimationFrame(loop);
-    }
-    function play() {
-      if (f >= run.frames.length - 1) show(0);
-      playing = true; btnPlay.textContent = 'Pause'; btnPlay.setAttribute('aria-pressed', 'true');
-      f0 = f; t0 = performance.now();
-      if (snd.checked && rate() === 1) startSound();
-      raf = requestAnimationFrame(loop);
-    }
-    function stop() {
-      playing = false; cancelAnimationFrame(raf); btnPlay.textContent = 'Play'; btnPlay.setAttribute('aria-pressed', 'false');
-      if (sound) sound.send({ cmd: 'stop' });
     }
     // the tick on SID voice 3, through the site's model of the SID: the printer's own $D40F
     // values, one a frame, with voice 3 set up as $B910 leaves it
-    function startSound() {
+    function startSound(my) {
       const go = () => {
-        if (!playing) return;
-        const seq = [];
-        for (let k = f + 1; k < run.frames.length; k++) seq.push(Math.max(0, run.frames[k].sid));
-        sound.ctx.resume(); sound.send({ cmd: 'start', tune: { seq, init: Array.from(ram.subarray(0xB921, 0xB921 + 25)) } });
-        f0 = f; t0 = performance.now();
+        if (my !== token || !playing) return;
+        const seq = run.frames.slice(1).map(F => Math.max(0, F.sid));
+        queue = []; sound.ctx.resume();
+        sound.send({ cmd: 'start', run: my, tune: { seq, init: Array.from(INIT) } });
+        sent = performance.now();
       };
+      if (noSound) return;
       if (sound) return go();
       if (soundBusy) return;
       soundBusy = true;
       const ready = window.C64Sid ? Promise.resolve() : new Promise((res, rej) => {
-        const s = document.createElement('script'); s.src = '../../lib/sid.js'; s.onload = res; s.onerror = () => rej(new Error('sid.js did not load')); document.head.appendChild(s);
+        const sc = document.createElement('script'); sc.src = '../../lib/sid.js'; sc.onload = res; sc.onerror = () => rej(new Error('sid.js did not load')); document.head.appendChild(sc);
       });
-      ready.then(() => window.C64Sid.host({ driver: tickDriver, data: null, gain: 0.3 }))
+      ready.then(() => window.C64Sid.host({ driver: tickDriver, data: null, gain: 0.3, onFrame: q => queue.push(q) }))
         .then(h => { sound = h; soundBusy = false; go(); })
-        .catch(e => { soundBusy = false; snd.checked = false; $('benson-soundnote').textContent = 'No sound: ' + e.message; });
+        .catch(e => { soundBusy = false; noSound = useClock = true; t0 = performance.now() - f / PAL_HZ * 1000; needNote('No sound: ' + e.message); });
     }
-    btnPlay.onclick = () => (playing ? stop() : play());
-    $('benson-step').onclick = () => { stop(); show(f + 1); };
-    $('benson-back').onclick = () => { stop(); show(f - 1); };
-    $('benson-restart').onclick = () => { stop(); show(0); };
-    slow.onchange = () => { if (playing) { stop(); play(); } };
-    snd.onchange = () => { $('benson-soundnote').textContent = ''; if (!snd.checked) { if (sound) sound.send({ cmd: 'stop' }); } else if (playing && rate() === 1) startSound(); };
-    seek.oninput = () => { stop(); show(+seek.value); };
-    bar.onclick = e => { const r = bar.getBoundingClientRect(); stop(); show(Math.round((e.clientX - r.left) / r.width * (run.frames.length - 1))); };
-    pick.onchange = () => load(pick.value, true);
+
+    function choose(key) {
+      picked = key; pick.value = key;
+      const m = byKey.get(key); text.value = spoken = (m.text || '').slice(0, 200);
+    }
+    pick.onchange = () => {
+      if (pick.value === '') { picked = null; text.focus(); return; }
+      choose(pick.value); play(msgRun(picked, lastWin));
+    };
+    $('bv-say').onclick = () => {
+      if (picked && text.value === spoken) return play(msgRun(picked, lastWin));   // the message itself, not a copy
+      picked = null; pick.value = '';
+      play(textRun(text.value, lastWin));
+    };
+    text.addEventListener('keydown', e => { if (e.key === 'Enter') { e.preventDefault(); $('bv-say').click(); } });
+    $('bv-stop').onclick = () => { stop(); drawRoll(); };
+    window.addEventListener('resize', () => { if (run) { drawRoll(); shownV = -1; show(f); } });
+
     const C = panelColours(ram), colSel = $('benson-colour');
     colSel.innerHTML = [['', 'red (' + C.window + '): no Metal Detector, or a square of nobody’s'], [C.detector.pal, 'green (' + C.detector.pal + '): the Metal Detector over a Palyar square'],
       [C.detector.mech, 'blue (' + C.detector.mech + '): the Metal Detector over a Mechanoid square']].map(([v, t]) => '<option value="' + v + '">' + esc(t) + '</option>').join('');
-    colSel.onchange = () => { state.ink = colSel.value === '' ? null : +colSel.value; renderTape(); show(f); state.redraw.forEach(fn => fn()); };
-    load('s' + (0x0AAC).toString(16), false);
-    return key => { load(key, true); $('benson-window').scrollIntoView({ behavior: 'smooth', block: 'start' }); setTimeout(play, 450); };
+    colSel.onchange = () => { state.ink = colSel.value === '' ? null : +colSel.value; show(f); state.redraw.forEach(fn => fn()); };
+
+    // before any sound: the hand-over's window and the first message, ready to play
+    const first = 's' + (0x0AAC).toString(16);
+    choose(first); setRun(msgRun(first, lastWin));
+    return key => {
+      choose(key); stop(); setRun(msgRun(key, lastWin));
+      $('benson-window').scrollIntoView({ behavior: 'smooth', block: 'start' });
+      setTimeout(() => play(msgRun(key, lastWin)), 450);
+    };
   }
 
   /* ------------------------------------------------------------------------------------------
