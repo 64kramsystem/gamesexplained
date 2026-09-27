@@ -6891,17 +6891,34 @@ function makeDisplay(opts) {
   });
 
   // --- sound: the SID writes of each frame, streamed to the site's SID model ------------------
+  // Each write is filed under the frame of C64 time it was made in, and every frame goes to the
+  // model as its own entry, empty or not: a pass's drawing runs several frames of time in one
+  // runFrame, and sent as one entry its writes (Benson's pitch, a frame at a time) would sound in
+  // one frame, the last of them held until the next pass.
   const sound = (function () {
-    let host = null, on = false, pending = [];
+    const FRAME = 19656;
+    let host = null, on = false, pending = new Map(), sent = 0;
     function driver() {
       const sid = new Uint8Array(25), queue = [];
       const d = { sid, writes: [], playing: () => true, stop() {},
-        init(t) { if (t && t.frames) for (const f of t.frames) queue.push(f); while (queue.length > 12) queue.shift(); },
+        // a queue longer than half a second loses its oldest frame's timing, not its writes
+        init(t) { if (t && t.frames) for (const f of t.frames) queue.push(f); while (queue.length > 25) { const f = queue.shift(); queue[0] = f.concat(queue[0]); } },
         play() { const f = queue.shift(); d.writes = f || []; if (f) for (let i = 0; i + 1 < f.length; i += 2) sid[f[i]] = f[i + 1]; } };
       return d;
     }
-    function attach() { if (rt) rt.onSid((r, v) => { if (on) pending.push(r, v); }); }
+    function reset() { pending.clear(); sent = rt ? rt.frame : 0; }
+    function attach() {
+      if (!rt) return;
+      reset();
+      rt.onSid((r, v, t) => {
+        if (!on) return;
+        const f = Math.max(sent, Math.floor(t / FRAME));
+        let w = pending.get(f); if (!w) pending.set(f, w = []);
+        w.push(r, v);
+      });
+    }
     async function set(want) {
+      if (want && !on) reset();
       on = want;
       if (on && !host) {
         try { host = await C64Sid.host({ driver, data: null, gain: 0.5 }); host.send({ cmd: 'start', tune: { frames: [Array.from(rt ? rt.sid.subarray(0, 25).reduce((a, v, i) => (a.push(i, v), a), []) : [])] } }); }
@@ -6910,7 +6927,13 @@ function makeDisplay(opts) {
       if (host) { if (on) host.ctx.resume(); else host.ctx.suspend(); }
       return on;
     }
-    return { attach, set, get on() { return on; }, frame() { if (on && host) { host.send({ cmd: 'start', tune: { frames: [pending] } }); pending = []; } } };
+    function frame() {                          // the frames the clock has finished since the last call
+      if (!on || !host || !rt) return;
+      const frames = [];
+      for (; sent < rt.frame; sent++) { frames.push(pending.get(sent) || []); pending.delete(sent); }
+      if (frames.length) host.send({ cmd: 'start', tune: { frames } });
+    }
+    return { attach, set, frame, get on() { return on; } };
   })();
 
   // --- controls ---------------------------------------------------------------------------------
