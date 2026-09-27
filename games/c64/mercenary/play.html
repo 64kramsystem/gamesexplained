@@ -61,6 +61,7 @@ th{font-weight:700;color:var(--ink-soft)}
 .pl-pad button.on{background:var(--ink);color:#fff}
 @media (pointer:coarse){.pl-pad{display:grid}}
 .pl-mod{margin-top:16px;display:flex;gap:10px;flex-wrap:wrap;align-items:center}
+.pl-cheats{display:contents}
 .pl-list{margin:0 0 14px;padding-left:20px}
 #alive-cv{display:block;max-width:100%;height:auto;margin-top:14px;border-radius:6px}
 section table{margin:6px 0 18px}
@@ -111,6 +112,10 @@ section table{margin:6px 0 18px}
     </div>
     <div class="pl-mod">
       <button type="button" id="alive-on" aria-pressed="false">🚗✈️ Mod: Targ Traffic</button>
+      <span id="cheat-bar" class="pl-cheats">
+        <button type="button" data-cheat="items" title="Carry the seven keys, the Kitchen Sink, the Antigrav and the Photon Emitter, and put every other item on the ground around you">🎒 All items and keys</button>
+        <button type="button" data-cheat="ending" title="Board the interstellar ship and launch: the game's own ending">🚀 Show the ending</button>
+      </span>
       <span class="pl-status" id="alive-status"></span>
     </div>
     <p class="cap" id="pl-cap">The game's own screen, drawn from the port's memory each frame the way the video chip would: the view's two bitmaps, the panel in the game's character set, the gun sight sprite. <b>Native resolution</b> draws the same view (the same edges, dots and horizon, from the same positions) as sharp lines at the screen's own resolution.</p>
@@ -6267,6 +6272,7 @@ function makeDisplay(opts) {
     g.drawImage(faithful, 0, 0, W, H);
     const st = rt.modern;
     if (!st) return;
+    if (rt.M[0xBEFE]) return;                           // the escape's starfield: no scene, bitmap A holds the stars
     // the view's lines that show a bitmap, and which one
     let y0 = -1, y1 = -1, page = 0;
     for (let y = disp.BORDER; y < disp.BORDER + 136; y++) if (disp.bitmapLine[y]) { if (y0 < 0) y0 = y; y1 = y; page = disp.pageLine[y]; }
@@ -6330,6 +6336,92 @@ function makeDisplay(opts) {
     g.restore();
   }
   window.MercModern = { attach, draw };
+})();
+</script>
+<script>
+/* cheats */
+/* cheats: two buttons beside the mod's. Each is done at the top of the next pass of the main loop
+   ($855C, where CTRL+Q jumps back to), through the game's own variables and routines.
+   All items and keys: the game carries ten at most (the list $BEB1, the count $EB), so it
+   carries the seven keys (17-23), the Kitchen Sink (47), the Antigrav (27) and the Photon
+   Emitter (16), and puts the other named items (and anything else it was carrying) on the ground
+   around the player, 512 units apart so T reaches one at a time, inside the walls in a room.
+   The ending: the player aboard craft 7, the interstellar ship, on the surface (CTRL+Q's
+   quit_situation first if underground), and the running script sent to escape_ending ($1123),
+   the part of script 7 after PRESS Y TO LAUNCH and the advert check. It never returns. */
+(function () {
+  'use strict';
+  const CARRY = [17, 18, 19, 20, 21, 22, 23, 47, 27, 16];
+  const REST = [24, 25, 26, 28, 29, 30, 31, 32, 34, 35, 38, 40, 41, 42, 43, 44, 45, 46];
+  function attach(rt) {
+    const P = rt.P, M = rt.M;
+    let want = null;
+    const api = { request(what) { want = what; }, get pending() { return want; }, done: null };
+    function items() {
+      const drop = REST.slice();
+      for (let x = 1; x <= M[0xEB] && x <= 10; x++) {            // what was carried before
+        const o = M[0xBEB0 + x];
+        M[0x29C0 + o] &= 0x7F;
+        if (!CARRY.includes(o) && !drop.includes(o)) drop.push(o);
+      }
+      CARRY.forEach((o, i) => { M[0xBEB1 + i] = o; M[0x29C0 + o] |= 0x80; M[0x2940 + o] = 0xFF; });
+      M[0xEB] = CARRY.length;
+      // the rest on a grid of 6 x 3 around the player, as place_object ($991B) puts one
+      const room = M[0xCD], under = M[0xA8] !== 0;
+      const px = M[0x72] | M[0x73] << 8 | M[0x74] << 16, py = M[0x78] | M[0x79] << 8 | M[0x7A] << 16;
+      const maxX = (M[0x0440] << 8) - 0x22, maxY = (M[0x0540] << 8) - 0x22;   // keep_in_room's walls ($93D4)
+      drop.forEach((o, i) => {
+        let x = px + ((i % 6) - 2.5) * 512, y = py + (Math.floor(i / 6) - 1) * 512;
+        if (under) { x = Math.min(Math.max(x, 0x20), maxX); y = Math.min(Math.max(y, 0x20), maxY); }
+        x = (x & 0xFFFFFF) >>> 0; y = (y & 0xFFFFFF) >>> 0;
+        M[0x2940 + o] = room;
+        M[0x2880 + o] = x & 255; M[0x2480 + o] = x >> 8 & 255; M[0x2540 + o] = x >> 16 & 255;
+        M[0x2900 + o] = y & 255; M[0x2500 + o] = y >> 8 & 255; M[0x25C0 + o] = y >> 16 & 255;
+        M[0x28C0 + o] = 0;
+        M[0x24C0 + o] = under ? M[0x76] : 0; M[0x2580 + o] = under ? M[0x77] : 0;   // on the surface, the ground
+      });
+      P.list_room_objects();
+      return 'Carrying the seven keys, the Kitchen Sink, the Antigrav and the Photon Emitter; ' + drop.length + ' more on the ground around you.';
+    }
+    function ending() {
+      if (M[0xBEFE]) return 'The ending is already running.';
+      if (M[0xA8] || M[0xCD]) P.quit_situation({ c: 0 });       // up to the surface, in the Dart
+      const y = M[0xA9];
+      if (y < 9 && y !== 7) P.place_object({ y });                // the craft left where it is
+      M[0xA9] = 7;
+      P.load_motion_record({ a: 7 });
+      M[0x2947] = 0xFF;                                           // the ship out of the world
+      P.list_room_objects();
+      P.view_matrix({});
+      P.stop_craft();
+      M[0xBEC0] |= 0x40;                                          // an event script running
+      M[0x1F] = 0x23; M[0x20] = 0x11;                             // escape_ending, $1123
+      return 'Aboard the interstellar ship: the ending.';
+    }
+    rt.onPass(() => {
+      if (!want || M[0xCA]) return;                               // not during a lift ride
+      const w = want; want = null;
+      const msg = w === 'items' ? items() : ending();
+      if (api.done) api.done(msg);
+    });
+    rt.cheats = api;
+    return api;
+  }
+  function wire() {
+    const bar = document.getElementById('cheat-bar'), stat = document.getElementById('alive-status');
+    if (!bar) return;
+    bar.addEventListener('click', e => {
+      const b = e.target.closest('button[data-cheat]'); if (!b) return;
+      const rt = window.MercPlay && window.MercPlay.rt, c = rt && rt.cheats;
+      if (!c) { stat.textContent = 'Start the game first.'; return; }
+      c.done = msg => { stat.textContent = msg; };
+      c.request(b.dataset.cheat);
+      stat.textContent = rt.passes ? 'At the next pass…' : 'When the game reaches Targ…';
+      document.getElementById('pl-screen').focus();
+    });
+  }
+  if (typeof document !== 'undefined') { if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', wire); else wire(); }
+  window.MERC_MODS = (window.MERC_MODS || []).concat([{ name: 'cheats', attach }]);
 })();
 </script>
 <script>
