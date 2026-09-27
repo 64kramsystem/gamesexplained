@@ -6902,7 +6902,7 @@ function makeDisplay(opts) {
   }
 
   // --- the loop --------------------------------------------------------------------------------
-  let acc = 0, last = 0, fps = 0, fpsT = 0, fpsN = 0;
+  let acc = 0, last = 0;
   function tick(now) {
     requestAnimationFrame(tick);
     if (!running || paused) { last = now; return; }
@@ -6913,7 +6913,6 @@ function makeDisplay(opts) {
     } catch (e) { running = false; showOver('The port stopped: ' + e.message); console.error(e); return; }
     if (n === 10) acc = 0;
     if (n) draw();
-    fpsN += n; if (now - fpsT > 1000) { fps = fpsN; fpsN = 0; fpsT = now; status.textContent = 'frame ' + rt.frame + ' · pass ' + rt.passes + ' · ' + fps + ' frames/s'; }
   }
 
   // --- input: the keyboard as the C64's, the arrows as the joystick in port 2 -----------------
@@ -7029,7 +7028,8 @@ function makeDisplay(opts) {
   })();
 
   // --- controls ---------------------------------------------------------------------------------
-  function say(t) { status.textContent = t; }
+  let sayTimer = 0;
+  function say(t) { status.textContent = t; clearTimeout(sayTimer); sayTimer = setTimeout(() => { status.textContent = ''; }, 6000); }
   function showOver(t, btn) {
     overMsg.textContent = t; over.hidden = false;
     const old = over.querySelector('button'); if (old) old.remove();
