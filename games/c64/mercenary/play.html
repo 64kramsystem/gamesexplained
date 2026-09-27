@@ -6413,7 +6413,7 @@ function makeDisplay(opts) {
     bar.addEventListener('click', e => {
       const b = e.target.closest('button[data-cheat]'); if (!b) return;
       const rt = window.MercPlay && window.MercPlay.rt, c = rt && rt.cheats;
-      if (!c) { stat.textContent = 'Start the game first.'; return; }
+      if (!c) { stat.textContent = 'Start the game first.'; document.getElementById('pl-screen').focus(); return; }
       c.done = msg => { stat.textContent = msg; };
       c.request(b.dataset.cheat);
       stat.textContent = rt.passes ? 'At the next pass…' : 'When the game reaches Targ…';
@@ -6784,6 +6784,7 @@ function makeDisplay(opts) {
       const n = k => (a ? a.mod.V.filter(k).length : 0);
       stat.textContent = wanted ? (a ? 'On: ' + n(v => v.kind === 'car') + ' cars, ' + n(v => v.kind === 'air' && !v.colony) + ' craft, ' + n(v => v.colony) + ' Colony shuttles.' : 'On from the start of the game.') : 'Off: the original game.';
       showMap = wanted; panel.hidden = !showMap; if (showMap) requestAnimationFrame(drawMap);
+      document.getElementById('pl-screen').focus();
     });
     let showMap = false;                          // the map shows while the mod is on
     const css = n => getComputedStyle(document.documentElement).getPropertyValue(n).trim() || '#888';
@@ -6976,7 +6977,7 @@ function makeDisplay(opts) {
   // the touch pad
   document.querySelectorAll('#pl-pad button').forEach(b => {
     const bits = +b.dataset.pad;
-    const on = ev => { ev.preventDefault(); padBits |= bits; b.classList.add('on'); joy(); };
+    const on = ev => { ev.preventDefault(); padBits |= bits; b.classList.add('on'); joy(); screen.focus(); };
     const offf = () => { padBits &= ~bits; b.classList.remove('on'); joy(); };
     b.addEventListener('pointerdown', on); b.addEventListener('pointerup', offf); b.addEventListener('pointercancel', offf); b.addEventListener('pointerleave', offf);
   });
@@ -7045,13 +7046,14 @@ function makeDisplay(opts) {
   bar.addEventListener('click', async e => {
     const b = e.target.closest('button'); if (!b) return;
     const act = b.dataset.act;
-    if (act === 'pause') { paused = !paused; b.setAttribute('aria-pressed', String(paused)); if (!paused) screen.focus(); }
+    if (act === 'pause') { paused = !paused; b.setAttribute('aria-pressed', String(paused)); }
     else if (act === 'restart') { rt = null; boot(); sound.attach(); running = true; paused = false; bar.querySelector('[data-act="pause"]').setAttribute('aria-pressed', 'false'); screen.focus(); }
     else if (act === 'render') { native = !native; b.setAttribute('aria-pressed', String(native)); if (!native) { cv.width = 1; } draw(); screen.focus(); }
     else if (act === 'sound') { const on = await sound.set(!sound.on); b.setAttribute('aria-pressed', String(on)); screen.focus(); }
     else if (act === 'ctrlq' && running) tap([KEY.CTRL, KEY.Q], 12);
     else if (act === 'save' && running) { tap([KEY.CTRL, KEY.S], 12); say('Saving: type a digit 0-9, then Enter.'); }
     else if (act === 'load' && running) { tap([KEY.CTRL, KEY.L], 12); say('Loading: type a digit 0-9, then Enter.'); }
+    screen.focus();                             // every button hands the keyboard back to the game
   });
   screen.addEventListener('click', () => { if (!running && rt === null && image) start(); });
 
