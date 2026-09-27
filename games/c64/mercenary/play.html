@@ -60,7 +60,7 @@ th{font-weight:700;color:var(--ink-soft)}
 .pl-pad button{font-size:18px;border:1px solid var(--line);border-radius:10px;background:var(--surface-2)}
 .pl-pad button.on{background:var(--ink);color:#fff}
 @media (pointer:coarse){.pl-pad{display:grid}}
-.pl-mod{margin-top:10px;display:flex;gap:10px;flex-wrap:wrap;align-items:center}
+.pl-mod{margin-top:16px;display:flex;gap:10px;flex-wrap:wrap;align-items:center}
 .pl-list{margin:0 0 14px;padding-left:20px}
 #alive-cv{display:block;max-width:100%;height:auto;margin-top:14px;border-radius:6px}
 section table{margin:6px 0 18px}
@@ -94,10 +94,6 @@ section table{margin:6px 0 18px}
       <button type="button" data-act="load" title="CTRL + L: load a position">Load</button>
       <span class="pl-status" id="pl-status" aria-live="polite"></span>
     </div>
-    <div class="pl-mod">
-      <button type="button" id="alive-on" aria-pressed="false">🚗✈️ Mod: Targ Traffic</button>
-      <span class="pl-status" id="alive-status"></span>
-    </div>
     <ul class="pl-keys" id="pl-keys">
       <li><kbd>←</kbd> <kbd>→</kbd> <kbd>↑</kbd> <kbd>↓</kbd> the joystick</li>
       <li><kbd>F</kbd> or right <kbd>Ctrl</kbd> fire</li>
@@ -112,6 +108,10 @@ section table{margin:6px 0 18px}
       <button type="button" data-pad="5">↖</button><button type="button" data-pad="1">↑</button><button type="button" data-pad="9">↗</button>
       <button type="button" data-pad="4">←</button><button type="button" data-pad="16">●</button><button type="button" data-pad="8">→</button>
       <button type="button" data-pad="6">↙</button><button type="button" data-pad="2">↓</button><button type="button" data-pad="10">↘</button>
+    </div>
+    <div class="pl-mod">
+      <button type="button" id="alive-on" aria-pressed="false">🚗✈️ Mod: Targ Traffic</button>
+      <span class="pl-status" id="alive-status"></span>
     </div>
     <p class="cap" id="pl-cap">The game's own screen, drawn from the port's memory each frame the way the video chip would: the view's two bitmaps, the panel in the game's character set, the gun sight sprite. <b>Native resolution</b> draws the same view (the same edges, dots and horizon, from the same positions) as sharp lines at the screen's own resolution.</p>
     <div id="alive-panel" hidden>
