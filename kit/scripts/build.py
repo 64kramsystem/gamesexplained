@@ -8,6 +8,7 @@ For every games/<platform>/<slug>/game.json:
   play.html    copied through if authored          (Play)
   about.html   from site/about.html + game.json + features.md + orientation.md + git log
   listing.json, symbols.json, reference/           copied
+Every tab but Source lists its sections in the left margin (pagenav).
 Plus a home page with the catalogue and the games most recently added or changed
 (from git history), site/lib/, kit.html (the kit changelog),
 status.html (from site/status.html + site/status.json: which kits work on which
@@ -21,7 +22,7 @@ Usage: build.py [--out _site]
 Preview: python3 -m http.server -d _site 8000   (8000, or any free port)
 No dependencies. The markdown converter handles the subset the templates use.
 """
-import glob, html, json, os, re, shutil, subprocess, sys
+import glob, html, html.parser, json, os, re, shutil, subprocess, sys
 
 ROOT = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 SITE = os.path.join(ROOT, "site")
@@ -44,8 +45,9 @@ def addr_link(s):
     return re.sub(r"\$([0-9A-Fa-f]{4})\b", lambda m: f'<a href="source.html#{m.group(1).upper()}">${m.group(1).upper()}</a>', s)
 
 
-def markdown(text, drop_h1=True, addr=True):
-    """addr=False where the page has no Source tab to link addresses into."""
+def markdown(text, drop_h1=True, addr=True, shift=0):
+    """addr=False where the page has no Source tab to link addresses into; shift=1 sets
+    the headings one level down, for a file placed under a heading of the page's own."""
     out, lines, i = [], text.splitlines(), 0
     para = []
     inline_ = lambda x: inline(x, addr)
@@ -64,7 +66,8 @@ def markdown(text, drop_h1=True, addr=True):
         if m:
             flush(); lvl = len(m.group(1))
             if not (lvl == 1 and drop_h1):
-                out.append(f"<h{lvl}>{inline_(m.group(2))}</h{lvl}>")
+                h = min(6, lvl + shift)
+                out.append(f"<h{h}>{inline_(m.group(2))}</h{h}>")
             i += 1; continue
         if ln.startswith("|"):
             flush(); rows = []
@@ -283,6 +286,127 @@ def under_title(page, ban):
     return page.replace("</nav>", "</nav>\n" + ban, 1)
 
 
+# --- every tab but Source: the page's sections, listed in the left margin -------------
+class Outline(html.parser.HTMLParser):
+    """What a page's margin list is made of, in page order: each top-level <section>, with
+    its label (the .fig line, "NN · label") and its first <h2>, and every other <h2> as an
+    entry of its own. Records where each element opens and its id, and reads a heading
+    without the badges in it."""
+
+    def __init__(self):
+        super().__init__(convert_charrefs=True)
+        self.items, self.depth, self.sec, self.grab, self.skip = [], 0, None, None, 0
+
+    def handle_starttag(self, tag, attrs):
+        a = dict(attrs)
+        cls = set((a.get("class") or "").split())
+        if self.grab:
+            if tag == "span" and (self.skip or cls & {"tag", "badge"}):
+                self.skip += 1
+            elif tag == "br" and not self.skip:
+                self.handle_data(" ")
+            return
+        if tag == "section":
+            self.depth += 1
+            if self.depth == 1:
+                self.sec = {"el": "section", "at": self.getpos(), "id": a.get("id"), "fig": None, "h2": None}
+                self.items.append(self.sec)
+        elif tag == "h2":
+            if self.sec and self.sec["h2"] is None:
+                self.sec["h2"] = ""; self.grab = ("h2", self.sec)
+            else:
+                item = {"el": "h2", "at": self.getpos(), "id": a.get("id"), "fig": None, "h2": ""}
+                self.items.append(item); self.grab = ("h2", item)
+        elif "fig" in cls and self.sec and self.sec["fig"] is None and self.sec["h2"] is None:
+            self.sec["fig"] = ""; self.grab = (tag, self.sec)
+
+    def handle_endtag(self, tag):
+        if self.grab:
+            if tag == "span" and self.skip:
+                self.skip -= 1
+            elif tag == self.grab[0]:
+                self.grab = None
+        elif tag == "section" and self.depth:
+            self.depth -= 1
+            if not self.depth:
+                self.sec = None
+
+    def handle_data(self, data):
+        if self.grab and not self.skip:
+            what, item = self.grab
+            item["h2" if what == "h2" else "fig"] += data
+
+
+SOUND_SECTION = re.compile(r"(?:the )?(sound|music)$", re.I)
+ABOUT_TUNES = re.compile(r"\b(?:tunes?|music|songs?)\b", re.I)
+
+
+def section_tag(label, heading):
+    """(tag, heading) as the margin list shows a section.
+
+    Bug and Secret come from the heading's own prefix ("Secret: ..."), which the list shows
+    as a tag. Music is a Music: prefix, or the sound section when it is about the tunes: one
+    labelled Music, or labelled Sound under a heading that names them. A sound section about
+    engine noise or effects gets no tag.
+    """
+    m = re.match(r"(bug|secret|music)\s*:\s*", heading, re.I)
+    if m:
+        rest = heading[m.end():]
+        return m.group(1).lower(), rest[:1].upper() + rest[1:]
+    s = SOUND_SECTION.match(label)
+    if s and (s.group(1).lower() == "music" or ABOUT_TUNES.search(heading)):
+        return "music", heading
+    return "", heading
+
+
+def slug(s):
+    s = re.sub(r"[^a-z0-9]+", "-", s.lower().replace("&", " and ").replace("'", "").replace("’", ""))
+    return s.strip("-")[:40].strip("-")
+
+
+def pagenav(page):
+    """List a page's sections in the left margin by heading, giving each one an id to link to.
+
+    The list is in the page from the first paint, before any script runs; site.js marks the
+    section being read, adds any section or heading the page's own script writes, and on a
+    narrow screen makes the list a drawer. Every tab but Source gets one, so the page column
+    sits in the same place on each.
+    """
+    scan = Outline()
+    scan.feed(page); scan.close()
+    starts = [0] + [m.end() for m in re.finditer("\n", page)]
+    taken = set(re.findall(r'\bid="([^"]+)"', page))
+    edits, items = [], []
+    for s in scan.items:
+        fig = " ".join((s["fig"] or "").split())
+        m = re.match(r"(\d+)\s*[·:.–—-]\s*(.*)", fig)
+        num, label = (m.group(1), m.group(2)) if m else ("", fig)
+        heading = " ".join((s["h2"] or "").split()) or label
+        if not heading:
+            continue
+        sid = s["id"]
+        if not sid:
+            base = slug(label or heading) or "section"
+            sid, n = base, 2
+            while sid in taken:
+                sid, n = f"{base}-{n}", n + 1
+            edits.append((starts[s["at"][0] - 1] + s["at"][1], s["el"], sid))
+        taken.add(sid)
+        tag, text = section_tag(label, heading)
+        k = f'<span class="k {tag}">{tag.capitalize()}</span> ' if tag else ""
+        items.append(f'<li><a href="#{html.escape(sid)}"><span class="n">{html.escape(num)}</span>'
+                     f'<span class="h">{k}{html.escape(text, quote=False)}</span></a></li>')
+    for at, el, sid in sorted(edits, reverse=True):
+        n = len(el) + 1
+        if page[at:at + n].lower() == "<" + el:
+            page = page[:at + n] + f' id="{html.escape(sid)}"' + page[at + n:]
+    nav = ('<nav class="pagenav" id="pagenav" aria-label="On this page"><div class="in">'
+           '<p class="hd">On this page</p><ol>' + "".join(items) + "</ol>"
+           '<a class="top" href="#">↑ Back to the top</a></div></nav>')
+    m = re.search(r'<nav class="gametabs">.*?</nav>', page, re.S)
+    return page[:m.end()] + "\n" + nav + page[m.end():] if m else nav + "\n" + page
+
+
 FONTS = ('<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700;900'
          '&family=IBM+Plex+Mono:wght@400;500&display=swap">')
 
@@ -406,7 +530,8 @@ def build_game(gdir, out_root):
     for f in ("index.html", "levels.html", "play.html"):
         if f in present:
             page = fill(read(os.path.join(gdir, f)), **head)
-            open(os.path.join(out, f), "w").write(at_end(under_title(inject(page, nav, lib), ban), edit_footer(game, f)))
+            page = at_end(under_title(inject(page, nav, lib), ban), edit_footer(game, f))
+            open(os.path.join(out, f), "w").write(pagenav(page))
     # source
     facts = markdown(read(os.path.join(gdir, "facts.md")))
     cheats = read(os.path.join(gdir, "cheats.md"))
@@ -434,10 +559,10 @@ def build_game(gdir, out_root):
                  copy=html.escape(str(game.get("copy", ""))), tools=html.escape(", ".join(f"{k}: {v}" for k, v in tools.items())),
                  model=html.escape(str(game.get("model", ""))), kit_version=html.escape(str(game.get("kit_version", ""))),
                  contributors=con_html, links=link_html,
-                 features=markdown(read(os.path.join(gdir, "features.md"))),
-                 orientation=markdown(read(os.path.join(gdir, "orientation.md")))).replace("<!-- tabs -->", nav)
+                 features=markdown(read(os.path.join(gdir, "features.md")), shift=1),
+                 orientation=markdown(read(os.path.join(gdir, "orientation.md")), shift=1)).replace("<!-- tabs -->", nav)
     about = under_title(about, ban)
-    open(os.path.join(out, "about.html"), "w").write(at_end(about, edit_footer(game, "about.html")))
+    open(os.path.join(out, "about.html"), "w").write(pagenav(at_end(about, edit_footer(game, "about.html"))))
     for f in ("listing.json", "symbols.json"):
         if os.path.exists(os.path.join(gdir, f)):
             shutil.copy(os.path.join(gdir, f), out)
