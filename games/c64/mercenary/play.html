@@ -87,7 +87,7 @@ section table{margin:6px 0 18px}
       <button type="button" data-act="restart">Start again</button>
       <span class="pl-sep" aria-hidden="true"></span>
       <button type="button" data-act="render" aria-pressed="false" title="Draw the view at the screen's own resolution">Native resolution</button>
-      <button type="button" data-act="sound" aria-pressed="false">Sound</button>
+      <button type="button" data-act="sound" aria-pressed="true">🔊 Sound</button>
       <span class="pl-sep" aria-hidden="true"></span>
       <button type="button" data-act="ctrlq" title="CTRL + Q: quit the situation">CTRL + Q</button>
       <button type="button" data-act="save" title="CTRL + S: save a position">Save</button>
@@ -6901,8 +6901,8 @@ function makeDisplay(opts) {
       return d;
     }
     function attach() { if (rt) rt.onSid((r, v) => { if (on) pending.push(r, v); }); }
-    async function toggle() {
-      on = !on;
+    async function set(want) {
+      on = want;
       if (on && !host) {
         try { host = await C64Sid.host({ driver, data: null, gain: 0.5 }); host.send({ cmd: 'start', tune: { frames: [Array.from(rt ? rt.sid.subarray(0, 25).reduce((a, v, i) => (a.push(i, v), a), []) : [])] } }); }
         catch (e) { on = false; say('No sound: ' + e.message); }
@@ -6910,7 +6910,7 @@ function makeDisplay(opts) {
       if (host) { if (on) host.ctx.resume(); else host.ctx.suspend(); }
       return on;
     }
-    return { attach, toggle, frame() { if (on && host) { host.send({ cmd: 'start', tune: { frames: [pending] } }); pending = []; } } };
+    return { attach, set, get on() { return on; }, frame() { if (on && host) { host.send({ cmd: 'start', tune: { frames: [pending] } }); pending = []; } } };
   })();
 
   // --- controls ---------------------------------------------------------------------------------
@@ -6923,6 +6923,8 @@ function makeDisplay(opts) {
   function start() {
     over.hidden = true;
     if (!rt) { boot(); sound.attach(); }
+    const sb = bar.querySelector('[data-act="sound"]');          // on by default, started by this click
+    if (sb.getAttribute('aria-pressed') === 'true' && !sound.on) sound.set(true).then(v => sb.setAttribute('aria-pressed', String(v)));
     running = true; paused = false; last = 0; screen.focus();
   }
   const bar = $('pl-bar');
@@ -6932,7 +6934,7 @@ function makeDisplay(opts) {
     if (act === 'pause') { paused = !paused; b.setAttribute('aria-pressed', String(paused)); if (!paused) screen.focus(); }
     else if (act === 'restart') { rt = null; boot(); sound.attach(); running = true; paused = false; bar.querySelector('[data-act="pause"]').setAttribute('aria-pressed', 'false'); screen.focus(); }
     else if (act === 'render') { native = !native; b.setAttribute('aria-pressed', String(native)); if (!native) { cv.width = 1; } draw(); screen.focus(); }
-    else if (act === 'sound') { const on = await sound.toggle(); b.setAttribute('aria-pressed', String(on)); screen.focus(); }
+    else if (act === 'sound') { const on = await sound.set(!sound.on); b.setAttribute('aria-pressed', String(on)); screen.focus(); }
     else if (act === 'ctrlq' && running) tap([KEY.CTRL, KEY.Q], 12);
     else if (act === 'save' && running) { tap([KEY.CTRL, KEY.S], 12); say('Saving: type a digit 0-9, then Enter.'); }
     else if (act === 'load' && running) { tap([KEY.CTRL, KEY.L], 12); say('Loading: type a digit 0-9, then Enter.'); }
