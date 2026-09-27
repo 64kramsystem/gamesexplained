@@ -153,6 +153,8 @@ def hidden(e):
 
 def lock(src, e):
     """Why a block of prose cannot be edited in place, or None when it can."""
+    if hidden(e):
+        return "hidden"      # in a block hidden with the editor: no reader sees it
     inner = src[e["i"]:e["ie"]]
     if "{{" in inner:
         return "game.json"   # filled from game.json by the build
@@ -657,9 +659,9 @@ def selftest():
                 up = up["parent"]
             if e["tag"] != "section" or up is not None or hidden(e):
                 continue
-            inner = src[e["i"]:e["ie"]]
-            h2s = len(re.findall(r"<h2\b", inner))   # the first names the section; any other is an entry of its own
-            gone = (1 if h2s or re.search(r'class="[^"]*\bfig\b', inner) else 0) + max(h2s - 1, 0)
+            seen = [x for x in B if e["s"] < x["s"] < e["e"] and not hidden(x)]   # what of it a reader sees
+            h2s = sum(1 for x in seen if x["tag"] == "h2")   # the first names the section; any other is an entry of its own
+            gone = (1 if h2s or any("fig" in x["cls"] for x in seen) else 0) + max(h2s - 1, 0)
             want = listed - gone if listed - gone >= 2 else 0
             at = e["i"] - 1 - (src[e["i"] - 2] == "/")
             shown = section_list(path, src[:at] + " data-cut hidden" + src[at:]).count("<li>")
@@ -681,7 +683,14 @@ def selftest():
                             bad.append(f"{where}: a split put blocks in the wrong places")
                         if op_join(two, B2, n + 1, {"inner": inner})[0] != src:
                             bad.append(f"{where}: a split and a join did not cancel out")
-                if M[n].get("cut"):
+                if M[n].get("hidden"):   # hidden already: it comes back, and hides again, with every other block in place
+                    tried += 1
+                    back = op_restore(src, B, n, {})[0]
+                    again, x = op_cut(back, blocks(back), n, {})
+                    if "data-cut" in blocks(back)[n]["attrs"] or not lands(back, [], rest) or \
+                            x["mode"] == "hide" and ("data-cut" not in blocks(again)[n]["attrs"] or not lands(again, [], rest)):
+                        bad.append(f"{where}: restoring a hidden block and hiding it again moved blocks")
+                elif M[n].get("cut"):
                     tried += 1
                     new, x = op_cut(src, B, n, {})
                     if x["mode"] == "hide":
