@@ -113,8 +113,8 @@ section table{margin:6px 0 18px}
     <div class="pl-mod">
       <button type="button" id="alive-on" aria-pressed="false">🚗✈️ Mod: Targ Traffic</button>
       <span id="cheat-bar" class="pl-cheats">
-        <button type="button" data-cheat="items" title="Carry the seven keys, the Kitchen Sink, the Antigrav and the Photon Emitter, and put every other item on the ground around you">🎒 All items and keys</button>
-        <button type="button" data-cheat="ending" title="Board the interstellar ship and launch: the game's own ending">🚀 Show the ending</button>
+        <button type="button" data-cheat="keys" title="Carry the seven keys">🔑 All keys</button>
+        <button type="button" data-cheat="summon" title="Hire the interstellar ship as the Communications Room's radio does: it comes down over 08-08 in two minutes or more. Carries the Novadrive too">🚀 Summon the interstellar ship</button>
       </span>
       <span class="pl-status" id="alive-status"></span>
     </div>
@@ -6342,31 +6342,30 @@ function makeDisplay(opts) {
 /* cheats */
 /* cheats: two buttons beside the mod's. Each is done at the top of the next pass of the main loop
    ($855C, where CTRL+Q jumps back to), through the game's own variables and routines.
-   All items and keys: the game carries ten at most (the list $BEB1, the count $EB), so it
-   carries the seven keys (17-23), the Kitchen Sink (47), the Antigrav (27) and the Photon
-   Emitter (16), and puts the other named items (and anything else it was carrying) on the ground
-   around the player, 512 units apart so T reaches one at a time, inside the walls in a room.
-   The ending: the player aboard craft 7, the interstellar ship, on the surface (CTRL+Q's
-   quit_situation first if underground), and the running script sent to escape_ending ($1123),
-   the part of script 7 after PRESS Y TO LAUNCH and the advert check. It never returns. */
+   All keys: the seven keys (17-23) into the carried list ($BEB1, the count $EB), wherever they
+   were. The game carries ten at most, so what else was carried stays while it fits and the rest
+   is put on the ground beside the player, 512 units apart so T reaches one at a time.
+   Summon the interstellar ship: what script 2 does at SHIP DESPATCHED ($0EBA-$0EBE), $BEC0 bit 2
+   (the ship hired) and $BEFF = $FF, so the next pass puts object 7 over 08-08 and brings it down
+   in 780 passes, which the message calls 2 MINS. With bit 2 set, script 7 skips the Novadrive test
+   ($10DF); the cheat carries the Novadrive (25) all the same, and clears 02-03's destroyed bit
+   ($2B00 + $32) so the author lets you leave. Board it with B and answer Y. */
 (function () {
   'use strict';
-  const CARRY = [17, 18, 19, 20, 21, 22, 23, 47, 27, 16];
-  const REST = [24, 25, 26, 28, 29, 30, 31, 32, 34, 35, 38, 40, 41, 42, 43, 44, 45, 46];
+  const KEYS = [17, 18, 19, 20, 21, 22, 23], NOVADRIVE = 25;
   function attach(rt) {
     const P = rt.P, M = rt.M;
     let want = null;
     const api = { request(what) { want = what; }, get pending() { return want; }, done: null };
-    function items() {
-      const drop = REST.slice();
-      for (let x = 1; x <= M[0xEB] && x <= 10; x++) {            // what was carried before
-        const o = M[0xBEB0 + x];
-        M[0x29C0 + o] &= 0x7F;
-        if (!CARRY.includes(o) && !drop.includes(o)) drop.push(o);
-      }
-      CARRY.forEach((o, i) => { M[0xBEB1 + i] = o; M[0x29C0 + o] |= 0x80; M[0x2940 + o] = 0xFF; });
-      M[0xEB] = CARRY.length;
-      // the rest on a grid of 6 x 3 around the player, as place_object ($991B) puts one
+    // the objects in `take` carried first, then what was carried before while it fits; the rest
+    // on a grid of 6 around the player, as place_object ($991B) puts one
+    function carry(take) {
+      const had = [];
+      for (let x = 1; x <= M[0xEB] && x <= 10; x++) had.push(M[0xBEB0 + x]);
+      const list = take.concat(had.filter(o => !take.includes(o)));
+      const keep = list.slice(0, 10), drop = list.slice(10);
+      keep.forEach((o, i) => { M[0xBEB1 + i] = o; M[0x29C0 + o] |= 0x80; M[0x2940 + o] = 0xFF; });
+      M[0xEB] = keep.length;
       const room = M[0xCD], under = M[0xA8] !== 0;
       const px = M[0x72] | M[0x73] << 8 | M[0x74] << 16, py = M[0x78] | M[0x79] << 8 | M[0x7A] << 16;
       const maxX = (M[0x0440] << 8) - 0x22, maxY = (M[0x0540] << 8) - 0x22;   // keep_in_room's walls ($93D4)
@@ -6374,6 +6373,7 @@ function makeDisplay(opts) {
         let x = px + ((i % 6) - 2.5) * 512, y = py + (Math.floor(i / 6) - 1) * 512;
         if (under) { x = Math.min(Math.max(x, 0x20), maxX); y = Math.min(Math.max(y, 0x20), maxY); }
         x = (x & 0xFFFFFF) >>> 0; y = (y & 0xFFFFFF) >>> 0;
+        M[0x29C0 + o] &= 0x7F;
         M[0x2940 + o] = room;
         M[0x2880 + o] = x & 255; M[0x2480 + o] = x >> 8 & 255; M[0x2540 + o] = x >> 16 & 255;
         M[0x2900 + o] = y & 255; M[0x2500 + o] = y >> 8 & 255; M[0x25C0 + o] = y >> 16 & 255;
@@ -6381,27 +6381,27 @@ function makeDisplay(opts) {
         M[0x24C0 + o] = under ? M[0x76] : 0; M[0x2580 + o] = under ? M[0x77] : 0;   // on the surface, the ground
       });
       P.list_room_objects();
-      return 'Carrying the seven keys, the Kitchen Sink, the Antigrav and the Photon Emitter; ' + drop.length + ' more on the ground around you.';
+      return drop.length ? ' ' + drop.length + ' put down beside you to make room.' : '';
     }
-    function ending() {
+    function keys() {
+      return 'Carrying the seven keys.' + carry(KEYS);
+    }
+    function summon() {
       if (M[0xBEFE]) return 'The ending is already running.';
-      if (M[0xA8] || M[0xCD]) P.quit_situation({ c: 0 });       // up to the surface, in the Dart
-      const y = M[0xA9];
-      if (y < 9 && y !== 7) P.place_object({ y });                // the craft left where it is
-      M[0xA9] = 7;
-      P.load_motion_record({ a: 7 });
-      M[0x2947] = 0xFF;                                           // the ship out of the world
-      P.list_room_objects();
-      P.view_matrix({});
-      P.stop_craft();
-      M[0xBEC0] |= 0x40;                                          // an event script running
-      M[0x1F] = 0x23; M[0x20] = 0x11;                             // escape_ending, $1123
-      return 'Aboard the interstellar ship: the ending.';
+      const msg = carry([NOVADRIVE]);
+      M[0x2B32] &= 0x7F;                                          // 02-03, the author's advert, standing
+      if (M[0xA9] === 7) return 'Aboard the interstellar ship: answer Y to launch. Carrying the Novadrive.' + msg;
+      if (M[0xBEFF]) return 'The interstellar ship is already on its way down to 08-08. Carrying the Novadrive.' + msg;
+      if ((M[0xBEC0] & 4) && M[0x2947] === 0 && M[0xA9] !== 7)
+        return 'The interstellar ship has landed at 08-08: board it with B and answer Y. Carrying the Novadrive.' + msg;
+      M[0xBEC0] |= 4;                                             // the ship hired ($0EBE)
+      M[0xBEFF] = 0xFF;                                           // SHIP DESPATCHED ($0EBA)
+      return 'The interstellar ship is coming down over 08-08: the game says 2 MINS, longer where the view is busy. Board it with B and answer Y. Carrying the Novadrive.' + msg;
     }
     rt.onPass(() => {
       if (!want || M[0xCA]) return;                               // not during a lift ride
       const w = want; want = null;
-      const msg = w === 'items' ? items() : ending();
+      const msg = w === 'keys' ? keys() : summon();
       if (api.done) api.done(msg);
     });
     rt.cheats = api;
