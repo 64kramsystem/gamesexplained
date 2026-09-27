@@ -17,6 +17,8 @@ runs the site and the principles it follows; static).
 The authored pages have {{title}}, {{platform}}, {{year}} and {{publisher}}
 filled from game.json. The build fails on a src or href that points at no
 file it published: a page's own .js beside it would otherwise 404 on the site.
+It lists pages with blocks hidden by the page editor (kit/scripts/edit.py), and
+fails on a Gold or Platinum page that still has one.
 
 Usage: build.py [--out _site]
 Preview: python3 -m http.server -d _site 8000   (8000, or any free port)
@@ -287,19 +289,29 @@ def under_title(page, ban):
 
 
 # --- every tab but Source: the page's sections, listed in the left margin -------------
+VOID_TAGS = {"area", "base", "br", "col", "embed", "hr", "img", "input", "link", "meta", "param", "source", "track", "wbr"}
+
+
 class Outline(html.parser.HTMLParser):
     """What a page's margin list is made of, in page order: each top-level <section>, with
     its label (the .fig line, "NN · label") and its first <h2>, and every other <h2> as an
     entry of its own. Records where each element opens and its id, and reads a heading
-    without the badges in it."""
+    without the badges in it. Nothing inside a block hidden with the page editor (data-cut)
+    is listed: a reader never sees it."""
 
     def __init__(self):
         super().__init__(convert_charrefs=True)
-        self.items, self.depth, self.sec, self.grab, self.skip = [], 0, None, None, 0
+        self.items, self.depth, self.sec, self.grab, self.skip, self.cut = [], 0, None, None, 0, None
 
     def handle_starttag(self, tag, attrs):
         a = dict(attrs)
         cls = set((a.get("class") or "").split())
+        if self.cut:   # [tag, how many of that tag are open] for the hidden block being skipped
+            self.cut[1] += tag == self.cut[0]
+            return
+        if "data-cut" in a and tag not in VOID_TAGS:
+            self.cut = [tag, 1]
+            return
         if self.grab:
             if tag == "span" and (self.skip or cls & {"tag", "badge"}):
                 self.skip += 1
@@ -321,6 +333,11 @@ class Outline(html.parser.HTMLParser):
             self.sec["fig"] = ""; self.grab = (tag, self.sec)
 
     def handle_endtag(self, tag):
+        if self.cut:
+            if tag == self.cut[0]:
+                self.cut[1] -= 1
+                self.cut = self.cut if self.cut[1] else None
+            return
         if self.grab:
             if tag == "span" and self.skip:
                 self.skip -= 1
@@ -332,7 +349,7 @@ class Outline(html.parser.HTMLParser):
                 self.sec = None
 
     def handle_data(self, data):
-        if self.grab and not self.skip:
+        if self.grab and not self.skip and not self.cut:
             what, item = self.grab
             item["h2" if what == "h2" else "fig"] += data
 
@@ -509,29 +526,43 @@ def fill(tpl, **kw):
     return tpl
 
 
+AUTHORED = ("index.html", "levels.html", "play.html")   # the tabs a game folder writes by hand
+LIB = "../../lib"   # site/lib/ as a game's pages see it
+
+
+def present_tabs(gdir):
+    """The tabs a game has: the three every game gets, and the authored ones it wrote."""
+    return {"index.html", "source.html", "about.html"} | {f for f in AUTHORED if os.path.exists(os.path.join(gdir, f))}
+
+
+def authored_page(gdir, game, f, nav, ban, src=None):
+    """One authored tab as the site serves it: the template's placeholders filled from game.json
+    (new_game.py fills only the .md files), the tab bar, the banner, the edit footer and the
+    section list added. src is the page's source, read from the game folder when not given;
+    the page editor, kit/scripts/edit.py, passes a copy with its blocks tagged."""
+    plat = game["platform"]
+    head = dict(title=html.escape(game.get("title", game["slug"])), platform=PLATFORM_NAMES.get(plat, plat),
+                year=game.get("year") or "", publisher=html.escape(game.get("publisher") or ""))
+    page = fill(read(os.path.join(gdir, f)) if src is None else src, **head)
+    return pagenav(at_end(under_title(inject(page, nav, LIB), ban), edit_footer(game, f)))
+
+
 def build_game(gdir, out_root):
     game = json.load(open(os.path.join(gdir, "game.json")))
     plat, slug = game["platform"], game["slug"]
     out = os.path.join(out_root, plat, slug)
     os.makedirs(out, exist_ok=True)
-    lib = "../../lib"
-    present = {"index.html", "source.html", "about.html"}
-    for f in ("levels.html", "play.html"):
-        if os.path.exists(os.path.join(gdir, f)):
-            present.add(f)
+    lib = LIB
+    present = present_tabs(gdir)
     cons = contributors(gdir)
     nav = tabbar(game, present, lib)
     ban = banner(game, cons)
     common = dict(title=html.escape(game.get("title", slug)), lib=lib, build=html.escape(game.get("build") or ""),
                   platform_name=PLATFORM_NAMES.get(plat, plat), year=game.get("year") or "",
                   publisher=html.escape(game.get("publisher") or ""))
-    # authored tabs, with the template's placeholders filled (new_game.py fills only the .md files)
-    head = dict(title=common["title"], platform=common["platform_name"], year=common["year"], publisher=common["publisher"])
-    for f in ("index.html", "levels.html", "play.html"):
+    for f in AUTHORED:
         if f in present:
-            page = fill(read(os.path.join(gdir, f)), **head)
-            page = at_end(under_title(inject(page, nav, lib), ban), edit_footer(game, f))
-            open(os.path.join(out, f), "w").write(pagenav(page))
+            open(os.path.join(out, f), "w").write(authored_page(gdir, game, f, nav, ban))
     # source
     facts = markdown(read(os.path.join(gdir, "facts.md")))
     cheats = read(os.path.join(gdir, "cheats.md"))
@@ -999,6 +1030,21 @@ def broken_links(out_root):
     return bad
 
 
+def cut_blocks(games):
+    """(page, tier, count) for every authored page that still has blocks hidden with the page editor.
+
+    kit/scripts/edit.py hides a block that holds a widget instead of cutting it, marked
+    data-cut, so the page's scripts keep finding what they look for. The cleanup pass in
+    kit/START.md removes it with everything only it used; until then it is dead weight."""
+    out = []
+    for g in games:
+        for f in AUTHORED:
+            n = len(re.findall(r"<[a-zA-Z][^<>]*\sdata-cut\b", read(os.path.join(ROOT, "games", g["platform"], g["slug"], f))))
+            if n:
+                out.append((f'games/{g["platform"]}/{g["slug"]}/{f}', g.get("tier", "none"), n))
+    return out
+
+
 def main():
     argv = sys.argv[1:]
     if argv and argv[0] in ("-h", "--help"):
@@ -1036,6 +1082,14 @@ def main():
     if bad:
         sys.exit(f"{len(bad)} link(s) to nothing the build published. A game folder publishes its authored pages, "
                  "listing.json, symbols.json and reference/, nothing else; site/lib/ is at ../../lib/")
+    cut = cut_blocks(games)
+    for page, tier, n in cut:
+        print(f"warning: {page} has {n} block(s) hidden with the page editor; the cleanup pass in kit/START.md removes them",
+              file=sys.stderr)
+    done = [page for page, tier, n in cut if tier in ("gold", "platinum")]
+    if done:
+        sys.exit(f"{', '.join(done)}: a Gold or Platinum page with blocks still hidden with the page editor. "
+                 "Do the cleanup pass in kit/START.md before setting the tier.")
     print(f"built {len(games)} game(s) into {os.path.relpath(out_root, ROOT)}/" + (f"; analytics on {tagged} pages" if tagged else "; analytics off (no id in site/config.json)"))
 
 
