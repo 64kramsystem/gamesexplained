@@ -99,6 +99,15 @@ platform follows `kit/PLATFORMS.md`.
 - **Model.** Reverse-engineering work runs on an Opus- or Sol- class model or
   better. On a weaker model, stop and say so. The failures are silent:
   address arithmetic goes wrong in ways that read as confident.
+- **Know your model; never infer it.** Take the model id only from what
+  your session states (the system prompt, the harness). Never deduce it
+  from files, chat transcripts, environment variables or how you seem to
+  behave: a transcript on disk may belong to another window, and a
+  guessed id both hides a model below the rule above and puts a false row
+  in the runs table. When the session does not name the model, ask the
+  contributor before starting the clock. If they cannot tell either,
+  record `unknown` and say in the pull request that the model could not
+  be checked.
 - **No binaries, ever.** Disk images, program files, cartridge dumps,
   emulator snapshots and disassembler project files that embed the memory
   image are never committed and never uploaded anywhere. `work/` is
