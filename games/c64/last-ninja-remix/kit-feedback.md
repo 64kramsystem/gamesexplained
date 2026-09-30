@@ -1,36 +1,11 @@
 # Last Ninja Remix — kit feedback
 
-## What changed
+The imported composition combined resident and level bytes with no matching stopped machine. Review required a real boot. This revision boots disk 047 through both intros and the unmodified trainer into Central Park, compares its RAM with the composition, and builds Source only from active play.
 
-The Castle Master companion PR introduces the shared Ghidra text importer and its tests. It preserves selected occupants, verifies initialized bytes against a supplied dump, retains aliases, and keeps unknown memory as gaps. Its Source references distinguish visible registers/ROMs from underlying RAM. A selected original text export preserves details outside the native schema.
+The comparison found the composition’s `$0E00` startup code overwritten by sprite buffers. A live store checkpoint and the pointer tables confirmed double-buffered sprite output at `$0C00–$0FFF`, so stale startup code/names/comments were removed. The map is loaded into regenerator2000, exported through `symbols_export.py`, and rendered only through `listing.py` (11,410 records). No composed image or extra state listing is published.
 
-That PR also adds a contained launcher for an installed Firefox and changes the footprint check from absolute timestamps to before/after file signatures. No download was needed for the browser. These shared changes are confined to that PR; this contribution builds independently from its committed native artifacts.
+The external export is private and its unknown makers’ models are explicit in `game.json.imported`. Coverage follows game data/runtime scope; the article is Bronze form until normal verification. Shared tooling is separate in #125. The one-level scope and later-load TODO follow RFC #124.
 
-## Validation
+VICE MCP 3.13.1’s pause and transport workarounds apply. It runs silently on a virtual display with dummy audio at the contributor’s request. Clocks retain only actual publishing and orientation work; outside analysis is not represented as timed here, and import metadata excludes the game from the runs table.
 
-The three repository checks and complete site build pass. Browser checks exercise every selector and toggle, inspect nonempty canvases and image loads, capture desktop and 390-pixel layouts, and collect script errors. Source tabs load from the committed listings. Exact initialized-byte round trips and figure-format checks are recorded in `reference/import-audit.json`; original binaries remain in `work/`.
-
-## Scope and tier
-
-Central Park, including the resident loader, retained music, scene data and gameplay engine. This is a static composition of the loaded files, not a 64 KiB stopped-machine snapshot. Later levels and the crack introductions are outside the analysed occupant. The contributor requested direct publication of the existing accurate analysis. This publication pass does not replace the original reverse-engineering effort. The native prose-span coverage and unproven-model requirement leave the contribution at Bronze; `TODO.md` lists Silver requirements.
-
-## Maintainer asks
-
-- [#113: define coverage and maintainer checks for imported exhaustive disassemblies](https://github.com/gamesexplained/gamesexplained/issues/113). No coverage or model rule was relaxed.
-
-## Timing
-
-| Step | Minutes | Model | Sessions | What dominated |
-|---|---:|---|---:|---|
-| 70-minisite | 12 | gpt-6.1-sol | 1 |  |
-| 80-retro | 4 | gpt-6.1-sol | 1 | Publication from the existing disassembly; one agent alternated between five contributions. No new full reverse-engineering run. |
-| total | 18 | gpt-6.1-sol | | 0.3 h of work |
-
-Portable figures:
-  minutes to play : n/a
-  min per KB      : n/a (needs a coverage step and a symbols.json)
-  hours           : 0.3
-
-These clocks record overlapping publication windows while one agent alternated among five independent contributions. They are not additive person-hours and do not include the original analysis.
-
-The single most useful change was direct import of the completed annotated listing, preserving phase boundaries instead of reconstructing the analysis from a raw memory dump.
+The three checks, complete site build and article/Source browser checks are run before publication. Full coverage, verification and the required maintainer check remain open for Silver.

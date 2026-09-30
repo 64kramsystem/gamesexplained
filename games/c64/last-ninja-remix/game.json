@@ -7,55 +7,45 @@
  "publisher": "System 3",
  "developer": "System 3",
  "title_image": "reference/central-park.png",
- "build": "Ikari & Talent disk release; resident kernel plus Central Park active occupant",
+ "build": "I-TAL/TSM release; Central Park in active play, one declared level",
  "tier": "bronze",
- "coverage_percent": 24.8,
+ "coverage_percent": 32.2,
  "copy": "agent-draft",
  "steward": "",
  "credits": [],
  "tools": {
   "host": "Linux x86_64",
-  "disassembler": "Ghidra (contributor export; version not recorded)",
-  "publication": "Python 3; Ghidra text importer",
-  "browser": "Firefox 157.0 (installed); WebDriver BiDi"
+  "disassembler": "regenerator2000 0.9.20",
+  "publication": "Python 3; symbols_export.py and listing.py",
+  "browser": "Firefox 157.0 (installed); WebDriver BiDi",
+  "emulator": "VICE MCP 3.13.1"
  },
  "model": "gpt-6.1-sol",
- "kit_version": "0.0.43",
+ "kit_version": "0.0.46",
  "created": "2026-09-30",
  "video": {
-  "screen": "",
+  "screen": "$0400",
   "charset": ""
  },
  "coverage": {
-  "extra": [
-   [
-    "$0000",
-    "$FFFF",
-    "Initialized rows of the supplied physical image"
-   ]
-  ],
+  "extra": [],
   "include": [
    [
     "$D000",
     "$DFFF",
-    "Physical RAM under I/O, not visible hardware registers"
-   ],
-   [
-    "$012D",
-    "$0198",
-    "Runtime opponent state; uninitialized in static model"
+    "Packed sprite source pool beneath I/O; part of $CF98\u2013$E927"
    ]
   ],
   "exclude": [
    [
-    "$0002",
-    "$0DFF",
-    "Uninitialized volatile workspace"
+    "$0000",
+    "$0FFF",
+    "Runtime state, screens and double-buffered sprite output; $0E00 startup code has been overwritten"
    ],
    [
-    "$FF00",
-    "$FFFF",
-    "Uninitialized RAM tail"
+    "$2000",
+    "$3F3F",
+    "Runtime bitmap output"
    ]
   ]
  },
@@ -64,5 +54,13 @@
  "links": {
   "wiki": "https://www.lemon64.com/game/last-ninja-remix",
   "manual": ""
+ },
+ "imported": {
+  "source": "last_ninja_remix_full_listing.txt",
+  "sha256": "0bea0daf6690509394db7e9f827a5b0ec1be478ed7ea4ac6cfac8f8d3d675a76",
+  "tool": "Ghidra (version not recorded)",
+  "by": "64kramsystem",
+  "model": "unknown",
+  "date": "2026-09-30"
  }
 }

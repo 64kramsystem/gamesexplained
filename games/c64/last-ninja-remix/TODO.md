@@ -1,8 +1,7 @@
-# Work required for Silver
+# Work toward Silver
 
-- Complete the site’s prose-span coverage: 15,355/61,806 tracked bytes (24.8%). This metric differs from exhaustive code/data classification in the supplied disassembly. Do not fill gaps with repeated generic comments.
-- Run the maintainer check in `kit/CHECKING.md`; the publication model is not in the proven-model register.
-- Resolve or explicitly retain the open features in `features.md`, with live replay where practical.
-- Preserve the occupant boundary in `orientation.md`; later loads require separate evidence.
-
-The contributor requested publication directly from the existing accurate listing. This PR delivers that import and explanation; its tier remains Bronze until every Silver requirement is met.
+- Finish coverage: 32.2%, 13,906 of 43,120 tracked bytes. Resolve all authored-data spans and data outside the ledger; verify state-dependent code bytes `$1F5B` and `$8A0F`.
+- Capture the final level hand-over and compare with gameplay to preserve initialization-only program data.
+- Trace and test scenery, sprite packing, animation, combat, object records and music in `60-verify`; restore the interactive article only afterward.
+- Later loads are open: The Street, Sewers, Basement, Office, Mansion and Final Battle. This PR covers Central Park under RFC #124’s interim rule.
+- Obtain the maintainer check required for the unproven run model and unknown imported models.

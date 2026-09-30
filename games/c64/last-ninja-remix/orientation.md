@@ -1,19 +1,21 @@
 # Last Ninja Remix — orientation
 
-## Build and scope
+## Disk and power-on route
 
-Ikari & Talent disk release; resident kernel plus Central Park active occupant. Central Park, including the resident loader, retained music, scene data and gameplay engine. This is a static composition of the loaded files, not a 64 KiB stopped-machine snapshot. Later levels and the crack introductions are outside the analysed occupant.
+The contributor’s I-TAL disks were recovered from repository history into private `work/disk-047.d64` and `work/disk-048.d64`. This capture uses disk 047. Its relevant directory entries are `L.NINJA2 RMX/TSM`, `N.REMIX DEMO/I+T`, `NINJA 3+PLAY/I+T`, and `01.CENTRAL PARK!`.
 
-## Route and capture
+On a hard-reset PAL C64, resume and autostart disk 047’s first file. Wait for the TSM intro. Hold control-port-1 fire for 60 frames and release; wait for I+T (600 frames sufficed in this run). Hold Space for 60 frames and release; wait for the trainer (600 frames). Both cheat options show NO. Press F7 for 60 frames and release. Wait for the Central Park presentation. Press Space for 60 frames and release, then wait for the level credits after the disk load. Warp may be enabled only for this wait; switch it off before gameplay or timing measurements. At the credits, **port 2 fire**, held 60 frames, starts the room; port 1 fire does not. Release and advance 120 frames. Confirm the isometric park and ninja, then save `work/central-game.vsf` without ROMs, using `pause()` before the save.
 
-The prior evidence records this route: boot the first disk, use control-port-1 fire at the TSM presentation, Space at the Ikari & Talent presentation, select the first level with F7, and acknowledge the Central Park title. The listing models the resulting loaded occupant. Its volatile workspace is deliberately uninitialized, so its bytes must not be launched as a snapshot. The reference scene is the prior analysis reconstruction, not a new emulator screenshot.
+VICE MCP 3.13.1 passed 55/57 health checks on 30 September 2026: `pause-at-instruction` and `unpaced-calls` failed. Use the kit pause workaround and paced calls. At the contributor’s request it runs on a virtual display with dummy audio, preserving SID emulation without playing samples. The private `vicerc` sets `Sound=1`, `SoundDeviceName="dummy"`.
 
-## Machine state
+## Chosen image and comparison
 
-Initialized: $0000–$0001 and $0E00–$FEFF, 61,698 bytes. Uninitialized: $0002–$0DFF and $FF00–$FFFF. Stored port bytes $F7/$FF are file provenance and do not establish runtime banking.
+The supplied Ghidra analysis was a composition, not a stopped machine. In active Central Park, 288 of its 15,889 code bytes differ: 286 in `$0E00–$0F2B`, one at `$1F5B`, one at `$8A0F`. 4,247 of 45,809 data bytes also differ. The game really writes sprite output into `$0C00–$0FFF`; a live store checkpoint traced the write to `$BF02`. The former startup code at `$0E00` is overwritten there. Its stale names/comments and code classification are removed. Other imported annotations remain verification leads.
 
-## Reproduction
+The listing uses the active `central-game.vsf`, whose bytes and CPU state existed together. Runtime screen `$0400`, bitmap `$2000–$3F3F`, low state and sprite output are excluded from coverage. The packed sprite source pool under I/O is retained as game data. Processor port `$35`, DDR `$2F`; vectors `$0314=$1E06`, `$0318=$1582`; VIC bank `$0000`.
 
-Keep the supplied image and any recovered snapshots under `work/`. Import `last_ninja_remix_full_listing.txt` with `kit/c64/import_ghidra.py` (introduced by the Castle Master contribution). Use `--verify-ram` with the supplied 65,536-byte dump when one exists. The Source tab is built from the text export directly; no synthetic snapshot is created. 61,698 initialized bytes are represented; uninitialized ranges remain gaps.
+## Scope and rebuilding
 
-Original listing SHA-256: `0bea0daf6690509394db7e9f827a5b0ec1be478ed7ea4ac6cfac8f8d3d675a76`. Binary media and emulator state are not published.
+One declared load: Central Park, under the interim policy in RFC #124. The Street, Sewers, Basement, Office, Mansion and Final Battle remain open work. No extra state listings or composed binary image are published.
+
+Load the committed symbol map into regenerator2000 on your own gameplay snapshot with `symbols_import.py`, export with `symbols_export.py`, and build with `listing.py <game> work/central-game.vsf`. Snapshots, disk images, projects and the original text export stay in `work/`. `game.json.imported` records the original export hash and unknown models.
