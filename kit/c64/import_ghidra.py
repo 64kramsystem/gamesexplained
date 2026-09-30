@@ -24,6 +24,7 @@ LABEL = re.compile(r'^([A-Za-z_][\w:]*)\s*:\s*(?:;.*)?$')
 def parse(path, space=''):
     rows, names, prose, fields = [], [], [], []
     occupied = set()
+    header, last = False, None
     for line in Path(path).read_text().splitlines():
         m = ROW.match(line)
         if m:
@@ -31,6 +32,7 @@ def parse(path, space=''):
             address = int(address, 16)
             if (namespace or '') != space or raw == '??':
                 names, prose, fields = [], [], []
+                header, last = False, None
                 continue
             data = bytes.fromhex(raw)
             addresses = set(range(address, address + len(data)))
@@ -49,6 +51,7 @@ def parse(path, space=''):
                          'o': operand.strip(), 'names': list(dict.fromkeys(n.replace('::', '_') for n in names)),
                          'c': text, 's': side.strip(), 'fields': list(fields)})
             names, prose, fields = [], [], []
+            header, last = False, rows[-1]
         elif LABEL.match(line):
             offcut = re.search(r';\s*offcut at ([0-9a-f]{4})', line)
             if offcut:
@@ -57,8 +60,13 @@ def parse(path, space=''):
                 names.append(LABEL.match(line)[1])
         elif line.startswith('                ;'):
             text = line.split(';', 1)[1].strip()
-            if text and not text.startswith(('XREF', '*', '=')):
-                prose.append(text)
+            if text.startswith(('*', '=')):
+                header = True
+            elif text and not text.startswith('XREF'):
+                if last is not None and not header and not names and not fields:
+                    last['c'] = '\n'.join(filter(None, (last['c'], text)))
+                else:
+                    prose.append(text)
     if not rows:
         raise ValueError('No initialized rows in the selected address space')
     return sorted(rows, key=lambda r: r['a'])

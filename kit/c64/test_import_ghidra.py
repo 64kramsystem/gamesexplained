@@ -36,6 +36,16 @@ class ImportTests(unittest.TestCase):
         self.assertEqual(names['operand'], 0x2001)
         self.assertNotIn('operand', rows[0]['names'])
 
+    def test_post_row_description_belongs_to_previous_row(self):
+        rows = self.parse_text('table:\n2000 01 byte 1\n                ; First table entry.\n2001 02 byte 2\n')
+        self.assertEqual(rows[0]['c'], 'First table entry.')
+        self.assertEqual(rows[1]['c'], '')
+
+    def test_header_description_belongs_to_following_row(self):
+        rows = self.parse_text('2000 01 byte 1\n                ;************\n                ; Second entry.\n                ;************\nnext:\n2001 02 byte 2\n')
+        self.assertEqual(rows[0]['c'], '')
+        self.assertEqual(rows[1]['c'], 'Second entry.')
+
     def test_overlay_is_explicit(self):
         rows = self.parse_text('2000 01 byte 1\nPHASE::2000 02 byte 2\n', 'PHASE')
         self.assertEqual(rows[0]['b'], [2])
