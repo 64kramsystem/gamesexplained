@@ -1,13 +1,13 @@
 # The NeverEnding Story — features
 
-Sources: [game documentation](https://www.lemon64.com/doc/neverending-story/412) and the contributor’s annotated listing, consulted 30 September 2026. The documentation supplies the feature inventory; technical status comes from the listing.
+Inventory: [game documentation](https://www.lemon64.com/doc/neverending-story/412), consulted 30 September 2026. Imported annotations guide searches.
 
 | Feature | Status | Evidence or open work |
 |---|---|---|
-| Text commands and adventure rules | traced | $122F parser, $0DE3 actions, $1193 conditions |
-| Illustrated locations | traced | $05BF; 21 captured pictures rendered on the page |
-| Objects and inventory | traced | $0D4F room table and $A560 icon storage |
-| Multipart progression | open | Runtime loader is present; PART2/PART3 content is outside the capture |
-| Save/load behavior | open | Release-specific handlers require live round-trip verification |
-
-“Traced” means supported by the imported analysis. It does not imply a fresh live replay in this publication pass. Scope exclusions are described in `orientation.md`.
+| Boot and first command prompt | live | Fresh Ocean disk boot; reference capture |
+| Picture/text display | traced | $A7E3/$A80A register writes and fresh font; full rendering comparison open |
+| Commands and rules | open | Dispatch patching traced; exercise parser and handler outcomes |
+| Illustrated locations | open | Verify imported $05BF/$0676 picture format against a rendered picture |
+| Objects and inventory | open | Trace and test routes through imported $0D4F/$A560 leads |
+| Multipart progression | open | $03A0 exchange and $9700 loader traced; later parts need captures |
+| Save/load | open | Trace release-specific dispatch and test actual disk behavior |

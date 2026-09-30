@@ -1,39 +1,29 @@
 # The NeverEnding Story — facts
 
-## Scope and evidence
+## Live state
 
-The resident engine and captured PART1 content at $0000–$CFFF. The I/O/ROM window is uninitialized in the analysis. PART2 and PART3 are separate loads and are not represented by reusing the captured graphics addresses.
+A fresh Ocean disk boot reaches the Part-1 command prompt after Space through the title and opening narrative. The reference screenshot records the clearing in the Great Forest. The narrative capture matches all 4,277 imported code bytes and 142 word bytes; 29 byte-data bytes differ.
 
-Technical statements below are traced from the contributor’s accurate disassembly and retained evidence ledger. The validation paragraph identifies checks repeated for publication. A traced claim is not labelled as a new live test.
+## Display
 
-## Picture records
+$A7E3 writes $D018=$38 for the bitmap picture. $A80A writes $D018=$3E for character text. With VIC bank $C000 this selects screen $CC00, bitmap $E000 and font $F800. Comparing its 2,048 bytes with the character ROM halves finds 157 and 215 matching bytes respectively; neither matches. This authored font is absent from the imported address space.
 
-$0BF9–$0D4E contains 57 six-byte descriptors: destination row, destination column, source pointer, height and width. Only descriptors 0–20 belong to the captured picture payload. Descriptor 0 points to $A100; 1–20 tile $4300–$93E5.
+## Text and dispatch
 
-## Picture rows
+All 94 pointers at $25DD-$2698 were checked against packed records $2699-$28B8. Each record is a length byte followed by that many ASCII bytes; each pointer equals the next record start computed from the preceding record. Capitalization is preserved.
 
-$05BF draws a descriptor and $0676 copies its component rows. Each character row stores 8×width bitmap bytes, width screen bytes, and width color bytes. In multicolor mode the pairs 00, 01, 10, 11 select black, screen high nibble, screen low nibble and color-RAM low nibble. The page reconstructs these records directly.
+$1638/$163E patch condition-call operand $1642/$1643; handler carry selects continuation or skipped actions. $1690/$1696 patch action-call operand $169A/$169B. Their imported offcut labels now retain the actual operand addresses.
 
-## Adventure rules
+## Display workspace and loader
 
-The command parser entry is $122F. Actions and conditions use separate dispatch tables: 33 action words at $0DE3 and 10 condition words at $1193. Calls at $1641 and $1699 are rewritten to their selected handlers. Those tables and their consumers are preserved in the Source tab.
+$0730-$073D copies staged pages $C000/$C100 to $9700/$9800. $0743-$0757 copies $0FA0 bytes from the display bundle at $E000 to $BC00, overwriting those staging pages. Saved display bytes are runtime output excluded from coverage.
 
-## Overlay boundary
+$03A0 calls the exchange at $03A6, calls relocated loader $CC00, then falls through into the exchange again. The exchange exposes RAM with processor port $38 and swaps $CC00-$CFFF with $DC00-$DFFF. The parked loader contains non-fill bytes through $DCE3; internal calls name relocated $CCxx addresses.
 
-Descriptors 21–56 are valid resident metadata for replacement picture occupants. Their payload is absent from this capture. PART_ROOM_BASE_IDS at $0DCC stores room-number bases, not picture indexes. The loader remains in scope while later-part narrative and graphics remain open.
+## Open evidence
 
-## Object artwork
+The consumer and ownership of hidden page $D000-$D0FF remain unresolved; it is unexplained in coverage. Loader hand-over comparison, parser outcomes, picture reconstruction, objects, save/load and part transitions remain open. The earlier technical article is a private draft until its claims are checked.
 
-Object image slots start at $A560 at a stride of 160 bytes. Some slots have been reused by active code or retain excluded introduction bytes. The listing distinguishes those occupants, so treating the whole span as intact icons would decode code as artwork.
+## Provenance
 
-## Validation
-
-Every initialized byte below $D000 was compared with the contributor dump. All 21 captured picture descriptors were checked for bounds, and descriptors 1–20 form an exact contiguous chain ending at $93E6. The row format and color selection were cross-checked against the retained illustration note and source consumers.
-
-## Import provenance
-
-Source: `neverending_story_full_listing.txt`. SHA-256: `ef4cadfc4fb0bbe410a3a0881d8ca9da6c877c19ef9579ce2f07147c66f90e12`. Imported 53,248 initialized bytes. The [annotated text export](reference/annotated-listing.txt) retains original labels, references and comments for the selected game spaces. `symbols.json` is the native symbol map; `listing.json` is its searchable Source representation.
-
-## Publication checks
-
-The native Source rows reproduce every initialized byte of the selected physical listing. The browser pass exercised all article controls and the Source tab in Firefox 157.0, with no script errors and no horizontal overflow at a 390-pixel viewport. These checks do not establish a full-game input route.
+Imported `neverending_story_full_listing.txt`, SHA-256 `ef4cadfc4fb0bbe410a3a0881d8ca9da6c877c19ef9579ce2f07147c66f90e12`. Original models are unknown. Source comes from fresh regenerator2000 exports and `listing.py` on the declared snapshot.
