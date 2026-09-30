@@ -9,6 +9,21 @@ An interactive 6502 disassembler with an MCP server. It loads `.vsf`
 snapshots directly, which is how it is used here: start it on the
 steady-state snapshot from `10-orient`.
 
+## Seeding from a Ghidra text export
+
+For an existing analysis, follow `core/40-sweep`, "An existing analysis of
+this image". `python3 kit/c64/import_ghidra.py <game> <export>` converts
+labels, comments and types into `symbols.json`; it never writes a listing.
+`--verify-ram <65536-byte-dump>` checks each initialized source row, and
+`--space <name>` selects one replacement overlay. Whole ROM overlays are
+refused. Keep the source export in `work/` and record its hash and makers
+under `imported` in `game.json`.
+
+Load this map into the disassembler on the chosen snapshot with
+`symbols_import.py`, inspect it, then export through `symbols_export.py`.
+Only `listing.py` builds the listing. Source annotations are leads until
+coverage and verification establish them in this run.
+
 ## Start and drive
 
 ```
