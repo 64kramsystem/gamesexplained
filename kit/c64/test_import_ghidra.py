@@ -24,6 +24,8 @@ class ImportTests(unittest.TestCase):
         self.assertEqual(sym['comments'][0]['text'], 'Entry description.')
         self.assertNotIn('records', sym)
         self.assertNotIn('spans', sym)
+        branch = self.parse_text('target:\n2000 60 RTS\n')
+        self.assertEqual(json.loads(convert(branch, game, 'synthetic'))['symbols'][0]['type'], 'Branch')
 
     def test_overlay_is_explicit(self):
         rows = self.parse_text('2000 01 byte 1\nPHASE::2000 02 byte 2\n', 'PHASE')

@@ -77,7 +77,7 @@ def convert(rows, game, source):
         if r['names'] or r['c']:
             symbols.append({'address': a, 'name': r['names'][0] if r['names'] else f'annotation_{a:04x}',
                             'kind': 'user', 'type': 'Subroutine' if typ == 'Code' and a in calls else
-                            'UserDefined' if typ != 'Code' or r['c'] else 'BranchTarget'})
+                            'UserDefined' if typ != 'Code' or r['c'] else 'Branch'})
     sym = {'schema': 1, 'platform': game['platform'], 'game': game['slug'], 'build': game['build'],
            'source': source, 'regions': regions(game), 'blocks': blocks, 'symbols': symbols, 'comments': comments}
     return json.dumps(sym, indent=1) + '\n'
