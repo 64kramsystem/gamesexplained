@@ -1,0 +1,68 @@
+{
+ "schema": 1,
+ "platform": "c64",
+ "slug": "last-ninja-remix",
+ "title": "Last Ninja Remix",
+ "year": 1990,
+ "publisher": "System 3",
+ "developer": "System 3",
+ "title_image": "reference/central-park.png",
+ "build": "Ikari & Talent disk release; resident kernel plus Central Park active occupant",
+ "tier": "bronze",
+ "coverage_percent": 24.8,
+ "copy": "agent-draft",
+ "steward": "",
+ "credits": [],
+ "tools": {
+  "host": "Linux x86_64",
+  "disassembler": "Ghidra (contributor export; version not recorded)",
+  "publication": "Python 3; Ghidra text importer",
+  "browser": "Firefox 157.0 (installed); WebDriver BiDi"
+ },
+ "model": "gpt-6.1-sol",
+ "kit_version": "0.0.43",
+ "created": "2026-09-30",
+ "video": {
+  "screen": "",
+  "charset": ""
+ },
+ "coverage": {
+  "extra": [
+   [
+    "$0000",
+    "$FFFF",
+    "Initialized rows of the supplied physical image"
+   ]
+  ],
+  "include": [
+   [
+    "$D000",
+    "$DFFF",
+    "Physical RAM under I/O, not visible hardware registers"
+   ],
+   [
+    "$012D",
+    "$0198",
+    "Runtime opponent state; uninitialized in static model"
+   ]
+  ],
+  "exclude": [
+   [
+    "$0002",
+    "$0DFF",
+    "Uninitialized volatile workspace"
+   ],
+   [
+    "$FF00",
+    "$FFFF",
+    "Uninitialized RAM tail"
+   ]
+  ]
+ },
+ "io": [],
+ "regions": [],
+ "links": {
+  "wiki": "https://www.lemon64.com/game/last-ninja-remix",
+  "manual": ""
+ }
+}
