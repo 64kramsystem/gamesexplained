@@ -45,6 +45,31 @@
     65024,
     65535,
     "Tail outside the room records; KERNAL-covered spare RAM"
+   ],
+   [
+    52992,
+    53247,
+    "Runtime vector page, including writable indirect dispatch words at $CFF0-$CFFF"
+   ],
+   [
+    2368,
+    2423,
+    "Current room guardian records copied from global authored definitions"
+   ],
+   [
+    2432,
+    2447,
+    "Runtime guardian direction/animation and moving-coordinate arrays"
+   ],
+   [
+    30984,
+    31031,
+    "Six current-room charset glyphs copied from room record, including animated room glyph"
+   ],
+   [
+    31192,
+    31199,
+    "Runtime spare-life animation glyph"
    ]
   ],
   "extra": [
@@ -2628,20 +2653,8 @@
    "kind": "user"
   },
   {
-   "address": 8763,
-   "name": "annotation_223b",
-   "type": "UserDefined",
-   "kind": "user"
-  },
-  {
    "address": 8769,
    "name": "status_line_screen_codes",
-   "type": "UserDefined",
-   "kind": "user"
-  },
-  {
-   "address": 8770,
-   "name": "annotation_2242",
    "type": "UserDefined",
    "kind": "user"
   },
@@ -2652,20 +2665,8 @@
    "kind": "user"
   },
   {
-   "address": 8802,
-   "name": "annotation_2262",
-   "type": "UserDefined",
-   "kind": "user"
-  },
-  {
    "address": 8807,
    "name": "initial_clock_digits",
-   "type": "UserDefined",
-   "kind": "user"
-  },
-  {
-   "address": 8808,
-   "name": "annotation_2268",
    "type": "UserDefined",
    "kind": "user"
   },
@@ -2736,32 +2737,14 @@
    "kind": "user"
   },
   {
-   "address": 9491,
-   "name": "annotation_2513",
-   "type": "UserDefined",
-   "kind": "user"
-  },
-  {
    "address": 10107,
    "name": "guardian_103_room27_offscreen_dummy_horizontal",
    "type": "UserDefined",
    "kind": "user"
   },
   {
-   "address": 10115,
-   "name": "annotation_2783",
-   "type": "UserDefined",
-   "kind": "user"
-  },
-  {
    "address": 10323,
    "name": "guardian_130_room38_offscreen_dummy_vertical",
-   "type": "UserDefined",
-   "kind": "user"
-  },
-  {
-   "address": 10331,
-   "name": "annotation_285b",
    "type": "UserDefined",
    "kind": "user"
   },
@@ -2826,32 +2809,14 @@
    "kind": "user"
   },
   {
-   "address": 11319,
-   "name": "annotation_2c37",
-   "type": "UserDefined",
-   "kind": "user"
-  },
-  {
    "address": 11329,
    "name": "jump_control_key_list",
    "type": "UserDefined",
    "kind": "user"
   },
   {
-   "address": 11330,
-   "name": "annotation_2c42",
-   "type": "UserDefined",
-   "kind": "user"
-  },
-  {
    "address": 11340,
    "name": "pause_control_key_list",
-   "type": "UserDefined",
-   "kind": "user"
-  },
-  {
-   "address": 11341,
-   "name": "annotation_2c4d",
    "type": "UserDefined",
    "kind": "user"
   },
@@ -3895,13 +3860,1033 @@
   },
   {
    "address": 16384,
-   "name": "JSW_State_sprite_atlas",
+   "name": "sprite_frame_000",
    "type": "UserDefined",
    "kind": "user"
   },
   {
    "address": 16448,
-   "name": "annotation_4040",
+   "name": "sprite_frame_001",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 16512,
+   "name": "sprite_frame_002",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 16576,
+   "name": "sprite_frame_003",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 16640,
+   "name": "sprite_frame_004",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 16704,
+   "name": "sprite_frame_005",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 16768,
+   "name": "sprite_frame_006",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 16832,
+   "name": "sprite_frame_007",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 16896,
+   "name": "sprite_frame_008",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 16960,
+   "name": "sprite_frame_009",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 17024,
+   "name": "sprite_frame_010",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 17088,
+   "name": "sprite_frame_011",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 17152,
+   "name": "sprite_frame_012",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 17216,
+   "name": "sprite_frame_013",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 17280,
+   "name": "sprite_frame_014",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 17344,
+   "name": "sprite_frame_015",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 17408,
+   "name": "sprite_frame_016",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 17472,
+   "name": "sprite_frame_017",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 17536,
+   "name": "sprite_frame_018",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 17600,
+   "name": "sprite_frame_019",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 17664,
+   "name": "sprite_frame_020",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 17728,
+   "name": "sprite_frame_021",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 17792,
+   "name": "sprite_frame_022",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 17856,
+   "name": "sprite_frame_023",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 17920,
+   "name": "sprite_frame_024",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 17984,
+   "name": "sprite_frame_025",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 18048,
+   "name": "sprite_frame_026",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 18112,
+   "name": "sprite_frame_027",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 18176,
+   "name": "sprite_frame_028",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 18240,
+   "name": "sprite_frame_029",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 18304,
+   "name": "sprite_frame_030",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 18368,
+   "name": "sprite_frame_031",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 18432,
+   "name": "sprite_frame_032",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 18496,
+   "name": "sprite_frame_033",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 18560,
+   "name": "sprite_frame_034",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 18624,
+   "name": "sprite_frame_035",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 18688,
+   "name": "sprite_frame_036",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 18752,
+   "name": "sprite_frame_037",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 18816,
+   "name": "sprite_frame_038",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 18880,
+   "name": "sprite_frame_039",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 18944,
+   "name": "sprite_frame_040",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 19008,
+   "name": "sprite_frame_041",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 19072,
+   "name": "sprite_frame_042",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 19136,
+   "name": "sprite_frame_043",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 19200,
+   "name": "sprite_frame_044",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 19264,
+   "name": "sprite_frame_045",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 19328,
+   "name": "sprite_frame_046",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 19392,
+   "name": "sprite_frame_047",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 19456,
+   "name": "sprite_frame_048",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 19520,
+   "name": "sprite_frame_049",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 19584,
+   "name": "sprite_frame_050",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 19648,
+   "name": "sprite_frame_051",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 19712,
+   "name": "sprite_frame_052",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 19776,
+   "name": "sprite_frame_053",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 19840,
+   "name": "sprite_frame_054",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 19904,
+   "name": "sprite_frame_055",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 19968,
+   "name": "sprite_frame_056",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 20032,
+   "name": "sprite_frame_057",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 20096,
+   "name": "sprite_frame_058",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 20160,
+   "name": "sprite_frame_059",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 20224,
+   "name": "sprite_frame_060",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 20288,
+   "name": "sprite_frame_061",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 20352,
+   "name": "sprite_frame_062",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 20416,
+   "name": "sprite_frame_063",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 20480,
+   "name": "sprite_frame_064",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 20544,
+   "name": "sprite_frame_065",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 20608,
+   "name": "sprite_frame_066",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 20672,
+   "name": "sprite_frame_067",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 20736,
+   "name": "sprite_frame_068",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 20800,
+   "name": "sprite_frame_069",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 20864,
+   "name": "sprite_frame_070",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 20928,
+   "name": "sprite_frame_071",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 20992,
+   "name": "sprite_frame_072",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 21056,
+   "name": "sprite_frame_073",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 21120,
+   "name": "sprite_frame_074",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 21184,
+   "name": "sprite_frame_075",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 21248,
+   "name": "sprite_frame_076",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 21312,
+   "name": "sprite_frame_077",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 21376,
+   "name": "sprite_frame_078",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 21440,
+   "name": "sprite_frame_079",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 21504,
+   "name": "sprite_frame_080",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 21568,
+   "name": "sprite_frame_081",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 21632,
+   "name": "sprite_frame_082",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 21696,
+   "name": "sprite_frame_083",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 21760,
+   "name": "sprite_frame_084",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 21824,
+   "name": "sprite_frame_085",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 21888,
+   "name": "sprite_frame_086",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 21952,
+   "name": "sprite_frame_087",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 22016,
+   "name": "sprite_frame_088",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 22080,
+   "name": "sprite_frame_089",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 22144,
+   "name": "sprite_frame_090",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 22208,
+   "name": "sprite_frame_091",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 22272,
+   "name": "sprite_frame_092",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 22336,
+   "name": "sprite_frame_093",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 22400,
+   "name": "sprite_frame_094",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 22464,
+   "name": "sprite_frame_095",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 22528,
+   "name": "sprite_frame_096",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 22592,
+   "name": "sprite_frame_097",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 22656,
+   "name": "sprite_frame_098",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 22720,
+   "name": "sprite_frame_099",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 22784,
+   "name": "sprite_frame_100",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 22848,
+   "name": "sprite_frame_101",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 22912,
+   "name": "sprite_frame_102",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 22976,
+   "name": "sprite_frame_103",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 23040,
+   "name": "sprite_frame_104",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 23104,
+   "name": "sprite_frame_105",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 23168,
+   "name": "sprite_frame_106",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 23232,
+   "name": "sprite_frame_107",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 23296,
+   "name": "sprite_frame_108",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 23360,
+   "name": "sprite_frame_109",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 23424,
+   "name": "sprite_frame_110",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 23488,
+   "name": "sprite_frame_111",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 23552,
+   "name": "sprite_frame_112",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 23616,
+   "name": "sprite_frame_113",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 23680,
+   "name": "sprite_frame_114",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 23744,
+   "name": "sprite_frame_115",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 23808,
+   "name": "sprite_frame_116",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 23872,
+   "name": "sprite_frame_117",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 23936,
+   "name": "sprite_frame_118",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 24000,
+   "name": "sprite_frame_119",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 24064,
+   "name": "sprite_frame_120",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 24128,
+   "name": "sprite_frame_121",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 24192,
+   "name": "sprite_frame_122",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 24256,
+   "name": "sprite_frame_123",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 24320,
+   "name": "sprite_frame_124",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 24384,
+   "name": "sprite_frame_125",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 24448,
+   "name": "sprite_frame_126",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 24512,
+   "name": "sprite_frame_127",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 24576,
+   "name": "sprite_frame_128",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 24640,
+   "name": "sprite_frame_129",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 24704,
+   "name": "sprite_frame_130",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 24768,
+   "name": "sprite_frame_131",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 24832,
+   "name": "sprite_frame_132",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 24896,
+   "name": "sprite_frame_133",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 24960,
+   "name": "sprite_frame_134",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 25024,
+   "name": "sprite_frame_135",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 25088,
+   "name": "sprite_frame_136",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 25152,
+   "name": "sprite_frame_137",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 25216,
+   "name": "sprite_frame_138",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 25280,
+   "name": "sprite_frame_139",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 25344,
+   "name": "sprite_frame_140",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 25408,
+   "name": "sprite_frame_141",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 25472,
+   "name": "sprite_frame_142",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 25536,
+   "name": "sprite_frame_143",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 25600,
+   "name": "sprite_frame_144",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 25664,
+   "name": "sprite_frame_145",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 25728,
+   "name": "sprite_frame_146",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 25792,
+   "name": "sprite_frame_147",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 25856,
+   "name": "sprite_frame_148",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 25920,
+   "name": "sprite_frame_149",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 25984,
+   "name": "sprite_frame_150",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 26048,
+   "name": "sprite_frame_151",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 26112,
+   "name": "sprite_frame_152",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 26176,
+   "name": "sprite_frame_153",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 26240,
+   "name": "sprite_frame_154",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 26304,
+   "name": "sprite_frame_155",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 26368,
+   "name": "sprite_frame_156",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 26432,
+   "name": "sprite_frame_157",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 26496,
+   "name": "sprite_frame_158",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 26560,
+   "name": "sprite_frame_159",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 26624,
+   "name": "sprite_frame_160",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 26688,
+   "name": "sprite_frame_161",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 26752,
+   "name": "sprite_frame_162",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 26816,
+   "name": "sprite_frame_163",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 26880,
+   "name": "sprite_frame_164",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 26944,
+   "name": "sprite_frame_165",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 27008,
+   "name": "sprite_frame_166",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 27072,
+   "name": "sprite_frame_167",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 27136,
+   "name": "sprite_frame_168",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 27200,
+   "name": "sprite_frame_169",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 27264,
+   "name": "sprite_frame_170",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 27328,
+   "name": "sprite_frame_171",
    "type": "UserDefined",
    "kind": "user"
   },
@@ -3960,20 +4945,14 @@
    "kind": "user"
   },
   {
-   "address": 30992,
-   "name": "annotation_7910",
-   "type": "UserDefined",
-   "kind": "user"
-  },
-  {
    "address": 31016,
    "name": "animated_room_glyph",
    "type": "UserDefined",
    "kind": "user"
   },
   {
-   "address": 31024,
-   "name": "annotation_7930",
+   "address": 31032,
+   "name": "static_charset_glyphs_39_58",
    "type": "UserDefined",
    "kind": "user"
   },
@@ -3985,7 +4964,7 @@
   },
   {
    "address": 31200,
-   "name": "annotation_79e0",
+   "name": "static_charset_glyphs_60_127",
    "type": "UserDefined",
    "kind": "user"
   },
@@ -4602,12 +5581,6 @@
    "kind": "user"
   },
   {
-   "address": 43482,
-   "name": "annotation_a9da",
-   "type": "UserDefined",
-   "kind": "user"
-  },
-  {
    "address": 43657,
    "name": "JSW_Title_clear_sid_registers",
    "type": "Subroutine",
@@ -4819,9 +5792,9 @@
   },
   {
    "address": 53232,
-   "name": "p_CFF0",
-   "type": "Pointer",
-   "kind": "auto"
+   "name": "JSW_State_input_vector",
+   "type": "Field",
+   "kind": "user"
   },
   {
    "address": 53233,
@@ -4831,9 +5804,9 @@
   },
   {
    "address": 53234,
-   "name": "p_CFF2",
-   "type": "Pointer",
-   "kind": "auto"
+   "name": "JSW_State_player_redispatch_vector",
+   "type": "Field",
+   "kind": "user"
   },
   {
    "address": 53235,
@@ -4843,9 +5816,9 @@
   },
   {
    "address": 53236,
-   "name": "p_CFF4",
-   "type": "Pointer",
-   "kind": "auto"
+   "name": "JSW_State_main_continue_vector",
+   "type": "Field",
+   "kind": "user"
   },
   {
    "address": 53237,
@@ -4855,9 +5828,9 @@
   },
   {
    "address": 53238,
-   "name": "p_CFF6",
-   "type": "Pointer",
-   "kind": "auto"
+   "name": "JSW_State_tile_lookup_vector",
+   "type": "Field",
+   "kind": "user"
   },
   {
    "address": 53239,
@@ -4867,9 +5840,9 @@
   },
   {
    "address": 53240,
-   "name": "p_CFF8",
-   "type": "Pointer",
-   "kind": "auto"
+   "name": "JSW_State_room_prepare_vector",
+   "type": "Field",
+   "kind": "user"
   },
   {
    "address": 53241,
@@ -4879,9 +5852,9 @@
   },
   {
    "address": 53242,
-   "name": "p_CFFA",
-   "type": "Pointer",
-   "kind": "auto"
+   "name": "JSW_State_death_vector",
+   "type": "Field",
+   "kind": "user"
   },
   {
    "address": 53243,
@@ -4891,9 +5864,9 @@
   },
   {
    "address": 53244,
-   "name": "a_CFFC",
-   "type": "AbsoluteAddress",
-   "kind": "auto"
+   "name": "JSW_State_item_table_base_vector",
+   "type": "Field",
+   "kind": "user"
   },
   {
    "address": 53245,
@@ -5811,6 +6784,11 @@
    "text": "Seven little-endian player-state handler addresses, selected by player state $33 * 2."
   },
   {
+   "address": 4100,
+   "type": "line",
+   "text": "High byte $10 of the first little-endian word at $1003 (JSW_State_player_state_dispatch_table); the parent description defines the table or writable pointer."
+  },
+  {
    "address": 4101,
    "type": "line",
    "text": "Seven little-endian state handler pointers."
@@ -5819,6 +6797,11 @@
    "address": 4113,
    "type": "line",
    "text": "Writable indirect player-state target loaded from the dispatch table before JMP ($1011)."
+  },
+  {
+   "address": 4114,
+   "type": "line",
+   "text": "High byte $10 of the first little-endian word at $1011 (JSW_State_current_player_handler); the parent description defines the table or writable pointer."
   },
   {
    "address": 4115,
@@ -6201,6 +7184,11 @@
    "text": "96 little-endian PAL SID frequency words indexed by doubled note number."
   },
   {
+   "address": 8429,
+   "type": "line",
+   "text": "High byte $00 of the first little-endian word at $20EC (JSW_State_game_note_frequency_table); the parent description defines the table or writable pointer."
+  },
+  {
    "address": 8430,
    "type": "line",
    "text": "96 little-endian PAL SID note frequencies."
@@ -6226,9 +7214,14 @@
    "text": "Four room tile codes written while constructing the expanded room display."
   },
   {
-   "address": 8753,
+   "address": 8752,
    "type": "line",
    "text": "Bit 7 mask used to test signed direction/control fields in packed room and guardian metadata."
+  },
+  {
+   "address": 8753,
+   "type": "line",
+   "text": "Eight ascending bit masks $01,$02,$04,$08,$10,$20,$40,$80, selected by the sprite or guardian index."
   },
   {
    "address": 8754,
@@ -6241,22 +7234,22 @@
    "text": "Second entry of the ascending bit-mask table, named because indexed references begin here."
   },
   {
-   "address": 8763,
+   "address": 8762,
    "type": "line",
    "text": "Second entry of the descending inverted-mask table $FE,$FD,$FB,$F7,$EF,$DF,$BF,$7F."
   },
   {
-   "address": 8770,
+   "address": 8769,
    "type": "line",
    "text": "32 C64 screen codes for the gameplay status-line template."
   },
   {
-   "address": 8802,
+   "address": 8801,
    "type": "line",
    "text": "Per-digit ASCII rollover thresholds used by the six-digit clock incrementer."
   },
   {
-   "address": 8808,
+   "address": 8807,
    "type": "line",
    "text": "Initial ASCII clock digits copied to $37-$3C, representing 07:00:00."
   },
@@ -6311,17 +7304,17 @@
    "text": "181 eight-byte guardian definitions."
   },
   {
-   "address": 9491,
+   "address": 9483,
    "type": "line",
    "text": "Room 6 final guardian slot. Copied normally to work slot 3 and assigned to VIC sprite 4. Type $80 uses the horizontal updater, but row $19 maps to sprite Y $FA outside the 16-row gameplay field. It cycles frames $2C-$2F and horizontal state off-screen; room color $00 also matches the background. Ordinary-format off-screen dummy, not a special dispatch record."
   },
   {
-   "address": 10115,
+   "address": 10107,
    "type": "line",
    "text": "Room 27 final guardian slot. Copied normally to work slot 6 and assigned to VIC sprite 7. Type $80 uses the horizontal updater and frames $2C-$2F, but row $19 maps to Y $FA outside the gameplay field. Sprite 7 is not overridden by the room-33/35 special animation here. Ordinary-format off-screen dummy."
   },
   {
-   "address": 10331,
+   "address": 10323,
    "type": "line",
    "text": "Room 38 final guardian slot. Copied normally to work slot 4 and assigned to VIC sprite 5. Type $00 selects the vertical updater; row $19 maps to Y $FA and zero vertical-pixel step leaves it parked there, with only the direction bit toggling. Ordinary-format off-screen dummy."
   },
@@ -6339,6 +7332,11 @@
    "address": 11211,
    "type": "line",
    "text": "16 pointers to playable 32-column screen rows; adding $5C to the high byte derives the color-RAM row."
+  },
+  {
+   "address": 11212,
+   "type": "line",
+   "text": "High byte $7C of the first little-endian word at $2BCB (JSW_State_room_screen_row_pointers); the parent description defines the table or writable pointer."
   },
   {
    "address": 11213,
@@ -6366,17 +7364,17 @@
    "text": "Left/right/jump/pause key alias lists."
   },
   {
-   "address": 11319,
+   "address": 11318,
    "type": "line",
    "text": "Keyboard aliases accepted for movement to the right."
   },
   {
-   "address": 11330,
+   "address": 11329,
    "type": "line",
    "text": "Keyboard aliases accepted for jump."
   },
   {
-   "address": 11341,
+   "address": 11340,
    "type": "line",
    "text": "Keyboard aliases accepted for pause/resume."
   },
@@ -6598,12 +7596,862 @@
   {
    "address": 16384,
    "type": "line",
-   "text": "175 standard 64-byte VIC-II sprite slots. $6B00-$6BBF is overwritten at runtime with the staged three-segment rope composite."
+   "text": "Hardware sprite image 0: 21 rows of three bytes, followed by one alignment byte. VIC bank $4000 addresses this record with sprite pointer $00. Bit order within each row follows the VIC sprite format; renderer mode and colours are set separately by the game."
   },
   {
    "address": 16448,
    "type": "line",
-   "text": "175 hardware sprite slots; final three are runtime rope destination."
+   "text": "Hardware sprite image 1: 21 rows of three bytes, followed by one alignment byte. VIC bank $4000 addresses this record with sprite pointer $01. Bit order within each row follows the VIC sprite format; renderer mode and colours are set separately by the game."
+  },
+  {
+   "address": 16512,
+   "type": "line",
+   "text": "Hardware sprite image 2: 21 rows of three bytes, followed by one alignment byte. VIC bank $4000 addresses this record with sprite pointer $02. Bit order within each row follows the VIC sprite format; renderer mode and colours are set separately by the game."
+  },
+  {
+   "address": 16576,
+   "type": "line",
+   "text": "Hardware sprite image 3: 21 rows of three bytes, followed by one alignment byte. VIC bank $4000 addresses this record with sprite pointer $03. Bit order within each row follows the VIC sprite format; renderer mode and colours are set separately by the game."
+  },
+  {
+   "address": 16640,
+   "type": "line",
+   "text": "Hardware sprite image 4: 21 rows of three bytes, followed by one alignment byte. VIC bank $4000 addresses this record with sprite pointer $04. Bit order within each row follows the VIC sprite format; renderer mode and colours are set separately by the game."
+  },
+  {
+   "address": 16704,
+   "type": "line",
+   "text": "Hardware sprite image 5: 21 rows of three bytes, followed by one alignment byte. VIC bank $4000 addresses this record with sprite pointer $05. Bit order within each row follows the VIC sprite format; renderer mode and colours are set separately by the game."
+  },
+  {
+   "address": 16768,
+   "type": "line",
+   "text": "Hardware sprite image 6: 21 rows of three bytes, followed by one alignment byte. VIC bank $4000 addresses this record with sprite pointer $06. Bit order within each row follows the VIC sprite format; renderer mode and colours are set separately by the game."
+  },
+  {
+   "address": 16832,
+   "type": "line",
+   "text": "Hardware sprite image 7: 21 rows of three bytes, followed by one alignment byte. VIC bank $4000 addresses this record with sprite pointer $07. Bit order within each row follows the VIC sprite format; renderer mode and colours are set separately by the game."
+  },
+  {
+   "address": 16896,
+   "type": "line",
+   "text": "Hardware sprite image 8: 21 rows of three bytes, followed by one alignment byte. VIC bank $4000 addresses this record with sprite pointer $08. Bit order within each row follows the VIC sprite format; renderer mode and colours are set separately by the game."
+  },
+  {
+   "address": 16960,
+   "type": "line",
+   "text": "Hardware sprite image 9: 21 rows of three bytes, followed by one alignment byte. VIC bank $4000 addresses this record with sprite pointer $09. Bit order within each row follows the VIC sprite format; renderer mode and colours are set separately by the game."
+  },
+  {
+   "address": 17024,
+   "type": "line",
+   "text": "Hardware sprite image 10: 21 rows of three bytes, followed by one alignment byte. VIC bank $4000 addresses this record with sprite pointer $0A. Bit order within each row follows the VIC sprite format; renderer mode and colours are set separately by the game."
+  },
+  {
+   "address": 17088,
+   "type": "line",
+   "text": "Hardware sprite image 11: 21 rows of three bytes, followed by one alignment byte. VIC bank $4000 addresses this record with sprite pointer $0B. Bit order within each row follows the VIC sprite format; renderer mode and colours are set separately by the game."
+  },
+  {
+   "address": 17152,
+   "type": "line",
+   "text": "Hardware sprite image 12: 21 rows of three bytes, followed by one alignment byte. VIC bank $4000 addresses this record with sprite pointer $0C. Bit order within each row follows the VIC sprite format; renderer mode and colours are set separately by the game."
+  },
+  {
+   "address": 17216,
+   "type": "line",
+   "text": "Hardware sprite image 13: 21 rows of three bytes, followed by one alignment byte. VIC bank $4000 addresses this record with sprite pointer $0D. Bit order within each row follows the VIC sprite format; renderer mode and colours are set separately by the game."
+  },
+  {
+   "address": 17280,
+   "type": "line",
+   "text": "Hardware sprite image 14: 21 rows of three bytes, followed by one alignment byte. VIC bank $4000 addresses this record with sprite pointer $0E. Bit order within each row follows the VIC sprite format; renderer mode and colours are set separately by the game."
+  },
+  {
+   "address": 17344,
+   "type": "line",
+   "text": "Hardware sprite image 15: 21 rows of three bytes, followed by one alignment byte. VIC bank $4000 addresses this record with sprite pointer $0F. Bit order within each row follows the VIC sprite format; renderer mode and colours are set separately by the game."
+  },
+  {
+   "address": 17408,
+   "type": "line",
+   "text": "Hardware sprite image 16: 21 rows of three bytes, followed by one alignment byte. VIC bank $4000 addresses this record with sprite pointer $10. Bit order within each row follows the VIC sprite format; renderer mode and colours are set separately by the game."
+  },
+  {
+   "address": 17472,
+   "type": "line",
+   "text": "Hardware sprite image 17: 21 rows of three bytes, followed by one alignment byte. VIC bank $4000 addresses this record with sprite pointer $11. Bit order within each row follows the VIC sprite format; renderer mode and colours are set separately by the game."
+  },
+  {
+   "address": 17536,
+   "type": "line",
+   "text": "Hardware sprite image 18: 21 rows of three bytes, followed by one alignment byte. VIC bank $4000 addresses this record with sprite pointer $12. Bit order within each row follows the VIC sprite format; renderer mode and colours are set separately by the game."
+  },
+  {
+   "address": 17600,
+   "type": "line",
+   "text": "Hardware sprite image 19: 21 rows of three bytes, followed by one alignment byte. VIC bank $4000 addresses this record with sprite pointer $13. Bit order within each row follows the VIC sprite format; renderer mode and colours are set separately by the game."
+  },
+  {
+   "address": 17664,
+   "type": "line",
+   "text": "Hardware sprite image 20: 21 rows of three bytes, followed by one alignment byte. VIC bank $4000 addresses this record with sprite pointer $14. Bit order within each row follows the VIC sprite format; renderer mode and colours are set separately by the game."
+  },
+  {
+   "address": 17728,
+   "type": "line",
+   "text": "Hardware sprite image 21: 21 rows of three bytes, followed by one alignment byte. VIC bank $4000 addresses this record with sprite pointer $15. Bit order within each row follows the VIC sprite format; renderer mode and colours are set separately by the game."
+  },
+  {
+   "address": 17792,
+   "type": "line",
+   "text": "Hardware sprite image 22: 21 rows of three bytes, followed by one alignment byte. VIC bank $4000 addresses this record with sprite pointer $16. Bit order within each row follows the VIC sprite format; renderer mode and colours are set separately by the game."
+  },
+  {
+   "address": 17856,
+   "type": "line",
+   "text": "Hardware sprite image 23: 21 rows of three bytes, followed by one alignment byte. VIC bank $4000 addresses this record with sprite pointer $17. Bit order within each row follows the VIC sprite format; renderer mode and colours are set separately by the game."
+  },
+  {
+   "address": 17920,
+   "type": "line",
+   "text": "Hardware sprite image 24: 21 rows of three bytes, followed by one alignment byte. VIC bank $4000 addresses this record with sprite pointer $18. Bit order within each row follows the VIC sprite format; renderer mode and colours are set separately by the game."
+  },
+  {
+   "address": 17984,
+   "type": "line",
+   "text": "Hardware sprite image 25: 21 rows of three bytes, followed by one alignment byte. VIC bank $4000 addresses this record with sprite pointer $19. Bit order within each row follows the VIC sprite format; renderer mode and colours are set separately by the game."
+  },
+  {
+   "address": 18048,
+   "type": "line",
+   "text": "Hardware sprite image 26: 21 rows of three bytes, followed by one alignment byte. VIC bank $4000 addresses this record with sprite pointer $1A. Bit order within each row follows the VIC sprite format; renderer mode and colours are set separately by the game."
+  },
+  {
+   "address": 18112,
+   "type": "line",
+   "text": "Hardware sprite image 27: 21 rows of three bytes, followed by one alignment byte. VIC bank $4000 addresses this record with sprite pointer $1B. Bit order within each row follows the VIC sprite format; renderer mode and colours are set separately by the game."
+  },
+  {
+   "address": 18176,
+   "type": "line",
+   "text": "Hardware sprite image 28: 21 rows of three bytes, followed by one alignment byte. VIC bank $4000 addresses this record with sprite pointer $1C. Bit order within each row follows the VIC sprite format; renderer mode and colours are set separately by the game."
+  },
+  {
+   "address": 18240,
+   "type": "line",
+   "text": "Hardware sprite image 29: 21 rows of three bytes, followed by one alignment byte. VIC bank $4000 addresses this record with sprite pointer $1D. Bit order within each row follows the VIC sprite format; renderer mode and colours are set separately by the game."
+  },
+  {
+   "address": 18304,
+   "type": "line",
+   "text": "Hardware sprite image 30: 21 rows of three bytes, followed by one alignment byte. VIC bank $4000 addresses this record with sprite pointer $1E. Bit order within each row follows the VIC sprite format; renderer mode and colours are set separately by the game."
+  },
+  {
+   "address": 18368,
+   "type": "line",
+   "text": "Hardware sprite image 31: 21 rows of three bytes, followed by one alignment byte. VIC bank $4000 addresses this record with sprite pointer $1F. Bit order within each row follows the VIC sprite format; renderer mode and colours are set separately by the game."
+  },
+  {
+   "address": 18432,
+   "type": "line",
+   "text": "Hardware sprite image 32: 21 rows of three bytes, followed by one alignment byte. VIC bank $4000 addresses this record with sprite pointer $20. Bit order within each row follows the VIC sprite format; renderer mode and colours are set separately by the game."
+  },
+  {
+   "address": 18496,
+   "type": "line",
+   "text": "Hardware sprite image 33: 21 rows of three bytes, followed by one alignment byte. VIC bank $4000 addresses this record with sprite pointer $21. Bit order within each row follows the VIC sprite format; renderer mode and colours are set separately by the game."
+  },
+  {
+   "address": 18560,
+   "type": "line",
+   "text": "Hardware sprite image 34: 21 rows of three bytes, followed by one alignment byte. VIC bank $4000 addresses this record with sprite pointer $22. Bit order within each row follows the VIC sprite format; renderer mode and colours are set separately by the game."
+  },
+  {
+   "address": 18624,
+   "type": "line",
+   "text": "Hardware sprite image 35: 21 rows of three bytes, followed by one alignment byte. VIC bank $4000 addresses this record with sprite pointer $23. Bit order within each row follows the VIC sprite format; renderer mode and colours are set separately by the game."
+  },
+  {
+   "address": 18688,
+   "type": "line",
+   "text": "Hardware sprite image 36: 21 rows of three bytes, followed by one alignment byte. VIC bank $4000 addresses this record with sprite pointer $24. Bit order within each row follows the VIC sprite format; renderer mode and colours are set separately by the game."
+  },
+  {
+   "address": 18752,
+   "type": "line",
+   "text": "Hardware sprite image 37: 21 rows of three bytes, followed by one alignment byte. VIC bank $4000 addresses this record with sprite pointer $25. Bit order within each row follows the VIC sprite format; renderer mode and colours are set separately by the game."
+  },
+  {
+   "address": 18816,
+   "type": "line",
+   "text": "Hardware sprite image 38: 21 rows of three bytes, followed by one alignment byte. VIC bank $4000 addresses this record with sprite pointer $26. Bit order within each row follows the VIC sprite format; renderer mode and colours are set separately by the game."
+  },
+  {
+   "address": 18880,
+   "type": "line",
+   "text": "Hardware sprite image 39: 21 rows of three bytes, followed by one alignment byte. VIC bank $4000 addresses this record with sprite pointer $27. Bit order within each row follows the VIC sprite format; renderer mode and colours are set separately by the game."
+  },
+  {
+   "address": 18944,
+   "type": "line",
+   "text": "Hardware sprite image 40: 21 rows of three bytes, followed by one alignment byte. VIC bank $4000 addresses this record with sprite pointer $28. Bit order within each row follows the VIC sprite format; renderer mode and colours are set separately by the game."
+  },
+  {
+   "address": 19008,
+   "type": "line",
+   "text": "Hardware sprite image 41: 21 rows of three bytes, followed by one alignment byte. VIC bank $4000 addresses this record with sprite pointer $29. Bit order within each row follows the VIC sprite format; renderer mode and colours are set separately by the game."
+  },
+  {
+   "address": 19072,
+   "type": "line",
+   "text": "Hardware sprite image 42: 21 rows of three bytes, followed by one alignment byte. VIC bank $4000 addresses this record with sprite pointer $2A. Bit order within each row follows the VIC sprite format; renderer mode and colours are set separately by the game."
+  },
+  {
+   "address": 19136,
+   "type": "line",
+   "text": "Hardware sprite image 43: 21 rows of three bytes, followed by one alignment byte. VIC bank $4000 addresses this record with sprite pointer $2B. Bit order within each row follows the VIC sprite format; renderer mode and colours are set separately by the game."
+  },
+  {
+   "address": 19200,
+   "type": "line",
+   "text": "Hardware sprite image 44: 21 rows of three bytes, followed by one alignment byte. VIC bank $4000 addresses this record with sprite pointer $2C. Bit order within each row follows the VIC sprite format; renderer mode and colours are set separately by the game."
+  },
+  {
+   "address": 19264,
+   "type": "line",
+   "text": "Hardware sprite image 45: 21 rows of three bytes, followed by one alignment byte. VIC bank $4000 addresses this record with sprite pointer $2D. Bit order within each row follows the VIC sprite format; renderer mode and colours are set separately by the game."
+  },
+  {
+   "address": 19328,
+   "type": "line",
+   "text": "Hardware sprite image 46: 21 rows of three bytes, followed by one alignment byte. VIC bank $4000 addresses this record with sprite pointer $2E. Bit order within each row follows the VIC sprite format; renderer mode and colours are set separately by the game."
+  },
+  {
+   "address": 19392,
+   "type": "line",
+   "text": "Hardware sprite image 47: 21 rows of three bytes, followed by one alignment byte. VIC bank $4000 addresses this record with sprite pointer $2F. Bit order within each row follows the VIC sprite format; renderer mode and colours are set separately by the game."
+  },
+  {
+   "address": 19456,
+   "type": "line",
+   "text": "Hardware sprite image 48: 21 rows of three bytes, followed by one alignment byte. VIC bank $4000 addresses this record with sprite pointer $30. Bit order within each row follows the VIC sprite format; renderer mode and colours are set separately by the game."
+  },
+  {
+   "address": 19520,
+   "type": "line",
+   "text": "Hardware sprite image 49: 21 rows of three bytes, followed by one alignment byte. VIC bank $4000 addresses this record with sprite pointer $31. Bit order within each row follows the VIC sprite format; renderer mode and colours are set separately by the game."
+  },
+  {
+   "address": 19584,
+   "type": "line",
+   "text": "Hardware sprite image 50: 21 rows of three bytes, followed by one alignment byte. VIC bank $4000 addresses this record with sprite pointer $32. Bit order within each row follows the VIC sprite format; renderer mode and colours are set separately by the game."
+  },
+  {
+   "address": 19648,
+   "type": "line",
+   "text": "Hardware sprite image 51: 21 rows of three bytes, followed by one alignment byte. VIC bank $4000 addresses this record with sprite pointer $33. Bit order within each row follows the VIC sprite format; renderer mode and colours are set separately by the game."
+  },
+  {
+   "address": 19712,
+   "type": "line",
+   "text": "Hardware sprite image 52: 21 rows of three bytes, followed by one alignment byte. VIC bank $4000 addresses this record with sprite pointer $34. Bit order within each row follows the VIC sprite format; renderer mode and colours are set separately by the game."
+  },
+  {
+   "address": 19776,
+   "type": "line",
+   "text": "Hardware sprite image 53: 21 rows of three bytes, followed by one alignment byte. VIC bank $4000 addresses this record with sprite pointer $35. Bit order within each row follows the VIC sprite format; renderer mode and colours are set separately by the game."
+  },
+  {
+   "address": 19840,
+   "type": "line",
+   "text": "Hardware sprite image 54: 21 rows of three bytes, followed by one alignment byte. VIC bank $4000 addresses this record with sprite pointer $36. Bit order within each row follows the VIC sprite format; renderer mode and colours are set separately by the game."
+  },
+  {
+   "address": 19904,
+   "type": "line",
+   "text": "Hardware sprite image 55: 21 rows of three bytes, followed by one alignment byte. VIC bank $4000 addresses this record with sprite pointer $37. Bit order within each row follows the VIC sprite format; renderer mode and colours are set separately by the game."
+  },
+  {
+   "address": 19968,
+   "type": "line",
+   "text": "Hardware sprite image 56: 21 rows of three bytes, followed by one alignment byte. VIC bank $4000 addresses this record with sprite pointer $38. Bit order within each row follows the VIC sprite format; renderer mode and colours are set separately by the game."
+  },
+  {
+   "address": 20032,
+   "type": "line",
+   "text": "Hardware sprite image 57: 21 rows of three bytes, followed by one alignment byte. VIC bank $4000 addresses this record with sprite pointer $39. Bit order within each row follows the VIC sprite format; renderer mode and colours are set separately by the game."
+  },
+  {
+   "address": 20096,
+   "type": "line",
+   "text": "Hardware sprite image 58: 21 rows of three bytes, followed by one alignment byte. VIC bank $4000 addresses this record with sprite pointer $3A. Bit order within each row follows the VIC sprite format; renderer mode and colours are set separately by the game."
+  },
+  {
+   "address": 20160,
+   "type": "line",
+   "text": "Hardware sprite image 59: 21 rows of three bytes, followed by one alignment byte. VIC bank $4000 addresses this record with sprite pointer $3B. Bit order within each row follows the VIC sprite format; renderer mode and colours are set separately by the game."
+  },
+  {
+   "address": 20224,
+   "type": "line",
+   "text": "Hardware sprite image 60: 21 rows of three bytes, followed by one alignment byte. VIC bank $4000 addresses this record with sprite pointer $3C. Bit order within each row follows the VIC sprite format; renderer mode and colours are set separately by the game."
+  },
+  {
+   "address": 20288,
+   "type": "line",
+   "text": "Hardware sprite image 61: 21 rows of three bytes, followed by one alignment byte. VIC bank $4000 addresses this record with sprite pointer $3D. Bit order within each row follows the VIC sprite format; renderer mode and colours are set separately by the game."
+  },
+  {
+   "address": 20352,
+   "type": "line",
+   "text": "Hardware sprite image 62: 21 rows of three bytes, followed by one alignment byte. VIC bank $4000 addresses this record with sprite pointer $3E. Bit order within each row follows the VIC sprite format; renderer mode and colours are set separately by the game."
+  },
+  {
+   "address": 20416,
+   "type": "line",
+   "text": "Hardware sprite image 63: 21 rows of three bytes, followed by one alignment byte. VIC bank $4000 addresses this record with sprite pointer $3F. Bit order within each row follows the VIC sprite format; renderer mode and colours are set separately by the game."
+  },
+  {
+   "address": 20480,
+   "type": "line",
+   "text": "Hardware sprite image 64: 21 rows of three bytes, followed by one alignment byte. VIC bank $4000 addresses this record with sprite pointer $40. Bit order within each row follows the VIC sprite format; renderer mode and colours are set separately by the game."
+  },
+  {
+   "address": 20544,
+   "type": "line",
+   "text": "Hardware sprite image 65: 21 rows of three bytes, followed by one alignment byte. VIC bank $4000 addresses this record with sprite pointer $41. Bit order within each row follows the VIC sprite format; renderer mode and colours are set separately by the game."
+  },
+  {
+   "address": 20608,
+   "type": "line",
+   "text": "Hardware sprite image 66: 21 rows of three bytes, followed by one alignment byte. VIC bank $4000 addresses this record with sprite pointer $42. Bit order within each row follows the VIC sprite format; renderer mode and colours are set separately by the game."
+  },
+  {
+   "address": 20672,
+   "type": "line",
+   "text": "Hardware sprite image 67: 21 rows of three bytes, followed by one alignment byte. VIC bank $4000 addresses this record with sprite pointer $43. Bit order within each row follows the VIC sprite format; renderer mode and colours are set separately by the game."
+  },
+  {
+   "address": 20736,
+   "type": "line",
+   "text": "Hardware sprite image 68: 21 rows of three bytes, followed by one alignment byte. VIC bank $4000 addresses this record with sprite pointer $44. Bit order within each row follows the VIC sprite format; renderer mode and colours are set separately by the game."
+  },
+  {
+   "address": 20800,
+   "type": "line",
+   "text": "Hardware sprite image 69: 21 rows of three bytes, followed by one alignment byte. VIC bank $4000 addresses this record with sprite pointer $45. Bit order within each row follows the VIC sprite format; renderer mode and colours are set separately by the game."
+  },
+  {
+   "address": 20864,
+   "type": "line",
+   "text": "Hardware sprite image 70: 21 rows of three bytes, followed by one alignment byte. VIC bank $4000 addresses this record with sprite pointer $46. Bit order within each row follows the VIC sprite format; renderer mode and colours are set separately by the game."
+  },
+  {
+   "address": 20928,
+   "type": "line",
+   "text": "Hardware sprite image 71: 21 rows of three bytes, followed by one alignment byte. VIC bank $4000 addresses this record with sprite pointer $47. Bit order within each row follows the VIC sprite format; renderer mode and colours are set separately by the game."
+  },
+  {
+   "address": 20992,
+   "type": "line",
+   "text": "Hardware sprite image 72: 21 rows of three bytes, followed by one alignment byte. VIC bank $4000 addresses this record with sprite pointer $48. Bit order within each row follows the VIC sprite format; renderer mode and colours are set separately by the game."
+  },
+  {
+   "address": 21056,
+   "type": "line",
+   "text": "Hardware sprite image 73: 21 rows of three bytes, followed by one alignment byte. VIC bank $4000 addresses this record with sprite pointer $49. Bit order within each row follows the VIC sprite format; renderer mode and colours are set separately by the game."
+  },
+  {
+   "address": 21120,
+   "type": "line",
+   "text": "Hardware sprite image 74: 21 rows of three bytes, followed by one alignment byte. VIC bank $4000 addresses this record with sprite pointer $4A. Bit order within each row follows the VIC sprite format; renderer mode and colours are set separately by the game."
+  },
+  {
+   "address": 21184,
+   "type": "line",
+   "text": "Hardware sprite image 75: 21 rows of three bytes, followed by one alignment byte. VIC bank $4000 addresses this record with sprite pointer $4B. Bit order within each row follows the VIC sprite format; renderer mode and colours are set separately by the game."
+  },
+  {
+   "address": 21248,
+   "type": "line",
+   "text": "Hardware sprite image 76: 21 rows of three bytes, followed by one alignment byte. VIC bank $4000 addresses this record with sprite pointer $4C. Bit order within each row follows the VIC sprite format; renderer mode and colours are set separately by the game."
+  },
+  {
+   "address": 21312,
+   "type": "line",
+   "text": "Hardware sprite image 77: 21 rows of three bytes, followed by one alignment byte. VIC bank $4000 addresses this record with sprite pointer $4D. Bit order within each row follows the VIC sprite format; renderer mode and colours are set separately by the game."
+  },
+  {
+   "address": 21376,
+   "type": "line",
+   "text": "Hardware sprite image 78: 21 rows of three bytes, followed by one alignment byte. VIC bank $4000 addresses this record with sprite pointer $4E. Bit order within each row follows the VIC sprite format; renderer mode and colours are set separately by the game."
+  },
+  {
+   "address": 21440,
+   "type": "line",
+   "text": "Hardware sprite image 79: 21 rows of three bytes, followed by one alignment byte. VIC bank $4000 addresses this record with sprite pointer $4F. Bit order within each row follows the VIC sprite format; renderer mode and colours are set separately by the game."
+  },
+  {
+   "address": 21504,
+   "type": "line",
+   "text": "Hardware sprite image 80: 21 rows of three bytes, followed by one alignment byte. VIC bank $4000 addresses this record with sprite pointer $50. Bit order within each row follows the VIC sprite format; renderer mode and colours are set separately by the game."
+  },
+  {
+   "address": 21568,
+   "type": "line",
+   "text": "Hardware sprite image 81: 21 rows of three bytes, followed by one alignment byte. VIC bank $4000 addresses this record with sprite pointer $51. Bit order within each row follows the VIC sprite format; renderer mode and colours are set separately by the game."
+  },
+  {
+   "address": 21632,
+   "type": "line",
+   "text": "Hardware sprite image 82: 21 rows of three bytes, followed by one alignment byte. VIC bank $4000 addresses this record with sprite pointer $52. Bit order within each row follows the VIC sprite format; renderer mode and colours are set separately by the game."
+  },
+  {
+   "address": 21696,
+   "type": "line",
+   "text": "Hardware sprite image 83: 21 rows of three bytes, followed by one alignment byte. VIC bank $4000 addresses this record with sprite pointer $53. Bit order within each row follows the VIC sprite format; renderer mode and colours are set separately by the game."
+  },
+  {
+   "address": 21760,
+   "type": "line",
+   "text": "Hardware sprite image 84: 21 rows of three bytes, followed by one alignment byte. VIC bank $4000 addresses this record with sprite pointer $54. Bit order within each row follows the VIC sprite format; renderer mode and colours are set separately by the game."
+  },
+  {
+   "address": 21824,
+   "type": "line",
+   "text": "Hardware sprite image 85: 21 rows of three bytes, followed by one alignment byte. VIC bank $4000 addresses this record with sprite pointer $55. Bit order within each row follows the VIC sprite format; renderer mode and colours are set separately by the game."
+  },
+  {
+   "address": 21888,
+   "type": "line",
+   "text": "Hardware sprite image 86: 21 rows of three bytes, followed by one alignment byte. VIC bank $4000 addresses this record with sprite pointer $56. Bit order within each row follows the VIC sprite format; renderer mode and colours are set separately by the game."
+  },
+  {
+   "address": 21952,
+   "type": "line",
+   "text": "Hardware sprite image 87: 21 rows of three bytes, followed by one alignment byte. VIC bank $4000 addresses this record with sprite pointer $57. Bit order within each row follows the VIC sprite format; renderer mode and colours are set separately by the game."
+  },
+  {
+   "address": 22016,
+   "type": "line",
+   "text": "Hardware sprite image 88: 21 rows of three bytes, followed by one alignment byte. VIC bank $4000 addresses this record with sprite pointer $58. Bit order within each row follows the VIC sprite format; renderer mode and colours are set separately by the game."
+  },
+  {
+   "address": 22080,
+   "type": "line",
+   "text": "Hardware sprite image 89: 21 rows of three bytes, followed by one alignment byte. VIC bank $4000 addresses this record with sprite pointer $59. Bit order within each row follows the VIC sprite format; renderer mode and colours are set separately by the game."
+  },
+  {
+   "address": 22144,
+   "type": "line",
+   "text": "Hardware sprite image 90: 21 rows of three bytes, followed by one alignment byte. VIC bank $4000 addresses this record with sprite pointer $5A. Bit order within each row follows the VIC sprite format; renderer mode and colours are set separately by the game."
+  },
+  {
+   "address": 22208,
+   "type": "line",
+   "text": "Hardware sprite image 91: 21 rows of three bytes, followed by one alignment byte. VIC bank $4000 addresses this record with sprite pointer $5B. Bit order within each row follows the VIC sprite format; renderer mode and colours are set separately by the game."
+  },
+  {
+   "address": 22272,
+   "type": "line",
+   "text": "Hardware sprite image 92: 21 rows of three bytes, followed by one alignment byte. VIC bank $4000 addresses this record with sprite pointer $5C. Bit order within each row follows the VIC sprite format; renderer mode and colours are set separately by the game."
+  },
+  {
+   "address": 22336,
+   "type": "line",
+   "text": "Hardware sprite image 93: 21 rows of three bytes, followed by one alignment byte. VIC bank $4000 addresses this record with sprite pointer $5D. Bit order within each row follows the VIC sprite format; renderer mode and colours are set separately by the game."
+  },
+  {
+   "address": 22400,
+   "type": "line",
+   "text": "Hardware sprite image 94: 21 rows of three bytes, followed by one alignment byte. VIC bank $4000 addresses this record with sprite pointer $5E. Bit order within each row follows the VIC sprite format; renderer mode and colours are set separately by the game."
+  },
+  {
+   "address": 22464,
+   "type": "line",
+   "text": "Hardware sprite image 95: 21 rows of three bytes, followed by one alignment byte. VIC bank $4000 addresses this record with sprite pointer $5F. Bit order within each row follows the VIC sprite format; renderer mode and colours are set separately by the game."
+  },
+  {
+   "address": 22528,
+   "type": "line",
+   "text": "Hardware sprite image 96: 21 rows of three bytes, followed by one alignment byte. VIC bank $4000 addresses this record with sprite pointer $60. Bit order within each row follows the VIC sprite format; renderer mode and colours are set separately by the game."
+  },
+  {
+   "address": 22592,
+   "type": "line",
+   "text": "Hardware sprite image 97: 21 rows of three bytes, followed by one alignment byte. VIC bank $4000 addresses this record with sprite pointer $61. Bit order within each row follows the VIC sprite format; renderer mode and colours are set separately by the game."
+  },
+  {
+   "address": 22656,
+   "type": "line",
+   "text": "Hardware sprite image 98: 21 rows of three bytes, followed by one alignment byte. VIC bank $4000 addresses this record with sprite pointer $62. Bit order within each row follows the VIC sprite format; renderer mode and colours are set separately by the game."
+  },
+  {
+   "address": 22720,
+   "type": "line",
+   "text": "Hardware sprite image 99: 21 rows of three bytes, followed by one alignment byte. VIC bank $4000 addresses this record with sprite pointer $63. Bit order within each row follows the VIC sprite format; renderer mode and colours are set separately by the game."
+  },
+  {
+   "address": 22784,
+   "type": "line",
+   "text": "Hardware sprite image 100: 21 rows of three bytes, followed by one alignment byte. VIC bank $4000 addresses this record with sprite pointer $64. Bit order within each row follows the VIC sprite format; renderer mode and colours are set separately by the game."
+  },
+  {
+   "address": 22848,
+   "type": "line",
+   "text": "Hardware sprite image 101: 21 rows of three bytes, followed by one alignment byte. VIC bank $4000 addresses this record with sprite pointer $65. Bit order within each row follows the VIC sprite format; renderer mode and colours are set separately by the game."
+  },
+  {
+   "address": 22912,
+   "type": "line",
+   "text": "Hardware sprite image 102: 21 rows of three bytes, followed by one alignment byte. VIC bank $4000 addresses this record with sprite pointer $66. Bit order within each row follows the VIC sprite format; renderer mode and colours are set separately by the game."
+  },
+  {
+   "address": 22976,
+   "type": "line",
+   "text": "Hardware sprite image 103: 21 rows of three bytes, followed by one alignment byte. VIC bank $4000 addresses this record with sprite pointer $67. Bit order within each row follows the VIC sprite format; renderer mode and colours are set separately by the game."
+  },
+  {
+   "address": 23040,
+   "type": "line",
+   "text": "Hardware sprite image 104: 21 rows of three bytes, followed by one alignment byte. VIC bank $4000 addresses this record with sprite pointer $68. Bit order within each row follows the VIC sprite format; renderer mode and colours are set separately by the game."
+  },
+  {
+   "address": 23104,
+   "type": "line",
+   "text": "Hardware sprite image 105: 21 rows of three bytes, followed by one alignment byte. VIC bank $4000 addresses this record with sprite pointer $69. Bit order within each row follows the VIC sprite format; renderer mode and colours are set separately by the game."
+  },
+  {
+   "address": 23168,
+   "type": "line",
+   "text": "Hardware sprite image 106: 21 rows of three bytes, followed by one alignment byte. VIC bank $4000 addresses this record with sprite pointer $6A. Bit order within each row follows the VIC sprite format; renderer mode and colours are set separately by the game."
+  },
+  {
+   "address": 23232,
+   "type": "line",
+   "text": "Hardware sprite image 107: 21 rows of three bytes, followed by one alignment byte. VIC bank $4000 addresses this record with sprite pointer $6B. Bit order within each row follows the VIC sprite format; renderer mode and colours are set separately by the game."
+  },
+  {
+   "address": 23296,
+   "type": "line",
+   "text": "Hardware sprite image 108: 21 rows of three bytes, followed by one alignment byte. VIC bank $4000 addresses this record with sprite pointer $6C. Bit order within each row follows the VIC sprite format; renderer mode and colours are set separately by the game."
+  },
+  {
+   "address": 23360,
+   "type": "line",
+   "text": "Hardware sprite image 109: 21 rows of three bytes, followed by one alignment byte. VIC bank $4000 addresses this record with sprite pointer $6D. Bit order within each row follows the VIC sprite format; renderer mode and colours are set separately by the game."
+  },
+  {
+   "address": 23424,
+   "type": "line",
+   "text": "Hardware sprite image 110: 21 rows of three bytes, followed by one alignment byte. VIC bank $4000 addresses this record with sprite pointer $6E. Bit order within each row follows the VIC sprite format; renderer mode and colours are set separately by the game."
+  },
+  {
+   "address": 23488,
+   "type": "line",
+   "text": "Hardware sprite image 111: 21 rows of three bytes, followed by one alignment byte. VIC bank $4000 addresses this record with sprite pointer $6F. Bit order within each row follows the VIC sprite format; renderer mode and colours are set separately by the game."
+  },
+  {
+   "address": 23552,
+   "type": "line",
+   "text": "Hardware sprite image 112: 21 rows of three bytes, followed by one alignment byte. VIC bank $4000 addresses this record with sprite pointer $70. Bit order within each row follows the VIC sprite format; renderer mode and colours are set separately by the game."
+  },
+  {
+   "address": 23616,
+   "type": "line",
+   "text": "Hardware sprite image 113: 21 rows of three bytes, followed by one alignment byte. VIC bank $4000 addresses this record with sprite pointer $71. Bit order within each row follows the VIC sprite format; renderer mode and colours are set separately by the game."
+  },
+  {
+   "address": 23680,
+   "type": "line",
+   "text": "Hardware sprite image 114: 21 rows of three bytes, followed by one alignment byte. VIC bank $4000 addresses this record with sprite pointer $72. Bit order within each row follows the VIC sprite format; renderer mode and colours are set separately by the game."
+  },
+  {
+   "address": 23744,
+   "type": "line",
+   "text": "Hardware sprite image 115: 21 rows of three bytes, followed by one alignment byte. VIC bank $4000 addresses this record with sprite pointer $73. Bit order within each row follows the VIC sprite format; renderer mode and colours are set separately by the game."
+  },
+  {
+   "address": 23808,
+   "type": "line",
+   "text": "Hardware sprite image 116: 21 rows of three bytes, followed by one alignment byte. VIC bank $4000 addresses this record with sprite pointer $74. Bit order within each row follows the VIC sprite format; renderer mode and colours are set separately by the game."
+  },
+  {
+   "address": 23872,
+   "type": "line",
+   "text": "Hardware sprite image 117: 21 rows of three bytes, followed by one alignment byte. VIC bank $4000 addresses this record with sprite pointer $75. Bit order within each row follows the VIC sprite format; renderer mode and colours are set separately by the game."
+  },
+  {
+   "address": 23936,
+   "type": "line",
+   "text": "Hardware sprite image 118: 21 rows of three bytes, followed by one alignment byte. VIC bank $4000 addresses this record with sprite pointer $76. Bit order within each row follows the VIC sprite format; renderer mode and colours are set separately by the game."
+  },
+  {
+   "address": 24000,
+   "type": "line",
+   "text": "Hardware sprite image 119: 21 rows of three bytes, followed by one alignment byte. VIC bank $4000 addresses this record with sprite pointer $77. Bit order within each row follows the VIC sprite format; renderer mode and colours are set separately by the game."
+  },
+  {
+   "address": 24064,
+   "type": "line",
+   "text": "Hardware sprite image 120: 21 rows of three bytes, followed by one alignment byte. VIC bank $4000 addresses this record with sprite pointer $78. Bit order within each row follows the VIC sprite format; renderer mode and colours are set separately by the game."
+  },
+  {
+   "address": 24128,
+   "type": "line",
+   "text": "Hardware sprite image 121: 21 rows of three bytes, followed by one alignment byte. VIC bank $4000 addresses this record with sprite pointer $79. Bit order within each row follows the VIC sprite format; renderer mode and colours are set separately by the game."
+  },
+  {
+   "address": 24192,
+   "type": "line",
+   "text": "Hardware sprite image 122: 21 rows of three bytes, followed by one alignment byte. VIC bank $4000 addresses this record with sprite pointer $7A. Bit order within each row follows the VIC sprite format; renderer mode and colours are set separately by the game."
+  },
+  {
+   "address": 24256,
+   "type": "line",
+   "text": "Hardware sprite image 123: 21 rows of three bytes, followed by one alignment byte. VIC bank $4000 addresses this record with sprite pointer $7B. Bit order within each row follows the VIC sprite format; renderer mode and colours are set separately by the game."
+  },
+  {
+   "address": 24320,
+   "type": "line",
+   "text": "Hardware sprite image 124: 21 rows of three bytes, followed by one alignment byte. VIC bank $4000 addresses this record with sprite pointer $7C. Bit order within each row follows the VIC sprite format; renderer mode and colours are set separately by the game."
+  },
+  {
+   "address": 24384,
+   "type": "line",
+   "text": "Hardware sprite image 125: 21 rows of three bytes, followed by one alignment byte. VIC bank $4000 addresses this record with sprite pointer $7D. Bit order within each row follows the VIC sprite format; renderer mode and colours are set separately by the game."
+  },
+  {
+   "address": 24448,
+   "type": "line",
+   "text": "Hardware sprite image 126: 21 rows of three bytes, followed by one alignment byte. VIC bank $4000 addresses this record with sprite pointer $7E. Bit order within each row follows the VIC sprite format; renderer mode and colours are set separately by the game."
+  },
+  {
+   "address": 24512,
+   "type": "line",
+   "text": "Hardware sprite image 127: 21 rows of three bytes, followed by one alignment byte. VIC bank $4000 addresses this record with sprite pointer $7F. Bit order within each row follows the VIC sprite format; renderer mode and colours are set separately by the game."
+  },
+  {
+   "address": 24576,
+   "type": "line",
+   "text": "Hardware sprite image 128: 21 rows of three bytes, followed by one alignment byte. VIC bank $4000 addresses this record with sprite pointer $80. Bit order within each row follows the VIC sprite format; renderer mode and colours are set separately by the game."
+  },
+  {
+   "address": 24640,
+   "type": "line",
+   "text": "Hardware sprite image 129: 21 rows of three bytes, followed by one alignment byte. VIC bank $4000 addresses this record with sprite pointer $81. Bit order within each row follows the VIC sprite format; renderer mode and colours are set separately by the game."
+  },
+  {
+   "address": 24704,
+   "type": "line",
+   "text": "Hardware sprite image 130: 21 rows of three bytes, followed by one alignment byte. VIC bank $4000 addresses this record with sprite pointer $82. Bit order within each row follows the VIC sprite format; renderer mode and colours are set separately by the game."
+  },
+  {
+   "address": 24768,
+   "type": "line",
+   "text": "Hardware sprite image 131: 21 rows of three bytes, followed by one alignment byte. VIC bank $4000 addresses this record with sprite pointer $83. Bit order within each row follows the VIC sprite format; renderer mode and colours are set separately by the game."
+  },
+  {
+   "address": 24832,
+   "type": "line",
+   "text": "Hardware sprite image 132: 21 rows of three bytes, followed by one alignment byte. VIC bank $4000 addresses this record with sprite pointer $84. Bit order within each row follows the VIC sprite format; renderer mode and colours are set separately by the game."
+  },
+  {
+   "address": 24896,
+   "type": "line",
+   "text": "Hardware sprite image 133: 21 rows of three bytes, followed by one alignment byte. VIC bank $4000 addresses this record with sprite pointer $85. Bit order within each row follows the VIC sprite format; renderer mode and colours are set separately by the game."
+  },
+  {
+   "address": 24960,
+   "type": "line",
+   "text": "Hardware sprite image 134: 21 rows of three bytes, followed by one alignment byte. VIC bank $4000 addresses this record with sprite pointer $86. Bit order within each row follows the VIC sprite format; renderer mode and colours are set separately by the game."
+  },
+  {
+   "address": 25024,
+   "type": "line",
+   "text": "Hardware sprite image 135: 21 rows of three bytes, followed by one alignment byte. VIC bank $4000 addresses this record with sprite pointer $87. Bit order within each row follows the VIC sprite format; renderer mode and colours are set separately by the game."
+  },
+  {
+   "address": 25088,
+   "type": "line",
+   "text": "Hardware sprite image 136: 21 rows of three bytes, followed by one alignment byte. VIC bank $4000 addresses this record with sprite pointer $88. Bit order within each row follows the VIC sprite format; renderer mode and colours are set separately by the game."
+  },
+  {
+   "address": 25152,
+   "type": "line",
+   "text": "Hardware sprite image 137: 21 rows of three bytes, followed by one alignment byte. VIC bank $4000 addresses this record with sprite pointer $89. Bit order within each row follows the VIC sprite format; renderer mode and colours are set separately by the game."
+  },
+  {
+   "address": 25216,
+   "type": "line",
+   "text": "Hardware sprite image 138: 21 rows of three bytes, followed by one alignment byte. VIC bank $4000 addresses this record with sprite pointer $8A. Bit order within each row follows the VIC sprite format; renderer mode and colours are set separately by the game."
+  },
+  {
+   "address": 25280,
+   "type": "line",
+   "text": "Hardware sprite image 139: 21 rows of three bytes, followed by one alignment byte. VIC bank $4000 addresses this record with sprite pointer $8B. Bit order within each row follows the VIC sprite format; renderer mode and colours are set separately by the game."
+  },
+  {
+   "address": 25344,
+   "type": "line",
+   "text": "Hardware sprite image 140: 21 rows of three bytes, followed by one alignment byte. VIC bank $4000 addresses this record with sprite pointer $8C. Bit order within each row follows the VIC sprite format; renderer mode and colours are set separately by the game."
+  },
+  {
+   "address": 25408,
+   "type": "line",
+   "text": "Hardware sprite image 141: 21 rows of three bytes, followed by one alignment byte. VIC bank $4000 addresses this record with sprite pointer $8D. Bit order within each row follows the VIC sprite format; renderer mode and colours are set separately by the game."
+  },
+  {
+   "address": 25472,
+   "type": "line",
+   "text": "Hardware sprite image 142: 21 rows of three bytes, followed by one alignment byte. VIC bank $4000 addresses this record with sprite pointer $8E. Bit order within each row follows the VIC sprite format; renderer mode and colours are set separately by the game."
+  },
+  {
+   "address": 25536,
+   "type": "line",
+   "text": "Hardware sprite image 143: 21 rows of three bytes, followed by one alignment byte. VIC bank $4000 addresses this record with sprite pointer $8F. Bit order within each row follows the VIC sprite format; renderer mode and colours are set separately by the game."
+  },
+  {
+   "address": 25600,
+   "type": "line",
+   "text": "Hardware sprite image 144: 21 rows of three bytes, followed by one alignment byte. VIC bank $4000 addresses this record with sprite pointer $90. Bit order within each row follows the VIC sprite format; renderer mode and colours are set separately by the game."
+  },
+  {
+   "address": 25664,
+   "type": "line",
+   "text": "Hardware sprite image 145: 21 rows of three bytes, followed by one alignment byte. VIC bank $4000 addresses this record with sprite pointer $91. Bit order within each row follows the VIC sprite format; renderer mode and colours are set separately by the game."
+  },
+  {
+   "address": 25728,
+   "type": "line",
+   "text": "Hardware sprite image 146: 21 rows of three bytes, followed by one alignment byte. VIC bank $4000 addresses this record with sprite pointer $92. Bit order within each row follows the VIC sprite format; renderer mode and colours are set separately by the game."
+  },
+  {
+   "address": 25792,
+   "type": "line",
+   "text": "Hardware sprite image 147: 21 rows of three bytes, followed by one alignment byte. VIC bank $4000 addresses this record with sprite pointer $93. Bit order within each row follows the VIC sprite format; renderer mode and colours are set separately by the game."
+  },
+  {
+   "address": 25856,
+   "type": "line",
+   "text": "Hardware sprite image 148: 21 rows of three bytes, followed by one alignment byte. VIC bank $4000 addresses this record with sprite pointer $94. Bit order within each row follows the VIC sprite format; renderer mode and colours are set separately by the game."
+  },
+  {
+   "address": 25920,
+   "type": "line",
+   "text": "Hardware sprite image 149: 21 rows of three bytes, followed by one alignment byte. VIC bank $4000 addresses this record with sprite pointer $95. Bit order within each row follows the VIC sprite format; renderer mode and colours are set separately by the game."
+  },
+  {
+   "address": 25984,
+   "type": "line",
+   "text": "Hardware sprite image 150: 21 rows of three bytes, followed by one alignment byte. VIC bank $4000 addresses this record with sprite pointer $96. Bit order within each row follows the VIC sprite format; renderer mode and colours are set separately by the game."
+  },
+  {
+   "address": 26048,
+   "type": "line",
+   "text": "Hardware sprite image 151: 21 rows of three bytes, followed by one alignment byte. VIC bank $4000 addresses this record with sprite pointer $97. Bit order within each row follows the VIC sprite format; renderer mode and colours are set separately by the game."
+  },
+  {
+   "address": 26112,
+   "type": "line",
+   "text": "Hardware sprite image 152: 21 rows of three bytes, followed by one alignment byte. VIC bank $4000 addresses this record with sprite pointer $98. Bit order within each row follows the VIC sprite format; renderer mode and colours are set separately by the game."
+  },
+  {
+   "address": 26176,
+   "type": "line",
+   "text": "Hardware sprite image 153: 21 rows of three bytes, followed by one alignment byte. VIC bank $4000 addresses this record with sprite pointer $99. Bit order within each row follows the VIC sprite format; renderer mode and colours are set separately by the game."
+  },
+  {
+   "address": 26240,
+   "type": "line",
+   "text": "Hardware sprite image 154: 21 rows of three bytes, followed by one alignment byte. VIC bank $4000 addresses this record with sprite pointer $9A. Bit order within each row follows the VIC sprite format; renderer mode and colours are set separately by the game."
+  },
+  {
+   "address": 26304,
+   "type": "line",
+   "text": "Hardware sprite image 155: 21 rows of three bytes, followed by one alignment byte. VIC bank $4000 addresses this record with sprite pointer $9B. Bit order within each row follows the VIC sprite format; renderer mode and colours are set separately by the game."
+  },
+  {
+   "address": 26368,
+   "type": "line",
+   "text": "Hardware sprite image 156: 21 rows of three bytes, followed by one alignment byte. VIC bank $4000 addresses this record with sprite pointer $9C. Bit order within each row follows the VIC sprite format; renderer mode and colours are set separately by the game."
+  },
+  {
+   "address": 26432,
+   "type": "line",
+   "text": "Hardware sprite image 157: 21 rows of three bytes, followed by one alignment byte. VIC bank $4000 addresses this record with sprite pointer $9D. Bit order within each row follows the VIC sprite format; renderer mode and colours are set separately by the game."
+  },
+  {
+   "address": 26496,
+   "type": "line",
+   "text": "Hardware sprite image 158: 21 rows of three bytes, followed by one alignment byte. VIC bank $4000 addresses this record with sprite pointer $9E. Bit order within each row follows the VIC sprite format; renderer mode and colours are set separately by the game."
+  },
+  {
+   "address": 26560,
+   "type": "line",
+   "text": "Hardware sprite image 159: 21 rows of three bytes, followed by one alignment byte. VIC bank $4000 addresses this record with sprite pointer $9F. Bit order within each row follows the VIC sprite format; renderer mode and colours are set separately by the game."
+  },
+  {
+   "address": 26624,
+   "type": "line",
+   "text": "Hardware sprite image 160: 21 rows of three bytes, followed by one alignment byte. VIC bank $4000 addresses this record with sprite pointer $A0. Bit order within each row follows the VIC sprite format; renderer mode and colours are set separately by the game."
+  },
+  {
+   "address": 26688,
+   "type": "line",
+   "text": "Hardware sprite image 161: 21 rows of three bytes, followed by one alignment byte. VIC bank $4000 addresses this record with sprite pointer $A1. Bit order within each row follows the VIC sprite format; renderer mode and colours are set separately by the game."
+  },
+  {
+   "address": 26752,
+   "type": "line",
+   "text": "Hardware sprite image 162: 21 rows of three bytes, followed by one alignment byte. VIC bank $4000 addresses this record with sprite pointer $A2. Bit order within each row follows the VIC sprite format; renderer mode and colours are set separately by the game."
+  },
+  {
+   "address": 26816,
+   "type": "line",
+   "text": "Hardware sprite image 163: 21 rows of three bytes, followed by one alignment byte. VIC bank $4000 addresses this record with sprite pointer $A3. Bit order within each row follows the VIC sprite format; renderer mode and colours are set separately by the game."
+  },
+  {
+   "address": 26880,
+   "type": "line",
+   "text": "Hardware sprite image 164: 21 rows of three bytes, followed by one alignment byte. VIC bank $4000 addresses this record with sprite pointer $A4. Bit order within each row follows the VIC sprite format; renderer mode and colours are set separately by the game."
+  },
+  {
+   "address": 26944,
+   "type": "line",
+   "text": "Hardware sprite image 165: 21 rows of three bytes, followed by one alignment byte. VIC bank $4000 addresses this record with sprite pointer $A5. Bit order within each row follows the VIC sprite format; renderer mode and colours are set separately by the game."
+  },
+  {
+   "address": 27008,
+   "type": "line",
+   "text": "Hardware sprite image 166: 21 rows of three bytes, followed by one alignment byte. VIC bank $4000 addresses this record with sprite pointer $A6. Bit order within each row follows the VIC sprite format; renderer mode and colours are set separately by the game."
+  },
+  {
+   "address": 27072,
+   "type": "line",
+   "text": "Hardware sprite image 167: 21 rows of three bytes, followed by one alignment byte. VIC bank $4000 addresses this record with sprite pointer $A7. Bit order within each row follows the VIC sprite format; renderer mode and colours are set separately by the game."
+  },
+  {
+   "address": 27136,
+   "type": "line",
+   "text": "Hardware sprite image 168: 21 rows of three bytes, followed by one alignment byte. VIC bank $4000 addresses this record with sprite pointer $A8. Bit order within each row follows the VIC sprite format; renderer mode and colours are set separately by the game."
+  },
+  {
+   "address": 27200,
+   "type": "line",
+   "text": "Hardware sprite image 169: 21 rows of three bytes, followed by one alignment byte. VIC bank $4000 addresses this record with sprite pointer $A9. Bit order within each row follows the VIC sprite format; renderer mode and colours are set separately by the game."
+  },
+  {
+   "address": 27264,
+   "type": "line",
+   "text": "Hardware sprite image 170: 21 rows of three bytes, followed by one alignment byte. VIC bank $4000 addresses this record with sprite pointer $AA. Bit order within each row follows the VIC sprite format; renderer mode and colours are set separately by the game."
+  },
+  {
+   "address": 27328,
+   "type": "line",
+   "text": "Hardware sprite image 171: 21 rows of three bytes, followed by one alignment byte. VIC bank $4000 addresses this record with sprite pointer $AB. Bit order within each row follows the VIC sprite format; renderer mode and colours are set separately by the game."
   },
   {
    "address": 27456,
@@ -6641,19 +8489,29 @@
    "text": "128 eight-byte character glyphs in VIC bank 1."
   },
   {
-   "address": 30992,
+   "address": 30984,
    "type": "line",
    "text": "Six current-room character glyphs copied from room-record offset $A0 and used by the shared charset."
   },
   {
-   "address": 31024,
+   "address": 31016,
    "type": "line",
    "text": "One current-room glyph rewritten by the animated-room-tile routine."
   },
   {
-   "address": 31200,
+   "address": 31032,
+   "type": "line",
+   "text": "Static eight-byte character bitmaps for codes 39 through 58, beginning at charset offset $138; each byte holds one row, bit 7 at the left. Runtime glyph code 59 at $79D8 follows this span."
+  },
+  {
+   "address": 31192,
    "type": "line",
    "text": "One charset glyph rewritten from the current spare-life animation frame."
+  },
+  {
+   "address": 31200,
+   "type": "line",
+   "text": "Static character bitmaps for codes 60 through 127, eight bytes per glyph, from $79E0 through $7BFF. Bit 7 is the leftmost pixel of each glyph row. Screen memory starts at $7C00."
   },
   {
    "address": 31744,
@@ -6791,6 +8649,11 @@
    "text": "96 little-endian PAL SID frequency words for title music."
   },
   {
+   "address": 41480,
+   "type": "line",
+   "text": "High byte $00 of the first little-endian word at $A207 (JSW_State_title_note_frequency_table); the parent description defines the table or writable pointer."
+  },
+  {
    "address": 41481,
    "type": "line",
    "text": "96 little-endian PAL SID note frequencies for title music."
@@ -6851,7 +8714,7 @@
    "text": "Static title character layout copied into screen RAM."
   },
   {
-   "address": 43482,
+   "address": 43481,
    "type": "line",
    "text": "Second page of the static title-screen layout copied into VIC screen RAM."
   },
@@ -6868,12 +8731,152 @@
   {
    "address": 45056,
    "type": "line",
-   "text": "Canonical rooms 0-29, one 256-byte record per page."
+   "text": "Room 0: THE OFF LICENCE. One 256-byte room record, copied to $0840 by $2E55. $20-$9F stores 32 by 16 terrain cells as four two-bit cells per byte, most-significant pair first; $A0-$CF holds six eight-byte tile glyphs. Up/down/left/right exits are 60, 49, 1, 60 at $DC-$DF. Guardian start/count and rope flag occupy $E0-$E2. Remaining room fields are decoded by the construction routines."
   },
   {
    "address": 45312,
    "type": "line",
-   "text": "Canonical first room bank, 30 pages.\n[offcut b0d5] Room-record ramp byte bit 6 occurs only in rooms 27 and 32. The builder records it by setting the write-only latch at $0012; no active instruction reads that latch, so bit 6 has no gameplay effect in the captured executable."
+   "text": "Room 1: THE BRIDGE. One 256-byte room record, copied to $0840 by $2E55. $20-$9F stores 32 by 16 terrain cells as four two-bit cells per byte, most-significant pair first; $A0-$CF holds six eight-byte tile glyphs. Up/down/left/right exits are 60, 60, 2, 0 at $DC-$DF. Guardian start/count and rope flag occupy $E0-$E2. Remaining room fields are decoded by the construction routines."
+  },
+  {
+   "address": 45568,
+   "type": "line",
+   "text": "Room 2: UNDER THE MEGATREE. One 256-byte room record, copied to $0840 by $2E55. $20-$9F stores 32 by 16 terrain cells as four two-bit cells per byte, most-significant pair first; $A0-$CF holds six eight-byte tile glyphs. Up/down/left/right exits are 60, 60, 3, 1 at $DC-$DF. Guardian start/count and rope flag occupy $E0-$E2. Remaining room fields are decoded by the construction routines."
+  },
+  {
+   "address": 45824,
+   "type": "line",
+   "text": "Room 3: AT THE FOOT OF THE MEGATREE. One 256-byte room record, copied to $0840 by $2E55. $20-$9F stores 32 by 16 terrain cells as four two-bit cells per byte, most-significant pair first; $A0-$CF holds six eight-byte tile glyphs. Up/down/left/right exits are 8, 60, 4, 2 at $DC-$DF. Guardian start/count and rope flag occupy $E0-$E2. Remaining room fields are decoded by the construction routines."
+  },
+  {
+   "address": 46080,
+   "type": "line",
+   "text": "Room 4: THE DRIVE. One 256-byte room record, copied to $0840 by $2E55. $20-$9F stores 32 by 16 terrain cells as four two-bit cells per byte, most-significant pair first; $A0-$CF holds six eight-byte tile glyphs. Up/down/left/right exits are 60, 45, 5, 3 at $DC-$DF. Guardian start/count and rope flag occupy $E0-$E2. Remaining room fields are decoded by the construction routines."
+  },
+  {
+   "address": 46336,
+   "type": "line",
+   "text": "Room 5: THE SECURITY GUARD. One 256-byte room record, copied to $0840 by $2E55. $20-$9F stores 32 by 16 terrain cells as four two-bit cells per byte, most-significant pair first; $A0-$CF holds six eight-byte tile glyphs. Up/down/left/right exits are 10, 6, 19, 4 at $DC-$DF. Guardian start/count and rope flag occupy $E0-$E2. Remaining room fields are decoded by the construction routines."
+  },
+  {
+   "address": 46592,
+   "type": "line",
+   "text": "Room 6: ENTRANCE TO HADES. One 256-byte room record, copied to $0840 by $2E55. $20-$9F stores 32 by 16 terrain cells as four two-bit cells per byte, most-significant pair first; $A0-$CF holds six eight-byte tile glyphs. Up/down/left/right exits are 6, 6, 6, 6 at $DC-$DF. Guardian start/count and rope flag occupy $E0-$E2. Remaining room fields are decoded by the construction routines."
+  },
+  {
+   "address": 46848,
+   "type": "line",
+   "text": "Room 7: CUCKOO'S NEST. One 256-byte room record, copied to $0840 by $2E55. $20-$9F stores 32 by 16 terrain cells as four two-bit cells per byte, most-significant pair first; $A0-$CF holds six eight-byte tile glyphs. Up/down/left/right exits are 7, 2, 8, 7 at $DC-$DF. Guardian start/count and rope flag occupy $E0-$E2. Remaining room fields are decoded by the construction routines."
+  },
+  {
+   "address": 47104,
+   "type": "line",
+   "text": "Room 8: INSIDE THE MEGATRUNK. One 256-byte room record, copied to $0840 by $2E55. $20-$9F stores 32 by 16 terrain cells as four two-bit cells per byte, most-significant pair first; $A0-$CF holds six eight-byte tile glyphs. Up/down/left/right exits are 12, 3, 9, 7 at $DC-$DF. Guardian start/count and rope flag occupy $E0-$E2. Remaining room fields are decoded by the construction routines."
+  },
+  {
+   "address": 47360,
+   "type": "line",
+   "text": "Room 9: ON A BRANCH OVER THE DRIVE. One 256-byte room record, copied to $0840 by $2E55. $20-$9F stores 32 by 16 terrain cells as four two-bit cells per byte, most-significant pair first; $A0-$CF holds six eight-byte tile glyphs. Up/down/left/right exits are 9, 4, 10, 8 at $DC-$DF. Guardian start/count and rope flag occupy $E0-$E2. Remaining room fields are decoded by the construction routines."
+  },
+  {
+   "address": 47616,
+   "type": "line",
+   "text": "Room 10: THE FRONT DOOR. One 256-byte room record, copied to $0840 by $2E55. $20-$9F stores 32 by 16 terrain cells as four two-bit cells per byte, most-significant pair first; $A0-$CF holds six eight-byte tile glyphs. Up/down/left/right exits are 10, 5, 11, 10 at $DC-$DF. Guardian start/count and rope flag occupy $E0-$E2. Remaining room fields are decoded by the construction routines."
+  },
+  {
+   "address": 47872,
+   "type": "line",
+   "text": "Room 11: THE HALL. One 256-byte room record, copied to $0840 by $2E55. $20-$9F stores 32 by 16 terrain cells as four two-bit cells per byte, most-significant pair first; $A0-$CF holds six eight-byte tile glyphs. Up/down/left/right exits are 11, 11, 20, 10 at $DC-$DF. Guardian start/count and rope flag occupy $E0-$E2. Remaining room fields are decoded by the construction routines."
+  },
+  {
+   "address": 48128,
+   "type": "line",
+   "text": "Room 12: TREE TOP. One 256-byte room record, copied to $0840 by $2E55. $20-$9F stores 32 by 16 terrain cells as four two-bit cells per byte, most-significant pair first; $A0-$CF holds six eight-byte tile glyphs. Up/down/left/right exits are 12, 8, 13, 12 at $DC-$DF. Guardian start/count and rope flag occupy $E0-$E2. Remaining room fields are decoded by the construction routines."
+  },
+  {
+   "address": 48384,
+   "type": "line",
+   "text": "Room 13: OUT ON A LIMB. One 256-byte room record, copied to $0840 by $2E55. $20-$9F stores 32 by 16 terrain cells as four two-bit cells per byte, most-significant pair first; $A0-$CF holds six eight-byte tile glyphs. Up/down/left/right exits are 13, 9, 10, 12 at $DC-$DF. Guardian start/count and rope flag occupy $E0-$E2. Remaining room fields are decoded by the construction routines."
+  },
+  {
+   "address": 48640,
+   "type": "line",
+   "text": "Room 14: RESCUE ESMERELDA. One 256-byte room record, copied to $0840 by $2E55. $20-$9F stores 32 by 16 terrain cells as four two-bit cells per byte, most-significant pair first; $A0-$CF holds six eight-byte tile glyphs. Up/down/left/right exits are 20, 39, 15, 44 at $DC-$DF. Guardian start/count and rope flag occupy $E0-$E2. Remaining room fields are decoded by the construction routines."
+  },
+  {
+   "address": 48896,
+   "type": "line",
+   "text": "Room 15: I'M SURE I'VE SEEN THIS BEFORE... One 256-byte room record, copied to $0840 by $2E55. $20-$9F stores 32 by 16 terrain cells as four two-bit cells per byte, most-significant pair first; $A0-$CF holds six eight-byte tile glyphs. Up/down/left/right exits are 15, 15, 16, 14 at $DC-$DF. Guardian start/count and rope flag occupy $E0-$E2. Remaining room fields are decoded by the construction routines."
+  },
+  {
+   "address": 49152,
+   "type": "line",
+   "text": "Room 16: WE MUST PERFORM A QUIRKAFLEEG. One 256-byte room record, copied to $0840 by $2E55. $20-$9F stores 32 by 16 terrain cells as four two-bit cells per byte, most-significant pair first; $A0-$CF holds six eight-byte tile glyphs. Up/down/left/right exits are 49, 16, 17, 15 at $DC-$DF. Guardian start/count and rope flag occupy $E0-$E2. Remaining room fields are decoded by the construction routines."
+  },
+  {
+   "address": 49408,
+   "type": "line",
+   "text": "Room 17: UP ON THE BATTLEMENTS. One 256-byte room record, copied to $0840 by $2E55. $20-$9F stores 32 by 16 terrain cells as four two-bit cells per byte, most-significant pair first; $A0-$CF holds six eight-byte tile glyphs. Up/down/left/right exits are 17, 17, 18, 16 at $DC-$DF. Guardian start/count and rope flag occupy $E0-$E2. Remaining room fields are decoded by the construction routines."
+  },
+  {
+   "address": 49664,
+   "type": "line",
+   "text": "Room 18: ON THE ROOF. One 256-byte room record, copied to $0840 by $2E55. $20-$9F stores 32 by 16 terrain cells as four two-bit cells per byte, most-significant pair first; $A0-$CF holds six eight-byte tile glyphs. Up/down/left/right exits are 18, 18, 47, 17 at $DC-$DF. Guardian start/count and rope flag occupy $E0-$E2. Remaining room fields are decoded by the construction routines."
+  },
+  {
+   "address": 49920,
+   "type": "line",
+   "text": "Room 19: THE FORGOTTEN ABBEY. One 256-byte room record, copied to $0840 by $2E55. $20-$9F stores 32 by 16 terrain cells as four two-bit cells per byte, most-significant pair first; $A0-$CF holds six eight-byte tile glyphs. Up/down/left/right exits are 19, 19, 48, 5 at $DC-$DF. Guardian start/count and rope flag occupy $E0-$E2. Remaining room fields are decoded by the construction routines."
+  },
+  {
+   "address": 50176,
+   "type": "line",
+   "text": "Room 20: BALLROOM EAST. One 256-byte room record, copied to $0840 by $2E55. $20-$9F stores 32 by 16 terrain cells as four two-bit cells per byte, most-significant pair first; $A0-$CF holds six eight-byte tile glyphs. Up/down/left/right exits are 26, 20, 21, 11 at $DC-$DF. Guardian start/count and rope flag occupy $E0-$E2. Remaining room fields are decoded by the construction routines."
+  },
+  {
+   "address": 50432,
+   "type": "line",
+   "text": "Room 21: BALLROOM WEST. One 256-byte room record, copied to $0840 by $2E55. $20-$9F stores 32 by 16 terrain cells as four two-bit cells per byte, most-significant pair first; $A0-$CF holds six eight-byte tile glyphs. Up/down/left/right exits are 21, 21, 22, 20 at $DC-$DF. Guardian start/count and rope flag occupy $E0-$E2. Remaining room fields are decoded by the construction routines."
+  },
+  {
+   "address": 50688,
+   "type": "line",
+   "text": "Room 22: TO THE KITCHENS    MAIN STAIRWAY. One 256-byte room record, copied to $0840 by $2E55. $20-$9F stores 32 by 16 terrain cells as four two-bit cells per byte, most-significant pair first; $A0-$CF holds six eight-byte tile glyphs. Up/down/left/right exits are 28, 22, 23, 21 at $DC-$DF. Guardian start/count and rope flag occupy $E0-$E2. Remaining room fields are decoded by the construction routines."
+  },
+  {
+   "address": 50944,
+   "type": "line",
+   "text": "Room 23: THE KITCHEN. One 256-byte room record, copied to $0840 by $2E55. $20-$9F stores 32 by 16 terrain cells as four two-bit cells per byte, most-significant pair first; $A0-$CF holds six eight-byte tile glyphs. Up/down/left/right exits are 23, 23, 24, 22 at $DC-$DF. Guardian start/count and rope flag occupy $E0-$E2. Remaining room fields are decoded by the construction routines."
+  },
+  {
+   "address": 51200,
+   "type": "line",
+   "text": "Room 24: WEST OF KITCHEN. One 256-byte room record, copied to $0840 by $2E55. $20-$9F stores 32 by 16 terrain cells as four two-bit cells per byte, most-significant pair first; $A0-$CF holds six eight-byte tile glyphs. Up/down/left/right exits are 30, 24, 25, 23 at $DC-$DF. Guardian start/count and rope flag occupy $E0-$E2. Remaining room fields are decoded by the construction routines."
+  },
+  {
+   "address": 51456,
+   "type": "line",
+   "text": "Room 25: COLD STORE. One 256-byte room record, copied to $0840 by $2E55. $20-$9F stores 32 by 16 terrain cells as four two-bit cells per byte, most-significant pair first; $A0-$CF holds six eight-byte tile glyphs. Up/down/left/right exits are 31, 25, 51, 24 at $DC-$DF. Guardian start/count and rope flag occupy $E0-$E2. Remaining room fields are decoded by the construction routines."
+  },
+  {
+   "address": 51712,
+   "type": "line",
+   "text": "Room 26: EAST WALL BASE. One 256-byte room record, copied to $0840 by $2E55. $20-$9F stores 32 by 16 terrain cells as four two-bit cells per byte, most-significant pair first; $A0-$CF holds six eight-byte tile glyphs. Up/down/left/right exits are 32, 20, 26, 26 at $DC-$DF. Guardian start/count and rope flag occupy $E0-$E2. Remaining room fields are decoded by the construction routines."
+  },
+  {
+   "address": 51968,
+   "type": "line",
+   "text": "Room 27: THE CHAPEL. One 256-byte room record, copied to $0840 by $2E55. $20-$9F stores 32 by 16 terrain cells as four two-bit cells per byte, most-significant pair first; $A0-$CF holds six eight-byte tile glyphs. Up/down/left/right exits are 27, 21, 28, 27 at $DC-$DF. Guardian start/count and rope flag occupy $E0-$E2. Remaining room fields are decoded by the construction routines."
+  },
+  {
+   "address": 52224,
+   "type": "line",
+   "text": "Room 28: FIRST LANDING. One 256-byte room record, copied to $0840 by $2E55. $20-$9F stores 32 by 16 terrain cells as four two-bit cells per byte, most-significant pair first; $A0-$CF holds six eight-byte tile glyphs. Up/down/left/right exits are 34, 22, 29, 27 at $DC-$DF. Guardian start/count and rope flag occupy $E0-$E2. Remaining room fields are decoded by the construction routines."
+  },
+  {
+   "address": 52480,
+   "type": "line",
+   "text": "Room 29: THE NIGHTMARE ROOM. One 256-byte room record, copied to $0840 by $2E55. $20-$9F stores 32 by 16 terrain cells as four two-bit cells per byte, most-significant pair first; $A0-$CF holds six eight-byte tile glyphs. Up/down/left/right exits are 29, 29, 30, 28 at $DC-$DF. Guardian start/count and rope flag occupy $E0-$E2. Remaining room fields are decoded by the construction routines."
   },
   {
    "address": 52736,
@@ -6888,17 +8891,152 @@
   {
    "address": 57344,
    "type": "line",
-   "text": "Canonical rooms 30-59 in physical RAM beneath KERNAL ROM. $2E55 temporarily writes $01=$34 to copy one selected page into $0840."
+   "text": "Room 30: THE BANYAN TREE. One 256-byte room record, copied to $0840 by $2E55. $20-$9F stores 32 by 16 terrain cells as four two-bit cells per byte, most-significant pair first; $A0-$CF holds six eight-byte tile glyphs. Up/down/left/right exits are 36, 30, 31, 29 at $DC-$DF. Guardian start/count and rope flag occupy $E0-$E2. Remaining room fields are decoded by the construction routines."
   },
   {
    "address": 57600,
    "type": "line",
-   "text": "Canonical second room bank in physical RAM beneath KERNAL, 30 pages."
+   "text": "Room 31: SWIMMING POOL. One 256-byte room record, copied to $0840 by $2E55. $20-$9F stores 32 by 16 terrain cells as four two-bit cells per byte, most-significant pair first; $A0-$CF holds six eight-byte tile glyphs. Up/down/left/right exits are 37, 31, 53, 30 at $DC-$DF. Guardian start/count and rope flag occupy $E0-$E2. Remaining room fields are decoded by the construction routines."
+  },
+  {
+   "address": 57856,
+   "type": "line",
+   "text": "Room 32: HALFWAY UP THE EAST WALL. One 256-byte room record, copied to $0840 by $2E55. $20-$9F stores 32 by 16 terrain cells as four two-bit cells per byte, most-significant pair first; $A0-$CF holds six eight-byte tile glyphs. Up/down/left/right exits are 38, 26, 32, 32 at $DC-$DF. Guardian start/count and rope flag occupy $E0-$E2. Remaining room fields are decoded by the construction routines."
+  },
+  {
+   "address": 58112,
+   "type": "line",
+   "text": "Room 33: THE BATHROOM. One 256-byte room record, copied to $0840 by $2E55. $20-$9F stores 32 by 16 terrain cells as four two-bit cells per byte, most-significant pair first; $A0-$CF holds six eight-byte tile glyphs. Up/down/left/right exits are 33, 33, 34, 33 at $DC-$DF. Guardian start/count and rope flag occupy $E0-$E2. Remaining room fields are decoded by the construction routines."
+  },
+  {
+   "address": 58368,
+   "type": "line",
+   "text": "Room 34: TOP LANDING. One 256-byte room record, copied to $0840 by $2E55. $20-$9F stores 32 by 16 terrain cells as four two-bit cells per byte, most-significant pair first; $A0-$CF holds six eight-byte tile glyphs. Up/down/left/right exits are 34, 28, 35, 33 at $DC-$DF. Guardian start/count and rope flag occupy $E0-$E2. Remaining room fields are decoded by the construction routines."
+  },
+  {
+   "address": 58624,
+   "type": "line",
+   "text": "Room 35: MASTER BEDROOM. One 256-byte room record, copied to $0840 by $2E55. $20-$9F stores 32 by 16 terrain cells as four two-bit cells per byte, most-significant pair first; $A0-$CF holds six eight-byte tile glyphs. Up/down/left/right exits are 35, 35, 35, 34 at $DC-$DF. Guardian start/count and rope flag occupy $E0-$E2. Remaining room fields are decoded by the construction routines."
+  },
+  {
+   "address": 58880,
+   "type": "line",
+   "text": "Room 36: A BIT OF TREE. One 256-byte room record, copied to $0840 by $2E55. $20-$9F stores 32 by 16 terrain cells as four two-bit cells per byte, most-significant pair first; $A0-$CF holds six eight-byte tile glyphs. Up/down/left/right exits are 42, 30, 37, 36 at $DC-$DF. Guardian start/count and rope flag occupy $E0-$E2. Remaining room fields are decoded by the construction routines."
+  },
+  {
+   "address": 59136,
+   "type": "line",
+   "text": "Room 37: ORANGERY. One 256-byte room record, copied to $0840 by $2E55. $20-$9F stores 32 by 16 terrain cells as four two-bit cells per byte, most-significant pair first; $A0-$CF holds six eight-byte tile glyphs. Up/down/left/right exits are 43, 31, 55, 36 at $DC-$DF. Guardian start/count and rope flag occupy $E0-$E2. Remaining room fields are decoded by the construction routines."
+  },
+  {
+   "address": 59392,
+   "type": "line",
+   "text": "Room 38: PRIESTS' HOLE. One 256-byte room record, copied to $0840 by $2E55. $20-$9F stores 32 by 16 terrain cells as four two-bit cells per byte, most-significant pair first; $A0-$CF holds six eight-byte tile glyphs. Up/down/left/right exits are 38, 32, 39, 38 at $DC-$DF. Guardian start/count and rope flag occupy $E0-$E2. Remaining room fields are decoded by the construction routines."
+  },
+  {
+   "address": 59648,
+   "type": "line",
+   "text": "Room 39: EMERGENCY GENERATOR. One 256-byte room record, copied to $0840 by $2E55. $20-$9F stores 32 by 16 terrain cells as four two-bit cells per byte, most-significant pair first; $A0-$CF holds six eight-byte tile glyphs. Up/down/left/right exits are 39, 39, 40, 38 at $DC-$DF. Guardian start/count and rope flag occupy $E0-$E2. Remaining room fields are decoded by the construction routines."
+  },
+  {
+   "address": 59904,
+   "type": "line",
+   "text": "Room 40: DR JONES WILL NEVER BELIEVE THIS. One 256-byte room record, copied to $0840 by $2E55. $20-$9F stores 32 by 16 terrain cells as four two-bit cells per byte, most-significant pair first; $A0-$CF holds six eight-byte tile glyphs. Up/down/left/right exits are 16, 40, 41, 39 at $DC-$DF. Guardian start/count and rope flag occupy $E0-$E2. Remaining room fields are decoded by the construction routines."
+  },
+  {
+   "address": 60160,
+   "type": "line",
+   "text": "Room 41: THE ATTIC. One 256-byte room record, copied to $0840 by $2E55. $20-$9F stores 32 by 16 terrain cells as four two-bit cells per byte, most-significant pair first; $A0-$CF holds six eight-byte tile glyphs. Up/down/left/right exits are 41, 41, 42, 40 at $DC-$DF. Guardian start/count and rope flag occupy $E0-$E2. Remaining room fields are decoded by the construction routines."
+  },
+  {
+   "address": 60416,
+   "type": "line",
+   "text": "Room 42: UNDER THE ROOF. One 256-byte room record, copied to $0840 by $2E55. $20-$9F stores 32 by 16 terrain cells as four two-bit cells per byte, most-significant pair first; $A0-$CF holds six eight-byte tile glyphs. Up/down/left/right exits are 47, 36, 43, 41 at $DC-$DF. Guardian start/count and rope flag occupy $E0-$E2. Remaining room fields are decoded by the construction routines."
+  },
+  {
+   "address": 60672,
+   "type": "line",
+   "text": "Room 43: CONSERVATORY ROOF. One 256-byte room record, copied to $0840 by $2E55. $20-$9F stores 32 by 16 terrain cells as four two-bit cells per byte, most-significant pair first; $A0-$CF holds six eight-byte tile glyphs. Up/down/left/right exits are 43, 37, 43, 42 at $DC-$DF. Guardian start/count and rope flag occupy $E0-$E2. Remaining room fields are decoded by the construction routines."
+  },
+  {
+   "address": 60928,
+   "type": "line",
+   "text": "Room 44: ON TOP OF THE HOUSE. One 256-byte room record, copied to $0840 by $2E55. $20-$9F stores 32 by 16 terrain cells as four two-bit cells per byte, most-significant pair first; $A0-$CF holds six eight-byte tile glyphs. Up/down/left/right exits are 44, 38, 14, 44 at $DC-$DF. Guardian start/count and rope flag occupy $E0-$E2. Remaining room fields are decoded by the construction routines."
+  },
+  {
+   "address": 61184,
+   "type": "line",
+   "text": "Room 45: UNDER THE DRIVE. One 256-byte room record, copied to $0840 by $2E55. $20-$9F stores 32 by 16 terrain cells as four two-bit cells per byte, most-significant pair first; $A0-$CF holds six eight-byte tile glyphs. Up/down/left/right exits are 4, 45, 45, 46 at $DC-$DF. Guardian start/count and rope flag occupy $E0-$E2. Remaining room fields are decoded by the construction routines."
+  },
+  {
+   "address": 61440,
+   "type": "line",
+   "text": "Room 46: TREE ROOT. One 256-byte room record, copied to $0840 by $2E55. $20-$9F stores 32 by 16 terrain cells as four two-bit cells per byte, most-significant pair first; $A0-$CF holds six eight-byte tile glyphs. Up/down/left/right exits are 46, 46, 45, 46 at $DC-$DF. Guardian start/count and rope flag occupy $E0-$E2. Remaining room fields are decoded by the construction routines."
+  },
+  {
+   "address": 61696,
+   "type": "line",
+   "text": "Room 47: NOMEN LUNI. One 256-byte room record, copied to $0840 by $2E55. $20-$9F stores 32 by 16 terrain cells as four two-bit cells per byte, most-significant pair first; $A0-$CF holds six eight-byte tile glyphs. Up/down/left/right exits are 47, 42, 47, 18 at $DC-$DF. Guardian start/count and rope flag occupy $E0-$E2. Remaining room fields are decoded by the construction routines."
+  },
+  {
+   "address": 61952,
+   "type": "line",
+   "text": "Room 48: THE WINE CELLAR. One 256-byte room record, copied to $0840 by $2E55. $20-$9F stores 32 by 16 terrain cells as four two-bit cells per byte, most-significant pair first; $A0-$CF holds six eight-byte tile glyphs. Up/down/left/right exits are 51, 48, 50, 19 at $DC-$DF. Guardian start/count and rope flag occupy $E0-$E2. Remaining room fields are decoded by the construction routines."
   },
   {
    "address": 62208,
    "type": "line",
-   "text": "Verified Wine Cellar internals: six active item records at $23B7-$23CE; packed map $F220-$F29F; ramp cells (26,12)/(25,13)/(24,14); conveyor (27..31,12). A legal, death-free Tool Shed entry witness collected the right-hand records 63 -> 62 -> 61, advancing their flags $04 -> $06 -> $07. Solving a route for the remaining three is gameplay solving outside reverse-engineering scope; no all-six reachability claim is made."
+   "text": "Room 49: WATCH TOWER. One 256-byte room record, copied to $0840 by $2E55. $20-$9F stores 32 by 16 terrain cells as four two-bit cells per byte, most-significant pair first; $A0-$CF holds six eight-byte tile glyphs. Up/down/left/right exits are 0, 16, 49, 49 at $DC-$DF. Guardian start/count and rope flag occupy $E0-$E2. Remaining room fields are decoded by the construction routines."
+  },
+  {
+   "address": 62464,
+   "type": "line",
+   "text": "Room 50: TOOL SHED. One 256-byte room record, copied to $0840 by $2E55. $20-$9F stores 32 by 16 terrain cells as four two-bit cells per byte, most-significant pair first; $A0-$CF holds six eight-byte tile glyphs. Up/down/left/right exits are 52, 50, 57, 48 at $DC-$DF. Guardian start/count and rope flag occupy $E0-$E2. Remaining room fields are decoded by the construction routines."
+  },
+  {
+   "address": 62720,
+   "type": "line",
+   "text": "Room 51: BACK STAIRWAY. One 256-byte room record, copied to $0840 by $2E55. $20-$9F stores 32 by 16 terrain cells as four two-bit cells per byte, most-significant pair first; $A0-$CF holds six eight-byte tile glyphs. Up/down/left/right exits are 53, 48, 52, 25 at $DC-$DF. Guardian start/count and rope flag occupy $E0-$E2. Remaining room fields are decoded by the construction routines."
+  },
+  {
+   "address": 62976,
+   "type": "line",
+   "text": "Room 52: BACK DOOR. One 256-byte room record, copied to $0840 by $2E55. $20-$9F stores 32 by 16 terrain cells as four two-bit cells per byte, most-significant pair first; $A0-$CF holds six eight-byte tile glyphs. Up/down/left/right exits are 52, 50, 52, 51 at $DC-$DF. Guardian start/count and rope flag occupy $E0-$E2. Remaining room fields are decoded by the construction routines."
+  },
+  {
+   "address": 63232,
+   "type": "line",
+   "text": "Room 53: WEST  WING. One 256-byte room record, copied to $0840 by $2E55. $20-$9F stores 32 by 16 terrain cells as four two-bit cells per byte, most-significant pair first; $A0-$CF holds six eight-byte tile glyphs. Up/down/left/right exits are 55, 51, 54, 31 at $DC-$DF. Guardian start/count and rope flag occupy $E0-$E2. Remaining room fields are decoded by the construction routines."
+  },
+  {
+   "address": 63488,
+   "type": "line",
+   "text": "Room 54: WEST BEDROOM. One 256-byte room record, copied to $0840 by $2E55. $20-$9F stores 32 by 16 terrain cells as four two-bit cells per byte, most-significant pair first; $A0-$CF holds six eight-byte tile glyphs. Up/down/left/right exits are 56, 52, 54, 53 at $DC-$DF. Guardian start/count and rope flag occupy $E0-$E2. Remaining room fields are decoded by the construction routines."
+  },
+  {
+   "address": 63744,
+   "type": "line",
+   "text": "Room 55: WEST WING ROOF. One 256-byte room record, copied to $0840 by $2E55. $20-$9F stores 32 by 16 terrain cells as four two-bit cells per byte, most-significant pair first; $A0-$CF holds six eight-byte tile glyphs. Up/down/left/right exits are 55, 53, 56, 37 at $DC-$DF. Guardian start/count and rope flag occupy $E0-$E2. Remaining room fields are decoded by the construction routines."
+  },
+  {
+   "address": 64000,
+   "type": "line",
+   "text": "Room 56: ABOVE THE WEST BEDROOM. One 256-byte room record, copied to $0840 by $2E55. $20-$9F stores 32 by 16 terrain cells as four two-bit cells per byte, most-significant pair first; $A0-$CF holds six eight-byte tile glyphs. Up/down/left/right exits are 56, 54, 55, 55 at $DC-$DF. Guardian start/count and rope flag occupy $E0-$E2. Remaining room fields are decoded by the construction routines."
+  },
+  {
+   "address": 64256,
+   "type": "line",
+   "text": "Room 57: THE BEACH. One 256-byte room record, copied to $0840 by $2E55. $20-$9F stores 32 by 16 terrain cells as four two-bit cells per byte, most-significant pair first; $A0-$CF holds six eight-byte tile glyphs. Up/down/left/right exits are 57, 57, 58, 50 at $DC-$DF. Guardian start/count and rope flag occupy $E0-$E2. Remaining room fields are decoded by the construction routines."
+  },
+  {
+   "address": 64512,
+   "type": "line",
+   "text": "Room 58: THE YACHT. One 256-byte room record, copied to $0840 by $2E55. $20-$9F stores 32 by 16 terrain cells as four two-bit cells per byte, most-significant pair first; $A0-$CF holds six eight-byte tile glyphs. Up/down/left/right exits are 58, 58, 59, 57 at $DC-$DF. Guardian start/count and rope flag occupy $E0-$E2. Remaining room fields are decoded by the construction routines."
+  },
+  {
+   "address": 64768,
+   "type": "line",
+   "text": "Room 59: THE BOW. One 256-byte room record, copied to $0840 by $2E55. $20-$9F stores 32 by 16 terrain cells as four two-bit cells per byte, most-significant pair first; $A0-$CF holds six eight-byte tile glyphs. Up/down/left/right exits are 59, 59, 59, 58 at $DC-$DF. Guardian start/count and rope flag occupy $E0-$E2. Remaining room fields are decoded by the construction routines."
   }
  ]
 }

@@ -1,91 +1,116 @@
 {
- "schema": 1,
- "platform": "c64",
- "slug": "jet-set-willy",
- "title": "Jet Set Willy",
- "year": 1984,
- "publisher": "Software Projects",
- "developer": "Software Projects",
- "title_image": "reference/title.png",
- "build": "CMM disk release; The Bathroom after trainers N, N, N",
- "tier": "bronze",
- "coverage_percent": 49.4,
- "copy": "agent-draft",
- "steward": "",
- "credits": [],
- "tools": {
-  "host": "Linux x86_64",
-  "disassembler": "regenerator2000 0.9.20",
-  "publication": "Python 3; symbols_export.py and listing.py",
-  "browser": "Firefox 157.0 (installed); WebDriver BiDi",
-  "emulator": "VICE MCP 3.13.1"
- },
- "model": "gpt-6.1-sol",
- "kit_version": "0.0.46",
- "created": "2026-09-30",
- "video": {
-  "screen": "$7C00",
-  "charset": "$7800"
- },
- "coverage": {
-  "extra": [
-   [
-    "$4000",
-    "$6AFF",
-    "172 authored sprite slots of 64 bytes"
-   ],
-   [
-    "$B000",
-    "$CDFF",
-    "Room records 0\u201329"
-   ],
-   [
-    "$E000",
-    "$FDFF",
-    "Room records 30\u201359"
-   ]
-  ],
-  "include": [],
-  "exclude": [
-   [
-    "$0000",
-    "$03FF",
-    "Runtime zero page, stack and KERNAL work area"
-   ],
-   [
-    "$0400",
-    "$07FF",
-    "Runtime session state"
-   ],
-   [
-    "$0840",
-    "$093F",
-    "Runtime copy of the current room record"
-   ],
-   [
-    "$6B00",
-    "$6BBF",
-    "Runtime rope sprites"
-   ],
-   [
-    "$FE00",
-    "$FFFF",
-    "Tail outside the room records; KERNAL-covered spare RAM"
-   ]
-  ]
- },
- "io": [],
- "regions": [],
- "links": {
-  "wiki": "https://www.c64-wiki.com/wiki/Jet_Set_Willy",
-  "manual": ""
- },
- "imported": {
-  "source": "jet_set_willy_full_listing.txt",
-  "sha256": "5fd2c05616422d7a5c8c257157291e1a8d658e607f06dd01213b6346c7026147",
-  "tool": "Ghidra (version not recorded)",
-  "by": "64kramsystem",
-  "model": "unknown",
-  "date": "2026-09-30"
- }
+  "schema": 1,
+  "platform": "c64",
+  "slug": "jet-set-willy",
+  "title": "Jet Set Willy",
+  "year": 1984,
+  "publisher": "Software Projects",
+  "developer": "Software Projects",
+  "title_image": "reference/title.png",
+  "build": "CMM disk release; The Bathroom after trainers N, N, N",
+  "tier": "bronze",
+  "coverage_percent": 100.0,
+  "copy": "agent-draft",
+  "steward": "",
+  "credits": [],
+  "tools": {
+    "host": "Linux x86_64",
+    "disassembler": "regenerator2000 0.9.20",
+    "publication": "Python 3; symbols_export.py and listing.py",
+    "browser": "Firefox 157.0 (installed); WebDriver BiDi",
+    "emulator": "VICE MCP 3.13.1"
+  },
+  "model": "gpt-6.1-sol",
+  "kit_version": "0.0.46",
+  "created": "2026-09-30",
+  "video": {
+    "screen": "$7C00",
+    "charset": "$7800"
+  },
+  "coverage": {
+    "extra": [
+      [
+        "$4000",
+        "$6AFF",
+        "172 authored sprite slots of 64 bytes"
+      ],
+      [
+        "$B000",
+        "$CDFF",
+        "Room records 0\u201329"
+      ],
+      [
+        "$E000",
+        "$FDFF",
+        "Room records 30\u201359"
+      ]
+    ],
+    "include": [],
+    "exclude": [
+      [
+        "$0000",
+        "$03FF",
+        "Runtime zero page, stack and KERNAL work area"
+      ],
+      [
+        "$0400",
+        "$07FF",
+        "Runtime session state"
+      ],
+      [
+        "$0840",
+        "$093F",
+        "Runtime copy of the current room record"
+      ],
+      [
+        "$6B00",
+        "$6BBF",
+        "Runtime rope sprites"
+      ],
+      [
+        "$FE00",
+        "$FFFF",
+        "Tail outside the room records; KERNAL-covered spare RAM"
+      ],
+      [
+        "$CF00",
+        "$CFFF",
+        "Runtime vector page, including writable indirect dispatch words at $CFF0-$CFFF"
+      ],
+      [
+        "$0940",
+        "$0977",
+        "Current room guardian records copied from global authored definitions"
+      ],
+      [
+        "$0980",
+        "$098F",
+        "Runtime guardian direction/animation and moving-coordinate arrays"
+      ],
+      [
+        "$7908",
+        "$7937",
+        "Six current-room charset glyphs copied from room record, including animated room glyph"
+      ],
+      [
+        "$79D8",
+        "$79DF",
+        "Runtime spare-life animation glyph"
+      ]
+    ]
+  },
+  "io": [],
+  "regions": [],
+  "links": {
+    "wiki": "https://www.c64-wiki.com/wiki/Jet_Set_Willy",
+    "manual": ""
+  },
+  "imported": {
+    "source": "jet_set_willy_full_listing.txt",
+    "sha256": "5fd2c05616422d7a5c8c257157291e1a8d658e607f06dd01213b6346c7026147",
+    "tool": "Ghidra (version not recorded)",
+    "by": "64kramsystem",
+    "model": "unknown",
+    "date": "2026-09-30"
+  }
 }
