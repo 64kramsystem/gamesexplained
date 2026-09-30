@@ -22,7 +22,7 @@ LABEL = re.compile(r'^([A-Za-z_][\w:]*)\s*:\s*(?:;.*)?$')
 
 
 def parse(path, space=''):
-    rows, names, prose = [], [], []
+    rows, names, prose, fields = [], [], [], []
     occupied = set()
     for line in Path(path).read_text().splitlines():
         m = ROW.match(line)
@@ -30,7 +30,7 @@ def parse(path, space=''):
             namespace, address, raw, op, operand = m.groups()
             address = int(address, 16)
             if (namespace or '') != space or raw == '??':
-                names, prose = [], []
+                names, prose, fields = [], [], []
                 continue
             data = bytes.fromhex(raw)
             addresses = set(range(address, address + len(data)))
@@ -47,10 +47,14 @@ def parse(path, space=''):
                 side = ''
             rows.append({'a': address, 'b': list(data), 'type': typ, 'm': op.lower(),
                          'o': operand.strip(), 'names': list(dict.fromkeys(n.replace('::', '_') for n in names)),
-                         'c': text, 's': side.strip()})
-            names, prose = [], []
+                         'c': text, 's': side.strip(), 'fields': list(fields)})
+            names, prose, fields = [], [], []
         elif LABEL.match(line):
-            names.append(LABEL.match(line)[1])
+            offcut = re.search(r';\s*offcut at ([0-9a-f]{4})', line)
+            if offcut:
+                fields.append({'address': int(offcut[1], 16), 'name': LABEL.match(line)[1].replace('::', '_')})
+            else:
+                names.append(LABEL.match(line)[1])
         elif line.startswith('                ;'):
             text = line.split(';', 1)[1].strip()
             if text and not text.startswith(('XREF', '*', '=')):
@@ -74,6 +78,9 @@ def convert(rows, game, source):
             comments.append({'address': a, 'type': 'line', 'text': r['c']})
         if r['s']:
             comments.append({'address': a, 'type': 'side', 'text': r['s']})
+        for field in r.get('fields', []):
+            symbols.append({'address': field['address'], 'name': field['name'],
+                            'kind': 'user', 'type': 'Field'})
         if r['names'] or r['c']:
             symbols.append({'address': a, 'name': r['names'][0] if r['names'] else f'annotation_{a:04x}',
                             'kind': 'user', 'type': 'Subroutine' if typ == 'Code' and a in calls else

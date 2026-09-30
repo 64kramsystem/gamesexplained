@@ -27,6 +27,15 @@ class ImportTests(unittest.TestCase):
         branch = self.parse_text('target:\n2000 60 RTS\n')
         self.assertEqual(json.loads(convert(branch, game, 'synthetic'))['symbols'][0]['type'], 'Branch')
 
+    def test_offcut_label_keeps_its_actual_address(self):
+        rows = self.parse_text('entry:\noperand:  ; offcut at 2001\n2000 a901 LDA #1\n2002 60 RTS\n')
+        game = {'platform': 'c64', 'slug': 'fixture', 'build': 'synthetic'}
+        sym = json.loads(convert(rows, game, 'synthetic'))
+        names = {x['name']:x['address'] for x in sym['symbols']}
+        self.assertEqual(names['entry'], 0x2000)
+        self.assertEqual(names['operand'], 0x2001)
+        self.assertNotIn('operand', rows[0]['names'])
+
     def test_overlay_is_explicit(self):
         rows = self.parse_text('2000 01 byte 1\nPHASE::2000 02 byte 2\n', 'PHASE')
         self.assertEqual(rows[0]['b'], [2])
