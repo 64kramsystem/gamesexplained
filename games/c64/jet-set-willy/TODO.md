@@ -1,8 +1,8 @@
-# Work required for Silver
+# Work toward Silver
 
-- Complete the site’s prose-span coverage: 27,371/65,280 tracked bytes (41.9%). This metric differs from exhaustive code/data classification in the supplied disassembly. Do not fill gaps with repeated generic comments.
-- Run the maintainer check in `kit/CHECKING.md`; the publication model is not in the proven-model register.
-- Resolve or explicitly retain the open features in `features.md`, with live replay where practical.
-- Preserve the occupant boundary in `orientation.md`; later loads require separate evidence.
-
-The contributor requested publication directly from the existing accurate listing. This PR delivers that import and explanation; its tier remains Bronze until every Silver requirement is met.
+- Finish coverage: 49.4% explained, 23,755 of 48,082 tracked bytes. Imported code descriptions cover the code ledger, but tracing/verification are still required.
+- Resolve physical `$D000–$DFFF`: `listing.py` reports 4,096 non-fill bytes under I/O. The import calls them prior-phase residue; prove that here before excluding them.
+- Capture final loader hand-over and compare with play to identify initialization-only data and all loaded authored data.
+- Trace and exercise collection, collisions, guardians, arrows, ropes and winning behavior in `60-verify`.
+- Restore and expand the interactive room browser after its claims are verified.
+- Obtain the maintainer check required for the unproven run model and unknown imported models.

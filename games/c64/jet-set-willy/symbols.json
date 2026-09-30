@@ -2,21 +2,71 @@
  "schema": 1,
  "platform": "c64",
  "game": "jet-set-willy",
- "build": "CMM disk release; physical RAM at the title after trainer answers N, N, N",
- "source": "Contributor Ghidra export: jet_set_willy_full_listing.txt",
+ "build": "CMM disk release; The Bathroom after trainers N, N, N",
+ "source": "regenerator2000 live",
  "regions": {
   "exclude": [
    [
     256,
     511,
     "stack"
+   ],
+   [
+    53248,
+    57343,
+    "I/O and colour RAM"
+   ],
+   [
+    31744,
+    32767,
+    "screen RAM"
+   ],
+   [
+    0,
+    1023,
+    "Runtime zero page, stack and KERNAL work area"
+   ],
+   [
+    1024,
+    2047,
+    "Runtime session state"
+   ],
+   [
+    2112,
+    2367,
+    "Runtime copy of the current room record"
+   ],
+   [
+    27392,
+    27583,
+    "Runtime rope sprites"
+   ],
+   [
+    65024,
+    65535,
+    "Tail outside the room records; KERNAL-covered spare RAM"
    ]
   ],
   "extra": [
    [
-    0,
-    65535,
-    "Initialized rows of the supplied physical image"
+    30720,
+    32767,
+    "character set"
+   ],
+   [
+    16384,
+    27391,
+    "172 authored sprite slots of 64 bytes"
+   ],
+   [
+    45056,
+    52735,
+    "Room records 0\u201329"
+   ],
+   [
+    57344,
+    65023,
+    "Room records 30\u201359"
    ]
   ]
  },
@@ -246,4352 +296,4862 @@
   {
    "address": 0,
    "name": "C64_CPU_PROCESSOR_PORT_DIRECTION",
-   "kind": "user",
-   "type": "UserDefined"
+   "type": "UserDefined",
+   "kind": "user"
   },
   {
    "address": 1,
    "name": "C64_CPU_PROCESSOR_PORT",
-   "kind": "user",
-   "type": "UserDefined"
+   "type": "UserDefined",
+   "kind": "user"
   },
   {
    "address": 7,
    "name": "JSW_State_zp_work_low",
-   "kind": "user",
-   "type": "UserDefined"
+   "type": "UserDefined",
+   "kind": "user"
   },
   {
    "address": 8,
    "name": "JSW_State_zp_work_high",
-   "kind": "user",
-   "type": "UserDefined"
+   "type": "UserDefined",
+   "kind": "user"
   },
   {
    "address": 9,
    "name": "gameplay_color_ram_pointer_low",
-   "kind": "user",
-   "type": "UserDefined"
+   "type": "UserDefined",
+   "kind": "user"
   },
   {
    "address": 10,
    "name": "shared_color_pointer_high_or_title_voice1_pointer_low",
-   "kind": "user",
-   "type": "UserDefined"
+   "type": "UserDefined",
+   "kind": "user"
   },
   {
    "address": 11,
    "name": "shared_game_stride_or_title_voice1_pointer_high",
-   "kind": "user",
-   "type": "UserDefined"
+   "type": "UserDefined",
+   "kind": "user"
   },
   {
    "address": 12,
    "name": "shared_game_scratch_or_title_voice2_pointer_low",
-   "kind": "user",
-   "type": "UserDefined"
+   "type": "UserDefined",
+   "kind": "user"
   },
   {
    "address": 13,
    "name": "shared_game_scratch_or_title_voice2_pointer_high",
-   "kind": "user",
-   "type": "UserDefined"
+   "type": "UserDefined",
+   "kind": "user"
   },
   {
    "address": 14,
    "name": "JSW_State_current_room_or_title_voice3_pointer_low",
-   "kind": "user",
-   "type": "UserDefined"
+   "type": "UserDefined",
+   "kind": "user"
   },
   {
    "address": 15,
    "name": "JSW_State_working_tile_row_or_title_voice3_pointer_high",
-   "kind": "user",
-   "type": "UserDefined"
+   "type": "UserDefined",
+   "kind": "user"
   },
   {
    "address": 16,
    "name": "ramp_tile_override_flag",
-   "kind": "user",
-   "type": "UserDefined"
+   "type": "UserDefined",
+   "kind": "user"
   },
   {
    "address": 17,
    "name": "JSW_State_ramp_direction",
-   "kind": "user",
-   "type": "UserDefined"
+   "type": "UserDefined",
+   "kind": "user"
   },
   {
    "address": 18,
    "name": "jsw_ramp_bit6_write_only_latch",
-   "kind": "user",
-   "type": "UserDefined"
+   "type": "UserDefined",
+   "kind": "user"
   },
   {
    "address": 19,
    "name": "JSW_State_conveyor_direction",
-   "kind": "user",
-   "type": "UserDefined"
+   "type": "UserDefined",
+   "kind": "user"
   },
   {
    "address": 20,
    "name": "horizontal_coordinate_scratch",
-   "kind": "user",
-   "type": "UserDefined"
+   "type": "UserDefined",
+   "kind": "user"
   },
   {
    "address": 21,
    "name": "conveyor_color",
-   "kind": "user",
-   "type": "UserDefined"
+   "type": "UserDefined",
+   "kind": "user"
   },
   {
    "address": 22,
    "name": "item_or_arrow_record_pointer_low",
-   "kind": "user",
-   "type": "UserDefined"
+   "type": "UserDefined",
+   "kind": "user"
   },
   {
    "address": 23,
    "name": "item_or_arrow_record_pointer_high",
-   "kind": "user",
-   "type": "UserDefined"
+   "type": "UserDefined",
+   "kind": "user"
   },
   {
    "address": 24,
    "name": "item_or_arrow_record_index",
-   "kind": "user",
-   "type": "UserDefined"
+   "type": "UserDefined",
+   "kind": "user"
   },
   {
    "address": 25,
    "name": "item_animation_color_phase",
-   "kind": "user",
-   "type": "UserDefined"
+   "type": "UserDefined",
+   "kind": "user"
   },
   {
    "address": 26,
    "name": "JSW_State_arrow_update_divider",
-   "kind": "user",
-   "type": "UserDefined"
+   "type": "UserDefined",
+   "kind": "user"
   },
   {
    "address": 27,
    "name": "JSW_State_special_animation_phase",
-   "kind": "user",
-   "type": "UserDefined"
+   "type": "UserDefined",
+   "kind": "user"
   },
   {
    "address": 28,
    "name": "JSW_State_player_y",
-   "kind": "user",
-   "type": "UserDefined"
+   "type": "UserDefined",
+   "kind": "user"
   },
   {
    "address": 29,
    "name": "JSW_State_previous_exit_up",
-   "kind": "user",
-   "type": "UserDefined"
+   "type": "UserDefined",
+   "kind": "user"
   },
   {
    "address": 30,
    "name": "JSW_State_previous_exit_down",
-   "kind": "user",
-   "type": "UserDefined"
+   "type": "UserDefined",
+   "kind": "user"
   },
   {
    "address": 31,
    "name": "JSW_State_previous_exit_left",
-   "kind": "user",
-   "type": "UserDefined"
+   "type": "UserDefined",
+   "kind": "user"
   },
   {
    "address": 32,
    "name": "JSW_State_previous_exit_right",
-   "kind": "user",
-   "type": "UserDefined"
+   "type": "UserDefined",
+   "kind": "user"
   },
   {
    "address": 33,
    "name": "glyph_rotation_target_pointer_low",
-   "kind": "user",
-   "type": "UserDefined"
+   "type": "UserDefined",
+   "kind": "user"
   },
   {
    "address": 34,
    "name": "glyph_rotation_target_pointer_high",
-   "kind": "user",
-   "type": "UserDefined"
+   "type": "UserDefined",
+   "kind": "user"
   },
   {
    "address": 35,
    "name": "room_tile_color_0",
-   "kind": "user",
-   "type": "UserDefined"
+   "type": "UserDefined",
+   "kind": "user"
   },
   {
    "address": 36,
    "name": "room_tile_color_1",
-   "kind": "user",
-   "type": "UserDefined"
+   "type": "UserDefined",
+   "kind": "user"
   },
   {
    "address": 37,
    "name": "room_tile_color_2",
-   "kind": "user",
-   "type": "UserDefined"
+   "type": "UserDefined",
+   "kind": "user"
   },
   {
    "address": 38,
    "name": "room_tile_color_3",
-   "kind": "user",
-   "type": "UserDefined"
+   "type": "UserDefined",
+   "kind": "user"
   },
   {
    "address": 39,
    "name": "room_record_source_pointer_low",
-   "kind": "user",
-   "type": "UserDefined"
+   "type": "UserDefined",
+   "kind": "user"
   },
   {
    "address": 40,
    "name": "room_record_source_pointer_high",
-   "kind": "user",
-   "type": "UserDefined"
+   "type": "UserDefined",
+   "kind": "user"
   },
   {
    "address": 41,
    "name": "annotation_0029",
-   "kind": "user",
-   "type": "UserDefined"
+   "type": "UserDefined",
+   "kind": "user"
   },
   {
    "address": 43,
    "name": "guardian_definition_source_pointer_low",
-   "kind": "user",
-   "type": "UserDefined"
+   "type": "UserDefined",
+   "kind": "user"
   },
   {
    "address": 44,
    "name": "guardian_definition_source_pointer_high",
-   "kind": "user",
-   "type": "UserDefined"
+   "type": "UserDefined",
+   "kind": "user"
   },
   {
    "address": 45,
    "name": "JSW_State_room_guardian_count",
-   "kind": "user",
-   "type": "UserDefined"
+   "type": "UserDefined",
+   "kind": "user"
   },
   {
    "address": 46,
    "name": "guardian_record_byte_offset",
-   "kind": "user",
-   "type": "UserDefined"
+   "type": "UserDefined",
+   "kind": "user"
   },
   {
    "address": 47,
    "name": "guardian_slot_index",
-   "kind": "user",
-   "type": "UserDefined"
+   "type": "UserDefined",
+   "kind": "user"
   },
   {
    "address": 48,
    "name": "annotation_0030",
-   "kind": "user",
-   "type": "UserDefined"
+   "type": "UserDefined",
+   "kind": "user"
   },
   {
    "address": 49,
    "name": "shared_arithmetic_scratch",
-   "kind": "user",
-   "type": "UserDefined"
+   "type": "UserDefined",
+   "kind": "user"
   },
   {
    "address": 50,
    "name": "JSW_State_player_horizontal_phase",
-   "kind": "user",
-   "type": "UserDefined"
+   "type": "UserDefined",
+   "kind": "user"
   },
   {
    "address": 51,
    "name": "JSW_State_player_state",
-   "kind": "user",
-   "type": "UserDefined"
+   "type": "UserDefined",
+   "kind": "user"
   },
   {
    "address": 52,
    "name": "loop_counter",
-   "kind": "user",
-   "type": "UserDefined"
+   "type": "UserDefined",
+   "kind": "user"
   },
   {
    "address": 53,
    "name": "JSW_State_game_music_enabled",
-   "kind": "user",
-   "type": "UserDefined"
+   "type": "UserDefined",
+   "kind": "user"
   },
   {
    "address": 54,
    "name": "JSW_State_game_paused",
-   "kind": "user",
-   "type": "UserDefined"
+   "type": "UserDefined",
+   "kind": "user"
   },
   {
    "address": 55,
    "name": "JSW_State_clock_digit_h10",
-   "kind": "user",
-   "type": "UserDefined"
+   "type": "UserDefined",
+   "kind": "user"
   },
   {
    "address": 56,
    "name": "JSW_State_clock_digit_h1",
-   "kind": "user",
-   "type": "UserDefined"
+   "type": "UserDefined",
+   "kind": "user"
   },
   {
    "address": 57,
    "name": "JSW_State_clock_digit_m10",
-   "kind": "user",
-   "type": "UserDefined"
+   "type": "UserDefined",
+   "kind": "user"
   },
   {
    "address": 58,
    "name": "JSW_State_clock_digit_m1",
-   "kind": "user",
-   "type": "UserDefined"
+   "type": "UserDefined",
+   "kind": "user"
   },
   {
    "address": 59,
    "name": "JSW_State_clock_digit_s10",
-   "kind": "user",
-   "type": "UserDefined"
+   "type": "UserDefined",
+   "kind": "user"
   },
   {
    "address": 60,
    "name": "JSW_State_clock_digit_s1",
-   "kind": "user",
-   "type": "UserDefined"
+   "type": "UserDefined",
+   "kind": "user"
   },
   {
    "address": 61,
    "name": "JSW_State_clock_tick_divider",
-   "kind": "user",
-   "type": "UserDefined"
+   "type": "UserDefined",
+   "kind": "user"
   },
   {
    "address": 62,
    "name": "JSW_State_guardian_update_divider",
-   "kind": "user",
-   "type": "UserDefined"
+   "type": "UserDefined",
+   "kind": "user"
   },
   {
    "address": 63,
    "name": "JSW_State_life_glyph_divider",
-   "kind": "user",
-   "type": "UserDefined"
+   "type": "UserDefined",
+   "kind": "user"
   },
   {
    "address": 64,
    "name": "JSW_State_life_glyph_frame",
-   "kind": "user",
-   "type": "UserDefined"
+   "type": "UserDefined",
+   "kind": "user"
   },
   {
    "address": 65,
    "name": "JSW_State_spare_lives",
-   "kind": "user",
-   "type": "UserDefined"
+   "type": "UserDefined",
+   "kind": "user"
   },
   {
    "address": 66,
    "name": "JSW_State_game_music_divider",
-   "kind": "user",
-   "type": "UserDefined"
+   "type": "UserDefined",
+   "kind": "user"
   },
   {
    "address": 67,
    "name": "JSW_State_decoded_key_count",
-   "kind": "user",
-   "type": "UserDefined"
+   "type": "UserDefined",
+   "kind": "user"
   },
   {
    "address": 68,
    "name": "JSW_State_decoded_key_1",
-   "kind": "user",
-   "type": "UserDefined"
+   "type": "UserDefined",
+   "kind": "user"
   },
   {
    "address": 69,
    "name": "JSW_State_decoded_key_2",
-   "kind": "user",
-   "type": "UserDefined"
+   "type": "UserDefined",
+   "kind": "user"
   },
   {
    "address": 70,
    "name": "JSW_State_decoded_key_3",
-   "kind": "user",
-   "type": "UserDefined"
+   "type": "UserDefined",
+   "kind": "user"
   },
   {
    "address": 71,
    "name": "keyboard_bit_index",
-   "kind": "user",
-   "type": "UserDefined"
+   "type": "UserDefined",
+   "kind": "user"
   },
   {
    "address": 72,
    "name": "keyboard_row_select_mask",
-   "kind": "user",
-   "type": "UserDefined"
+   "type": "UserDefined",
+   "kind": "user"
   },
   {
    "address": 73,
    "name": "JSW_State_manual_horizontal_direction",
-   "kind": "user",
-   "type": "UserDefined"
+   "type": "UserDefined",
+   "kind": "user"
   },
   {
    "address": 74,
    "name": "JSW_State_jump_request",
-   "kind": "user",
-   "type": "UserDefined"
+   "type": "UserDefined",
+   "kind": "user"
   },
   {
    "address": 75,
    "name": "JSW_State_dormant_turnaround_marker",
-   "kind": "user",
-   "type": "UserDefined"
+   "type": "UserDefined",
+   "kind": "user"
   },
   {
    "address": 76,
    "name": "title_voice1_duration",
-   "kind": "user",
-   "type": "UserDefined"
+   "type": "UserDefined",
+   "kind": "user"
   },
   {
    "address": 77,
    "name": "title_voice2_duration",
-   "kind": "user",
-   "type": "UserDefined"
+   "type": "UserDefined",
+   "kind": "user"
   },
   {
    "address": 78,
    "name": "title_voice3_duration",
-   "kind": "user",
-   "type": "UserDefined"
+   "type": "UserDefined",
+   "kind": "user"
   },
   {
    "address": 79,
    "name": "JSW_State_player_x_cell",
-   "kind": "user",
-   "type": "UserDefined"
+   "type": "UserDefined",
+   "kind": "user"
   },
   {
    "address": 80,
    "name": "JSW_State_player_facing_frame_or_title_key_count",
-   "kind": "user",
-   "type": "UserDefined"
+   "type": "UserDefined",
+   "kind": "user"
   },
   {
    "address": 81,
    "name": "JSW_State_fall_counter_or_title_first_key",
-   "kind": "user",
-   "type": "UserDefined"
+   "type": "UserDefined",
+   "kind": "user"
   },
   {
    "address": 82,
    "name": "JSW_State_jump_curve_index",
-   "kind": "user",
-   "type": "UserDefined"
+   "type": "UserDefined",
+   "kind": "user"
   },
   {
    "address": 83,
    "name": "JSW_State_lethal_fall_flag",
-   "kind": "user",
-   "type": "UserDefined"
+   "type": "UserDefined",
+   "kind": "user"
   },
   {
    "address": 84,
    "name": "shared_player_and_keyboard_scratch",
-   "kind": "user",
-   "type": "UserDefined"
+   "type": "UserDefined",
+   "kind": "user"
   },
   {
    "address": 85,
    "name": "JSW_State_item_render_divider_or_title_row_mask",
-   "kind": "user",
-   "type": "UserDefined"
+   "type": "UserDefined",
+   "kind": "user"
   },
   {
    "address": 86,
    "name": "JSW_State_player_update_divider",
-   "kind": "user",
-   "type": "UserDefined"
+   "type": "UserDefined",
+   "kind": "user"
   },
   {
    "address": 87,
    "name": "JSW_State_checkpoint_player_state",
-   "kind": "user",
-   "type": "UserDefined"
+   "type": "UserDefined",
+   "kind": "user"
   },
   {
    "address": 88,
    "name": "JSW_State_checkpoint_player_y",
-   "kind": "user",
-   "type": "UserDefined"
+   "type": "UserDefined",
+   "kind": "user"
   },
   {
    "address": 89,
    "name": "JSW_State_checkpoint_fall_counter",
-   "kind": "user",
-   "type": "UserDefined"
+   "type": "UserDefined",
+   "kind": "user"
   },
   {
    "address": 90,
    "name": "JSW_State_checkpoint_horizontal_phase",
-   "kind": "user",
-   "type": "UserDefined"
+   "type": "UserDefined",
+   "kind": "user"
   },
   {
    "address": 91,
    "name": "JSW_State_checkpoint_player_x",
-   "kind": "user",
-   "type": "UserDefined"
+   "type": "UserDefined",
+   "kind": "user"
   },
   {
    "address": 92,
    "name": "JSW_State_checkpoint_room",
-   "kind": "user",
-   "type": "UserDefined"
+   "type": "UserDefined",
+   "kind": "user"
   },
   {
    "address": 93,
    "name": "JSW_State_checkpoint_facing_frame",
-   "kind": "user",
-   "type": "UserDefined"
+   "type": "UserDefined",
+   "kind": "user"
   },
   {
    "address": 94,
    "name": "JSW_State_checkpoint_jump_index",
-   "kind": "user",
-   "type": "UserDefined"
+   "type": "UserDefined",
+   "kind": "user"
   },
   {
    "address": 95,
    "name": "JSW_State_sid_master_volume",
-   "kind": "user",
-   "type": "UserDefined"
+   "type": "UserDefined",
+   "kind": "user"
   },
   {
    "address": 96,
    "name": "JSW_State_unseeded_previous_horizontal_direction",
-   "kind": "user",
-   "type": "UserDefined"
+   "type": "UserDefined",
+   "kind": "user"
   },
   {
    "address": 97,
    "name": "packed_room_column",
-   "kind": "user",
-   "type": "UserDefined"
+   "type": "UserDefined",
+   "kind": "user"
   },
   {
    "address": 98,
    "name": "packed_room_row",
-   "kind": "user",
-   "type": "UserDefined"
+   "type": "UserDefined",
+   "kind": "user"
   },
   {
    "address": 99,
    "name": "annotation_0063",
-   "kind": "user",
-   "type": "UserDefined"
+   "type": "UserDefined",
+   "kind": "user"
   },
   {
    "address": 144,
    "name": "JSW_State_game_music_voice1_pointer_low",
-   "kind": "user",
-   "type": "UserDefined"
+   "type": "UserDefined",
+   "kind": "user"
   },
   {
    "address": 145,
    "name": "JSW_State_game_music_voice1_pointer_high",
-   "kind": "user",
-   "type": "UserDefined"
+   "type": "UserDefined",
+   "kind": "user"
   },
   {
    "address": 146,
    "name": "JSW_State_game_music_voice2_pointer_low",
-   "kind": "user",
-   "type": "UserDefined"
+   "type": "UserDefined",
+   "kind": "user"
   },
   {
    "address": 147,
    "name": "JSW_State_game_music_voice2_pointer_high",
-   "kind": "user",
-   "type": "UserDefined"
+   "type": "UserDefined",
+   "kind": "user"
   },
   {
    "address": 148,
    "name": "JSW_State_game_music_voice1_duration",
-   "kind": "user",
-   "type": "UserDefined"
+   "type": "UserDefined",
+   "kind": "user"
   },
   {
    "address": 149,
    "name": "JSW_State_game_music_voice2_duration",
-   "kind": "user",
-   "type": "UserDefined"
+   "type": "UserDefined",
+   "kind": "user"
   },
   {
    "address": 150,
    "name": "annotation_0096",
-   "kind": "user",
-   "type": "UserDefined"
+   "type": "UserDefined",
+   "kind": "user"
   },
   {
    "address": 153,
    "name": "C64_WORKSPACE_DEFAULT_INPUT_DEVICE",
-   "kind": "user",
-   "type": "UserDefined"
+   "type": "UserDefined",
+   "kind": "user"
   },
   {
    "address": 154,
    "name": "C64_WORKSPACE_DEFAULT_OUTPUT_DEVICE",
-   "kind": "user",
-   "type": "UserDefined"
+   "type": "UserDefined",
+   "kind": "user"
   },
   {
    "address": 198,
    "name": "C64_WORKSPACE_KEYBOARD_BUFFER_LENGTH",
-   "kind": "user",
-   "type": "UserDefined"
+   "type": "UserDefined",
+   "kind": "user"
   },
   {
    "address": 211,
    "name": "C64_WORKSPACE_CURSOR_COLUMN",
-   "kind": "user",
-   "type": "UserDefined"
+   "type": "UserDefined",
+   "kind": "user"
   },
   {
    "address": 214,
    "name": "C64_WORKSPACE_CURSOR_ROW",
-   "kind": "user",
-   "type": "UserDefined"
+   "type": "UserDefined",
+   "kind": "user"
   },
   {
    "address": 251,
    "name": "title_ticker_source_pointer_low",
-   "kind": "user",
-   "type": "UserDefined"
+   "type": "UserDefined",
+   "kind": "user"
   },
   {
    "address": 252,
    "name": "title_ticker_source_pointer_high",
-   "kind": "user",
-   "type": "UserDefined"
+   "type": "UserDefined",
+   "kind": "user"
   },
   {
    "address": 253,
    "name": "annotation_00fd",
-   "kind": "user",
-   "type": "UserDefined"
+   "type": "UserDefined",
+   "kind": "user"
   },
   {
    "address": 254,
    "name": "title_music_ended_flag",
-   "kind": "user",
-   "type": "UserDefined"
+   "type": "UserDefined",
+   "kind": "user"
   },
   {
    "address": 255,
    "name": "annotation_00ff",
-   "kind": "user",
-   "type": "UserDefined"
+   "type": "UserDefined",
+   "kind": "user"
   },
   {
    "address": 384,
    "name": "game_note_frequency_table_pointer_low",
-   "kind": "user",
-   "type": "UserDefined"
+   "type": "UserDefined",
+   "kind": "user"
   },
   {
    "address": 385,
    "name": "game_note_frequency_table_pointer_high",
-   "kind": "user",
-   "type": "UserDefined"
+   "type": "UserDefined",
+   "kind": "user"
   },
   {
    "address": 386,
    "name": "annotation_0182",
-   "kind": "user",
-   "type": "UserDefined"
+   "type": "UserDefined",
+   "kind": "user"
   },
   {
    "address": 646,
    "name": "C64_WORKSPACE_TEXT_COLOR",
-   "kind": "user",
-   "type": "UserDefined"
+   "type": "UserDefined",
+   "kind": "user"
   },
   {
    "address": 648,
    "name": "C64_WORKSPACE_SCREEN_MEMORY_PAGE",
-   "kind": "user",
-   "type": "UserDefined"
+   "type": "UserDefined",
+   "kind": "user"
   },
   {
    "address": 788,
    "name": "C64_WORKSPACE_IRQ_RAM_VECTOR",
-   "kind": "user",
-   "type": "UserDefined"
+   "type": "UserDefined",
+   "kind": "user"
   },
   {
    "address": 789,
    "name": "IRQ_RAM_VECTOR_HIGH",
-   "kind": "user",
-   "type": "UserDefined"
+   "type": "UserDefined",
+   "kind": "user"
   },
   {
    "address": 790,
    "name": "C64_WORKSPACE_BRK_RAM_VECTOR",
-   "kind": "user",
-   "type": "UserDefined"
+   "type": "UserDefined",
+   "kind": "user"
   },
   {
    "address": 792,
    "name": "C64_WORKSPACE_NMI_RAM_VECTOR",
-   "kind": "user",
-   "type": "UserDefined"
+   "type": "UserDefined",
+   "kind": "user"
   },
   {
    "address": 1024,
    "name": "JSW_State_completion_maria_removed",
-   "kind": "user",
-   "type": "UserDefined"
+   "type": "UserDefined",
+   "kind": "user"
   },
   {
    "address": 1025,
    "name": "JSW_State_collected_item_count_bcd",
-   "kind": "user",
-   "type": "UserDefined"
+   "type": "UserDefined",
+   "kind": "user"
   },
   {
    "address": 1026,
    "name": "JSW_State_room_has_rope",
-   "kind": "user",
-   "type": "UserDefined"
+   "type": "UserDefined",
+   "kind": "user"
   },
   {
    "address": 1027,
    "name": "JSW_State_rope_oscillator_position",
-   "kind": "user",
-   "type": "UserDefined"
+   "type": "UserDefined",
+   "kind": "user"
   },
   {
    "address": 1028,
    "name": "JSW_State_rope_oscillator_half",
-   "kind": "user",
-   "type": "UserDefined"
+   "type": "UserDefined",
+   "kind": "user"
   },
   {
    "address": 1029,
    "name": "JSW_State_rope_oscillator_direction",
-   "kind": "user",
-   "type": "UserDefined"
+   "type": "UserDefined",
+   "kind": "user"
   },
   {
    "address": 1030,
    "name": "JSW_State_rope_oscillator_step",
-   "kind": "user",
-   "type": "UserDefined"
+   "type": "UserDefined",
+   "kind": "user"
   },
   {
    "address": 1031,
    "name": "JSW_State_rope_staging_handshake",
-   "kind": "user",
-   "type": "UserDefined"
+   "type": "UserDefined",
+   "kind": "user"
   },
   {
    "address": 1032,
    "name": "JSW_State_cached_item_count",
-   "kind": "user",
-   "type": "UserDefined"
+   "type": "UserDefined",
+   "kind": "user"
   },
   {
    "address": 1033,
    "name": "annotation_0409",
-   "kind": "user",
-   "type": "UserDefined"
+   "type": "UserDefined",
+   "kind": "user"
   },
   {
    "address": 1280,
    "name": "JSW_State_staged_rope_sprites",
-   "kind": "user",
-   "type": "UserDefined"
+   "type": "UserDefined",
+   "kind": "user"
   },
   {
    "address": 1344,
    "name": "annotation_0540",
-   "kind": "user",
-   "type": "UserDefined"
+   "type": "UserDefined",
+   "kind": "user"
   },
   {
    "address": 1472,
    "name": "JSW_State_staged_rope_coordinates",
-   "kind": "user",
-   "type": "UserDefined"
+   "type": "UserDefined",
+   "kind": "user"
   },
   {
    "address": 1478,
    "name": "annotation_05c6",
-   "kind": "user",
-   "type": "UserDefined"
+   "type": "UserDefined",
+   "kind": "user"
   },
   {
    "address": 2040,
    "name": "JSW_State_vic_sprite_pointer_table",
-   "kind": "user",
-   "type": "UserDefined"
+   "type": "UserDefined",
+   "kind": "user"
   },
   {
    "address": 2048,
    "name": "JSW_State_game_keyboard_matrix",
-   "kind": "user",
-   "type": "UserDefined"
+   "type": "UserDefined",
+   "kind": "user"
   },
   {
    "address": 2049,
    "name": "annotation_0801",
-   "kind": "user",
-   "type": "UserDefined"
+   "type": "UserDefined",
+   "kind": "user"
   },
   {
    "address": 2112,
    "name": "JSW_State_current_room_record",
-   "kind": "user",
-   "type": "UserDefined"
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 2272,
+   "name": "f_08E0",
+   "type": "Field",
+   "kind": "auto"
+  },
+  {
+   "address": 2320,
+   "name": "a_0910",
+   "type": "AbsoluteAddress",
+   "kind": "auto"
+  },
+  {
+   "address": 2321,
+   "name": "a_0911",
+   "type": "AbsoluteAddress",
+   "kind": "auto"
+  },
+  {
+   "address": 2322,
+   "name": "a_0912",
+   "type": "AbsoluteAddress",
+   "kind": "auto"
+  },
+  {
+   "address": 2323,
+   "name": "a_0913",
+   "type": "AbsoluteAddress",
+   "kind": "auto"
+  },
+  {
+   "address": 2324,
+   "name": "a_0914",
+   "type": "AbsoluteAddress",
+   "kind": "auto"
+  },
+  {
+   "address": 2325,
+   "name": "a_0915",
+   "type": "AbsoluteAddress",
+   "kind": "auto"
+  },
+  {
+   "address": 2326,
+   "name": "a_0916",
+   "type": "AbsoluteAddress",
+   "kind": "auto"
+  },
+  {
+   "address": 2327,
+   "name": "a_0917",
+   "type": "AbsoluteAddress",
+   "kind": "auto"
+  },
+  {
+   "address": 2328,
+   "name": "a_0918",
+   "type": "AbsoluteAddress",
+   "kind": "auto"
+  },
+  {
+   "address": 2329,
+   "name": "a_0919",
+   "type": "AbsoluteAddress",
+   "kind": "auto"
+  },
+  {
+   "address": 2330,
+   "name": "a_091A",
+   "type": "AbsoluteAddress",
+   "kind": "auto"
+  },
+  {
+   "address": 2331,
+   "name": "a_091B",
+   "type": "AbsoluteAddress",
+   "kind": "auto"
+  },
+  {
+   "address": 2332,
+   "name": "f_091C",
+   "type": "Field",
+   "kind": "auto"
+  },
+  {
+   "address": 2336,
+   "name": "a_0920",
+   "type": "AbsoluteAddress",
+   "kind": "auto"
+  },
+  {
+   "address": 2337,
+   "name": "a_0921",
+   "type": "AbsoluteAddress",
+   "kind": "auto"
+  },
+  {
+   "address": 2338,
+   "name": "a_0922",
+   "type": "AbsoluteAddress",
+   "kind": "auto"
   },
   {
    "address": 2368,
    "name": "JSW_State_current_guardian_records",
-   "kind": "user",
-   "type": "UserDefined"
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 2369,
+   "name": "f_0941",
+   "type": "Field",
+   "kind": "auto"
+  },
+  {
+   "address": 2370,
+   "name": "f_0942",
+   "type": "Field",
+   "kind": "auto"
+  },
+  {
+   "address": 2371,
+   "name": "f_0943",
+   "type": "Field",
+   "kind": "auto"
+  },
+  {
+   "address": 2372,
+   "name": "f_0944",
+   "type": "Field",
+   "kind": "auto"
+  },
+  {
+   "address": 2373,
+   "name": "f_0945",
+   "type": "Field",
+   "kind": "auto"
+  },
+  {
+   "address": 2374,
+   "name": "f_0946",
+   "type": "Field",
+   "kind": "auto"
+  },
+  {
+   "address": 2375,
+   "name": "f_0947",
+   "type": "Field",
+   "kind": "auto"
   },
   {
    "address": 2376,
    "name": "annotation_0948",
-   "kind": "user",
-   "type": "UserDefined"
+   "type": "UserDefined",
+   "kind": "user"
   },
   {
    "address": 2424,
    "name": "annotation_0978",
-   "kind": "user",
-   "type": "UserDefined"
+   "type": "UserDefined",
+   "kind": "user"
   },
   {
    "address": 2432,
    "name": "JSW_State_guardian_direction_animation_state",
-   "kind": "user",
-   "type": "UserDefined"
+   "type": "UserDefined",
+   "kind": "user"
   },
   {
    "address": 2433,
    "name": "annotation_0981",
-   "kind": "user",
-   "type": "UserDefined"
+   "type": "UserDefined",
+   "kind": "user"
   },
   {
    "address": 2440,
    "name": "JSW_State_guardian_moving_coordinates",
-   "kind": "user",
-   "type": "UserDefined"
+   "type": "UserDefined",
+   "kind": "user"
   },
   {
    "address": 2441,
    "name": "annotation_0989",
-   "kind": "user",
-   "type": "UserDefined"
+   "type": "UserDefined",
+   "kind": "user"
   },
   {
    "address": 4050,
    "name": "JSW_Player_jump_right_collision_trampoline",
-   "kind": "user",
-   "type": "UserDefined"
+   "type": "UserDefined",
+   "kind": "user"
   },
   {
    "address": 4059,
    "name": "loc_0fdb",
-   "kind": "user",
-   "type": "BranchTarget"
+   "type": "Branch",
+   "kind": "user"
   },
   {
    "address": 4062,
    "name": "annotation_0fde",
-   "kind": "user",
-   "type": "UserDefined"
+   "type": "UserDefined",
+   "kind": "user"
   },
   {
    "address": 4070,
    "name": "JSW_Player_jump_left_collision_trampoline",
-   "kind": "user",
-   "type": "UserDefined"
+   "type": "UserDefined",
+   "kind": "user"
   },
   {
    "address": 4079,
    "name": "loc_0fef",
-   "kind": "user",
-   "type": "BranchTarget"
+   "type": "Branch",
+   "kind": "user"
   },
   {
    "address": 4082,
    "name": "annotation_0ff2",
-   "kind": "user",
-   "type": "UserDefined"
+   "type": "UserDefined",
+   "kind": "user"
   },
   {
    "address": 4096,
    "name": "JSW_Player_player_tick_entry",
-   "kind": "user",
-   "type": "UserDefined"
+   "type": "UserDefined",
+   "kind": "user"
   },
   {
    "address": 4099,
    "name": "JSW_State_player_state_dispatch_table",
-   "kind": "user",
-   "type": "UserDefined"
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 4100,
+   "name": "f_1004",
+   "type": "Field",
+   "kind": "auto"
   },
   {
    "address": 4101,
    "name": "annotation_1005",
-   "kind": "user",
-   "type": "UserDefined"
+   "type": "UserDefined",
+   "kind": "user"
   },
   {
    "address": 4113,
    "name": "JSW_State_current_player_handler",
-   "kind": "user",
-   "type": "UserDefined"
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 4114,
+   "name": "a_1012",
+   "type": "AbsoluteAddress",
+   "kind": "auto"
   },
   {
    "address": 4115,
    "name": "JSW_State_jump_horizontal_direction",
-   "kind": "user",
-   "type": "UserDefined"
+   "type": "UserDefined",
+   "kind": "user"
   },
   {
    "address": 4116,
    "name": "JSW_State_tile_probe_x",
-   "kind": "user",
-   "type": "UserDefined"
+   "type": "UserDefined",
+   "kind": "user"
   },
   {
    "address": 4117,
    "name": "JSW_State_conveyor_entry_saved_state",
-   "kind": "user",
-   "type": "UserDefined"
+   "type": "UserDefined",
+   "kind": "user"
   },
   {
    "address": 4118,
    "name": "JSW_State_conveyor_entry_first_pass",
-   "kind": "user",
-   "type": "UserDefined"
+   "type": "UserDefined",
+   "kind": "user"
   },
   {
    "address": 4119,
    "name": "JSW_State_resolved_conveyor_direction",
-   "kind": "user",
-   "type": "UserDefined"
+   "type": "UserDefined",
+   "kind": "user"
   },
   {
    "address": 4120,
    "name": "JSW_State_rope_animation_divider",
-   "kind": "user",
-   "type": "UserDefined"
+   "type": "UserDefined",
+   "kind": "user"
   },
   {
    "address": 4121,
    "name": "JSW_State_rope_trajectory_index",
-   "kind": "user",
-   "type": "UserDefined"
+   "type": "UserDefined",
+   "kind": "user"
   },
   {
    "address": 4122,
    "name": "JSW_State_rope_movement_divider",
-   "kind": "user",
-   "type": "UserDefined"
+   "type": "UserDefined",
+   "kind": "user"
   },
   {
    "address": 4123,
    "name": "JSW_Player_scan_input_via_vector",
-   "kind": "user",
-   "type": "UserDefined"
+   "type": "UserDefined",
+   "kind": "user"
   },
   {
    "address": 4126,
    "name": "JSW_Player_redispatch_player_via_vector",
-   "kind": "user",
-   "type": "UserDefined"
+   "type": "UserDefined",
+   "kind": "user"
   },
   {
    "address": 4129,
    "name": "JSW_Player_continue_main_loop_via_vector",
-   "kind": "user",
-   "type": "UserDefined"
+   "type": "UserDefined",
+   "kind": "user"
   },
   {
    "address": 4132,
    "name": "JSW_Player_lookup_tile_via_vector",
-   "kind": "user",
-   "type": "Subroutine"
+   "type": "Subroutine",
+   "kind": "user"
   },
   {
    "address": 4135,
    "name": "JSW_Player_prepare_room_via_vector",
-   "kind": "user",
-   "type": "UserDefined"
+   "type": "UserDefined",
+   "kind": "user"
   },
   {
    "address": 4138,
    "name": "JSW_Player_kill_player_via_vector",
-   "kind": "user",
-   "type": "UserDefined"
+   "type": "UserDefined",
+   "kind": "user"
   },
   {
    "address": 4141,
    "name": "JSW_State_jump_vertical_delta_table",
-   "kind": "user",
-   "type": "UserDefined"
+   "type": "UserDefined",
+   "kind": "user"
   },
   {
    "address": 4142,
    "name": "annotation_102e",
-   "kind": "user",
-   "type": "UserDefined"
+   "type": "UserDefined",
+   "kind": "user"
   },
   {
    "address": 4177,
    "name": "JSW_Player_probe_tile_right",
-   "kind": "user",
-   "type": "Subroutine"
+   "type": "Subroutine",
+   "kind": "user"
   },
   {
    "address": 4186,
    "name": "JSW_Player_probe_tile_current",
-   "kind": "user",
-   "type": "Subroutine"
+   "type": "Subroutine",
+   "kind": "user"
   },
   {
    "address": 4194,
    "name": "JSW_Player_probe_tile_above",
-   "kind": "user",
-   "type": "Subroutine"
+   "type": "Subroutine",
+   "kind": "user"
   },
   {
    "address": 4203,
    "name": "JSW_Player_probe_tile_two_rows_below",
-   "kind": "user",
-   "type": "Subroutine"
+   "type": "Subroutine",
+   "kind": "user"
   },
   {
    "address": 4213,
    "name": "JSW_Player_dispatch_player_state",
-   "kind": "user",
-   "type": "UserDefined"
+   "type": "UserDefined",
+   "kind": "user"
   },
   {
    "address": 4219,
    "name": "JSW_Player_dispatch_state_after_rope_staging",
-   "kind": "user",
-   "type": "UserDefined"
+   "type": "UserDefined",
+   "kind": "user"
   },
   {
    "address": 4222,
    "name": "JSW_Player_dispatch_state_from_table",
-   "kind": "user",
-   "type": "UserDefined"
+   "type": "UserDefined",
+   "kind": "user"
   },
   {
    "address": 4241,
    "name": "JSW_Player_update_player_grounded",
-   "kind": "user",
-   "type": "UserDefined"
+   "type": "UserDefined",
+   "kind": "user"
   },
   {
    "address": 4260,
    "name": "loc_10a4",
-   "kind": "user",
-   "type": "BranchTarget"
+   "type": "Branch",
+   "kind": "user"
   },
   {
    "address": 4288,
    "name": "loc_10c0",
-   "kind": "user",
-   "type": "BranchTarget"
+   "type": "Branch",
+   "kind": "user"
   },
   {
    "address": 4295,
    "name": "JSW_Player_grounded_route_by_direction_sign",
-   "kind": "user",
-   "type": "UserDefined"
+   "type": "UserDefined",
+   "kind": "user"
   },
   {
    "address": 4300,
    "name": "JSW_Player_grounded_move_right",
-   "kind": "user",
-   "type": "UserDefined"
+   "type": "UserDefined",
+   "kind": "user"
   },
   {
    "address": 4330,
    "name": "loc_10ea",
-   "kind": "user",
-   "type": "BranchTarget"
+   "type": "Branch",
+   "kind": "user"
   },
   {
    "address": 4338,
    "name": "loc_10f2",
-   "kind": "user",
-   "type": "BranchTarget"
+   "type": "Branch",
+   "kind": "user"
   },
   {
    "address": 4361,
    "name": "loc_1109",
-   "kind": "user",
-   "type": "BranchTarget"
+   "type": "Branch",
+   "kind": "user"
   },
   {
    "address": 4394,
    "name": "JSW_Player_grounded_move_left",
-   "kind": "user",
-   "type": "UserDefined"
+   "type": "UserDefined",
+   "kind": "user"
   },
   {
    "address": 4417,
    "name": "loc_1141",
-   "kind": "user",
-   "type": "BranchTarget"
+   "type": "Branch",
+   "kind": "user"
   },
   {
    "address": 4447,
    "name": "loc_115f",
-   "kind": "user",
-   "type": "BranchTarget"
+   "type": "Branch",
+   "kind": "user"
   },
   {
    "address": 4457,
    "name": "loc_1169",
-   "kind": "user",
-   "type": "BranchTarget"
+   "type": "Branch",
+   "kind": "user"
   },
   {
    "address": 4487,
    "name": "JSW_Player_handle_grounded_tile",
-   "kind": "user",
-   "type": "Subroutine"
+   "type": "Subroutine",
+   "kind": "user"
   },
   {
    "address": 4494,
    "name": "loc_118e",
-   "kind": "user",
-   "type": "BranchTarget"
+   "type": "Branch",
+   "kind": "user"
   },
   {
    "address": 4514,
    "name": "loc_11a2",
-   "kind": "user",
-   "type": "BranchTarget"
+   "type": "Branch",
+   "kind": "user"
   },
   {
    "address": 4521,
    "name": "loc_11a9",
-   "kind": "user",
-   "type": "BranchTarget"
+   "type": "Branch",
+   "kind": "user"
   },
   {
    "address": 4528,
    "name": "loc_11b0",
-   "kind": "user",
-   "type": "BranchTarget"
+   "type": "Branch",
+   "kind": "user"
   },
   {
    "address": 4529,
    "name": "loc_11b1",
-   "kind": "user",
-   "type": "BranchTarget"
+   "type": "Branch",
+   "kind": "user"
   },
   {
    "address": 4537,
    "name": "loc_11b9",
-   "kind": "user",
-   "type": "BranchTarget"
+   "type": "Branch",
+   "kind": "user"
   },
   {
    "address": 4545,
    "name": "loc_11c1",
-   "kind": "user",
-   "type": "BranchTarget"
+   "type": "Branch",
+   "kind": "user"
   },
   {
    "address": 4548,
    "name": "JSW_Player_handle_ground_support_tile",
-   "kind": "user",
-   "type": "Subroutine"
+   "type": "Subroutine",
+   "kind": "user"
   },
   {
    "address": 4595,
    "name": "loc_11f3",
-   "kind": "user",
-   "type": "BranchTarget"
+   "type": "Branch",
+   "kind": "user"
   },
   {
    "address": 4602,
    "name": "loc_11fa",
-   "kind": "user",
-   "type": "BranchTarget"
+   "type": "Branch",
+   "kind": "user"
   },
   {
    "address": 4603,
    "name": "JSW_Player_update_player_falling",
-   "kind": "user",
-   "type": "UserDefined"
+   "type": "UserDefined",
+   "kind": "user"
   },
   {
    "address": 4613,
    "name": "loc_1205",
-   "kind": "user",
-   "type": "BranchTarget"
+   "type": "Branch",
+   "kind": "user"
   },
   {
    "address": 4622,
    "name": "loc_120e",
-   "kind": "user",
-   "type": "BranchTarget"
+   "type": "Branch",
+   "kind": "user"
   },
   {
    "address": 4625,
    "name": "loc_1211",
-   "kind": "user",
-   "type": "BranchTarget"
+   "type": "Branch",
+   "kind": "user"
   },
   {
    "address": 4644,
    "name": "loc_1224",
-   "kind": "user",
-   "type": "BranchTarget"
+   "type": "Branch",
+   "kind": "user"
   },
   {
    "address": 4662,
    "name": "loc_1236",
-   "kind": "user",
-   "type": "BranchTarget"
+   "type": "Branch",
+   "kind": "user"
   },
   {
    "address": 4669,
    "name": "JSW_Player_update_player_jumping",
-   "kind": "user",
-   "type": "UserDefined"
+   "type": "UserDefined",
+   "kind": "user"
   },
   {
    "address": 4677,
    "name": "loc_1245",
-   "kind": "user",
-   "type": "BranchTarget"
+   "type": "Branch",
+   "kind": "user"
   },
   {
    "address": 4682,
    "name": "loc_124a",
-   "kind": "user",
-   "type": "BranchTarget"
+   "type": "Branch",
+   "kind": "user"
   },
   {
    "address": 4695,
    "name": "loc_1257",
-   "kind": "user",
-   "type": "BranchTarget"
+   "type": "Branch",
+   "kind": "user"
   },
   {
    "address": 4721,
    "name": "loc_1271",
-   "kind": "user",
-   "type": "BranchTarget"
+   "type": "Branch",
+   "kind": "user"
   },
   {
    "address": 4724,
    "name": "loc_1274",
-   "kind": "user",
-   "type": "BranchTarget"
+   "type": "Branch",
+   "kind": "user"
   },
   {
    "address": 4737,
    "name": "loc_1281",
-   "kind": "user",
-   "type": "BranchTarget"
+   "type": "Branch",
+   "kind": "user"
   },
   {
    "address": 4752,
    "name": "loc_1290",
-   "kind": "user",
-   "type": "BranchTarget"
+   "type": "Branch",
+   "kind": "user"
   },
   {
    "address": 4758,
    "name": "JSW_Player_probe_jump_ceiling",
-   "kind": "user",
-   "type": "Subroutine"
+   "type": "Subroutine",
+   "kind": "user"
   },
   {
    "address": 4776,
    "name": "loc_12a8",
-   "kind": "user",
-   "type": "BranchTarget"
+   "type": "Branch",
+   "kind": "user"
   },
   {
    "address": 4786,
    "name": "loc_12b2",
-   "kind": "user",
-   "type": "BranchTarget"
+   "type": "Branch",
+   "kind": "user"
   },
   {
    "address": 4804,
    "name": "loc_12c4",
-   "kind": "user",
-   "type": "BranchTarget"
+   "type": "Branch",
+   "kind": "user"
   },
   {
    "address": 4811,
    "name": "JSW_Player_handle_upward_jump_collision",
-   "kind": "user",
-   "type": "Subroutine"
+   "type": "Subroutine",
+   "kind": "user"
   },
   {
    "address": 4826,
    "name": "loc_12da",
-   "kind": "user",
-   "type": "BranchTarget"
+   "type": "Branch",
+   "kind": "user"
   },
   {
    "address": 4833,
    "name": "loc_12e1",
-   "kind": "user",
-   "type": "BranchTarget"
+   "type": "Branch",
+   "kind": "user"
   },
   {
    "address": 4840,
    "name": "loc_12e8",
-   "kind": "user",
-   "type": "BranchTarget"
+   "type": "Branch",
+   "kind": "user"
   },
   {
    "address": 4841,
    "name": "JSW_Player_probe_jump_landing",
-   "kind": "user",
-   "type": "Subroutine"
+   "type": "Subroutine",
+   "kind": "user"
   },
   {
    "address": 4862,
    "name": "loc_12fe",
-   "kind": "user",
-   "type": "BranchTarget"
+   "type": "Branch",
+   "kind": "user"
   },
   {
    "address": 4872,
    "name": "loc_1308",
-   "kind": "user",
-   "type": "BranchTarget"
+   "type": "Branch",
+   "kind": "user"
   },
   {
    "address": 4890,
    "name": "loc_131a",
-   "kind": "user",
-   "type": "BranchTarget"
+   "type": "Branch",
+   "kind": "user"
   },
   {
    "address": 4897,
    "name": "JSW_Player_handle_landing_tile",
-   "kind": "user",
-   "type": "Subroutine"
+   "type": "Subroutine",
+   "kind": "user"
   },
   {
    "address": 4912,
    "name": "loc_1330",
-   "kind": "user",
-   "type": "BranchTarget"
+   "type": "Branch",
+   "kind": "user"
   },
   {
    "address": 4920,
    "name": "loc_1338",
-   "kind": "user",
-   "type": "BranchTarget"
+   "type": "Branch",
+   "kind": "user"
   },
   {
    "address": 4937,
    "name": "loc_1349",
-   "kind": "user",
-   "type": "BranchTarget"
+   "type": "Branch",
+   "kind": "user"
   },
   {
    "address": 4938,
    "name": "loc_134a",
-   "kind": "user",
-   "type": "BranchTarget"
+   "type": "Branch",
+   "kind": "user"
   },
   {
    "address": 4956,
    "name": "loc_135c",
-   "kind": "user",
-   "type": "BranchTarget"
+   "type": "Branch",
+   "kind": "user"
   },
   {
    "address": 4957,
    "name": "loc_135d",
-   "kind": "user",
-   "type": "BranchTarget"
+   "type": "Branch",
+   "kind": "user"
   },
   {
    "address": 4962,
    "name": "JSW_Player_advance_jump_right",
-   "kind": "user",
-   "type": "UserDefined"
+   "type": "UserDefined",
+   "kind": "user"
   },
   {
    "address": 4978,
    "name": "JSW_Player_advance_jump_right_position",
-   "kind": "user",
-   "type": "UserDefined"
+   "type": "UserDefined",
+   "kind": "user"
   },
   {
    "address": 5007,
    "name": "JSW_Player_advance_jump_right_curve_index",
-   "kind": "user",
-   "type": "UserDefined"
+   "type": "UserDefined",
+   "kind": "user"
   },
   {
    "address": 5025,
    "name": "loc_13a1",
-   "kind": "user",
-   "type": "BranchTarget"
+   "type": "Branch",
+   "kind": "user"
   },
   {
    "address": 5028,
    "name": "loc_13a4",
-   "kind": "user",
-   "type": "BranchTarget"
+   "type": "Branch",
+   "kind": "user"
   },
   {
    "address": 5036,
    "name": "loc_13ac",
-   "kind": "user",
-   "type": "BranchTarget"
+   "type": "Branch",
+   "kind": "user"
   },
   {
    "address": 5055,
    "name": "loc_13bf",
-   "kind": "user",
-   "type": "BranchTarget"
+   "type": "Branch",
+   "kind": "user"
   },
   {
    "address": 5086,
    "name": "loc_13de",
-   "kind": "user",
-   "type": "BranchTarget"
+   "type": "Branch",
+   "kind": "user"
   },
   {
    "address": 5090,
    "name": "loc_13e2",
-   "kind": "user",
-   "type": "BranchTarget"
+   "type": "Branch",
+   "kind": "user"
   },
   {
    "address": 5103,
    "name": "loc_13ef",
-   "kind": "user",
-   "type": "BranchTarget"
+   "type": "Branch",
+   "kind": "user"
   },
   {
    "address": 5118,
    "name": "loc_13fe",
-   "kind": "user",
-   "type": "BranchTarget"
+   "type": "Branch",
+   "kind": "user"
   },
   {
    "address": 5124,
    "name": "JSW_Player_advance_jump_left",
-   "kind": "user",
-   "type": "UserDefined"
+   "type": "UserDefined",
+   "kind": "user"
   },
   {
    "address": 5140,
    "name": "JSW_Player_advance_jump_left_position",
-   "kind": "user",
-   "type": "UserDefined"
+   "type": "UserDefined",
+   "kind": "user"
   },
   {
    "address": 5169,
    "name": "loc_1431",
-   "kind": "user",
-   "type": "BranchTarget"
+   "type": "Branch",
+   "kind": "user"
   },
   {
    "address": 5188,
    "name": "loc_1444",
-   "kind": "user",
-   "type": "BranchTarget"
+   "type": "Branch",
+   "kind": "user"
   },
   {
    "address": 5206,
    "name": "loc_1456",
-   "kind": "user",
-   "type": "BranchTarget"
+   "type": "Branch",
+   "kind": "user"
   },
   {
    "address": 5209,
    "name": "loc_1459",
-   "kind": "user",
-   "type": "BranchTarget"
+   "type": "Branch",
+   "kind": "user"
   },
   {
    "address": 5219,
    "name": "loc_1463",
-   "kind": "user",
-   "type": "BranchTarget"
+   "type": "Branch",
+   "kind": "user"
   },
   {
    "address": 5250,
    "name": "loc_1482",
-   "kind": "user",
-   "type": "BranchTarget"
+   "type": "Branch",
+   "kind": "user"
   },
   {
    "address": 5255,
    "name": "loc_1487",
-   "kind": "user",
-   "type": "BranchTarget"
+   "type": "Branch",
+   "kind": "user"
   },
   {
    "address": 5268,
    "name": "loc_1494",
-   "kind": "user",
-   "type": "BranchTarget"
+   "type": "Branch",
+   "kind": "user"
   },
   {
    "address": 5283,
    "name": "loc_14a3",
-   "kind": "user",
-   "type": "BranchTarget"
+   "type": "Branch",
+   "kind": "user"
   },
   {
    "address": 5289,
    "name": "JSW_Player_handle_horizontal_jump_collision",
-   "kind": "user",
-   "type": "Subroutine"
+   "type": "Subroutine",
+   "kind": "user"
   },
   {
    "address": 5296,
    "name": "loc_14b0",
-   "kind": "user",
-   "type": "BranchTarget"
+   "type": "Branch",
+   "kind": "user"
   },
   {
    "address": 5304,
    "name": "loc_14b8",
-   "kind": "user",
-   "type": "BranchTarget"
+   "type": "Branch",
+   "kind": "user"
   },
   {
    "address": 5311,
    "name": "loc_14bf",
-   "kind": "user",
-   "type": "BranchTarget"
+   "type": "Branch",
+   "kind": "user"
   },
   {
    "address": 5312,
    "name": "JSW_State_ramp_traversal_counter",
-   "kind": "user",
-   "type": "UserDefined"
+   "type": "UserDefined",
+   "kind": "user"
   },
   {
    "address": 5313,
    "name": "JSW_Player_update_player_on_ramp",
-   "kind": "user",
-   "type": "UserDefined"
+   "type": "UserDefined",
+   "kind": "user"
   },
   {
    "address": 5316,
    "name": "annotation_14c4",
-   "kind": "user",
-   "type": "UserDefined"
+   "type": "UserDefined",
+   "kind": "user"
   },
   {
    "address": 5331,
    "name": "loc_14d3",
-   "kind": "user",
-   "type": "BranchTarget"
+   "type": "Branch",
+   "kind": "user"
   },
   {
    "address": 5339,
    "name": "loc_14db",
-   "kind": "user",
-   "type": "BranchTarget"
+   "type": "Branch",
+   "kind": "user"
   },
   {
    "address": 5346,
    "name": "loc_14e2",
-   "kind": "user",
-   "type": "BranchTarget"
+   "type": "Branch",
+   "kind": "user"
   },
   {
    "address": 5361,
    "name": "loc_14f1",
-   "kind": "user",
-   "type": "BranchTarget"
+   "type": "Branch",
+   "kind": "user"
   },
   {
    "address": 5381,
    "name": "loc_1505",
-   "kind": "user",
-   "type": "BranchTarget"
+   "type": "Branch",
+   "kind": "user"
   },
   {
    "address": 5392,
    "name": "loc_1510",
-   "kind": "user",
-   "type": "BranchTarget"
+   "type": "Branch",
+   "kind": "user"
   },
   {
    "address": 5407,
    "name": "JSW_Player_update_player_on_conveyor",
-   "kind": "user",
-   "type": "UserDefined"
+   "type": "UserDefined",
+   "kind": "user"
   },
   {
    "address": 5409,
    "name": "annotation_1521",
-   "kind": "user",
-   "type": "UserDefined"
+   "type": "UserDefined",
+   "kind": "user"
   },
   {
    "address": 5427,
    "name": "loc_1533",
-   "kind": "user",
-   "type": "BranchTarget"
+   "type": "Branch",
+   "kind": "user"
   },
   {
    "address": 5432,
    "name": "JSW_Player_enter_or_reconcile_conveyor",
-   "kind": "user",
-   "type": "UserDefined"
+   "type": "UserDefined",
+   "kind": "user"
   },
   {
    "address": 5435,
    "name": "annotation_153b",
-   "kind": "user",
-   "type": "UserDefined"
+   "type": "UserDefined",
+   "kind": "user"
   },
   {
    "address": 5463,
    "name": "loc_1557",
-   "kind": "user",
-   "type": "BranchTarget"
+   "type": "Branch",
+   "kind": "user"
   },
   {
    "address": 5469,
    "name": "loc_155d",
-   "kind": "user",
-   "type": "BranchTarget"
+   "type": "Branch",
+   "kind": "user"
   },
   {
    "address": 5473,
    "name": "loc_1561",
-   "kind": "user",
-   "type": "BranchTarget"
+   "type": "Branch",
+   "kind": "user"
   },
   {
    "address": 5482,
    "name": "loc_156a",
-   "kind": "user",
-   "type": "BranchTarget"
+   "type": "Branch",
+   "kind": "user"
   },
   {
    "address": 5493,
    "name": "loc_1575",
-   "kind": "user",
-   "type": "BranchTarget"
+   "type": "Branch",
+   "kind": "user"
   },
   {
    "address": 5507,
    "name": "loc_1583",
-   "kind": "user",
-   "type": "BranchTarget"
+   "type": "Branch",
+   "kind": "user"
   },
   {
    "address": 5532,
    "name": "loc_159c",
-   "kind": "user",
-   "type": "BranchTarget"
+   "type": "Branch",
+   "kind": "user"
   },
   {
    "address": 5550,
    "name": "loc_15ae",
-   "kind": "user",
-   "type": "BranchTarget"
+   "type": "Branch",
+   "kind": "user"
   },
   {
    "address": 5562,
    "name": "loc_15ba",
-   "kind": "user",
-   "type": "BranchTarget"
+   "type": "Branch",
+   "kind": "user"
   },
   {
    "address": 5565,
    "name": "loc_15bd",
-   "kind": "user",
-   "type": "BranchTarget"
+   "type": "Branch",
+   "kind": "user"
   },
   {
    "address": 5580,
    "name": "loc_15cc",
-   "kind": "user",
-   "type": "BranchTarget"
+   "type": "Branch",
+   "kind": "user"
   },
   {
    "address": 5605,
    "name": "loc_15e5",
-   "kind": "user",
-   "type": "BranchTarget"
+   "type": "Branch",
+   "kind": "user"
   },
   {
    "address": 5613,
    "name": "loc_15ed",
-   "kind": "user",
-   "type": "BranchTarget"
+   "type": "Branch",
+   "kind": "user"
   },
   {
    "address": 5616,
    "name": "JSW_Player_kill_player",
-   "kind": "user",
-   "type": "UserDefined"
+   "type": "UserDefined",
+   "kind": "user"
   },
   {
    "address": 5625,
    "name": "JSW_State_item_scan_x",
-   "kind": "user",
-   "type": "UserDefined"
+   "type": "UserDefined",
+   "kind": "user"
   },
   {
    "address": 5626,
    "name": "JSW_State_item_scan_y",
-   "kind": "user",
-   "type": "UserDefined"
+   "type": "UserDefined",
+   "kind": "user"
   },
   {
    "address": 5627,
    "name": "JSW_Player_collect_item_if_present",
-   "kind": "user",
-   "type": "Subroutine"
+   "type": "Subroutine",
+   "kind": "user"
   },
   {
    "address": 5651,
    "name": "loc_1613",
-   "kind": "user",
-   "type": "BranchTarget"
+   "type": "Branch",
+   "kind": "user"
   },
   {
    "address": 5723,
    "name": "loc_165b",
-   "kind": "user",
-   "type": "BranchTarget"
+   "type": "Branch",
+   "kind": "user"
   },
   {
    "address": 5725,
    "name": "loc_165d",
-   "kind": "user",
-   "type": "BranchTarget"
+   "type": "Branch",
+   "kind": "user"
   },
   {
    "address": 5768,
    "name": "JSW_Player_initialize_tile_location",
-   "kind": "user",
-   "type": "Subroutine"
+   "type": "Subroutine",
+   "kind": "user"
   },
   {
    "address": 5781,
    "name": "JSW_Player_align_ramp_animation_phase",
-   "kind": "user",
-   "type": "Subroutine"
+   "type": "Subroutine",
+   "kind": "user"
   },
   {
    "address": 5791,
    "name": "loc_169f",
-   "kind": "user",
-   "type": "BranchTarget"
+   "type": "Branch",
+   "kind": "user"
   },
   {
    "address": 5794,
    "name": "JSW_Player_produce_rope_sprite_staging",
-   "kind": "user",
-   "type": "Subroutine"
+   "type": "Subroutine",
+   "kind": "user"
   },
   {
    "address": 5805,
    "name": "loc_16ad",
-   "kind": "user",
-   "type": "BranchTarget"
+   "type": "Branch",
+   "kind": "user"
   },
   {
    "address": 5811,
    "name": "loc_16b3",
-   "kind": "user",
-   "type": "BranchTarget"
+   "type": "Branch",
+   "kind": "user"
   },
   {
    "address": 5854,
    "name": "loc_16de",
-   "kind": "user",
-   "type": "BranchTarget"
+   "type": "Branch",
+   "kind": "user"
   },
   {
    "address": 5905,
    "name": "loc_1711",
-   "kind": "user",
-   "type": "BranchTarget"
+   "type": "Branch",
+   "kind": "user"
   },
   {
    "address": 5928,
    "name": "loc_1728",
-   "kind": "user",
-   "type": "BranchTarget"
+   "type": "Branch",
+   "kind": "user"
   },
   {
    "address": 5953,
    "name": "loc_1741",
-   "kind": "user",
-   "type": "BranchTarget"
+   "type": "Branch",
+   "kind": "user"
   },
   {
    "address": 5971,
    "name": "loc_1753",
-   "kind": "user",
-   "type": "BranchTarget"
+   "type": "Branch",
+   "kind": "user"
   },
   {
    "address": 5975,
    "name": "loc_1757",
-   "kind": "user",
-   "type": "BranchTarget"
+   "type": "Branch",
+   "kind": "user"
   },
   {
    "address": 6002,
    "name": "loc_1772",
-   "kind": "user",
-   "type": "BranchTarget"
+   "type": "Branch",
+   "kind": "user"
   },
   {
    "address": 6022,
    "name": "loc_1786",
-   "kind": "user",
-   "type": "BranchTarget"
+   "type": "Branch",
+   "kind": "user"
   },
   {
    "address": 6026,
    "name": "JSW_State_rope_position_coordinates",
-   "kind": "user",
-   "type": "UserDefined"
+   "type": "UserDefined",
+   "kind": "user"
   },
   {
    "address": 6032,
    "name": "annotation_1790",
-   "kind": "user",
-   "type": "UserDefined"
+   "type": "UserDefined",
+   "kind": "user"
   },
   {
    "address": 6230,
    "name": "rope_sprite_source_pointer_table",
-   "kind": "user",
-   "type": "UserDefined"
+   "type": "UserDefined",
+   "kind": "user"
   },
   {
    "address": 6231,
    "name": "rope_sprite_source_pointer_table_first_high_byte",
-   "kind": "user",
-   "type": "UserDefined"
+   "type": "UserDefined",
+   "kind": "user"
   },
   {
    "address": 6232,
    "name": "annotation_1858",
-   "kind": "user",
-   "type": "UserDefined"
+   "type": "UserDefined",
+   "kind": "user"
   },
   {
    "address": 6844,
    "name": "JSW_Player_update_player_attached_to_rope",
-   "kind": "user",
-   "type": "UserDefined"
+   "type": "UserDefined",
+   "kind": "user"
   },
   {
    "address": 6864,
    "name": "loc_1ad0",
-   "kind": "user",
-   "type": "BranchTarget"
+   "type": "Branch",
+   "kind": "user"
   },
   {
    "address": 6888,
    "name": "loc_1ae8",
-   "kind": "user",
-   "type": "BranchTarget"
+   "type": "Branch",
+   "kind": "user"
   },
   {
    "address": 6902,
    "name": "loc_1af6",
-   "kind": "user",
-   "type": "BranchTarget"
+   "type": "Branch",
+   "kind": "user"
   },
   {
    "address": 6926,
    "name": "loc_1b0e",
-   "kind": "user",
-   "type": "BranchTarget"
+   "type": "Branch",
+   "kind": "user"
   },
   {
    "address": 6937,
    "name": "loc_1b19",
-   "kind": "user",
-   "type": "BranchTarget"
+   "type": "Branch",
+   "kind": "user"
   },
   {
    "address": 6967,
    "name": "loc_1b37",
-   "kind": "user",
-   "type": "BranchTarget"
+   "type": "Branch",
+   "kind": "user"
   },
   {
    "address": 7010,
    "name": "loc_1b62",
-   "kind": "user",
-   "type": "BranchTarget"
+   "type": "Branch",
+   "kind": "user"
   },
   {
    "address": 7032,
    "name": "loc_1b78",
-   "kind": "user",
-   "type": "BranchTarget"
+   "type": "Branch",
+   "kind": "user"
   },
   {
    "address": 7062,
    "name": "JSW_Player_handle_rope_tile_collision",
-   "kind": "user",
-   "type": "Subroutine"
+   "type": "Subroutine",
+   "kind": "user"
   },
   {
    "address": 7071,
    "name": "loc_1b9f",
-   "kind": "user",
-   "type": "BranchTarget"
+   "type": "Branch",
+   "kind": "user"
   },
   {
    "address": 7091,
    "name": "loc_1bb3",
-   "kind": "user",
-   "type": "BranchTarget"
+   "type": "Branch",
+   "kind": "user"
   },
   {
    "address": 7092,
    "name": "annotation_1bb4",
-   "kind": "user",
-   "type": "UserDefined"
+   "type": "UserDefined",
+   "kind": "user"
   },
   {
    "address": 7100,
    "name": "JSW_Player_disabled_room_selector",
-   "kind": "user",
-   "type": "Subroutine"
+   "type": "Subroutine",
+   "kind": "user"
   },
   {
    "address": 7101,
    "name": "annotation_1bbd",
-   "kind": "user",
-   "type": "UserDefined"
+   "type": "UserDefined",
+   "kind": "user"
   },
   {
    "address": 7244,
    "name": "JSW_Player_attach_player_to_rope_if_colliding",
-   "kind": "user",
-   "type": "Subroutine"
+   "type": "Subroutine",
+   "kind": "user"
   },
   {
    "address": 7249,
    "name": "loc_1c51",
-   "kind": "user",
-   "type": "BranchTarget"
+   "type": "Branch",
+   "kind": "user"
   },
   {
    "address": 7250,
    "name": "loc_1c52",
-   "kind": "user",
-   "type": "BranchTarget"
+   "type": "Branch",
+   "kind": "user"
   },
   {
    "address": 7278,
    "name": "loc_1c6e",
-   "kind": "user",
-   "type": "BranchTarget"
+   "type": "Branch",
+   "kind": "user"
   },
   {
    "address": 7287,
    "name": "loc_1c77",
-   "kind": "user",
-   "type": "BranchTarget"
+   "type": "Branch",
+   "kind": "user"
   },
   {
    "address": 7302,
    "name": "JSW_Player_compute_rope_trajectory_pointer",
-   "kind": "user",
-   "type": "Subroutine"
+   "type": "Subroutine",
+   "kind": "user"
   },
   {
    "address": 7315,
    "name": "loc_1c93",
-   "kind": "user",
-   "type": "BranchTarget"
+   "type": "Branch",
+   "kind": "user"
   },
   {
    "address": 7342,
    "name": "annotation_1cae",
-   "kind": "user",
-   "type": "UserDefined"
+   "type": "UserDefined",
+   "kind": "user"
   },
   {
    "address": 8192,
    "name": "JSW_Game_game_entry",
-   "kind": "user",
-   "type": "UserDefined"
+   "type": "UserDefined",
+   "kind": "user"
   },
   {
    "address": 8195,
    "name": "annotation_2003",
-   "kind": "user",
-   "type": "UserDefined"
+   "type": "UserDefined",
+   "kind": "user"
   },
   {
    "address": 8197,
    "name": "JSW_Game_initialize_game_music",
-   "kind": "user",
-   "type": "Subroutine"
+   "type": "Subroutine",
+   "kind": "user"
   },
   {
    "address": 8226,
    "name": "loc_2022",
-   "kind": "user",
-   "type": "BranchTarget"
+   "type": "Branch",
+   "kind": "user"
   },
   {
    "address": 8294,
    "name": "JSW_Game_tick_game_music",
-   "kind": "user",
-   "type": "Subroutine"
+   "type": "Subroutine",
+   "kind": "user"
   },
   {
    "address": 8301,
    "name": "loc_206d",
-   "kind": "user",
-   "type": "BranchTarget"
+   "type": "Branch",
+   "kind": "user"
   },
   {
    "address": 8308,
    "name": "loc_2074",
-   "kind": "user",
-   "type": "BranchTarget"
+   "type": "Branch",
+   "kind": "user"
   },
   {
    "address": 8309,
    "name": "JSW_Game_read_game_music_voice1",
-   "kind": "user",
-   "type": "Subroutine"
+   "type": "Subroutine",
+   "kind": "user"
   },
   {
    "address": 8332,
    "name": "loc_208c",
-   "kind": "user",
-   "type": "BranchTarget"
+   "type": "Branch",
+   "kind": "user"
   },
   {
    "address": 8351,
    "name": "loc_209f",
-   "kind": "user",
-   "type": "BranchTarget"
+   "type": "Branch",
+   "kind": "user"
   },
   {
    "address": 8365,
    "name": "loc_20ad",
-   "kind": "user",
-   "type": "BranchTarget"
+   "type": "Branch",
+   "kind": "user"
   },
   {
    "address": 8370,
    "name": "JSW_Game_read_game_music_voice2",
-   "kind": "user",
-   "type": "Subroutine"
+   "type": "Subroutine",
+   "kind": "user"
   },
   {
    "address": 8389,
    "name": "loc_20c5",
-   "kind": "user",
-   "type": "BranchTarget"
+   "type": "Branch",
+   "kind": "user"
   },
   {
    "address": 8408,
    "name": "loc_20d8",
-   "kind": "user",
-   "type": "BranchTarget"
+   "type": "Branch",
+   "kind": "user"
   },
   {
    "address": 8422,
    "name": "JSW_Game_silence_sid_voice_by_offset",
-   "kind": "user",
-   "type": "Subroutine"
+   "type": "Subroutine",
+   "kind": "user"
   },
   {
    "address": 8428,
    "name": "JSW_State_game_note_frequency_table",
-   "kind": "user",
-   "type": "UserDefined"
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 8429,
+   "name": "f_20ED",
+   "type": "Field",
+   "kind": "auto"
   },
   {
    "address": 8430,
    "name": "annotation_20ee",
-   "kind": "user",
-   "type": "UserDefined"
+   "type": "UserDefined",
+   "kind": "user"
   },
   {
    "address": 8620,
    "name": "JSW_State_spare_life_glyph_frames",
-   "kind": "user",
-   "type": "UserDefined"
+   "type": "UserDefined",
+   "kind": "user"
   },
   {
    "address": 8652,
    "name": "annotation_21cc",
-   "kind": "user",
-   "type": "UserDefined"
+   "type": "UserDefined",
+   "kind": "user"
   },
   {
    "address": 8748,
    "name": "tile_code_table",
-   "kind": "user",
-   "type": "UserDefined"
+   "type": "UserDefined",
+   "kind": "user"
   },
   {
    "address": 8749,
    "name": "annotation_222d",
-   "kind": "user",
-   "type": "UserDefined"
+   "type": "UserDefined",
+   "kind": "user"
   },
   {
    "address": 8752,
    "name": "room_direction_bit7_mask",
-   "kind": "user",
-   "type": "UserDefined"
+   "type": "UserDefined",
+   "kind": "user"
   },
   {
    "address": 8753,
    "name": "bit_mask_table",
-   "kind": "user",
-   "type": "UserDefined"
+   "type": "UserDefined",
+   "kind": "user"
   },
   {
    "address": 8754,
    "name": "bit_mask_table_index_1",
-   "kind": "user",
-   "type": "UserDefined"
+   "type": "UserDefined",
+   "kind": "user"
   },
   {
    "address": 8755,
    "name": "annotation_2233",
-   "kind": "user",
-   "type": "UserDefined"
+   "type": "UserDefined",
+   "kind": "user"
   },
   {
    "address": 8762,
    "name": "inverted_bit_mask_table_index_1",
-   "kind": "user",
-   "type": "UserDefined"
+   "type": "UserDefined",
+   "kind": "user"
   },
   {
    "address": 8763,
    "name": "annotation_223b",
-   "kind": "user",
-   "type": "UserDefined"
+   "type": "UserDefined",
+   "kind": "user"
   },
   {
    "address": 8769,
    "name": "status_line_screen_codes",
-   "kind": "user",
-   "type": "UserDefined"
+   "type": "UserDefined",
+   "kind": "user"
   },
   {
    "address": 8770,
    "name": "annotation_2242",
-   "kind": "user",
-   "type": "UserDefined"
+   "type": "UserDefined",
+   "kind": "user"
   },
   {
    "address": 8801,
    "name": "clock_digit_rollover_thresholds",
-   "kind": "user",
-   "type": "UserDefined"
+   "type": "UserDefined",
+   "kind": "user"
   },
   {
    "address": 8802,
    "name": "annotation_2262",
-   "kind": "user",
-   "type": "UserDefined"
+   "type": "UserDefined",
+   "kind": "user"
   },
   {
    "address": 8807,
    "name": "initial_clock_digits",
-   "kind": "user",
-   "type": "UserDefined"
+   "type": "UserDefined",
+   "kind": "user"
   },
   {
    "address": 8808,
    "name": "annotation_2268",
-   "kind": "user",
-   "type": "UserDefined"
+   "type": "UserDefined",
+   "kind": "user"
   },
   {
    "address": 8817,
    "name": "glyph_rotate_right_pointer_table",
-   "kind": "user",
-   "type": "UserDefined"
+   "type": "UserDefined",
+   "kind": "user"
   },
   {
    "address": 8819,
    "name": "annotation_2273",
-   "kind": "user",
-   "type": "UserDefined"
+   "type": "UserDefined",
+   "kind": "user"
   },
   {
    "address": 8855,
    "name": "glyph_rotate_left_pointer_table",
-   "kind": "user",
-   "type": "UserDefined"
+   "type": "UserDefined",
+   "kind": "user"
   },
   {
    "address": 8857,
    "name": "annotation_2299",
-   "kind": "user",
-   "type": "UserDefined"
+   "type": "UserDefined",
+   "kind": "user"
   },
   {
    "address": 8899,
    "name": "JSW_State_item_records",
-   "kind": "user",
-   "type": "UserDefined"
+   "type": "UserDefined",
+   "kind": "user"
   },
   {
    "address": 8903,
    "name": "annotation_22c7",
-   "kind": "user",
-   "type": "UserDefined"
+   "type": "UserDefined",
+   "kind": "user"
   },
   {
    "address": 9219,
    "name": "JSW_State_arrow_records",
-   "kind": "user",
-   "type": "UserDefined"
+   "type": "UserDefined",
+   "kind": "user"
   },
   {
    "address": 9223,
    "name": "annotation_2407",
-   "kind": "user",
-   "type": "UserDefined"
+   "type": "UserDefined",
+   "kind": "user"
   },
   {
    "address": 9283,
    "name": "JSW_State_guardian_records",
-   "kind": "user",
-   "type": "UserDefined"
+   "type": "UserDefined",
+   "kind": "user"
   },
   {
    "address": 9291,
    "name": "annotation_244b",
-   "kind": "user",
-   "type": "UserDefined"
+   "type": "UserDefined",
+   "kind": "user"
   },
   {
    "address": 9483,
    "name": "guardian_25_room06_offscreen_dummy_horizontal",
-   "kind": "user",
-   "type": "UserDefined"
+   "type": "UserDefined",
+   "kind": "user"
   },
   {
    "address": 9491,
    "name": "annotation_2513",
-   "kind": "user",
-   "type": "UserDefined"
+   "type": "UserDefined",
+   "kind": "user"
   },
   {
    "address": 10107,
    "name": "guardian_103_room27_offscreen_dummy_horizontal",
-   "kind": "user",
-   "type": "UserDefined"
+   "type": "UserDefined",
+   "kind": "user"
   },
   {
    "address": 10115,
    "name": "annotation_2783",
-   "kind": "user",
-   "type": "UserDefined"
+   "type": "UserDefined",
+   "kind": "user"
   },
   {
    "address": 10323,
    "name": "guardian_130_room38_offscreen_dummy_vertical",
-   "kind": "user",
-   "type": "UserDefined"
+   "type": "UserDefined",
+   "kind": "user"
   },
   {
    "address": 10331,
    "name": "annotation_285b",
-   "kind": "user",
-   "type": "UserDefined"
+   "type": "UserDefined",
+   "kind": "user"
   },
   {
    "address": 10731,
    "name": "JSW_State_room_sprite_colors",
-   "kind": "user",
-   "type": "UserDefined"
+   "type": "UserDefined",
+   "kind": "user"
   },
   {
    "address": 10739,
    "name": "annotation_29f3",
-   "kind": "user",
-   "type": "UserDefined"
+   "type": "UserDefined",
+   "kind": "user"
   },
   {
    "address": 11211,
    "name": "JSW_State_room_screen_row_pointers",
-   "kind": "user",
-   "type": "UserDefined"
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 11212,
+   "name": "f_2BCC",
+   "type": "Field",
+   "kind": "auto"
   },
   {
    "address": 11213,
    "name": "annotation_2bcd",
-   "kind": "user",
-   "type": "UserDefined"
+   "type": "UserDefined",
+   "kind": "user"
   },
   {
    "address": 11243,
    "name": "JSW_State_game_keyboard_lookup",
-   "kind": "user",
-   "type": "UserDefined"
+   "type": "UserDefined",
+   "kind": "user"
   },
   {
    "address": 11244,
    "name": "annotation_2bec",
-   "kind": "user",
-   "type": "UserDefined"
+   "type": "UserDefined",
+   "kind": "user"
   },
   {
    "address": 11307,
    "name": "JSW_State_control_key_lists",
-   "kind": "user",
-   "type": "UserDefined"
+   "type": "UserDefined",
+   "kind": "user"
   },
   {
    "address": 11308,
    "name": "annotation_2c2c",
-   "kind": "user",
-   "type": "UserDefined"
+   "type": "UserDefined",
+   "kind": "user"
   },
   {
    "address": 11318,
    "name": "right_control_key_list",
-   "kind": "user",
-   "type": "UserDefined"
+   "type": "UserDefined",
+   "kind": "user"
   },
   {
    "address": 11319,
    "name": "annotation_2c37",
-   "kind": "user",
-   "type": "UserDefined"
+   "type": "UserDefined",
+   "kind": "user"
   },
   {
    "address": 11329,
    "name": "jump_control_key_list",
-   "kind": "user",
-   "type": "UserDefined"
+   "type": "UserDefined",
+   "kind": "user"
   },
   {
    "address": 11330,
    "name": "annotation_2c42",
-   "kind": "user",
-   "type": "UserDefined"
+   "type": "UserDefined",
+   "kind": "user"
   },
   {
    "address": 11340,
    "name": "pause_control_key_list",
-   "kind": "user",
-   "type": "UserDefined"
+   "type": "UserDefined",
+   "kind": "user"
   },
   {
    "address": 11341,
    "name": "annotation_2c4d",
-   "kind": "user",
-   "type": "UserDefined"
+   "type": "UserDefined",
+   "kind": "user"
   },
   {
    "address": 11351,
    "name": "JSW_Game_initialize_game",
-   "kind": "user",
-   "type": "UserDefined"
+   "type": "UserDefined",
+   "kind": "user"
   },
   {
    "address": 11411,
    "name": "loc_2c93",
-   "kind": "user",
-   "type": "BranchTarget"
+   "type": "Branch",
+   "kind": "user"
   },
   {
    "address": 11430,
    "name": "loc_2ca6",
-   "kind": "user",
-   "type": "BranchTarget"
+   "type": "Branch",
+   "kind": "user"
   },
   {
    "address": 11539,
    "name": "loc_2d13",
-   "kind": "user",
-   "type": "BranchTarget"
+   "type": "Branch",
+   "kind": "user"
   },
   {
    "address": 11656,
    "name": "loc_2d88",
-   "kind": "user",
-   "type": "BranchTarget"
+   "type": "Branch",
+   "kind": "user"
   },
   {
    "address": 11675,
    "name": "loc_2d9b",
-   "kind": "user",
-   "type": "BranchTarget"
+   "type": "Branch",
+   "kind": "user"
   },
   {
    "address": 11687,
    "name": "loc_2da7",
-   "kind": "user",
-   "type": "BranchTarget"
+   "type": "Branch",
+   "kind": "user"
   },
   {
    "address": 11697,
    "name": "loc_2db1",
-   "kind": "user",
-   "type": "BranchTarget"
+   "type": "Branch",
+   "kind": "user"
   },
   {
    "address": 11707,
    "name": "loc_2dbb",
-   "kind": "user",
-   "type": "BranchTarget"
+   "type": "Branch",
+   "kind": "user"
   },
   {
    "address": 11718,
    "name": "JSW_Game_prepare_room_entry",
-   "kind": "user",
-   "type": "UserDefined"
+   "type": "UserDefined",
+   "kind": "user"
   },
   {
    "address": 11741,
    "name": "loc_2ddd",
-   "kind": "user",
-   "type": "BranchTarget"
+   "type": "Branch",
+   "kind": "user"
   },
   {
    "address": 11756,
    "name": "loc_2dec",
-   "kind": "user",
-   "type": "BranchTarget"
+   "type": "Branch",
+   "kind": "user"
   },
   {
    "address": 11771,
    "name": "loc_2dfb",
-   "kind": "user",
-   "type": "BranchTarget"
+   "type": "Branch",
+   "kind": "user"
   },
   {
    "address": 11783,
    "name": "JSW_Game_initialize_room_vic_state",
-   "kind": "user",
-   "type": "UserDefined"
+   "type": "UserDefined",
+   "kind": "user"
   },
   {
    "address": 11861,
    "name": "JSW_Game_copy_room_record",
-   "kind": "user",
-   "type": "UserDefined"
+   "type": "UserDefined",
+   "kind": "user"
   },
   {
    "address": 11872,
    "name": "loc_2e60",
-   "kind": "user",
-   "type": "BranchTarget"
+   "type": "Branch",
+   "kind": "user"
   },
   {
    "address": 11875,
    "name": "loc_2e63",
-   "kind": "user",
-   "type": "BranchTarget"
+   "type": "Branch",
+   "kind": "user"
   },
   {
    "address": 11887,
    "name": "loc_2e6f",
-   "kind": "user",
-   "type": "BranchTarget"
+   "type": "Branch",
+   "kind": "user"
   },
   {
    "address": 11900,
    "name": "JSW_Game_capture_room_entry_checkpoint",
-   "kind": "user",
-   "type": "UserDefined"
+   "type": "UserDefined",
+   "kind": "user"
   },
   {
    "address": 11932,
    "name": "JSW_Game_build_room_visuals",
-   "kind": "user",
-   "type": "UserDefined"
+   "type": "UserDefined",
+   "kind": "user"
   },
   {
    "address": 11983,
    "name": "loc_2ecf",
-   "kind": "user",
-   "type": "BranchTarget"
+   "type": "Branch",
+   "kind": "user"
   },
   {
    "address": 11992,
    "name": "loc_2ed8",
-   "kind": "user",
-   "type": "BranchTarget"
+   "type": "Branch",
+   "kind": "user"
   },
   {
    "address": 12007,
    "name": "loc_2ee7",
-   "kind": "user",
-   "type": "BranchTarget"
+   "type": "Branch",
+   "kind": "user"
   },
   {
    "address": 12049,
    "name": "loc_2f11",
-   "kind": "user",
-   "type": "BranchTarget"
+   "type": "Branch",
+   "kind": "user"
   },
   {
    "address": 12064,
    "name": "loc_2f20",
-   "kind": "user",
-   "type": "BranchTarget"
+   "type": "Branch",
+   "kind": "user"
   },
   {
    "address": 12072,
    "name": "JSW_Game_draw_room_conveyor",
-   "kind": "user",
-   "type": "UserDefined"
+   "type": "UserDefined",
+   "kind": "user"
   },
   {
    "address": 12084,
    "name": "loc_2f34",
-   "kind": "user",
-   "type": "BranchTarget"
+   "type": "Branch",
+   "kind": "user"
   },
   {
    "address": 12090,
    "name": "loc_2f3a",
-   "kind": "user",
-   "type": "BranchTarget"
+   "type": "Branch",
+   "kind": "user"
   },
   {
    "address": 12109,
    "name": "loc_2f4d",
-   "kind": "user",
-   "type": "BranchTarget"
+   "type": "Branch",
+   "kind": "user"
   },
   {
    "address": 12122,
    "name": "JSW_Game_draw_room_ramp",
-   "kind": "user",
-   "type": "UserDefined"
+   "type": "UserDefined",
+   "kind": "user"
   },
   {
    "address": 12150,
    "name": "loc_2f76",
-   "kind": "user",
-   "type": "BranchTarget"
+   "type": "Branch",
+   "kind": "user"
   },
   {
    "address": 12158,
    "name": "loc_2f7e",
-   "kind": "user",
-   "type": "BranchTarget"
+   "type": "Branch",
+   "kind": "user"
   },
   {
    "address": 12171,
    "name": "loc_2f8b",
-   "kind": "user",
-   "type": "BranchTarget"
+   "type": "Branch",
+   "kind": "user"
   },
   {
    "address": 12182,
    "name": "loc_2f96",
-   "kind": "user",
-   "type": "BranchTarget"
+   "type": "Branch",
+   "kind": "user"
   },
   {
    "address": 12200,
    "name": "loc_2fa8",
-   "kind": "user",
-   "type": "BranchTarget"
+   "type": "Branch",
+   "kind": "user"
   },
   {
    "address": 12237,
    "name": "JSW_Game_load_room_guardians",
-   "kind": "user",
-   "type": "UserDefined"
+   "type": "UserDefined",
+   "kind": "user"
   },
   {
    "address": 12247,
    "name": "loc_2fd7",
-   "kind": "user",
-   "type": "BranchTarget"
+   "type": "Branch",
+   "kind": "user"
   },
   {
    "address": 12278,
    "name": "loc_2ff6",
-   "kind": "user",
-   "type": "BranchTarget"
+   "type": "Branch",
+   "kind": "user"
   },
   {
    "address": 12280,
    "name": "loc_2ff8",
-   "kind": "user",
-   "type": "BranchTarget"
+   "type": "Branch",
+   "kind": "user"
   },
   {
    "address": 12299,
    "name": "loc_300b",
-   "kind": "user",
-   "type": "BranchTarget"
+   "type": "Branch",
+   "kind": "user"
   },
   {
    "address": 12321,
    "name": "loc_3021",
-   "kind": "user",
-   "type": "BranchTarget"
+   "type": "Branch",
+   "kind": "user"
   },
   {
    "address": 12335,
    "name": "loc_302f",
-   "kind": "user",
-   "type": "BranchTarget"
+   "type": "Branch",
+   "kind": "user"
   },
   {
    "address": 12340,
    "name": "loc_3034",
-   "kind": "user",
-   "type": "BranchTarget"
+   "type": "Branch",
+   "kind": "user"
   },
   {
    "address": 12396,
    "name": "loc_306c",
-   "kind": "user",
-   "type": "BranchTarget"
+   "type": "Branch",
+   "kind": "user"
   },
   {
    "address": 12402,
    "name": "loc_3072",
-   "kind": "user",
-   "type": "BranchTarget"
+   "type": "Branch",
+   "kind": "user"
   },
   {
    "address": 12443,
    "name": "loc_309b",
-   "kind": "user",
-   "type": "BranchTarget"
+   "type": "Branch",
+   "kind": "user"
   },
   {
    "address": 12456,
    "name": "JSW_Game_initialize_room_rope",
-   "kind": "user",
-   "type": "UserDefined"
+   "type": "UserDefined",
+   "kind": "user"
   },
   {
    "address": 12505,
    "name": "JSW_Game_settle_collision_latches",
-   "kind": "user",
-   "type": "UserDefined"
+   "type": "UserDefined",
+   "kind": "user"
   },
   {
    "address": 12507,
    "name": "loc_30db",
-   "kind": "user",
-   "type": "BranchTarget"
+   "type": "Branch",
+   "kind": "user"
   },
   {
    "address": 12513,
    "name": "JSW_Game_apply_room32_conveyor_fix",
-   "kind": "user",
-   "type": "UserDefined"
+   "type": "UserDefined",
+   "kind": "user"
   },
   {
    "address": 12543,
    "name": "JSW_Game_game_main_loop",
-   "kind": "user",
-   "type": "UserDefined"
+   "type": "UserDefined",
+   "kind": "user"
   },
   {
    "address": 12564,
    "name": "loc_3114",
-   "kind": "user",
-   "type": "BranchTarget"
+   "type": "Branch",
+   "kind": "user"
   },
   {
    "address": 12576,
    "name": "loc_3120",
-   "kind": "user",
-   "type": "BranchTarget"
+   "type": "Branch",
+   "kind": "user"
   },
   {
    "address": 12587,
    "name": "loc_312b",
-   "kind": "user",
-   "type": "BranchTarget"
+   "type": "Branch",
+   "kind": "user"
   },
   {
    "address": 12594,
    "name": "JSW_Game_check_stop_key",
-   "kind": "user",
-   "type": "UserDefined"
+   "type": "UserDefined",
+   "kind": "user"
   },
   {
    "address": 12607,
    "name": "JSW_Game_update_items_and_schedule_arrows",
-   "kind": "user",
-   "type": "UserDefined"
+   "type": "UserDefined",
+   "kind": "user"
   },
   {
    "address": 12617,
    "name": "loc_3149",
-   "kind": "user",
-   "type": "BranchTarget"
+   "type": "Branch",
+   "kind": "user"
   },
   {
    "address": 12621,
    "name": "JSW_Game_update_arrows",
-   "kind": "user",
-   "type": "UserDefined"
+   "type": "UserDefined",
+   "kind": "user"
   },
   {
    "address": 12633,
    "name": "loc_3159",
-   "kind": "user",
-   "type": "BranchTarget"
+   "type": "Branch",
+   "kind": "user"
   },
   {
    "address": 12646,
    "name": "loc_3166",
-   "kind": "user",
-   "type": "BranchTarget"
+   "type": "Branch",
+   "kind": "user"
   },
   {
    "address": 12656,
    "name": "loc_3170",
-   "kind": "user",
-   "type": "BranchTarget"
+   "type": "Branch",
+   "kind": "user"
   },
   {
    "address": 12690,
    "name": "loc_3192",
-   "kind": "user",
-   "type": "BranchTarget"
+   "type": "Branch",
+   "kind": "user"
   },
   {
    "address": 12693,
    "name": "loc_3195",
-   "kind": "user",
-   "type": "BranchTarget"
+   "type": "Branch",
+   "kind": "user"
   },
   {
    "address": 12720,
    "name": "loc_31b0",
-   "kind": "user",
-   "type": "BranchTarget"
+   "type": "Branch",
+   "kind": "user"
   },
   {
    "address": 12747,
    "name": "loc_31cb",
-   "kind": "user",
-   "type": "BranchTarget"
+   "type": "Branch",
+   "kind": "user"
   },
   {
    "address": 12772,
    "name": "loc_31e4",
-   "kind": "user",
-   "type": "BranchTarget"
+   "type": "Branch",
+   "kind": "user"
   },
   {
    "address": 12796,
    "name": "loc_31fc",
-   "kind": "user",
-   "type": "BranchTarget"
+   "type": "Branch",
+   "kind": "user"
   },
   {
    "address": 12814,
    "name": "JSW_Game_position_arrow_sprite",
-   "kind": "user",
-   "type": "Subroutine"
+   "type": "Subroutine",
+   "kind": "user"
   },
   {
    "address": 12849,
    "name": "loc_3231",
-   "kind": "user",
-   "type": "BranchTarget"
+   "type": "Branch",
+   "kind": "user"
   },
   {
    "address": 12857,
    "name": "loc_3239",
-   "kind": "user",
-   "type": "BranchTarget"
+   "type": "Branch",
+   "kind": "user"
   },
   {
    "address": 12858,
    "name": "loc_323a",
-   "kind": "user",
-   "type": "BranchTarget"
+   "type": "Branch",
+   "kind": "user"
   },
   {
    "address": 12878,
    "name": "JSW_Game_animate_bathroom_toilet",
-   "kind": "user",
-   "type": "UserDefined"
+   "type": "UserDefined",
+   "kind": "user"
   },
   {
    "address": 12932,
    "name": "JSW_Game_animate_maria",
-   "kind": "user",
-   "type": "UserDefined"
+   "type": "UserDefined",
+   "kind": "user"
   },
   {
    "address": 12996,
    "name": "loc_32c4",
-   "kind": "user",
-   "type": "BranchTarget"
+   "type": "Branch",
+   "kind": "user"
   },
   {
    "address": 13007,
    "name": "loc_32cf",
-   "kind": "user",
-   "type": "BranchTarget"
+   "type": "Branch",
+   "kind": "user"
   },
   {
    "address": 13012,
    "name": "JSW_Game_schedule_guardian_updates",
-   "kind": "user",
-   "type": "UserDefined"
+   "type": "UserDefined",
+   "kind": "user"
   },
   {
    "address": 13028,
    "name": "loc_32e4",
-   "kind": "user",
-   "type": "BranchTarget"
+   "type": "Branch",
+   "kind": "user"
   },
   {
    "address": 13047,
    "name": "loc_32f7",
-   "kind": "user",
-   "type": "BranchTarget"
+   "type": "Branch",
+   "kind": "user"
   },
   {
    "address": 13050,
    "name": "loc_32fa",
-   "kind": "user",
-   "type": "BranchTarget"
+   "type": "Branch",
+   "kind": "user"
   },
   {
    "address": 13060,
    "name": "JSW_Game_draw_spare_life_icons",
-   "kind": "user",
-   "type": "UserDefined"
+   "type": "UserDefined",
+   "kind": "user"
   },
   {
    "address": 13068,
    "name": "loc_330c",
-   "kind": "user",
-   "type": "BranchTarget"
+   "type": "Branch",
+   "kind": "user"
   },
   {
    "address": 13115,
    "name": "JSW_Game_schedule_player_update",
-   "kind": "user",
-   "type": "UserDefined"
+   "type": "UserDefined",
+   "kind": "user"
   },
   {
    "address": 13129,
    "name": "JSW_Game_reset_stack_and_enter_player_tick",
-   "kind": "user",
-   "type": "UserDefined"
+   "type": "UserDefined",
+   "kind": "user"
   },
   {
    "address": 13135,
    "name": "JSW_Game_continue_after_player_update",
-   "kind": "user",
-   "type": "UserDefined"
+   "type": "UserDefined",
+   "kind": "user"
   },
   {
    "address": 13175,
    "name": "loc_3377",
-   "kind": "user",
-   "type": "BranchTarget"
+   "type": "Branch",
+   "kind": "user"
   },
   {
    "address": 13181,
    "name": "loc_337d",
-   "kind": "user",
-   "type": "BranchTarget"
+   "type": "Branch",
+   "kind": "user"
   },
   {
    "address": 13202,
    "name": "JSW_Game_handle_sprite_collisions",
-   "kind": "user",
-   "type": "UserDefined"
+   "type": "UserDefined",
+   "kind": "user"
   },
   {
    "address": 13226,
    "name": "loc_33aa",
-   "kind": "user",
-   "type": "BranchTarget"
+   "type": "Branch",
+   "kind": "user"
   },
   {
    "address": 13234,
    "name": "loc_33b2",
-   "kind": "user",
-   "type": "BranchTarget"
+   "type": "Branch",
+   "kind": "user"
   },
   {
    "address": 13243,
    "name": "JSW_Game_check_clock_deadline",
-   "kind": "user",
-   "type": "UserDefined"
+   "type": "UserDefined",
+   "kind": "user"
   },
   {
    "address": 13252,
    "name": "loc_33c4",
-   "kind": "user",
-   "type": "BranchTarget"
+   "type": "Branch",
+   "kind": "user"
   },
   {
    "address": 13261,
    "name": "loc_33cd",
-   "kind": "user",
-   "type": "BranchTarget"
+   "type": "Branch",
+   "kind": "user"
   },
   {
    "address": 13264,
    "name": "JSW_Game_short_busy_wait",
-   "kind": "user",
-   "type": "Subroutine"
+   "type": "Subroutine",
+   "kind": "user"
   },
   {
    "address": 13268,
    "name": "loc_33d4",
-   "kind": "user",
-   "type": "BranchTarget"
+   "type": "Branch",
+   "kind": "user"
   },
   {
    "address": 13275,
    "name": "JSW_Game_restore_irq_registers_and_rti",
-   "kind": "user",
-   "type": "UserDefined"
+   "type": "UserDefined",
+   "kind": "user"
   },
   {
    "address": 13281,
    "name": "JSW_Game_gameplay_frame_irq",
-   "kind": "user",
-   "type": "UserDefined"
+   "type": "UserDefined",
+   "kind": "user"
   },
   {
    "address": 13294,
    "name": "loc_33ee",
-   "kind": "user",
-   "type": "BranchTarget"
+   "type": "Branch",
+   "kind": "user"
   },
   {
    "address": 13301,
    "name": "loc_33f5",
-   "kind": "user",
-   "type": "BranchTarget"
+   "type": "Branch",
+   "kind": "user"
   },
   {
    "address": 13309,
    "name": "loc_33fd",
-   "kind": "user",
-   "type": "BranchTarget"
+   "type": "Branch",
+   "kind": "user"
   },
   {
    "address": 13334,
    "name": "loc_3416",
-   "kind": "user",
-   "type": "BranchTarget"
+   "type": "Branch",
+   "kind": "user"
   },
   {
    "address": 13365,
    "name": "loc_3435",
-   "kind": "user",
-   "type": "BranchTarget"
+   "type": "Branch",
+   "kind": "user"
   },
   {
    "address": 13382,
    "name": "loc_3446",
-   "kind": "user",
-   "type": "BranchTarget"
+   "type": "Branch",
+   "kind": "user"
   },
   {
    "address": 13392,
    "name": "loc_3450",
-   "kind": "user",
-   "type": "BranchTarget"
+   "type": "Branch",
+   "kind": "user"
   },
   {
    "address": 13408,
    "name": "loc_3460",
-   "kind": "user",
-   "type": "BranchTarget"
+   "type": "Branch",
+   "kind": "user"
   },
   {
    "address": 13450,
    "name": "loc_348a",
-   "kind": "user",
-   "type": "BranchTarget"
+   "type": "Branch",
+   "kind": "user"
   },
   {
    "address": 13469,
    "name": "loc_349d",
-   "kind": "user",
-   "type": "BranchTarget"
+   "type": "Branch",
+   "kind": "user"
   },
   {
    "address": 13487,
    "name": "loc_34af",
-   "kind": "user",
-   "type": "BranchTarget"
+   "type": "Branch",
+   "kind": "user"
   },
   {
    "address": 13496,
    "name": "loc_34b8",
-   "kind": "user",
-   "type": "BranchTarget"
+   "type": "Branch",
+   "kind": "user"
   },
   {
    "address": 13514,
    "name": "loc_34ca",
-   "kind": "user",
-   "type": "BranchTarget"
+   "type": "Branch",
+   "kind": "user"
   },
   {
    "address": 13523,
    "name": "loc_34d3",
-   "kind": "user",
-   "type": "BranchTarget"
+   "type": "Branch",
+   "kind": "user"
   },
   {
    "address": 13570,
    "name": "loc_3502",
-   "kind": "user",
-   "type": "BranchTarget"
+   "type": "Branch",
+   "kind": "user"
   },
   {
    "address": 13588,
    "name": "loc_3514",
-   "kind": "user",
-   "type": "BranchTarget"
+   "type": "Branch",
+   "kind": "user"
   },
   {
    "address": 13607,
    "name": "loc_3527",
-   "kind": "user",
-   "type": "BranchTarget"
+   "type": "Branch",
+   "kind": "user"
   },
   {
    "address": 13619,
    "name": "loc_3533",
-   "kind": "user",
-   "type": "BranchTarget"
+   "type": "Branch",
+   "kind": "user"
   },
   {
    "address": 13631,
    "name": "loc_353f",
-   "kind": "user",
-   "type": "BranchTarget"
+   "type": "Branch",
+   "kind": "user"
   },
   {
    "address": 13644,
    "name": "loc_354c",
-   "kind": "user",
-   "type": "BranchTarget"
+   "type": "Branch",
+   "kind": "user"
   },
   {
    "address": 13658,
    "name": "loc_355a",
-   "kind": "user",
-   "type": "BranchTarget"
+   "type": "Branch",
+   "kind": "user"
   },
   {
    "address": 13678,
    "name": "loc_356e",
-   "kind": "user",
-   "type": "BranchTarget"
+   "type": "Branch",
+   "kind": "user"
   },
   {
    "address": 13683,
    "name": "loc_3573",
-   "kind": "user",
-   "type": "BranchTarget"
+   "type": "Branch",
+   "kind": "user"
   },
   {
    "address": 13716,
    "name": "JSW_Game_gameplay_input_irq",
-   "kind": "user",
-   "type": "UserDefined"
+   "type": "UserDefined",
+   "kind": "user"
   },
   {
    "address": 13735,
    "name": "JSW_Game_expand_packed_room_cell",
-   "kind": "user",
-   "type": "Subroutine"
+   "type": "Subroutine",
+   "kind": "user"
   },
   {
    "address": 13793,
    "name": "loc_35e1",
-   "kind": "user",
-   "type": "BranchTarget"
+   "type": "Branch",
+   "kind": "user"
   },
   {
    "address": 13796,
    "name": "JSW_Game_lookup_tile_at_cell",
-   "kind": "user",
-   "type": "Subroutine"
+   "type": "Subroutine",
+   "kind": "user"
   },
   {
    "address": 13843,
    "name": "loc_3613",
-   "kind": "user",
-   "type": "BranchTarget"
+   "type": "Branch",
+   "kind": "user"
   },
   {
    "address": 13844,
    "name": "JSW_Game_update_vertical_guardian",
-   "kind": "user",
-   "type": "Subroutine"
+   "type": "Subroutine",
+   "kind": "user"
   },
   {
    "address": 13879,
    "name": "loc_3637",
-   "kind": "user",
-   "type": "BranchTarget"
+   "type": "Branch",
+   "kind": "user"
   },
   {
    "address": 13890,
    "name": "loc_3642",
-   "kind": "user",
-   "type": "BranchTarget"
+   "type": "Branch",
+   "kind": "user"
   },
   {
    "address": 13921,
    "name": "loc_3661",
-   "kind": "user",
-   "type": "BranchTarget"
+   "type": "Branch",
+   "kind": "user"
   },
   {
    "address": 13982,
    "name": "JSW_Game_update_horizontal_guardian",
-   "kind": "user",
-   "type": "Subroutine"
+   "type": "Subroutine",
+   "kind": "user"
   },
   {
    "address": 13996,
    "name": "loc_36ac",
-   "kind": "user",
-   "type": "BranchTarget"
+   "type": "Branch",
+   "kind": "user"
   },
   {
    "address": 14042,
    "name": "loc_36da",
-   "kind": "user",
-   "type": "BranchTarget"
+   "type": "Branch",
+   "kind": "user"
   },
   {
    "address": 14049,
    "name": "loc_36e1",
-   "kind": "user",
-   "type": "BranchTarget"
+   "type": "Branch",
+   "kind": "user"
   },
   {
    "address": 14072,
    "name": "loc_36f8",
-   "kind": "user",
-   "type": "BranchTarget"
+   "type": "Branch",
+   "kind": "user"
   },
   {
    "address": 14098,
    "name": "loc_3712",
-   "kind": "user",
-   "type": "BranchTarget"
+   "type": "Branch",
+   "kind": "user"
   },
   {
    "address": 14104,
    "name": "loc_3718",
-   "kind": "user",
-   "type": "BranchTarget"
+   "type": "Branch",
+   "kind": "user"
   },
   {
    "address": 14128,
    "name": "loc_3730",
-   "kind": "user",
-   "type": "BranchTarget"
+   "type": "Branch",
+   "kind": "user"
   },
   {
    "address": 14149,
    "name": "loc_3745",
-   "kind": "user",
-   "type": "BranchTarget"
+   "type": "Branch",
+   "kind": "user"
   },
   {
    "address": 14156,
    "name": "loc_374c",
-   "kind": "user",
-   "type": "BranchTarget"
+   "type": "Branch",
+   "kind": "user"
   },
   {
    "address": 14167,
    "name": "loc_3757",
-   "kind": "user",
-   "type": "BranchTarget"
+   "type": "Branch",
+   "kind": "user"
   },
   {
    "address": 14197,
    "name": "loc_3775",
-   "kind": "user",
-   "type": "BranchTarget"
+   "type": "Branch",
+   "kind": "user"
   },
   {
    "address": 14225,
    "name": "JSW_Game_scan_gameplay_input",
-   "kind": "user",
-   "type": "Subroutine"
+   "type": "Subroutine",
+   "kind": "user"
   },
   {
    "address": 14246,
    "name": "loc_37a6",
-   "kind": "user",
-   "type": "BranchTarget"
+   "type": "Branch",
+   "kind": "user"
   },
   {
    "address": 14256,
    "name": "loc_37b0",
-   "kind": "user",
-   "type": "BranchTarget"
+   "type": "Branch",
+   "kind": "user"
   },
   {
    "address": 14266,
    "name": "loc_37ba",
-   "kind": "user",
-   "type": "BranchTarget"
+   "type": "Branch",
+   "kind": "user"
   },
   {
    "address": 14275,
    "name": "loc_37c3",
-   "kind": "user",
-   "type": "BranchTarget"
+   "type": "Branch",
+   "kind": "user"
   },
   {
    "address": 14294,
    "name": "loc_37d6",
-   "kind": "user",
-   "type": "BranchTarget"
+   "type": "Branch",
+   "kind": "user"
   },
   {
    "address": 14299,
    "name": "loc_37db",
-   "kind": "user",
-   "type": "BranchTarget"
+   "type": "Branch",
+   "kind": "user"
   },
   {
    "address": 14329,
    "name": "loc_37f9",
-   "kind": "user",
-   "type": "BranchTarget"
+   "type": "Branch",
+   "kind": "user"
   },
   {
    "address": 14339,
    "name": "loc_3803",
-   "kind": "user",
-   "type": "BranchTarget"
+   "type": "Branch",
+   "kind": "user"
   },
   {
    "address": 14343,
    "name": "loc_3807",
-   "kind": "user",
-   "type": "BranchTarget"
+   "type": "Branch",
+   "kind": "user"
   },
   {
    "address": 14347,
    "name": "loc_380b",
-   "kind": "user",
-   "type": "BranchTarget"
+   "type": "Branch",
+   "kind": "user"
   },
   {
    "address": 14356,
    "name": "loc_3814",
-   "kind": "user",
-   "type": "BranchTarget"
+   "type": "Branch",
+   "kind": "user"
   },
   {
    "address": 14365,
    "name": "loc_381d",
-   "kind": "user",
-   "type": "BranchTarget"
+   "type": "Branch",
+   "kind": "user"
   },
   {
    "address": 14374,
    "name": "loc_3826",
-   "kind": "user",
-   "type": "BranchTarget"
+   "type": "Branch",
+   "kind": "user"
   },
   {
    "address": 14394,
    "name": "loc_383a",
-   "kind": "user",
-   "type": "BranchTarget"
+   "type": "Branch",
+   "kind": "user"
   },
   {
    "address": 14395,
    "name": "JSW_Game_game_over_or_abort_to_title",
-   "kind": "user",
-   "type": "UserDefined"
+   "type": "UserDefined",
+   "kind": "user"
   },
   {
    "address": 14413,
    "name": "loc_384d",
-   "kind": "user",
-   "type": "BranchTarget"
+   "type": "Branch",
+   "kind": "user"
   },
   {
    "address": 14520,
    "name": "loc_38b8",
-   "kind": "user",
-   "type": "BranchTarget"
+   "type": "Branch",
+   "kind": "user"
   },
   {
    "address": 14552,
    "name": "JSW_Game_game_over_delay_outer",
-   "kind": "user",
-   "type": "Subroutine"
+   "type": "Subroutine",
+   "kind": "user"
   },
   {
    "address": 14556,
    "name": "loc_38dc",
-   "kind": "user",
-   "type": "BranchTarget"
+   "type": "Branch",
+   "kind": "user"
   },
   {
    "address": 14563,
    "name": "JSW_Game_game_over_delay_inner",
-   "kind": "user",
-   "type": "Subroutine"
+   "type": "Subroutine",
+   "kind": "user"
   },
   {
    "address": 14567,
    "name": "loc_38e7",
-   "kind": "user",
-   "type": "BranchTarget"
+   "type": "Branch",
+   "kind": "user"
   },
   {
    "address": 14575,
    "name": "JSW_Game_run_death_sequence",
-   "kind": "user",
-   "type": "UserDefined"
+   "type": "UserDefined",
+   "kind": "user"
   },
   {
    "address": 14617,
    "name": "loc_3919",
-   "kind": "user",
-   "type": "BranchTarget"
+   "type": "Branch",
+   "kind": "user"
   },
   {
    "address": 14633,
    "name": "loc_3929",
-   "kind": "user",
-   "type": "BranchTarget"
+   "type": "Branch",
+   "kind": "user"
   },
   {
    "address": 14699,
    "name": "loc_396b",
-   "kind": "user",
-   "type": "BranchTarget"
+   "type": "Branch",
+   "kind": "user"
   },
   {
    "address": 14720,
    "name": "loc_3980",
-   "kind": "user",
-   "type": "BranchTarget"
+   "type": "Branch",
+   "kind": "user"
   },
   {
    "address": 14723,
    "name": "JSW_Game_render_room_items",
-   "kind": "user",
-   "type": "Subroutine"
+   "type": "Subroutine",
+   "kind": "user"
   },
   {
    "address": 14728,
    "name": "loc_3988",
-   "kind": "user",
-   "type": "BranchTarget"
+   "type": "Branch",
+   "kind": "user"
   },
   {
    "address": 14746,
    "name": "loc_399a",
-   "kind": "user",
-   "type": "BranchTarget"
+   "type": "Branch",
+   "kind": "user"
   },
   {
    "address": 14810,
    "name": "loc_39da",
-   "kind": "user",
-   "type": "BranchTarget"
+   "type": "Branch",
+   "kind": "user"
   },
   {
    "address": 14833,
    "name": "JSW_Game_toggle_music_on_return",
-   "kind": "user",
-   "type": "UserDefined"
+   "type": "UserDefined",
+   "kind": "user"
   },
   {
    "address": 14849,
    "name": "loc_3a01",
-   "kind": "user",
-   "type": "BranchTarget"
+   "type": "Branch",
+   "kind": "user"
   },
   {
    "address": 16384,
    "name": "JSW_State_sprite_atlas",
-   "kind": "user",
-   "type": "UserDefined"
+   "type": "UserDefined",
+   "kind": "user"
   },
   {
    "address": 16448,
    "name": "annotation_4040",
-   "kind": "user",
-   "type": "UserDefined"
+   "type": "UserDefined",
+   "kind": "user"
   },
   {
    "address": 27392,
    "name": "rope_sprite_buffer",
-   "kind": "user",
-   "type": "UserDefined"
+   "type": "UserDefined",
+   "kind": "user"
   },
   {
    "address": 27456,
    "name": "annotation_6b40",
-   "kind": "user",
-   "type": "UserDefined"
+   "type": "UserDefined",
+   "kind": "user"
   },
   {
    "address": 27584,
    "name": "annotation_6bc0",
-   "kind": "user",
-   "type": "UserDefined"
+   "type": "UserDefined",
+   "kind": "user"
   },
   {
    "address": 27648,
    "name": "JSW_State_title_music_streams",
-   "kind": "user",
-   "type": "UserDefined"
+   "type": "UserDefined",
+   "kind": "user"
   },
   {
    "address": 27904,
    "name": "annotation_6d00",
-   "kind": "user",
-   "type": "UserDefined"
+   "type": "UserDefined",
+   "kind": "user"
   },
   {
    "address": 30208,
    "name": "annotation_7600",
-   "kind": "user",
-   "type": "UserDefined"
+   "type": "UserDefined",
+   "kind": "user"
   },
   {
    "address": 30720,
    "name": "JSW_State_game_charset",
-   "kind": "user",
-   "type": "UserDefined"
+   "type": "UserDefined",
+   "kind": "user"
   },
   {
    "address": 30728,
    "name": "annotation_7808",
-   "kind": "user",
-   "type": "UserDefined"
+   "type": "UserDefined",
+   "kind": "user"
   },
   {
    "address": 30984,
    "name": "room_dynamic_glyphs",
-   "kind": "user",
-   "type": "UserDefined"
+   "type": "UserDefined",
+   "kind": "user"
   },
   {
    "address": 30992,
    "name": "annotation_7910",
-   "kind": "user",
-   "type": "UserDefined"
+   "type": "UserDefined",
+   "kind": "user"
   },
   {
    "address": 31016,
    "name": "animated_room_glyph",
-   "kind": "user",
-   "type": "UserDefined"
+   "type": "UserDefined",
+   "kind": "user"
   },
   {
    "address": 31024,
    "name": "annotation_7930",
-   "kind": "user",
-   "type": "UserDefined"
+   "type": "UserDefined",
+   "kind": "user"
   },
   {
    "address": 31192,
    "name": "animated_spare_life_glyph",
-   "kind": "user",
-   "type": "UserDefined"
+   "type": "UserDefined",
+   "kind": "user"
   },
   {
    "address": 31200,
    "name": "annotation_79e0",
-   "kind": "user",
-   "type": "UserDefined"
+   "type": "UserDefined",
+   "kind": "user"
   },
   {
    "address": 31744,
    "name": "JSW_State_vic_screen_ram",
-   "kind": "user",
-   "type": "UserDefined"
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 31834,
+   "name": "a_7C5A",
+   "type": "AbsoluteAddress",
+   "kind": "auto"
+  },
+  {
+   "address": 31875,
+   "name": "a_7C83",
+   "type": "AbsoluteAddress",
+   "kind": "auto"
+  },
+  {
+   "address": 31916,
+   "name": "a_7CAC",
+   "type": "AbsoluteAddress",
+   "kind": "auto"
+  },
+  {
+   "address": 31957,
+   "name": "a_7CD5",
+   "type": "AbsoluteAddress",
+   "kind": "auto"
+  },
+  {
+   "address": 31984,
+   "name": "f_7CF0",
+   "type": "Field",
+   "kind": "auto"
+  },
+  {
+   "address": 31998,
+   "name": "a_7CFE",
+   "type": "AbsoluteAddress",
+   "kind": "auto"
   },
   {
    "address": 32000,
    "name": "vic_screen_ram_page_1",
-   "kind": "user",
-   "type": "UserDefined"
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 32039,
+   "name": "a_7D27",
+   "type": "AbsoluteAddress",
+   "kind": "auto"
+  },
+  {
+   "address": 32240,
+   "name": "f_7DF0",
+   "type": "Field",
+   "kind": "auto"
   },
   {
    "address": 32256,
    "name": "vic_screen_ram_page_2",
-   "kind": "user",
-   "type": "UserDefined"
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 32428,
+   "name": "f_7EAC",
+   "type": "Field",
+   "kind": "auto"
+  },
+  {
+   "address": 32504,
+   "name": "f_7EF8",
+   "type": "Field",
+   "kind": "auto"
   },
   {
    "address": 32512,
    "name": "vic_screen_ram_page_3",
-   "kind": "user",
-   "type": "UserDefined"
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 32544,
+   "name": "f_7F20",
+   "type": "Field",
+   "kind": "auto"
+  },
+  {
+   "address": 32561,
+   "name": "a_7F31",
+   "type": "AbsoluteAddress",
+   "kind": "auto"
+  },
+  {
+   "address": 32562,
+   "name": "a_7F32",
+   "type": "AbsoluteAddress",
+   "kind": "auto"
+  },
+  {
+   "address": 32576,
+   "name": "a_7F40",
+   "type": "AbsoluteAddress",
+   "kind": "auto"
+  },
+  {
+   "address": 32577,
+   "name": "a_7F41",
+   "type": "AbsoluteAddress",
+   "kind": "auto"
+  },
+  {
+   "address": 32578,
+   "name": "a_7F42",
+   "type": "AbsoluteAddress",
+   "kind": "auto"
+  },
+  {
+   "address": 32579,
+   "name": "a_7F43",
+   "type": "AbsoluteAddress",
+   "kind": "auto"
+  },
+  {
+   "address": 32580,
+   "name": "a_7F44",
+   "type": "AbsoluteAddress",
+   "kind": "auto"
+  },
+  {
+   "address": 32581,
+   "name": "a_7F45",
+   "type": "AbsoluteAddress",
+   "kind": "auto"
+  },
+  {
+   "address": 32582,
+   "name": "a_7F46",
+   "type": "AbsoluteAddress",
+   "kind": "auto"
+  },
+  {
+   "address": 32583,
+   "name": "a_7F47",
+   "type": "AbsoluteAddress",
+   "kind": "auto"
+  },
+  {
+   "address": 32624,
+   "name": "f_7F70",
+   "type": "Field",
+   "kind": "auto"
+  },
+  {
+   "address": 32625,
+   "name": "f_7F71",
+   "type": "Field",
+   "kind": "auto"
+  },
+  {
+   "address": 32664,
+   "name": "f_7F98",
+   "type": "Field",
+   "kind": "auto"
+  },
+  {
+   "address": 32665,
+   "name": "f_7F99",
+   "type": "Field",
+   "kind": "auto"
+  },
+  {
+   "address": 32760,
+   "name": "a_7FF8",
+   "type": "AbsoluteAddress",
+   "kind": "auto"
+  },
+  {
+   "address": 32761,
+   "name": "f_7FF9",
+   "type": "Field",
+   "kind": "auto"
+  },
+  {
+   "address": 32762,
+   "name": "a_7FFA",
+   "type": "AbsoluteAddress",
+   "kind": "auto"
+  },
+  {
+   "address": 32765,
+   "name": "a_7FFD",
+   "type": "AbsoluteAddress",
+   "kind": "auto"
+  },
+  {
+   "address": 32766,
+   "name": "a_7FFE",
+   "type": "AbsoluteAddress",
+   "kind": "auto"
+  },
+  {
+   "address": 32767,
+   "name": "a_7FFF",
+   "type": "AbsoluteAddress",
+   "kind": "auto"
   },
   {
    "address": 32768,
    "name": "annotation_8000",
-   "kind": "user",
-   "type": "UserDefined"
+   "type": "UserDefined",
+   "kind": "user"
   },
   {
    "address": 33024,
    "name": "JSW_State_rope_source_sprites",
-   "kind": "user",
-   "type": "UserDefined"
+   "type": "UserDefined",
+   "kind": "user"
   },
   {
    "address": 33088,
    "name": "annotation_8140",
-   "kind": "user",
-   "type": "UserDefined"
+   "type": "UserDefined",
+   "kind": "user"
   },
   {
    "address": 39552,
    "name": "JSW_State_embedded_source_fragment",
-   "kind": "user",
-   "type": "UserDefined"
+   "type": "UserDefined",
+   "kind": "user"
   },
   {
    "address": 39553,
    "name": "annotation_9a81",
-   "kind": "user",
-   "type": "UserDefined"
+   "type": "UserDefined",
+   "kind": "user"
   },
   {
    "address": 39936,
    "name": "JSW_State_game_music_streams",
-   "kind": "user",
-   "type": "UserDefined"
+   "type": "UserDefined",
+   "kind": "user"
   },
   {
    "address": 40192,
    "name": "annotation_9d00",
-   "kind": "user",
-   "type": "UserDefined"
+   "type": "UserDefined",
+   "kind": "user"
   },
   {
    "address": 40704,
    "name": "annotation_9f00",
-   "kind": "user",
-   "type": "UserDefined"
+   "type": "UserDefined",
+   "kind": "user"
   },
   {
    "address": 40874,
    "name": "annotation_9faa",
-   "kind": "user",
-   "type": "UserDefined"
+   "type": "UserDefined",
+   "kind": "user"
   },
   {
    "address": 40960,
    "name": "JSW_Title_title_entry",
-   "kind": "user",
-   "type": "UserDefined"
+   "type": "UserDefined",
+   "kind": "user"
   },
   {
    "address": 40963,
    "name": "title_keyboard_matrix_rows",
-   "kind": "user",
-   "type": "UserDefined"
+   "type": "UserDefined",
+   "kind": "user"
   },
   {
    "address": 40964,
    "name": "annotation_a004",
-   "kind": "user",
-   "type": "UserDefined"
+   "type": "UserDefined",
+   "kind": "user"
   },
   {
    "address": 40971,
    "name": "annotation_a00b",
-   "kind": "user",
-   "type": "UserDefined"
+   "type": "UserDefined",
+   "kind": "user"
   },
   {
    "address": 41027,
    "name": "title_key_decode_table",
-   "kind": "user",
-   "type": "UserDefined"
+   "type": "UserDefined",
+   "kind": "user"
   },
   {
    "address": 41028,
    "name": "annotation_a044",
-   "kind": "user",
-   "type": "UserDefined"
+   "type": "UserDefined",
+   "kind": "user"
   },
   {
    "address": 41091,
    "name": "JSW_Title_scan_title_keyboard",
-   "kind": "user",
-   "type": "Subroutine"
+   "type": "Subroutine",
+   "kind": "user"
   },
   {
    "address": 41100,
    "name": "loc_a08c",
-   "kind": "user",
-   "type": "BranchTarget"
+   "type": "Branch",
+   "kind": "user"
   },
   {
    "address": 41119,
    "name": "loc_a09f",
-   "kind": "user",
-   "type": "BranchTarget"
+   "type": "Branch",
+   "kind": "user"
   },
   {
    "address": 41124,
    "name": "loc_a0a4",
-   "kind": "user",
-   "type": "BranchTarget"
+   "type": "Branch",
+   "kind": "user"
   },
   {
    "address": 41154,
    "name": "loc_a0c2",
-   "kind": "user",
-   "type": "BranchTarget"
+   "type": "Branch",
+   "kind": "user"
   },
   {
    "address": 41164,
    "name": "loc_a0cc",
-   "kind": "user",
-   "type": "BranchTarget"
+   "type": "Branch",
+   "kind": "user"
   },
   {
    "address": 41165,
    "name": "JSW_Title_initialize_title_music",
-   "kind": "user",
-   "type": "Subroutine"
+   "type": "Subroutine",
+   "kind": "user"
   },
   {
    "address": 41273,
    "name": "JSW_Title_tick_title_music",
-   "kind": "user",
-   "type": "Subroutine"
+   "type": "Subroutine",
+   "kind": "user"
   },
   {
    "address": 41280,
    "name": "loc_a140",
-   "kind": "user",
-   "type": "BranchTarget"
+   "type": "Branch",
+   "kind": "user"
   },
   {
    "address": 41287,
    "name": "loc_a147",
-   "kind": "user",
-   "type": "BranchTarget"
+   "type": "Branch",
+   "kind": "user"
   },
   {
    "address": 41294,
    "name": "loc_a14e",
-   "kind": "user",
-   "type": "BranchTarget"
+   "type": "Branch",
+   "kind": "user"
   },
   {
    "address": 41295,
    "name": "JSW_Title_read_title_music_voice1",
-   "kind": "user",
-   "type": "Subroutine"
+   "type": "Subroutine",
+   "kind": "user"
   },
   {
    "address": 41318,
    "name": "loc_a166",
-   "kind": "user",
-   "type": "BranchTarget"
+   "type": "Branch",
+   "kind": "user"
   },
   {
    "address": 41337,
    "name": "loc_a179",
-   "kind": "user",
-   "type": "BranchTarget"
+   "type": "Branch",
+   "kind": "user"
   },
   {
    "address": 41351,
    "name": "loc_a187",
-   "kind": "user",
-   "type": "BranchTarget"
+   "type": "Branch",
+   "kind": "user"
   },
   {
    "address": 41361,
    "name": "JSW_Title_read_title_music_voice2",
-   "kind": "user",
-   "type": "Subroutine"
+   "type": "Subroutine",
+   "kind": "user"
   },
   {
    "address": 41380,
    "name": "loc_a1a4",
-   "kind": "user",
-   "type": "BranchTarget"
+   "type": "Branch",
+   "kind": "user"
   },
   {
    "address": 41399,
    "name": "loc_a1b7",
-   "kind": "user",
-   "type": "BranchTarget"
+   "type": "Branch",
+   "kind": "user"
   },
   {
    "address": 41413,
    "name": "JSW_Title_read_title_music_voice3",
-   "kind": "user",
-   "type": "Subroutine"
+   "type": "Subroutine",
+   "kind": "user"
   },
   {
    "address": 41432,
    "name": "loc_a1d8",
-   "kind": "user",
-   "type": "BranchTarget"
+   "type": "Branch",
+   "kind": "user"
   },
   {
    "address": 41451,
    "name": "loc_a1eb",
-   "kind": "user",
-   "type": "BranchTarget"
+   "type": "Branch",
+   "kind": "user"
   },
   {
    "address": 41465,
    "name": "JSW_Title_silence_title_sid_voice",
-   "kind": "user",
-   "type": "Subroutine"
+   "type": "Subroutine",
+   "kind": "user"
   },
   {
    "address": 41479,
    "name": "JSW_State_title_note_frequency_table",
-   "kind": "user",
-   "type": "UserDefined"
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 41480,
+   "name": "f_A208",
+   "type": "Field",
+   "kind": "auto"
   },
   {
    "address": 41481,
    "name": "annotation_a209",
-   "kind": "user",
-   "type": "UserDefined"
+   "type": "UserDefined",
+   "kind": "user"
   },
   {
    "address": 41671,
    "name": "JSW_State_title_scroller_stream",
-   "kind": "user",
-   "type": "UserDefined"
+   "type": "UserDefined",
+   "kind": "user"
   },
   {
    "address": 41672,
    "name": "annotation_a2c8",
-   "kind": "user",
-   "type": "UserDefined"
+   "type": "UserDefined",
+   "kind": "user"
   },
   {
    "address": 42820,
    "name": "JSW_Title_initialize_title",
-   "kind": "user",
-   "type": "UserDefined"
+   "type": "UserDefined",
+   "kind": "user"
   },
   {
    "address": 42883,
    "name": "loc_a783",
-   "kind": "user",
-   "type": "BranchTarget"
+   "type": "Branch",
+   "kind": "user"
   },
   {
    "address": 42963,
    "name": "JSW_Title_title_main_loop",
-   "kind": "user",
-   "type": "UserDefined"
+   "type": "UserDefined",
+   "kind": "user"
   },
   {
    "address": 42976,
    "name": "loc_a7e0",
-   "kind": "user",
-   "type": "BranchTarget"
+   "type": "Branch",
+   "kind": "user"
   },
   {
    "address": 42990,
    "name": "loc_a7ee",
-   "kind": "user",
-   "type": "BranchTarget"
+   "type": "Branch",
+   "kind": "user"
   },
   {
    "address": 42997,
    "name": "loc_a7f5",
-   "kind": "user",
-   "type": "BranchTarget"
+   "type": "Branch",
+   "kind": "user"
   },
   {
    "address": 43009,
    "name": "JSW_Title_title_raster_irq",
-   "kind": "user",
-   "type": "UserDefined"
+   "type": "UserDefined",
+   "kind": "user"
   },
   {
    "address": 43058,
    "name": "loc_a832",
-   "kind": "user",
-   "type": "BranchTarget"
+   "type": "Branch",
+   "kind": "user"
   },
   {
    "address": 43078,
    "name": "loc_a846",
-   "kind": "user",
-   "type": "BranchTarget"
+   "type": "Branch",
+   "kind": "user"
   },
   {
    "address": 43084,
    "name": "loc_a84c",
-   "kind": "user",
-   "type": "BranchTarget"
+   "type": "Branch",
+   "kind": "user"
   },
   {
    "address": 43107,
    "name": "loc_a863",
-   "kind": "user",
-   "type": "BranchTarget"
+   "type": "Branch",
+   "kind": "user"
   },
   {
    "address": 43109,
    "name": "loc_a865",
-   "kind": "user",
-   "type": "BranchTarget"
+   "type": "Branch",
+   "kind": "user"
   },
   {
    "address": 43117,
    "name": "loc_a86d",
-   "kind": "user",
-   "type": "BranchTarget"
+   "type": "Branch",
+   "kind": "user"
   },
   {
    "address": 43138,
    "name": "loc_a882",
-   "kind": "user",
-   "type": "BranchTarget"
+   "type": "Branch",
+   "kind": "user"
   },
   {
    "address": 43151,
    "name": "JSW_Title_fill_title_color_rows",
-   "kind": "user",
-   "type": "Subroutine"
+   "type": "Subroutine",
+   "kind": "user"
   },
   {
    "address": 43163,
    "name": "loc_a89b",
-   "kind": "user",
-   "type": "BranchTarget"
+   "type": "Branch",
+   "kind": "user"
   },
   {
    "address": 43176,
    "name": "JSW_State_title_color_pair",
-   "kind": "user",
-   "type": "UserDefined"
+   "type": "UserDefined",
+   "kind": "user"
   },
   {
    "address": 43177,
    "name": "annotation_a8a9",
-   "kind": "user",
-   "type": "UserDefined"
+   "type": "UserDefined",
+   "kind": "user"
   },
   {
    "address": 43178,
    "name": "JSW_Title_clear_and_copy_title_screen",
-   "kind": "user",
-   "type": "Subroutine"
+   "type": "Subroutine",
+   "kind": "user"
   },
   {
    "address": 43182,
    "name": "loc_a8ae",
-   "kind": "user",
-   "type": "BranchTarget"
+   "type": "Branch",
+   "kind": "user"
   },
   {
    "address": 43204,
    "name": "loc_a8c4",
-   "kind": "user",
-   "type": "BranchTarget"
+   "type": "Branch",
+   "kind": "user"
   },
   {
    "address": 43213,
    "name": "loc_a8cd",
-   "kind": "user",
-   "type": "BranchTarget"
+   "type": "Branch",
+   "kind": "user"
   },
   {
    "address": 43225,
    "name": "JSW_State_title_screen_layout",
-   "kind": "user",
-   "type": "UserDefined"
+   "type": "UserDefined",
+   "kind": "user"
   },
   {
    "address": 43226,
    "name": "annotation_a8da",
-   "kind": "user",
-   "type": "UserDefined"
+   "type": "UserDefined",
+   "kind": "user"
   },
   {
    "address": 43481,
    "name": "title_screen_layout_page_1",
-   "kind": "user",
-   "type": "UserDefined"
+   "type": "UserDefined",
+   "kind": "user"
   },
   {
    "address": 43482,
    "name": "annotation_a9da",
-   "kind": "user",
-   "type": "UserDefined"
+   "type": "UserDefined",
+   "kind": "user"
   },
   {
    "address": 43657,
    "name": "JSW_Title_clear_sid_registers",
-   "kind": "user",
-   "type": "Subroutine"
+   "type": "Subroutine",
+   "kind": "user"
   },
   {
    "address": 43660,
    "name": "loc_aa8c",
-   "kind": "user",
-   "type": "BranchTarget"
+   "type": "Branch",
+   "kind": "user"
   },
   {
    "address": 43669,
    "name": "annotation_aa95",
-   "kind": "user",
-   "type": "UserDefined"
+   "type": "UserDefined",
+   "kind": "user"
   },
   {
    "address": 45056,
    "name": "room_00_the_off_licence",
-   "kind": "user",
-   "type": "UserDefined"
+   "type": "UserDefined",
+   "kind": "user"
   },
   {
    "address": 45312,
    "name": "room_01_the_bridge",
-   "kind": "user",
-   "type": "UserDefined"
+   "type": "UserDefined",
+   "kind": "user"
   },
   {
    "address": 45568,
    "name": "room_02_under_the_megatree",
-   "kind": "user",
-   "type": "UserDefined"
+   "type": "UserDefined",
+   "kind": "user"
   },
   {
    "address": 45824,
    "name": "room_03_at_the_foot_of_the_megatree",
-   "kind": "user",
-   "type": "UserDefined"
+   "type": "UserDefined",
+   "kind": "user"
   },
   {
    "address": 46080,
    "name": "room_04_the_drive",
-   "kind": "user",
-   "type": "UserDefined"
+   "type": "UserDefined",
+   "kind": "user"
   },
   {
    "address": 46336,
    "name": "room_05_the_security_guard",
-   "kind": "user",
-   "type": "UserDefined"
+   "type": "UserDefined",
+   "kind": "user"
   },
   {
    "address": 46592,
    "name": "room_06_entrance_to_hades",
-   "kind": "user",
-   "type": "UserDefined"
+   "type": "UserDefined",
+   "kind": "user"
   },
   {
    "address": 46848,
    "name": "room_07_cuckoo_s_nest",
-   "kind": "user",
-   "type": "UserDefined"
+   "type": "UserDefined",
+   "kind": "user"
   },
   {
    "address": 47104,
    "name": "room_08_inside_the_megatrunk",
-   "kind": "user",
-   "type": "UserDefined"
+   "type": "UserDefined",
+   "kind": "user"
   },
   {
    "address": 47360,
    "name": "room_09_on_a_branch_over_the_drive",
-   "kind": "user",
-   "type": "UserDefined"
+   "type": "UserDefined",
+   "kind": "user"
   },
   {
    "address": 47616,
    "name": "room_10_the_front_door",
-   "kind": "user",
-   "type": "UserDefined"
+   "type": "UserDefined",
+   "kind": "user"
   },
   {
    "address": 47872,
    "name": "room_11_the_hall",
-   "kind": "user",
-   "type": "UserDefined"
+   "type": "UserDefined",
+   "kind": "user"
   },
   {
    "address": 48128,
    "name": "room_12_tree_top",
-   "kind": "user",
-   "type": "UserDefined"
+   "type": "UserDefined",
+   "kind": "user"
   },
   {
    "address": 48384,
    "name": "room_13_out_on_a_limb",
-   "kind": "user",
-   "type": "UserDefined"
+   "type": "UserDefined",
+   "kind": "user"
   },
   {
    "address": 48640,
    "name": "room_14_rescue_esmerelda",
-   "kind": "user",
-   "type": "UserDefined"
+   "type": "UserDefined",
+   "kind": "user"
   },
   {
    "address": 48896,
    "name": "room_15_i_m_sure_i_ve_seen_this_before",
-   "kind": "user",
-   "type": "UserDefined"
+   "type": "UserDefined",
+   "kind": "user"
   },
   {
    "address": 49152,
    "name": "room_16_we_must_perform_a_quirkafleeg",
-   "kind": "user",
-   "type": "UserDefined"
+   "type": "UserDefined",
+   "kind": "user"
   },
   {
    "address": 49408,
    "name": "room_17_up_on_the_battlements",
-   "kind": "user",
-   "type": "UserDefined"
+   "type": "UserDefined",
+   "kind": "user"
   },
   {
    "address": 49664,
    "name": "room_18_on_the_roof",
-   "kind": "user",
-   "type": "UserDefined"
+   "type": "UserDefined",
+   "kind": "user"
   },
   {
    "address": 49920,
    "name": "room_19_the_forgotten_abbey",
-   "kind": "user",
-   "type": "UserDefined"
+   "type": "UserDefined",
+   "kind": "user"
   },
   {
    "address": 50176,
    "name": "room_20_ballroom_east",
-   "kind": "user",
-   "type": "UserDefined"
+   "type": "UserDefined",
+   "kind": "user"
   },
   {
    "address": 50432,
    "name": "room_21_ballroom_west",
-   "kind": "user",
-   "type": "UserDefined"
+   "type": "UserDefined",
+   "kind": "user"
   },
   {
    "address": 50688,
    "name": "room_22_to_the_kitchens_main_stairway",
-   "kind": "user",
-   "type": "UserDefined"
+   "type": "UserDefined",
+   "kind": "user"
   },
   {
    "address": 50944,
    "name": "room_23_the_kitchen",
-   "kind": "user",
-   "type": "UserDefined"
+   "type": "UserDefined",
+   "kind": "user"
   },
   {
    "address": 51200,
    "name": "room_24_west_of_kitchen",
-   "kind": "user",
-   "type": "UserDefined"
+   "type": "UserDefined",
+   "kind": "user"
   },
   {
    "address": 51456,
    "name": "room_25_cold_store",
-   "kind": "user",
-   "type": "UserDefined"
+   "type": "UserDefined",
+   "kind": "user"
   },
   {
    "address": 51712,
    "name": "room_26_east_wall_base",
-   "kind": "user",
-   "type": "UserDefined"
+   "type": "UserDefined",
+   "kind": "user"
   },
   {
    "address": 51968,
    "name": "room_27_the_chapel",
-   "kind": "user",
-   "type": "UserDefined"
+   "type": "UserDefined",
+   "kind": "user"
   },
   {
    "address": 52224,
    "name": "room_28_first_landing",
-   "kind": "user",
-   "type": "UserDefined"
+   "type": "UserDefined",
+   "kind": "user"
   },
   {
    "address": 52480,
    "name": "room_29_the_nightmare_room",
-   "kind": "user",
-   "type": "UserDefined"
+   "type": "UserDefined",
+   "kind": "user"
   },
   {
    "address": 52736,
    "name": "annotation_ce00",
-   "kind": "user",
-   "type": "UserDefined"
+   "type": "UserDefined",
+   "kind": "user"
   },
   {
    "address": 52992,
    "name": "runtime_vector_page",
-   "kind": "user",
-   "type": "UserDefined"
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 53232,
+   "name": "p_CFF0",
+   "type": "Pointer",
+   "kind": "auto"
+  },
+  {
+   "address": 53233,
+   "name": "a_CFF1",
+   "type": "AbsoluteAddress",
+   "kind": "auto"
+  },
+  {
+   "address": 53234,
+   "name": "p_CFF2",
+   "type": "Pointer",
+   "kind": "auto"
+  },
+  {
+   "address": 53235,
+   "name": "a_CFF3",
+   "type": "AbsoluteAddress",
+   "kind": "auto"
+  },
+  {
+   "address": 53236,
+   "name": "p_CFF4",
+   "type": "Pointer",
+   "kind": "auto"
+  },
+  {
+   "address": 53237,
+   "name": "a_CFF5",
+   "type": "AbsoluteAddress",
+   "kind": "auto"
+  },
+  {
+   "address": 53238,
+   "name": "p_CFF6",
+   "type": "Pointer",
+   "kind": "auto"
+  },
+  {
+   "address": 53239,
+   "name": "a_CFF7",
+   "type": "AbsoluteAddress",
+   "kind": "auto"
+  },
+  {
+   "address": 53240,
+   "name": "p_CFF8",
+   "type": "Pointer",
+   "kind": "auto"
+  },
+  {
+   "address": 53241,
+   "name": "a_CFF9",
+   "type": "AbsoluteAddress",
+   "kind": "auto"
+  },
+  {
+   "address": 53242,
+   "name": "p_CFFA",
+   "type": "Pointer",
+   "kind": "auto"
+  },
+  {
+   "address": 53243,
+   "name": "a_CFFB",
+   "type": "AbsoluteAddress",
+   "kind": "auto"
+  },
+  {
+   "address": 53244,
+   "name": "a_CFFC",
+   "type": "AbsoluteAddress",
+   "kind": "auto"
+  },
+  {
+   "address": 53245,
+   "name": "a_CFFD",
+   "type": "AbsoluteAddress",
+   "kind": "auto"
   },
   {
    "address": 53248,
    "name": "annotation_d000",
-   "kind": "user",
-   "type": "UserDefined"
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 55296,
+   "name": "f_D800",
+   "type": "Field",
+   "kind": "auto"
+  },
+  {
+   "address": 55552,
+   "name": "f_D900",
+   "type": "Field",
+   "kind": "auto"
+  },
+  {
+   "address": 55808,
+   "name": "f_DA00",
+   "type": "Field",
+   "kind": "auto"
+  },
+  {
+   "address": 55980,
+   "name": "f_DAAC",
+   "type": "Field",
+   "kind": "auto"
+  },
+  {
+   "address": 56056,
+   "name": "f_DAF8",
+   "type": "Field",
+   "kind": "auto"
+  },
+  {
+   "address": 56176,
+   "name": "f_DB70",
+   "type": "Field",
+   "kind": "auto"
+  },
+  {
+   "address": 56177,
+   "name": "f_DB71",
+   "type": "Field",
+   "kind": "auto"
+  },
+  {
+   "address": 56216,
+   "name": "f_DB98",
+   "type": "Field",
+   "kind": "auto"
+  },
+  {
+   "address": 56217,
+   "name": "f_DB99",
+   "type": "Field",
+   "kind": "auto"
   },
   {
    "address": 57344,
    "name": "room_30_the_banyan_tree",
-   "kind": "user",
-   "type": "UserDefined"
+   "type": "UserDefined",
+   "kind": "user"
   },
   {
    "address": 57600,
    "name": "room_31_swimming_pool",
-   "kind": "user",
-   "type": "UserDefined"
+   "type": "UserDefined",
+   "kind": "user"
   },
   {
    "address": 57856,
    "name": "room_32_halfway_up_the_east_wall",
-   "kind": "user",
-   "type": "UserDefined"
+   "type": "UserDefined",
+   "kind": "user"
   },
   {
    "address": 58112,
    "name": "room_33_the_bathroom",
-   "kind": "user",
-   "type": "UserDefined"
+   "type": "UserDefined",
+   "kind": "user"
   },
   {
    "address": 58368,
    "name": "room_34_top_landing",
-   "kind": "user",
-   "type": "UserDefined"
+   "type": "UserDefined",
+   "kind": "user"
   },
   {
    "address": 58624,
    "name": "room_35_master_bedroom",
-   "kind": "user",
-   "type": "UserDefined"
+   "type": "UserDefined",
+   "kind": "user"
   },
   {
    "address": 58880,
    "name": "room_36_a_bit_of_tree",
-   "kind": "user",
-   "type": "UserDefined"
+   "type": "UserDefined",
+   "kind": "user"
   },
   {
    "address": 59136,
    "name": "room_37_orangery",
-   "kind": "user",
-   "type": "UserDefined"
+   "type": "UserDefined",
+   "kind": "user"
   },
   {
    "address": 59392,
    "name": "room_38_priests_hole",
-   "kind": "user",
-   "type": "UserDefined"
+   "type": "UserDefined",
+   "kind": "user"
   },
   {
    "address": 59648,
    "name": "room_39_emergency_generator",
-   "kind": "user",
-   "type": "UserDefined"
+   "type": "UserDefined",
+   "kind": "user"
   },
   {
    "address": 59904,
    "name": "room_40_dr_jones_will_never_believe_this",
-   "kind": "user",
-   "type": "UserDefined"
+   "type": "UserDefined",
+   "kind": "user"
   },
   {
    "address": 60160,
    "name": "room_41_the_attic",
-   "kind": "user",
-   "type": "UserDefined"
+   "type": "UserDefined",
+   "kind": "user"
   },
   {
    "address": 60416,
    "name": "room_42_under_the_roof",
-   "kind": "user",
-   "type": "UserDefined"
+   "type": "UserDefined",
+   "kind": "user"
   },
   {
    "address": 60672,
    "name": "room_43_conservatory_roof",
-   "kind": "user",
-   "type": "UserDefined"
+   "type": "UserDefined",
+   "kind": "user"
   },
   {
    "address": 60928,
    "name": "room_44_on_top_of_the_house",
-   "kind": "user",
-   "type": "UserDefined"
+   "type": "UserDefined",
+   "kind": "user"
   },
   {
    "address": 61184,
    "name": "room_45_under_the_drive",
-   "kind": "user",
-   "type": "UserDefined"
+   "type": "UserDefined",
+   "kind": "user"
   },
   {
    "address": 61440,
    "name": "room_46_tree_root",
-   "kind": "user",
-   "type": "UserDefined"
+   "type": "UserDefined",
+   "kind": "user"
   },
   {
    "address": 61696,
    "name": "room_47_nomen_luni",
-   "kind": "user",
-   "type": "UserDefined"
+   "type": "UserDefined",
+   "kind": "user"
   },
   {
    "address": 61952,
    "name": "room_48_the_wine_cellar",
-   "kind": "user",
-   "type": "UserDefined"
+   "type": "UserDefined",
+   "kind": "user"
   },
   {
    "address": 62208,
    "name": "room_49_watch_tower",
-   "kind": "user",
-   "type": "UserDefined"
+   "type": "UserDefined",
+   "kind": "user"
   },
   {
    "address": 62464,
    "name": "room_50_tool_shed",
-   "kind": "user",
-   "type": "UserDefined"
+   "type": "UserDefined",
+   "kind": "user"
   },
   {
    "address": 62720,
    "name": "room_51_back_stairway",
-   "kind": "user",
-   "type": "UserDefined"
+   "type": "UserDefined",
+   "kind": "user"
   },
   {
    "address": 62976,
    "name": "room_52_back_door",
-   "kind": "user",
-   "type": "UserDefined"
+   "type": "UserDefined",
+   "kind": "user"
   },
   {
    "address": 63232,
    "name": "room_53_west_wing",
-   "kind": "user",
-   "type": "UserDefined"
+   "type": "UserDefined",
+   "kind": "user"
   },
   {
    "address": 63488,
    "name": "room_54_west_bedroom",
-   "kind": "user",
-   "type": "UserDefined"
+   "type": "UserDefined",
+   "kind": "user"
   },
   {
    "address": 63744,
    "name": "room_55_west_wing_roof",
-   "kind": "user",
-   "type": "UserDefined"
+   "type": "UserDefined",
+   "kind": "user"
   },
   {
    "address": 64000,
    "name": "room_56_above_the_west_bedroom",
-   "kind": "user",
-   "type": "UserDefined"
+   "type": "UserDefined",
+   "kind": "user"
   },
   {
    "address": 64256,
    "name": "room_57_the_beach",
-   "kind": "user",
-   "type": "UserDefined"
+   "type": "UserDefined",
+   "kind": "user"
   },
   {
    "address": 64512,
    "name": "room_58_the_yacht",
-   "kind": "user",
-   "type": "UserDefined"
+   "type": "UserDefined",
+   "kind": "user"
   },
   {
    "address": 64768,
    "name": "room_59_the_bow",
-   "kind": "user",
-   "type": "UserDefined"
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 65212,
+   "name": "j_FEBC",
+   "type": "Jump",
+   "kind": "auto"
+  },
+  {
+   "address": 65490,
+   "name": "KERNAL_CHROUT",
+   "type": "Predefined",
+   "kind": "system"
   }
  ],
  "comments": [

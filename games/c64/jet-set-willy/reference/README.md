@@ -1,5 +1,3 @@
-# Reference material
+# References
 
-decoded-view.png renders room 0 base terrain from the listing. Colors identify terrain classes; this is not a complete gameplay frame.
-
-`annotated-listing.txt` preserves the selected original game spaces, including comments and references. Machine-ROM overlays and other excluded spaces are not included. `import-audit.json` records the source hash and repeated publication checks. The article’s widgets embed only the data they display.
+`title.png` and `play.png` are fresh VICE captures from the hard-reset disk boot in `orientation.md`. `decoded-view.png` is an earlier reconstruction, not evidence of a boot in this run. The Ghidra export stays in `work/`; `game.json` records its hash and makers.

@@ -1,36 +1,11 @@
 # Jet Set Willy — kit feedback
 
-## What changed
+The original publishing pass imported annotations directly into a listing without a boot. Review identified that as an incomplete kit run. This correction boots the CMM disk from a hard reset, disables trainers, saves title and play, and compares them. Play retains every imported code byte and installs the gameplay handler, so it is the listing image.
 
-The Castle Master companion PR introduces the shared Ghidra text importer and its tests. It preserves selected occupants, verifies initialized bytes against a supplied dump, retains aliases, and keeps unknown memory as gaps. Its Source references distinguish visible registers/ROMs from underlying RAM. A selected original text export preserves details outside the native schema.
+The names/comments are loaded into regenerator2000 on that snapshot, exported with `symbols_export.py`, and Source is generated only by `listing.py` (8,580 records). The external text export stays private; `game.json.imported` records its hash and unknown models. The whole-RAM coverage extra is removed. The article is Bronze form until verification is complete.
 
-That PR also adds a contained launcher for an installed Firefox and changes the footprint check from absolute timestamps to before/after file signatures. No download was needed for the browser. These shared changes are confined to that PR; this contribution builds independently from its committed native artifacts.
+Shared tooling is separate in [PR #125](https://github.com/gamesexplained/gamesexplained/pull/125). VICE MCP 3.13.1 passed 55/57 checks; the pause and pacing workarounds apply. It now runs silently on a virtual display at the contributor’s request.
 
-## Validation
+`timings.json` records actual article/retrospective work from the publishing pass and the fresh orientation step; none is represented as the original external analysis time. Imported games stay out of the runs table. `TODO.md` records the remaining coverage and verification work.
 
-The three repository checks and complete site build pass. Browser checks exercise every selector and toggle, inspect nonempty canvases and image loads, capture desktop and 390-pixel layouts, and collect script errors. Source tabs load from the committed listings. Exact initialized-byte round trips and figure-format checks are recorded in `reference/import-audit.json`; original binaries remain in `work/`.
-
-## Scope and tier
-
-The complete title-state physical RAM image, including both banks of room records and the resident game. Visible I/O and KERNAL overlays are excluded from the publication. The contributor requested direct publication of the existing accurate analysis. This publication pass does not replace the original reverse-engineering effort. The native prose-span coverage and unproven-model requirement leave the contribution at Bronze; `TODO.md` lists Silver requirements.
-
-## Maintainer asks
-
-- [#113: define coverage and maintainer checks for imported exhaustive disassemblies](https://github.com/gamesexplained/gamesexplained/issues/113). No coverage or model rule was relaxed.
-
-## Timing
-
-| Step | Minutes | Model | Sessions | What dominated |
-|---|---:|---|---:|---|
-| 70-minisite | 12 | gpt-6.1-sol | 1 |  |
-| 80-retro | 4 | gpt-6.1-sol | 1 | Publication from the existing disassembly; one agent alternated between five contributions. No new full reverse-engineering run. |
-| total | 18 | gpt-6.1-sol | | 0.3 h of work |
-
-Portable figures:
-  minutes to play : n/a
-  min per KB      : n/a (needs a coverage step and a symbols.json)
-  hours           : 0.3
-
-These clocks record overlapping publication windows while one agent alternated among five independent contributions. They are not additive person-hours and do not include the original analysis.
-
-The single most useful change was direct import of the completed annotated listing, preserving phase boundaries instead of reconstructing the analysis from a raw memory dump.
+The one-load scope agrees with the interim rule in [RFC #124](https://github.com/gamesexplained/gamesexplained/issues/124). No new state/listing format is introduced here. Silver needs a maintainer check after completing the work.
