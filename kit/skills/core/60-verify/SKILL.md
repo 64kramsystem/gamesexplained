@@ -82,13 +82,12 @@ tested. Typical tests:
   watching the routine accept it proves what the *code* does. It does not
   prove a player can get there: the way the loop orders its tests may make
   the state unreachable from any legal one, and that is a fact worth more
-  than the poke. When a corner case turns on a state the player has to fly
-  into, write an exact model of the movement routine, search it for an
-  input sequence from a state the player can plainly reach, then replay
-  that sequence in the emulator with the game's control read redirected to
-  a table (see the platform's tool notes) and compare every pass against
-  the model. Publish the sequence with the result; a route someone else can
-  replay is the evidence.
+  than the poke. Search for an input sequence from a state the player can
+  plainly reach with the game's own movement code ("Negative results",
+  above), then replay it in the emulator with the game's control read
+  redirected to a table (see the platform's tool notes). Publish the
+  sequence with the result; a route someone else can replay is the
+  evidence.
 
 ## Measuring without fooling yourself
 

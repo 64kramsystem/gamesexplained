@@ -8,10 +8,9 @@ description: Build the game's minisite. The "How it works" page (index.html) fro
 Start the clock: `python3 kit/scripts/clock.py start 70-minisite --model <your model id> games/<platform>/<slug>`. No figure yet; yours goes on the runs table.
 
 The minisite is the deliverable: a small site that explains the game, where
-the writing is the spine but anything can live. Interactivity is the point,
-and the minisite can hold anything that explains the game — widgets, level
-browsers, tune players, even a full JavaScript port of the game itself. If
-you can build it, build it.
+the writing is the spine but anything that explains the game can live
+(widgets, level browsers, tune players, even a full JavaScript port of the
+game itself). If you can build it, build it.
 
 Every game is a small site with the same tabs in the same order: **How it
 works** (`index.html`, authored), **Source code** (`source.html`, generated
@@ -88,10 +87,9 @@ address links into the Source tab, and the house style in `kit/style.md`.
 - **Secrets, quirks and bugs.** The best part. Things a player who
    finished the game would not know, each verified live, with the
    evidence beside it. One kind deserves a special look: a state the code
-   accepts but the programmer never meant anyone to reach. It shows up as
-   an exact-match test where a range was intended, a comparison that
-   assumes a sign, an eight-bit sum that can wrap, a test run in an order
-   that leaves a gap, and it is classic tool-assisted-speedrun material,
+   accepts but the programmer never meant anyone to reach (the open
+   questions `50-coverage` notes and `60-verify`, "What a test lets
+   through", settles). It is classic tool-assisted-speedrun material,
    invisible in play and plain in the listing. Landing while climbing, and
    being paid more for it, is one. When you find one, do not stop at the
    poke: prove a player could get there (`60-verify`, reachability), and

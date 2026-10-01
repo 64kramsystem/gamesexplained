@@ -116,15 +116,12 @@ original worth checking.
   reference), so it can be read directly for sweeps without the emulator.
 - Chip state (video, sound, timers) lives in named modules inside the
   snapshot; the names are readable text, so a string search finds them.
-- On an emulator that fails its check that checkpoints survive a load,
-  a loaded snapshot looks exactly like one that came back without its
-  timer interrupt running; read that workaround first.
-- A loaded snapshot can come back without its timer interrupt running.
-  Symptom: the CPU sits in a wait loop and nothing moves. It can also
-  come back with the processor port `$01` at a different value and the
-  CPU somewhere in the KERNAL with a garbage screen; the file is still
-  good for the disassembler. Autostart the
-  image again rather than fighting it. **Before believing that, sample the
+- A loaded snapshot can seem to come back dead: the CPU in a wait loop
+  and nothing moving, or `$01` changed and the CPU in the KERNAL with a
+  garbage screen. On an emulator that fails its check that checkpoints
+  survive a load, the instrument is off, not the game; read that
+  workaround first. The file is still good for the disassembler; autostart
+  the image again rather than fighting it. **Before believing that, sample the
   program counter several times.** A live machine returns a scatter of
   addresses; one that returns the same address every time is parked in a
   sync loop or is not executing at all, and the second of those is usually
