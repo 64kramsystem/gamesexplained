@@ -21,6 +21,8 @@ identified them. The coverage skill now checks other directories and
 constant pointer loads before assigning the gaps between records to the
 surrounding type or calling them padding.
 
+**Preserve a verified undocumented instruction’s width in Source.** Last Ninja Remix’s native-checked LAX absolute,Y is three bytes. Treating its opcode as one data byte made its operands appear as a different instruction. The listing writer now renders this code-typed form at its actual width, with an integration regression for the following instruction boundary.
+
 ## 0.0.48 · 30 September 2026 · Castle Master · 64kramsystem with Codex
 
 **Compare an imported capture with a booted game before using it.**

@@ -28,3 +28,7 @@ The coverage skill now explicitly checks other pointer directories and constant 
 | total | 90 | gpt-6.1-sol | | 1.5 h of work, over 28.6 h |
 
 Imported annotations are not a fresh-disassembly benchmark. The clock covers this kit work, including native checks and later table annotations, and omits the original external analysis.
+
+## Undocumented instruction export
+
+The native-checked three-byte LAX absolute,Y at C096 was being exported as one unsupported byte followed by a spurious ROL from its operand bytes. The listing writer now recognizes that explicitly code-typed form while keeping the documented opcode table separate. An integration regression exports LAX followed by RTS and checks both instruction boundaries and the indexed operand. Other undocumented forms retain their existing behavior; this change is limited to the verified form.

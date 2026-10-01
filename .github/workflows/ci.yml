@@ -26,6 +26,8 @@ jobs:
         run: node kit/c64/test_lockstep.js
       - name: The page editor's self-test
         run: python3 kit/scripts/edit.py --test
+      - name: Undocumented instruction listing alignment
+        run: python3 kit/scripts/test_listing_undocumented.py
       - name: No game binaries
         run: python3 kit/scripts/check_binaries.py
       - name: Knowledge in its place
