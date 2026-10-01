@@ -8875,7 +8875,7 @@
   {
    "address": 5627,
    "type": "line",
-   "text": "Purpose: scan 80 item records for an untaken item in room $0E whose looked-up screen address equals the incoming $07/$08 pointer. Copies that pointer into $15F9/$15FA, marks a match $FF, clears its screen cell, increments packed-BCD $0401 and writes the two display digits. Only a resulting count exactly $50 sets Maria flag $0400. All 80 records and nine count/rejection cases matched native calls; this verifies controlled candidates, not routes to every item. Decimal mode is cleared before return."
+   "text": "Purpose: scan 80 item records for an untaken item in room $0E whose looked-up screen address equals the incoming $07/$08 pointer. Copies that pointer into $15F9/$15FA, marks a match $FF, clears its screen cell, increments packed-BCD $0401 and writes the two display digits. Only a resulting count exactly $50 sets Maria flag $0400. All 80 records and nine count/rejection cases matched native calls; this verifies controlled candidates, not routes to every item. The matched-item path uses SED/CLD; a nonmatch leaves decimal mode unchanged. Both display digits are refreshed on every call."
   },
   {
    "address": 5768,
