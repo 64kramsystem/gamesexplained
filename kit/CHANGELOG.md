@@ -12,7 +12,7 @@ Changes to the site, the folder layout, the delivery process, the prose
 style or the install mechanics are in the pull requests, not here.
 Versions that taught nothing of the kind do not appear.
 
-## next · 1 October 2026 · Delta · chunkypixel with Claude
+## 0.0.51 · 1 October 2026 · Delta · chunkypixel with Claude
 
 **Name a requested number by the routine that takes it.** Delta asks
 for a tune by storing its number plus one in a request byte; the sound
