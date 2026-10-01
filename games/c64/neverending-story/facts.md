@@ -8,6 +8,12 @@ A fresh Ocean disk boot reaches the Part-1 command prompt after Space through th
 
 $A7E3 writes $D018=$38 for the bitmap picture. $A80A writes $D018=$3E for character text. With VIC bank $C000 this selects screen $CC00, bitmap $E000 and font $F800. Comparing its 2,048 bytes with the character ROM halves finds 157 and 215 matching bytes respectively; neither matches. This authored font is absent from the imported address space.
 
+## Room illustrations
+
+The 21 captured descriptors at $0BF9-$0C76 specify row, column, a little-endian source pointer, height and width. Picture 0 spans $A100-$A55F (1120 bytes). Pictures 1–20 span $4300-$93E5 consecutively. Each source row contains width*8 bitmap bytes, then width screen bytes, then width colour bytes.
+
+A direct live call to $05BF was run for each of the 21 descriptors with interrupts disabled and processor port $35. Every bitmap byte, screen byte and colour-RAM low nibble matched the independent record decoder. The calls returned to the injected caller and consumed height*width*10 source bytes. The browser uses the fresh command-prompt snapshot’s sources.
+
 ## Text and dispatch
 
 All 94 pointers at $25DD-$2698 were checked against packed records $2699-$28B8. Each record is a length byte followed by that many ASCII bytes; each pointer equals the next record start computed from the preceding record. Capitalization is preserved.
