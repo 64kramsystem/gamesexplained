@@ -206,9 +206,13 @@ def phase(samples, lines, cycles):
     steps the others, so the first cycle of line 0 still reads as the last line."""
     lo, hi, prev, wraps = -10**9, 10**9, None, 0
     for s, L in samples:
-        if prev is not None and L < prev:
-            wraps += 1
-        prev = L
+        if prev is not None:
+            old_s, old_L = prev
+            # Sparse samples can be a whole frame apart on the same line,
+            # or several frames apart. Raster order alone loses those wraps.
+            total = lines * cycles
+            wraps += (s - old_s - (L - old_L) * cycles + total // 2) // total
+        prev = s, L
         u = L + wraps * lines
         first = u * cycles + (1 if L == 0 else 0)
         last = u * cycles + cycles - 1 + (1 if L == lines - 1 else 0)

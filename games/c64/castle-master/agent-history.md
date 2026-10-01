@@ -13,3 +13,11 @@ Cold boot required letting the Dualis intro finish unpacking before Space; early
 ### 1 October 2026 — serializer and palette startup
 
 Independent object traversal predicted a 652-byte save payload; controlled native serializer/deserializer calls matched all bytes. Native disk SAVE/LOAD on a private disk copy then returned the identical payload. The initial restored-state comparison exposed IRQ clock updates; masking IRQs for the final copy comparison resolved that difference. Breakpoint cleanup was corrected to use the tool schema’s `checkpoint_num` field. The retained C200 occupant decoded as a 53-byte RAM-to-colour-hardware banking loop; a controlled call reproduced all 1024 low nibbles and reached 473B. Its following zero tail is distinct from sprite artwork. New auto-labels created by recovered code were given physical-shadow bank descriptions.
+
+### 1 October 2026 — allocation audit, interactive article and retrospective
+
+Authored localization, trig, topology, keyboard and music allocation tails were added explicitly; generated renderer/collision/interpreter buffers were excluded only after identifying writers/consumers. Operand aliases retain instruction-byte meanings. The completed ledger has52,770 tracked/described bytes, zero bare bytes and no loaded-data audit stretches. Several residue/header roles and behavioral boundaries remain open in TODO.md, regardless of that metric.
+
+The article was drafted from checked facts and rewritten under the house style. Firefox exercised all34 area selectors/546 object records,14 native projection cases,59 glyphs,8 instrument windows and save-position controls. The display matches all104,448 colour-index pixels after accounting for the emulator and page palettes. Raw RGB comparison initially differed because the palettes differ; the one-to-one colour correspondence matches the shared frame check.
+
+All17 music request groups completed25 native ticks with the final voice root matching the independent directory. This finite check does not establish exact sustained audio. The frame phase fix passes five pure regressions and a native frame capture with zero writes; broad include precedence is now documented. Maintainer review remains necessary for Silver.
