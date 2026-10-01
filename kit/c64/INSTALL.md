@@ -364,14 +364,6 @@ footprint scan found no external file changes after a launch/snapshot/exit
 cycle for both tools. The scanner compares before and after file signatures:
 an unchanged desktop file with a future timestamp is not a tool write.
 
-For page checks, `tools.py browser` can use an installed Firefox. It creates
-an independent profile, XDG directories and temporary directory under
-`tools/firefox/`, and a log under `tools/logs/`; it does not download a browser
-or use the personal profile. Firefox 157.0 was exercised through WebDriver
-BiDi on the same desktop, including screenshots, script-error collection,
-all page controls and narrow-screen layouts. Stop it with `tools.py stop
-browser`. Deleting `tools/firefox/` removes its local state.
-
 **A network that refuses the GitHub API.** In those containers the proxy
 answered `api.github.com`, the project's web pages and `codeload` with 403
 ("GitHub access to this repository is not enabled for this session"), for

@@ -60,6 +60,29 @@ class ImportTests(unittest.TestCase):
         with self.assertRaisesRegex(ValueError, 'Overlapping'):
             self.parse_text('2000 a901 LDA #1\n2001 01 byte 1\n')
 
+    def test_actual_custom_exporter_fixture(self):
+        # Produced by ExportGhidraListing.java in Ghidra 12.1.4, not hand formatted.
+        rows = parse(Path(__file__).with_name('fixtures') / 'ghidra-custom-export.asm')
+        game = {'platform': 'c64', 'slug': 'fixture', 'build': 'synthetic'}
+        sym = json.loads(convert(rows, game, 'synthetic'))
+        self.assertEqual(sym['blocks'], [
+            {'start': 0x1000, 'end': 0x100c, 'type': 'Code'},
+            {'start': 0x100d, 'end': 0x100e, 'type': 'Byte'},
+            {'start': 0x100f, 'end': 0x1010, 'type': 'Word'},
+        ])
+        names = {s['name']: s for s in sym['symbols']}
+        self.assertEqual(names['load_operand']['address'], 0x1001)
+        self.assertEqual(names['SUB_1009']['type'], 'Subroutine')
+        comments = {(c['address'], c['type']): c['text'] for c in sym['comments']}
+        self.assertEqual(comments, {
+            (0x1000, 'line'): 'Load the synthetic counter.',
+            (0x1000, 'side'): 'Synthetic side comment.',
+            (0x100e, 'line'): 'One-byte synthetic counter.',
+            (0x100f, 'line'): 'A two-byte synthetic value.',
+        })
+        self.assertEqual(bytes(b for r in rows for b in r['b']),
+                         bytes.fromhex('ad0e10200910d0f860ee0e106000070123'))
+
     def test_cli_writes_only_symbols(self):
         import subprocess, sys
         with tempfile.TemporaryDirectory() as folder:

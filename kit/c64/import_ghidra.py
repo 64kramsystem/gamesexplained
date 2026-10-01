@@ -1,10 +1,16 @@
 #!/usr/bin/env python3
-"""Import a contributor's Ghidra text export into symbols.json.
+"""Import a custom Ghidra CompleteListingWriter export into symbols.json.
 
 Usage: import_ghidra.py GAME LISTING [--space NAME] [--verify-ram RAW]
 
+Accepted producer: ghidra-mcp-next's legacy export_full_listing format,
+reproduced by ghidra_export/ExportGhidraListing.java on Ghidra 12.1.4.
+The pinned source, settings and generated fixture are in ghidra_export/README.md.
+Stock Ghidra ASCII exports are unsupported. Labels must be flush-left on their
+own lines; comments/XREFs use sixteen-space indentation and bytes are contiguous.
+
 The default address space is the physical image. Select game overlays explicitly;
-machine-ROM overlays are refused. Unknown bytes remain gaps. Build listing.json
+machine-ROM overlays are refused. Uninitialized bytes remain gaps. Build listing.json
 separately with kit/scripts/listing.py and the captured snapshot.
 """
 import argparse

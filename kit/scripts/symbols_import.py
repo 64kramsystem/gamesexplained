@@ -25,7 +25,7 @@ TO_PROJECT = {
 
 
 def project_blocks(blocks):
-    """Keep declared types; prevent uncovered RAM from defaulting to code."""
+    """Keep declared types; gaps must neither decode as code nor gain typed-data coverage."""
     result = []
     cursor = 0
     for block in sorted(blocks, key=lambda b: b["start"]):
@@ -34,14 +34,14 @@ def project_blocks(blocks):
             raise ValueError("symbol blocks overlap or lie outside C64 RAM")
         if cursor < start:
             result.append({"start": cursor, "end": start - 1,
-                           "type_": "DataByte", "collapsed": False})
+                           "type_": "Undefined", "collapsed": False})
         result.append({"start": start, "end": end,
                        "type_": TO_PROJECT.get(block["type"], block["type"]),
                        "collapsed": False})
         cursor = end + 1
     if cursor < 0x10000:
         result.append({"start": cursor, "end": 0xFFFF,
-                       "type_": "DataByte", "collapsed": False})
+                       "type_": "Undefined", "collapsed": False})
     return result
 
 
