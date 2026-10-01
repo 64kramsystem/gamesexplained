@@ -10,6 +10,10 @@ The external text export is private and identified by `game.json.imported`. Its 
 
 Independent record parsing must follow the consumer, not just a size table: local type-0 allowlists and short type-2 records are different occupants from FCL residuals. Controlled native fixtures also caught a loop-entry qualification in the zero-depth projection shortcut. Both corrections are in `symbols.json`, the canonical listing and `facts.md`; remaining checks are explicit in `TODO.md`.
 
+## Graphics accounting and frame capture
+
+The cold hand-over distinguishes loaded HUD artwork from the generated viewport. Excluding the entire bitmap hid authored data; the replacement declares the bitmap and colour planes and excludes only traced output spans. `coverage.include` overrides exclusions, so a broad include of the screen matrix also restores runtime cells: include only the authored gaps. A no-write frame made beam-phase inference miss a full wrap when start and end raster lines were equal; the controlled fixture used unchanged memory-pointer stores to provide intermediate samples. These are concrete retrospective follow-ups for the shared kit.
+
 ## Shared tooling
 
 The importer, footprint correction and contained Firefox launcher have moved to [PR #125](https://github.com/gamesexplained/gamesexplained/pull/125), including eight regression tests in CI. The importer writes only symbols and uses the disassembler’s accepted branch-label type. `kit/VERSION` is unchanged; the game’s lesson is under `next` in the changelog.

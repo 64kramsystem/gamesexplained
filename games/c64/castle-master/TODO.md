@@ -1,9 +1,8 @@
 # Work toward Silver
 
-- Finish the coverage burn-down: 85.4% explained (38,829 of 45,461 tracked bytes). Correct remaining runtime-state scope as it is traced; resolve the loaded-data report before calling 100%.
-- Determine what physical `$D800–$DBFF` holds; `listing.py` identifies 1,024 non-fill bytes under I/O. Do not suppress the warning by guessing.
-- Capture the loader’s final hand-over and compare against menu/play to account for initialization-only data.
-- Verify the 65 changed code-typed bytes between menu and play as state-dependent operands or self-modification.
-- Extend the checked projection and script structure into clipping, rotations, full interpreter behavior, save layout and music. Replay cheaply testable claims live, including save/load and interactions.
-- Restore and expand the drafted interactive article only after its claims are verified. The published page is Bronze form meanwhile.
+- Finish the coverage burn-down: 92.1% explained (48,058 of 52,167 tracked bytes). Resolve every loaded-data audit stretch before calling 100%.
+- Account for the retained `$C200–$C3FF` payload, including the nonzero 64-byte occupant at its start; the loaded sprite directory selects only slots 0–7.
+- Finish descriptions of renderer/keyboard mutable operands and the remaining authored tables. Preserve the distinct meanings of firmware addresses and physical bitmap bytes beneath ROM.
+- Extend controlled projection/event tests into clipping, rotations, complete painter output, ordinary interactions, music progression and a save/load round trip.
+- Build the interactive article from checked facts and assets; perform the final copy pass and browser checks.
 - Have a maintainer check the completed work for Silver: the run model is unproven and the imported models are unknown.

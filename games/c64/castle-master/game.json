@@ -9,7 +9,7 @@
  "title_image": "reference/original-menu.png",
  "build": "Dualis disk release; language menu reached from a hard reset",
  "tier": "bronze",
- "coverage_percent": 85.4,
+ "coverage_percent": 92.1,
  "copy": "agent-draft",
  "steward": "",
  "credits": [],
@@ -37,8 +37,120 @@
   "charset": ""
  },
  "coverage": {
-  "extra": [],
-  "include": [],
+  "extra": [
+   [
+    "$9D00",
+    "$BF8F",
+    "Complete authored Freescape area/object/condition database, including spans cut by memory-map edges"
+   ],
+   [
+    "$1410",
+    "$17DF",
+    "Sixty-one sixteen-byte authored messages including shared area-name slots"
+   ],
+   [
+    "$E000",
+    "$FF3F",
+    "Complete initial bitmap footprint; viewport outputs excluded separately"
+   ],
+   [
+    "$D800",
+    "$DBFF",
+    "Complete authored initial third-colour shadow and its padding"
+   ],
+   [
+    "$C400",
+    "$C7FF",
+    "Complete loaded initial matrix/pointers; runtime viewport cells excluded separately"
+   ]
+  ],
+  "include": [
+   [
+    "$D800",
+    "$DBFF",
+    "Loaded initial colour-plane shadow; first 1000 bytes exactly match hardware colour RAM at cold hand-over"
+   ],
+   [
+    "$C400",
+    "$C4A4",
+    "Authored HUD colour cells outside runtime viewport, including padding and sprite pointers where applicable"
+   ],
+   [
+    "$C4C3",
+    "$C4CC",
+    "Authored HUD colour cells outside runtime viewport, including padding and sprite pointers where applicable"
+   ],
+   [
+    "$C4EB",
+    "$C4F4",
+    "Authored HUD colour cells outside runtime viewport, including padding and sprite pointers where applicable"
+   ],
+   [
+    "$C513",
+    "$C51C",
+    "Authored HUD colour cells outside runtime viewport, including padding and sprite pointers where applicable"
+   ],
+   [
+    "$C53B",
+    "$C544",
+    "Authored HUD colour cells outside runtime viewport, including padding and sprite pointers where applicable"
+   ],
+   [
+    "$C563",
+    "$C56C",
+    "Authored HUD colour cells outside runtime viewport, including padding and sprite pointers where applicable"
+   ],
+   [
+    "$C58B",
+    "$C594",
+    "Authored HUD colour cells outside runtime viewport, including padding and sprite pointers where applicable"
+   ],
+   [
+    "$C5B3",
+    "$C5BC",
+    "Authored HUD colour cells outside runtime viewport, including padding and sprite pointers where applicable"
+   ],
+   [
+    "$C5DB",
+    "$C5E4",
+    "Authored HUD colour cells outside runtime viewport, including padding and sprite pointers where applicable"
+   ],
+   [
+    "$C603",
+    "$C60C",
+    "Authored HUD colour cells outside runtime viewport, including padding and sprite pointers where applicable"
+   ],
+   [
+    "$C62B",
+    "$C634",
+    "Authored HUD colour cells outside runtime viewport, including padding and sprite pointers where applicable"
+   ],
+   [
+    "$C653",
+    "$C65C",
+    "Authored HUD colour cells outside runtime viewport, including padding and sprite pointers where applicable"
+   ],
+   [
+    "$C67B",
+    "$C684",
+    "Authored HUD colour cells outside runtime viewport, including padding and sprite pointers where applicable"
+   ],
+   [
+    "$C6A3",
+    "$C6AC",
+    "Authored HUD colour cells outside runtime viewport, including padding and sprite pointers where applicable"
+   ],
+   [
+    "$C6CB",
+    "$C6D4",
+    "Authored HUD colour cells outside runtime viewport, including padding and sprite pointers where applicable"
+   ],
+   [
+    "$C6F3",
+    "$C7FF",
+    "Authored HUD colour cells outside runtime viewport, including padding and sprite pointers where applicable"
+   ]
+  ],
   "exclude": [
    [
     "$87CC",
@@ -46,14 +158,174 @@
     "Runtime linear viewport; menu occupant retained in the source snapshot"
    ],
    [
-    "$E000",
-    "$FF3F",
-    "Runtime bitmap output"
-   ],
-   [
     "$DF02",
     "$DFFF",
     "Runtime zero-page backing store"
+   ],
+   [
+    "$0000",
+    "$00FF",
+    "Runtime CPU port, vertex/scratch buffers and game pointers; exchanged through $87B1 and written by traced routines"
+   ],
+   [
+    "$0200",
+    "$03FF",
+    "System runtime workspace and RAM vectors, including vectors restored from ROM by $062F"
+   ],
+   [
+    "$C806",
+    "$C884",
+    "Runtime SID player caches, per-voice counters and effect state initialized by $CF1B and updated by $C885"
+   ],
+   [
+    "$E528",
+    "$E617",
+    "Runtime 3D viewport bitmap, character row 0; all 240 bytes zero at cold hand-over"
+   ],
+   [
+    "$E668",
+    "$E757",
+    "Runtime 3D viewport bitmap, character row 1; all 240 bytes zero at cold hand-over"
+   ],
+   [
+    "$E7A8",
+    "$E897",
+    "Runtime 3D viewport bitmap, character row 2; all 240 bytes zero at cold hand-over"
+   ],
+   [
+    "$E8E8",
+    "$E9D7",
+    "Runtime 3D viewport bitmap, character row 3; all 240 bytes zero at cold hand-over"
+   ],
+   [
+    "$EA28",
+    "$EB17",
+    "Runtime 3D viewport bitmap, character row 4; all 240 bytes zero at cold hand-over"
+   ],
+   [
+    "$EB68",
+    "$EC57",
+    "Runtime 3D viewport bitmap, character row 5; all 240 bytes zero at cold hand-over"
+   ],
+   [
+    "$ECA8",
+    "$ED97",
+    "Runtime 3D viewport bitmap, character row 6; all 240 bytes zero at cold hand-over"
+   ],
+   [
+    "$EDE8",
+    "$EED7",
+    "Runtime 3D viewport bitmap, character row 7; all 240 bytes zero at cold hand-over"
+   ],
+   [
+    "$EF28",
+    "$F017",
+    "Runtime 3D viewport bitmap, character row 8; all 240 bytes zero at cold hand-over"
+   ],
+   [
+    "$F068",
+    "$F157",
+    "Runtime 3D viewport bitmap, character row 9; all 240 bytes zero at cold hand-over"
+   ],
+   [
+    "$F1A8",
+    "$F297",
+    "Runtime 3D viewport bitmap, character row 10; all 240 bytes zero at cold hand-over"
+   ],
+   [
+    "$F2E8",
+    "$F3D7",
+    "Runtime 3D viewport bitmap, character row 11; all 240 bytes zero at cold hand-over"
+   ],
+   [
+    "$F428",
+    "$F517",
+    "Runtime 3D viewport bitmap, character row 12; all 240 bytes zero at cold hand-over"
+   ],
+   [
+    "$F568",
+    "$F657",
+    "Runtime 3D viewport bitmap, character row 13; all 240 bytes zero at cold hand-over"
+   ],
+   [
+    "$F6A8",
+    "$F797",
+    "Runtime 3D viewport bitmap, character row 14; all 240 bytes zero at cold hand-over"
+   ],
+   [
+    "$C4A5",
+    "$C4C2",
+    "Runtime viewport palette cells, row 0; $61A8 overwrites them from active area attributes"
+   ],
+   [
+    "$C4CD",
+    "$C4EA",
+    "Runtime viewport palette cells, row 1; $61A8 overwrites them from active area attributes"
+   ],
+   [
+    "$C4F5",
+    "$C512",
+    "Runtime viewport palette cells, row 2; $61A8 overwrites them from active area attributes"
+   ],
+   [
+    "$C51D",
+    "$C53A",
+    "Runtime viewport palette cells, row 3; $61A8 overwrites them from active area attributes"
+   ],
+   [
+    "$C545",
+    "$C562",
+    "Runtime viewport palette cells, row 4; $61A8 overwrites them from active area attributes"
+   ],
+   [
+    "$C56D",
+    "$C58A",
+    "Runtime viewport palette cells, row 5; $61A8 overwrites them from active area attributes"
+   ],
+   [
+    "$C595",
+    "$C5B2",
+    "Runtime viewport palette cells, row 6; $61A8 overwrites them from active area attributes"
+   ],
+   [
+    "$C5BD",
+    "$C5DA",
+    "Runtime viewport palette cells, row 7; $61A8 overwrites them from active area attributes"
+   ],
+   [
+    "$C5E5",
+    "$C602",
+    "Runtime viewport palette cells, row 8; $61A8 overwrites them from active area attributes"
+   ],
+   [
+    "$C60D",
+    "$C62A",
+    "Runtime viewport palette cells, row 9; $61A8 overwrites them from active area attributes"
+   ],
+   [
+    "$C635",
+    "$C652",
+    "Runtime viewport palette cells, row 10; $61A8 overwrites them from active area attributes"
+   ],
+   [
+    "$C65D",
+    "$C67A",
+    "Runtime viewport palette cells, row 11; $61A8 overwrites them from active area attributes"
+   ],
+   [
+    "$C685",
+    "$C6A2",
+    "Runtime viewport palette cells, row 12; $61A8 overwrites them from active area attributes"
+   ],
+   [
+    "$C6AD",
+    "$C6CA",
+    "Runtime viewport palette cells, row 13; $61A8 overwrites them from active area attributes"
+   ],
+   [
+    "$C6D5",
+    "$C6F2",
+    "Runtime viewport palette cells, row 14; $61A8 overwrites them from active area attributes"
    ]
   ]
  },
@@ -65,7 +337,32 @@
    "Zero-page exchange banks I/O out to reach $DF02"
   ]
  ],
- "regions": [],
+ "regions": [
+  [
+   "$9D00",
+   "$BF8F",
+   "levels",
+   "Freescape area/object/condition database"
+  ],
+  [
+   "$1410",
+   "$17DF",
+   "text",
+   "Fixed messages and shared area names"
+  ],
+  [
+   "$E000",
+   "$FF3F",
+   "graphics",
+   "HUD bitmap with separately excluded runtime viewport"
+  ],
+  [
+   "$D800",
+   "$DBFF",
+   "graphics",
+   "Initial third-colour shadow beneath I/O"
+  ]
+ ],
  "links": {
   "wiki": "https://www.c64-wiki.com/wiki/Castle_Master",
   "manual": "https://mocagh.org/miscgame/castlemaster-alt3-manual.pdf"
