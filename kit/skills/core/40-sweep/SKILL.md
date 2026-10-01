@@ -33,10 +33,18 @@ credits in seconds. If the game has a custom character set, follow with
 ## Twin-copy check
 
 Relocating loaders can leave a second copy of code or tables in memory.
-Before describing a region, check whether the code reads it or reads a
-twin elsewhere: compare the two byte for byte. A byte that differs is
-usually a variable written at run time. Describe the copy the code reads
-and mark the other as an unread duplicate.
+Before describing a region, compare the two byte for byte and trace their
+producers and consumers separately. Equality establishes a twin, not an
+unread copy: runtime dictionaries, buffers and saved frames can still match
+an initialization seed. A changed byte can identify a runtime write, but an
+unchanged byte is not proof of non-use. Name an unproved consumer as open.
+
+When a region looks like compressed text, tokens or their byte projection,
+rebuild the proposed format independently from the supplied disk data.
+Compare complete prefix/suffix tables, boundaries and a complete decoded
+record, rather than accepting a plausible low-byte resemblance. Use a
+different representation or algorithm from the imported decoder when
+possible; rerunning that decoder checks reproducibility, not its semantics.
 
 ## A documented version on another machine
 

@@ -12,6 +12,10 @@ Changes to the site, the folder layout, the delivery process, the prose
 style or the install mechanics are in the pull requests, not here.
 Versions that taught nothing of the kind do not appear.
 
+## next · 1 October 2026 · Alter Ego · 64kramsystem
+
+The imported buffer/token/projection labels described a decompressor dictionary incorrectly. An independent disk decode reproduced every prefix/suffix entry, the scene boundaries and a complete cached descriptor. The sweep now distinguishes a byte-equal twin from an unread duplicate, and asks for complete independent format reconstruction before accepting a plausible projection. Matching an initialization seed is not evidence that runtime bytes are unused.
+
 ## 0.0.48 · 30 September 2026 · Castle Master · 64kramsystem with Codex
 
 **Compare an imported capture with a booted game before using it.**
