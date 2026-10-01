@@ -6515,6 +6515,12 @@
       "kind": "user"
     },
     {
+      "address": 64816,
+      "name": "f_FD30",
+      "type": "Field",
+      "kind": "auto"
+    },
+    {
       "address": 65439,
       "name": "KERNAL_SCNKEY",
       "type": "Predefined",
@@ -12350,12 +12356,17 @@
     {
       "address": 10590,
       "type": "line",
-      "text": "Destination-column byte of runtime RoomGraphicRecord 4 beginning at $295B, followed by its source pointer and the final record through $2966."
+      "text": "High byte of the source pointer in visible graphic record 4 ($295B-$2960). The low byte is $295D; a zero high byte disables this overlay. INIT_GAME_STATE clears this field at $1512."
+    },
+    {
+      "address": 10595,
+      "type": "line",
+      "text": "Low byte of the source pointer in visible graphic record 5 ($2961-$2966). SCRIPT_SET_OBJECT_GRAPHIC writes the computed pointer low byte here at $1156, or clears it at $1146."
     },
     {
       "address": 10596,
       "type": "line",
-      "text": "Destination-column byte of runtime RoomGraphicRecord 5 beginning at $2961, followed by its two-byte source pointer at $2965/$2966."
+      "text": "High byte of the source pointer in visible graphic record 5 ($2961-$2966). SCRIPT_SET_OBJECT_GRAPHIC writes the computed pointer high byte here at $115B, or clears it at $1149. Width and height are the following bytes $2965/$2966."
     },
     {
       "address": 10599,

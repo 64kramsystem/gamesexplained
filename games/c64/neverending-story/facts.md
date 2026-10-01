@@ -20,9 +20,19 @@ $0730-$073D copies staged pages $C000/$C100 to $9700/$9800. $0743-$0757 copies $
 
 $03A0 calls the exchange at $03A6, calls relocated loader $CC00, then falls through into the exchange again. The exchange exposes RAM with processor port $38 and swaps $CC00-$CFFF with $DC00-$DFFF. The parked loader contains non-fill bytes through $DCE3; internal calls name relocated $CCxx addresses.
 
+## Visible graphic records
+
+The six records at $2943-$2966 have a six-byte stride. The source pointer occupies offsets 2 and 3: the scan at $0EDA-$0EF3 starts with X=2 and adds six between records. Consequently record 4 has pointer $295D/$295E and record 5 has pointer $2963/$2964. $1156/$115B write the computed low/high bytes into the final pointer; $1146/$1149 clear them.
+
+## Hidden-page observation
+
+Bank-conditioned watchpoints on physical RAM $D000-$D0FF observed the restored title loading Part 1, reaching its narrative screen, and proceeding to the command prompt. Neither a RAM read nor a RAM store was observed on that trajectory, and all 256 bytes remained equal to the title capture. Injected LDA $D000 and STA $D000 with processor port $34 each stopped at the instruction following the access, confirming both watchpoints were active. This observation does not establish ownership or rule out use by other commands or parts, so the page remains unexplained in coverage.
+
+A second watched load stopped at $0400 before the Part-1 entry instructions. Comparing this hand-over snapshot with the command-prompt snapshot exposes four untracked non-fill runs: $68D7-$6905 (47 bytes), $9D00-$9EF2 (499), $9FEF-$9FFF (17), and $A500-$A55F (96). Their owners still need to be traced.
+
 ## Open evidence
 
-The consumer and ownership of hidden page $D000-$D0FF remain unresolved; it is unexplained in coverage. Loader hand-over comparison, parser outcomes, picture reconstruction, objects, save/load and part transitions remain open. The earlier technical article is a private draft until its claims are checked.
+The consumer and ownership of hidden page $D000-$D0FF remain unresolved; it is unexplained in coverage. Ownership of the hand-over ranges, parser outcomes, picture reconstruction, objects, save/load and part transitions remain open. The earlier technical article is a private draft until its claims are checked.
 
 ## Provenance
 
