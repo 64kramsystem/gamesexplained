@@ -12,6 +12,15 @@ Changes to the site, the folder layout, the delivery process, the prose
 style or the install mechanics are in the pull requests, not here.
 Versions that taught nothing of the kind do not appear.
 
+## next · 1 October 2026 · Last Ninja Remix · 64kramsystem with Codex
+
+Last Ninja Remix, contributed by Saverio Miroddi: short frame descriptors
+were followed by eleven animation streams, which a frame-only boundary
+pass left unexplained. Other pointers and native first-command checks
+identified them. The coverage skill now checks other directories and
+constant pointer loads before assigning the gaps between records to the
+surrounding type or calling them padding.
+
 ## 0.0.48 · 30 September 2026 · Castle Master · 64kramsystem with Codex
 
 **Compare an imported capture with a booted game before using it.**
