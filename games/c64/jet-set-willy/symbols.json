@@ -3,7 +3,7 @@
  "platform": "c64",
  "game": "jet-set-willy",
  "build": "CMM disk release; The Bathroom after trainers N, N, N",
- "source": "regenerator2000 live",
+ "source": "regen2000proj",
  "regions": {
   "exclude": [
    [
@@ -7698,507 +7698,507 @@
    "text": "6510 zero page, hardware stack, KERNAL workspace, vectors, and game scheduler/player state as captured at the title. Game-owned fields are labeled individually; many bytes are mutable runtime state."
   },
   {
-   "address": 8,
+   "address": 7,
    "type": "line",
    "text": "Shared low-byte work location; gameplay collection sound uses it as a swept SID voice-3 frequency low byte, while other routines reuse it as a pointer/value temporary."
   },
   {
-   "address": 9,
+   "address": 8,
    "type": "line",
    "text": "Shared high-byte work location; gameplay collection sound uses it as swept SID frequency high byte, and many routines reuse $07/$08 as a pointer."
   },
   {
-   "address": 10,
+   "address": 9,
    "type": "line",
    "text": "Low byte of the gameplay color-RAM destination pointer; $000A supplies its high byte in gameplay."
   },
   {
-   "address": 11,
+   "address": 10,
    "type": "line",
    "text": "Phase-shared: gameplay color-RAM pointer high byte; title SID voice-1 stream pointer low byte."
   },
   {
-   "address": 12,
+   "address": 11,
    "type": "line",
    "text": "Phase-shared: gameplay horizontal stride/offset scratch; title SID voice-1 stream pointer high byte."
   },
   {
-   "address": 13,
+   "address": 12,
    "type": "line",
    "text": "Phase-shared gameplay scratch/count byte and title SID voice-2 stream pointer low byte."
   },
   {
-   "address": 14,
+   "address": 13,
    "type": "line",
    "text": "Phase-shared gameplay scratch/count byte and title SID voice-2 stream pointer high byte."
   },
   {
-   "address": 15,
+   "address": 14,
    "type": "line",
    "text": "Phase-shared: current gameplay room number 0-59; title SID voice-3 stream pointer low byte."
   },
   {
-   "address": 16,
+   "address": 15,
    "type": "line",
    "text": "Phase-shared: gameplay collision-probe tile row; title SID voice-3 stream pointer high byte."
   },
   {
-   "address": 17,
+   "address": 16,
    "type": "line",
    "text": "Set when ramp metadata requests the alternate tile code used while drawing or probing the ramp."
   },
   {
-   "address": 18,
+   "address": 17,
    "type": "line",
    "text": "Signed room ramp direction established while drawing the ramp."
   },
   {
-   "address": 19,
+   "address": 18,
    "type": "line",
    "text": "Write-only latch set to $FF when room ramp length/direction byte bit 6 is set. The active captured program contains no read of $0012, so bit 6 has no gameplay effect beyond recording this condition."
   },
   {
-   "address": 20,
+   "address": 19,
    "type": "line",
    "text": "Signed room conveyor direction: $FF left, 1 right."
   },
   {
-   "address": 21,
+   "address": 20,
    "type": "line",
    "text": "Shared horizontal-coordinate scratch used by room rendering and item drawing."
   },
   {
-   "address": 22,
+   "address": 21,
    "type": "line",
    "text": "Color copied from the room record and applied to conveyor tiles."
   },
   {
-   "address": 23,
+   "address": 22,
    "type": "line",
    "text": "Low byte of the phase-shared item or arrow record pointer."
   },
   {
-   "address": 24,
+   "address": 23,
    "type": "line",
    "text": "High byte of the phase-shared item or arrow record pointer."
   },
   {
-   "address": 25,
+   "address": 24,
    "type": "line",
    "text": "Index/count while walking item or arrow records."
   },
   {
-   "address": 26,
+   "address": 25,
    "type": "line",
    "text": "Animation and color phase used while redrawing collectable items."
   },
   {
-   "address": 27,
+   "address": 26,
    "type": "line",
    "text": "Main-loop arrow scheduler, reloaded with 8."
   },
   {
-   "address": 28,
+   "address": 27,
    "type": "line",
    "text": "Shared Bathroom toilet and Maria animation phase."
   },
   {
-   "address": 29,
+   "address": 28,
    "type": "line",
    "text": "Willy vertical pixel coordinate relative to the room."
   },
   {
-   "address": 30,
+   "address": 29,
    "type": "line",
    "text": "Previous room up exit copied from room offset $DC."
   },
   {
-   "address": 31,
+   "address": 30,
    "type": "line",
    "text": "Previous room down exit copied from room offset $DD."
   },
   {
-   "address": 32,
+   "address": 31,
    "type": "line",
    "text": "Previous room left exit copied from room offset $DE."
   },
   {
-   "address": 33,
+   "address": 32,
    "type": "line",
    "text": "Previous room right exit copied from room offset $DF."
   },
   {
-   "address": 34,
+   "address": 33,
    "type": "line",
    "text": "Low byte of the character-glyph destination pointer used by glyph rotation."
   },
   {
-   "address": 35,
+   "address": 34,
    "type": "line",
    "text": "High byte of the character-glyph destination pointer used by glyph rotation."
   },
   {
-   "address": 36,
+   "address": 35,
    "type": "line",
    "text": "First of four current-room tile colors copied from the room record."
   },
   {
-   "address": 37,
+   "address": 36,
    "type": "line",
    "text": "Second of four current-room tile colors copied from the room record."
   },
   {
-   "address": 38,
+   "address": 37,
    "type": "line",
    "text": "Third of four current-room tile colors copied from the room record."
   },
   {
-   "address": 39,
+   "address": 38,
    "type": "line",
    "text": "Fourth of four current-room tile colors copied from the room record."
   },
   {
-   "address": 40,
+   "address": 39,
    "type": "line",
    "text": "Low byte of the canonical 256-byte room-record source pointer."
   },
   {
-   "address": 41,
+   "address": 40,
    "type": "line",
    "text": "High byte of the canonical 256-byte room-record source pointer."
   },
   {
-   "address": 44,
+   "address": 43,
    "type": "line",
    "text": "Low byte of the guardian-definition source pointer derived from room metadata."
   },
   {
-   "address": 45,
+   "address": 44,
    "type": "line",
    "text": "High byte of the guardian-definition source pointer derived from room metadata."
   },
   {
-   "address": 46,
+   "address": 45,
    "type": "line",
    "text": "Number of active guardian records in the current room, maximum seven."
   },
   {
-   "address": 47,
+   "address": 46,
    "type": "line",
    "text": "Byte offset within the active guardian-record arrays."
   },
   {
-   "address": 48,
+   "address": 47,
    "type": "line",
    "text": "Guardian slot index while copying, updating, or rendering guardians."
   },
   {
-   "address": 50,
+   "address": 49,
    "type": "line",
    "text": "Phase-shared arithmetic and coordinate scratch used by guardian, item, and rope code."
   },
   {
-   "address": 51,
+   "address": 50,
    "type": "line",
    "text": "Horizontal sub-cell animation/pixel phase, normally 0-7."
   },
   {
-   "address": 52,
+   "address": 51,
    "type": "line",
    "text": "Player state index 0-6: grounded, jumping, falling, ramp, conveyor, conveyor entry, rope."
   },
   {
-   "address": 53,
+   "address": 52,
    "type": "line",
    "text": "Short-lived loop counter reused by clock, guardian, and display routines."
   },
   {
-   "address": 54,
+   "address": 53,
    "type": "line",
    "text": "Gameplay music flag, $FF enabled."
   },
   {
-   "address": 55,
+   "address": 54,
    "type": "line",
    "text": "Pause flag, $FF while paused."
   },
   {
-   "address": 56,
+   "address": 55,
    "type": "line",
    "text": "First ASCII clock digit; clock $37-$3C begins 070000 and is displayed with colons."
   },
   {
-   "address": 57,
+   "address": 56,
    "type": "line",
    "text": "Second ASCII clock digit; reaching ASCII 12 in $37/$38 ends play."
   },
   {
-   "address": 58,
+   "address": 57,
    "type": "line",
    "text": "Third ASCII clock digit."
   },
   {
-   "address": 59,
+   "address": 58,
    "type": "line",
    "text": "Fourth ASCII clock digit."
   },
   {
-   "address": 60,
+   "address": 59,
    "type": "line",
    "text": "Fifth ASCII clock digit."
   },
   {
-   "address": 61,
+   "address": 60,
    "type": "line",
    "text": "Sixth ASCII clock digit."
   },
   {
-   "address": 62,
+   "address": 61,
    "type": "line",
    "text": "Raster-frame divider reloaded with 50; advances the clock once per PAL second."
   },
   {
-   "address": 63,
+   "address": 62,
    "type": "line",
    "text": "Main-loop guardian scheduler reloaded with 12."
   },
   {
-   "address": 64,
+   "address": 63,
    "type": "line",
    "text": "Spare-life glyph animation divider reloaded with 15."
   },
   {
-   "address": 65,
+   "address": 64,
    "type": "line",
    "text": "Current spare-life glyph animation frame."
   },
   {
-   "address": 66,
+   "address": 65,
    "type": "line",
    "text": "Remaining spare-life budget, initialized to 8; underflow after zero enters game over, giving nine attempts total."
   },
   {
-   "address": 67,
+   "address": 66,
    "type": "line",
    "text": "Raster-frame music scheduler reloaded with 2."
   },
   {
-   "address": 68,
+   "address": 67,
    "type": "line",
    "text": "Decoded-key count produced by the gameplay CIA-1 keyboard scan, capped at three; the title uses a separate count at $0050."
   },
   {
-   "address": 69,
+   "address": 68,
    "type": "line",
    "text": "First decoded gameplay key."
   },
   {
-   "address": 70,
+   "address": 69,
    "type": "line",
    "text": "Second decoded gameplay key."
   },
   {
-   "address": 71,
+   "address": 70,
    "type": "line",
    "text": "Third decoded gameplay key."
   },
   {
-   "address": 72,
+   "address": 71,
    "type": "line",
    "text": "Keyboard bit number while scanning a CIA 1 matrix row."
   },
   {
-   "address": 73,
+   "address": 72,
    "type": "line",
    "text": "Rotating active-low CIA 1 port-A row-select mask."
   },
   {
-   "address": 74,
+   "address": 73,
    "type": "line",
    "text": "Manual direction: $FF left, 0 neutral, 1 right."
   },
   {
-   "address": 75,
+   "address": 74,
    "type": "line",
    "text": "Jump/fire request, $FF when active."
   },
   {
-   "address": 76,
+   "address": 75,
    "type": "line",
    "text": "Dormant turnaround marker. Each gameplay input scan clears it to $00; the later $FE store is unreachable on the captured route because $60 is never seeded."
   },
   {
-   "address": 77,
+   "address": 76,
    "type": "line",
    "text": "Countdown until the title music voice-1 reader consumes its next event."
   },
   {
-   "address": 78,
+   "address": 77,
    "type": "line",
    "text": "Countdown until the title music voice-2 reader consumes its next event."
   },
   {
-   "address": 79,
+   "address": 78,
    "type": "line",
    "text": "Countdown until the title music voice-3 reader consumes its next event."
   },
   {
-   "address": 80,
+   "address": 79,
    "type": "line",
    "text": "Willy horizontal cell coordinate."
   },
   {
-   "address": 81,
+   "address": 80,
    "type": "line",
    "text": "Gameplay facing/animation bits; the title phase reuses this byte as decoded key count."
   },
   {
-   "address": 82,
+   "address": 81,
    "type": "line",
    "text": "Gameplay fall counter; the title phase reuses this byte as first decoded key."
   },
   {
-   "address": 83,
+   "address": 82,
    "type": "line",
    "text": "Gameplay jump vertical-delta table index; phase-reused title scratch."
   },
   {
-   "address": 84,
+   "address": 83,
    "type": "line",
    "text": "Gameplay lethal-fall flag; phase-reused title scratch."
   },
   {
-   "address": 85,
+   "address": 84,
    "type": "line",
    "text": "Phase-shared scratch used by gameplay joystick handling and the title keyboard-matrix scanner."
   },
   {
-   "address": 86,
+   "address": 85,
    "type": "line",
    "text": "Phase-shared: gameplay item redraw divider; title keyboard row-select mask."
   },
   {
-   "address": 87,
+   "address": 86,
    "type": "line",
    "text": "Main-loop player scheduler reloaded with 6."
   },
   {
-   "address": 88,
+   "address": 87,
    "type": "line",
    "text": "Room-entry checkpoint copy of player state $33."
   },
   {
-   "address": 89,
+   "address": 88,
    "type": "line",
    "text": "Room-entry checkpoint copy of player Y $1C."
   },
   {
-   "address": 90,
+   "address": 89,
    "type": "line",
    "text": "Room-entry checkpoint copy of fall counter $51."
   },
   {
-   "address": 91,
+   "address": 90,
    "type": "line",
    "text": "Room-entry checkpoint copy of horizontal phase $32."
   },
   {
-   "address": 92,
+   "address": 91,
    "type": "line",
    "text": "Room-entry checkpoint copy of player X cell $4F."
   },
   {
-   "address": 93,
+   "address": 92,
    "type": "line",
    "text": "Room-entry checkpoint copy of room $0E."
   },
   {
-   "address": 94,
+   "address": 93,
    "type": "line",
    "text": "Room-entry checkpoint copy of facing/frame $50."
   },
   {
-   "address": 95,
+   "address": 94,
    "type": "line",
    "text": "Room-entry checkpoint copy of jump index $52."
   },
   {
-   "address": 96,
+   "address": 95,
    "type": "line",
    "text": "Gameplay SID volume 0-15, adjustable by plus/minus while music is enabled."
   },
   {
-   "address": 97,
+   "address": 96,
    "type": "line",
    "text": "Captured value $00 and unseeded by active title/gameplay initialization. The sole gameplay writer at $3838 lies inside the detector branch that would first require ($49 XOR $60)=$FE, impossible from $60=$00 with $49 in {$00,$FF,$01}."
   },
   {
-   "address": 98,
+   "address": 97,
    "type": "line",
    "text": "Column index while expanding the packed room tile map."
   },
   {
-   "address": 99,
+   "address": 98,
    "type": "line",
    "text": "Row index while expanding the packed room tile map."
   },
   {
-   "address": 145,
+   "address": 144,
    "type": "line",
    "text": "Gameplay repurposes KERNAL zero page $90/$91 as voice-1 event pointer while KERNAL ROM remains mapped; KERNAL calls are limited accordingly."
   },
   {
-   "address": 146,
+   "address": 145,
    "type": "line",
    "text": "High byte of gameplay voice-1 event pointer; phase-specific replacement for normal KERNAL zero-page meaning."
   },
   {
-   "address": 147,
+   "address": 146,
    "type": "line",
    "text": "Low byte of gameplay voice-2 event pointer."
   },
   {
-   "address": 148,
+   "address": 147,
    "type": "line",
    "text": "High byte of gameplay voice-2 event pointer."
   },
   {
-   "address": 149,
+   "address": 148,
    "type": "line",
    "text": "Frames/events remaining for gameplay SID voice 1."
   },
   {
-   "address": 150,
+   "address": 149,
    "type": "line",
    "text": "Frames/events remaining for gameplay SID voice 2."
   },
   {
-   "address": 252,
+   "address": 251,
    "type": "line",
    "text": "Low byte of the title ticker source pointer."
   },
   {
-   "address": 253,
+   "address": 252,
    "type": "line",
    "text": "High byte of the title ticker source pointer."
   },
   {
-   "address": 255,
+   "address": 254,
    "type": "line",
    "text": "Nonzero after the title tune reaches its end marker; the title loop restarts the music."
   },
   {
-   "address": 385,
+   "address": 384,
    "type": "line",
    "text": "Low byte of an initialized pointer to the gameplay SID frequency table at $20EC; the active music readers index the table directly."
   },
   {
-   "address": 386,
+   "address": 385,
    "type": "line",
    "text": "High byte of the initialized gameplay SID frequency-table pointer; no active reader dereferences $0180/$0181."
   },
   {
-   "address": 790,
+   "address": 789,
    "type": "line",
    "text": "High byte of the KERNAL RAM IRQ vector whose low byte is at $0314."
   },
@@ -8210,45 +8210,40 @@
   {
    "address": 1025,
    "type": "line",
-   "text": "Set to 1 when BCD item count reaches decimal 50. Exhaustive active-reference audit shows its only effect is suppressing Maria in room 35; it does not trigger an ending."
+   "text": "Set to 1 when BCD item count reaches decimal 50. Exhaustive active-reference audit shows its only effect is suppressing Maria in room 35; it does not trigger an ending.\nBCD collected-item count, compared with $50 to set completion flag."
   },
   {
    "address": 1026,
    "type": "line",
-   "text": "BCD collected-item count, compared with $50 to set completion flag."
+   "text": "Current room rope flag copied from room offset $E2."
   },
   {
    "address": 1027,
    "type": "line",
-   "text": "Current room rope flag copied from room offset $E2."
+   "text": "Current rope oscillator position."
   },
   {
    "address": 1028,
    "type": "line",
-   "text": "Current rope oscillator position."
+   "text": "Rope oscillator half-cycle state."
   },
   {
    "address": 1029,
    "type": "line",
-   "text": "Rope oscillator half-cycle state."
+   "text": "Rope oscillator direction state."
   },
   {
    "address": 1030,
    "type": "line",
-   "text": "Rope oscillator direction state."
+   "text": "Rope oscillator step state."
   },
   {
    "address": 1031,
    "type": "line",
-   "text": "Rope oscillator step state."
-  },
-  {
-   "address": 1032,
-   "type": "line",
    "text": "Producer/IRQ handshake: producer clears when staging is ready; IRQ sets after copying."
   },
   {
-   "address": 1033,
+   "address": 1032,
    "type": "line",
    "text": "Item count cached before player update to detect a newly collected item."
   },
@@ -8308,12 +8303,12 @@
    "text": "Lower-memory state following the seven current-room guardian records. Direction/animation and moving-coordinate arrays at $0981/$0989 are runtime state. The following retained bytes are independently reproduced by the boot RLE decoder; five copyright sprites at $0A00-$0B3F and the restart stub at $0FA0 have identified consumers. Meaning and consumers of the other retained low-memory tail are open."
   },
   {
-   "address": 2433,
+   "address": 2432,
    "type": "line",
    "text": "Seven bytes of current guardian direction/animation state."
   },
   {
-   "address": 2441,
+   "address": 2440,
    "type": "line",
    "text": "Seven bytes of current guardian moving coordinates."
   },
@@ -8630,37 +8625,37 @@
   {
    "address": 4116,
    "type": "line",
-   "text": "Signed jump direction, corroborated by embedded source name JPDIR."
+   "text": "Signed jump direction, corroborated by embedded source name JPDIR.\nTemporary player X cell used by collision probes."
   },
   {
    "address": 4117,
    "type": "line",
-   "text": "Temporary player X cell used by collision probes."
+   "text": "Player state saved on entry to conveyor-contact state 5."
   },
   {
    "address": 4118,
    "type": "line",
-   "text": "Player state saved on entry to conveyor-contact state 5."
+   "text": "First-pass flag for conveyor-contact state 5."
   },
   {
    "address": 4119,
    "type": "line",
-   "text": "First-pass flag for conveyor-contact state 5."
+   "text": "Resolved conveyor/contact direction used by states 4-5."
   },
   {
    "address": 4120,
    "type": "line",
-   "text": "Resolved conveyor/contact direction used by states 4-5."
+   "text": "Rope animation divider."
   },
   {
    "address": 4121,
    "type": "line",
-   "text": "Rope animation divider."
+   "text": "Rope trajectory/segment index used by attached state 6."
   },
   {
    "address": 4122,
    "type": "line",
-   "text": "Rope trajectory/segment index used by attached state 6."
+   "text": "Attached-to-rope movement divider."
   },
   {
    "address": 4123,
@@ -8915,12 +8910,7 @@
   {
    "address": 6231,
    "type": "line",
-   "text": "Interleaved little-endian pointers selecting the rope source-sprite triplet for each rope position."
-  },
-  {
-   "address": 6232,
-   "type": "line",
-   "text": "High-byte operand base for indexed reads of the interleaved rope source-sprite pointer table."
+   "text": "Interleaved little-endian pointers selecting the rope source-sprite triplet for each rope position.\nHigh-byte operand base for indexed reads of the interleaved rope source-sprite pointer table."
   },
   {
    "address": 6844,
@@ -9040,15 +9030,10 @@
   {
    "address": 8753,
    "type": "line",
-   "text": "Eight ascending bit masks $01,$02,$04,$08,$10,$20,$40,$80, selected by the sprite or guardian index."
+   "text": "Eight ascending bit masks $01,$02,$04,$08,$10,$20,$40,$80, selected by the sprite or guardian index.\nAscending single-bit masks $01,$02,$04,$08,$10,$20,$40,$80."
   },
   {
    "address": 8754,
-   "type": "line",
-   "text": "Ascending single-bit masks $01,$02,$04,$08,$10,$20,$40,$80."
-  },
-  {
-   "address": 8755,
    "type": "line",
    "text": "Second entry of the ascending bit-mask table, named because indexed references begin here."
   },
@@ -10453,7 +10438,7 @@
    "text": "Hardware sprite image 171: 21 rows of three bytes, followed by one alignment byte. VIC bank $4000 addresses this record with sprite pointer $AB. Bit order within each row follows the VIC sprite format; renderer mode and colours are set separately by the game."
   },
   {
-   "address": 27456,
+   "address": 27392,
    "type": "line",
    "text": "Three 64-byte VIC sprite slots holding the rope sprites copied from the selected source triplet."
   },
@@ -11411,6 +11396,11 @@
    "address": 52736,
    "type": "line",
    "text": "Noncanonical physical-RAM tail between the first room bank and the stale mirrored residue."
+  },
+  {
+   "address": 52992,
+   "type": "line",
+   "text": "Ordinary RAM page below $D000, visible to the CPU in every $01 configuration and shadowed by neither KERNAL ROM nor the I/O block. Its top sixteen bytes $CFF0-$CFFF hold the seven runtime dispatch vectors written by initialize_game at $2D40-$2D83; the rest of the page is captured residue with no active reader.\n[offcut cff0] Runtime vector initialized to $3791.\n[offcut cff2] Runtime vector initialized to $3349.\n[offcut cff4] Runtime vector initialized to $334F.\n[offcut cff6] Runtime vector initialized to $35E4.\n[offcut cff8] Runtime vector initialized to $2DC6.\n[offcut cffa] Runtime vector initialized to $38EF.\n[offcut cffc] Runtime vector initialized to $22C3."
   },
   {
    "address": 53248,
