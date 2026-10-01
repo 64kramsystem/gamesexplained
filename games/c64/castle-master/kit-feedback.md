@@ -6,6 +6,10 @@ An imported analysis seeds a run. The original publishing pass treated inherited
 
 The external text export is private and identified by `game.json.imported`. Its models are unknown. Runtime screen, bitmap, viewport and zero-page backing store are excluded from coverage; the remaining gaps are in `TODO.md`. The article is reduced to features and fresh reference screens while its technical claims await verification.
 
+## Follow-up verification
+
+Independent record parsing must follow the consumer, not just a size table: local type-0 allowlists and short type-2 records are different occupants from FCL residuals. Controlled native fixtures also caught a loop-entry qualification in the zero-depth projection shortcut. Both corrections are in `symbols.json`, the canonical listing and `facts.md`; remaining checks are explicit in `TODO.md`.
+
 ## Shared tooling
 
 The importer, footprint correction and contained Firefox launcher have moved to [PR #125](https://github.com/gamesexplained/gamesexplained/pull/125), including eight regression tests in CI. The importer writes only symbols and uses the disassembler’s accepted branch-label type. `kit/VERSION` is unchanged; the game’s lesson is under `next` in the changelog.
