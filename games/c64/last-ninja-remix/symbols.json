@@ -3,7 +3,7 @@
  "platform": "c64",
  "game": "last-ninja-remix",
  "build": "I-TAL/TSM release; Central Park in active play, one declared level",
- "source": "regenerator2000 live",
+ "source": "regen2000proj",
  "regions": {
   "exclude": [
    [
@@ -34,7 +34,7 @@
    [
     16274,
     16303,
-    "30 runtime enemy-health slots initialized to 44"
+    "30 runtime enemy-meter slots initialized to 44; elapsed-tick regeneration traced and checked"
    ],
    [
     65273,
@@ -19005,7 +19005,7 @@
   {
    "address": 16274,
    "type": "line",
-   "text": "30 runtime enemy-meter slots $3F92-$3FAF initialized to 44 at $91F4. $8F0E loads the selected slot into the displayed meter $022A; $B3D6 rebuilds it from elapsed ticks for an eligible returning opponent, and $B5C3 clears it after a hit. The meter is not a screen-column cache. Combat outcome depends on additional status and threshold handling; ordinary player-health subtraction must not be assumed for this field."
+   "text": "30 runtime enemy-meter slots $3F92-$3FAF initialized to 44 at $91F4. $8F0E loads the selected slot into the displayed meter $022A; $B3D6 rebuilds it from elapsed ticks for an eligible returning opponent, and $B5C3 writes it after hit processing. The meter is not a screen-column cache. Combat outcome depends on additional status and threshold handling; ordinary player-health subtraction must not be assumed for this field."
   },
   {
    "address": 16304,

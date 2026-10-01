@@ -17,3 +17,8 @@ Traced the condition, collision, interaction and sound directories. Independent 
 ### 1 October 2026 — source alignment correction
 
 Backport review found that the Source writer split the native-checked C096 LAX into one byte and a spurious operand-derived ROL. The opcode-aware export now keeps all three bytes together; an integration fixture verifies the following RTS boundary. The native semantics checks remain the same four recorded cases.
+
+
+## 1 October 2026 — annotation review correction
+
+Qualified the enemy-meter slot comment: $B5C3 writes the hit-processing result and can clear it; it does not clear the slot on every hit. The native calculation and article remain unchanged.
