@@ -6256,13 +6256,13 @@
   },
   {
    "address": 14278,
-   "name": "geometry_type_jump_operand",
+   "name": "clip_plane_jump_operand",
    "type": "AbsoluteAddress",
    "kind": "user"
   },
   {
    "address": 14279,
-   "name": "geometry_type_jump_high",
+   "name": "clip_plane_jump_high",
    "type": "AbsoluteAddress",
    "kind": "user"
   },
@@ -6274,7 +6274,7 @@
   },
   {
    "address": 14281,
-   "name": "geometry_dispatch_directory_high_byte",
+   "name": "clip_plane_dispatch_directory_high_byte",
    "type": "Field",
    "kind": "user"
   },
@@ -19530,7 +19530,7 @@
   {
    "address": 10775,
    "type": "line",
-   "text": "Eight absolute destination words $2A27,$2A39,$2A4B,$2A5D,$2A6F,$2A81,$2A93,$2AA5. The preceding JMP-indirect operand $2A15/$2A16 is rewritten to choose a word by view octant. Each target sets a combination of coarse lower/upper bound bytes at $1089-$108E before joining $2AB4. This sixteen-byte pointer table ends before code $2A27."
+   "text": "Eight absolute destination words $2A27,$2A39,$2A4B,$2A5D,$2A6F,$2A81,$2A93,$2AA5. The absolute JMP operand at $2A15/$2A16 is rewritten from the selected table word by view octant. Each target sets coarse lower/upper bound bytes at $1089-$108E before joining $2AB4. This sixteen-byte pointer table ends before code $2A27."
   },
   {
    "address": 10776,
@@ -19640,12 +19640,12 @@
   {
    "address": 14278,
    "type": "line",
-   "text": "Mutable two-byte JMP operand at$37C5, installed by low/high reads from type-dispatch directory$37C8 onward. It belongs to the geometry construction dispatcher and is not a standalone instruction stream."
+   "text": "Mutable low byte of the absolute JMP operand at $37C5. $37BC/$37C2 install a target from the five-way clip-plane intersection directory at $37C8, indexed by plane selector $104B. The operand belongs to polygon clipping, not geometry construction."
   },
   {
    "address": 14279,
    "type": "line",
-   "text": "High operand byte of JMP$37C5. Paired with low$37C6, installed from type-dispatch directory. This alias does not introduce separate code."
+   "text": "Mutable high byte of the absolute JMP operand at $37C5, paired with $37C6. The directory at $37C8 selects the intersection routine for the active clipping plane."
   },
   {
    "address": 14280,
@@ -19655,7 +19655,7 @@
   {
    "address": 14281,
    "type": "line",
-   "text": "High byte of first word in geometry type handler directory beginning$37C8. Dispatcher installs the selected low/high bytes at$37C6/$37C7 then JMPs$37C5. The allocation is a pointer directory, not a fresh instruction stream at this odd-byte alias; following words select distinct geometry constructors."
+   "text": "High byte of the first target word in the five-way clip-plane intersection directory at $37C8. $37B2-$37C2 index it with plane selector $104B and patch the absolute JMP at $37C5. Subsequent words select the other plane-intersection routines."
   },
   {
    "address": 14290,

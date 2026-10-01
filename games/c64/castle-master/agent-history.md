@@ -21,3 +21,8 @@ Authored localization, trig, topology, keyboard and music allocation tails were 
 The article was drafted from checked facts and rewritten under the house style. Firefox exercised all34 area selectors/546 object records,14 native projection cases,59 glyphs,8 instrument windows and save-position controls. The display matches all104,448 colour-index pixels after accounting for the emulator and page palettes. Raw RGB comparison initially differed because the palettes differ; the one-to-one colour correspondence matches the shared frame check.
 
 All17 music request groups completed25 native ticks with the final voice root matching the independent directory. This finite check does not establish exact sustained audio. The frame phase fix passes five pure regressions and a native frame capture with zero writes; broad include precedence is now documented. Maintainer review remains necessary for Silver.
+
+
+## 1 October 2026 — annotation review correction
+
+Corrected $37C6/$37C7/$37C9 to the five-way clip-plane intersection dispatcher, selected by $104B. Corrected $2A17 to describe a rewritten absolute JMP operand. The surrounding instructions and original Ghidra comments substantiate both corrections; geometry-constructor and indirect-JMP wording was wrong.
