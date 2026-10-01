@@ -32,13 +32,25 @@ The six records at $2943-$2966 have a six-byte stride. The source pointer occupi
 
 ## Hidden-page observation
 
-Bank-conditioned watchpoints on physical RAM $D000-$D0FF observed the restored title loading Part 1, reaching its narrative screen, and proceeding to the command prompt. Neither a RAM read nor a RAM store was observed on that trajectory, and all 256 bytes remained equal to the title capture. Injected LDA $D000 and STA $D000 with processor port $34 each stopped at the instruction following the access, confirming both watchpoints were active. This observation does not establish ownership or rule out use by other commands or parts, so the page remains unexplained in coverage.
+Bank-conditioned watchpoints on physical RAM $D000-$D0FF observed the restored title loading Part 1, reaching its narrative screen, and proceeding to the command prompt. Neither a RAM read nor a RAM store was observed on that trajectory, and all 256 bytes remained equal to the title capture. Injected LDA $D000 and STA $D000 with processor port $34 each stopped at the instruction following the access, confirming both watchpoints were active. This observation does not establish ownership or rule out use by other commands or parts, the boot trace below establishes its owner separately.
 
-A second watched load stopped at $0400 before the Part-1 entry instructions. Comparing this hand-over snapshot with the command-prompt snapshot exposes four untracked non-fill runs: $68D7-$6905 (47 bytes), $9D00-$9EF2 (499), $9FEF-$9FFF (17), and $A500-$A55F (96). Their owners still need to be traced.
+A second watched load stopped at $0400 before the Part-1 entry instructions. Comparing this hand-over snapshot with the command-prompt snapshot exposes four untracked non-fill runs: $68D7-$6905 (47 bytes), $9D00-$9EF2 (499), $9FEF-$9FFF (17), and $A500-$A55F (96). The two illustration tails are accounted for by their descriptor extents. The music tail is retained title-player code and its handler table; the final 17 bytes are produced by the boot decompressor.
+
+## Boot repair page
+
+Before decompression, boot code copies $7E95-$7F94 into hidden RAM $D000-$D0FF. All 256 destination bytes matched the source at the loop end. The relocated routine consumes the first 16 bytes as eight high-byte-first pointers: $AB82, $9BEE, $675D, $66E4, $66C2, $66BF, $264B and $25F3. Its DCP ($FD,X) instruction, with X=0, decrements each pointed byte. Each changed from $D4 to $D3 in the live check. The remaining 240 copied bytes are not consumed by this eight-iteration repair loop.
+
+The parked loader is described by its relocated $CCxx instruction addresses. Its entry contains BCS $CC10 followed by BCC $CC1A: either carry value skips the intervening JSR $CC2B. The custom receiver still exists below that entry. Previous-phase calls from retained title music into $9728/$9734 land inside instruction operands of the installed gameplay loader; their Source labels identify that phase distinction.
+
+## Parser and disabled disk verbs
+
+LOOK repeated the room description. INVENTORY reported that Atreyu carried nothing. NORTH, SOUTH, EAST and WEST were refused in the starting clearing; NE moved from room 1 to room 2 and SW returned to room 1. XYZ produced an unrecognized-word message. These outcomes were observed through the live command input.
+
+SAVE and LOAD were fed as PETSCII through the KERNAL keyboard buffer. Execution checkpoints stopped at $0491 and $045F respectively, each containing RTS. A single instruction returned to the action interpreter; the 168-byte serialized state $28BF-$2966 remained equal before and after each command. Thus the captured release’s commands dispatch to disabled handlers rather than the retained KERNAL disk routines.
 
 ## Open evidence
 
-The consumer and ownership of hidden page $D000-$D0FF remain unresolved; it is unexplained in coverage. Ownership of the hand-over ranges, parser outcomes, picture reconstruction, objects, save/load and part transitions remain open. The earlier technical article is a private draft until its claims are checked.
+The boot trailer’s meaning, object-taking outcomes, full raster-frame reconstruction and later part transitions remain open. The earlier technical article is a private draft until its claims are checked.
 
 ## Provenance
 

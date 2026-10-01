@@ -67,6 +67,16 @@
         41216,
         42335,
         "Room illustration 0: 8 rows by 14 cells, 1120 source bytes"
+      ],
+      [
+        40191,
+        40690,
+        "Retained title-player code and handler table, beyond the first imported symbol span"
+      ],
+      [
+        40943,
+        40959,
+        "Tail bytes produced by the boot decompressor; interpretation remains open"
       ]
     ]
   },
@@ -403,6 +413,26 @@
     },
     {
       "start": 38754,
+      "end": 40190,
+      "type": "Byte"
+    },
+    {
+      "start": 40191,
+      "end": 40496,
+      "type": "Code"
+    },
+    {
+      "start": 40497,
+      "end": 40524,
+      "type": "Word"
+    },
+    {
+      "start": 40525,
+      "end": 40690,
+      "type": "Code"
+    },
+    {
+      "start": 40691,
       "end": 42975,
       "type": "Byte"
     },
@@ -529,6 +559,60 @@
       "name": "EXCLUDED_TITLE_MUSIC_ZP_STATE",
       "type": "UserDefined",
       "kind": "user"
+    },
+    {
+      "address": 20,
+      "name": "zpa_14",
+      "type": "ZeroPageAbsoluteAddress",
+      "kind": "auto"
+    },
+    {
+      "address": 21,
+      "name": "zpa_15",
+      "type": "ZeroPageAbsoluteAddress",
+      "kind": "auto"
+    },
+    {
+      "address": 22,
+      "name": "zpa_16",
+      "type": "ZeroPageAbsoluteAddress",
+      "kind": "auto"
+    },
+    {
+      "address": 23,
+      "name": "zpa_17",
+      "type": "ZeroPageAbsoluteAddress",
+      "kind": "auto"
+    },
+    {
+      "address": 24,
+      "name": "zpa_18",
+      "type": "ZeroPageAbsoluteAddress",
+      "kind": "auto"
+    },
+    {
+      "address": 25,
+      "name": "zpa_19",
+      "type": "ZeroPageAbsoluteAddress",
+      "kind": "auto"
+    },
+    {
+      "address": 28,
+      "name": "zpa_1C",
+      "type": "ZeroPageAbsoluteAddress",
+      "kind": "auto"
+    },
+    {
+      "address": 31,
+      "name": "zpa_1F",
+      "type": "ZeroPageAbsoluteAddress",
+      "kind": "auto"
+    },
+    {
+      "address": 32,
+      "name": "zpa_20",
+      "type": "ZeroPageAbsoluteAddress",
+      "kind": "auto"
     },
     {
       "address": 34,
@@ -6159,6 +6243,24 @@
       "kind": "user"
     },
     {
+      "address": 38696,
+      "name": "PART_FILENAME_POINTER_LOW_OPERAND",
+      "type": "Field",
+      "kind": "user"
+    },
+    {
+      "address": 38702,
+      "name": "PART_LOADER_CLD_BEFORE_CALL",
+      "type": "Subroutine",
+      "kind": "user"
+    },
+    {
+      "address": 38708,
+      "name": "PART_LOADER_RESUME_JUMP_HIGH_OPERAND",
+      "type": "Field",
+      "kind": "user"
+    },
+    {
       "address": 38709,
       "name": "PART_FILENAME",
       "type": "UserDefined",
@@ -6191,6 +6293,306 @@
     {
       "address": 39168,
       "name": "EXCLUDED_TITLE_MUSIC_BYTES",
+      "type": "UserDefined",
+      "kind": "user"
+    },
+    {
+      "address": 40188,
+      "name": "j_9CFC",
+      "type": "Jump",
+      "kind": "auto"
+    },
+    {
+      "address": 40191,
+      "name": "TITLE_MUSIC_ADVANCE_COMMAND",
+      "type": "Jump",
+      "kind": "user"
+    },
+    {
+      "address": 40202,
+      "name": "b_9D0A",
+      "type": "Branch",
+      "kind": "auto"
+    },
+    {
+      "address": 40237,
+      "name": "TITLE_MUSIC_DISPATCH_OPERAND",
+      "type": "AbsoluteAddress",
+      "kind": "user"
+    },
+    {
+      "address": 40238,
+      "name": "a_9D2E",
+      "type": "AbsoluteAddress",
+      "kind": "auto"
+    },
+    {
+      "address": 40239,
+      "name": "TITLE_MUSIC_NOTE_COMMAND",
+      "type": "Branch",
+      "kind": "user"
+    },
+    {
+      "address": 40250,
+      "name": "b_9D3A",
+      "type": "Branch",
+      "kind": "auto"
+    },
+    {
+      "address": 40259,
+      "name": "b_9D43",
+      "type": "Branch",
+      "kind": "auto"
+    },
+    {
+      "address": 40268,
+      "name": "b_9D4C",
+      "type": "Branch",
+      "kind": "auto"
+    },
+    {
+      "address": 40272,
+      "name": "b_9D50",
+      "type": "Branch",
+      "kind": "auto"
+    },
+    {
+      "address": 40284,
+      "name": "b_9D5C",
+      "type": "Branch",
+      "kind": "auto"
+    },
+    {
+      "address": 40295,
+      "name": "b_9D67",
+      "type": "Branch",
+      "kind": "auto"
+    },
+    {
+      "address": 40323,
+      "name": "b_9D83",
+      "type": "Branch",
+      "kind": "auto"
+    },
+    {
+      "address": 40332,
+      "name": "b_9D8C",
+      "type": "Branch",
+      "kind": "auto"
+    },
+    {
+      "address": 40373,
+      "name": "TITLE_MUSIC_LOAD_DURATION",
+      "type": "Jump",
+      "kind": "user"
+    },
+    {
+      "address": 40394,
+      "name": "b_9DCA",
+      "type": "Branch",
+      "kind": "auto"
+    },
+    {
+      "address": 40397,
+      "name": "TITLE_MUSIC_POP_STREAM",
+      "type": "UserDefined",
+      "kind": "user"
+    },
+    {
+      "address": 40415,
+      "name": "TITLE_MUSIC_COPY_PARAMETERS",
+      "type": "UserDefined",
+      "kind": "user"
+    },
+    {
+      "address": 40419,
+      "name": "b_9DE3",
+      "type": "Branch",
+      "kind": "auto"
+    },
+    {
+      "address": 40437,
+      "name": "TITLE_MUSIC_SET_TRANSPOSE_AND_JUMP",
+      "type": "UserDefined",
+      "kind": "user"
+    },
+    {
+      "address": 40444,
+      "name": "j_9DFC",
+      "type": "Jump",
+      "kind": "auto"
+    },
+    {
+      "address": 40455,
+      "name": "TITLE_MUSIC_CALL_INDIRECT",
+      "type": "UserDefined",
+      "kind": "user"
+    },
+    {
+      "address": 40464,
+      "name": "TITLE_MUSIC_PUSH_STREAM",
+      "type": "Jump",
+      "kind": "user"
+    },
+    {
+      "address": 40466,
+      "name": "b_9E12",
+      "type": "Branch",
+      "kind": "auto"
+    },
+    {
+      "address": 40497,
+      "name": "TITLE_MUSIC_COMMAND_HANDLERS",
+      "type": "Field",
+      "kind": "user"
+    },
+    {
+      "address": 40498,
+      "name": "TITLE_MUSIC_HANDLER_HIGH_BASE",
+      "type": "Field",
+      "kind": "user"
+    },
+    {
+      "address": 40525,
+      "name": "TITLE_MUSIC_UPDATE_PULSE",
+      "type": "UserDefined",
+      "kind": "user"
+    },
+    {
+      "address": 40533,
+      "name": "b_9E55",
+      "type": "Branch",
+      "kind": "auto"
+    },
+    {
+      "address": 40559,
+      "name": "b_9E6F",
+      "type": "Branch",
+      "kind": "auto"
+    },
+    {
+      "address": 40570,
+      "name": "b_9E7A",
+      "type": "Branch",
+      "kind": "auto"
+    },
+    {
+      "address": 40577,
+      "name": "j_9E81",
+      "type": "Jump",
+      "kind": "auto"
+    },
+    {
+      "address": 40598,
+      "name": "b_9E96",
+      "type": "Branch",
+      "kind": "auto"
+    },
+    {
+      "address": 40619,
+      "name": "b_9EAB",
+      "type": "Branch",
+      "kind": "auto"
+    },
+    {
+      "address": 40634,
+      "name": "b_9EBA",
+      "type": "Branch",
+      "kind": "auto"
+    },
+    {
+      "address": 40640,
+      "name": "b_9EC0",
+      "type": "Branch",
+      "kind": "auto"
+    },
+    {
+      "address": 40664,
+      "name": "b_9ED8",
+      "type": "Branch",
+      "kind": "auto"
+    },
+    {
+      "address": 40677,
+      "name": "b_9EE5",
+      "type": "Branch",
+      "kind": "auto"
+    },
+    {
+      "address": 40690,
+      "name": "r_9EF2",
+      "type": "Return",
+      "kind": "auto"
+    },
+    {
+      "address": 40859,
+      "name": "TITLE_MUSIC_PARAMETER_RECORD",
+      "type": "Field",
+      "kind": "user"
+    },
+    {
+      "address": 40874,
+      "name": "TITLE_MUSIC_MODULATION_PARAMETERS",
+      "type": "Field",
+      "kind": "user"
+    },
+    {
+      "address": 40882,
+      "name": "TITLE_MUSIC_MODULATION_FLAGS",
+      "type": "AbsoluteAddress",
+      "kind": "user"
+    },
+    {
+      "address": 40883,
+      "name": "TITLE_MUSIC_PULSE_LOW",
+      "type": "AbsoluteAddress",
+      "kind": "user"
+    },
+    {
+      "address": 40884,
+      "name": "TITLE_MUSIC_PULSE_HIGH",
+      "type": "AbsoluteAddress",
+      "kind": "user"
+    },
+    {
+      "address": 40888,
+      "name": "TITLE_MUSIC_COUNTER_FIRST",
+      "type": "AbsoluteAddress",
+      "kind": "user"
+    },
+    {
+      "address": 40889,
+      "name": "TITLE_MUSIC_COUNTER_SECOND",
+      "type": "AbsoluteAddress",
+      "kind": "user"
+    },
+    {
+      "address": 40893,
+      "name": "TITLE_MUSIC_DURATION_VALUES",
+      "type": "Field",
+      "kind": "user"
+    },
+    {
+      "address": 40910,
+      "name": "TITLE_MUSIC_STREAM_STACK_LOW",
+      "type": "Field",
+      "kind": "user"
+    },
+    {
+      "address": 40926,
+      "name": "TITLE_MUSIC_STREAM_STACK_HIGH",
+      "type": "Field",
+      "kind": "user"
+    },
+    {
+      "address": 40942,
+      "name": "TITLE_MUSIC_TRANSPOSE",
+      "type": "AbsoluteAddress",
+      "kind": "user"
+    },
+    {
+      "address": 40943,
+      "name": "BOOT_UNPACKED_IMAGE_TRAILER",
       "type": "UserDefined",
       "kind": "user"
     },
@@ -6550,13 +6952,67 @@
     },
     {
       "address": 53248,
-      "name": "UNDER_IO_UNRESOLVED_PAGE",
+      "name": "BOOT_FIXUP_POINTERS",
+      "type": "UserDefined",
+      "kind": "user"
+    },
+    {
+      "address": 53264,
+      "name": "BOOT_PAGE_COPY_UNUSED_TAIL",
       "type": "UserDefined",
       "kind": "user"
     },
     {
       "address": 56320,
-      "name": "PARKED_FASTLOADER_IMAGE",
+      "name": "PARKED_LOADER_ENTRY",
+      "type": "UserDefined",
+      "kind": "user"
+    },
+    {
+      "address": 56358,
+      "name": "PARKED_LOADER_TRAILER_BYTES",
+      "type": "UserDefined",
+      "kind": "user"
+    },
+    {
+      "address": 56363,
+      "name": "PARKED_LOADER_MATCH_HEADER",
+      "type": "UserDefined",
+      "kind": "user"
+    },
+    {
+      "address": 56406,
+      "name": "PARKED_LOADER_READ_HEADER",
+      "type": "UserDefined",
+      "kind": "user"
+    },
+    {
+      "address": 56426,
+      "name": "PARKED_LOADER_READ_PAYLOAD",
+      "type": "UserDefined",
+      "kind": "user"
+    },
+    {
+      "address": 56458,
+      "name": "PARKED_LOADER_SYNC",
+      "type": "UserDefined",
+      "kind": "user"
+    },
+    {
+      "address": 56495,
+      "name": "PARKED_LOADER_READ_BYTE",
+      "type": "UserDefined",
+      "kind": "user"
+    },
+    {
+      "address": 56508,
+      "name": "PARKED_LOADER_READ_BIT",
+      "type": "UserDefined",
+      "kind": "user"
+    },
+    {
+      "address": 56526,
+      "name": "PARKED_LOADER_TIMER_SETUP",
       "type": "UserDefined",
       "kind": "user"
     },
@@ -6576,6 +7032,120 @@
       "address": 60033,
       "name": "j_EA81",
       "type": "Jump",
+      "kind": "auto"
+    },
+    {
+      "address": 61541,
+      "name": "f_F065",
+      "type": "Field",
+      "kind": "auto"
+    },
+    {
+      "address": 61542,
+      "name": "a_F066",
+      "type": "AbsoluteAddress",
+      "kind": "auto"
+    },
+    {
+      "address": 61543,
+      "name": "a_F067",
+      "type": "AbsoluteAddress",
+      "kind": "auto"
+    },
+    {
+      "address": 61544,
+      "name": "a_F068",
+      "type": "AbsoluteAddress",
+      "kind": "auto"
+    },
+    {
+      "address": 61547,
+      "name": "a_F06B",
+      "type": "AbsoluteAddress",
+      "kind": "auto"
+    },
+    {
+      "address": 61548,
+      "name": "a_F06C",
+      "type": "AbsoluteAddress",
+      "kind": "auto"
+    },
+    {
+      "address": 61549,
+      "name": "a_F06D",
+      "type": "AbsoluteAddress",
+      "kind": "auto"
+    },
+    {
+      "address": 61554,
+      "name": "a_F072",
+      "type": "AbsoluteAddress",
+      "kind": "auto"
+    },
+    {
+      "address": 61555,
+      "name": "a_F073",
+      "type": "AbsoluteAddress",
+      "kind": "auto"
+    },
+    {
+      "address": 61556,
+      "name": "a_F074",
+      "type": "AbsoluteAddress",
+      "kind": "auto"
+    },
+    {
+      "address": 61559,
+      "name": "a_F077",
+      "type": "AbsoluteAddress",
+      "kind": "auto"
+    },
+    {
+      "address": 61560,
+      "name": "a_F078",
+      "type": "AbsoluteAddress",
+      "kind": "auto"
+    },
+    {
+      "address": 61566,
+      "name": "a_F07E",
+      "type": "AbsoluteAddress",
+      "kind": "auto"
+    },
+    {
+      "address": 61567,
+      "name": "a_F07F",
+      "type": "AbsoluteAddress",
+      "kind": "auto"
+    },
+    {
+      "address": 61568,
+      "name": "a_F080",
+      "type": "AbsoluteAddress",
+      "kind": "auto"
+    },
+    {
+      "address": 61569,
+      "name": "a_F081",
+      "type": "AbsoluteAddress",
+      "kind": "auto"
+    },
+    {
+      "address": 61570,
+      "name": "a_F082",
+      "type": "AbsoluteAddress",
+      "kind": "auto"
+    },
+    {
+      "address": 61582,
+      "name": "f_F08E",
+      "type": "Field",
+      "kind": "auto"
+    },
+    {
+      "address": 61674,
+      "name": "f_F0EA",
+      "type": "Field",
       "kind": "auto"
     },
     {
@@ -13555,6 +14125,11 @@
       "text": "Filename pointer low byte = <PART_FILENAME."
     },
     {
+      "address": 38696,
+      "type": "line",
+      "text": "Immediate operand $35 of LDX #$35 at $9727, selecting low byte of the inline PART filename for KERNAL SETNAM. Retained title-player code also calls execution address $9728, but that call belongs to the previous music occupant; this byte is an operand in the installed gameplay loader."
+    },
+    {
       "address": 38697,
       "type": "side",
       "text": "Filename pointer high byte = >PART_FILENAME."
@@ -13565,6 +14140,11 @@
       "text": "KERNAL SETNAM(\"PART2\")."
     },
     {
+      "address": 38702,
+      "type": "line",
+      "text": "Clear decimal mode immediately before JSR RUN_FASTLOADER at $972F. The preceding filename setup falls through here. A retained title-player call to the same address targets the earlier music occupant, which the gameplay loader replaced."
+    },
+    {
       "address": 38703,
       "type": "side",
       "text": "Swap in and execute the custom fast loader."
@@ -13573,6 +14153,11 @@
       "address": 38706,
       "type": "side",
       "text": "Skip over the inline mutable filename."
+    },
+    {
+      "address": 38708,
+      "type": "line",
+      "text": "High operand $97 of JMP $973A at $9732 in the installed gameplay loader. The retained title player calls this address in its earlier occupant; it is not an entry instruction in the captured loader."
     },
     {
       "address": 38709,
@@ -13628,6 +14213,131 @@
       "address": 39168,
       "type": "line",
       "text": "Excluded title-stage SID-player tail, parameter records, and residual state retained in the gameplay snapshot. It is inactive after the gameplay transition."
+    },
+    {
+      "address": 40191,
+      "type": "line",
+      "text": "Retained title-player command advance: add three to stream pointer $14/$15, read the next opcode and dispatch. Bit 7 selects a command: opcode&$7F indexes the interleaved pointer bases $9E31/$9E32, whose selected address patches JMP operands $9D2D/$9D2E. Read two following stream bytes into $16/$17. This is a previous-phase player fragment: its calls into $97xx target bytes replaced by the gameplay disk loader."
+    },
+    {
+      "address": 40237,
+      "type": "line",
+      "text": "Low/high operand bytes of the self-modified JMP at $9D2C. $9D19/$9D1F replace them from the handler-word table for each bit-7 music command. This alias is inside the JMP instruction, not executable entry code."
+    },
+    {
+      "address": 40238,
+      "type": "line",
+      "text": "High operand byte of the patched JMP at $9D2C. $9D1F writes the selected title-music handler high byte from interleaved table base $9E32,X; low operand $9D2D is patched by $9D19. This is an operand alias rather than an execution entry."
+    },
+    {
+      "address": 40239,
+      "type": "line",
+      "text": "Nonnegative music opcode path: $60 skips note setup; $5F bypasses the ADC of transpose byte $9FEE. Otherwise store the resulting note index in $18. Depending on flags $F081/$19, configure SID filter registers $D415-$D418 and voice-3 pulse/control $D410-$D412, load voice frequency from split tables $F08E/$F0EA, and initialize saved pulse/modulation counters. Ends by fetching a duration at $9DB5."
+    },
+    {
+      "address": 40373,
+      "type": "line",
+      "text": "Read stream operand at offset 1; use it as index into duration table $9FBD and store the selected value in $1C. Advance stream pointer $14/$15 by two and jump to $9CFC. This continuation belongs to the retained title music player."
+    },
+    {
+      "address": 40397,
+      "type": "line",
+      "text": "Increment stream-stack index $1F, restore its pointer from split low/high arrays $9FCE/$9FDE and continue at the opcode read $9D0A."
+    },
+    {
+      "address": 40415,
+      "type": "line",
+      "text": "Copy 35 bytes from ($16),Y, Y=$22 down to zero, into player parameter storage $9F9B,X. The entry at $9DEF starts with Y=$0F and X=$32, copying 16 bytes to the higher parameter subset through the same loop. Both return to the three-byte command advance $9CFF."
+    },
+    {
+      "address": 40437,
+      "type": "line",
+      "text": "Read offset 3 of current stream into transpose byte $9FEE, then replace stream pointer $14/$15 with operand pointer $16/$17 and resume opcode decoding at $9D0A."
+    },
+    {
+      "address": 40455,
+      "type": "line",
+      "text": "Push $9CFE as a return address and JMP ($0016). The called code returns to $9CFF via RTS; the two stack bytes are a return-address-minus-one pair, not another stream pointer."
+    },
+    {
+      "address": 40464,
+      "type": "line",
+      "text": "Save current pointer+3 into split arrays $9FCE/$9FDE at stack index $1F, decrement the index, and switch to operand pointer $16/$17 through $9DFC. The entry at $9E26 sets transpose from stream offset 3 and saves pointer+4 through the same addition/storage path."
+    },
+    {
+      "address": 40497,
+      "type": "line",
+      "text": "Fourteen interleaved little-endian handler words used by the retained title-player opcode dispatch at $9D16/$9D1C. The dispatcher masks bit 7 but does not double X, so valid command bytes select even offsets. Stored targets: $9DCD, $96A1, $96A1, $9DDF, $96A1, $96A1, $9DEF, $9DFC, $9E10, $96A1, $96A1, $9E26, $96A1, $9DF5."
+    },
+    {
+      "address": 40498,
+      "type": "line",
+      "text": "Indexed high-byte base for the 14 interleaved handler words at $9E31-$9E4C. $9D1C reads this base with the same even X used by the low-byte read, then patches JMP high operand $9D2E."
+    },
+    {
+      "address": 40525,
+      "type": "line",
+      "text": "Retained voice-3 pulse/modulation tick. If $F073 is zero, return. Start from saved pulse $F077/$F078; flags and counters $F06D/$F06B/$F080 select delayed additions of 16-bit deltas $F065/$F066 or $F067/$F068. Store updated pulse to saved state and SID $D410/$D411. Counters $F073/$F074 eventually clear the voice-3 registers or remove its gate bit. Calls into $9728/$9734 belong to the previous title occupant, replaced by the gameplay loader."
+    },
+    {
+      "address": 40859,
+      "type": "line",
+      "text": "Retained mutable title-player parameter record. The command at $9DDF copies 35 bytes from its operand pointer to $9F9B-$9FBD; the $9DEF entry copies a further 16-byte subset into offsets $23-$32. Consumers $9D50/$9D6C select filter and voice-3 pulse/control bytes; fields from $9FAA onward are described separately."
+    },
+    {
+      "address": 40874,
+      "type": "line",
+      "text": "Eleven retained modulation-parameter bytes copied by $9D81-$9D8A from $9FAA-$9FB4 to $F065-$F06F. These supply two 16-bit pulse deltas and state/flags used by the title tick. The following aliases identify individual fields of this same record."
+    },
+    {
+      "address": 40882,
+      "type": "line",
+      "text": "Flags byte read at $9D79 into $F06D. It is also byte 8 of the eleven-byte modulation copy, reaching the same destination. The tick tests bits $04 and $81 to select delayed pulse updates and reload paths."
+    },
+    {
+      "address": 40883,
+      "type": "line",
+      "text": "Initial voice-3 pulse low byte, loaded by $9D9A and written to SID $D410 at $9DA0."
+    },
+    {
+      "address": 40884,
+      "type": "line",
+      "text": "Initial voice-3 pulse high byte, loaded by $9D9D and written to SID $D411 at $9DA3. Bytes through $9FB7 continue the retained parameter record; no separate consumer for those remaining bytes is established here."
+    },
+    {
+      "address": 40888,
+      "type": "line",
+      "text": "Initial title-player counter copied to $F073 by $9DA9/$9DAF. The pulse tick returns while zero and decrements it after the second counter has reached zero; expiry silences voice 3."
+    },
+    {
+      "address": 40889,
+      "type": "line",
+      "text": "Initial second title-player counter copied to $F074 by $9DAC/$9DB2. It is decremented in the pulse tick and its expiry clears the voice-3 gate through $F072 & $FE. Bytes through $9FBC are retained record tail."
+    },
+    {
+      "address": 40893,
+      "type": "line",
+      "text": "Seventeen stored duration values at $9FBD-$9FCD: 15,6,12,18,24,30,36,42,48,54,60,108,72,1,84,3,96. $9DBA indexes this base with the stream duration operand and writes the result to $1C; that instruction performs no bounds check."
+    },
+    {
+      "address": 40910,
+      "type": "line",
+      "text": "Sixteen low bytes of retained title-player stream return pointers. $9E17 saves pointer low at index $1F; $9DD2 restores it after incrementing that index. Matching high bytes begin at $9FDE."
+    },
+    {
+      "address": 40926,
+      "type": "line",
+      "text": "Sixteen high bytes paired by index with $9FCE-$9FDD. $9E1E stores the carry-adjusted pointer high byte and $9DD7 restores it; the next byte $9FEE is the transpose field."
+    },
+    {
+      "address": 40942,
+      "type": "line",
+      "text": "Retained title-player note transpose, captured $24. $9D37 adds it to a note index; command entries $9DF5/$9E26 replace it from stream offset 3. This is the last byte of the original parameter/player-data span."
+    },
+    {
+      "address": 40943,
+      "type": "line",
+      "text": "Seventeen-byte tail of the boot-decompressed image. A live store watch stopped at relocated boot PC $0184 immediately after STA ($39),Y at $0182; destination pointer $39/$3A was $9FEF and Y=0. The trailer is $0A, six zero bytes, $44,$0D, followed by ASCII /MONITOR. This establishes its producer; its meaning or a later consumer has not been established."
     },
     {
       "address": 40960,
@@ -14101,13 +14811,63 @@
     },
     {
       "address": 53248,
+      "type": "line",
+      "text": "Retained boot-decompressor repair pointers, eight high-byte-first pairs: $AB82, $9BEE, $675D, $66E4, $66C2, $66BF, $264B, $25F3. Before Part 1 starts, boot code at $081D/$0820 copies $7E95-$7F94 into hidden RAM $D000-$D0FF with processor port $38. Its relocated loop at $014F-$015F stores the first byte into $FE and the second into $FD, then decrements the pointed byte with DCP ($FD,X), X=0. All eight targets changed $D4 to $D3 in the live boot check. These boot-phase instructions are overwritten in the Part-1 image; this table remains as residue."
+    },
+    {
+      "address": 53248,
       "type": "side",
       "text": "Non-fill RAM beneath I/O; consumer and ownership remain unresolved."
     },
     {
+      "address": 53264,
+      "type": "line",
+      "text": "Remaining 240 bytes of the boot copy from $7EA5-$7F94 to hidden RAM $D010-$D0FF. The relocated repair loop executes eight times and consumes only the preceding 16 pointer bytes. These bytes are retained copy residue, rather than more repair entries. Bank-conditioned read/store watches observed no access to this page while the title loaded Part 1 and reached its command prompt; no claim about other commands or parts follows from that observation."
+    },
+    {
       "address": 56320,
       "type": "line",
-      "text": "Custom disk loader parked beneath I/O. RUN_FASTLOADER at $03A0 exchanges $DC00-$DFFF with $CC00-$CFFF, calls $CC00, then swaps back. Internal JSR targets are $CCxx because execution occurs at the relocated address. Captured non-fill loader bytes extend through $DCE3."
+      "text": "Parked code executed at $CC00 after $03A6 exchanges four pages. Sets $C4=$2F, writes $DD00=$14, and calls KERNAL address $F4A2 until carry clears. The paired BCS $CC10 / BCC $CC1A skips the intervening JSR $CC2B for either carry value. It then loads X from $9739, copies $CBF5+X to $2F01, executes SEI/CLD and returns. The old custom receive path below is not reached through that call in these captured bytes."
+    },
+    {
+      "address": 56358,
+      "type": "line",
+      "text": "Five bytes after the parked entry RTS: $37,$34,$31,$00,$00 (ASCII 741 and two zeros). The following receiver entry is at parked $DC2B / execution $CC2B. No role beyond this placement is established."
+    },
+    {
+      "address": 56363,
+      "type": "line",
+      "text": "Execution $CC2B: receives a header via $CC56, decrements border colour, and compares ($BB),Y with $2F41,Y using Y=4. A mismatch retries the header. On a match, loads Y from $2F3E, sets $AE=Y-1 and destination low $C3=0; sets upper bound $AF=$2F3F+$27, then calls the receive-to-memory routine $CC6A."
+    },
+    {
+      "address": 56406,
+      "type": "line",
+      "text": "Execution $CC56: synchronize at $CC8A; if returned A=0 retry. Read bytes through $CCAF into $2F3C,Y, incrementing Y until $C0, then branch to $CC87 for CLD/CLV/RTS. Uses the Y left by the synchronization routine, rather than initializing a separate header index here."
+    },
+    {
+      "address": 56426,
+      "type": "line",
+      "text": "Execution $CC6A: synchronize, then read each byte through $CCAF and store at ($C3),Y. Increment the $C3/$C4 destination pointer and compare it with $AE/$AF using CMP low byte followed by SBC high byte; repeat while carry is clear. Write $D011=$0B, clear decimal/overflow flags and return. Preserve the literal Y-indexed store when interpreting destinations."
+    },
+    {
+      "address": 56458,
+      "type": "line",
+      "text": "Execution $CC8A: call timer/display setup $CCCE, shift carry bits from $CCBC into $BD until $BD=$02, then set Y=9. Read bytes with $CCAF, reject repeated $02 values and compare Y with $BD; mismatches restart the bit search. Consume the remaining counted bytes and return with Y=0."
+    },
+    {
+      "address": 56495,
+      "type": "line",
+      "text": "Execution $CCAF: X=7, call the bit routine $CCBC and ROL $BD eight times while decrementing X through zero. Return the assembled $BD byte in A; Y is unchanged."
+    },
+    {
+      "address": 56508,
+      "type": "line",
+      "text": "Execution $CCBC: wait for bit $10 in CIA1 interrupt-control register $DC0D. Read CIA2 interrupt-control $DD0D and compare with $02, leaving that comparison carry for the caller. Write $19 to CIA2 timer-B control $DD0F and return. Hardware addresses here are evaluated after relocation to $CCxx, not as physical RAM addresses of this parked image."
+    },
+    {
+      "address": 56526,
+      "type": "line",
+      "text": "Execution $CCCE: set $D011=$0B, CIA2 timer-B latch $DD06/$DD07=$010C, execute SEI and set processor port $01=$07. Set Y=0 before returning. $07 has LORAM, HIRAM and CHAREN set, leaving I/O and the BASIC/KERNAL ROMs visible; caller code executes from ordinary $CCxx RAM; the parked copy itself is under I/O."
     },
     {
       "address": 63488,
