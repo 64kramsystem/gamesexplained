@@ -12,6 +12,13 @@ Changes to the site, the folder layout, the delivery process, the prose
 style or the install mechanics are in the pull requests, not here.
 Versions that taught nothing of the kind do not appear.
 
+## next · 1 October 2026 · Jet Set Willy · 64kramsystem with Codex
+
+Jet Set Willy, contributed by Saverio Miroddi: a reset acknowledgment in a
+paused emulator did not execute the queued reset until a separate run.
+The VICE workaround now requires a positive reset-entry control before
+using checkpoint counts or bank-register reads to compare restart paths.
+
 ## 0.0.48 · 30 September 2026 · Castle Master · 64kramsystem with Codex
 
 **Compare an imported capture with a booted game before using it.**

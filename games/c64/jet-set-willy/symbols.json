@@ -43,6 +43,11 @@
    ],
    [
     65024,
+    65279,
+    "Tail outside the room records; KERNAL-covered spare RAM"
+   ],
+   [
+    65324,
     65535,
     "Tail outside the room records; KERNAL-covered spare RAM"
    ],
@@ -122,6 +127,16 @@
     4000,
     4008,
     "Retained title-entry banking trampoline tested live."
+   ],
+   [
+    2560,
+    2879,
+    "Copyright-addressed slots overlap predecessor editor contents; no intact original artwork is claimed."
+   ],
+   [
+    2881,
+    3999,
+    "Truncated predecessor text-buffer editor and RLE fill tail; preserved helpers traced and tested."
    ]
   ]
  },
@@ -308,13 +323,8 @@
   },
   {
    "start": 15080,
-   "end": 15119,
-   "type": "Word"
-  },
-  {
-   "start": 15120,
    "end": 15121,
-   "type": "Byte"
+   "type": "Word"
   },
   {
    "start": 15122,
@@ -343,6 +353,16 @@
   },
   {
    "start": 15571,
+   "end": 16127,
+   "type": "Byte"
+  },
+  {
+   "start": 16128,
+   "end": 16170,
+   "type": "Code"
+  },
+  {
+   "start": 16171,
    "end": 40959,
    "type": "Byte"
   },
@@ -413,6 +433,16 @@
   },
   {
    "start": 53306,
+   "end": 65279,
+   "type": "Byte"
+  },
+  {
+   "start": 65280,
+   "end": 65323,
+   "type": "Code"
+  },
+  {
+   "start": 65324,
    "end": 65535,
    "type": "Byte"
   }
@@ -1481,6 +1511,306 @@
    "kind": "user"
   },
   {
+   "address": 2560,
+   "name": "COPYRIGHT_UNSET_SPRITE",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 2624,
+   "name": "COPYRIGHT_COLOR_0_SPRITE",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 2688,
+   "name": "COPYRIGHT_COLOR_1_SPRITE",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 2752,
+   "name": "COPYRIGHT_COLOR_2_SPRITE",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 2816,
+   "name": "COPYRIGHT_COLOR_3_SPRITE",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 2880,
+   "name": "RETAINED_EDITOR_PREFIX_BYTE",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 2881,
+   "name": "RETAINED_EDITOR_COMMAND_LOOP",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 2886,
+   "name": "RETAINED_EDITOR_RESET_COMMAND_STATE",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 2948,
+   "name": "RETAINED_EDITOR_READ_NEXT_PARAMETER",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 2958,
+   "name": "RETAINED_EDITOR_READ_COMMAND_CHARACTER",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 2972,
+   "name": "RETAINED_EDITOR_START_COMMAND_LINE",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 2977,
+   "name": "RETAINED_EDITOR_STORE_COMMAND_CHARACTER",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 2988,
+   "name": "RETAINED_EDITOR_COMMAND_OVERFLOW",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 2999,
+   "name": "RETAINED_EDITOR_COMMAND_ERROR",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 3013,
+   "name": "RETAINED_EDITOR_DECIMAL_REPEAT",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 3066,
+   "name": "RETAINED_EDITOR_RESET_BUFFER_POINTERS",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 3079,
+   "name": "RETAINED_EDITOR_STATUS_WORD",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 3100,
+   "name": "RETAINED_EDITOR_SET_COPY_FLAG",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 3104,
+   "name": "RETAINED_EDITOR_SECOND_DISPATCH_TABLE",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 3168,
+   "name": "RETAINED_EDITOR_LETTER_DISPATCH",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 3222,
+   "name": "RETAINED_EDITOR_MASK_CHARACTER_HIGH_BIT",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 3224,
+   "name": "RETAINED_EDITOR_STORE_BYTE",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 3262,
+   "name": "RETAINED_EDITOR_DIRECTION_TRAMPOLINES",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 3294,
+   "name": "RETAINED_EDITOR_MOVE_BACKWARD",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 3330,
+   "name": "RETAINED_EDITOR_FIND_PREVIOUS_RETURN",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 3350,
+   "name": "RETAINED_EDITOR_MOVE_FORWARD_TO_RETURN",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 3361,
+   "name": "RETAINED_EDITOR_FORWARD_AND_REWIND",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 3380,
+   "name": "RETAINED_EDITOR_INSERT_LITERAL",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 3398,
+   "name": "RETAINED_EDITOR_INSERT_HEX_BYTE",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 3417,
+   "name": "RETAINED_EDITOR_HEX_NIBBLE",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 3439,
+   "name": "RETAINED_EDITOR_SKIP_SPACES_AND_TEST_DIGIT",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 3453,
+   "name": "RETAINED_EDITOR_SET_NUMERIC_PARAMETER",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 3489,
+   "name": "RETAINED_EDITOR_TRANSFER_BACKWARD_BYTE",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 3507,
+   "name": "RETAINED_EDITOR_TRANSFER_BACKWARD_LINE",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 3521,
+   "name": "RETAINED_EDITOR_TRANSFER_FORWARD_BYTE",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 3558,
+   "name": "RETAINED_EDITOR_TRANSFER_FORWARD_LINE",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 3572,
+   "name": "RETAINED_EDITOR_TOGGLE_DISPLAY_FLAGS",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 3588,
+   "name": "RETAINED_EDITOR_TOGGLE_HIGH_BIT_FLAG",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 3595,
+   "name": "RETAINED_EDITOR_SEARCH_BUFFER",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 3700,
+   "name": "RETAINED_EDITOR_RESET_COPY_POINTER",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 3709,
+   "name": "RETAINED_EDITOR_DECREMENT_COPY_POINTER",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 3725,
+   "name": "RETAINED_EDITOR_COPY_BACK_FROM_BUFFER",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 3756,
+   "name": "RETAINED_EDITOR_CLEAR_COMMAND_LINE",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 3769,
+   "name": "RETAINED_EDITOR_READ_WITH_SUBSTITUTE",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 3778,
+   "name": "RETAINED_EDITOR_INITIALIZE",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 3804,
+   "name": "RETAINED_EDITOR_INITIAL_PARAMETERS",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 3814,
+   "name": "RETAINED_EDITOR_KERNAL_GETIN_WRAPPER",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 3826,
+   "name": "RETAINED_EDITOR_TRUNCATED_COLOR_ROUTINE",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 3841,
+   "name": "RLE_LOW_TAIL_AFTER_EDITOR",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 3968,
+   "name": "RLE_LOW_TAIL_FINAL_FILL",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
    "address": 4000,
    "name": "BOOTSTRAP_ENTER_TITLE_STUB",
    "type": "Jump",
@@ -2358,13 +2688,13 @@
   },
   {
    "address": 5625,
-   "name": "JSW_State_item_scan_x",
+   "name": "JSW_State_item_candidate_screen_low",
    "type": "UserDefined",
    "kind": "user"
   },
   {
    "address": 5626,
-   "name": "JSW_State_item_scan_y",
+   "name": "JSW_State_item_candidate_screen_high",
    "type": "UserDefined",
    "kind": "user"
   },
@@ -4145,6 +4475,12 @@
    "kind": "auto"
   },
   {
+   "address": 15120,
+   "name": "COPYRIGHT_ROW_OFFSET_20",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
    "address": 15122,
    "name": "COPYRIGHT_RANDOM_BELOW_BOUND",
    "type": "Subroutine",
@@ -4329,6 +4665,18 @@
    "name": "COPYRIGHT_WAIT_FOR_KEY_RELEASE",
    "type": "Subroutine",
    "kind": "user"
+  },
+  {
+   "address": 16128,
+   "name": "RETAINED_COPY_B000_TO_2000",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 16152,
+   "name": "b_3F18",
+   "type": "Branch",
+   "kind": "auto"
   },
   {
    "address": 16384,
@@ -6984,7 +7332,7 @@
   },
   {
    "address": 53248,
-   "name": "BOOTSTRAP_PRG_LOAD_ADDRESS",
+   "name": "RETAINED_BOOTSTRAP_PREFIX_WORD",
    "type": "UserDefined",
    "kind": "user"
   },
@@ -7322,6 +7670,18 @@
    "address": 65212,
    "name": "j_FEBC",
    "type": "Jump",
+   "kind": "auto"
+  },
+  {
+   "address": 65280,
+   "name": "RETAINED_COPY_B000_TO_E000",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 65303,
+   "name": "b_FF17",
+   "type": "Branch",
    "kind": "auto"
   },
   {
@@ -7945,7 +8305,7 @@
   {
    "address": 2424,
    "type": "line",
-   "text": "Guardian motion state and remaining gameplay/title working RAM through the inactive captured bytes at $0FA0-$0FA8."
+   "text": "Lower-memory state following the seven current-room guardian records. Direction/animation and moving-coordinate arrays at $0981/$0989 are runtime state. The following retained bytes are independently reproduced by the boot RLE decoder; five copyright sprites at $0A00-$0B3F and the restart stub at $0FA0 have identified consumers. Meaning and consumers of the other retained low-memory tail are open."
   },
   {
    "address": 2433,
@@ -7956,6 +8316,256 @@
    "address": 2441,
    "type": "line",
    "text": "Seven bytes of current guardian moving coordinates."
+  },
+  {
+   "address": 2560,
+   "type": "line",
+   "text": "Retained copyright display would address this 64-byte slot with sprite pointer $28, given its observed VIC bank $0000. The CMM boot bypasses the display path, and the slot overlaps predecessor editor contents; it is not claimed to retain the original copyright artwork. The pointer assignment is at $3BC9 or $3BF5."
+  },
+  {
+   "address": 2624,
+   "type": "line",
+   "text": "Retained copyright display would address this 64-byte slot with sprite pointer $29, given its observed VIC bank $0000. The CMM boot bypasses the display path, and the slot overlaps predecessor editor contents; it is not claimed to retain the original copyright artwork. The pointer assignment is at $3BC9 or $3BF5."
+  },
+  {
+   "address": 2688,
+   "type": "line",
+   "text": "Retained copyright display would address this 64-byte slot with sprite pointer $2A, given its observed VIC bank $0000. The CMM boot bypasses the display path, and the slot overlaps predecessor editor contents; it is not claimed to retain the original copyright artwork. The pointer assignment is at $3BC9 or $3BF5."
+  },
+  {
+   "address": 2752,
+   "type": "line",
+   "text": "Retained copyright display would address this 64-byte slot with sprite pointer $2B, given its observed VIC bank $0000. The CMM boot bypasses the display path, and the slot overlaps predecessor editor contents; it is not claimed to retain the original copyright artwork. The pointer assignment is at $3BC9 or $3BF5."
+  },
+  {
+   "address": 2816,
+   "type": "line",
+   "text": "Retained copyright display would address this 64-byte slot with sprite pointer $2C, given its observed VIC bank $0000. The CMM boot bypasses the display path, and the slot overlaps predecessor editor contents; it is not claimed to retain the original copyright artwork. The pointer assignment is at $3BC9 or $3BF5."
+  },
+  {
+   "address": 2880,
+   "type": "line",
+   "text": "Retained byte $F4 immediately before the predecessor command entry at $0B41. The RLE decoder reproduces it; its original role is open."
+  },
+  {
+   "address": 2881,
+   "type": "line",
+   "text": "Truncated predecessor text-buffer editor, retained in the RLE image. It stores a command line in $0100, parses an optional decimal repeat, dispatches characters @ through Z through $0C60, and uses $5D/$5E and $5F/$60 as buffer pointers. Some callbacks at $090C and $1000+ have been replaced by gameplay code, so this is not a complete executable editor. The preserved literal/hex insertion helpers were checked by controlled calls."
+  },
+  {
+   "address": 2886,
+   "type": "line",
+   "text": "Resets SP to $FF, command index $65 and copy flag $6A. Reads the repeat prefix, dispatches via the temporary trampoline at $74 and repeats the command while $6F remains nonzero. Its exit to $0912 belongs to the replaced predecessor UI."
+  },
+  {
+   "address": 2948,
+   "type": "line",
+   "text": "Saves command index $65 into $6E and calls the next-character helper, preserving its flags when restoring the saved index."
+  },
+  {
+   "address": 2958,
+   "type": "line",
+   "text": "Reads $0100,Y using index $65, advances the index and compares the result with the byte-1 terminator. Indexes >=40 branch to the retained status-error path."
+  },
+  {
+   "address": 2972,
+   "type": "line",
+   "text": "Clears the command line through $0EAC, then stores byte 1 through $0BA1. The line buffer is 40 bytes long."
+  },
+  {
+   "address": 2977,
+   "type": "line",
+   "text": "Stores A at $0100 plus index $65, increments the index and returns through $0C1B while within the 40-byte buffer. Overflow follows the CO status path."
+  },
+  {
+   "address": 2988,
+   "type": "line",
+   "text": "Clears the command buffer and forms status letters CO in $6B/$6C; the status-display callback at $10CB has been replaced in the play image."
+  },
+  {
+   "address": 2999,
+   "type": "line",
+   "text": "Forms E? in $6B/$6C. The common status path calls the predecessor display entry $10CB and returns to its UI at $0915, neither of which is retained as editor code."
+  },
+  {
+   "address": 3013,
+   "type": "line",
+   "text": "Skips byte-1 spaces and parses ASCII decimal digits, multiplying the repeat accumulator $6F by ten. Limits the result to one byte; an omitted/zero repeat becomes one. The first non-digit is kept in $62 for command dispatch."
+  },
+  {
+   "address": 3066,
+   "type": "line",
+   "text": "Initializes lower buffer pointer $5D/$5E and upper pointer $5F/$60 from X and boundary high bytes $7E/$7F."
+  },
+  {
+   "address": 3079,
+   "type": "line",
+   "text": "Sets CR when copy mode $6A is nonzero, otherwise OK, in status bytes $6B/$6C."
+  },
+  {
+   "address": 3100,
+   "type": "line",
+   "text": "Decrements X, stores it in copy flag $6A and returns."
+  },
+  {
+   "address": 3104,
+   "type": "line",
+   "text": "32 little-endian predecessor handler words. Several entries point to preserved editing helpers; others point to overwritten routines. The corresponding caller is not established in the surviving fragment."
+  },
+  {
+   "address": 3168,
+   "type": "line",
+   "text": "27 little-endian handler words selected after subtracting $40 from the command and requiring the result below $1B: characters @ through Z. H selects hex insertion $0D46; I selects literal insertion $0D34; S selects search $0E0B. Several callbacks no longer contain their predecessor code."
+  },
+  {
+   "address": 3222,
+   "type": "line",
+   "text": "AND #$7F precedes the X=0 store entry at $0C98. This clears the high bit of an inserted byte."
+  },
+  {
+   "address": 3224,
+   "type": "line",
+   "text": "Sets X=0, compares current pointer $5D/$5E with limit $5F/$60, writes A through ($5D,X) if space remains, optionally updates copy tracking and advances the current pointer. Controlled literal and hex calls matched output bytes and pointer increments."
+  },
+  {
+   "address": 3262,
+   "type": "line",
+   "text": "Four three/six-byte direction trampolines use N to choose opposite editing operations: movement, byte transfer or line transfer. Their callers belong to the retained predecessor command tables."
+  },
+  {
+   "address": 3294,
+   "type": "line",
+   "text": "Moves pointer $5D/$5E backward unless it is at the lower page boundary $7E. In copy mode, copies the encountered byte through $66/$67. Returns carry clear after a move."
+  },
+  {
+   "address": 3330,
+   "type": "line",
+   "text": "Moves backward until a byte $0D is found, using $0CDE and the same lower-bound handling. This is a predecessor buffer operation, not player movement."
+  },
+  {
+   "address": 3350,
+   "type": "line",
+   "text": "Calls the forward byte-transfer helper until carry is set or the returned byte is $0D."
+  },
+  {
+   "address": 3361,
+   "type": "line",
+   "text": "Calls forward transfer $0DC3, saves its byte, moves the current pointer backward again and restores the saved byte and clear carry on success."
+  },
+  {
+   "address": 3380,
+   "type": "line",
+   "text": "Reads command-buffer characters through $0B8E and stores them through $0C9A until byte 1 terminates the text. A controlled call inserted HELLO exactly and advanced $5D/$5E by five."
+  },
+  {
+   "address": 3398,
+   "type": "line",
+   "text": "Reads two hexadecimal characters, shifts the first nibble four bits, ORs in the second and stores the resulting byte through $0C98. Controlled inputs 00, 12, 4A and FF produced the matching bytes and one-byte pointer advances."
+  },
+  {
+   "address": 3417,
+   "type": "line",
+   "text": "Accepts decimal digits or ASCII A-F, returning the low nibble. The letter conversion adds eight with the compare carry still set, then masks with $0F. Other values jump to the predecessor status-error path."
+  },
+  {
+   "address": 3439,
+   "type": "line",
+   "text": "Skips byte-1 spaces, tests ASCII 0-9 and leaves carry clear for a digit. The hex helper uses carry to distinguish digits from A-F."
+  },
+  {
+   "address": 3453,
+   "type": "line",
+   "text": "Preserved @ command: uses $0D6F to read a decimal digit, rejects a nondigit or zero, then stores the accepted value 1-9 in $56. The predecessor parameter meaning is not established here."
+  },
+  {
+   "address": 3489,
+   "type": "line",
+   "text": "Moves backward, decrements upper pointer $5F/$60 and transfers a byte from ($5D,X) to ($5F,X). X is zero on the command-dispatch route."
+  },
+  {
+   "address": 3507,
+   "type": "line",
+   "text": "Sets X=0, transfers backward until carry is set or byte $0D is encountered, then joins the forward helper entry."
+  },
+  {
+   "address": 3521,
+   "type": "line",
+   "text": "Sets X=0, reads through upper pointer $5F/$60, writes through current pointer $5D/$5E and increments both pointers. Boundary high byte $7F limits the transfer."
+  },
+  {
+   "address": 3558,
+   "type": "line",
+   "text": "Repeats $0DC3 until its returned byte is $0D or the upper-bound condition stops it."
+  },
+  {
+   "address": 3572,
+   "type": "line",
+   "text": "Toggles state bits using EOR $78 at $6D and derives $63 from $11 and the shifted sign bit. The predecessor display meaning of these flags is open."
+  },
+  {
+   "address": 3588,
+   "type": "line",
+   "text": "Toggles bit 7 of predecessor flag byte $64 and returns; no active gameplay consumer is implied."
+  },
+  {
+   "address": 3595,
+   "type": "line",
+   "text": "Searches from upper buffer pointer $5F/$60 for the command-buffer pattern starting at $0100+$65, terminated by byte 1. Uses temporary pointer $5B/$5C and moves the gap/buffer pointers forward to the end of a match. Failure follows the S status path."
+  },
+  {
+   "address": 3700,
+   "type": "line",
+   "text": "Sets copy pointer $66/$67 from X and boundary page $7C, then writes X into copy flag $6A."
+  },
+  {
+   "address": 3709,
+   "type": "line",
+   "text": "Decrements copy pointer $66/$67 unless it is at low byte zero and lower-bound page $7C."
+  },
+  {
+   "address": 3725,
+   "type": "line",
+   "text": "Copies backward from the saved copy pointer through temporary $68/$69, storing bytes via $0C9A until the page-bound or store-bound condition stops it."
+  },
+  {
+   "address": 3756,
+   "type": "line",
+   "text": "Writes 40 dot bytes ($2E) to $0100-$0127, then clears command index $65."
+  },
+  {
+   "address": 3769,
+   "type": "line",
+   "text": "Calls forward transfer $0DC1; if its boundary condition sets carry, returns substitute byte $1A. Clears carry before returning."
+  },
+  {
+   "address": 3778,
+   "type": "line",
+   "text": "Zeros trampoline low state, sets a flag, writes RTS ($60) at $B000, copies eight parameters from $0EDC to $78-$7F and jumps to old entry $0810. Those locations are occupied by gameplay data in this image; do not execute this initializer as a live editor."
+  },
+  {
+   "address": 3804,
+   "type": "line",
+   "text": "Eight parameter bytes copied by the predecessor initializer: 00 13 ED 27 50 54 54 B0. Their full configuration meaning is open."
+  },
+  {
+   "address": 3814,
+   "type": "line",
+   "text": "Saves X at $53, calls KERNAL GETIN ($FFE4), restores X and loads Y from $52 while preserving the returned flags."
+  },
+  {
+   "address": 3826,
+   "type": "line",
+   "text": "Begins a color-memory/display routine: saves X, initializes pointer $84/$85 to $D800 and reads $81. The preserved code ends after LDA #$DB at $0EFF; bytes from $0F01 are fill, so this function is truncated."
+  },
+  {
+   "address": 3841,
+   "type": "line",
+   "text": "After the truncated predecessor routine: $0F01-$0F3F contains 63 $FF bytes, followed by 64 zero bytes at $0F40-$0F7F. The RLE decoder writes this tail. Predecessor callbacks into the fill no longer address complete executable handlers."
+  },
+  {
+   "address": 3968,
+   "type": "line",
+   "text": "Final 32 bytes before the title restart stub: $70 followed by 31 $FF bytes. These are reproduced by the RLE stream. The meaning of the isolated $70 is open; this is not treated as a complete predecessor routine."
   },
   {
    "address": 4000,
@@ -8165,7 +8775,7 @@
   {
    "address": 4669,
    "type": "line",
-   "text": "Purpose: Player state 1 jump curve and horizontal/vertical collision handling. Inputs: jump index $52, direction, coordinates, delta table. Outputs: moved player, landing/fall/room transition, item or death. Assumptions: the active phase is initialized and the stated inputs and state are valid. Clobbers: A,X,Y and player state. Hardware: tile probes read screen/color state."
+   "text": "Purpose: player state-1 jump handling, with direction, vertical delta and collision probes. An input-only fire pulse in the bathroom reached Y=84 from 104; every consecutive jump-state step matched $102D. No-input replay stayed at state 0/Y=104. Bathroom geometry changed the jump state at index 33, so the replay does not establish an unobstructed full-curve landing."
   },
   {
    "address": 4758,
@@ -8260,17 +8870,17 @@
   {
    "address": 5625,
    "type": "line",
-   "text": "Mutable item-scan coordinate temporaries written and compared by collect_item_if_present."
+   "text": "Low byte of the candidate screen address, copied from zero-page $07 by $1609/$160B. Compared against each item cell address at $162D/$162F. This is an address byte, not an X coordinate."
   },
   {
    "address": 5626,
    "type": "line",
-   "text": "Candidate item X coordinate used by collection scan."
+   "text": "High byte of the candidate screen address, copied from zero-page $08 by $160E/$1610. Compared against each item cell address at $1634/$1636. It is not an input Y coordinate."
   },
   {
    "address": 5627,
    "type": "line",
-   "text": "Candidate item Y coordinate used by collection scan.\nPurpose: Find a matching one of 80 item records, mark it taken, clear its cell, increment BCD count, and update display. Inputs: candidate coordinates $15F9-$15FA, room $0E. Outputs: item table, screen, $0401/$0400. Assumptions: the active phase is initialized and the stated inputs and state are valid. Clobbers: A,X,Y, decimal flag transiently. Hardware: writes VIC screen/color-visible memory; completion at decimal 50 only suppresses Maria."
+   "text": "Purpose: scan 80 item records for an untaken item in room $0E whose looked-up screen address equals the incoming $07/$08 pointer. Copies that pointer into $15F9/$15FA, marks a match $FF, clears its screen cell, increments packed-BCD $0401 and writes the two display digits. Only a resulting count exactly $50 sets Maria flag $0400. All 80 records and nine count/rejection cases matched native calls; this verifies controlled candidates, not routes to every item. Decimal mode is cleared before return."
   },
   {
    "address": 5768,
@@ -8685,7 +9295,7 @@
   {
    "address": 12932,
    "type": "line",
-   "text": "Purpose: Show/animate Maria in room 35 while completion flag $0400 is zero. Inputs: room ID, $0400, special phase. Outputs: sprite 7 state or omission. Assumptions: the active phase is initialized and the stated inputs and state are valid. Clobbers: A,X. Hardware: writes sprite 7. This is the only active read of the 50-item completion flag."
+   "text": "Purpose: update Maria sprite 7 only when flag $0400 is zero and room $0E is 35. A nonzero flag skips writes but does not clear an already enabled bit 7 in $D015; room initialization at $2E07 clears it. Five controlled room/flag/enable cases and a room reset matched. Player reachability of a fiftieth pickup with Maria already displayed remains open."
   },
   {
    "address": 13012,
@@ -8790,7 +9400,7 @@
   {
    "address": 14575,
    "type": "line",
-   "text": "Purpose: Play death sound/color effect, restore room-entry checkpoint, clear life icons, decrement $41, then rebuild room or enter game over on underflow. Inputs: checkpoint $57-$5E and lives $41. Outputs: respawn/game over. Assumptions: the active phase is initialized and the stated inputs and state are valid. Clobbers: A,X,Y and player/display/audio state. Hardware: writes SID, border color, collision latch, screen/sprites."
+   "text": "Purpose: perform death effect, restore the eight checkpoint fields at $57-$5E, decrement spare count $41 and branch on the resulting sign. $00-$7F after decrement enters room setup $2E07; $80-$FF enters game over $383B. All eight fields and input spare values 8,1,0,$80,$81,$FF matched controlled calls. High-value cases test arithmetic, not reachable extra lives."
   },
   {
    "address": 14723,
@@ -8898,6 +9508,11 @@
    "text": "High-byte operand base for the 20 little-endian row offsets at $3AE8-$3B0F. $3B42 reads this base plus twice the chosen row. The following two bytes at $3B10-$3B11 are outside the indexed table and their meaning is open."
   },
   {
+   "address": 15120,
+   "type": "line",
+   "text": "Additional row-offset word $0168, equal to 20 times 18. It continues the 18-byte stride sequence at $3AE8. The observed row selector rejects values >=20, so this final word is outside the selected indexes; no other consumer is established."
+  },
+  {
    "address": 15122,
    "type": "line",
    "text": "Samples SID oscillator-3 output, masks to five bits and rejects samples >= A. Called with $14 for the row and $12 for the column. No statistical distribution claim is made."
@@ -8971,6 +9586,11 @@
    "address": 15561,
    "type": "line",
    "text": "Repeatedly calls $3791 while decoded key count $43 is nonzero; then enables interrupts and returns."
+  },
+  {
+   "address": 16128,
+   "type": "line",
+   "text": "Retained helper: sets port $36, source $07/$08=$B000, destination $09/$0A=$2000 and copies 32 pages ascending, then sets port $37 and returns. An isolated clone at $0200 copied all 8192 source bytes exactly. The original address lies inside its destination range, so that controlled relocation does not establish safe execution from the retained address or identify its earlier caller."
   },
   {
    "address": 16384,
@@ -10795,12 +11415,12 @@
   {
    "address": 53248,
    "type": "line",
-   "text": "Retained PRG load-address word $1002 preceding the high-RAM bootstrap. The bootstrap instructions begin at $D002 and relocate their page-copy body into cassette-buffer RAM $0334 before copying high room records."
+   "text": "Retained word $1002 preceding the copy bootstrap at $D002. Its original file/header role is open. The CMM disk run reaches $3C23 through a different decompressor; no execution checkpoint at $D002 or $0334 fired on that boot, while the $3C23 control did."
   },
   {
    "address": 53250,
    "type": "line",
-   "text": "Initialization bootstrap: X=$15, Y=0; copy $D015-$D039 (37 bytes) to $0334-$0358, then JMP $0334. These are initialization-only instructions retained under I/O after the high-data move. A controlled live run of this retained entry verified the relocation and all 8192 moved data bytes, stopping before title entry $3C23."
+   "text": "Retained copy-bootstrap entry: relocates 37 bytes at $D015-$D039 to $0334-$0358 and jumps there. A controlled call copied 8192 bytes from $D100-$F0FF to $E000-$FFFF and returned via $3C23 with port $36. The observed CMM disk boot instead reaches $3C23 from the RLE decoder at $0140, with port $37; this retained bootstrap was not its executed hand-over path."
   },
   {
    "address": 53269,
@@ -10815,52 +11435,52 @@
   {
    "address": 53504,
    "type": "line",
-   "text": "Initialization source record for room 30, THE BANYAN TREE. The bootstrap copies this complete 256-byte record from $D100-$D1FF to $E000-$E0FF. Layout matches the playable room bank: title bytes $00-$1F, packed cell map $20-$9F, six eight-byte glyphs $A0-$CF and room fields thereafter. This source remains under I/O; destination glyphs can be changed during title setup or play, so compare records before treating the copies as immutable."
+   "text": "Retained copy-bootstrap source record for room 30. In the controlled bootstrap test, its 256 bytes copied to $E000-$E0FF. Title is at offsets $00-$1F, packed map at $20-$9F and six glyphs at $A0-$CF; parameters follow. The observed CMM disk boot initializes the playable room bank via its RLE decoder, not by executing this retained copy entry. Later glyph changes can make the source and playable copies differ."
   },
   {
    "address": 53760,
    "type": "line",
-   "text": "Initialization source record for room 31, SWIMMING POOL. The bootstrap copies this complete 256-byte record from $D200-$D2FF to $E100-$E1FF. Layout matches the playable room bank: title bytes $00-$1F, packed cell map $20-$9F, six eight-byte glyphs $A0-$CF and room fields thereafter. This source remains under I/O; destination glyphs can be changed during title setup or play, so compare records before treating the copies as immutable."
+   "text": "Retained copy-bootstrap source record for room 31. In the controlled bootstrap test, its 256 bytes copied to $E100-$E1FF. Title is at offsets $00-$1F, packed map at $20-$9F and six glyphs at $A0-$CF; parameters follow. The observed CMM disk boot initializes the playable room bank via its RLE decoder, not by executing this retained copy entry. Later glyph changes can make the source and playable copies differ."
   },
   {
    "address": 54016,
    "type": "line",
-   "text": "Initialization source record for room 32, HALFWAY UP THE EAST WALL. The bootstrap copies this complete 256-byte record from $D300-$D3FF to $E200-$E2FF. Layout matches the playable room bank: title bytes $00-$1F, packed cell map $20-$9F, six eight-byte glyphs $A0-$CF and room fields thereafter. This source remains under I/O; destination glyphs can be changed during title setup or play, so compare records before treating the copies as immutable."
+   "text": "Retained copy-bootstrap source record for room 32. In the controlled bootstrap test, its 256 bytes copied to $E200-$E2FF. Title is at offsets $00-$1F, packed map at $20-$9F and six glyphs at $A0-$CF; parameters follow. The observed CMM disk boot initializes the playable room bank via its RLE decoder, not by executing this retained copy entry. Later glyph changes can make the source and playable copies differ."
   },
   {
    "address": 54272,
    "type": "line",
-   "text": "Initialization source record for room 33, THE BATHROOM. The bootstrap copies this complete 256-byte record from $D400-$D4FF to $E300-$E3FF. Layout matches the playable room bank: title bytes $00-$1F, packed cell map $20-$9F, six eight-byte glyphs $A0-$CF and room fields thereafter. This source remains under I/O; destination glyphs can be changed during title setup or play, so compare records before treating the copies as immutable."
+   "text": "Retained copy-bootstrap source record for room 33. In the controlled bootstrap test, its 256 bytes copied to $E300-$E3FF. Title is at offsets $00-$1F, packed map at $20-$9F and six glyphs at $A0-$CF; parameters follow. The observed CMM disk boot initializes the playable room bank via its RLE decoder, not by executing this retained copy entry. Later glyph changes can make the source and playable copies differ."
   },
   {
    "address": 54528,
    "type": "line",
-   "text": "Initialization source record for room 34, TOP LANDING. The bootstrap copies this complete 256-byte record from $D500-$D5FF to $E400-$E4FF. Layout matches the playable room bank: title bytes $00-$1F, packed cell map $20-$9F, six eight-byte glyphs $A0-$CF and room fields thereafter. This source remains under I/O; destination glyphs can be changed during title setup or play, so compare records before treating the copies as immutable."
+   "text": "Retained copy-bootstrap source record for room 34. In the controlled bootstrap test, its 256 bytes copied to $E400-$E4FF. Title is at offsets $00-$1F, packed map at $20-$9F and six glyphs at $A0-$CF; parameters follow. The observed CMM disk boot initializes the playable room bank via its RLE decoder, not by executing this retained copy entry. Later glyph changes can make the source and playable copies differ."
   },
   {
    "address": 54784,
    "type": "line",
-   "text": "Initialization source record for room 35, MASTER BEDROOM. The bootstrap copies this complete 256-byte record from $D600-$D6FF to $E500-$E5FF. Layout matches the playable room bank: title bytes $00-$1F, packed cell map $20-$9F, six eight-byte glyphs $A0-$CF and room fields thereafter. This source remains under I/O; destination glyphs can be changed during title setup or play, so compare records before treating the copies as immutable."
+   "text": "Retained copy-bootstrap source record for room 35. In the controlled bootstrap test, its 256 bytes copied to $E500-$E5FF. Title is at offsets $00-$1F, packed map at $20-$9F and six glyphs at $A0-$CF; parameters follow. The observed CMM disk boot initializes the playable room bank via its RLE decoder, not by executing this retained copy entry. Later glyph changes can make the source and playable copies differ."
   },
   {
    "address": 55040,
    "type": "line",
-   "text": "Initialization source record for room 36, A BIT OF TREE. The bootstrap copies this complete 256-byte record from $D700-$D7FF to $E600-$E6FF. Layout matches the playable room bank: title bytes $00-$1F, packed cell map $20-$9F, six eight-byte glyphs $A0-$CF and room fields thereafter. This source remains under I/O; destination glyphs can be changed during title setup or play, so compare records before treating the copies as immutable."
+   "text": "Retained copy-bootstrap source record for room 36. In the controlled bootstrap test, its 256 bytes copied to $E600-$E6FF. Title is at offsets $00-$1F, packed map at $20-$9F and six glyphs at $A0-$CF; parameters follow. The observed CMM disk boot initializes the playable room bank via its RLE decoder, not by executing this retained copy entry. Later glyph changes can make the source and playable copies differ."
   },
   {
    "address": 55296,
    "type": "line",
-   "text": "Initialization source record for room 37, ORANGERY. The bootstrap copies this complete 256-byte record from $D800-$D8FF to $E700-$E7FF. Layout matches the playable room bank: title bytes $00-$1F, packed cell map $20-$9F, six eight-byte glyphs $A0-$CF and room fields thereafter. This source remains under I/O; destination glyphs can be changed during title setup or play, so compare records before treating the copies as immutable."
+   "text": "Retained copy-bootstrap source record for room 37. In the controlled bootstrap test, its 256 bytes copied to $E700-$E7FF. Title is at offsets $00-$1F, packed map at $20-$9F and six glyphs at $A0-$CF; parameters follow. The observed CMM disk boot initializes the playable room bank via its RLE decoder, not by executing this retained copy entry. Later glyph changes can make the source and playable copies differ."
   },
   {
    "address": 55552,
    "type": "line",
-   "text": "Initialization source record for room 38, PRIESTS' HOLE. The bootstrap copies this complete 256-byte record from $D900-$D9FF to $E800-$E8FF. Layout matches the playable room bank: title bytes $00-$1F, packed cell map $20-$9F, six eight-byte glyphs $A0-$CF and room fields thereafter. This source remains under I/O; destination glyphs can be changed during title setup or play, so compare records before treating the copies as immutable."
+   "text": "Retained copy-bootstrap source record for room 38. In the controlled bootstrap test, its 256 bytes copied to $E800-$E8FF. Title is at offsets $00-$1F, packed map at $20-$9F and six glyphs at $A0-$CF; parameters follow. The observed CMM disk boot initializes the playable room bank via its RLE decoder, not by executing this retained copy entry. Later glyph changes can make the source and playable copies differ."
   },
   {
    "address": 55808,
    "type": "line",
-   "text": "Initialization source record for room 39, EMERGENCY GENERATOR. The bootstrap copies this complete 256-byte record from $DA00-$DAFF to $E900-$E9FF. Layout matches the playable room bank: title bytes $00-$1F, packed cell map $20-$9F, six eight-byte glyphs $A0-$CF and room fields thereafter. This source remains under I/O; destination glyphs can be changed during title setup or play, so compare records before treating the copies as immutable."
+   "text": "Retained copy-bootstrap source record for room 39. In the controlled bootstrap test, its 256 bytes copied to $E900-$E9FF. Title is at offsets $00-$1F, packed map at $20-$9F and six glyphs at $A0-$CF; parameters follow. The observed CMM disk boot initializes the playable room bank via its RLE decoder, not by executing this retained copy entry. Later glyph changes can make the source and playable copies differ."
   },
   {
    "address": 55980,
@@ -10875,7 +11495,7 @@
   {
    "address": 56064,
    "type": "line",
-   "text": "Initialization source record for room 40, DR JONES WILL NEVER BELIEVE THIS. The bootstrap copies this complete 256-byte record from $DB00-$DBFF to $EA00-$EAFF. Layout matches the playable room bank: title bytes $00-$1F, packed cell map $20-$9F, six eight-byte glyphs $A0-$CF and room fields thereafter. This source remains under I/O; destination glyphs can be changed during title setup or play, so compare records before treating the copies as immutable."
+   "text": "Retained copy-bootstrap source record for room 40. In the controlled bootstrap test, its 256 bytes copied to $EA00-$EAFF. Title is at offsets $00-$1F, packed map at $20-$9F and six glyphs at $A0-$CF; parameters follow. The observed CMM disk boot initializes the playable room bank via its RLE decoder, not by executing this retained copy entry. Later glyph changes can make the source and playable copies differ."
   },
   {
    "address": 56176,
@@ -10905,22 +11525,22 @@
   {
    "address": 56320,
    "type": "line",
-   "text": "Initialization source record for room 41, THE ATTIC. The bootstrap copies this complete 256-byte record from $DC00-$DCFF to $EB00-$EBFF. Layout matches the playable room bank: title bytes $00-$1F, packed cell map $20-$9F, six eight-byte glyphs $A0-$CF and room fields thereafter. This source remains under I/O; destination glyphs can be changed during title setup or play, so compare records before treating the copies as immutable."
+   "text": "Retained copy-bootstrap source record for room 41. In the controlled bootstrap test, its 256 bytes copied to $EB00-$EBFF. Title is at offsets $00-$1F, packed map at $20-$9F and six glyphs at $A0-$CF; parameters follow. The observed CMM disk boot initializes the playable room bank via its RLE decoder, not by executing this retained copy entry. Later glyph changes can make the source and playable copies differ."
   },
   {
    "address": 56576,
    "type": "line",
-   "text": "Initialization source record for room 42, UNDER THE ROOF. The bootstrap copies this complete 256-byte record from $DD00-$DDFF to $EC00-$ECFF. Layout matches the playable room bank: title bytes $00-$1F, packed cell map $20-$9F, six eight-byte glyphs $A0-$CF and room fields thereafter. This source remains under I/O; destination glyphs can be changed during title setup or play, so compare records before treating the copies as immutable."
+   "text": "Retained copy-bootstrap source record for room 42. In the controlled bootstrap test, its 256 bytes copied to $EC00-$ECFF. Title is at offsets $00-$1F, packed map at $20-$9F and six glyphs at $A0-$CF; parameters follow. The observed CMM disk boot initializes the playable room bank via its RLE decoder, not by executing this retained copy entry. Later glyph changes can make the source and playable copies differ."
   },
   {
    "address": 56832,
    "type": "line",
-   "text": "Initialization source record for room 43, CONSERVATORY ROOF. The bootstrap copies this complete 256-byte record from $DE00-$DEFF to $ED00-$EDFF. Layout matches the playable room bank: title bytes $00-$1F, packed cell map $20-$9F, six eight-byte glyphs $A0-$CF and room fields thereafter. This source remains under I/O; destination glyphs can be changed during title setup or play, so compare records before treating the copies as immutable."
+   "text": "Retained copy-bootstrap source record for room 43. In the controlled bootstrap test, its 256 bytes copied to $ED00-$EDFF. Title is at offsets $00-$1F, packed map at $20-$9F and six glyphs at $A0-$CF; parameters follow. The observed CMM disk boot initializes the playable room bank via its RLE decoder, not by executing this retained copy entry. Later glyph changes can make the source and playable copies differ."
   },
   {
    "address": 57088,
    "type": "line",
-   "text": "Initialization source record for room 44, ON TOP OF THE HOUSE. The bootstrap copies this complete 256-byte record from $DF00-$DFFF to $EE00-$EEFF. Layout matches the playable room bank: title bytes $00-$1F, packed cell map $20-$9F, six eight-byte glyphs $A0-$CF and room fields thereafter. This source remains under I/O; destination glyphs can be changed during title setup or play, so compare records before treating the copies as immutable."
+   "text": "Retained copy-bootstrap source record for room 44. In the controlled bootstrap test, its 256 bytes copied to $EE00-$EEFF. Title is at offsets $00-$1F, packed map at $20-$9F and six glyphs at $A0-$CF; parameters follow. The observed CMM disk boot initializes the playable room bank via its RLE decoder, not by executing this retained copy entry. Later glyph changes can make the source and playable copies differ."
   },
   {
    "address": 57344,
@@ -11071,6 +11691,11 @@
    "address": 64768,
    "type": "line",
    "text": "Room 59: THE BOW. One 256-byte room record, copied to $0840 by $2E55. $20-$9F stores 32 by 16 terrain cells as four two-bit cells per byte, most-significant pair first; $A0-$CF holds six eight-byte tile glyphs. Up/down/left/right exits are 59, 59, 59, 58 at $DC-$DF. Guardian start/count and rope flag occupy $E0-$E2. Remaining room fields are decoded by the construction routines."
+  },
+  {
+   "address": 65280,
+   "type": "line",
+   "text": "Retained helper: clears LORAM in $01, copies 32 pages from $B000-$CFFF to $E000-$FFFF using pointers $FB/$FC and $FD/$FE, then sets LORAM again and returns. An isolated clone at $0200 copied all 8192 source bytes exactly and returned with port $37. Its retained address lies inside the destination; original phase/caller is open."
   }
  ]
 }
