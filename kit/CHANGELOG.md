@@ -12,7 +12,7 @@ Changes to the site, the folder layout, the delivery process, the prose
 style or the install mechanics are in the pull requests, not here.
 Versions that taught nothing of the kind do not appear.
 
-## next · 30 September 2026 · Fist II: The Legend Continues · unorig with Claude
+## 0.0.53 · 30 September 2026 · Fist II: The Legend Continues · unorig with Claude
 
 **A frame capture names every handler in an interrupt chain.** Fist II's
 raster handlers each write the next one's address into the vector, so a
