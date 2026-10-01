@@ -112,12 +112,32 @@
     41671,
     42819,
     "Bounded title ticker stream and its 40-character wrap look-ahead."
+   ],
+   [
+    14850,
+    15570,
+    "Retained loading-complete and copyright phase, with code/fields traced and checker tested live."
+   ],
+   [
+    4000,
+    4008,
+    "Retained title-entry banking trampoline tested live."
    ]
   ]
  },
  "blocks": [
   {
    "start": 0,
+   "end": 3999,
+   "type": "Byte"
+  },
+  {
+   "start": 4000,
+   "end": 4008,
+   "type": "Code"
+  },
+  {
+   "start": 4009,
    "end": 4049,
    "type": "Byte"
   },
@@ -273,11 +293,56 @@
   },
   {
    "start": 11351,
-   "end": 14849,
+   "end": 14944,
    "type": "Code"
   },
   {
-   "start": 14850,
+   "start": 14945,
+   "end": 14946,
+   "type": "Word"
+  },
+  {
+   "start": 14947,
+   "end": 15079,
+   "type": "Byte"
+  },
+  {
+   "start": 15080,
+   "end": 15119,
+   "type": "Word"
+  },
+  {
+   "start": 15120,
+   "end": 15121,
+   "type": "Byte"
+  },
+  {
+   "start": 15122,
+   "end": 15448,
+   "type": "Code"
+  },
+  {
+   "start": 15449,
+   "end": 15466,
+   "type": "Byte"
+  },
+  {
+   "start": 15467,
+   "end": 15502,
+   "type": "Code"
+  },
+  {
+   "start": 15503,
+   "end": 15542,
+   "type": "Byte"
+  },
+  {
+   "start": 15543,
+   "end": 15570,
+   "type": "Code"
+  },
+  {
+   "start": 15571,
    "end": 40959,
    "type": "Byte"
   },
@@ -1158,6 +1223,30 @@
    "kind": "user"
   },
   {
+   "address": 1070,
+   "name": "f_042E",
+   "type": "Field",
+   "kind": "auto"
+  },
+  {
+   "address": 1098,
+   "name": "a_044A",
+   "type": "AbsoluteAddress",
+   "kind": "auto"
+  },
+  {
+   "address": 1099,
+   "name": "a_044B",
+   "type": "AbsoluteAddress",
+   "kind": "auto"
+  },
+  {
+   "address": 1100,
+   "name": "a_044C",
+   "type": "AbsoluteAddress",
+   "kind": "auto"
+  },
+  {
    "address": 1280,
    "name": "JSW_State_staged_rope_sprites",
    "type": "UserDefined",
@@ -1389,6 +1478,12 @@
    "address": 2441,
    "name": "annotation_0989",
    "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 4000,
+   "name": "BOOTSTRAP_ENTER_TITLE_STUB",
+   "type": "Jump",
    "kind": "user"
   },
   {
@@ -3918,10 +4013,322 @@
    "kind": "user"
   },
   {
-   "address": 15395,
-   "name": "j_3C23",
+   "address": 14850,
+   "name": "COPYRIGHT_LOADING_COMPLETE",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 14881,
+   "name": "b_3A21",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 14924,
+   "name": "b_3A4C",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 14935,
+   "name": "COPYRIGHT_WAIT_FOR_KEY",
+   "type": "Subroutine",
+   "kind": "user"
+  },
+  {
+   "address": 14936,
+   "name": "b_3A58",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 14945,
+   "name": "COPYRIGHT_COLOR_SOURCE_BASE",
+   "type": "AbsoluteAddress",
+   "kind": "user"
+  },
+  {
+   "address": 14946,
+   "name": "a_3A62",
+   "type": "AbsoluteAddress",
+   "kind": "auto"
+  },
+  {
+   "address": 14947,
+   "name": "COPYRIGHT_SPRITE_COORDINATES",
+   "type": "Field",
+   "kind": "user"
+  },
+  {
+   "address": 14963,
+   "name": "COPYRIGHT_ENTERED_DIGIT_INDEX",
+   "type": "AbsoluteAddress",
+   "kind": "user"
+  },
+  {
+   "address": 14964,
+   "name": "COPYRIGHT_SPRITE_COLORS",
+   "type": "Field",
+   "kind": "user"
+  },
+  {
+   "address": 14972,
+   "name": "COPYRIGHT_RETRY_FLAG",
+   "type": "AbsoluteAddress",
+   "kind": "user"
+  },
+  {
+   "address": 14973,
+   "name": "COPYRIGHT_ENTERED_COLORS",
+   "type": "Field",
+   "kind": "user"
+  },
+  {
+   "address": 14977,
+   "name": "COPYRIGHT_EXPECTED_COLORS",
+   "type": "Field",
+   "kind": "user"
+  },
+  {
+   "address": 14981,
+   "name": "COPYRIGHT_RANDOM_BOUND",
+   "type": "AbsoluteAddress",
+   "kind": "user"
+  },
+  {
+   "address": 14982,
+   "name": "COPYRIGHT_SELECTED_ROW",
+   "type": "AbsoluteAddress",
+   "kind": "user"
+  },
+  {
+   "address": 14983,
+   "name": "COPYRIGHT_SELECTED_COLUMN",
+   "type": "AbsoluteAddress",
+   "kind": "user"
+  },
+  {
+   "address": 14984,
+   "name": "COPYRIGHT_FIRST_PROMPT",
+   "type": "Field",
+   "kind": "user"
+  },
+  {
+   "address": 15012,
+   "name": "COPYRIGHT_RETRY_PROMPT",
+   "type": "Field",
+   "kind": "user"
+  },
+  {
+   "address": 15040,
+   "name": "COPYRIGHT_ROW_LABELS",
+   "type": "Field",
+   "kind": "user"
+  },
+  {
+   "address": 15041,
+   "name": "f_3AC1",
+   "type": "Field",
+   "kind": "auto"
+  },
+  {
+   "address": 15080,
+   "name": "COPYRIGHT_ROW_OFFSETS",
+   "type": "Field",
+   "kind": "user"
+  },
+  {
+   "address": 15081,
+   "name": "f_3AE9",
+   "type": "Field",
+   "kind": "auto"
+  },
+  {
+   "address": 15122,
+   "name": "COPYRIGHT_RANDOM_BELOW_BOUND",
+   "type": "Subroutine",
+   "kind": "user"
+  },
+  {
+   "address": 15125,
+   "name": "b_3B15",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 15136,
+   "name": "COPYRIGHT_SELECT_CODE",
+   "type": "Jump",
+   "kind": "user"
+  },
+  {
+   "address": 15141,
+   "name": "b_3B25",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 15219,
+   "name": "b_3B73",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 15231,
+   "name": "b_3B7F",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 15242,
+   "name": "b_3B8A",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 15245,
+   "name": "j_3B8D",
    "type": "Jump",
    "kind": "auto"
+  },
+  {
+   "address": 15252,
+   "name": "b_3B94",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 15291,
+   "name": "b_3BBB",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 15311,
+   "name": "COPYRIGHT_POLL_INPUT",
+   "type": "Branch",
+   "kind": "user"
+  },
+  {
+   "address": 15360,
+   "name": "COPYRIGHT_ADVANCE_INPUT_SLOT",
+   "type": "Branch",
+   "kind": "user"
+  },
+  {
+   "address": 15361,
+   "name": "b_3C01",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 15395,
+   "name": "COPYRIGHT_COMPARE_ENTERED_CODE",
+   "type": "Branch",
+   "kind": "user"
+  },
+  {
+   "address": 15397,
+   "name": "b_3C25",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 15407,
+   "name": "b_3C2F",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 15418,
+   "name": "COPYRIGHT_ACCEPT_CODE",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 15427,
+   "name": "b_3C43",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 15438,
+   "name": "COPYRIGHT_REJECT_CODE",
+   "type": "Branch",
+   "kind": "user"
+  },
+  {
+   "address": 15449,
+   "name": "COPYRIGHT_FAILURE_CARTRIDGE_HEADER",
+   "type": "Field",
+   "kind": "user"
+  },
+  {
+   "address": 15458,
+   "name": "COPYRIGHT_SUCCESS_CARTRIDGE_HEADER",
+   "type": "Field",
+   "kind": "user"
+  },
+  {
+   "address": 15467,
+   "name": "COPYRIGHT_PERMANENT_FAILURE",
+   "type": "Branch",
+   "kind": "user"
+  },
+  {
+   "address": 15479,
+   "name": "COPYRIGHT_INSTALL_FAILURE_HEADER",
+   "type": "Subroutine",
+   "kind": "user"
+  },
+  {
+   "address": 15481,
+   "name": "b_3C79",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 15491,
+   "name": "COPYRIGHT_INSTALL_SUCCESS_HEADER",
+   "type": "Subroutine",
+   "kind": "user"
+  },
+  {
+   "address": 15493,
+   "name": "b_3C85",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 15503,
+   "name": "COPYRIGHT_LOADING_MESSAGE",
+   "type": "Field",
+   "kind": "user"
+  },
+  {
+   "address": 15543,
+   "name": "COPYRIGHT_DRAW_LOADING_MESSAGE",
+   "type": "Subroutine",
+   "kind": "user"
+  },
+  {
+   "address": 15545,
+   "name": "b_3CB9",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 15554,
+   "name": "b_3CC2",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 15561,
+   "name": "COPYRIGHT_WAIT_FOR_KEY_RELEASE",
+   "type": "Subroutine",
+   "kind": "user"
   },
   {
    "address": 16384,
@@ -7551,6 +7958,11 @@
    "text": "Seven bytes of current guardian moving coordinates."
   },
   {
+   "address": 4000,
+   "type": "line",
+   "text": "Restart stub: reads $01, clears LORAM bit 0 with AND $FE, writes it back and JMP $A000. RESTORE reaches it with DDR $2F and port $36, so RAM title code is visible. A CPU reset reaches it with DDR $00 and read port $17; the write cannot drive the banking pins, so $A000 reads BASIC ROM (94 E3 7B) instead of RAM title JMP $A744 (4C 44 A7). Both paths were tested live, with a reset-entry control at $FCE2."
+  },
+  {
    "address": 4050,
    "type": "line",
    "text": "Purpose: Route right-edge collision according to player state. Inputs: player state $33. Outputs: jump state continues at $1372; other states return through $1021. Assumptions: the active phase is initialized and the stated inputs and state are valid. Clobbers: A and flags. Hardware: none."
@@ -8389,6 +8801,176 @@
    "address": 14833,
    "type": "line",
    "text": "Purpose: Toggle gameplay music when Return is detected after item rendering. Inputs: decoded input and music flag $35. Outputs: $35 and SID volume/mute state. Assumptions: the active phase is initialized and the stated inputs and state are valid. Clobbers: A and flags. Hardware: writes SID master volume as needed; falls back to main loop."
+  },
+  {
+   "address": 14850,
+   "type": "line",
+   "text": "Retained loading-complete entry: installs failure cartridge vectors via $3C77, clears the KERNAL screen, initializes voice 3 and prints the message at $3C8F. It waits for a decoded key through $3A57, then enters the four-color code prompt at $3B20. This predecessor phase is separate from initialized gameplay."
+  },
+  {
+   "address": 14935,
+   "type": "line",
+   "text": "Waits until keyboard scanner $3791 reports nonzero key count in $43. The scan runs with interrupts disabled; CLI precedes RTS."
+  },
+  {
+   "address": 14945,
+   "type": "line",
+   "text": "Little-endian base word used at $3B65/$3B6C to fetch four expected color indexes. The captured image contains $2C57, inside the gameplay initializer. Do not substitute a protection-sheet table from another release; the origin of this captured base remains open."
+  },
+  {
+   "address": 14946,
+   "type": "line",
+   "text": "High byte of the expected-color base word at $3A61. $3B6C adds it, with carry, to the high byte of four times the selected row/column cell offset."
+  },
+  {
+   "address": 14947,
+   "type": "line",
+   "text": "Eight bytes loaded into sprite 0-3 X/Y registers at $3BC1/$3BC4; the X bytes are also used by the current-digit cursor at $3C15."
+  },
+  {
+   "address": 14963,
+   "type": "line",
+   "text": "Current input slot, incremented and masked to 0-3 at $3C08-$3C10. Values entered with keys 1-4 are stored at $3A7D plus this index."
+  },
+  {
+   "address": 14964,
+   "type": "line",
+   "text": "Eight sprite colors loaded at $3BBB; the first four are selected again when keys 1-4 enter their corresponding color indexes."
+  },
+  {
+   "address": 14972,
+   "type": "line",
+   "text": "Zero at the initial loading-complete entry. A failed full code increments it then retries once; a subsequent failure branches to the permanent red-screen loop $3C6B."
+  },
+  {
+   "address": 14973,
+   "type": "line",
+   "text": "Four entered color indexes. Initialization writes $FF for unset slots. $3C23 first rejects any negative byte as incomplete, then compares all four bytes with $3A81-$3A84. Positive, four individual mismatches and one unset-slot case were checked live."
+  },
+  {
+   "address": 14977,
+   "type": "line",
+   "text": "Four expected values fetched indirectly by $3B73, each masked with $03. The captured checker accepts exactly these four bytes in order."
+  },
+  {
+   "address": 14981,
+   "type": "line",
+   "text": "Upper bound saved by $3B12; oscillator-3 samples are masked with $1F and retried while greater than or equal to this bound."
+  },
+  {
+   "address": 14982,
+   "type": "line",
+   "text": "Selected row 0-19 from $3B35. Its table offset is read from $3AE8 and its displayed row label from $3AC0."
+  },
+  {
+   "address": 14983,
+   "type": "line",
+   "text": "Selected column 0-17 from $3B49. Added to the row offset, multiplied by four and added to the captured base at $3A61."
+  },
+  {
+   "address": 14984,
+   "type": "line",
+   "text": "28-byte first-attempt prompt drawn by $3B84-$3B98 into $042E-$0449, with uppercase ASCII converted to screen codes."
+  },
+  {
+   "address": 15012,
+   "type": "line",
+   "text": "28-byte retry prompt selected when $3A7C is nonzero; drawn into the same screen cells as the first prompt."
+  },
+  {
+   "address": 15040,
+   "type": "line",
+   "text": "20 two-byte row labels, selected at $3BA8 by twice the chosen row and written to screen cells $044B-$044C."
+  },
+  {
+   "address": 15041,
+   "type": "line",
+   "text": "Second-byte operand base for the 20 two-character row labels at $3AC0-$3AE7. $3BAE reads this base plus twice the selected row and writes the right-hand displayed character."
+  },
+  {
+   "address": 15080,
+   "type": "line",
+   "text": "20 little-endian offsets indexed by twice the selected row at $3B3D/$3B42. The selected column is added before multiplying by four."
+  },
+  {
+   "address": 15081,
+   "type": "line",
+   "text": "High-byte operand base for the 20 little-endian row offsets at $3AE8-$3B0F. $3B42 reads this base plus twice the chosen row. The following two bytes at $3B10-$3B11 are outside the indexed table and their meaning is open."
+  },
+  {
+   "address": 15122,
+   "type": "line",
+   "text": "Samples SID oscillator-3 output, masks to five bits and rejects samples >= A. Called with $14 for the row and $12 for the column. No statistical distribution claim is made."
+  },
+  {
+   "address": 15136,
+   "type": "line",
+   "text": "Waits for keys to clear, resets entered slots to $FF, selects the row/column and fetches four two-bit color values. Draws the prompt and sprite-based input display, then polls keys 1-4 and Return."
+  },
+  {
+   "address": 15311,
+   "type": "line",
+   "text": "Accepts a single decoded key: Return enters $3C23; keys 1-4 store indexes 0-3 at the current slot and update its sprite pointer/color. Other keys return to polling."
+  },
+  {
+   "address": 15360,
+   "type": "line",
+   "text": "Waits until no key is held, advances the slot modulo four, moves the cursor and resumes code input. An incomplete Return check also branches here."
+  },
+  {
+   "address": 15395,
+   "type": "line",
+   "text": "First tests all four entered bytes with BMI for unset slots, then compares them in reverse index order against the four expected bytes. Exact match reaches $3C3A; any mismatch reaches $3C4E. Six controlled live cases agreed."
+  },
+  {
+   "address": 15418,
+   "type": "line",
+   "text": "Installs success cartridge vectors via $3C83, waits for key release, clears five decoded-key bytes and jumps through $0FA0 with interrupts disabled."
+  },
+  {
+   "address": 15438,
+   "type": "line",
+   "text": "On the first failure sets the retry flag and re-enters $3B20. With a nonzero retry flag, branches directly to the red-screen failure loop."
+  },
+  {
+   "address": 15449,
+   "type": "line",
+   "text": "Nine-byte cartridge header copied to $8000 by $3C77: both entry vectors point to $3C6B, followed by the CBM80 signature."
+  },
+  {
+   "address": 15458,
+   "type": "line",
+   "text": "Nine-byte cartridge header copied to $8000 by $3C83: both entry vectors point to $0FA0, followed by the CBM80 signature. All nine copied bytes matched in a controlled live call."
+  },
+  {
+   "address": 15467,
+   "type": "line",
+   "text": "SEI, sets background and border to color 2, then loops to itself. This is the target of the retained failure cartridge entry vectors."
+  },
+  {
+   "address": 15479,
+   "type": "line",
+   "text": "Copies nine bytes from $3C59-$3C61 into $8000-$8008, descending X=8..0, then returns."
+  },
+  {
+   "address": 15491,
+   "type": "line",
+   "text": "Copies nine bytes from $3C62-$3C6A into $8000-$8008, descending X=8..0. Live output matched the entire source header."
+  },
+  {
+   "address": 15503,
+   "type": "line",
+   "text": "40-byte ASCII loading-complete message. $3CB7 copies it to $0400-$0427, converting uppercase letters with AND $1F."
+  },
+  {
+   "address": 15543,
+   "type": "line",
+   "text": "Draws the 40-byte message at $3C8F into KERNAL screen RAM $0400, from X=39 down to zero, converting uppercase ASCII to screen codes."
+  },
+  {
+   "address": 15561,
+   "type": "line",
+   "text": "Repeatedly calls $3791 while decoded key count $43 is nonzero; then enables interrupts and returns."
   },
   {
    "address": 16384,
