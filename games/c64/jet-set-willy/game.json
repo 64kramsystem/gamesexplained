@@ -43,9 +43,25 @@
         "$E000",
         "$FDFF",
         "Room records 30\u201359"
+      ],
+      [
+        "$8100",
+        "$9A7F",
+        "All 102 rope sprites consumed as 34 triplets by $16DE, individually labelled and checked live."
       ]
     ],
-    "include": [],
+    "include": [
+      [
+        "$D000",
+        "$D039",
+        "Retained initialization bootstrap and its PRG load address"
+      ],
+      [
+        "$D100",
+        "$DFFF",
+        "Initialization source copies of high-bank room records 30-44"
+      ]
+    ],
     "exclude": [
       [
         "$0000",
@@ -96,6 +112,11 @@
         "$79D8",
         "$79DF",
         "Runtime spare-life animation glyph"
+      ],
+      [
+        "$D03A",
+        "$D0FF",
+        "Gap after bootstrap copy body and before first room source; neither bounded bootstrap copy consumes it"
       ]
     ]
   },

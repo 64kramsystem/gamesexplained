@@ -12,8 +12,8 @@
     "stack"
    ],
    [
-    53248,
-    57343,
+    53306,
+    53503,
     "I/O and colour RAM"
    ],
    [
@@ -70,6 +70,11 @@
     31192,
     31199,
     "Runtime spare-life animation glyph"
+   ],
+   [
+    53306,
+    53503,
+    "Gap after bootstrap copy body and before first room source; neither bounded bootstrap copy consumes it"
    ]
   ],
   "extra": [
@@ -92,6 +97,11 @@
     57344,
     65023,
     "Room records 30\u201359"
+   ],
+   [
+    33024,
+    39551,
+    "All 102 rope sprites consumed as 34 triplets by $16DE, individually labelled and checked live."
    ]
   ]
  },
@@ -313,6 +323,21 @@
   },
   {
    "start": 43669,
+   "end": 53247,
+   "type": "Byte"
+  },
+  {
+   "start": 53248,
+   "end": 53249,
+   "type": "Word"
+  },
+  {
+   "start": 53250,
+   "end": 53305,
+   "type": "Code"
+  },
+  {
+   "start": 53306,
    "end": 65535,
    "type": "Byte"
   }
@@ -1037,6 +1062,30 @@
    "name": "C64_WORKSPACE_NMI_RAM_VECTOR",
    "type": "UserDefined",
    "kind": "user"
+  },
+  {
+   "address": 820,
+   "name": "f_0334",
+   "type": "Field",
+   "kind": "auto"
+  },
+  {
+   "address": 822,
+   "name": "j_0336",
+   "type": "Jump",
+   "kind": "auto"
+  },
+  {
+   "address": 838,
+   "name": "a_0346",
+   "type": "AbsoluteAddress",
+   "kind": "auto"
+  },
+  {
+   "address": 841,
+   "name": "a_0349",
+   "type": "AbsoluteAddress",
+   "kind": "auto"
   },
   {
    "address": 1024,
@@ -3859,6 +3908,12 @@
    "kind": "user"
   },
   {
+   "address": 15395,
+   "name": "j_3C23",
+   "type": "Jump",
+   "kind": "auto"
+  },
+  {
    "address": 16384,
    "name": "sprite_frame_000",
    "type": "UserDefined",
@@ -5186,13 +5241,613 @@
   },
   {
    "address": 33024,
-   "name": "JSW_State_rope_source_sprites",
+   "name": "ROPE_POSITION_00_SEGMENT_0",
    "type": "UserDefined",
    "kind": "user"
   },
   {
    "address": 33088,
-   "name": "annotation_8140",
+   "name": "ROPE_POSITION_00_SEGMENT_1",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 33152,
+   "name": "ROPE_POSITION_00_SEGMENT_2",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 33216,
+   "name": "ROPE_POSITION_01_SEGMENT_0",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 33280,
+   "name": "ROPE_POSITION_01_SEGMENT_1",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 33344,
+   "name": "ROPE_POSITION_01_SEGMENT_2",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 33408,
+   "name": "ROPE_POSITION_02_SEGMENT_0",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 33472,
+   "name": "ROPE_POSITION_02_SEGMENT_1",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 33536,
+   "name": "ROPE_POSITION_02_SEGMENT_2",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 33600,
+   "name": "ROPE_POSITION_03_SEGMENT_0",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 33664,
+   "name": "ROPE_POSITION_03_SEGMENT_1",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 33728,
+   "name": "ROPE_POSITION_03_SEGMENT_2",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 33792,
+   "name": "ROPE_POSITION_04_SEGMENT_0",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 33856,
+   "name": "ROPE_POSITION_04_SEGMENT_1",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 33920,
+   "name": "ROPE_POSITION_04_SEGMENT_2",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 33984,
+   "name": "ROPE_POSITION_05_SEGMENT_0",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 34048,
+   "name": "ROPE_POSITION_05_SEGMENT_1",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 34112,
+   "name": "ROPE_POSITION_05_SEGMENT_2",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 34176,
+   "name": "ROPE_POSITION_06_SEGMENT_0",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 34240,
+   "name": "ROPE_POSITION_06_SEGMENT_1",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 34304,
+   "name": "ROPE_POSITION_06_SEGMENT_2",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 34368,
+   "name": "ROPE_POSITION_07_SEGMENT_0",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 34432,
+   "name": "ROPE_POSITION_07_SEGMENT_1",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 34496,
+   "name": "ROPE_POSITION_07_SEGMENT_2",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 34560,
+   "name": "ROPE_POSITION_08_SEGMENT_0",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 34624,
+   "name": "ROPE_POSITION_08_SEGMENT_1",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 34688,
+   "name": "ROPE_POSITION_08_SEGMENT_2",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 34752,
+   "name": "ROPE_POSITION_09_SEGMENT_0",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 34816,
+   "name": "ROPE_POSITION_09_SEGMENT_1",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 34880,
+   "name": "ROPE_POSITION_09_SEGMENT_2",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 34944,
+   "name": "ROPE_POSITION_10_SEGMENT_0",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 35008,
+   "name": "ROPE_POSITION_10_SEGMENT_1",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 35072,
+   "name": "ROPE_POSITION_10_SEGMENT_2",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 35136,
+   "name": "ROPE_POSITION_11_SEGMENT_0",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 35200,
+   "name": "ROPE_POSITION_11_SEGMENT_1",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 35264,
+   "name": "ROPE_POSITION_11_SEGMENT_2",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 35328,
+   "name": "ROPE_POSITION_12_SEGMENT_0",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 35392,
+   "name": "ROPE_POSITION_12_SEGMENT_1",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 35456,
+   "name": "ROPE_POSITION_12_SEGMENT_2",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 35520,
+   "name": "ROPE_POSITION_13_SEGMENT_0",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 35584,
+   "name": "ROPE_POSITION_13_SEGMENT_1",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 35648,
+   "name": "ROPE_POSITION_13_SEGMENT_2",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 35712,
+   "name": "ROPE_POSITION_14_SEGMENT_0",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 35776,
+   "name": "ROPE_POSITION_14_SEGMENT_1",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 35840,
+   "name": "ROPE_POSITION_14_SEGMENT_2",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 35904,
+   "name": "ROPE_POSITION_15_SEGMENT_0",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 35968,
+   "name": "ROPE_POSITION_15_SEGMENT_1",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 36032,
+   "name": "ROPE_POSITION_15_SEGMENT_2",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 36096,
+   "name": "ROPE_POSITION_16_SEGMENT_0",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 36160,
+   "name": "ROPE_POSITION_16_SEGMENT_1",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 36224,
+   "name": "ROPE_POSITION_16_SEGMENT_2",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 36288,
+   "name": "ROPE_POSITION_17_SEGMENT_0",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 36352,
+   "name": "ROPE_POSITION_17_SEGMENT_1",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 36416,
+   "name": "ROPE_POSITION_17_SEGMENT_2",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 36480,
+   "name": "ROPE_POSITION_18_SEGMENT_0",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 36544,
+   "name": "ROPE_POSITION_18_SEGMENT_1",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 36608,
+   "name": "ROPE_POSITION_18_SEGMENT_2",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 36672,
+   "name": "ROPE_POSITION_19_SEGMENT_0",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 36736,
+   "name": "ROPE_POSITION_19_SEGMENT_1",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 36800,
+   "name": "ROPE_POSITION_19_SEGMENT_2",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 36864,
+   "name": "ROPE_POSITION_20_SEGMENT_0",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 36928,
+   "name": "ROPE_POSITION_20_SEGMENT_1",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 36992,
+   "name": "ROPE_POSITION_20_SEGMENT_2",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 37056,
+   "name": "ROPE_POSITION_21_SEGMENT_0",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 37120,
+   "name": "ROPE_POSITION_21_SEGMENT_1",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 37184,
+   "name": "ROPE_POSITION_21_SEGMENT_2",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 37248,
+   "name": "ROPE_POSITION_22_SEGMENT_0",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 37312,
+   "name": "ROPE_POSITION_22_SEGMENT_1",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 37376,
+   "name": "ROPE_POSITION_22_SEGMENT_2",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 37440,
+   "name": "ROPE_POSITION_23_SEGMENT_0",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 37504,
+   "name": "ROPE_POSITION_23_SEGMENT_1",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 37568,
+   "name": "ROPE_POSITION_23_SEGMENT_2",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 37632,
+   "name": "ROPE_POSITION_24_SEGMENT_0",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 37696,
+   "name": "ROPE_POSITION_24_SEGMENT_1",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 37760,
+   "name": "ROPE_POSITION_24_SEGMENT_2",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 37824,
+   "name": "ROPE_POSITION_25_SEGMENT_0",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 37888,
+   "name": "ROPE_POSITION_25_SEGMENT_1",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 37952,
+   "name": "ROPE_POSITION_25_SEGMENT_2",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 38016,
+   "name": "ROPE_POSITION_26_SEGMENT_0",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 38080,
+   "name": "ROPE_POSITION_26_SEGMENT_1",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 38144,
+   "name": "ROPE_POSITION_26_SEGMENT_2",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 38208,
+   "name": "ROPE_POSITION_27_SEGMENT_0",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 38272,
+   "name": "ROPE_POSITION_27_SEGMENT_1",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 38336,
+   "name": "ROPE_POSITION_27_SEGMENT_2",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 38400,
+   "name": "ROPE_POSITION_28_SEGMENT_0",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 38464,
+   "name": "ROPE_POSITION_28_SEGMENT_1",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 38528,
+   "name": "ROPE_POSITION_28_SEGMENT_2",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 38592,
+   "name": "ROPE_POSITION_29_SEGMENT_0",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 38656,
+   "name": "ROPE_POSITION_29_SEGMENT_1",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 38720,
+   "name": "ROPE_POSITION_29_SEGMENT_2",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 38784,
+   "name": "ROPE_POSITION_30_SEGMENT_0",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 38848,
+   "name": "ROPE_POSITION_30_SEGMENT_1",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 38912,
+   "name": "ROPE_POSITION_30_SEGMENT_2",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 38976,
+   "name": "ROPE_POSITION_31_SEGMENT_0",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 39040,
+   "name": "ROPE_POSITION_31_SEGMENT_1",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 39104,
+   "name": "ROPE_POSITION_31_SEGMENT_2",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 39168,
+   "name": "ROPE_POSITION_32_SEGMENT_0",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 39232,
+   "name": "ROPE_POSITION_32_SEGMENT_1",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 39296,
+   "name": "ROPE_POSITION_32_SEGMENT_2",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 39360,
+   "name": "ROPE_POSITION_33_SEGMENT_0",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 39424,
+   "name": "ROPE_POSITION_33_SEGMENT_1",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 39488,
+   "name": "ROPE_POSITION_33_SEGMENT_2",
    "type": "UserDefined",
    "kind": "user"
   },
@@ -5876,27 +6531,87 @@
   },
   {
    "address": 53248,
-   "name": "annotation_d000",
+   "name": "BOOTSTRAP_PRG_LOAD_ADDRESS",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 53250,
+   "name": "BOOTSTRAP_RELOCATE_COPY_ROUTINE",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 53269,
+   "name": "BOOTSTRAP_HIGH_ROOM_COPY_BODY",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 53298,
+   "name": "BOOTSTRAP_ENTER_TITLE",
+   "type": "Branch",
+   "kind": "user"
+  },
+  {
+   "address": 53504,
+   "name": "INITIAL_HIGH_ROOM_30",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 53760,
+   "name": "INITIAL_HIGH_ROOM_31",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 54016,
+   "name": "INITIAL_HIGH_ROOM_32",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 54272,
+   "name": "INITIAL_HIGH_ROOM_33",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 54528,
+   "name": "INITIAL_HIGH_ROOM_34",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 54784,
+   "name": "INITIAL_HIGH_ROOM_35",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 55040,
+   "name": "INITIAL_HIGH_ROOM_36",
    "type": "UserDefined",
    "kind": "user"
   },
   {
    "address": 55296,
-   "name": "f_D800",
+   "name": "INITIAL_HIGH_ROOM_37",
    "type": "Field",
-   "kind": "auto"
+   "kind": "user"
   },
   {
    "address": 55552,
-   "name": "f_D900",
+   "name": "INITIAL_HIGH_ROOM_38",
    "type": "Field",
-   "kind": "auto"
+   "kind": "user"
   },
   {
    "address": 55808,
-   "name": "f_DA00",
+   "name": "INITIAL_HIGH_ROOM_39",
    "type": "Field",
-   "kind": "auto"
+   "kind": "user"
   },
   {
    "address": 55980,
@@ -5909,6 +6624,12 @@
    "name": "f_DAF8",
    "type": "Field",
    "kind": "auto"
+  },
+  {
+   "address": 56064,
+   "name": "INITIAL_HIGH_ROOM_40",
+   "type": "UserDefined",
+   "kind": "user"
   },
   {
    "address": 56176,
@@ -5933,6 +6654,30 @@
    "name": "f_DB99",
    "type": "Field",
    "kind": "auto"
+  },
+  {
+   "address": 56320,
+   "name": "INITIAL_HIGH_ROOM_41",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 56576,
+   "name": "INITIAL_HIGH_ROOM_42",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 56832,
+   "name": "INITIAL_HIGH_ROOM_43",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 57088,
+   "name": "INITIAL_HIGH_ROOM_44",
+   "type": "UserDefined",
+   "kind": "user"
   },
   {
    "address": 57344,
@@ -8521,32 +9266,532 @@
   {
    "address": 32000,
    "type": "line",
-   "text": "Title/game screen RAM in VIC bank 1."
+   "text": "Second 256-byte page of VIC screen RAM at $7C00-$7FFF."
   },
   {
    "address": 32256,
    "type": "line",
-   "text": "Second 256-byte page of VIC screen RAM at $7C00-$7FFF."
+   "text": "Third 256-byte page of VIC screen RAM at $7C00-$7FFF."
   },
   {
    "address": 32512,
    "type": "line",
-   "text": "Third 256-byte page of VIC screen RAM at $7C00-$7FFF."
+   "text": "Fourth 256-byte page of VIC screen RAM at $7C00-$7FFF."
   },
   {
    "address": 32768,
    "type": "line",
-   "text": "Fourth 256-byte page of VIC screen RAM at $7C00-$7FFF."
+   "text": "Nine-byte scratch area overwritten from $3C62-$3C6A by the copyright-success routine at $3C83. This is outside the VIC screen at $7C00-$7FFF; the imported fourth-screen-page comment was displaced onto this address."
   },
   {
    "address": 33024,
    "type": "line",
-   "text": "102 rope source sprites: 34 oscillator positions times three rope segments."
+   "text": "Rope oscillator position 0, segment 0: 21 three-byte sprite rows and one alignment byte. Pointer 0x1856 selects the three adjacent 64-byte segments; $16DE copies the complete 192-byte triplet to $0500-$05BF for the raster IRQ. All 34 valid positions were checked against the native staging loop."
   },
   {
    "address": 33088,
    "type": "line",
-   "text": "102 rope source sprites, 34 positions times three segments."
+   "text": "Rope oscillator position 0, segment 1: 21 three-byte sprite rows and one alignment byte. Pointer 0x1856 selects the three adjacent 64-byte segments; $16DE copies the complete 192-byte triplet to $0500-$05BF for the raster IRQ. All 34 valid positions were checked against the native staging loop."
+  },
+  {
+   "address": 33152,
+   "type": "line",
+   "text": "Rope oscillator position 0, segment 2: 21 three-byte sprite rows and one alignment byte. Pointer 0x1856 selects the three adjacent 64-byte segments; $16DE copies the complete 192-byte triplet to $0500-$05BF for the raster IRQ. All 34 valid positions were checked against the native staging loop."
+  },
+  {
+   "address": 33216,
+   "type": "line",
+   "text": "Rope oscillator position 1, segment 0: 21 three-byte sprite rows and one alignment byte. Pointer 0x1858 selects the three adjacent 64-byte segments; $16DE copies the complete 192-byte triplet to $0500-$05BF for the raster IRQ. All 34 valid positions were checked against the native staging loop."
+  },
+  {
+   "address": 33280,
+   "type": "line",
+   "text": "Rope oscillator position 1, segment 1: 21 three-byte sprite rows and one alignment byte. Pointer 0x1858 selects the three adjacent 64-byte segments; $16DE copies the complete 192-byte triplet to $0500-$05BF for the raster IRQ. All 34 valid positions were checked against the native staging loop."
+  },
+  {
+   "address": 33344,
+   "type": "line",
+   "text": "Rope oscillator position 1, segment 2: 21 three-byte sprite rows and one alignment byte. Pointer 0x1858 selects the three adjacent 64-byte segments; $16DE copies the complete 192-byte triplet to $0500-$05BF for the raster IRQ. All 34 valid positions were checked against the native staging loop."
+  },
+  {
+   "address": 33408,
+   "type": "line",
+   "text": "Rope oscillator position 2, segment 0: 21 three-byte sprite rows and one alignment byte. Pointer 0x185a selects the three adjacent 64-byte segments; $16DE copies the complete 192-byte triplet to $0500-$05BF for the raster IRQ. All 34 valid positions were checked against the native staging loop."
+  },
+  {
+   "address": 33472,
+   "type": "line",
+   "text": "Rope oscillator position 2, segment 1: 21 three-byte sprite rows and one alignment byte. Pointer 0x185a selects the three adjacent 64-byte segments; $16DE copies the complete 192-byte triplet to $0500-$05BF for the raster IRQ. All 34 valid positions were checked against the native staging loop."
+  },
+  {
+   "address": 33536,
+   "type": "line",
+   "text": "Rope oscillator position 2, segment 2: 21 three-byte sprite rows and one alignment byte. Pointer 0x185a selects the three adjacent 64-byte segments; $16DE copies the complete 192-byte triplet to $0500-$05BF for the raster IRQ. All 34 valid positions were checked against the native staging loop."
+  },
+  {
+   "address": 33600,
+   "type": "line",
+   "text": "Rope oscillator position 3, segment 0: 21 three-byte sprite rows and one alignment byte. Pointer 0x185c selects the three adjacent 64-byte segments; $16DE copies the complete 192-byte triplet to $0500-$05BF for the raster IRQ. All 34 valid positions were checked against the native staging loop."
+  },
+  {
+   "address": 33664,
+   "type": "line",
+   "text": "Rope oscillator position 3, segment 1: 21 three-byte sprite rows and one alignment byte. Pointer 0x185c selects the three adjacent 64-byte segments; $16DE copies the complete 192-byte triplet to $0500-$05BF for the raster IRQ. All 34 valid positions were checked against the native staging loop."
+  },
+  {
+   "address": 33728,
+   "type": "line",
+   "text": "Rope oscillator position 3, segment 2: 21 three-byte sprite rows and one alignment byte. Pointer 0x185c selects the three adjacent 64-byte segments; $16DE copies the complete 192-byte triplet to $0500-$05BF for the raster IRQ. All 34 valid positions were checked against the native staging loop."
+  },
+  {
+   "address": 33792,
+   "type": "line",
+   "text": "Rope oscillator position 4, segment 0: 21 three-byte sprite rows and one alignment byte. Pointer 0x185e selects the three adjacent 64-byte segments; $16DE copies the complete 192-byte triplet to $0500-$05BF for the raster IRQ. All 34 valid positions were checked against the native staging loop."
+  },
+  {
+   "address": 33856,
+   "type": "line",
+   "text": "Rope oscillator position 4, segment 1: 21 three-byte sprite rows and one alignment byte. Pointer 0x185e selects the three adjacent 64-byte segments; $16DE copies the complete 192-byte triplet to $0500-$05BF for the raster IRQ. All 34 valid positions were checked against the native staging loop."
+  },
+  {
+   "address": 33920,
+   "type": "line",
+   "text": "Rope oscillator position 4, segment 2: 21 three-byte sprite rows and one alignment byte. Pointer 0x185e selects the three adjacent 64-byte segments; $16DE copies the complete 192-byte triplet to $0500-$05BF for the raster IRQ. All 34 valid positions were checked against the native staging loop."
+  },
+  {
+   "address": 33984,
+   "type": "line",
+   "text": "Rope oscillator position 5, segment 0: 21 three-byte sprite rows and one alignment byte. Pointer 0x1860 selects the three adjacent 64-byte segments; $16DE copies the complete 192-byte triplet to $0500-$05BF for the raster IRQ. All 34 valid positions were checked against the native staging loop."
+  },
+  {
+   "address": 34048,
+   "type": "line",
+   "text": "Rope oscillator position 5, segment 1: 21 three-byte sprite rows and one alignment byte. Pointer 0x1860 selects the three adjacent 64-byte segments; $16DE copies the complete 192-byte triplet to $0500-$05BF for the raster IRQ. All 34 valid positions were checked against the native staging loop."
+  },
+  {
+   "address": 34112,
+   "type": "line",
+   "text": "Rope oscillator position 5, segment 2: 21 three-byte sprite rows and one alignment byte. Pointer 0x1860 selects the three adjacent 64-byte segments; $16DE copies the complete 192-byte triplet to $0500-$05BF for the raster IRQ. All 34 valid positions were checked against the native staging loop."
+  },
+  {
+   "address": 34176,
+   "type": "line",
+   "text": "Rope oscillator position 6, segment 0: 21 three-byte sprite rows and one alignment byte. Pointer 0x1862 selects the three adjacent 64-byte segments; $16DE copies the complete 192-byte triplet to $0500-$05BF for the raster IRQ. All 34 valid positions were checked against the native staging loop."
+  },
+  {
+   "address": 34240,
+   "type": "line",
+   "text": "Rope oscillator position 6, segment 1: 21 three-byte sprite rows and one alignment byte. Pointer 0x1862 selects the three adjacent 64-byte segments; $16DE copies the complete 192-byte triplet to $0500-$05BF for the raster IRQ. All 34 valid positions were checked against the native staging loop."
+  },
+  {
+   "address": 34304,
+   "type": "line",
+   "text": "Rope oscillator position 6, segment 2: 21 three-byte sprite rows and one alignment byte. Pointer 0x1862 selects the three adjacent 64-byte segments; $16DE copies the complete 192-byte triplet to $0500-$05BF for the raster IRQ. All 34 valid positions were checked against the native staging loop."
+  },
+  {
+   "address": 34368,
+   "type": "line",
+   "text": "Rope oscillator position 7, segment 0: 21 three-byte sprite rows and one alignment byte. Pointer 0x1864 selects the three adjacent 64-byte segments; $16DE copies the complete 192-byte triplet to $0500-$05BF for the raster IRQ. All 34 valid positions were checked against the native staging loop."
+  },
+  {
+   "address": 34432,
+   "type": "line",
+   "text": "Rope oscillator position 7, segment 1: 21 three-byte sprite rows and one alignment byte. Pointer 0x1864 selects the three adjacent 64-byte segments; $16DE copies the complete 192-byte triplet to $0500-$05BF for the raster IRQ. All 34 valid positions were checked against the native staging loop."
+  },
+  {
+   "address": 34496,
+   "type": "line",
+   "text": "Rope oscillator position 7, segment 2: 21 three-byte sprite rows and one alignment byte. Pointer 0x1864 selects the three adjacent 64-byte segments; $16DE copies the complete 192-byte triplet to $0500-$05BF for the raster IRQ. All 34 valid positions were checked against the native staging loop."
+  },
+  {
+   "address": 34560,
+   "type": "line",
+   "text": "Rope oscillator position 8, segment 0: 21 three-byte sprite rows and one alignment byte. Pointer 0x1866 selects the three adjacent 64-byte segments; $16DE copies the complete 192-byte triplet to $0500-$05BF for the raster IRQ. All 34 valid positions were checked against the native staging loop."
+  },
+  {
+   "address": 34624,
+   "type": "line",
+   "text": "Rope oscillator position 8, segment 1: 21 three-byte sprite rows and one alignment byte. Pointer 0x1866 selects the three adjacent 64-byte segments; $16DE copies the complete 192-byte triplet to $0500-$05BF for the raster IRQ. All 34 valid positions were checked against the native staging loop."
+  },
+  {
+   "address": 34688,
+   "type": "line",
+   "text": "Rope oscillator position 8, segment 2: 21 three-byte sprite rows and one alignment byte. Pointer 0x1866 selects the three adjacent 64-byte segments; $16DE copies the complete 192-byte triplet to $0500-$05BF for the raster IRQ. All 34 valid positions were checked against the native staging loop."
+  },
+  {
+   "address": 34752,
+   "type": "line",
+   "text": "Rope oscillator position 9, segment 0: 21 three-byte sprite rows and one alignment byte. Pointer 0x1868 selects the three adjacent 64-byte segments; $16DE copies the complete 192-byte triplet to $0500-$05BF for the raster IRQ. All 34 valid positions were checked against the native staging loop."
+  },
+  {
+   "address": 34816,
+   "type": "line",
+   "text": "Rope oscillator position 9, segment 1: 21 three-byte sprite rows and one alignment byte. Pointer 0x1868 selects the three adjacent 64-byte segments; $16DE copies the complete 192-byte triplet to $0500-$05BF for the raster IRQ. All 34 valid positions were checked against the native staging loop."
+  },
+  {
+   "address": 34880,
+   "type": "line",
+   "text": "Rope oscillator position 9, segment 2: 21 three-byte sprite rows and one alignment byte. Pointer 0x1868 selects the three adjacent 64-byte segments; $16DE copies the complete 192-byte triplet to $0500-$05BF for the raster IRQ. All 34 valid positions were checked against the native staging loop."
+  },
+  {
+   "address": 34944,
+   "type": "line",
+   "text": "Rope oscillator position 10, segment 0: 21 three-byte sprite rows and one alignment byte. Pointer 0x186a selects the three adjacent 64-byte segments; $16DE copies the complete 192-byte triplet to $0500-$05BF for the raster IRQ. All 34 valid positions were checked against the native staging loop."
+  },
+  {
+   "address": 35008,
+   "type": "line",
+   "text": "Rope oscillator position 10, segment 1: 21 three-byte sprite rows and one alignment byte. Pointer 0x186a selects the three adjacent 64-byte segments; $16DE copies the complete 192-byte triplet to $0500-$05BF for the raster IRQ. All 34 valid positions were checked against the native staging loop."
+  },
+  {
+   "address": 35072,
+   "type": "line",
+   "text": "Rope oscillator position 10, segment 2: 21 three-byte sprite rows and one alignment byte. Pointer 0x186a selects the three adjacent 64-byte segments; $16DE copies the complete 192-byte triplet to $0500-$05BF for the raster IRQ. All 34 valid positions were checked against the native staging loop."
+  },
+  {
+   "address": 35136,
+   "type": "line",
+   "text": "Rope oscillator position 11, segment 0: 21 three-byte sprite rows and one alignment byte. Pointer 0x186c selects the three adjacent 64-byte segments; $16DE copies the complete 192-byte triplet to $0500-$05BF for the raster IRQ. All 34 valid positions were checked against the native staging loop."
+  },
+  {
+   "address": 35200,
+   "type": "line",
+   "text": "Rope oscillator position 11, segment 1: 21 three-byte sprite rows and one alignment byte. Pointer 0x186c selects the three adjacent 64-byte segments; $16DE copies the complete 192-byte triplet to $0500-$05BF for the raster IRQ. All 34 valid positions were checked against the native staging loop."
+  },
+  {
+   "address": 35264,
+   "type": "line",
+   "text": "Rope oscillator position 11, segment 2: 21 three-byte sprite rows and one alignment byte. Pointer 0x186c selects the three adjacent 64-byte segments; $16DE copies the complete 192-byte triplet to $0500-$05BF for the raster IRQ. All 34 valid positions were checked against the native staging loop."
+  },
+  {
+   "address": 35328,
+   "type": "line",
+   "text": "Rope oscillator position 12, segment 0: 21 three-byte sprite rows and one alignment byte. Pointer 0x186e selects the three adjacent 64-byte segments; $16DE copies the complete 192-byte triplet to $0500-$05BF for the raster IRQ. All 34 valid positions were checked against the native staging loop."
+  },
+  {
+   "address": 35392,
+   "type": "line",
+   "text": "Rope oscillator position 12, segment 1: 21 three-byte sprite rows and one alignment byte. Pointer 0x186e selects the three adjacent 64-byte segments; $16DE copies the complete 192-byte triplet to $0500-$05BF for the raster IRQ. All 34 valid positions were checked against the native staging loop."
+  },
+  {
+   "address": 35456,
+   "type": "line",
+   "text": "Rope oscillator position 12, segment 2: 21 three-byte sprite rows and one alignment byte. Pointer 0x186e selects the three adjacent 64-byte segments; $16DE copies the complete 192-byte triplet to $0500-$05BF for the raster IRQ. All 34 valid positions were checked against the native staging loop."
+  },
+  {
+   "address": 35520,
+   "type": "line",
+   "text": "Rope oscillator position 13, segment 0: 21 three-byte sprite rows and one alignment byte. Pointer 0x1870 selects the three adjacent 64-byte segments; $16DE copies the complete 192-byte triplet to $0500-$05BF for the raster IRQ. All 34 valid positions were checked against the native staging loop."
+  },
+  {
+   "address": 35584,
+   "type": "line",
+   "text": "Rope oscillator position 13, segment 1: 21 three-byte sprite rows and one alignment byte. Pointer 0x1870 selects the three adjacent 64-byte segments; $16DE copies the complete 192-byte triplet to $0500-$05BF for the raster IRQ. All 34 valid positions were checked against the native staging loop."
+  },
+  {
+   "address": 35648,
+   "type": "line",
+   "text": "Rope oscillator position 13, segment 2: 21 three-byte sprite rows and one alignment byte. Pointer 0x1870 selects the three adjacent 64-byte segments; $16DE copies the complete 192-byte triplet to $0500-$05BF for the raster IRQ. All 34 valid positions were checked against the native staging loop."
+  },
+  {
+   "address": 35712,
+   "type": "line",
+   "text": "Rope oscillator position 14, segment 0: 21 three-byte sprite rows and one alignment byte. Pointer 0x1872 selects the three adjacent 64-byte segments; $16DE copies the complete 192-byte triplet to $0500-$05BF for the raster IRQ. All 34 valid positions were checked against the native staging loop."
+  },
+  {
+   "address": 35776,
+   "type": "line",
+   "text": "Rope oscillator position 14, segment 1: 21 three-byte sprite rows and one alignment byte. Pointer 0x1872 selects the three adjacent 64-byte segments; $16DE copies the complete 192-byte triplet to $0500-$05BF for the raster IRQ. All 34 valid positions were checked against the native staging loop."
+  },
+  {
+   "address": 35840,
+   "type": "line",
+   "text": "Rope oscillator position 14, segment 2: 21 three-byte sprite rows and one alignment byte. Pointer 0x1872 selects the three adjacent 64-byte segments; $16DE copies the complete 192-byte triplet to $0500-$05BF for the raster IRQ. All 34 valid positions were checked against the native staging loop."
+  },
+  {
+   "address": 35904,
+   "type": "line",
+   "text": "Rope oscillator position 15, segment 0: 21 three-byte sprite rows and one alignment byte. Pointer 0x1874 selects the three adjacent 64-byte segments; $16DE copies the complete 192-byte triplet to $0500-$05BF for the raster IRQ. All 34 valid positions were checked against the native staging loop."
+  },
+  {
+   "address": 35968,
+   "type": "line",
+   "text": "Rope oscillator position 15, segment 1: 21 three-byte sprite rows and one alignment byte. Pointer 0x1874 selects the three adjacent 64-byte segments; $16DE copies the complete 192-byte triplet to $0500-$05BF for the raster IRQ. All 34 valid positions were checked against the native staging loop."
+  },
+  {
+   "address": 36032,
+   "type": "line",
+   "text": "Rope oscillator position 15, segment 2: 21 three-byte sprite rows and one alignment byte. Pointer 0x1874 selects the three adjacent 64-byte segments; $16DE copies the complete 192-byte triplet to $0500-$05BF for the raster IRQ. All 34 valid positions were checked against the native staging loop."
+  },
+  {
+   "address": 36096,
+   "type": "line",
+   "text": "Rope oscillator position 16, segment 0: 21 three-byte sprite rows and one alignment byte. Pointer 0x1876 selects the three adjacent 64-byte segments; $16DE copies the complete 192-byte triplet to $0500-$05BF for the raster IRQ. All 34 valid positions were checked against the native staging loop."
+  },
+  {
+   "address": 36160,
+   "type": "line",
+   "text": "Rope oscillator position 16, segment 1: 21 three-byte sprite rows and one alignment byte. Pointer 0x1876 selects the three adjacent 64-byte segments; $16DE copies the complete 192-byte triplet to $0500-$05BF for the raster IRQ. All 34 valid positions were checked against the native staging loop."
+  },
+  {
+   "address": 36224,
+   "type": "line",
+   "text": "Rope oscillator position 16, segment 2: 21 three-byte sprite rows and one alignment byte. Pointer 0x1876 selects the three adjacent 64-byte segments; $16DE copies the complete 192-byte triplet to $0500-$05BF for the raster IRQ. All 34 valid positions were checked against the native staging loop."
+  },
+  {
+   "address": 36288,
+   "type": "line",
+   "text": "Rope oscillator position 17, segment 0: 21 three-byte sprite rows and one alignment byte. Pointer 0x1878 selects the three adjacent 64-byte segments; $16DE copies the complete 192-byte triplet to $0500-$05BF for the raster IRQ. All 34 valid positions were checked against the native staging loop."
+  },
+  {
+   "address": 36352,
+   "type": "line",
+   "text": "Rope oscillator position 17, segment 1: 21 three-byte sprite rows and one alignment byte. Pointer 0x1878 selects the three adjacent 64-byte segments; $16DE copies the complete 192-byte triplet to $0500-$05BF for the raster IRQ. All 34 valid positions were checked against the native staging loop."
+  },
+  {
+   "address": 36416,
+   "type": "line",
+   "text": "Rope oscillator position 17, segment 2: 21 three-byte sprite rows and one alignment byte. Pointer 0x1878 selects the three adjacent 64-byte segments; $16DE copies the complete 192-byte triplet to $0500-$05BF for the raster IRQ. All 34 valid positions were checked against the native staging loop."
+  },
+  {
+   "address": 36480,
+   "type": "line",
+   "text": "Rope oscillator position 18, segment 0: 21 three-byte sprite rows and one alignment byte. Pointer 0x187a selects the three adjacent 64-byte segments; $16DE copies the complete 192-byte triplet to $0500-$05BF for the raster IRQ. All 34 valid positions were checked against the native staging loop."
+  },
+  {
+   "address": 36544,
+   "type": "line",
+   "text": "Rope oscillator position 18, segment 1: 21 three-byte sprite rows and one alignment byte. Pointer 0x187a selects the three adjacent 64-byte segments; $16DE copies the complete 192-byte triplet to $0500-$05BF for the raster IRQ. All 34 valid positions were checked against the native staging loop."
+  },
+  {
+   "address": 36608,
+   "type": "line",
+   "text": "Rope oscillator position 18, segment 2: 21 three-byte sprite rows and one alignment byte. Pointer 0x187a selects the three adjacent 64-byte segments; $16DE copies the complete 192-byte triplet to $0500-$05BF for the raster IRQ. All 34 valid positions were checked against the native staging loop."
+  },
+  {
+   "address": 36672,
+   "type": "line",
+   "text": "Rope oscillator position 19, segment 0: 21 three-byte sprite rows and one alignment byte. Pointer 0x187c selects the three adjacent 64-byte segments; $16DE copies the complete 192-byte triplet to $0500-$05BF for the raster IRQ. All 34 valid positions were checked against the native staging loop."
+  },
+  {
+   "address": 36736,
+   "type": "line",
+   "text": "Rope oscillator position 19, segment 1: 21 three-byte sprite rows and one alignment byte. Pointer 0x187c selects the three adjacent 64-byte segments; $16DE copies the complete 192-byte triplet to $0500-$05BF for the raster IRQ. All 34 valid positions were checked against the native staging loop."
+  },
+  {
+   "address": 36800,
+   "type": "line",
+   "text": "Rope oscillator position 19, segment 2: 21 three-byte sprite rows and one alignment byte. Pointer 0x187c selects the three adjacent 64-byte segments; $16DE copies the complete 192-byte triplet to $0500-$05BF for the raster IRQ. All 34 valid positions were checked against the native staging loop."
+  },
+  {
+   "address": 36864,
+   "type": "line",
+   "text": "Rope oscillator position 20, segment 0: 21 three-byte sprite rows and one alignment byte. Pointer 0x187e selects the three adjacent 64-byte segments; $16DE copies the complete 192-byte triplet to $0500-$05BF for the raster IRQ. All 34 valid positions were checked against the native staging loop."
+  },
+  {
+   "address": 36928,
+   "type": "line",
+   "text": "Rope oscillator position 20, segment 1: 21 three-byte sprite rows and one alignment byte. Pointer 0x187e selects the three adjacent 64-byte segments; $16DE copies the complete 192-byte triplet to $0500-$05BF for the raster IRQ. All 34 valid positions were checked against the native staging loop."
+  },
+  {
+   "address": 36992,
+   "type": "line",
+   "text": "Rope oscillator position 20, segment 2: 21 three-byte sprite rows and one alignment byte. Pointer 0x187e selects the three adjacent 64-byte segments; $16DE copies the complete 192-byte triplet to $0500-$05BF for the raster IRQ. All 34 valid positions were checked against the native staging loop."
+  },
+  {
+   "address": 37056,
+   "type": "line",
+   "text": "Rope oscillator position 21, segment 0: 21 three-byte sprite rows and one alignment byte. Pointer 0x1880 selects the three adjacent 64-byte segments; $16DE copies the complete 192-byte triplet to $0500-$05BF for the raster IRQ. All 34 valid positions were checked against the native staging loop."
+  },
+  {
+   "address": 37120,
+   "type": "line",
+   "text": "Rope oscillator position 21, segment 1: 21 three-byte sprite rows and one alignment byte. Pointer 0x1880 selects the three adjacent 64-byte segments; $16DE copies the complete 192-byte triplet to $0500-$05BF for the raster IRQ. All 34 valid positions were checked against the native staging loop."
+  },
+  {
+   "address": 37184,
+   "type": "line",
+   "text": "Rope oscillator position 21, segment 2: 21 three-byte sprite rows and one alignment byte. Pointer 0x1880 selects the three adjacent 64-byte segments; $16DE copies the complete 192-byte triplet to $0500-$05BF for the raster IRQ. All 34 valid positions were checked against the native staging loop."
+  },
+  {
+   "address": 37248,
+   "type": "line",
+   "text": "Rope oscillator position 22, segment 0: 21 three-byte sprite rows and one alignment byte. Pointer 0x1882 selects the three adjacent 64-byte segments; $16DE copies the complete 192-byte triplet to $0500-$05BF for the raster IRQ. All 34 valid positions were checked against the native staging loop."
+  },
+  {
+   "address": 37312,
+   "type": "line",
+   "text": "Rope oscillator position 22, segment 1: 21 three-byte sprite rows and one alignment byte. Pointer 0x1882 selects the three adjacent 64-byte segments; $16DE copies the complete 192-byte triplet to $0500-$05BF for the raster IRQ. All 34 valid positions were checked against the native staging loop."
+  },
+  {
+   "address": 37376,
+   "type": "line",
+   "text": "Rope oscillator position 22, segment 2: 21 three-byte sprite rows and one alignment byte. Pointer 0x1882 selects the three adjacent 64-byte segments; $16DE copies the complete 192-byte triplet to $0500-$05BF for the raster IRQ. All 34 valid positions were checked against the native staging loop."
+  },
+  {
+   "address": 37440,
+   "type": "line",
+   "text": "Rope oscillator position 23, segment 0: 21 three-byte sprite rows and one alignment byte. Pointer 0x1884 selects the three adjacent 64-byte segments; $16DE copies the complete 192-byte triplet to $0500-$05BF for the raster IRQ. All 34 valid positions were checked against the native staging loop."
+  },
+  {
+   "address": 37504,
+   "type": "line",
+   "text": "Rope oscillator position 23, segment 1: 21 three-byte sprite rows and one alignment byte. Pointer 0x1884 selects the three adjacent 64-byte segments; $16DE copies the complete 192-byte triplet to $0500-$05BF for the raster IRQ. All 34 valid positions were checked against the native staging loop."
+  },
+  {
+   "address": 37568,
+   "type": "line",
+   "text": "Rope oscillator position 23, segment 2: 21 three-byte sprite rows and one alignment byte. Pointer 0x1884 selects the three adjacent 64-byte segments; $16DE copies the complete 192-byte triplet to $0500-$05BF for the raster IRQ. All 34 valid positions were checked against the native staging loop."
+  },
+  {
+   "address": 37632,
+   "type": "line",
+   "text": "Rope oscillator position 24, segment 0: 21 three-byte sprite rows and one alignment byte. Pointer 0x1886 selects the three adjacent 64-byte segments; $16DE copies the complete 192-byte triplet to $0500-$05BF for the raster IRQ. All 34 valid positions were checked against the native staging loop."
+  },
+  {
+   "address": 37696,
+   "type": "line",
+   "text": "Rope oscillator position 24, segment 1: 21 three-byte sprite rows and one alignment byte. Pointer 0x1886 selects the three adjacent 64-byte segments; $16DE copies the complete 192-byte triplet to $0500-$05BF for the raster IRQ. All 34 valid positions were checked against the native staging loop."
+  },
+  {
+   "address": 37760,
+   "type": "line",
+   "text": "Rope oscillator position 24, segment 2: 21 three-byte sprite rows and one alignment byte. Pointer 0x1886 selects the three adjacent 64-byte segments; $16DE copies the complete 192-byte triplet to $0500-$05BF for the raster IRQ. All 34 valid positions were checked against the native staging loop."
+  },
+  {
+   "address": 37824,
+   "type": "line",
+   "text": "Rope oscillator position 25, segment 0: 21 three-byte sprite rows and one alignment byte. Pointer 0x1888 selects the three adjacent 64-byte segments; $16DE copies the complete 192-byte triplet to $0500-$05BF for the raster IRQ. All 34 valid positions were checked against the native staging loop."
+  },
+  {
+   "address": 37888,
+   "type": "line",
+   "text": "Rope oscillator position 25, segment 1: 21 three-byte sprite rows and one alignment byte. Pointer 0x1888 selects the three adjacent 64-byte segments; $16DE copies the complete 192-byte triplet to $0500-$05BF for the raster IRQ. All 34 valid positions were checked against the native staging loop."
+  },
+  {
+   "address": 37952,
+   "type": "line",
+   "text": "Rope oscillator position 25, segment 2: 21 three-byte sprite rows and one alignment byte. Pointer 0x1888 selects the three adjacent 64-byte segments; $16DE copies the complete 192-byte triplet to $0500-$05BF for the raster IRQ. All 34 valid positions were checked against the native staging loop."
+  },
+  {
+   "address": 38016,
+   "type": "line",
+   "text": "Rope oscillator position 26, segment 0: 21 three-byte sprite rows and one alignment byte. Pointer 0x188a selects the three adjacent 64-byte segments; $16DE copies the complete 192-byte triplet to $0500-$05BF for the raster IRQ. All 34 valid positions were checked against the native staging loop."
+  },
+  {
+   "address": 38080,
+   "type": "line",
+   "text": "Rope oscillator position 26, segment 1: 21 three-byte sprite rows and one alignment byte. Pointer 0x188a selects the three adjacent 64-byte segments; $16DE copies the complete 192-byte triplet to $0500-$05BF for the raster IRQ. All 34 valid positions were checked against the native staging loop."
+  },
+  {
+   "address": 38144,
+   "type": "line",
+   "text": "Rope oscillator position 26, segment 2: 21 three-byte sprite rows and one alignment byte. Pointer 0x188a selects the three adjacent 64-byte segments; $16DE copies the complete 192-byte triplet to $0500-$05BF for the raster IRQ. All 34 valid positions were checked against the native staging loop."
+  },
+  {
+   "address": 38208,
+   "type": "line",
+   "text": "Rope oscillator position 27, segment 0: 21 three-byte sprite rows and one alignment byte. Pointer 0x188c selects the three adjacent 64-byte segments; $16DE copies the complete 192-byte triplet to $0500-$05BF for the raster IRQ. All 34 valid positions were checked against the native staging loop."
+  },
+  {
+   "address": 38272,
+   "type": "line",
+   "text": "Rope oscillator position 27, segment 1: 21 three-byte sprite rows and one alignment byte. Pointer 0x188c selects the three adjacent 64-byte segments; $16DE copies the complete 192-byte triplet to $0500-$05BF for the raster IRQ. All 34 valid positions were checked against the native staging loop."
+  },
+  {
+   "address": 38336,
+   "type": "line",
+   "text": "Rope oscillator position 27, segment 2: 21 three-byte sprite rows and one alignment byte. Pointer 0x188c selects the three adjacent 64-byte segments; $16DE copies the complete 192-byte triplet to $0500-$05BF for the raster IRQ. All 34 valid positions were checked against the native staging loop."
+  },
+  {
+   "address": 38400,
+   "type": "line",
+   "text": "Rope oscillator position 28, segment 0: 21 three-byte sprite rows and one alignment byte. Pointer 0x188e selects the three adjacent 64-byte segments; $16DE copies the complete 192-byte triplet to $0500-$05BF for the raster IRQ. All 34 valid positions were checked against the native staging loop."
+  },
+  {
+   "address": 38464,
+   "type": "line",
+   "text": "Rope oscillator position 28, segment 1: 21 three-byte sprite rows and one alignment byte. Pointer 0x188e selects the three adjacent 64-byte segments; $16DE copies the complete 192-byte triplet to $0500-$05BF for the raster IRQ. All 34 valid positions were checked against the native staging loop."
+  },
+  {
+   "address": 38528,
+   "type": "line",
+   "text": "Rope oscillator position 28, segment 2: 21 three-byte sprite rows and one alignment byte. Pointer 0x188e selects the three adjacent 64-byte segments; $16DE copies the complete 192-byte triplet to $0500-$05BF for the raster IRQ. All 34 valid positions were checked against the native staging loop."
+  },
+  {
+   "address": 38592,
+   "type": "line",
+   "text": "Rope oscillator position 29, segment 0: 21 three-byte sprite rows and one alignment byte. Pointer 0x1890 selects the three adjacent 64-byte segments; $16DE copies the complete 192-byte triplet to $0500-$05BF for the raster IRQ. All 34 valid positions were checked against the native staging loop."
+  },
+  {
+   "address": 38656,
+   "type": "line",
+   "text": "Rope oscillator position 29, segment 1: 21 three-byte sprite rows and one alignment byte. Pointer 0x1890 selects the three adjacent 64-byte segments; $16DE copies the complete 192-byte triplet to $0500-$05BF for the raster IRQ. All 34 valid positions were checked against the native staging loop."
+  },
+  {
+   "address": 38720,
+   "type": "line",
+   "text": "Rope oscillator position 29, segment 2: 21 three-byte sprite rows and one alignment byte. Pointer 0x1890 selects the three adjacent 64-byte segments; $16DE copies the complete 192-byte triplet to $0500-$05BF for the raster IRQ. All 34 valid positions were checked against the native staging loop."
+  },
+  {
+   "address": 38784,
+   "type": "line",
+   "text": "Rope oscillator position 30, segment 0: 21 three-byte sprite rows and one alignment byte. Pointer 0x1892 selects the three adjacent 64-byte segments; $16DE copies the complete 192-byte triplet to $0500-$05BF for the raster IRQ. All 34 valid positions were checked against the native staging loop."
+  },
+  {
+   "address": 38848,
+   "type": "line",
+   "text": "Rope oscillator position 30, segment 1: 21 three-byte sprite rows and one alignment byte. Pointer 0x1892 selects the three adjacent 64-byte segments; $16DE copies the complete 192-byte triplet to $0500-$05BF for the raster IRQ. All 34 valid positions were checked against the native staging loop."
+  },
+  {
+   "address": 38912,
+   "type": "line",
+   "text": "Rope oscillator position 30, segment 2: 21 three-byte sprite rows and one alignment byte. Pointer 0x1892 selects the three adjacent 64-byte segments; $16DE copies the complete 192-byte triplet to $0500-$05BF for the raster IRQ. All 34 valid positions were checked against the native staging loop."
+  },
+  {
+   "address": 38976,
+   "type": "line",
+   "text": "Rope oscillator position 31, segment 0: 21 three-byte sprite rows and one alignment byte. Pointer 0x1894 selects the three adjacent 64-byte segments; $16DE copies the complete 192-byte triplet to $0500-$05BF for the raster IRQ. All 34 valid positions were checked against the native staging loop."
+  },
+  {
+   "address": 39040,
+   "type": "line",
+   "text": "Rope oscillator position 31, segment 1: 21 three-byte sprite rows and one alignment byte. Pointer 0x1894 selects the three adjacent 64-byte segments; $16DE copies the complete 192-byte triplet to $0500-$05BF for the raster IRQ. All 34 valid positions were checked against the native staging loop."
+  },
+  {
+   "address": 39104,
+   "type": "line",
+   "text": "Rope oscillator position 31, segment 2: 21 three-byte sprite rows and one alignment byte. Pointer 0x1894 selects the three adjacent 64-byte segments; $16DE copies the complete 192-byte triplet to $0500-$05BF for the raster IRQ. All 34 valid positions were checked against the native staging loop."
+  },
+  {
+   "address": 39168,
+   "type": "line",
+   "text": "Rope oscillator position 32, segment 0: 21 three-byte sprite rows and one alignment byte. Pointer 0x1896 selects the three adjacent 64-byte segments; $16DE copies the complete 192-byte triplet to $0500-$05BF for the raster IRQ. All 34 valid positions were checked against the native staging loop."
+  },
+  {
+   "address": 39232,
+   "type": "line",
+   "text": "Rope oscillator position 32, segment 1: 21 three-byte sprite rows and one alignment byte. Pointer 0x1896 selects the three adjacent 64-byte segments; $16DE copies the complete 192-byte triplet to $0500-$05BF for the raster IRQ. All 34 valid positions were checked against the native staging loop."
+  },
+  {
+   "address": 39296,
+   "type": "line",
+   "text": "Rope oscillator position 32, segment 2: 21 three-byte sprite rows and one alignment byte. Pointer 0x1896 selects the three adjacent 64-byte segments; $16DE copies the complete 192-byte triplet to $0500-$05BF for the raster IRQ. All 34 valid positions were checked against the native staging loop."
+  },
+  {
+   "address": 39360,
+   "type": "line",
+   "text": "Rope oscillator position 33, segment 0: 21 three-byte sprite rows and one alignment byte. Pointer 0x1898 selects the three adjacent 64-byte segments; $16DE copies the complete 192-byte triplet to $0500-$05BF for the raster IRQ. All 34 valid positions were checked against the native staging loop."
+  },
+  {
+   "address": 39424,
+   "type": "line",
+   "text": "Rope oscillator position 33, segment 1: 21 three-byte sprite rows and one alignment byte. Pointer 0x1898 selects the three adjacent 64-byte segments; $16DE copies the complete 192-byte triplet to $0500-$05BF for the raster IRQ. All 34 valid positions were checked against the native staging loop."
+  },
+  {
+   "address": 39488,
+   "type": "line",
+   "text": "Rope oscillator position 33, segment 2: 21 three-byte sprite rows and one alignment byte. Pointer 0x1898 selects the three adjacent 64-byte segments; $16DE copies the complete 192-byte triplet to $0500-$05BF for the raster IRQ. All 34 valid positions were checked against the native staging loop."
   },
   {
    "address": 39552,
@@ -8886,7 +10131,127 @@
   {
    "address": 53248,
    "type": "line",
-   "text": "Ordinary RAM page below $D000, visible to the CPU in every $01 configuration and shadowed by neither KERNAL ROM nor the I/O block. Its top sixteen bytes $CFF0-$CFFF hold the seven runtime dispatch vectors written by initialize_game at $2D40-$2D83; the rest of the page is captured residue with no active reader.\n[offcut cff0] Runtime vector initialized to $3791.\n[offcut cff2] Runtime vector initialized to $3349.\n[offcut cff4] Runtime vector initialized to $334F.\n[offcut cff6] Runtime vector initialized to $35E4.\n[offcut cff8] Runtime vector initialized to $2DC6.\n[offcut cffa] Runtime vector initialized to $38EF.\n[offcut cffc] Runtime vector initialized to $22C3."
+   "text": "Retained PRG load-address word $1002 preceding the high-RAM bootstrap. The bootstrap instructions begin at $D002 and relocate their page-copy body into cassette-buffer RAM $0334 before copying high room records."
+  },
+  {
+   "address": 53250,
+   "type": "line",
+   "text": "Initialization bootstrap: X=$15, Y=0; copy $D015-$D039 (37 bytes) to $0334-$0358, then JMP $0334. These are initialization-only instructions retained under I/O after the high-data move. A controlled live run of this retained entry verified the relocation and all 8192 moved data bytes, stopping before title entry $3C23."
+  },
+  {
+   "address": 53269,
+   "type": "line",
+   "text": "Copy body executed after relocation to $0334. Decrement the source high operand at $0346 and destination high operand at $0349 before each page; starting values $F1 and $00 yield first source $F000 and destination $FF00. Copy each 256-byte page with X decrementing through zero, then continue downward until destination high reaches $DF. Thus source $D100-$F0FF moves to $E000-$FFFF (32 pages). The exit restores processor port $36, enables IRQs and jumps to $3C23. The live final operands were $D0/$DF."
+  },
+  {
+   "address": 53298,
+   "type": "line",
+   "text": "Exit of the page-copy body, executed at relocated $0351: set processor port $01=$36, CLI, then JMP $3C23. The selected banking exposes I/O and KERNAL while leaving the title code and high room data in RAM."
+  },
+  {
+   "address": 53504,
+   "type": "line",
+   "text": "Initialization source record for room 30, THE BANYAN TREE. The bootstrap copies this complete 256-byte record from $D100-$D1FF to $E000-$E0FF. Layout matches the playable room bank: title bytes $00-$1F, packed cell map $20-$9F, six eight-byte glyphs $A0-$CF and room fields thereafter. This source remains under I/O; destination glyphs can be changed during title setup or play, so compare records before treating the copies as immutable."
+  },
+  {
+   "address": 53760,
+   "type": "line",
+   "text": "Initialization source record for room 31, SWIMMING POOL. The bootstrap copies this complete 256-byte record from $D200-$D2FF to $E100-$E1FF. Layout matches the playable room bank: title bytes $00-$1F, packed cell map $20-$9F, six eight-byte glyphs $A0-$CF and room fields thereafter. This source remains under I/O; destination glyphs can be changed during title setup or play, so compare records before treating the copies as immutable."
+  },
+  {
+   "address": 54016,
+   "type": "line",
+   "text": "Initialization source record for room 32, HALFWAY UP THE EAST WALL. The bootstrap copies this complete 256-byte record from $D300-$D3FF to $E200-$E2FF. Layout matches the playable room bank: title bytes $00-$1F, packed cell map $20-$9F, six eight-byte glyphs $A0-$CF and room fields thereafter. This source remains under I/O; destination glyphs can be changed during title setup or play, so compare records before treating the copies as immutable."
+  },
+  {
+   "address": 54272,
+   "type": "line",
+   "text": "Initialization source record for room 33, THE BATHROOM. The bootstrap copies this complete 256-byte record from $D400-$D4FF to $E300-$E3FF. Layout matches the playable room bank: title bytes $00-$1F, packed cell map $20-$9F, six eight-byte glyphs $A0-$CF and room fields thereafter. This source remains under I/O; destination glyphs can be changed during title setup or play, so compare records before treating the copies as immutable."
+  },
+  {
+   "address": 54528,
+   "type": "line",
+   "text": "Initialization source record for room 34, TOP LANDING. The bootstrap copies this complete 256-byte record from $D500-$D5FF to $E400-$E4FF. Layout matches the playable room bank: title bytes $00-$1F, packed cell map $20-$9F, six eight-byte glyphs $A0-$CF and room fields thereafter. This source remains under I/O; destination glyphs can be changed during title setup or play, so compare records before treating the copies as immutable."
+  },
+  {
+   "address": 54784,
+   "type": "line",
+   "text": "Initialization source record for room 35, MASTER BEDROOM. The bootstrap copies this complete 256-byte record from $D600-$D6FF to $E500-$E5FF. Layout matches the playable room bank: title bytes $00-$1F, packed cell map $20-$9F, six eight-byte glyphs $A0-$CF and room fields thereafter. This source remains under I/O; destination glyphs can be changed during title setup or play, so compare records before treating the copies as immutable."
+  },
+  {
+   "address": 55040,
+   "type": "line",
+   "text": "Initialization source record for room 36, A BIT OF TREE. The bootstrap copies this complete 256-byte record from $D700-$D7FF to $E600-$E6FF. Layout matches the playable room bank: title bytes $00-$1F, packed cell map $20-$9F, six eight-byte glyphs $A0-$CF and room fields thereafter. This source remains under I/O; destination glyphs can be changed during title setup or play, so compare records before treating the copies as immutable."
+  },
+  {
+   "address": 55296,
+   "type": "line",
+   "text": "Initialization source record for room 37, ORANGERY. The bootstrap copies this complete 256-byte record from $D800-$D8FF to $E700-$E7FF. Layout matches the playable room bank: title bytes $00-$1F, packed cell map $20-$9F, six eight-byte glyphs $A0-$CF and room fields thereafter. This source remains under I/O; destination glyphs can be changed during title setup or play, so compare records before treating the copies as immutable."
+  },
+  {
+   "address": 55552,
+   "type": "line",
+   "text": "Initialization source record for room 38, PRIESTS' HOLE. The bootstrap copies this complete 256-byte record from $D900-$D9FF to $E800-$E8FF. Layout matches the playable room bank: title bytes $00-$1F, packed cell map $20-$9F, six eight-byte glyphs $A0-$CF and room fields thereafter. This source remains under I/O; destination glyphs can be changed during title setup or play, so compare records before treating the copies as immutable."
+  },
+  {
+   "address": 55808,
+   "type": "line",
+   "text": "Initialization source record for room 39, EMERGENCY GENERATOR. The bootstrap copies this complete 256-byte record from $DA00-$DAFF to $E900-$E9FF. Layout matches the playable room bank: title bytes $00-$1F, packed cell map $20-$9F, six eight-byte glyphs $A0-$CF and room fields thereafter. This source remains under I/O; destination glyphs can be changed during title setup or play, so compare records before treating the copies as immutable."
+  },
+  {
+   "address": 55980,
+   "type": "line",
+   "text": "Initialization source room 39, glyph 1 byte 4 (room offset $AC). Copied to $E9AC by the high-room bootstrap. The automatic reference from $2EDF is a write to visible color RAM at the same CPU address, not a read of this physical RAM template."
+  },
+  {
+   "address": 56056,
+   "type": "line",
+   "text": "Final eight bytes of initialization source room 39; copied to $E9F8-$E9FF by the bootstrap. Their room-field meaning is open. The $2DA7 reference writes visible color RAM, not this hidden source record."
+  },
+  {
+   "address": 56064,
+   "type": "line",
+   "text": "Initialization source record for room 40, DR JONES WILL NEVER BELIEVE THIS. The bootstrap copies this complete 256-byte record from $DB00-$DBFF to $EA00-$EAFF. Layout matches the playable room bank: title bytes $00-$1F, packed cell map $20-$9F, six eight-byte glyphs $A0-$CF and room fields thereafter. This source remains under I/O; destination glyphs can be changed during title setup or play, so compare records before treating the copies as immutable."
+  },
+  {
+   "address": 56176,
+   "type": "line",
+   "text": "Initialization source room 40, packed map byte 80: row 10, columns 0-3, most-significant two-bit cell first. Copied to $EA70. The $3312 store uses visible color RAM at this CPU address, independently of the retained room template."
+  },
+  {
+   "address": 56177,
+   "type": "line",
+   "text": "Initialization source room 40, packed map byte 81: row 10, columns 4-7. Copied to $EA71. The $331B store addresses visible color RAM; it is not a consumer of these hidden template bytes."
+  },
+  {
+   "address": 56216,
+   "type": "line",
+   "text": "Initialization source room 40, packed map byte 120: row 15, columns 0-3, most-significant two-bit cell first. The bootstrap copies this byte to $EA98. References at $3324 and $A783 address visible color RAM, independently of the physical room template."
+  },
+  {
+   "address": 56217,
+   "type": "line",
+   "text": "Initialization source room 40, packed map byte 121: row 15, columns 4-7. Copied to $EA99; the visible color-RAM reference at this CPU address belongs to display output, not the hidden source record."
+  },
+  {
+   "address": 56320,
+   "type": "line",
+   "text": "Initialization source record for room 41, THE ATTIC. The bootstrap copies this complete 256-byte record from $DC00-$DCFF to $EB00-$EBFF. Layout matches the playable room bank: title bytes $00-$1F, packed cell map $20-$9F, six eight-byte glyphs $A0-$CF and room fields thereafter. This source remains under I/O; destination glyphs can be changed during title setup or play, so compare records before treating the copies as immutable."
+  },
+  {
+   "address": 56576,
+   "type": "line",
+   "text": "Initialization source record for room 42, UNDER THE ROOF. The bootstrap copies this complete 256-byte record from $DD00-$DDFF to $EC00-$ECFF. Layout matches the playable room bank: title bytes $00-$1F, packed cell map $20-$9F, six eight-byte glyphs $A0-$CF and room fields thereafter. This source remains under I/O; destination glyphs can be changed during title setup or play, so compare records before treating the copies as immutable."
+  },
+  {
+   "address": 56832,
+   "type": "line",
+   "text": "Initialization source record for room 43, CONSERVATORY ROOF. The bootstrap copies this complete 256-byte record from $DE00-$DEFF to $ED00-$EDFF. Layout matches the playable room bank: title bytes $00-$1F, packed cell map $20-$9F, six eight-byte glyphs $A0-$CF and room fields thereafter. This source remains under I/O; destination glyphs can be changed during title setup or play, so compare records before treating the copies as immutable."
+  },
+  {
+   "address": 57088,
+   "type": "line",
+   "text": "Initialization source record for room 44, ON TOP OF THE HOUSE. The bootstrap copies this complete 256-byte record from $DF00-$DFFF to $EE00-$EEFF. Layout matches the playable room bank: title bytes $00-$1F, packed cell map $20-$9F, six eight-byte glyphs $A0-$CF and room fields thereafter. This source remains under I/O; destination glyphs can be changed during title setup or play, so compare records before treating the copies as immutable."
   },
   {
    "address": 57344,

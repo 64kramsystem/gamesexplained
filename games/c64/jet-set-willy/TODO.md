@@ -1,7 +1,7 @@
 # Work toward Silver
 
-- The tracked ledger is fully described: 46,681/46,681 bytes. This does not complete coverage until hidden RAM and loader hand-over checks below are resolved. Imported claims still require the verification pass.
-- Resolve physical `$D000–$DFFF`: `listing.py` reports 4,096 non-fill bytes under I/O. The import calls them prior-phase residue; prove that here before excluding them.
+- The tracked ledger includes the retained high-RAM bootstrap, its room templates and all 102 rope sprites. The entry/play audit still reports loaded regions outside that ledger; resolve these before claiming complete coverage.
+- Identify the loaded copyright/loader region, remaining title-music stream extent, title-text continuation and retained lower-memory bytes. Do not treat unexplained prior-phase bytes as padding.
 - Capture final loader hand-over and compare with play to identify initialization-only data and all loaded authored data.
 - Trace and exercise collection, collisions, guardians, arrows, ropes and winning behavior in `60-verify`.
 - Restore and expand the interactive room browser after its claims are verified.

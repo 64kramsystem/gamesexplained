@@ -7,8 +7,16 @@
 
 ## Verification work
 
-The imported room format, collection logic, collisions, guardians, arrows, ropes and winning route remain verification leads. The source export’s own tests do not verify these claims here. The interactive draft stays private until normal coverage/verification confirms it.
+Collection logic, collisions, guardians, arrows, ropes and winning route remain verification leads. The source export’s own tests do not verify these claims here. The interactive draft stays private until normal coverage/verification confirms it.
 
 ## Annotation checks
 
 The 60 room records carry individual descriptions naming their captured room title and four exit ids. The sprite bank has 172 individual 64-byte records, each described as 21 three-byte rows plus alignment; sprite pointer arithmetic follows the C64 platform reference. Ghidra operand labels retain their actual offcut addresses. Post-row data descriptions were moved back to the row they describe; duplicate comments on the following row were removed. Runtime guardian work arrays, copied room glyphs and the indirect vector page are excluded from the authored-data ledger.
+
+## Checked room and rope transfers
+
+- **Room copy (live, controlled entry):** entering `$2E55` with each room id 0–59 copied exactly 256 bytes into `$0840–$093F`, stopping at `$2E7C`. Rooms 0–29 use `$B000 + id*256`; rooms 30–59 use `$C200 + id*256`. Each test compared the destination with the live source immediately before the call, because animated glyphs can change room records. All 60 cases restored processor port `$36`.
+- **Rope staging (live, controlled entry):** the 34 words at `$1856` are `$8100 + position*192`. For each position 0–33, forcing the room rope flag and staging divider then entering `$16A2` copied the selected 192 bytes to `$0500–$05BF`; the check stopped at `$16E8` before coordinate processing. This verifies graphics staging, not player attachment or reachability.
+- **Retained bootstrap (live, controlled entry):** `$D002` relocates 37 bytes from `$D015–$D039` to `$0334–$0358`. The relocated loop copies 8,192 bytes from `$D100–$F0FF` to `$E000–$FFFF` in descending pages, then restores `$01=$36`, enables interrupts and jumps to `$3C23`. All destination bytes matched the source captured before the test. This was a controlled execution of the retained routine, not an observed cold-boot hand-over.
+- **Hidden room templates (traced):** `$D100–$DFFF` holds initialization source copies of rooms 30–44. They are distinct from the later playable records at `$E000–$EEFF`, whose glyph bytes can change. CPU references to `$DAAC`, `$DAF8`, `$DB70`, `$DB71`, `$DB98` and `$DB99` made with I/O visible write color RAM; those stores are not physical reads of the hidden templates.
+- **Snapshot scope (live):** `work/entry.vsf` stops at `$2000` after Return leaves the healthy title snapshot, before the gameplay initializer. It does not capture the earlier crack/decompression hand-over.
