@@ -12,6 +12,10 @@ Changes to the site, the folder layout, the delivery process, the prose
 style or the install mechanics are in the pull requests, not here.
 Versions that taught nothing of the kind do not appear.
 
+## next · 1 October 2026 · The NeverEnding Story · 64kramsystem with Codex
+
+**Trace retained hidden RAM from boot, with working instruments.** A play snapshot retained a full page copied by the boot decompressor, but only its first sixteen bytes supplied repair pointers. A play-only watch missed its owner. Watch the earlier phase, distinguish physical RAM from I/O with a bank condition, require positive read and store controls, then check the consumer’s exact extent before interpreting the copied tail.
+
 ## 0.0.48 · 30 September 2026 · Castle Master · 64kramsystem with Codex
 
 **Compare an imported capture with a booted game before using it.**

@@ -50,8 +50,14 @@ SAVE and LOAD were fed as PETSCII through the KERNAL keyboard buffer. Execution 
 
 ## Open evidence
 
-The boot trailer’s meaning, object-taking outcomes, full raster-frame reconstruction and later part transitions remain open. The earlier technical article is a private draft until its claims are checked.
+The boot trailer’s meaning, object-taking outcomes, later part transitions remain open. The earlier technical article is a private draft until its claims are checked.
 
 ## Provenance
 
 Imported `neverending_story_full_listing.txt`, SHA-256 `ef4cadfc4fb0bbe410a3a0881d8ca9da6c877c19ef9579ce2f07147c66f90e12`. Original models are unknown. Source comes from fresh regenerator2000 exports and `listing.py` on the declared snapshot.
+
+## Full frame and object state
+
+A cycle-positioned frame capture recorded eight video-register writes. C64.renderFrame matched all 104,448 pixels of the emulator capture, with zero differences. The page embeds the trimmed 4,505 RAM bytes read by the renderer, plus the captured colour state; it carries no ROM image.
+
+A controlled direct-call test placed noun token $45 (WEB) in the current room by setting its relative noun-state index 19 to room 1 and its carried count to zero. TAKE at $0F02 changed that location to $FC and incremented the count to one; the noun resolver selected icon slot 8, whose $AA60 source pointer appeared in a visible overlay. DROP at $0EB0 restored location 1, decremented the count to zero, and removed that pointer. This verifies the state and icon mechanics under the stated synthetic setup; it does not claim that WEB occurs in the starting clearing during ordinary play.
