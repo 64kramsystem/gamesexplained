@@ -102,6 +102,16 @@
     33024,
     39551,
     "All 102 rope sprites consumed as 34 triplets by $16DE, individually labelled and checked live."
+   ],
+   [
+    27648,
+    29975,
+    "Three title music streams with terminal pointers checked by native playback."
+   ],
+   [
+    41671,
+    42819,
+    "Bounded title ticker stream and its 40-character wrap look-ahead."
    ]
   ]
  },
@@ -4965,13 +4975,37 @@
   },
   {
    "address": 27648,
-   "name": "JSW_State_title_music_streams",
+   "name": "TITLE_MUSIC_VOICE_1",
    "type": "UserDefined",
    "kind": "user"
   },
   {
    "address": 27904,
    "name": "annotation_6d00",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 28672,
+   "name": "TITLE_MUSIC_VOICE_1_PAGE_4",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 28928,
+   "name": "TITLE_MUSIC_VOICE_1_PAGE_5",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 29256,
+   "name": "TITLE_MUSIC_VOICE_2",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 29520,
+   "name": "TITLE_MUSIC_VOICE_3",
    "type": "UserDefined",
    "kind": "user"
   },
@@ -6075,13 +6109,25 @@
   },
   {
    "address": 41671,
-   "name": "JSW_State_title_scroller_stream",
+   "name": "TITLE_TICKER_TEXT",
    "type": "UserDefined",
    "kind": "user"
   },
   {
    "address": 41672,
    "name": "annotation_a2c8",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 42695,
+   "name": "TITLE_TICKER_TEXT_CONTINUATION",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 42780,
+   "name": "TITLE_TICKER_WRAP_SPACES",
    "type": "UserDefined",
    "kind": "user"
   },
@@ -6654,6 +6700,12 @@
    "name": "f_DB99",
    "type": "Field",
    "kind": "auto"
+  },
+  {
+   "address": 56272,
+   "name": "INITIAL_ROOM_40_PARAMETERS",
+   "type": "UserDefined",
+   "kind": "user"
   },
   {
    "address": 56320,
@@ -9211,12 +9263,32 @@
   {
    "address": 27648,
    "type": "line",
-   "text": "Title-music event streams beginning at $6C00, $7248, and $7350, followed by stream tail bytes. Readers consume note/duration pairs and use $FF as end control."
+   "text": "Title voice 1: 803 note/duration pairs at $6C00-$7245, followed by $FF,$FF at $7246-$7247. Reader $A14F recognizes duration $FF and stops all voices. Durations sum to 13,248 native ticks; duration zero denotes 256 ticks."
   },
   {
    "address": 27904,
    "type": "line",
    "text": "Title music event streams."
+  },
+  {
+   "address": 28672,
+   "type": "line",
+   "text": "Continuation of the bounded voice-1 event stream. Each pair is note index then duration; $A14F advances by two bytes and the final control is $7246-$7247."
+  },
+  {
+   "address": 28928,
+   "type": "line",
+   "text": "Continuation of voice-1 note/duration pairs through the terminal pair at $7246-$7247. A native playback loop ended with voice-1 pointer $7246."
+  },
+  {
+   "address": 29256,
+   "type": "line",
+   "text": "132 note/duration pairs, $7248-$734F. Durations total 13,248 ticks. Reader $A191 does not have the voice-1 $FF end check; the voice-1 end controls overall playback. Native end pointer was $7350."
+  },
+  {
+   "address": 29520,
+   "type": "line",
+   "text": "228 note/duration pairs consumed at $7350-$7517 before voice 1 ends. Durations total 13,250 ticks, so this voice ends with two ticks remaining in its last event. Native end pointer was $7518. The bytes beyond that are not established as active title playback."
   },
   {
    "address": 30208,
@@ -9906,12 +9978,22 @@
   {
    "address": 41671,
    "type": "line",
-   "text": "Title scroller stream, including FAW/Excalibur crack attribution and control bytes."
+   "text": "Title ticker text begins here. The IRQ compares the pointer with $A71C before resetting it to $A2C7; its 40-byte indexed read can reach the trailing spaces at $A71C-$A743."
   },
   {
    "address": 41672,
    "type": "line",
    "text": "Title ticker text/control stream including crack attribution."
+  },
+  {
+   "address": 42695,
+   "type": "line",
+   "text": "Continuation of the title ticker stream beyond its first 1024 bytes. The title IRQ reads a moving 40-character window and resets the base pointer at $A71C."
+  },
+  {
+   "address": 42780,
+   "type": "line",
+   "text": "40 space characters used as look-ahead for the final title ticker window before its base resets to $A2C7. Maximum indexed read reaches $A743, immediately before the title initializer at $A744."
   },
   {
    "address": 42820,
@@ -10232,6 +10314,11 @@
    "address": 56217,
    "type": "line",
    "text": "Initialization source room 40, packed map byte 121: row 15, columns 4-7. Copied to $EA99; the visible color-RAM reference at this CPU address belongs to display output, not the hidden source record."
+  },
+  {
+   "address": 56272,
+   "type": "line",
+   "text": "Initialization room-40 parameter tail, copied to $EAD0-$EAFF. Offsets $D0-$D2 describe the conveyor, $D3-$D5 the ramp, $D6 the border, $D7-$DA terrain colors and $DC-$DF exits. Guardian fields begin at $E0. Remaining tail-field meanings are open; all 48 bytes are consumed by the bounded bootstrap copy."
   },
   {
    "address": 56320,
