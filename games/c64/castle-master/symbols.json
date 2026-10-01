@@ -763,6 +763,16 @@
   },
   {
    "start": 40339,
+   "end": 49663,
+   "type": "Byte"
+  },
+  {
+   "start": 49664,
+   "end": 49716,
+   "type": "Code"
+  },
+  {
+   "start": 49717,
    "end": 51199,
    "type": "Byte"
   },
@@ -1943,7 +1953,7 @@
   },
   {
    "address": 1198,
-   "name": "load_save_dispatch_local_04ae",
+   "name": "marshal_save_payload",
    "type": "Branch",
    "kind": "user"
   },
@@ -1991,7 +2001,7 @@
   },
   {
    "address": 1388,
-   "name": "serialize_all_object_flags_local_056c",
+   "name": "restore_save_payload",
    "type": "Branch",
    "kind": "user"
   },
@@ -2045,13 +2055,13 @@
   },
   {
    "address": 1496,
-   "name": "SERIALIZE_ALL_OBJECT_FLAGS",
+   "name": "save_begin_database_flags",
    "type": "Subroutine",
    "kind": "user"
   },
   {
    "address": 1516,
-   "name": "SELECT_NEXT_AREA_OBJECT_LIST",
+   "name": "save_next_database_area",
    "type": "Subroutine",
    "kind": "user"
   },
@@ -2063,7 +2073,7 @@
   },
   {
    "address": 1560,
-   "name": "ADVANCE_TO_NEXT_SERIALIZED_OBJECT",
+   "name": "save_next_database_object",
    "type": "Subroutine",
    "kind": "user"
   },
@@ -2423,9 +2433,9 @@
   },
   {
    "address": 3442,
-   "name": "f_0D72",
+   "name": "sid_song_root_words_continuation",
    "type": "Field",
-   "kind": "auto"
+   "kind": "user"
   },
   {
    "address": 3443,
@@ -2711,9 +2721,9 @@
   },
   {
    "address": 3862,
-   "name": "f_0F16",
+   "name": "sid_instrument_window_fields",
    "type": "Field",
-   "kind": "auto"
+   "kind": "user"
   },
   {
    "address": 3863,
@@ -2765,7 +2775,7 @@
   },
   {
    "address": 3934,
-   "name": "sid_pitch_sequences_0f5e",
+   "name": "sid_pitch_sequence_bytes",
    "type": "UserDefined",
    "kind": "user"
   },
@@ -2777,21 +2787,21 @@
   },
   {
    "address": 4066,
-   "name": "sid_vibrato_tables_0fe2",
+   "name": "sid_vibrato_sequence_bytes",
    "type": "UserDefined",
    "kind": "user"
   },
   {
    "address": 4106,
-   "name": "sid_waveform_values_and_remaps",
+   "name": "sid_waveform_control_lookup",
    "type": "UserDefined",
    "kind": "user"
   },
   {
    "address": 4109,
-   "name": "f_100D",
+   "name": "sid_waveform_sequence_headers",
    "type": "Field",
-   "kind": "auto"
+   "kind": "user"
   },
   {
    "address": 4110,
@@ -2801,13 +2811,13 @@
   },
   {
    "address": 4119,
-   "name": "sid_instrument_offsets_1017",
+   "name": "sid_live_instrument_remapping",
    "type": "UserDefined",
    "kind": "user"
   },
   {
    "address": 4143,
-   "name": "sid_instrument_offsets_seed_102f",
+   "name": "sid_default_instrument_remapping",
    "type": "UserDefined",
    "kind": "user"
   },
@@ -4103,9 +4113,9 @@
   },
   {
    "address": 8296,
-   "name": "f_2068",
+   "name": "hud_animation_frames_1_to_3",
    "type": "Field",
-   "kind": "auto"
+   "kind": "user"
   },
   {
    "address": 8320,
@@ -6617,15 +6627,15 @@
   },
   {
    "address": 16802,
-   "name": "a_41A2",
+   "name": "face_count_increment_operand",
    "type": "AbsoluteAddress",
-   "kind": "auto"
+   "kind": "user"
   },
   {
    "address": 16803,
-   "name": "a_41A3",
+   "name": "face_count_increment_operand_high",
    "type": "AbsoluteAddress",
-   "kind": "auto"
+   "kind": "user"
   },
   {
    "address": 16825,
@@ -7883,15 +7893,15 @@
   },
   {
    "address": 20074,
-   "name": "a_4E6A",
+   "name": "reset_object_directory_read_operand",
    "type": "AbsoluteAddress",
-   "kind": "auto"
+   "kind": "user"
   },
   {
    "address": 20075,
-   "name": "a_4E6B",
+   "name": "reset_object_directory_read_operand_high",
    "type": "AbsoluteAddress",
-   "kind": "auto"
+   "kind": "user"
   },
   {
    "address": 20083,
@@ -7901,15 +7911,15 @@
   },
   {
    "address": 20084,
-   "name": "a_4E74",
+   "name": "operand_4e73_low",
    "type": "AbsoluteAddress",
-   "kind": "auto"
+   "kind": "user"
   },
   {
    "address": 20085,
-   "name": "a_4E75",
+   "name": "operand_4e73_high",
    "type": "AbsoluteAddress",
-   "kind": "auto"
+   "kind": "user"
   },
   {
    "address": 20112,
@@ -8569,6 +8579,12 @@
    "address": 21391,
    "name": "scan_objects_for_collision_local_538f",
    "type": "Branch",
+   "kind": "user"
+  },
+  {
+   "address": 21411,
+   "name": "collision_candidate_y_store_operand",
+   "type": "UserDefined",
    "kind": "user"
   },
   {
@@ -9839,15 +9855,15 @@
   },
   {
    "address": 26130,
-   "name": "a_6612",
+   "name": "viewport_source_read_operand",
    "type": "AbsoluteAddress",
-   "kind": "auto"
+   "kind": "user"
   },
   {
    "address": 26131,
-   "name": "a_6613",
+   "name": "viewport_source_read_operand_high",
    "type": "AbsoluteAddress",
-   "kind": "auto"
+   "kind": "user"
   },
   {
    "address": 26132,
@@ -9857,15 +9873,15 @@
   },
   {
    "address": 26133,
-   "name": "a_6615",
+   "name": "operand_6614_low",
    "type": "AbsoluteAddress",
-   "kind": "auto"
+   "kind": "user"
   },
   {
    "address": 26134,
-   "name": "a_6616",
+   "name": "operand_6614_high",
    "type": "AbsoluteAddress",
-   "kind": "auto"
+   "kind": "user"
   },
   {
    "address": 26166,
@@ -12101,15 +12117,15 @@
   },
   {
    "address": 32173,
-   "name": "a_7DAD",
+   "name": "hud_masked_read_operand",
    "type": "AbsoluteAddress",
-   "kind": "auto"
+   "kind": "user"
   },
   {
    "address": 32174,
-   "name": "a_7DAE",
+   "name": "hud_masked_read_operand_high",
    "type": "AbsoluteAddress",
-   "kind": "auto"
+   "kind": "user"
   },
   {
    "address": 32177,
@@ -12119,15 +12135,15 @@
   },
   {
    "address": 32178,
-   "name": "a_7DB2",
+   "name": "operand_7db1_low",
    "type": "AbsoluteAddress",
-   "kind": "auto"
+   "kind": "user"
   },
   {
    "address": 32179,
-   "name": "a_7DB3",
+   "name": "operand_7db1_high",
    "type": "AbsoluteAddress",
-   "kind": "auto"
+   "kind": "user"
   },
   {
    "address": 32199,
@@ -12173,15 +12189,15 @@
   },
   {
    "address": 32313,
-   "name": "a_7E39",
+   "name": "operand_7e38_low",
    "type": "AbsoluteAddress",
-   "kind": "auto"
+   "kind": "user"
   },
   {
    "address": 32314,
-   "name": "a_7E3A",
+   "name": "operand_7e38_high",
    "type": "AbsoluteAddress",
-   "kind": "auto"
+   "kind": "user"
   },
   {
    "address": 32317,
@@ -12191,15 +12207,15 @@
   },
   {
    "address": 32318,
-   "name": "a_7E3E",
+   "name": "operand_7e3d_low",
    "type": "AbsoluteAddress",
-   "kind": "auto"
+   "kind": "user"
   },
   {
    "address": 32319,
-   "name": "a_7E3F",
+   "name": "operand_7e3d_high",
    "type": "AbsoluteAddress",
-   "kind": "auto"
+   "kind": "user"
   },
   {
    "address": 32338,
@@ -12221,15 +12237,15 @@
   },
   {
    "address": 32358,
-   "name": "a_7E66",
+   "name": "operand_7e65_low",
    "type": "AbsoluteAddress",
-   "kind": "auto"
+   "kind": "user"
   },
   {
    "address": 32359,
-   "name": "a_7E67",
+   "name": "operand_7e65_high",
    "type": "AbsoluteAddress",
-   "kind": "auto"
+   "kind": "user"
   },
   {
    "address": 32373,
@@ -12257,15 +12273,15 @@
   },
   {
    "address": 32410,
-   "name": "a_7E9A",
+   "name": "operand_7e99_low",
    "type": "AbsoluteAddress",
-   "kind": "auto"
+   "kind": "user"
   },
   {
    "address": 32411,
-   "name": "a_7E9B",
+   "name": "operand_7e99_high",
    "type": "AbsoluteAddress",
-   "kind": "auto"
+   "kind": "user"
   },
   {
    "address": 32414,
@@ -12275,15 +12291,15 @@
   },
   {
    "address": 32415,
-   "name": "a_7E9F",
+   "name": "operand_7e9e_low",
    "type": "AbsoluteAddress",
-   "kind": "auto"
+   "kind": "user"
   },
   {
    "address": 32416,
-   "name": "a_7EA0",
+   "name": "operand_7e9e_high",
    "type": "AbsoluteAddress",
-   "kind": "auto"
+   "kind": "user"
   },
   {
    "address": 32425,
@@ -12305,15 +12321,15 @@
   },
   {
    "address": 32447,
-   "name": "a_7EBF",
+   "name": "operand_7ebe_low",
    "type": "AbsoluteAddress",
-   "kind": "auto"
+   "kind": "user"
   },
   {
    "address": 32448,
-   "name": "a_7EC0",
+   "name": "operand_7ebe_high",
    "type": "AbsoluteAddress",
-   "kind": "auto"
+   "kind": "user"
   },
   {
    "address": 32461,
@@ -12329,15 +12345,15 @@
   },
   {
    "address": 32473,
-   "name": "a_7ED9",
+   "name": "operand_7ed8_low",
    "type": "AbsoluteAddress",
-   "kind": "auto"
+   "kind": "user"
   },
   {
    "address": 32474,
-   "name": "a_7EDA",
+   "name": "operand_7ed8_high",
    "type": "AbsoluteAddress",
-   "kind": "auto"
+   "kind": "user"
   },
   {
    "address": 32493,
@@ -12413,15 +12429,15 @@
   },
   {
    "address": 32639,
-   "name": "a_7F7F",
+   "name": "operand_7f7e_low",
    "type": "AbsoluteAddress",
-   "kind": "auto"
+   "kind": "user"
   },
   {
    "address": 32640,
-   "name": "a_7F80",
+   "name": "operand_7f7e_high",
    "type": "AbsoluteAddress",
-   "kind": "auto"
+   "kind": "user"
   },
   {
    "address": 32644,
@@ -12431,15 +12447,15 @@
   },
   {
    "address": 32645,
-   "name": "a_7F85",
+   "name": "operand_7f84_low",
    "type": "AbsoluteAddress",
-   "kind": "auto"
+   "kind": "user"
   },
   {
    "address": 32646,
-   "name": "a_7F86",
+   "name": "operand_7f84_high",
    "type": "AbsoluteAddress",
-   "kind": "auto"
+   "kind": "user"
   },
   {
    "address": 32673,
@@ -12473,15 +12489,15 @@
   },
   {
    "address": 32709,
-   "name": "a_7FC5",
+   "name": "operand_7fc4_low",
    "type": "AbsoluteAddress",
-   "kind": "auto"
+   "kind": "user"
   },
   {
    "address": 32710,
-   "name": "a_7FC6",
+   "name": "operand_7fc4_high",
    "type": "AbsoluteAddress",
-   "kind": "auto"
+   "kind": "user"
   },
   {
    "address": 32713,
@@ -12491,15 +12507,15 @@
   },
   {
    "address": 32714,
-   "name": "a_7FCA",
+   "name": "operand_7fc9_low",
    "type": "AbsoluteAddress",
-   "kind": "auto"
+   "kind": "user"
   },
   {
    "address": 32715,
-   "name": "a_7FCB",
+   "name": "operand_7fc9_high",
    "type": "AbsoluteAddress",
-   "kind": "auto"
+   "kind": "user"
   },
   {
    "address": 32731,
@@ -12965,15 +12981,15 @@
   },
   {
    "address": 33855,
-   "name": "a_843F",
+   "name": "effect_second_pattern_store_operand",
    "type": "AbsoluteAddress",
-   "kind": "auto"
+   "kind": "user"
   },
   {
    "address": 33856,
-   "name": "a_8440",
+   "name": "effect_second_pattern_store_operand_high",
    "type": "AbsoluteAddress",
-   "kind": "auto"
+   "kind": "user"
   },
   {
    "address": 33866,
@@ -12983,15 +12999,15 @@
   },
   {
    "address": 33867,
-   "name": "a_844B",
+   "name": "operand_844a_low",
    "type": "AbsoluteAddress",
-   "kind": "auto"
+   "kind": "user"
   },
   {
    "address": 33868,
-   "name": "a_844C",
+   "name": "operand_844a_high",
    "type": "AbsoluteAddress",
-   "kind": "auto"
+   "kind": "user"
   },
   {
    "address": 33898,
@@ -13031,15 +13047,15 @@
   },
   {
    "address": 33963,
-   "name": "a_84AB",
+   "name": "operand_84aa_low",
    "type": "AbsoluteAddress",
-   "kind": "auto"
+   "kind": "user"
   },
   {
    "address": 33964,
-   "name": "a_84AC",
+   "name": "operand_84aa_high",
    "type": "AbsoluteAddress",
-   "kind": "auto"
+   "kind": "user"
   },
   {
    "address": 33973,
@@ -13049,15 +13065,15 @@
   },
   {
    "address": 33974,
-   "name": "a_84B6",
+   "name": "operand_84b5_low",
    "type": "AbsoluteAddress",
-   "kind": "auto"
+   "kind": "user"
   },
   {
    "address": 33975,
-   "name": "a_84B7",
+   "name": "operand_84b5_high",
    "type": "AbsoluteAddress",
-   "kind": "auto"
+   "kind": "user"
   },
   {
    "address": 33988,
@@ -13067,15 +13083,15 @@
   },
   {
    "address": 33989,
-   "name": "a_84C5",
+   "name": "operand_84c4_low",
    "type": "AbsoluteAddress",
-   "kind": "auto"
+   "kind": "user"
   },
   {
    "address": 33990,
-   "name": "a_84C6",
+   "name": "operand_84c4_high",
    "type": "AbsoluteAddress",
-   "kind": "auto"
+   "kind": "user"
   },
   {
    "address": 34017,
@@ -13121,15 +13137,15 @@
   },
   {
    "address": 34102,
-   "name": "a_8536",
+   "name": "operand_8535_low",
    "type": "AbsoluteAddress",
-   "kind": "auto"
+   "kind": "user"
   },
   {
    "address": 34103,
-   "name": "a_8537",
+   "name": "operand_8535_high",
    "type": "AbsoluteAddress",
-   "kind": "auto"
+   "kind": "user"
   },
   {
    "address": 34154,
@@ -13313,9 +13329,9 @@
   },
   {
    "address": 34425,
-   "name": "f_8679",
+   "name": "keyboard_copy_overlapping_source_words",
    "type": "Field",
-   "kind": "auto"
+   "kind": "user"
   },
   {
    "address": 34426,
@@ -14873,7 +14889,19 @@
   },
   {
    "address": 49664,
-   "name": "retained_c200_payload_unresolved",
+   "name": "initialize_colour_ram_from_shadow",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 49671,
+   "name": "b_C207",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 49717,
+   "name": "palette_loader_zero_tail",
    "type": "UserDefined",
    "kind": "user"
   },
@@ -16198,8 +16226,26 @@
    "kind": "user"
   },
   {
+   "address": 55552,
+   "name": "initial_colour_shadow_page_d900",
+   "type": "Field",
+   "kind": "user"
+  },
+  {
+   "address": 55808,
+   "name": "initial_colour_shadow_page_da00",
+   "type": "Field",
+   "kind": "user"
+  },
+  {
    "address": 56061,
    "name": "initial_colour_shadow_cell_dafd",
+   "type": "Field",
+   "kind": "user"
+  },
+  {
+   "address": 56064,
+   "name": "initial_colour_shadow_page_db00",
    "type": "Field",
    "kind": "user"
   },
@@ -17705,19 +17751,29 @@
    "text": "Load/save dispatcher.\nPurpose: select the save path when A=$53 and the load path otherwise, then perform the KERNAL file operation and restore game state.\nInputs: A is the command character; filename and state buffers are already prepared.\nOutputs: saved or loaded state; runtime vectors and display state restored.\nAssumptions: KERNAL ROM and I/O can be banked in.\nClobbers: A, X, Y, flags, KERNAL workspace.\nHardware changes: switches $01 banking and calls KERNAL PLOT, SETLFS, SETNAM, LOAD/SAVE."
   },
   {
+   "address": 1198,
+   "type": "line",
+   "text": "Save serializer: copies 106 bytes $2406-$246F, then visits all 34 database entries and appends byte zero (flags/type) from each of 546 object records. Record length at +8 advances the source; directory traversal uses $05D8/$05EC. Native execution stopped before $04F6 produces exactly 652 bytes at the work-buffer root $10A0/$10A1, compared byte-for-byte with an independent database walk. A separate native disk-device-8 SAVE/LOAD round trip on a private copy of the contributor image writes EST  .CM and reads all 652 payload bytes back exactly."
+  },
+  {
+   "address": 1388,
+   "type": "line",
+   "text": "Load deserializer after KERNAL success and $EA signature check: copies 106 bytes into $2406-$246F, then restores byte zero of each of 546 database objects in directory order. Native execution stopped at $05A8 restores all 652 independently generated test bytes exactly; record sizes remain unchanged because only flags/type byte zero is replaced. $05A8 then adjusts sprite-enable bits using $2467. The disk-device-8 SAVE/LOAD round trip reproduces the payload exactly; with IRQs masked for the final comparison, all 106 state and 546 object flags are restored. Tape transfer is untested."
+  },
+  {
    "address": 1496,
    "type": "line",
-   "text": "SERIALIZE_ALL_OBJECT_FLAGS ($05D8-$062E)\nPurpose: walk every area and variable-size object record during save/load, copying exactly one mutable flags byte per object between the live database and save buffer.\nInputs: mode selected by LOAD_SAVE_DISPATCH; area table based at $9D00; object count/record size fields; save-buffer cursor.\nOutputs: save writes 546 object flag bytes to $8836-$8A57; load restores each record byte 0 from the same span.\nAssumptions: 34 area records are traversed in pointer-table order and record byte +8 is total size.\nClobbers: A, X, Y, pointer/counter scratch and destination/source cursors.\nHardware changes: none directly; the caller performs KERNAL banking and file I/O."
+   "text": "Initializes area offset pointer from $109E/$109F and area count from database byte $9D00. Falls through $05EC with Y=$FF to select the first directory word. Shared by save and restore; both controlled native traversals visit 34 areas and 546 records."
   },
   {
    "address": 1516,
    "type": "line",
-   "text": "SELECT_NEXT_AREA_OBJECT_LIST ($05EC-$0617)\nPurpose: read the next database-relative area pointer and initialize that area's object-list cursor for serialization.\nInputs: area-pointer table $7A/$7B, table index Y, and database base $109C/$109D.\nOutputs: installs first-object pointer $7E/$7F, object count $0411, and saved table index $0413.\nAssumptions: table words are little-endian direct offsets from the database base; area byte +1 is object count and the first object begins at +8.\nClobbers: A, Y, flags, $7E/$7F, $0411, and $0413.\nHardware changes: none."
+   "text": "Increments directory-byte index, reads one little-endian base-relative area offset via ($7A), adds database base $109C/$109D, stores object count from header +1 at $0411, and advances object pointer $7E/$7F by eight. Saves directory position at $0413. Native serializer/deserializer both reproduce the independent directory order."
   },
   {
    "address": 1560,
    "type": "line",
-   "text": "ADVANCE_TO_NEXT_SERIALIZED_OBJECT ($0618-$062E)\nPurpose: advance the serialization cursor to the next variable-length object and decrement the current area's remaining count.\nInputs: object pointer $7E/$7F, remaining count $0411, and saved area-table index $0413.\nOutputs: advances $7E/$7F by record byte +8, decrements $0411, restores Y from $0413, and leaves Z set exactly when the count reaches zero.\nAssumptions: record byte +8 is the total record size.\nClobbers: A, Y, flags, $7E/$7F, and $0411.\nHardware changes: none."
+   "text": "Advances object pointer $7E/$7F by total record length read at +8, restores directory index Y from $0413 and decrements remaining object count $0411. Native save and restore tests traverse all 546 exact object boundaries without changing their length bytes."
   },
   {
    "address": 1583,
@@ -18005,6 +18061,11 @@
    "text": "Seventeen groups of three little-endian order-stream pointers, 51 words through $0DD6. Initialization $CF1B multiplies song selector by six into $C813; tick $C885 selects each voice root at base +0/+2/+4. The 51 roots identify 42 distinct order-stream starts in $0DD7-$0F14. Order commands may change transpose, repeat count, fine tuning, instrument remapping or volume before selecting a phrase."
   },
   {
+   "address": 3442,
+   "type": "line",
+   "text": "Second byte of the first root word in the seventeen three-voice song directory $0D71-$0DD6:51 little-endian words. Independent parse finds42 distinct order starts in $0DD7-$0F14; shared suffixes are allowed. Song initialization $CF1B selects the six-byte group and installs three order pointers; it is not a separate one-byte table."
+  },
+  {
    "address": 3543,
    "type": "line",
    "text": "SID channel order stream $0DD7-$0DDA, referenced by song root slot 18. Contains 3 commands including final $FF. Values below $80 select phrases 0-50 in this supplied stream; high-bit commands set transpose, repetition, fine tuning, instrument remap or volume. Native $CA52-$CAA7 and $CF79-$CFBD define command widths. Independently walking all 51 roots yields 42 distinct starts and confines all supplied order payloads to $0DD7-$0F14; shared suffixes may overlap."
@@ -18220,9 +18281,39 @@
    "text": "Instrument parameter allocation used by $CB58-$CBBA. The default eight remapped offsets are 0,9,18,27,36,45,54,63; the decoder reads ten bytes at $0F15+offset through +9. Thus successive parameter windows overlap by one byte, rather than forming disjoint ten-byte records. Fields include pulse high, waveform/control, attack/decay, sustain/release, release timing and modulation selectors/counters. The last default window ends at $0F5D; later data at $0F5E is consumed by modulation helpers. Live fixtures check the exact cached outputs separately."
   },
   {
+   "address": 3862,
+   "type": "line",
+   "text": "Instrument-window field beginning at pulse-width-high byte of default instrument0. Decoder $CB58 reads ten bytes from $0F15+offset; default offsets0,9,..63 create eight overlapping windows ending $0F5D. In each window fields+0 nibble reset counters,+1 pulse high,+2 control,+3 AD,+4 SR,+5 gate-release point,+6 pitch-sequence offset,+7 vibrato offset,+8 waveform offset,+9 extra modulation. Eight controlled native calls reproduce all14 destination fields. Table ownership ends $0F5D; pitch sequences start $0F5E."
+  },
+  {
+   "address": 3934,
+   "type": "line",
+   "text": "Pitch-sequence data consumed via base $0F5E in note initialization $CC60 and pitch modulation $CE7D-$CF1A. Header low3 bits encode last sequence index minus one; bits3-6 give initial delay, incremented at $CC6B; bit7 influences termination/reset. Subsequent bytes pack signed/unsigned semitone contribution in bits3-7 and duration in low3. Modulation combines that pitch with cached base note and split frequency table, then advances sequence index until header length test selects hold($FF) or restart(0). Vibrato data starts $0FE2, so this physical allocation is $0F5E-$0FE1. Full sequence playback is a separate native progression check."
+  },
+  {
+   "address": 4066,
+   "type": "line",
+   "text": "Vibrato bytes through $1009, read from base $0FE2. Offset comes from instrument field+7 cached at $C845+voice. First byte initializes $C842 delay/repeat state; subsequent indexed signed steps add/subtract magnitude from sixteen-bit frequency. $CE06-$CE23 advances a seven-step index then XORs $89 to reverse direction, decrementing finite repeat state on one turnaround. Waveform remap bytes begin $100A. These are traced authored modulation data; complete playback remains verification work."
+  },
+  {
    "address": 4106,
    "type": "line",
-   "text": "Waveform/control lookup begins $100A: seven values $10,$12,$14,$16,$20,$40,$50, with $CE4B selecting through a masked three-bit index. Following bytes at $100E also form the packed waveform sequence table used at $CC23/$CE3A. $1017-$102E holds three eight-slot instrument remaps; initializer $CF65 copies twenty-four bytes from $102F-$1046. Default remaps select offsets 0,9,18,27,36,45,54,63, giving overlapping ten-byte parameter windows at $0F15. Table boundaries overlap by use and are not inferred from the symbol names."
+   "text": "Waveform/control lookup read at $CC37/$CE4B with index low3 of a sequence byte. Values supply SID control bits while preserving/adding gate bit. Numeric lookup indices may overlap neighbouring header/sequence bytes: this is an indexed base, not a claim of disjoint records."
+  },
+  {
+   "address": 4109,
+   "type": "line",
+   "text": "Waveform sequence header base $100D. Instrument+8 selects offset cached at $C84B; $CE65 reads header low3 for sequence length, bit7 chooses restart(0) versus hold($FF). Body bytes are read from $100E+offset+index, high nibble reloads duration counter as nibble+1, low3 selects the control lookup at $100A. Published default remapping array begins $1017; these indexed address windows can overlap. Exact default instrument decode is native checked, sustained waveform progression remains separate."
+  },
+  {
+   "address": 4119,
+   "type": "line",
+   "text": "Twenty-four mutable instrument offsets, eight per voice. Instrument command low4 plus16 plus rewritten voice base0/8/16 indexes this array in $CB58; supplied default values repeat offsets0,9,..63 for each voice. Order command handler $CF97 rewrites a selected slot; $CF65 restores all24 from $102F-$1046. These are remapping slots, not frequency words."
+  },
+  {
+   "address": 4143,
+   "type": "line",
+   "text": "Twenty-four authored default instrument offsets through $1046, copied backward into $1017 by $CF65. Three repeats of0,9,18,27,36,45,54,63. Each points to a ten-byte window at $0F15 despite nine-byte stride; all eight distinct windows were independently modelled and native checked."
   },
   {
    "address": 4226,
@@ -18660,6 +18751,11 @@
    "text": "Second 24-byte half of HUD animation frame zero, $2050-$2067. IRQ phase zero copies $2038-$204F to $E128 and this half to $E268; phases one through three select the subsequent pairs at $2068/$2080, $2098/$20B0 and $20C8/$20E0. The phase cycles every eight IRQ ticks via $7354/$7356. These are authored bitmap fragments, not runtime state."
   },
   {
+   "address": 8296,
+   "type": "line",
+   "text": "Frames1,2,3 of the four48-byte HUD animation pictures at $2038-$20F7. Each frame has two24-byte fragments copied by IRQ code to $E128 and $E268. Frame1 begins $2068, frame2 $2098, frame3 $20C8. The split matches three bitmap columns by eight raster rows per fragment; IRQ advances selector every eight ticks. All initialized-display pixels match the controlled native capture, but that static-frame check does not verify full animation progression."
+  },
+  {
    "address": 8440,
    "type": "line",
    "text": "background_edge_masks_20f8 ($20F8-$21F9). 86 three-byte mask records selected as X=3*$4B8C by $4D90, then AND/OR composited into each linear-framebuffer row. Artistic identities are inferred; record format and consumer are observed."
@@ -18920,6 +19016,16 @@
    "text": "High byte of the rewritten store operand at $40BD/$40BE. The following code is the scanline-fill tail and un-clipped face-descriptor projection/emission path, described at $40BD. This symbol is an operand alias; do not interpret bytes starting here as a separate instruction stream."
   },
   {
+   "address": 16802,
+   "type": "line",
+   "text": "Mutable address operand of INC abs,X at $41A1. In the un-clipped face-emission path, increments accepted-face count in the packed object header, appends colour/count and coordinate data through ($7A), and advances by face record size $A2. If any face was emitted ($105B), writes a four-byte render-buffer pointer/depth directory entry at $10AC/$10AD, advances that directory by four and depth value $10AA/$10AB by twelve, and increments object count $106A. Exact painter pixels remain a separate check."
+  },
+  {
+   "address": 16803,
+   "type": "line",
+   "text": "High byte of face_count_increment_operand at $41A2. This address is the second operand byte of the preceding instruction, not an instruction entry. Mutable address operand of INC abs,X at $41A1. In the un-clipped face-emission path, increments accepted-face count in the packed object header, appends colour/count and coordinate data through ($7A), and advances by face record size $A2. If any face was emitted ($105B), writes a four-byte render-buffer pointer/depth directory entry at $10AC/$10AD, advances that directory by four and depth value $10AA/$10AB by twelve, and increments object count $106A. Exact painter pixels remain a separate check."
+  },
+  {
    "address": 16916,
    "type": "line",
    "text": "Continuation entered after saving the caller selector at $4213. Copies all original 16-bit vertex triples from $3E onward into zero-page scratch beginning $02, then visits faces described by $12CC. Rebuilds each face from six-byte indexed vertex records, clips through $3D57, projects surviving vertices and emits packed colour/count plus screen-coordinate pairs into render buffer $10A8/$10A9. Optional sidedness check $3EE5 selects a colour nibble or rejects the face. Completed objects add four-byte pointer/depth entries to painter directory $10AC/$10AD and increment object count $106A."
@@ -18995,6 +19101,26 @@
    "text": "INITIALIZE_NEW_SESSION ($4E05-$4EC2)\nPurpose: initialize a new Castle Master session, clearing mutable engine state and installing player/game defaults.\nInputs: selected prince/princess choice at $246E and database defaults including strength at $9D05.\nOutputs: reset player, score, key, spirit, timer, event and rendering state; princess choice becomes game bit 32.\nAssumptions: normalized Freescape database is resident at $9D00.\nClobbers: A, X, Y, flags and initialized game-state ranges.\nHardware changes: no direct banking change; called display/sound initialization may update VIC-II/SID state.\nEvidence: observed initialization writes; gender-bit meaning verified by FCL use."
   },
   {
+   "address": 20074,
+   "type": "line",
+   "text": "Patched source operand of LDA abs,X at $4E69; $4E57-$4E66 installs directory base $109E/$109F in both reads. Adds database base to each relative area offset, skips empty areas and traverses each object by length byte +8. Rewrites flags byte as flags AND $9F, then sets bit6 when bit7 was set. After all areas, copies initial area and entrance IDs from $9D03/$9D04 to $2429/$1066 and invokes $4EC3. This is a directory operand alias, not a function entry."
+  },
+  {
+   "address": 20075,
+   "type": "line",
+   "text": "High byte of reset_object_directory_read_operand at $4E6A. This address is the second operand byte of the preceding instruction, not an instruction entry. Patched source operand of LDA abs,X at $4E69; $4E57-$4E66 installs directory base $109E/$109F in both reads. Adds database base to each relative area offset, skips empty areas and traverses each object by length byte +8. Rewrites flags byte as flags AND $9F, then sets bit6 when bit7 was set. After all areas, copies initial area and entrance IDs from $9D03/$9D04 to $2429/$1066 and invokes $4EC3. This is a directory operand alias, not a function entry."
+  },
+  {
+   "address": 20084,
+   "type": "line",
+   "text": "Operand byte 1 of LDA abx at $4E73; captured operand $9D4F. It is not an instruction entry. This continuation belongs to the routine described at $4E6A. Patched source operand of LDA abs,X at $4E69; $4E57-$4E66 installs directory base $109E/$109F in both reads. Adds database base to each relative area offset, skips empty areas and traverses each object by length byte +8. Rewrites flags byte as flags AND $9F, then sets bit6 when bit7 was set. After all areas, copies initial area and entrance IDs from $9D03/$9D04 to $2429/$1066 and invokes $4EC3. This is a directory operand alias, not a function entry."
+  },
+  {
+   "address": 20085,
+   "type": "line",
+   "text": "Operand byte 2 of LDA abx at $4E73; captured operand $9D4F. It is not an instruction entry. This continuation belongs to the routine described at $4E6A. Patched source operand of LDA abs,X at $4E69; $4E57-$4E66 installs directory base $109E/$109F in both reads. Adds database base to each relative area offset, skips empty areas and traverses each object by length byte +8. Rewrites flags byte as flags AND $9F, then sets bit6 when bit7 was set. After all areas, copies initial area and entrance IDs from $9D03/$9D04 to $2429/$1066 and invokes $4EC3. This is a directory operand alias, not a function entry."
+  },
+  {
    "address": 20163,
    "type": "line",
    "text": "ENTER_DESTINATION_AREA ($4EC3-$4F59)\nPurpose: select an FCL GOTO destination area, resolve its entrance record, and install the requested player pose.\nInputs: destination/current area $2429, entrance object ID $1066, normalized database pointers, and cached global/current object roots.\nOutputs: installs current-area state through SELECT_AREA; when an entrance coordinate byte +1/+2/+3 is not $FF, converts it to quarter units with $20 low-byte bias and writes player X/Y/Z. Installs pitch/yaw from +4/+5 only when all three coordinates were supplied. A $FF coordinate preserves that current axis.\nAssumptions: A=0 FIND_OBJECT_BY_ID searches area-255/global records first and current-area locals second; the entrance record is valid and its position/orientation fields follow the verified format.\nClobbers: A, X, Y, flags, $7C/$7D, $82, transition scratch, and current-area state.\nHardware changes: none."
@@ -19008,6 +19134,11 @@
    "address": 20387,
    "type": "line",
    "text": "SOLVE_PLAYER_COLLISION ($4FA3-$546A)\nPurpose: test a candidate player position against current-area and area-255/global geometry, adjust it to valid supporting/blocking faces, and commit or reject movement.\nInputs: candidate X/Y/Z at $104C-$1051; current X/Y/Z at $2407-$240C; player dimensions/thresholds $2412-$2415; active object lists.\nOutputs: accepted coordinates in $2407-$240C and X=1 when position changed, or original position and X=0 when no movement commits; collision object/event scratch may be updated.\nAssumptions: invisible or destroyed objects do not block and record byte 8 supplies stride.\nClobbers: A, X, Y, flags, interval/math scratch and collision/event state.\nHardware changes: none.\nEvidence: instruction effects observed; return contract verified independently from movement and gravity callers."
+  },
+  {
+   "address": 21411,
+   "type": "line",
+   "text": "Two-byte destination operand of STA at $53A2, not a routine entry. Collision response continuation subtracts selected vertical clearance $4F9B/$4F9C from candidate Y, compares four-times clearance high byte with player height $2414, dispatches $8142 or installs the selected support object/event. With no raised collision it compares gap to $2415 and invokes $546B. It clears $2417, checks X/Z sign and $1FC0 bounds, compares all six candidate position bytes $104C-$1051 with $2407-$240C, copies changed coordinates and returns X=1 for change or X=0 otherwise. Signed boundary and reachability behavior remain explicit verification work."
   },
   {
    "address": 21611,
@@ -19098,6 +19229,26 @@
    "address": 26087,
    "type": "line",
    "text": "BLIT_LINEAR_BUFFER_FORWARD_TO_VIC_BITMAP ($65E7-$664B)\nPurpose: swizzle the complete 120x30-byte linear work buffer forward into the VIC bitmap's 30x15-cell, eight-scanline layout.\nInputs: source $87CC-$95DB, bitmap base $1237/$1238, and deferred sound index $105E.\nOutputs: writes all 3,600 source bytes across the destination's 4,800-byte interleaved rectangle in fifteen 240-byte blocks; may consume and initialize a deferred sound request.\nAssumptions: CPU mapping exposes the bitmap RAM and I/O; destination character rows are 320 bytes apart.\nClobbers: A, X, Y, flags, $B1, and self-modified operands $6612-$6616.\nHardware changes: executes SEI/CLI around each 240-byte block, writes VIC-visible bitmap RAM, and may reach SID control/state through $CFD8->$CF1B."
+  },
+  {
+   "address": 26130,
+   "type": "line",
+   "text": "Patched address operand of LDA abs,X at $6611, belonging to viewport transfer. For each row group, visits eight subrows and thirty cells, reads 240 consecutive linear bytes and writes the bitmap with eight-byte X stride. Protects each group with SEI/CLI. Between groups destination advances $0140 and source advances $00F0; count in $B1 decrements to zero. End is $664B RTS; following $664C-$6660 is a separate zero-filled occupant. The native initialized-frame check is distinct from this traced transfer routine."
+  },
+  {
+   "address": 26131,
+   "type": "line",
+   "text": "High byte of viewport_source_read_operand at $6612. This address is the second operand byte of the preceding instruction, not an instruction entry. Patched address operand of LDA abs,X at $6611, belonging to viewport transfer. For each row group, visits eight subrows and thirty cells, reads 240 consecutive linear bytes and writes the bitmap with eight-byte X stride. Protects each group with SEI/CLI. Between groups destination advances $0140 and source advances $00F0; count in $B1 decrements to zero. End is $664B RTS; following $664C-$6660 is a separate zero-filled occupant. The native initialized-frame check is distinct from this traced transfer routine."
+  },
+  {
+   "address": 26133,
+   "type": "line",
+   "text": "Operand byte 1 of STA aby at $6614; captured operand $FFFF. It is not an instruction entry. This continuation belongs to the routine described at $6612. Patched address operand of LDA abs,X at $6611, belonging to viewport transfer. For each row group, visits eight subrows and thirty cells, reads 240 consecutive linear bytes and writes the bitmap with eight-byte X stride. Protects each group with SEI/CLI. Between groups destination advances $0140 and source advances $00F0; count in $B1 decrements to zero. End is $664B RTS; following $664C-$6660 is a separate zero-filled occupant. The native initialized-frame check is distinct from this traced transfer routine."
+  },
+  {
+   "address": 26134,
+   "type": "line",
+   "text": "Operand byte 2 of STA aby at $6614; captured operand $FFFF. It is not an instruction entry. This continuation belongs to the routine described at $6612. Patched address operand of LDA abs,X at $6611, belonging to viewport transfer. For each row group, visits eight subrows and thirty cells, reads 240 consecutive linear bytes and writes the bitmap with eight-byte X stride. Protects each group with SEI/CLI. Between groups destination advances $0140 and source advances $00F0; count in $B1 decrements to zero. End is $664B RTS; following $664C-$6660 is a separate zero-filled occupant. The native initialized-frame check is distinct from this traced transfer routine."
   },
   {
    "address": 26209,
@@ -19230,6 +19381,136 @@
    "text": "High byte of the rewritten store operand $7D92/$7D93, belonging to STA at $7D91. The continuation through $7FE2 implements aligned and shifted bitmap row copies, final-byte masking and transparent zero-valued two-bit pixels. See $7D92 for inputs/header format and each branch. This label names an operand, not code entered at this byte."
   },
   {
+   "address": 32173,
+   "type": "line",
+   "text": "Mutable address operand of AND abs,X at $7DAC. The aligned blitter merges the last byte as (source AND final mask) OR (destination AND inverse mask), stores through patched $7DB2, restores saved row state, and decrements row count. The following shifted path $7DC7-$7EED builds shifted bytes and preserves partial edges; transparent path $7EF0-$7FD8 treats zero two-bit pixels as unchanged destination, then common $7FDB restores source pointer and flags. It is an operand alias, not a new instruction entry. Exact whole-blit image output remains to be tested."
+  },
+  {
+   "address": 32174,
+   "type": "line",
+   "text": "High byte of hud_masked_read_operand at $7DAD. This address is the second operand byte of the preceding instruction, not an instruction entry. Mutable address operand of AND abs,X at $7DAC. The aligned blitter merges the last byte as (source AND final mask) OR (destination AND inverse mask), stores through patched $7DB2, restores saved row state, and decrements row count. The following shifted path $7DC7-$7EED builds shifted bytes and preserves partial edges; transparent path $7EF0-$7FD8 treats zero two-bit pixels as unchanged destination, then common $7FDB restores source pointer and flags. It is an operand alias, not a new instruction entry. Exact whole-blit image output remains to be tested."
+  },
+  {
+   "address": 32178,
+   "type": "line",
+   "text": "Operand byte 1 of STA abx at $7DB1; captured operand $F257. It is not an instruction entry. This continuation belongs to the routine described at $7D92. Rewritten destination operand of STA abs,X at $7D91, inside bitmap blitter $7CF6. $7D65-$7D7D installs row-pointer plus aligned X offset in this and the final masked-byte operations. Source header gives byte width, row count, final-byte mask and frame stride; A low seven bits chooses a frame. Aligned opaque copy uses $7D64-$7DC4; shifted opaque $7DC7-$7EED carries pixels between bytes and preserves boundary masks; A bit7 selects transparent two-bit-zero masking at $7EF0-$7FD8. Source pointer $7A/$7B and processor flags are saved/restored. Exact picture output still requires native blit tests."
+  },
+  {
+   "address": 32179,
+   "type": "line",
+   "text": "Operand byte 2 of STA abx at $7DB1; captured operand $F257. It is not an instruction entry. This continuation belongs to the routine described at $7D92. Rewritten destination operand of STA abs,X at $7D91, inside bitmap blitter $7CF6. $7D65-$7D7D installs row-pointer plus aligned X offset in this and the final masked-byte operations. Source header gives byte width, row count, final-byte mask and frame stride; A low seven bits chooses a frame. Aligned opaque copy uses $7D64-$7DC4; shifted opaque $7DC7-$7EED carries pixels between bytes and preserves boundary masks; A bit7 selects transparent two-bit-zero masking at $7EF0-$7FD8. Source pointer $7A/$7B and processor flags are saved/restored. Exact picture output still requires native blit tests."
+  },
+  {
+   "address": 32313,
+   "type": "line",
+   "text": "Operand byte 1 of AND abx at $7E38; captured operand $EF59. It is not an instruction entry. This continuation belongs to the routine described at $7D92. Rewritten destination operand of STA abs,X at $7D91, inside bitmap blitter $7CF6. $7D65-$7D7D installs row-pointer plus aligned X offset in this and the final masked-byte operations. Source header gives byte width, row count, final-byte mask and frame stride; A low seven bits chooses a frame. Aligned opaque copy uses $7D64-$7DC4; shifted opaque $7DC7-$7EED carries pixels between bytes and preserves boundary masks; A bit7 selects transparent two-bit-zero masking at $7EF0-$7FD8. Source pointer $7A/$7B and processor flags are saved/restored. Exact picture output still requires native blit tests."
+  },
+  {
+   "address": 32314,
+   "type": "line",
+   "text": "Operand byte 2 of AND abx at $7E38; captured operand $EF59. It is not an instruction entry. This continuation belongs to the routine described at $7D92. Rewritten destination operand of STA abs,X at $7D91, inside bitmap blitter $7CF6. $7D65-$7D7D installs row-pointer plus aligned X offset in this and the final masked-byte operations. Source header gives byte width, row count, final-byte mask and frame stride; A low seven bits chooses a frame. Aligned opaque copy uses $7D64-$7DC4; shifted opaque $7DC7-$7EED carries pixels between bytes and preserves boundary masks; A bit7 selects transparent two-bit-zero masking at $7EF0-$7FD8. Source pointer $7A/$7B and processor flags are saved/restored. Exact picture output still requires native blit tests."
+  },
+  {
+   "address": 32318,
+   "type": "line",
+   "text": "Operand byte 1 of STA abx at $7E3D; captured operand $EF59. It is not an instruction entry. This continuation belongs to the routine described at $7D92. Rewritten destination operand of STA abs,X at $7D91, inside bitmap blitter $7CF6. $7D65-$7D7D installs row-pointer plus aligned X offset in this and the final masked-byte operations. Source header gives byte width, row count, final-byte mask and frame stride; A low seven bits chooses a frame. Aligned opaque copy uses $7D64-$7DC4; shifted opaque $7DC7-$7EED carries pixels between bytes and preserves boundary masks; A bit7 selects transparent two-bit-zero masking at $7EF0-$7FD8. Source pointer $7A/$7B and processor flags are saved/restored. Exact picture output still requires native blit tests."
+  },
+  {
+   "address": 32319,
+   "type": "line",
+   "text": "Operand byte 2 of STA abx at $7E3D; captured operand $EF59. It is not an instruction entry. This continuation belongs to the routine described at $7D92. Rewritten destination operand of STA abs,X at $7D91, inside bitmap blitter $7CF6. $7D65-$7D7D installs row-pointer plus aligned X offset in this and the final masked-byte operations. Source header gives byte width, row count, final-byte mask and frame stride; A low seven bits chooses a frame. Aligned opaque copy uses $7D64-$7DC4; shifted opaque $7DC7-$7EED carries pixels between bytes and preserves boundary masks; A bit7 selects transparent two-bit-zero masking at $7EF0-$7FD8. Source pointer $7A/$7B and processor flags are saved/restored. Exact picture output still requires native blit tests."
+  },
+  {
+   "address": 32358,
+   "type": "line",
+   "text": "Operand byte 1 of STA abx at $7E65; captured operand $EF59. It is not an instruction entry. This continuation belongs to the routine described at $7D92. Rewritten destination operand of STA abs,X at $7D91, inside bitmap blitter $7CF6. $7D65-$7D7D installs row-pointer plus aligned X offset in this and the final masked-byte operations. Source header gives byte width, row count, final-byte mask and frame stride; A low seven bits chooses a frame. Aligned opaque copy uses $7D64-$7DC4; shifted opaque $7DC7-$7EED carries pixels between bytes and preserves boundary masks; A bit7 selects transparent two-bit-zero masking at $7EF0-$7FD8. Source pointer $7A/$7B and processor flags are saved/restored. Exact picture output still requires native blit tests."
+  },
+  {
+   "address": 32359,
+   "type": "line",
+   "text": "Operand byte 2 of STA abx at $7E65; captured operand $EF59. It is not an instruction entry. This continuation belongs to the routine described at $7D92. Rewritten destination operand of STA abs,X at $7D91, inside bitmap blitter $7CF6. $7D65-$7D7D installs row-pointer plus aligned X offset in this and the final masked-byte operations. Source header gives byte width, row count, final-byte mask and frame stride; A low seven bits chooses a frame. Aligned opaque copy uses $7D64-$7DC4; shifted opaque $7DC7-$7EED carries pixels between bytes and preserves boundary masks; A bit7 selects transparent two-bit-zero masking at $7EF0-$7FD8. Source pointer $7A/$7B and processor flags are saved/restored. Exact picture output still requires native blit tests."
+  },
+  {
+   "address": 32410,
+   "type": "line",
+   "text": "Operand byte 1 of AND abx at $7E99; captured operand $EF59. It is not an instruction entry. This continuation belongs to the routine described at $7D92. Rewritten destination operand of STA abs,X at $7D91, inside bitmap blitter $7CF6. $7D65-$7D7D installs row-pointer plus aligned X offset in this and the final masked-byte operations. Source header gives byte width, row count, final-byte mask and frame stride; A low seven bits chooses a frame. Aligned opaque copy uses $7D64-$7DC4; shifted opaque $7DC7-$7EED carries pixels between bytes and preserves boundary masks; A bit7 selects transparent two-bit-zero masking at $7EF0-$7FD8. Source pointer $7A/$7B and processor flags are saved/restored. Exact picture output still requires native blit tests."
+  },
+  {
+   "address": 32411,
+   "type": "line",
+   "text": "Operand byte 2 of AND abx at $7E99; captured operand $EF59. It is not an instruction entry. This continuation belongs to the routine described at $7D92. Rewritten destination operand of STA abs,X at $7D91, inside bitmap blitter $7CF6. $7D65-$7D7D installs row-pointer plus aligned X offset in this and the final masked-byte operations. Source header gives byte width, row count, final-byte mask and frame stride; A low seven bits chooses a frame. Aligned opaque copy uses $7D64-$7DC4; shifted opaque $7DC7-$7EED carries pixels between bytes and preserves boundary masks; A bit7 selects transparent two-bit-zero masking at $7EF0-$7FD8. Source pointer $7A/$7B and processor flags are saved/restored. Exact picture output still requires native blit tests."
+  },
+  {
+   "address": 32415,
+   "type": "line",
+   "text": "Operand byte 1 of STA abx at $7E9E; captured operand $EF59. It is not an instruction entry. This continuation belongs to the routine described at $7D92. Rewritten destination operand of STA abs,X at $7D91, inside bitmap blitter $7CF6. $7D65-$7D7D installs row-pointer plus aligned X offset in this and the final masked-byte operations. Source header gives byte width, row count, final-byte mask and frame stride; A low seven bits chooses a frame. Aligned opaque copy uses $7D64-$7DC4; shifted opaque $7DC7-$7EED carries pixels between bytes and preserves boundary masks; A bit7 selects transparent two-bit-zero masking at $7EF0-$7FD8. Source pointer $7A/$7B and processor flags are saved/restored. Exact picture output still requires native blit tests."
+  },
+  {
+   "address": 32416,
+   "type": "line",
+   "text": "Operand byte 2 of STA abx at $7E9E; captured operand $EF59. It is not an instruction entry. This continuation belongs to the routine described at $7D92. Rewritten destination operand of STA abs,X at $7D91, inside bitmap blitter $7CF6. $7D65-$7D7D installs row-pointer plus aligned X offset in this and the final masked-byte operations. Source header gives byte width, row count, final-byte mask and frame stride; A low seven bits chooses a frame. Aligned opaque copy uses $7D64-$7DC4; shifted opaque $7DC7-$7EED carries pixels between bytes and preserves boundary masks; A bit7 selects transparent two-bit-zero masking at $7EF0-$7FD8. Source pointer $7A/$7B and processor flags are saved/restored. Exact picture output still requires native blit tests."
+  },
+  {
+   "address": 32447,
+   "type": "line",
+   "text": "Operand byte 1 of AND abx at $7EBE; captured operand $EF59. It is not an instruction entry. This continuation belongs to the routine described at $7D92. Rewritten destination operand of STA abs,X at $7D91, inside bitmap blitter $7CF6. $7D65-$7D7D installs row-pointer plus aligned X offset in this and the final masked-byte operations. Source header gives byte width, row count, final-byte mask and frame stride; A low seven bits chooses a frame. Aligned opaque copy uses $7D64-$7DC4; shifted opaque $7DC7-$7EED carries pixels between bytes and preserves boundary masks; A bit7 selects transparent two-bit-zero masking at $7EF0-$7FD8. Source pointer $7A/$7B and processor flags are saved/restored. Exact picture output still requires native blit tests."
+  },
+  {
+   "address": 32448,
+   "type": "line",
+   "text": "Operand byte 2 of AND abx at $7EBE; captured operand $EF59. It is not an instruction entry. This continuation belongs to the routine described at $7D92. Rewritten destination operand of STA abs,X at $7D91, inside bitmap blitter $7CF6. $7D65-$7D7D installs row-pointer plus aligned X offset in this and the final masked-byte operations. Source header gives byte width, row count, final-byte mask and frame stride; A low seven bits chooses a frame. Aligned opaque copy uses $7D64-$7DC4; shifted opaque $7DC7-$7EED carries pixels between bytes and preserves boundary masks; A bit7 selects transparent two-bit-zero masking at $7EF0-$7FD8. Source pointer $7A/$7B and processor flags are saved/restored. Exact picture output still requires native blit tests."
+  },
+  {
+   "address": 32473,
+   "type": "line",
+   "text": "Operand byte 1 of STA abx at $7ED8; captured operand $EF59. It is not an instruction entry. This continuation belongs to the routine described at $7D92. Rewritten destination operand of STA abs,X at $7D91, inside bitmap blitter $7CF6. $7D65-$7D7D installs row-pointer plus aligned X offset in this and the final masked-byte operations. Source header gives byte width, row count, final-byte mask and frame stride; A low seven bits chooses a frame. Aligned opaque copy uses $7D64-$7DC4; shifted opaque $7DC7-$7EED carries pixels between bytes and preserves boundary masks; A bit7 selects transparent two-bit-zero masking at $7EF0-$7FD8. Source pointer $7A/$7B and processor flags are saved/restored. Exact picture output still requires native blit tests."
+  },
+  {
+   "address": 32474,
+   "type": "line",
+   "text": "Operand byte 2 of STA abx at $7ED8; captured operand $EF59. It is not an instruction entry. This continuation belongs to the routine described at $7D92. Rewritten destination operand of STA abs,X at $7D91, inside bitmap blitter $7CF6. $7D65-$7D7D installs row-pointer plus aligned X offset in this and the final masked-byte operations. Source header gives byte width, row count, final-byte mask and frame stride; A low seven bits chooses a frame. Aligned opaque copy uses $7D64-$7DC4; shifted opaque $7DC7-$7EED carries pixels between bytes and preserves boundary masks; A bit7 selects transparent two-bit-zero masking at $7EF0-$7FD8. Source pointer $7A/$7B and processor flags are saved/restored. Exact picture output still requires native blit tests."
+  },
+  {
+   "address": 32639,
+   "type": "line",
+   "text": "Operand byte 1 of AND abx at $7F7E; captured operand $FFFF. It is not an instruction entry. This continuation belongs to the routine described at $7D92. Rewritten destination operand of STA abs,X at $7D91, inside bitmap blitter $7CF6. $7D65-$7D7D installs row-pointer plus aligned X offset in this and the final masked-byte operations. Source header gives byte width, row count, final-byte mask and frame stride; A low seven bits chooses a frame. Aligned opaque copy uses $7D64-$7DC4; shifted opaque $7DC7-$7EED carries pixels between bytes and preserves boundary masks; A bit7 selects transparent two-bit-zero masking at $7EF0-$7FD8. Source pointer $7A/$7B and processor flags are saved/restored. Exact picture output still requires native blit tests."
+  },
+  {
+   "address": 32640,
+   "type": "line",
+   "text": "Operand byte 2 of AND abx at $7F7E; captured operand $FFFF. It is not an instruction entry. This continuation belongs to the routine described at $7D92. Rewritten destination operand of STA abs,X at $7D91, inside bitmap blitter $7CF6. $7D65-$7D7D installs row-pointer plus aligned X offset in this and the final masked-byte operations. Source header gives byte width, row count, final-byte mask and frame stride; A low seven bits chooses a frame. Aligned opaque copy uses $7D64-$7DC4; shifted opaque $7DC7-$7EED carries pixels between bytes and preserves boundary masks; A bit7 selects transparent two-bit-zero masking at $7EF0-$7FD8. Source pointer $7A/$7B and processor flags are saved/restored. Exact picture output still requires native blit tests."
+  },
+  {
+   "address": 32645,
+   "type": "line",
+   "text": "Operand byte 1 of STA abx at $7F84; captured operand $FFFF. It is not an instruction entry. This continuation belongs to the routine described at $7D92. Rewritten destination operand of STA abs,X at $7D91, inside bitmap blitter $7CF6. $7D65-$7D7D installs row-pointer plus aligned X offset in this and the final masked-byte operations. Source header gives byte width, row count, final-byte mask and frame stride; A low seven bits chooses a frame. Aligned opaque copy uses $7D64-$7DC4; shifted opaque $7DC7-$7EED carries pixels between bytes and preserves boundary masks; A bit7 selects transparent two-bit-zero masking at $7EF0-$7FD8. Source pointer $7A/$7B and processor flags are saved/restored. Exact picture output still requires native blit tests."
+  },
+  {
+   "address": 32646,
+   "type": "line",
+   "text": "Operand byte 2 of STA abx at $7F84; captured operand $FFFF. It is not an instruction entry. This continuation belongs to the routine described at $7D92. Rewritten destination operand of STA abs,X at $7D91, inside bitmap blitter $7CF6. $7D65-$7D7D installs row-pointer plus aligned X offset in this and the final masked-byte operations. Source header gives byte width, row count, final-byte mask and frame stride; A low seven bits chooses a frame. Aligned opaque copy uses $7D64-$7DC4; shifted opaque $7DC7-$7EED carries pixels between bytes and preserves boundary masks; A bit7 selects transparent two-bit-zero masking at $7EF0-$7FD8. Source pointer $7A/$7B and processor flags are saved/restored. Exact picture output still requires native blit tests."
+  },
+  {
+   "address": 32709,
+   "type": "line",
+   "text": "Operand byte 1 of AND abx at $7FC4; captured operand $FFFF. It is not an instruction entry. This continuation belongs to the routine described at $7D92. Rewritten destination operand of STA abs,X at $7D91, inside bitmap blitter $7CF6. $7D65-$7D7D installs row-pointer plus aligned X offset in this and the final masked-byte operations. Source header gives byte width, row count, final-byte mask and frame stride; A low seven bits chooses a frame. Aligned opaque copy uses $7D64-$7DC4; shifted opaque $7DC7-$7EED carries pixels between bytes and preserves boundary masks; A bit7 selects transparent two-bit-zero masking at $7EF0-$7FD8. Source pointer $7A/$7B and processor flags are saved/restored. Exact picture output still requires native blit tests."
+  },
+  {
+   "address": 32710,
+   "type": "line",
+   "text": "Operand byte 2 of AND abx at $7FC4; captured operand $FFFF. It is not an instruction entry. This continuation belongs to the routine described at $7D92. Rewritten destination operand of STA abs,X at $7D91, inside bitmap blitter $7CF6. $7D65-$7D7D installs row-pointer plus aligned X offset in this and the final masked-byte operations. Source header gives byte width, row count, final-byte mask and frame stride; A low seven bits chooses a frame. Aligned opaque copy uses $7D64-$7DC4; shifted opaque $7DC7-$7EED carries pixels between bytes and preserves boundary masks; A bit7 selects transparent two-bit-zero masking at $7EF0-$7FD8. Source pointer $7A/$7B and processor flags are saved/restored. Exact picture output still requires native blit tests."
+  },
+  {
+   "address": 32714,
+   "type": "line",
+   "text": "Operand byte 1 of STA abx at $7FC9; captured operand $FFFF. It is not an instruction entry. This continuation belongs to the routine described at $7D92. Rewritten destination operand of STA abs,X at $7D91, inside bitmap blitter $7CF6. $7D65-$7D7D installs row-pointer plus aligned X offset in this and the final masked-byte operations. Source header gives byte width, row count, final-byte mask and frame stride; A low seven bits chooses a frame. Aligned opaque copy uses $7D64-$7DC4; shifted opaque $7DC7-$7EED carries pixels between bytes and preserves boundary masks; A bit7 selects transparent two-bit-zero masking at $7EF0-$7FD8. Source pointer $7A/$7B and processor flags are saved/restored. Exact picture output still requires native blit tests."
+  },
+  {
+   "address": 32715,
+   "type": "line",
+   "text": "Operand byte 2 of STA abx at $7FC9; captured operand $FFFF. It is not an instruction entry. This continuation belongs to the routine described at $7D92. Rewritten destination operand of STA abs,X at $7D91, inside bitmap blitter $7CF6. $7D65-$7D7D installs row-pointer plus aligned X offset in this and the final masked-byte operations. Source header gives byte width, row count, final-byte mask and frame stride; A low seven bits chooses a frame. Aligned opaque copy uses $7D64-$7DC4; shifted opaque $7DC7-$7EED carries pixels between bytes and preserves boundary masks; A bit7 selects transparent two-bit-zero masking at $7EF0-$7FD8. Source pointer $7A/$7B and processor flags are saved/restored. Exact picture output still requires native blit tests."
+  },
+  {
    "address": 32742,
    "type": "line",
    "text": "COPY_BITMAP_RECTANGLE_FROM_ROW_POINTERS ($7FE6-$803C)\nPurpose: copy a bitmap rectangle using paired source and destination row-pointer tables.\nInputs: A offset selecting destination base+A and source base+8*A, X byte width, Y row count, source words at $7A/$7B, and destination words at $7C/$7D.\nOutputs: for each row copies X source bytes to destination locations spaced eight bytes; pointer tables remain unchanged.\nAssumptions: X and Y are nonzero and all pointer-table entries are valid.\nClobbers: A, X, Y, flags, $7FE3-$7FE5, and self-modified operands $8021-$8025.\nHardware changes: writes bitmap RAM; no register or interrupt-state changes."
@@ -19290,6 +19571,66 @@
    "text": "High byte of rewritten bitmap destination $8433/$8434 in STA $8432. The effect row-rendering continuation uses patterned or source-row copies with eight-byte column stride, then advances raster row and adjusts by $0138 at character-row boundaries. See $8433 for traced state and unresolved visual role. No control flow enters this operand."
   },
   {
+   "address": 33855,
+   "type": "line",
+   "text": "Destination operand of second STA abs,X at $843E, paired with first $8432 and third $844A. The repeated three-byte pattern advances X by eight per store and visits 240 bitmap bytes; row count $82BC changes mode 1 to 2/count20 or other to 4/count15, then adjusts destination by one or $0138 at character boundaries. The mode-four path preserves boundary masks and copies rows backward from ($7E), with source decrement30, until count reaches zero. See $8433 for inputs and the unresolved ordinary-play effect."
+  },
+  {
+   "address": 33856,
+   "type": "line",
+   "text": "High byte of effect_second_pattern_store_operand at $843F. This address is the second operand byte of the preceding instruction, not an instruction entry. Destination operand of second STA abs,X at $843E, paired with first $8432 and third $844A. The repeated three-byte pattern advances X by eight per store and visits 240 bitmap bytes; row count $82BC changes mode 1 to 2/count20 or other to 4/count15, then adjusts destination by one or $0138 at character boundaries. The mode-four path preserves boundary masks and copies rows backward from ($7E), with source decrement30, until count reaches zero. See $8433 for inputs and the unresolved ordinary-play effect."
+  },
+  {
+   "address": 33867,
+   "type": "line",
+   "text": "Operand byte 1 of STA abx at $844A; captured operand $FFFF. It is not an instruction entry. This continuation belongs to the routine described at $8433. Rewritten destination operand of STA abs,X at $8432, not a callable entry. Effect renderer uses $82C0/$82C1 as bitmap row destination, copying three repeated eight-byte-spaced patterns from $82D7 with selector $82BF. Alternate mode $8488 masks top/bottom boundary bytes and copies the middle bytes from ( $7E ). Each displayed row advances destination by one, adding $0138 on an eight-row boundary; source row moves backward thirty bytes. Mode/count state lives at $82BA-$82BF; the final tail can copy further unchanged rows before returning. Meaning of this effect in ordinary play remains open."
+  },
+  {
+   "address": 33868,
+   "type": "line",
+   "text": "Operand byte 2 of STA abx at $844A; captured operand $FFFF. It is not an instruction entry. This continuation belongs to the routine described at $8433. Rewritten destination operand of STA abs,X at $8432, not a callable entry. Effect renderer uses $82C0/$82C1 as bitmap row destination, copying three repeated eight-byte-spaced patterns from $82D7 with selector $82BF. Alternate mode $8488 masks top/bottom boundary bytes and copies the middle bytes from ( $7E ). Each displayed row advances destination by one, adding $0138 on an eight-row boundary; source row moves backward thirty bytes. Mode/count state lives at $82BA-$82BF; the final tail can copy further unchanged rows before returning. Meaning of this effect in ordinary play remains open."
+  },
+  {
+   "address": 33963,
+   "type": "line",
+   "text": "Operand byte 1 of STA abx at $84AA; captured operand $FFFF. It is not an instruction entry. This continuation belongs to the routine described at $8433. Rewritten destination operand of STA abs,X at $8432, not a callable entry. Effect renderer uses $82C0/$82C1 as bitmap row destination, copying three repeated eight-byte-spaced patterns from $82D7 with selector $82BF. Alternate mode $8488 masks top/bottom boundary bytes and copies the middle bytes from ( $7E ). Each displayed row advances destination by one, adding $0138 on an eight-row boundary; source row moves backward thirty bytes. Mode/count state lives at $82BA-$82BF; the final tail can copy further unchanged rows before returning. Meaning of this effect in ordinary play remains open."
+  },
+  {
+   "address": 33964,
+   "type": "line",
+   "text": "Operand byte 2 of STA abx at $84AA; captured operand $FFFF. It is not an instruction entry. This continuation belongs to the routine described at $8433. Rewritten destination operand of STA abs,X at $8432, not a callable entry. Effect renderer uses $82C0/$82C1 as bitmap row destination, copying three repeated eight-byte-spaced patterns from $82D7 with selector $82BF. Alternate mode $8488 masks top/bottom boundary bytes and copies the middle bytes from ( $7E ). Each displayed row advances destination by one, adding $0138 on an eight-row boundary; source row moves backward thirty bytes. Mode/count state lives at $82BA-$82BF; the final tail can copy further unchanged rows before returning. Meaning of this effect in ordinary play remains open."
+  },
+  {
+   "address": 33974,
+   "type": "line",
+   "text": "Operand byte 1 of STA abx at $84B5; captured operand $FFFF. It is not an instruction entry. This continuation belongs to the routine described at $8433. Rewritten destination operand of STA abs,X at $8432, not a callable entry. Effect renderer uses $82C0/$82C1 as bitmap row destination, copying three repeated eight-byte-spaced patterns from $82D7 with selector $82BF. Alternate mode $8488 masks top/bottom boundary bytes and copies the middle bytes from ( $7E ). Each displayed row advances destination by one, adding $0138 on an eight-row boundary; source row moves backward thirty bytes. Mode/count state lives at $82BA-$82BF; the final tail can copy further unchanged rows before returning. Meaning of this effect in ordinary play remains open."
+  },
+  {
+   "address": 33975,
+   "type": "line",
+   "text": "Operand byte 2 of STA abx at $84B5; captured operand $FFFF. It is not an instruction entry. This continuation belongs to the routine described at $8433. Rewritten destination operand of STA abs,X at $8432, not a callable entry. Effect renderer uses $82C0/$82C1 as bitmap row destination, copying three repeated eight-byte-spaced patterns from $82D7 with selector $82BF. Alternate mode $8488 masks top/bottom boundary bytes and copies the middle bytes from ( $7E ). Each displayed row advances destination by one, adding $0138 on an eight-row boundary; source row moves backward thirty bytes. Mode/count state lives at $82BA-$82BF; the final tail can copy further unchanged rows before returning. Meaning of this effect in ordinary play remains open."
+  },
+  {
+   "address": 33989,
+   "type": "line",
+   "text": "Operand byte 1 of STA abx at $84C4; captured operand $FFFF. It is not an instruction entry. This continuation belongs to the routine described at $8433. Rewritten destination operand of STA abs,X at $8432, not a callable entry. Effect renderer uses $82C0/$82C1 as bitmap row destination, copying three repeated eight-byte-spaced patterns from $82D7 with selector $82BF. Alternate mode $8488 masks top/bottom boundary bytes and copies the middle bytes from ( $7E ). Each displayed row advances destination by one, adding $0138 on an eight-row boundary; source row moves backward thirty bytes. Mode/count state lives at $82BA-$82BF; the final tail can copy further unchanged rows before returning. Meaning of this effect in ordinary play remains open."
+  },
+  {
+   "address": 33990,
+   "type": "line",
+   "text": "Operand byte 2 of STA abx at $84C4; captured operand $FFFF. It is not an instruction entry. This continuation belongs to the routine described at $8433. Rewritten destination operand of STA abs,X at $8432, not a callable entry. Effect renderer uses $82C0/$82C1 as bitmap row destination, copying three repeated eight-byte-spaced patterns from $82D7 with selector $82BF. Alternate mode $8488 masks top/bottom boundary bytes and copies the middle bytes from ( $7E ). Each displayed row advances destination by one, adding $0138 on an eight-row boundary; source row moves backward thirty bytes. Mode/count state lives at $82BA-$82BF; the final tail can copy further unchanged rows before returning. Meaning of this effect in ordinary play remains open."
+  },
+  {
+   "address": 34102,
+   "type": "line",
+   "text": "Operand byte 1 of STA abx at $8535; captured operand $FFFF. It is not an instruction entry. This continuation belongs to the routine described at $8433. Rewritten destination operand of STA abs,X at $8432, not a callable entry. Effect renderer uses $82C0/$82C1 as bitmap row destination, copying three repeated eight-byte-spaced patterns from $82D7 with selector $82BF. Alternate mode $8488 masks top/bottom boundary bytes and copies the middle bytes from ( $7E ). Each displayed row advances destination by one, adding $0138 on an eight-row boundary; source row moves backward thirty bytes. Mode/count state lives at $82BA-$82BF; the final tail can copy further unchanged rows before returning. Meaning of this effect in ordinary play remains open."
+  },
+  {
+   "address": 34103,
+   "type": "line",
+   "text": "Operand byte 2 of STA abx at $8535; captured operand $FFFF. It is not an instruction entry. This continuation belongs to the routine described at $8433. Rewritten destination operand of STA abs,X at $8432, not a callable entry. Effect renderer uses $82C0/$82C1 as bitmap row destination, copying three repeated eight-byte-spaced patterns from $82D7 with selector $82BF. Alternate mode $8488 masks top/bottom boundary bytes and copies the middle bytes from ( $7E ). Each displayed row advances destination by one, adding $0138 on an eight-row boundary; source row moves backward thirty bytes. Mode/count state lives at $82BA-$82BF; the final tail can copy further unchanged rows before returning. Meaning of this effect in ordinary play remains open."
+  },
+  {
    "address": 34187,
    "type": "line",
    "text": "DRAW_TEXT_HIGH_BIT_MERGE ($858B-$858F, then shared $8592-$865F)\nPurpose: enter the shared text renderer with packed-graphic merge mode $80 rather than mode 0.\nInputs: same text count, destination offset, text pointer, row-pointer table, and layout as DRAW_TEXT_TO_BITMAP.\nOutputs: renders through the shared $8592-$865F body using the bit-7 alternate merge path.\nAssumptions: all DRAW_TEXT_TO_BITMAP format assumptions hold; no visual meaning such as inverse or transparency is assigned to the high-bit mode without proof.\nClobbers: same as DRAW_TEXT_TO_BITMAP: A, X, Y, flags, $7A/$7B, $82, $8572-$858A, and packed-blitter scratch.\nHardware changes: writes VIC-visible bitmap through $7CF6; that callee saves/restores interrupt state."
@@ -19308,6 +19649,11 @@
    "address": 34404,
    "type": "line",
    "text": "High byte of first bitmap address $ECE8 in the 54-word allocation $8663-$86CE. Destination/source windows overlap in that allocation: $8663 plus X and $8679 plus X, for 43 even X values through $54. The input-display output hook at $86CF performs the copy and keyboard display bookkeeping. This alias is neither code nor a second independent array."
+  },
+  {
+   "address": 34425,
+   "type": "line",
+   "text": "Source-word base for keyboard CHROUT hook $86CF. The54-word allocation begins $8663 and ends $86CE; source base is11 words after destination base, and43 iterations index X=0,2,..84. Thus43 destination words and43 source words overlap physically. Each copies18 bytes at offsets0,8,..136 from RAM to RAM under port $35. Cursor columns wrap at70 pixels/fourteen characters. This is not a ROM glyph-pointer table."
   },
   {
    "address": 34511,
@@ -19770,6 +20116,16 @@
    "text": "VIC sprite slot 7, $C1C0-$C1FF: 63 pixel bytes plus one pad byte. Screen pointer directory $C7F8-$C7FF contains 1,0,2,3,4,5,6,7, selecting slots zero/one in swapped order. Initializer $479A clears CIA2 bank bits to select $C000, so pointer times 64 gives this physical address. Slots 0-2 use single-colour mode and slots 3-7 multicolour after $4788; the snapshot bytes are identical between menu and play. Detailed role and visible output remain to be checked against sprite setup and gameplay."
   },
   {
+   "address": 49664,
+   "type": "line",
+   "text": "Retained 53-byte startup routine, not sprite artwork. SEI, port $38, X=0; reads each of four physical RAM pages $D800-$DBFF, temporarily decrements port to $37 to write the corresponding colour hardware address, then increments it back. Iterates all 256 X values, leaves port $38 and jumps to $473B initialization. A controlled native run with hardware colours initially zero reaches $473B and reproduces every one of the 1024 shadow low nibbles; physical shadow stays unchanged. Presence is unchanged across entry/menu/play snapshots; this call test establishes its operation, not a fresh loader invocation trace."
+  },
+  {
+   "address": 49717,
+   "type": "line",
+   "text": "459 consecutive zero bytes $C235-$C3FF following the retained palette-copy routine ending with JMP $473B at $C232. Identical at cold hand-over, menu and gameplay. The initial sprite pointer table selects offsets $000-$1C0 in bank $C000, so this tail is outside its eight selected slots. Described as captured zero padding; no blanket claim about all possible future readers/writers is made."
+  },
+  {
    "address": 50176,
    "type": "line",
    "text": "Initial VIC bitmap colour matrix, 1000 bytes $C400-$C7E7. At cold hand-over it is already loaded with the surrounding HUD artwork; the settled gameplay capture matches it exactly, whereas language-menu drawing changes 450 cells. For each eight-by-eight cell, high nibble selects pair value 1 and low nibble pair value 2; third colour comes from colour RAM. $61A8 rewrites the 30x15 viewport cells beginning $C4A5 from current area attributes, so those output spans are excluded separately. Sprite pointers begin $C7F8."
@@ -19865,9 +20221,24 @@
    "text": "Physical RAM image of the 1000 initial bitmap third colours at $D800-$DBE7, followed by 24 zero padding bytes. At cold hand-over, all 1000 bytes exactly match the low nibbles of hardware colour RAM read with I/O visible. The RAM shadow is unchanged in menu/play while the game writes colour hardware separately. This is initial authored palette data retained under I/O; a CPU STA $D800 with port $35 addresses the colour chip, not this RAM allocation. The VIC consumes hardware colour RAM rather than reading this shadow as sprite/bitmap pixels."
   },
   {
+   "address": 55552,
+   "type": "line",
+   "text": "Second 256-byte page of physical RAM colour shadow, colour cells256-511 (40-column cell index). Startup $C200 reads this page with port $38 and writes all low nibbles to hardware colour RAM with port $37. Controlled native copy from initially zero hardware matches all1024 entries and leaves the shadow unchanged. These RAM bytes are authored initial colours, distinct from I/O at the same CPU addresses."
+  },
+  {
+   "address": 55808,
+   "type": "line",
+   "text": "Third 256-byte page of physical RAM colour shadow, cells512-767. $C21B reads RAM while port=$38; $C220 writes hardware colour RAM while port=$37. The controlled loader test matches every entry. Cell765 has its own $DAFD HUD annotation; physical RAM and I/O occupy different banks despite matching numeric addresses."
+  },
+  {
    "address": 56061,
    "type": "line",
    "text": "Initial third-colour RAM shadow cell at character column5,row19, corresponding to matrix $C6FD and physical x40-47,y152-159. The shadow continues through $DBE7 with padding afterward. At cold hand-over its low nibble matches hardware colour RAM. A CPU store at $DAFD with I/O visible writes the colour chip; $61A8 can leave its patched operand equal to this address after completing the fifteenth viewport row."
+  },
+  {
+   "address": 56064,
+   "type": "line",
+   "text": "Fourth 256-byte shadow page. First232 bytes supply cells768-999 of the initial40x25 third-colour plane; last24 at $DBE8-$DBFF are zero padding. Native startup-copy test covers the whole page and confirms hardware low-nibble output and unchanged physical RAM. $C225 reads this page with RAM visible, $C22A writes it with I/O visible."
   },
   {
    "address": 56296,
