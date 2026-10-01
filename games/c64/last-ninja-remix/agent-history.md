@@ -7,3 +7,7 @@
 ### Packed resources and indexed aliases
 
 Validated 162 main and 80 auxiliary sprite records independently against the fresh capture; all expansion lengths and boundaries agree. Checked all 118 scene record boundaries and child indices. Added record-specific annotations and restored the sprite browser after comparing its arrays with fresh RAM. Corrected the decoder description: `$68` escapes a literal, while `$69-$6F` encode zero runs. Retyped `$0000-$0FFF` as data, removing false code cross-references produced by decoding runtime sprite buffers. Traced `$159D` as a negative-index base alias for masks at `$1695`, and documented frame read windows whose storage boundaries depend on actor paths. Coverage is 89.9%; this is progress toward Silver, not completed feature verification.
+
+### Live boundary checks and complete resource ranges
+
+Executed the native sprite decoder on ten records and checked its exact output. Player-damage tests corrected the imported claim that every damaging result writes a reaction: this routine preserves action while health remains positive. Projectile tests check both accepted and rejected boundaries. Parsed all 32 animation sequences and observed one command reaching the expected composition entry. Captured the level-loader EOF return `$10F8`; its comparison exposed pointer-table/resource tails outside capped symbol spans. Added only validated complete resource ranges; the remaining loaded ranges stay in TODO. Shared importer fix #125 prevents omitted ranges from defaulting to code.

@@ -25,9 +25,55 @@
     8192,
     16191,
     "Runtime bitmap output"
+   ],
+   [
+    16438,
+    16560,
+    "Runtime music state: initialized at $40B1-$40FF and updated by $4116 onward, three voice arrays and shared tick/filter/fade state"
    ]
   ],
-  "extra": []
+  "extra": [
+   [
+    52820,
+    53143,
+    "162 main packed-sprite pointer words, independently validated"
+   ],
+   [
+    50370,
+    50581,
+    "106 absolute frame pointer words, all destinations checked"
+   ],
+   [
+    20007,
+    20242,
+    "118 biased scene pointer words, all record boundaries checked"
+   ],
+   [
+    6888,
+    7215,
+    "Retained eight-byte multicolor glyph cells, inline text renderer base $1AE8; resident code starts $1C30"
+   ],
+   [
+    4608,
+    4863,
+    "All 256 multicolor pair-reversal entries, formula checked"
+   ],
+   [
+    4864,
+    5119,
+    "All 256 bit-reversal entries, formula checked"
+   ],
+   [
+    20245,
+    35341,
+    "Complete scene record pool: all 118 lengths/boundaries independently checked"
+   ],
+   [
+    53144,
+    59687,
+    "Complete 162-record packed sprite pool, all expansion lengths and boundaries checked"
+   ]
+  ]
  },
  "blocks": [
   {
@@ -232,6 +278,16 @@
   },
   {
    "start": 18443,
+   "end": 20006,
+   "type": "Byte"
+  },
+  {
+   "start": 20007,
+   "end": 20242,
+   "type": "Word"
+  },
+  {
+   "start": 20243,
    "end": 35342,
    "type": "Byte"
   },
@@ -712,6 +768,26 @@
   },
   {
    "start": 49860,
+   "end": 50369,
+   "type": "Byte"
+  },
+  {
+   "start": 50370,
+   "end": 50581,
+   "type": "Word"
+  },
+  {
+   "start": 50582,
+   "end": 52819,
+   "type": "Byte"
+  },
+  {
+   "start": 52820,
+   "end": 53143,
+   "type": "Word"
+  },
+  {
+   "start": 53144,
    "end": 65535,
    "type": "Byte"
   }
@@ -3323,15 +3399,15 @@
   },
   {
    "address": 4608,
-   "name": "f_1200",
+   "name": "reverse_multicolor_pairs",
    "type": "Field",
-   "kind": "auto"
+   "kind": "user"
   },
   {
    "address": 4864,
-   "name": "f_1300",
+   "name": "reverse_hires_bits",
    "type": "Field",
-   "kind": "auto"
+   "kind": "user"
   },
   {
    "address": 5120,
@@ -4057,6 +4133,252 @@
    "address": 6885,
    "name": "ResolveMulticolorCellPaletteConflictsLocal1ae5",
    "type": "Branch",
+   "kind": "user"
+  },
+  {
+   "address": 6888,
+   "name": "resident_text_glyph_00",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 6896,
+   "name": "resident_text_glyph_01",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 6904,
+   "name": "resident_text_glyph_02",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 6912,
+   "name": "resident_text_glyph_03",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 6920,
+   "name": "resident_text_glyph_04",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 6928,
+   "name": "resident_text_glyph_05",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 6936,
+   "name": "resident_text_glyph_06",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 6944,
+   "name": "resident_text_glyph_07",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 6952,
+   "name": "resident_text_glyph_08",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 6960,
+   "name": "resident_text_glyph_09",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 6968,
+   "name": "resident_text_glyph_0a",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 6976,
+   "name": "resident_text_glyph_0b",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 6984,
+   "name": "resident_text_glyph_0c",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 6992,
+   "name": "resident_text_glyph_0d",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 7000,
+   "name": "resident_text_glyph_0e",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 7008,
+   "name": "resident_text_glyph_0f",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 7016,
+   "name": "resident_text_glyph_10",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 7024,
+   "name": "resident_text_glyph_11",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 7032,
+   "name": "resident_text_glyph_12",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 7040,
+   "name": "resident_text_glyph_13",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 7048,
+   "name": "resident_text_glyph_14",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 7056,
+   "name": "resident_text_glyph_15",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 7064,
+   "name": "resident_text_glyph_16",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 7072,
+   "name": "resident_text_glyph_17",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 7080,
+   "name": "resident_text_glyph_18",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 7088,
+   "name": "resident_text_glyph_19",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 7096,
+   "name": "resident_text_glyph_1a",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 7104,
+   "name": "resident_text_glyph_1b",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 7112,
+   "name": "resident_text_glyph_1c",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 7120,
+   "name": "resident_text_glyph_1d",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 7128,
+   "name": "resident_text_glyph_1e",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 7136,
+   "name": "resident_text_glyph_1f",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 7144,
+   "name": "resident_text_glyph_20",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 7152,
+   "name": "resident_text_glyph_21",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 7160,
+   "name": "resident_text_glyph_22",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 7168,
+   "name": "resident_text_glyph_23",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 7176,
+   "name": "resident_text_glyph_24",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 7184,
+   "name": "resident_text_glyph_25",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 7192,
+   "name": "resident_text_glyph_26",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 7200,
+   "name": "resident_text_glyph_27",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 7208,
+   "name": "resident_text_glyph_28",
+   "type": "UserDefined",
    "kind": "user"
   },
   {
@@ -6022,6 +6344,708 @@
    "kind": "auto"
   },
   {
+   "address": 20009,
+   "name": "central_park_scene_pointer_001",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 20011,
+   "name": "central_park_scene_pointer_002",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 20013,
+   "name": "central_park_scene_pointer_003",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 20015,
+   "name": "central_park_scene_pointer_004",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 20017,
+   "name": "central_park_scene_pointer_005",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 20019,
+   "name": "central_park_scene_pointer_006",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 20021,
+   "name": "central_park_scene_pointer_007",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 20023,
+   "name": "central_park_scene_pointer_008",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 20025,
+   "name": "central_park_scene_pointer_009",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 20027,
+   "name": "central_park_scene_pointer_010",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 20029,
+   "name": "central_park_scene_pointer_011",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 20031,
+   "name": "central_park_scene_pointer_012",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 20033,
+   "name": "central_park_scene_pointer_013",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 20035,
+   "name": "central_park_scene_pointer_014",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 20037,
+   "name": "central_park_scene_pointer_015",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 20039,
+   "name": "central_park_scene_pointer_016",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 20041,
+   "name": "central_park_scene_pointer_017",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 20043,
+   "name": "central_park_scene_pointer_018",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 20045,
+   "name": "central_park_scene_pointer_019",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 20047,
+   "name": "central_park_scene_pointer_020",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 20049,
+   "name": "central_park_scene_pointer_021",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 20051,
+   "name": "central_park_scene_pointer_022",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 20053,
+   "name": "central_park_scene_pointer_023",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 20055,
+   "name": "central_park_scene_pointer_024",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 20057,
+   "name": "central_park_scene_pointer_025",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 20059,
+   "name": "central_park_scene_pointer_026",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 20061,
+   "name": "central_park_scene_pointer_027",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 20063,
+   "name": "central_park_scene_pointer_028",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 20065,
+   "name": "central_park_scene_pointer_029",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 20067,
+   "name": "central_park_scene_pointer_030",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 20069,
+   "name": "central_park_scene_pointer_031",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 20071,
+   "name": "central_park_scene_pointer_032",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 20073,
+   "name": "central_park_scene_pointer_033",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 20075,
+   "name": "central_park_scene_pointer_034",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 20077,
+   "name": "central_park_scene_pointer_035",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 20079,
+   "name": "central_park_scene_pointer_036",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 20081,
+   "name": "central_park_scene_pointer_037",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 20083,
+   "name": "central_park_scene_pointer_038",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 20085,
+   "name": "central_park_scene_pointer_039",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 20087,
+   "name": "central_park_scene_pointer_040",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 20089,
+   "name": "central_park_scene_pointer_041",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 20091,
+   "name": "central_park_scene_pointer_042",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 20093,
+   "name": "central_park_scene_pointer_043",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 20095,
+   "name": "central_park_scene_pointer_044",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 20097,
+   "name": "central_park_scene_pointer_045",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 20099,
+   "name": "central_park_scene_pointer_046",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 20101,
+   "name": "central_park_scene_pointer_047",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 20103,
+   "name": "central_park_scene_pointer_048",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 20105,
+   "name": "central_park_scene_pointer_049",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 20107,
+   "name": "central_park_scene_pointer_050",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 20109,
+   "name": "central_park_scene_pointer_051",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 20111,
+   "name": "central_park_scene_pointer_052",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 20113,
+   "name": "central_park_scene_pointer_053",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 20115,
+   "name": "central_park_scene_pointer_054",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 20117,
+   "name": "central_park_scene_pointer_055",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 20119,
+   "name": "central_park_scene_pointer_056",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 20121,
+   "name": "central_park_scene_pointer_057",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 20123,
+   "name": "central_park_scene_pointer_058",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 20125,
+   "name": "central_park_scene_pointer_059",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 20127,
+   "name": "central_park_scene_pointer_060",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 20129,
+   "name": "central_park_scene_pointer_061",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 20131,
+   "name": "central_park_scene_pointer_062",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 20133,
+   "name": "central_park_scene_pointer_063",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 20135,
+   "name": "central_park_scene_pointer_064",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 20137,
+   "name": "central_park_scene_pointer_065",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 20139,
+   "name": "central_park_scene_pointer_066",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 20141,
+   "name": "central_park_scene_pointer_067",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 20143,
+   "name": "central_park_scene_pointer_068",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 20145,
+   "name": "central_park_scene_pointer_069",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 20147,
+   "name": "central_park_scene_pointer_070",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 20149,
+   "name": "central_park_scene_pointer_071",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 20151,
+   "name": "central_park_scene_pointer_072",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 20153,
+   "name": "central_park_scene_pointer_073",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 20155,
+   "name": "central_park_scene_pointer_074",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 20157,
+   "name": "central_park_scene_pointer_075",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 20159,
+   "name": "central_park_scene_pointer_076",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 20161,
+   "name": "central_park_scene_pointer_077",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 20163,
+   "name": "central_park_scene_pointer_078",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 20165,
+   "name": "central_park_scene_pointer_079",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 20167,
+   "name": "central_park_scene_pointer_080",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 20169,
+   "name": "central_park_scene_pointer_081",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 20171,
+   "name": "central_park_scene_pointer_082",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 20173,
+   "name": "central_park_scene_pointer_083",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 20175,
+   "name": "central_park_scene_pointer_084",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 20177,
+   "name": "central_park_scene_pointer_085",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 20179,
+   "name": "central_park_scene_pointer_086",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 20181,
+   "name": "central_park_scene_pointer_087",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 20183,
+   "name": "central_park_scene_pointer_088",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 20185,
+   "name": "central_park_scene_pointer_089",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 20187,
+   "name": "central_park_scene_pointer_090",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 20189,
+   "name": "central_park_scene_pointer_091",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 20191,
+   "name": "central_park_scene_pointer_092",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 20193,
+   "name": "central_park_scene_pointer_093",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 20195,
+   "name": "central_park_scene_pointer_094",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 20197,
+   "name": "central_park_scene_pointer_095",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 20199,
+   "name": "central_park_scene_pointer_096",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 20201,
+   "name": "central_park_scene_pointer_097",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 20203,
+   "name": "central_park_scene_pointer_098",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 20205,
+   "name": "central_park_scene_pointer_099",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 20207,
+   "name": "central_park_scene_pointer_100",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 20209,
+   "name": "central_park_scene_pointer_101",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 20211,
+   "name": "central_park_scene_pointer_102",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 20213,
+   "name": "central_park_scene_pointer_103",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 20215,
+   "name": "central_park_scene_pointer_104",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 20217,
+   "name": "central_park_scene_pointer_105",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 20219,
+   "name": "central_park_scene_pointer_106",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 20221,
+   "name": "central_park_scene_pointer_107",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 20223,
+   "name": "central_park_scene_pointer_108",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 20225,
+   "name": "central_park_scene_pointer_109",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 20227,
+   "name": "central_park_scene_pointer_110",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 20229,
+   "name": "central_park_scene_pointer_111",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 20231,
+   "name": "central_park_scene_pointer_112",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 20233,
+   "name": "central_park_scene_pointer_113",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 20235,
+   "name": "central_park_scene_pointer_114",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 20237,
+   "name": "central_park_scene_pointer_115",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 20239,
+   "name": "central_park_scene_pointer_116",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 20241,
+   "name": "central_park_scene_pointer_117",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
    "address": 20243,
    "name": "CentralParkSceneImages",
    "type": "UserDefined",
@@ -6035,9 +7059,9 @@
   },
   {
    "address": 20263,
-   "name": "f_4F27",
+   "name": "scene_000_pixel_lookup_alias",
    "type": "Field",
-   "kind": "auto"
+   "kind": "user"
   },
   {
    "address": 20264,
@@ -6588,6 +7612,18 @@
   {
    "address": 32637,
    "name": "central_park_scene_composite_091",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 32767,
+   "name": "scene_091_child_037",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 32768,
+   "name": "scene_091_child_037_x",
    "type": "UserDefined",
    "kind": "user"
   },
@@ -12382,8 +13418,20 @@
    "kind": "user"
   },
   {
+   "address": 50011,
+   "name": "central_park_animation_sequence_c35b",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
    "address": 50014,
    "name": "CentralParkAnimationScript04",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 50028,
+   "name": "central_park_animation_sequence_c36c",
    "type": "UserDefined",
    "kind": "user"
   },
@@ -12418,6 +13466,66 @@
    "kind": "user"
   },
   {
+   "address": 50123,
+   "name": "central_park_animation_sequence_c3cb",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 50135,
+   "name": "central_park_animation_sequence_c3d7",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 50147,
+   "name": "central_park_animation_sequence_c3e3",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 50157,
+   "name": "central_park_animation_sequence_c3ed",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 50167,
+   "name": "central_park_animation_sequence_c3f7",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 50175,
+   "name": "central_park_animation_sequence_c3ff",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 50183,
+   "name": "central_park_animation_sequence_c407",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 50191,
+   "name": "central_park_animation_sequence_c40f",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 50199,
+   "name": "central_park_animation_sequence_c417",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 50213,
+   "name": "central_park_animation_sequence_c425",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
    "address": 50227,
    "name": "CentralParkAnimationScript11",
    "type": "UserDefined",
@@ -12426,6 +13534,30 @@
   {
    "address": 50245,
    "name": "CentralParkAnimationScript10",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 50263,
+   "name": "central_park_animation_sequence_c457",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 50289,
+   "name": "central_park_animation_sequence_c471",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 50320,
+   "name": "central_park_animation_sequence_c490",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 50359,
+   "name": "central_park_animation_sequence_c4b7",
    "type": "UserDefined",
    "kind": "user"
   },
@@ -12440,6 +13572,636 @@
    "name": "f_C4C3",
    "type": "Field",
    "kind": "auto"
+  },
+  {
+   "address": 50372,
+   "name": "central_park_frame_pointer_001",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 50374,
+   "name": "central_park_frame_pointer_002",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 50376,
+   "name": "central_park_frame_pointer_003",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 50378,
+   "name": "central_park_frame_pointer_004",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 50380,
+   "name": "central_park_frame_pointer_005",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 50382,
+   "name": "central_park_frame_pointer_006",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 50384,
+   "name": "central_park_frame_pointer_007",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 50386,
+   "name": "central_park_frame_pointer_008",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 50388,
+   "name": "central_park_frame_pointer_009",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 50390,
+   "name": "central_park_frame_pointer_010",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 50392,
+   "name": "central_park_frame_pointer_011",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 50394,
+   "name": "central_park_frame_pointer_012",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 50396,
+   "name": "central_park_frame_pointer_013",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 50398,
+   "name": "central_park_frame_pointer_014",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 50400,
+   "name": "central_park_frame_pointer_015",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 50402,
+   "name": "central_park_frame_pointer_016",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 50404,
+   "name": "central_park_frame_pointer_017",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 50406,
+   "name": "central_park_frame_pointer_018",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 50408,
+   "name": "central_park_frame_pointer_019",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 50410,
+   "name": "central_park_frame_pointer_020",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 50412,
+   "name": "central_park_frame_pointer_021",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 50414,
+   "name": "central_park_frame_pointer_022",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 50416,
+   "name": "central_park_frame_pointer_023",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 50418,
+   "name": "central_park_frame_pointer_024",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 50420,
+   "name": "central_park_frame_pointer_025",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 50422,
+   "name": "central_park_frame_pointer_026",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 50424,
+   "name": "central_park_frame_pointer_027",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 50426,
+   "name": "central_park_frame_pointer_028",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 50428,
+   "name": "central_park_frame_pointer_029",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 50430,
+   "name": "central_park_frame_pointer_030",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 50432,
+   "name": "central_park_frame_pointer_031",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 50434,
+   "name": "central_park_frame_pointer_032",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 50436,
+   "name": "central_park_frame_pointer_033",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 50438,
+   "name": "central_park_frame_pointer_034",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 50440,
+   "name": "central_park_frame_pointer_035",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 50442,
+   "name": "central_park_frame_pointer_036",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 50444,
+   "name": "central_park_frame_pointer_037",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 50446,
+   "name": "central_park_frame_pointer_038",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 50448,
+   "name": "central_park_frame_pointer_039",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 50450,
+   "name": "central_park_frame_pointer_040",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 50452,
+   "name": "central_park_frame_pointer_041",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 50454,
+   "name": "central_park_frame_pointer_042",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 50456,
+   "name": "central_park_frame_pointer_043",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 50458,
+   "name": "central_park_frame_pointer_044",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 50460,
+   "name": "central_park_frame_pointer_045",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 50462,
+   "name": "central_park_frame_pointer_046",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 50464,
+   "name": "central_park_frame_pointer_047",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 50466,
+   "name": "central_park_frame_pointer_048",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 50468,
+   "name": "central_park_frame_pointer_049",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 50470,
+   "name": "central_park_frame_pointer_050",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 50472,
+   "name": "central_park_frame_pointer_051",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 50474,
+   "name": "central_park_frame_pointer_052",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 50476,
+   "name": "central_park_frame_pointer_053",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 50478,
+   "name": "central_park_frame_pointer_054",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 50480,
+   "name": "central_park_frame_pointer_055",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 50482,
+   "name": "central_park_frame_pointer_056",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 50484,
+   "name": "central_park_frame_pointer_057",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 50486,
+   "name": "central_park_frame_pointer_058",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 50488,
+   "name": "central_park_frame_pointer_059",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 50490,
+   "name": "central_park_frame_pointer_060",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 50492,
+   "name": "central_park_frame_pointer_061",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 50494,
+   "name": "central_park_frame_pointer_062",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 50496,
+   "name": "central_park_frame_pointer_063",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 50498,
+   "name": "central_park_frame_pointer_064",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 50500,
+   "name": "central_park_frame_pointer_065",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 50502,
+   "name": "central_park_frame_pointer_066",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 50504,
+   "name": "central_park_frame_pointer_067",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 50506,
+   "name": "central_park_frame_pointer_068",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 50508,
+   "name": "central_park_frame_pointer_069",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 50510,
+   "name": "central_park_frame_pointer_070",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 50512,
+   "name": "central_park_frame_pointer_071",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 50514,
+   "name": "central_park_frame_pointer_072",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 50516,
+   "name": "central_park_frame_pointer_073",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 50518,
+   "name": "central_park_frame_pointer_074",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 50520,
+   "name": "central_park_frame_pointer_075",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 50522,
+   "name": "central_park_frame_pointer_076",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 50524,
+   "name": "central_park_frame_pointer_077",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 50526,
+   "name": "central_park_frame_pointer_078",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 50528,
+   "name": "central_park_frame_pointer_079",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 50530,
+   "name": "central_park_frame_pointer_080",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 50532,
+   "name": "central_park_frame_pointer_081",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 50534,
+   "name": "central_park_frame_pointer_082",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 50536,
+   "name": "central_park_frame_pointer_083",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 50538,
+   "name": "central_park_frame_pointer_084",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 50540,
+   "name": "central_park_frame_pointer_085",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 50542,
+   "name": "central_park_frame_pointer_086",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 50544,
+   "name": "central_park_frame_pointer_087",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 50546,
+   "name": "central_park_frame_pointer_088",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 50548,
+   "name": "central_park_frame_pointer_089",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 50550,
+   "name": "central_park_frame_pointer_090",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 50552,
+   "name": "central_park_frame_pointer_091",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 50554,
+   "name": "central_park_frame_pointer_092",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 50556,
+   "name": "central_park_frame_pointer_093",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 50558,
+   "name": "central_park_frame_pointer_094",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 50560,
+   "name": "central_park_frame_pointer_095",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 50562,
+   "name": "central_park_frame_pointer_096",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 50564,
+   "name": "central_park_frame_pointer_097",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 50566,
+   "name": "central_park_frame_pointer_098",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 50568,
+   "name": "central_park_frame_pointer_099",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 50570,
+   "name": "central_park_frame_pointer_100",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 50572,
+   "name": "central_park_frame_pointer_101",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 50574,
+   "name": "central_park_frame_pointer_102",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 50576,
+   "name": "central_park_frame_pointer_103",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 50578,
+   "name": "central_park_frame_pointer_104",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 50580,
+   "name": "central_park_frame_pointer_105",
+   "type": "UserDefined",
+   "kind": "user"
   },
   {
    "address": 50582,
@@ -13132,16 +14894,976 @@
    "kind": "auto"
   },
   {
+   "address": 52822,
+   "name": "central_park_sprite_pointer_001",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 52824,
+   "name": "central_park_sprite_pointer_002",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 52826,
+   "name": "central_park_sprite_pointer_003",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 52828,
+   "name": "central_park_sprite_pointer_004",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 52830,
+   "name": "central_park_sprite_pointer_005",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 52832,
+   "name": "central_park_sprite_pointer_006",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 52834,
+   "name": "central_park_sprite_pointer_007",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 52836,
+   "name": "central_park_sprite_pointer_008",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 52838,
+   "name": "central_park_sprite_pointer_009",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 52840,
+   "name": "central_park_sprite_pointer_010",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 52842,
+   "name": "central_park_sprite_pointer_011",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 52844,
+   "name": "central_park_sprite_pointer_012",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 52846,
+   "name": "central_park_sprite_pointer_013",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 52848,
+   "name": "central_park_sprite_pointer_014",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 52850,
+   "name": "central_park_sprite_pointer_015",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 52852,
+   "name": "central_park_sprite_pointer_016",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 52854,
+   "name": "central_park_sprite_pointer_017",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 52856,
+   "name": "central_park_sprite_pointer_018",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 52858,
+   "name": "central_park_sprite_pointer_019",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 52860,
+   "name": "central_park_sprite_pointer_020",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 52862,
+   "name": "central_park_sprite_pointer_021",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 52864,
+   "name": "central_park_sprite_pointer_022",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 52866,
+   "name": "central_park_sprite_pointer_023",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 52868,
+   "name": "central_park_sprite_pointer_024",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 52870,
+   "name": "central_park_sprite_pointer_025",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 52872,
+   "name": "central_park_sprite_pointer_026",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 52874,
+   "name": "central_park_sprite_pointer_027",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 52876,
+   "name": "central_park_sprite_pointer_028",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 52878,
+   "name": "central_park_sprite_pointer_029",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 52880,
+   "name": "central_park_sprite_pointer_030",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 52882,
+   "name": "central_park_sprite_pointer_031",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 52884,
+   "name": "central_park_sprite_pointer_032",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 52886,
+   "name": "central_park_sprite_pointer_033",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 52888,
+   "name": "central_park_sprite_pointer_034",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 52890,
+   "name": "central_park_sprite_pointer_035",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 52892,
+   "name": "central_park_sprite_pointer_036",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 52894,
+   "name": "central_park_sprite_pointer_037",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 52896,
+   "name": "central_park_sprite_pointer_038",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 52898,
+   "name": "central_park_sprite_pointer_039",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 52900,
+   "name": "central_park_sprite_pointer_040",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 52902,
+   "name": "central_park_sprite_pointer_041",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 52904,
+   "name": "central_park_sprite_pointer_042",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 52906,
+   "name": "central_park_sprite_pointer_043",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 52908,
+   "name": "central_park_sprite_pointer_044",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 52910,
+   "name": "central_park_sprite_pointer_045",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 52912,
+   "name": "central_park_sprite_pointer_046",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 52914,
+   "name": "central_park_sprite_pointer_047",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 52916,
+   "name": "central_park_sprite_pointer_048",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 52918,
+   "name": "central_park_sprite_pointer_049",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 52920,
+   "name": "central_park_sprite_pointer_050",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 52922,
+   "name": "central_park_sprite_pointer_051",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 52924,
+   "name": "central_park_sprite_pointer_052",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 52926,
+   "name": "central_park_sprite_pointer_053",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 52928,
+   "name": "central_park_sprite_pointer_054",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 52930,
+   "name": "central_park_sprite_pointer_055",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 52932,
+   "name": "central_park_sprite_pointer_056",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 52934,
+   "name": "central_park_sprite_pointer_057",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 52936,
+   "name": "central_park_sprite_pointer_058",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 52938,
+   "name": "central_park_sprite_pointer_059",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 52940,
+   "name": "central_park_sprite_pointer_060",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 52942,
+   "name": "central_park_sprite_pointer_061",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 52944,
+   "name": "central_park_sprite_pointer_062",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 52946,
+   "name": "central_park_sprite_pointer_063",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 52948,
+   "name": "central_park_sprite_pointer_064",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 52950,
+   "name": "central_park_sprite_pointer_065",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 52952,
+   "name": "central_park_sprite_pointer_066",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 52954,
+   "name": "central_park_sprite_pointer_067",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 52956,
+   "name": "central_park_sprite_pointer_068",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 52958,
+   "name": "central_park_sprite_pointer_069",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 52960,
+   "name": "central_park_sprite_pointer_070",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 52962,
+   "name": "central_park_sprite_pointer_071",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 52964,
+   "name": "central_park_sprite_pointer_072",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 52966,
+   "name": "central_park_sprite_pointer_073",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 52968,
+   "name": "central_park_sprite_pointer_074",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 52970,
+   "name": "central_park_sprite_pointer_075",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 52972,
+   "name": "central_park_sprite_pointer_076",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 52974,
+   "name": "central_park_sprite_pointer_077",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 52976,
+   "name": "central_park_sprite_pointer_078",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 52978,
+   "name": "central_park_sprite_pointer_079",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 52980,
+   "name": "central_park_sprite_pointer_080",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 52982,
+   "name": "central_park_sprite_pointer_081",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 52984,
+   "name": "central_park_sprite_pointer_082",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 52986,
+   "name": "central_park_sprite_pointer_083",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 52988,
+   "name": "central_park_sprite_pointer_084",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 52990,
+   "name": "central_park_sprite_pointer_085",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 52992,
+   "name": "central_park_sprite_pointer_086",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 52994,
+   "name": "central_park_sprite_pointer_087",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 52996,
+   "name": "central_park_sprite_pointer_088",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 52998,
+   "name": "central_park_sprite_pointer_089",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 53000,
+   "name": "central_park_sprite_pointer_090",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 53002,
+   "name": "central_park_sprite_pointer_091",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 53004,
+   "name": "central_park_sprite_pointer_092",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 53006,
+   "name": "central_park_sprite_pointer_093",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 53008,
+   "name": "central_park_sprite_pointer_094",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 53010,
+   "name": "central_park_sprite_pointer_095",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 53012,
+   "name": "central_park_sprite_pointer_096",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 53014,
+   "name": "central_park_sprite_pointer_097",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 53016,
+   "name": "central_park_sprite_pointer_098",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 53018,
+   "name": "central_park_sprite_pointer_099",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 53020,
+   "name": "central_park_sprite_pointer_100",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 53022,
+   "name": "central_park_sprite_pointer_101",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 53024,
+   "name": "central_park_sprite_pointer_102",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 53026,
+   "name": "central_park_sprite_pointer_103",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 53028,
+   "name": "central_park_sprite_pointer_104",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 53030,
+   "name": "central_park_sprite_pointer_105",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 53032,
+   "name": "central_park_sprite_pointer_106",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 53034,
+   "name": "central_park_sprite_pointer_107",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 53036,
+   "name": "central_park_sprite_pointer_108",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 53038,
+   "name": "central_park_sprite_pointer_109",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 53040,
+   "name": "central_park_sprite_pointer_110",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 53042,
+   "name": "central_park_sprite_pointer_111",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 53044,
+   "name": "central_park_sprite_pointer_112",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 53046,
+   "name": "central_park_sprite_pointer_113",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 53048,
+   "name": "central_park_sprite_pointer_114",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 53050,
+   "name": "central_park_sprite_pointer_115",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 53052,
+   "name": "central_park_sprite_pointer_116",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 53054,
+   "name": "central_park_sprite_pointer_117",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 53056,
+   "name": "central_park_sprite_pointer_118",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 53058,
+   "name": "central_park_sprite_pointer_119",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 53060,
+   "name": "central_park_sprite_pointer_120",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 53062,
+   "name": "central_park_sprite_pointer_121",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 53064,
+   "name": "central_park_sprite_pointer_122",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 53066,
+   "name": "central_park_sprite_pointer_123",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 53068,
+   "name": "central_park_sprite_pointer_124",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 53070,
+   "name": "central_park_sprite_pointer_125",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 53072,
+   "name": "central_park_sprite_pointer_126",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 53074,
+   "name": "central_park_sprite_pointer_127",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
    "address": 53076,
-   "name": "f_CF54",
+   "name": "central_park_sprite_pointer_128",
    "type": "Field",
-   "kind": "auto"
+   "kind": "user"
   },
   {
    "address": 53077,
    "name": "f_CF55",
    "type": "Field",
    "kind": "auto"
+  },
+  {
+   "address": 53078,
+   "name": "central_park_sprite_pointer_129",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 53080,
+   "name": "central_park_sprite_pointer_130",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 53082,
+   "name": "central_park_sprite_pointer_131",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 53084,
+   "name": "central_park_sprite_pointer_132",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 53086,
+   "name": "central_park_sprite_pointer_133",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 53088,
+   "name": "central_park_sprite_pointer_134",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 53090,
+   "name": "central_park_sprite_pointer_135",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 53092,
+   "name": "central_park_sprite_pointer_136",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 53094,
+   "name": "central_park_sprite_pointer_137",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 53096,
+   "name": "central_park_sprite_pointer_138",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 53098,
+   "name": "central_park_sprite_pointer_139",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 53100,
+   "name": "central_park_sprite_pointer_140",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 53102,
+   "name": "central_park_sprite_pointer_141",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 53104,
+   "name": "central_park_sprite_pointer_142",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 53106,
+   "name": "central_park_sprite_pointer_143",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 53108,
+   "name": "central_park_sprite_pointer_144",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 53110,
+   "name": "central_park_sprite_pointer_145",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 53112,
+   "name": "central_park_sprite_pointer_146",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 53114,
+   "name": "central_park_sprite_pointer_147",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 53116,
+   "name": "central_park_sprite_pointer_148",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 53118,
+   "name": "central_park_sprite_pointer_149",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 53120,
+   "name": "central_park_sprite_pointer_150",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 53122,
+   "name": "central_park_sprite_pointer_151",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 53124,
+   "name": "central_park_sprite_pointer_152",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 53126,
+   "name": "central_park_sprite_pointer_153",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 53128,
+   "name": "central_park_sprite_pointer_154",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 53130,
+   "name": "central_park_sprite_pointer_155",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 53132,
+   "name": "central_park_sprite_pointer_156",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 53134,
+   "name": "central_park_sprite_pointer_157",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 53136,
+   "name": "central_park_sprite_pointer_158",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 53138,
+   "name": "central_park_sprite_pointer_159",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 53140,
+   "name": "central_park_sprite_pointer_160",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 53142,
+   "name": "central_park_sprite_pointer_161",
+   "type": "UserDefined",
+   "kind": "user"
   },
   {
    "address": 53144,
@@ -13158,6 +15880,12 @@
   {
    "address": 53246,
    "name": "central_park_sprite_rle_002",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 53248,
+   "name": "sprite_002_io_boundary",
    "type": "UserDefined",
    "kind": "user"
   },
@@ -13812,6 +16540,12 @@
   {
    "address": 57322,
    "name": "central_park_sprite_rle_107",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 57344,
+   "name": "sprite_107_high_ram_continuation",
    "type": "UserDefined",
    "kind": "user"
   },
@@ -14876,6 +17610,16 @@
    "text": "Purpose: synchronize three engine time baselines with the current 50 Hz tick. Inputs: tick byte `$E2`. Outputs: `$026C`, `$026E`, and `$0277` receive the same tick value. Assumptions: the gameplay IRQ maintains `$E2`. Clobbers: A and flags. Hardware changes: none."
   },
   {
+   "address": 4608,
+   "type": "line",
+   "text": "Complete 256-entry byte lookup reversing two-bit pairs. Every table entry has been checked against the reversal formula. The renderer and sprite blitter use the original source byte as X; $1200 reverses four multicolor pixel pairs, while $1300 reverses eight high-resolution bits. This table covers $1200-$12FF."
+  },
+  {
+   "address": 4864,
+   "type": "line",
+   "text": "Complete 256-entry byte lookup reversing individual bits. Every table entry has been checked against the reversal formula. The renderer and sprite blitter use the original source byte as X; $1200 reverses four multicolor pixel pairs, while $1300 reverses eight high-resolution bits. This table covers $1300-$13FF."
+  },
+  {
    "address": 5120,
    "type": "line",
    "text": "Purpose: cold entry for a level-load cycle. Inputs: resident state and selected level number. Outputs: transfers permanently to the load coordinator after hardware initialization. Assumptions: resident code and `$3FF6` initialization vector are installed. Clobbers: X, stack pointer, decimal flag, interrupt state. Hardware changes: disables IRQ, clears decimal mode, resets SP to `$12`, calls the phase initialization vector, then jumps to `$16AF`; does not return.\nfunction: undefined StartLevelLoad()"
@@ -14926,6 +17670,16 @@
    "text": "Inline-text pointer advance continuation: carry increments pointer high byte $05. The next character byte supplies four control bits; $15B6 advances $04/$05, then character bits select glyph data and plotting position. This is inside $1583, not a separate called routine."
   },
   {
+   "address": 5681,
+   "type": "line",
+   "text": "25 little-endian screen-row addresses: $0400 + 40*row for rows 0-24. $15E0 doubles the text row index; $15E2/$15EA add the text column to this base before writing screen attributes. This table ends at $1662."
+  },
+  {
+   "address": 5731,
+   "type": "line",
+   "text": "25 little-endian bitmap-row addresses: $2000 + 320*row for rows 0-24. $160D shifts the text column by three and adds these row bases before copying eight glyph bitmap rows. This table ends at $1694, immediately before the clipping masks."
+  },
+  {
    "address": 5781,
    "type": "line",
    "text": "Eight clipping masks $FF,$FE,$FC,$F8,$F0,$E0,$C0,$80. The blitter reads them directly with a nonnegative index at $BDE4, or through base $159D with wrapped negative offsets $F8-$FF at $BDFF."
@@ -14939,6 +17693,16 @@
    "address": 5931,
    "type": "line",
    "text": "Purpose: request disk side two when A is character `3`, wait for the shared Space/control-port-1-fire line to be released, render `INSERT SIDE TWO` and `PRESS SPACE`, then wait for that line to be pressed. Inputs: A contains the side/level character. Outputs: prompt rendered and input acknowledged for side two, otherwise immediate return. Assumptions: resident inline renderer and screen veneer are active. Clobbers: A, X, Y, flags, renderer scratch, and the stacked return address through `$1583`. Hardware changes: writes `$DC00=$7F` to select keyboard column 7 and reads CIA 1 port B `$DC01` bit 4, which is Space's matrix line and is shared with control-port-1 fire.\nfunction: undefined HandleDiskSidePrompt()"
+  },
+  {
+   "address": 5941,
+   "type": "line",
+   "text": "Inline text after JSR $1583 at $1732: X=7, Y=6, colour fields $07/$B0, then 15 glyph codes and a zero terminator at $1748. The renderer masks each code to six bits and copies eight bytes from $1AE8 + 8*glyph. Decoded glyph sequence: 'INSERT SIDE TWO'. It resumes execution at $1749."
+  },
+  {
+   "address": 5964,
+   "type": "line",
+   "text": "Inline text after JSR $1583 at $1749: X=9, Y=8, colour fields $07/$B0, then 11 glyph codes and a zero terminator at $175B. The renderer masks each code to six bits and copies eight bytes from $1AE8 + 8*glyph. Decoded glyph sequence: 'PRESS SPACE'. It resumes execution at $175C."
   },
   {
    "address": 5999,
@@ -14956,6 +17720,211 @@
    "text": "Purpose: Count two-bit selector use for an eight-row composite-image record and repeatedly discard the least-used eligible palette sources until enough standard slots are available. Inputs: $0E/$0F points at eight packed selector bytes, $0113-$011A holds their paired selector bytes, $0B-$0D maps three extra selectors, $33-$35 and $E3-$E6 describe candidate availability, $BC-$BE are standard-source eligibility guards, and $41 is the outstanding slot demand. Outputs: $39-$40 contains rebuilt use counts. Zero-use standard sources are marked in $33-$35; least-used eligible standard or extra sources are disabled through $33-$35/$E3-$E6, and $41 is decremented as mappings are released until the available-slot count satisfies it. Assumptions: Each of the eight rows supplies four valid two-bit selectors, selector and mapping indices are in range, and whenever more slots are required at least one eligible nonzero-use candidate exists. Clobbers: A, X, Y, processor flags, $22/$23, $33-$35, $39-$41, and $E3-$E6; $0B-$0D and $BC-$BE are read but preserved. Hardware changes: None; the routine only rewrites RAM palette-selection state consumed later by the image renderer."
   },
   {
+   "address": 6888,
+   "type": "line",
+   "text": "Resident text glyph $00: space, eight packed bitmap rows at $1AE8-$1AEF. The inline-text renderer masks codes to six bits and forms $1AE8 + 8*index at $15BC-$15D2, then copies exactly eight rows at $1623. Display pairs are interpreted in multicolor bitmap mode; the glyph atlas was rendered to check the alphabet and digit ordering."
+  },
+  {
+   "address": 6896,
+   "type": "line",
+   "text": "Resident text glyph $01: A, eight packed bitmap rows at $1AF0-$1AF7. The inline-text renderer masks codes to six bits and forms $1AE8 + 8*index at $15BC-$15D2, then copies exactly eight rows at $1623. Display pairs are interpreted in multicolor bitmap mode; the glyph atlas was rendered to check the alphabet and digit ordering."
+  },
+  {
+   "address": 6904,
+   "type": "line",
+   "text": "Resident text glyph $02: B, eight packed bitmap rows at $1AF8-$1AFF. The inline-text renderer masks codes to six bits and forms $1AE8 + 8*index at $15BC-$15D2, then copies exactly eight rows at $1623. Display pairs are interpreted in multicolor bitmap mode; the glyph atlas was rendered to check the alphabet and digit ordering."
+  },
+  {
+   "address": 6912,
+   "type": "line",
+   "text": "Resident text glyph $03: C, eight packed bitmap rows at $1B00-$1B07. The inline-text renderer masks codes to six bits and forms $1AE8 + 8*index at $15BC-$15D2, then copies exactly eight rows at $1623. Display pairs are interpreted in multicolor bitmap mode; the glyph atlas was rendered to check the alphabet and digit ordering."
+  },
+  {
+   "address": 6920,
+   "type": "line",
+   "text": "Resident text glyph $04: D, eight packed bitmap rows at $1B08-$1B0F. The inline-text renderer masks codes to six bits and forms $1AE8 + 8*index at $15BC-$15D2, then copies exactly eight rows at $1623. Display pairs are interpreted in multicolor bitmap mode; the glyph atlas was rendered to check the alphabet and digit ordering."
+  },
+  {
+   "address": 6928,
+   "type": "line",
+   "text": "Resident text glyph $05: E, eight packed bitmap rows at $1B10-$1B17. The inline-text renderer masks codes to six bits and forms $1AE8 + 8*index at $15BC-$15D2, then copies exactly eight rows at $1623. Display pairs are interpreted in multicolor bitmap mode; the glyph atlas was rendered to check the alphabet and digit ordering."
+  },
+  {
+   "address": 6936,
+   "type": "line",
+   "text": "Resident text glyph $06: F, eight packed bitmap rows at $1B18-$1B1F. The inline-text renderer masks codes to six bits and forms $1AE8 + 8*index at $15BC-$15D2, then copies exactly eight rows at $1623. Display pairs are interpreted in multicolor bitmap mode; the glyph atlas was rendered to check the alphabet and digit ordering."
+  },
+  {
+   "address": 6944,
+   "type": "line",
+   "text": "Resident text glyph $07: G, eight packed bitmap rows at $1B20-$1B27. The inline-text renderer masks codes to six bits and forms $1AE8 + 8*index at $15BC-$15D2, then copies exactly eight rows at $1623. Display pairs are interpreted in multicolor bitmap mode; the glyph atlas was rendered to check the alphabet and digit ordering."
+  },
+  {
+   "address": 6952,
+   "type": "line",
+   "text": "Resident text glyph $08: H, eight packed bitmap rows at $1B28-$1B2F. The inline-text renderer masks codes to six bits and forms $1AE8 + 8*index at $15BC-$15D2, then copies exactly eight rows at $1623. Display pairs are interpreted in multicolor bitmap mode; the glyph atlas was rendered to check the alphabet and digit ordering."
+  },
+  {
+   "address": 6960,
+   "type": "line",
+   "text": "Resident text glyph $09: I, eight packed bitmap rows at $1B30-$1B37. The inline-text renderer masks codes to six bits and forms $1AE8 + 8*index at $15BC-$15D2, then copies exactly eight rows at $1623. Display pairs are interpreted in multicolor bitmap mode; the glyph atlas was rendered to check the alphabet and digit ordering."
+  },
+  {
+   "address": 6968,
+   "type": "line",
+   "text": "Resident text glyph $0A: J, eight packed bitmap rows at $1B38-$1B3F. The inline-text renderer masks codes to six bits and forms $1AE8 + 8*index at $15BC-$15D2, then copies exactly eight rows at $1623. Display pairs are interpreted in multicolor bitmap mode; the glyph atlas was rendered to check the alphabet and digit ordering."
+  },
+  {
+   "address": 6976,
+   "type": "line",
+   "text": "Resident text glyph $0B: K, eight packed bitmap rows at $1B40-$1B47. The inline-text renderer masks codes to six bits and forms $1AE8 + 8*index at $15BC-$15D2, then copies exactly eight rows at $1623. Display pairs are interpreted in multicolor bitmap mode; the glyph atlas was rendered to check the alphabet and digit ordering."
+  },
+  {
+   "address": 6984,
+   "type": "line",
+   "text": "Resident text glyph $0C: L, eight packed bitmap rows at $1B48-$1B4F. The inline-text renderer masks codes to six bits and forms $1AE8 + 8*index at $15BC-$15D2, then copies exactly eight rows at $1623. Display pairs are interpreted in multicolor bitmap mode; the glyph atlas was rendered to check the alphabet and digit ordering."
+  },
+  {
+   "address": 6992,
+   "type": "line",
+   "text": "Resident text glyph $0D: M, eight packed bitmap rows at $1B50-$1B57. The inline-text renderer masks codes to six bits and forms $1AE8 + 8*index at $15BC-$15D2, then copies exactly eight rows at $1623. Display pairs are interpreted in multicolor bitmap mode; the glyph atlas was rendered to check the alphabet and digit ordering."
+  },
+  {
+   "address": 7000,
+   "type": "line",
+   "text": "Resident text glyph $0E: N, eight packed bitmap rows at $1B58-$1B5F. The inline-text renderer masks codes to six bits and forms $1AE8 + 8*index at $15BC-$15D2, then copies exactly eight rows at $1623. Display pairs are interpreted in multicolor bitmap mode; the glyph atlas was rendered to check the alphabet and digit ordering."
+  },
+  {
+   "address": 7008,
+   "type": "line",
+   "text": "Resident text glyph $0F: O, eight packed bitmap rows at $1B60-$1B67. The inline-text renderer masks codes to six bits and forms $1AE8 + 8*index at $15BC-$15D2, then copies exactly eight rows at $1623. Display pairs are interpreted in multicolor bitmap mode; the glyph atlas was rendered to check the alphabet and digit ordering."
+  },
+  {
+   "address": 7016,
+   "type": "line",
+   "text": "Resident text glyph $10: P, eight packed bitmap rows at $1B68-$1B6F. The inline-text renderer masks codes to six bits and forms $1AE8 + 8*index at $15BC-$15D2, then copies exactly eight rows at $1623. Display pairs are interpreted in multicolor bitmap mode; the glyph atlas was rendered to check the alphabet and digit ordering."
+  },
+  {
+   "address": 7024,
+   "type": "line",
+   "text": "Resident text glyph $11: Q, eight packed bitmap rows at $1B70-$1B77. The inline-text renderer masks codes to six bits and forms $1AE8 + 8*index at $15BC-$15D2, then copies exactly eight rows at $1623. Display pairs are interpreted in multicolor bitmap mode; the glyph atlas was rendered to check the alphabet and digit ordering."
+  },
+  {
+   "address": 7032,
+   "type": "line",
+   "text": "Resident text glyph $12: R, eight packed bitmap rows at $1B78-$1B7F. The inline-text renderer masks codes to six bits and forms $1AE8 + 8*index at $15BC-$15D2, then copies exactly eight rows at $1623. Display pairs are interpreted in multicolor bitmap mode; the glyph atlas was rendered to check the alphabet and digit ordering."
+  },
+  {
+   "address": 7040,
+   "type": "line",
+   "text": "Resident text glyph $13: S, eight packed bitmap rows at $1B80-$1B87. The inline-text renderer masks codes to six bits and forms $1AE8 + 8*index at $15BC-$15D2, then copies exactly eight rows at $1623. Display pairs are interpreted in multicolor bitmap mode; the glyph atlas was rendered to check the alphabet and digit ordering."
+  },
+  {
+   "address": 7048,
+   "type": "line",
+   "text": "Resident text glyph $14: T, eight packed bitmap rows at $1B88-$1B8F. The inline-text renderer masks codes to six bits and forms $1AE8 + 8*index at $15BC-$15D2, then copies exactly eight rows at $1623. Display pairs are interpreted in multicolor bitmap mode; the glyph atlas was rendered to check the alphabet and digit ordering."
+  },
+  {
+   "address": 7056,
+   "type": "line",
+   "text": "Resident text glyph $15: U, eight packed bitmap rows at $1B90-$1B97. The inline-text renderer masks codes to six bits and forms $1AE8 + 8*index at $15BC-$15D2, then copies exactly eight rows at $1623. Display pairs are interpreted in multicolor bitmap mode; the glyph atlas was rendered to check the alphabet and digit ordering."
+  },
+  {
+   "address": 7064,
+   "type": "line",
+   "text": "Resident text glyph $16: V, eight packed bitmap rows at $1B98-$1B9F. The inline-text renderer masks codes to six bits and forms $1AE8 + 8*index at $15BC-$15D2, then copies exactly eight rows at $1623. Display pairs are interpreted in multicolor bitmap mode; the glyph atlas was rendered to check the alphabet and digit ordering."
+  },
+  {
+   "address": 7072,
+   "type": "line",
+   "text": "Resident text glyph $17: W, eight packed bitmap rows at $1BA0-$1BA7. The inline-text renderer masks codes to six bits and forms $1AE8 + 8*index at $15BC-$15D2, then copies exactly eight rows at $1623. Display pairs are interpreted in multicolor bitmap mode; the glyph atlas was rendered to check the alphabet and digit ordering."
+  },
+  {
+   "address": 7080,
+   "type": "line",
+   "text": "Resident text glyph $18: X, eight packed bitmap rows at $1BA8-$1BAF. The inline-text renderer masks codes to six bits and forms $1AE8 + 8*index at $15BC-$15D2, then copies exactly eight rows at $1623. Display pairs are interpreted in multicolor bitmap mode; the glyph atlas was rendered to check the alphabet and digit ordering."
+  },
+  {
+   "address": 7088,
+   "type": "line",
+   "text": "Resident text glyph $19: Y, eight packed bitmap rows at $1BB0-$1BB7. The inline-text renderer masks codes to six bits and forms $1AE8 + 8*index at $15BC-$15D2, then copies exactly eight rows at $1623. Display pairs are interpreted in multicolor bitmap mode; the glyph atlas was rendered to check the alphabet and digit ordering."
+  },
+  {
+   "address": 7096,
+   "type": "line",
+   "text": "Resident text glyph $1A: Z, eight packed bitmap rows at $1BB8-$1BBF. The inline-text renderer masks codes to six bits and forms $1AE8 + 8*index at $15BC-$15D2, then copies exactly eight rows at $1623. Display pairs are interpreted in multicolor bitmap mode; the glyph atlas was rendered to check the alphabet and digit ordering."
+  },
+  {
+   "address": 7104,
+   "type": "line",
+   "text": "Resident text glyph $1B: 0, eight packed bitmap rows at $1BC0-$1BC7. The inline-text renderer masks codes to six bits and forms $1AE8 + 8*index at $15BC-$15D2, then copies exactly eight rows at $1623. Display pairs are interpreted in multicolor bitmap mode; the glyph atlas was rendered to check the alphabet and digit ordering."
+  },
+  {
+   "address": 7112,
+   "type": "line",
+   "text": "Resident text glyph $1C: 1, eight packed bitmap rows at $1BC8-$1BCF. The inline-text renderer masks codes to six bits and forms $1AE8 + 8*index at $15BC-$15D2, then copies exactly eight rows at $1623. Display pairs are interpreted in multicolor bitmap mode; the glyph atlas was rendered to check the alphabet and digit ordering."
+  },
+  {
+   "address": 7120,
+   "type": "line",
+   "text": "Resident text glyph $1D: 2, eight packed bitmap rows at $1BD0-$1BD7. The inline-text renderer masks codes to six bits and forms $1AE8 + 8*index at $15BC-$15D2, then copies exactly eight rows at $1623. Display pairs are interpreted in multicolor bitmap mode; the glyph atlas was rendered to check the alphabet and digit ordering."
+  },
+  {
+   "address": 7128,
+   "type": "line",
+   "text": "Resident text glyph $1E: 3, eight packed bitmap rows at $1BD8-$1BDF. The inline-text renderer masks codes to six bits and forms $1AE8 + 8*index at $15BC-$15D2, then copies exactly eight rows at $1623. Display pairs are interpreted in multicolor bitmap mode; the glyph atlas was rendered to check the alphabet and digit ordering."
+  },
+  {
+   "address": 7136,
+   "type": "line",
+   "text": "Resident text glyph $1F: 4, eight packed bitmap rows at $1BE0-$1BE7. The inline-text renderer masks codes to six bits and forms $1AE8 + 8*index at $15BC-$15D2, then copies exactly eight rows at $1623. Display pairs are interpreted in multicolor bitmap mode; the glyph atlas was rendered to check the alphabet and digit ordering."
+  },
+  {
+   "address": 7144,
+   "type": "line",
+   "text": "Resident text glyph $20: 5, eight packed bitmap rows at $1BE8-$1BEF. The inline-text renderer masks codes to six bits and forms $1AE8 + 8*index at $15BC-$15D2, then copies exactly eight rows at $1623. Display pairs are interpreted in multicolor bitmap mode; the glyph atlas was rendered to check the alphabet and digit ordering."
+  },
+  {
+   "address": 7152,
+   "type": "line",
+   "text": "Resident text glyph $21: 6, eight packed bitmap rows at $1BF0-$1BF7. The inline-text renderer masks codes to six bits and forms $1AE8 + 8*index at $15BC-$15D2, then copies exactly eight rows at $1623. Display pairs are interpreted in multicolor bitmap mode; the glyph atlas was rendered to check the alphabet and digit ordering."
+  },
+  {
+   "address": 7160,
+   "type": "line",
+   "text": "Resident text glyph $22: 7, eight packed bitmap rows at $1BF8-$1BFF. The inline-text renderer masks codes to six bits and forms $1AE8 + 8*index at $15BC-$15D2, then copies exactly eight rows at $1623. Display pairs are interpreted in multicolor bitmap mode; the glyph atlas was rendered to check the alphabet and digit ordering."
+  },
+  {
+   "address": 7168,
+   "type": "line",
+   "text": "Resident text glyph $23: 8, eight packed bitmap rows at $1C00-$1C07. The inline-text renderer masks codes to six bits and forms $1AE8 + 8*index at $15BC-$15D2, then copies exactly eight rows at $1623. Display pairs are interpreted in multicolor bitmap mode; the glyph atlas was rendered to check the alphabet and digit ordering."
+  },
+  {
+   "address": 7176,
+   "type": "line",
+   "text": "Resident text glyph $24: 9, eight packed bitmap rows at $1C08-$1C0F. The inline-text renderer masks codes to six bits and forms $1AE8 + 8*index at $15BC-$15D2, then copies exactly eight rows at $1623. Display pairs are interpreted in multicolor bitmap mode; the glyph atlas was rendered to check the alphabet and digit ordering."
+  },
+  {
+   "address": 7184,
+   "type": "line",
+   "text": "Resident text glyph $25: punctuation/special glyph; exact character name remains open, eight packed bitmap rows at $1C10-$1C17. The inline-text renderer masks codes to six bits and forms $1AE8 + 8*index at $15BC-$15D2, then copies exactly eight rows at $1623. Display pairs are interpreted in multicolor bitmap mode; the glyph atlas was rendered to check the alphabet and digit ordering."
+  },
+  {
+   "address": 7192,
+   "type": "line",
+   "text": "Resident text glyph $26: punctuation/special glyph; exact character name remains open, eight packed bitmap rows at $1C18-$1C1F. The inline-text renderer masks codes to six bits and forms $1AE8 + 8*index at $15BC-$15D2, then copies exactly eight rows at $1623. Display pairs are interpreted in multicolor bitmap mode; the glyph atlas was rendered to check the alphabet and digit ordering."
+  },
+  {
+   "address": 7200,
+   "type": "line",
+   "text": "Resident text glyph $27: punctuation/special glyph; exact character name remains open, eight packed bitmap rows at $1C20-$1C27. The inline-text renderer masks codes to six bits and forms $1AE8 + 8*index at $15BC-$15D2, then copies exactly eight rows at $1623. Display pairs are interpreted in multicolor bitmap mode; the glyph atlas was rendered to check the alphabet and digit ordering."
+  },
+  {
+   "address": 7208,
+   "type": "line",
+   "text": "Resident text glyph $28: punctuation/special glyph; exact character name remains open, eight packed bitmap rows at $1C28-$1C2F. The inline-text renderer masks codes to six bits and forms $1AE8 + 8*index at $15BC-$15D2, then copies exactly eight rows at $1623. Display pairs are interpreted in multicolor bitmap mode; the glyph atlas was rendered to check the alphabet and digit ordering."
+  },
+  {
    "address": 7216,
    "type": "line",
    "text": "Purpose: rebuild the status-panel backing records and six display digits. Inputs: panel source `$03D8-$03FF`, flag bytes `$03DC/$03E0`, digit values `$1CA0-$1CA5`, and glyph-index table `$1D3F-$1D44`. Outputs: copied panel bytes at `$03B0-$03D7`, mapped digits at `$03CC-$03D7`, and updated status flags. Assumptions: panel tables use the resident renderer's encodings. Clobbers: A, X, Y, flags. Hardware changes: none; only RAM backing data changes."
@@ -14971,6 +17940,21 @@
    "text": "Purpose: force rendering of the three chained animated HUD digit records. Inputs: inline records `$1C73-$1C79`, `$1C7D-$1C83`, and `$1C87-$1C8D`. Outputs: all three records rendered before returning at `$1C8E`. Assumptions: `$1583` advances each stacked return address past its record. Clobbers: A, X, Y, flags, renderer scratch, and stacked return addresses. Hardware changes: none directly; the renderer updates display memory."
   },
   {
+   "address": 7283,
+   "type": "line",
+   "text": "Inline text after JSR $1583 at $1C70: X=16, Y=22, colour fields $03/$E6, then 2 glyph codes and a zero terminator at $1C79. The renderer masks each code to six bits and copies eight bytes from $1AE8 + 8*glyph. Decoded glyph sequence: '00'. It resumes execution at $1C7A."
+  },
+  {
+   "address": 7293,
+   "type": "line",
+   "text": "Inline text after JSR $1583 at $1C7A: X=19, Y=22, colour fields $03/$E6, then 2 glyph codes and a zero terminator at $1C83. The renderer masks each code to six bits and copies eight bytes from $1AE8 + 8*glyph. Decoded glyph sequence: '00'. It resumes execution at $1C84."
+  },
+  {
+   "address": 7303,
+   "type": "line",
+   "text": "Inline text after JSR $1583 at $1C84: X=22, Y=22, colour fields $03/$E6, then 2 glyph codes and a zero terminator at $1C8D. The renderer masks each code to six bits and copies eight bytes from $1AE8 + 8*glyph. Decoded glyph sequence: '03'. It resumes execution at $1C8E."
+  },
+  {
    "address": 7311,
    "type": "line",
    "text": "Purpose: redraw the six-digit score only when score-dirty flag `$0292` is set. Inputs: `$0292` and inline score record `$1C9C-$1CA6`. Outputs: clears `$0292` and renders the score, or returns unchanged when clean. Assumptions: `$1583` advances the stacked return address past the record. Clobbers: A, X, Y, flags, renderer scratch, and the stacked return address. Hardware changes: none directly; the renderer updates display memory."
@@ -14979,6 +17963,11 @@
    "address": 7321,
    "type": "line",
    "text": "Purpose: force rendering of the inline six-digit score record. Inputs: inline record `$1C9C-$1CA6`. Outputs: score rendered and return resumes at `$1CA7`. Assumptions: `$1583` advances the stacked return address past the record. Clobbers: A, X, Y, flags, renderer scratch, and the stacked return address. Hardware changes: none directly; the renderer updates display memory."
+  },
+  {
+   "address": 7324,
+   "type": "line",
+   "text": "Inline text after JSR $1583 at $1C99: X=17, Y=20, colour fields $03/$E6, then 6 glyph codes and a zero terminator at $1CA6. The renderer masks each code to six bits and copies eight bytes from $1AE8 + 8*glyph. Decoded glyph sequence: '001500'. It resumes execution at $1CA7."
   },
   {
    "address": 7336,
@@ -15281,9 +18270,619 @@
    "text": "Purpose: execute one modulation-stream step. Inputs: selected voice, modulation cursor and count, and current frequency. Outputs: cursor, count, and modulated frequency are updated. Assumptions: the stream follows the observed signed-update and control-token encoding. Clobbers: A, X, Y, flags, and voice scratch. Hardware changes: none directly."
   },
   {
+   "address": 19940,
+   "type": "line",
+   "text": "Scene header: first byte is 118, the number of scene pointers processed by the one-time relocation loop at $8A15. The following delta word at $4DE5/$4DE6 is $0800 in the fresh captured level. The area scene-selector bytes start at $4DE7; scene pointers begin at $4E27. The loaded pointers are already relocatable biased words; after initialization the entry at $8A0F is patched to RTS."
+  },
+  {
+   "address": 19943,
+   "type": "line",
+   "text": "Area-indexed scene selector bytes, read at $8A64 with X equal to the current area. $FF denotes no scene; nonnegative selectors enter composite roots through the 118-entry scene directory. The following header bytes include renderer/area profile data; their full bounds still require tracing."
+  },
+  {
+   "address": 20007,
+   "type": "line",
+   "text": "Scene directory entry 000: stored word $8131 resolves to $4F15. Bit 15 marks an image leaf; clear it before adding scene base $4DE4."
+  },
+  {
+   "address": 20008,
+   "type": "line",
+   "text": "Indexed high-byte base for the 118-entry scene directory at $4E27. This alias is the high byte of entry 000; high bytes remain interleaved with low bytes at stride two."
+  },
+  {
+   "address": 20009,
+   "type": "line",
+   "text": "Scene directory entry 001: stored word $81AA resolves to $4F8E. Bit 15 marks an image leaf; clear it before adding scene base $4DE4."
+  },
+  {
+   "address": 20011,
+   "type": "line",
+   "text": "Scene directory entry 002: stored word $8223 resolves to $5007. Bit 15 marks an image leaf; clear it before adding scene base $4DE4."
+  },
+  {
+   "address": 20013,
+   "type": "line",
+   "text": "Scene directory entry 003: stored word $829C resolves to $5080. Bit 15 marks an image leaf; clear it before adding scene base $4DE4."
+  },
+  {
+   "address": 20015,
+   "type": "line",
+   "text": "Scene directory entry 004: stored word $8315 resolves to $50F9. Bit 15 marks an image leaf; clear it before adding scene base $4DE4."
+  },
+  {
+   "address": 20017,
+   "type": "line",
+   "text": "Scene directory entry 005: stored word $8366 resolves to $514A. Bit 15 marks an image leaf; clear it before adding scene base $4DE4."
+  },
+  {
+   "address": 20019,
+   "type": "line",
+   "text": "Scene directory entry 006: stored word $83B7 resolves to $519B. Bit 15 marks an image leaf; clear it before adding scene base $4DE4."
+  },
+  {
+   "address": 20021,
+   "type": "line",
+   "text": "Scene directory entry 007: stored word $83E0 resolves to $51C4. Bit 15 marks an image leaf; clear it before adding scene base $4DE4."
+  },
+  {
+   "address": 20023,
+   "type": "line",
+   "text": "Scene directory entry 008: stored word $83F5 resolves to $51D9. Bit 15 marks an image leaf; clear it before adding scene base $4DE4."
+  },
+  {
+   "address": 20025,
+   "type": "line",
+   "text": "Scene directory entry 009: stored word $840A resolves to $51EE. Bit 15 marks an image leaf; clear it before adding scene base $4DE4."
+  },
+  {
+   "address": 20027,
+   "type": "line",
+   "text": "Scene directory entry 010: stored word $8447 resolves to $522B. Bit 15 marks an image leaf; clear it before adding scene base $4DE4."
+  },
+  {
+   "address": 20029,
+   "type": "line",
+   "text": "Scene directory entry 011: stored word $845C resolves to $5240. Bit 15 marks an image leaf; clear it before adding scene base $4DE4."
+  },
+  {
+   "address": 20031,
+   "type": "line",
+   "text": "Scene directory entry 012: stored word $8467 resolves to $524B. Bit 15 marks an image leaf; clear it before adding scene base $4DE4."
+  },
+  {
+   "address": 20033,
+   "type": "line",
+   "text": "Scene directory entry 013: stored word $8472 resolves to $5256. Bit 15 marks an image leaf; clear it before adding scene base $4DE4."
+  },
+  {
+   "address": 20035,
+   "type": "line",
+   "text": "Scene directory entry 014: stored word $847D resolves to $5261. Bit 15 marks an image leaf; clear it before adding scene base $4DE4."
+  },
+  {
+   "address": 20037,
+   "type": "line",
+   "text": "Scene directory entry 015: stored word $8488 resolves to $526C. Bit 15 marks an image leaf; clear it before adding scene base $4DE4."
+  },
+  {
+   "address": 20039,
+   "type": "line",
+   "text": "Scene directory entry 016: stored word $8493 resolves to $5277. Bit 15 marks an image leaf; clear it before adding scene base $4DE4."
+  },
+  {
+   "address": 20041,
+   "type": "line",
+   "text": "Scene directory entry 017: stored word $849E resolves to $5282. Bit 15 marks an image leaf; clear it before adding scene base $4DE4."
+  },
+  {
+   "address": 20043,
+   "type": "line",
+   "text": "Scene directory entry 018: stored word $84A9 resolves to $528D. Bit 15 marks an image leaf; clear it before adding scene base $4DE4."
+  },
+  {
+   "address": 20045,
+   "type": "line",
+   "text": "Scene directory entry 019: stored word $84FA resolves to $52DE. Bit 15 marks an image leaf; clear it before adding scene base $4DE4."
+  },
+  {
+   "address": 20047,
+   "type": "line",
+   "text": "Scene directory entry 020: stored word $854B resolves to $532F. Bit 15 marks an image leaf; clear it before adding scene base $4DE4."
+  },
+  {
+   "address": 20049,
+   "type": "line",
+   "text": "Scene directory entry 021: stored word $85C4 resolves to $53A8. Bit 15 marks an image leaf; clear it before adding scene base $4DE4."
+  },
+  {
+   "address": 20051,
+   "type": "line",
+   "text": "Scene directory entry 022: stored word $863D resolves to $5421. Bit 15 marks an image leaf; clear it before adding scene base $4DE4."
+  },
+  {
+   "address": 20053,
+   "type": "line",
+   "text": "Scene directory entry 023: stored word $868E resolves to $5472. Bit 15 marks an image leaf; clear it before adding scene base $4DE4."
+  },
+  {
+   "address": 20055,
+   "type": "line",
+   "text": "Scene directory entry 024: stored word $8707 resolves to $54EB. Bit 15 marks an image leaf; clear it before adding scene base $4DE4."
+  },
+  {
+   "address": 20057,
+   "type": "line",
+   "text": "Scene directory entry 025: stored word $8730 resolves to $5514. Bit 15 marks an image leaf; clear it before adding scene base $4DE4."
+  },
+  {
+   "address": 20059,
+   "type": "line",
+   "text": "Scene directory entry 026: stored word $8781 resolves to $5565. Bit 15 marks an image leaf; clear it before adding scene base $4DE4."
+  },
+  {
+   "address": 20061,
+   "type": "line",
+   "text": "Scene directory entry 027: stored word $887C resolves to $5660. Bit 15 marks an image leaf; clear it before adding scene base $4DE4."
+  },
+  {
+   "address": 20063,
+   "type": "line",
+   "text": "Scene directory entry 028: stored word $889B resolves to $567F. Bit 15 marks an image leaf; clear it before adding scene base $4DE4."
+  },
+  {
+   "address": 20065,
+   "type": "line",
+   "text": "Scene directory entry 029: stored word $8932 resolves to $5716. Bit 15 marks an image leaf; clear it before adding scene base $4DE4."
+  },
+  {
+   "address": 20067,
+   "type": "line",
+   "text": "Scene directory entry 030: stored word $89C9 resolves to $57AD. Bit 15 marks an image leaf; clear it before adding scene base $4DE4."
+  },
+  {
+   "address": 20069,
+   "type": "line",
+   "text": "Scene directory entry 031: stored word $8A60 resolves to $5844. Bit 15 marks an image leaf; clear it before adding scene base $4DE4."
+  },
+  {
+   "address": 20071,
+   "type": "line",
+   "text": "Scene directory entry 032: stored word $8A7F resolves to $5863. Bit 15 marks an image leaf; clear it before adding scene base $4DE4."
+  },
+  {
+   "address": 20073,
+   "type": "line",
+   "text": "Scene directory entry 033: stored word $8A8A resolves to $586E. Bit 15 marks an image leaf; clear it before adding scene base $4DE4."
+  },
+  {
+   "address": 20075,
+   "type": "line",
+   "text": "Scene directory entry 034: stored word $8A95 resolves to $5879. Bit 15 marks an image leaf; clear it before adding scene base $4DE4."
+  },
+  {
+   "address": 20077,
+   "type": "line",
+   "text": "Scene directory entry 035: stored word $8AA0 resolves to $5884. Bit 15 marks an image leaf; clear it before adding scene base $4DE4."
+  },
+  {
+   "address": 20079,
+   "type": "line",
+   "text": "Scene directory entry 036: stored word $8AAB resolves to $588F. Bit 15 marks an image leaf; clear it before adding scene base $4DE4."
+  },
+  {
+   "address": 20081,
+   "type": "line",
+   "text": "Scene directory entry 037: stored word $8AC0 resolves to $58A4. Bit 15 marks an image leaf; clear it before adding scene base $4DE4."
+  },
+  {
+   "address": 20083,
+   "type": "line",
+   "text": "Scene directory entry 038: stored word $8AE9 resolves to $58CD. Bit 15 marks an image leaf; clear it before adding scene base $4DE4."
+  },
+  {
+   "address": 20085,
+   "type": "line",
+   "text": "Scene directory entry 039: stored word $8B12 resolves to $58F6. Bit 15 marks an image leaf; clear it before adding scene base $4DE4."
+  },
+  {
+   "address": 20087,
+   "type": "line",
+   "text": "Scene directory entry 040: stored word $8B4F resolves to $5933. Bit 15 marks an image leaf; clear it before adding scene base $4DE4."
+  },
+  {
+   "address": 20089,
+   "type": "line",
+   "text": "Scene directory entry 041: stored word $8B5A resolves to $593E. Bit 15 marks an image leaf; clear it before adding scene base $4DE4."
+  },
+  {
+   "address": 20091,
+   "type": "line",
+   "text": "Scene directory entry 042: stored word $8B6F resolves to $5953. Bit 15 marks an image leaf; clear it before adding scene base $4DE4."
+  },
+  {
+   "address": 20093,
+   "type": "line",
+   "text": "Scene directory entry 043: stored word $8BC0 resolves to $59A4. Bit 15 marks an image leaf; clear it before adding scene base $4DE4."
+  },
+  {
+   "address": 20095,
+   "type": "line",
+   "text": "Scene directory entry 044: stored word $8BDF resolves to $59C3. Bit 15 marks an image leaf; clear it before adding scene base $4DE4."
+  },
+  {
+   "address": 20097,
+   "type": "line",
+   "text": "Scene directory entry 045: stored word $8BFE resolves to $59E2. Bit 15 marks an image leaf; clear it before adding scene base $4DE4."
+  },
+  {
+   "address": 20099,
+   "type": "line",
+   "text": "Scene directory entry 046: stored word $8C9F resolves to $5A83. Bit 15 marks an image leaf; clear it before adding scene base $4DE4."
+  },
+  {
+   "address": 20101,
+   "type": "line",
+   "text": "Scene directory entry 047: stored word $8D40 resolves to $5B24. Bit 15 marks an image leaf; clear it before adding scene base $4DE4."
+  },
+  {
+   "address": 20103,
+   "type": "line",
+   "text": "Scene directory entry 048: stored word $8DA5 resolves to $5B89. Bit 15 marks an image leaf; clear it before adding scene base $4DE4."
+  },
+  {
+   "address": 20105,
+   "type": "line",
+   "text": "Scene directory entry 049: stored word $8DF6 resolves to $5BDA. Bit 15 marks an image leaf; clear it before adding scene base $4DE4."
+  },
+  {
+   "address": 20107,
+   "type": "line",
+   "text": "Scene directory entry 050: stored word $8EBF resolves to $5CA3. Bit 15 marks an image leaf; clear it before adding scene base $4DE4."
+  },
+  {
+   "address": 20109,
+   "type": "line",
+   "text": "Scene directory entry 051: stored word $8FD8 resolves to $5DBC. Bit 15 marks an image leaf; clear it before adding scene base $4DE4."
+  },
+  {
+   "address": 20111,
+   "type": "line",
+   "text": "Scene directory entry 052: stored word $90A1 resolves to $5E85. Bit 15 marks an image leaf; clear it before adding scene base $4DE4."
+  },
+  {
+   "address": 20113,
+   "type": "line",
+   "text": "Scene directory entry 053: stored word $92FA resolves to $60DE. Bit 15 marks an image leaf; clear it before adding scene base $4DE4."
+  },
+  {
+   "address": 20115,
+   "type": "line",
+   "text": "Scene directory entry 054: stored word $932D resolves to $6111. Bit 15 marks an image leaf; clear it before adding scene base $4DE4."
+  },
+  {
+   "address": 20117,
+   "type": "line",
+   "text": "Scene directory entry 055: stored word $93BA resolves to $619E. Bit 15 marks an image leaf; clear it before adding scene base $4DE4."
+  },
+  {
+   "address": 20119,
+   "type": "line",
+   "text": "Scene directory entry 056: stored word $93CF resolves to $61B3. Bit 15 marks an image leaf; clear it before adding scene base $4DE4."
+  },
+  {
+   "address": 20121,
+   "type": "line",
+   "text": "Scene directory entry 057: stored word $940C resolves to $61F0. Bit 15 marks an image leaf; clear it before adding scene base $4DE4."
+  },
+  {
+   "address": 20123,
+   "type": "line",
+   "text": "Scene directory entry 058: stored word $9421 resolves to $6205. Bit 15 marks an image leaf; clear it before adding scene base $4DE4."
+  },
+  {
+   "address": 20125,
+   "type": "line",
+   "text": "Scene directory entry 059: stored word $958A resolves to $636E. Bit 15 marks an image leaf; clear it before adding scene base $4DE4."
+  },
+  {
+   "address": 20127,
+   "type": "line",
+   "text": "Scene directory entry 060: stored word $95DB resolves to $63BF. Bit 15 marks an image leaf; clear it before adding scene base $4DE4."
+  },
+  {
+   "address": 20129,
+   "type": "line",
+   "text": "Scene directory entry 061: stored word $95F0 resolves to $63D4. Bit 15 marks an image leaf; clear it before adding scene base $4DE4."
+  },
+  {
+   "address": 20131,
+   "type": "line",
+   "text": "Scene directory entry 062: stored word $9821 resolves to $6605. Bit 15 marks an image leaf; clear it before adding scene base $4DE4."
+  },
+  {
+   "address": 20133,
+   "type": "line",
+   "text": "Scene directory entry 063: stored word $989A resolves to $667E. Bit 15 marks an image leaf; clear it before adding scene base $4DE4."
+  },
+  {
+   "address": 20135,
+   "type": "line",
+   "text": "Scene directory entry 064: stored word $994F resolves to $6733. Bit 15 marks an image leaf; clear it before adding scene base $4DE4."
+  },
+  {
+   "address": 20137,
+   "type": "line",
+   "text": "Scene directory entry 065: stored word $99C8 resolves to $67AC. Bit 15 marks an image leaf; clear it before adding scene base $4DE4."
+  },
+  {
+   "address": 20139,
+   "type": "line",
+   "text": "Scene directory entry 066: stored word $9AC3 resolves to $68A7. Bit 15 marks an image leaf; clear it before adding scene base $4DE4."
+  },
+  {
+   "address": 20141,
+   "type": "line",
+   "text": "Scene directory entry 067: stored word $9B14 resolves to $68F8. Bit 15 marks an image leaf; clear it before adding scene base $4DE4."
+  },
+  {
+   "address": 20143,
+   "type": "line",
+   "text": "Scene directory entry 068: stored word $1B29 resolves to $690D. Bit 15 marks an image leaf; clear it before adding scene base $4DE4."
+  },
+  {
+   "address": 20145,
+   "type": "line",
+   "text": "Scene directory entry 069: stored word $9B6B resolves to $694F. Bit 15 marks an image leaf; clear it before adding scene base $4DE4."
+  },
+  {
+   "address": 20147,
+   "type": "line",
+   "text": "Scene directory entry 070: stored word $1BE4 resolves to $69C8. Bit 15 marks an image leaf; clear it before adding scene base $4DE4."
+  },
+  {
+   "address": 20149,
+   "type": "line",
+   "text": "Scene directory entry 071: stored word $1C15 resolves to $69F9. Bit 15 marks an image leaf; clear it before adding scene base $4DE4."
+  },
+  {
+   "address": 20151,
+   "type": "line",
+   "text": "Scene directory entry 072: stored word $1C46 resolves to $6A2A. Bit 15 marks an image leaf; clear it before adding scene base $4DE4."
+  },
+  {
+   "address": 20153,
+   "type": "line",
+   "text": "Scene directory entry 073: stored word $1D92 resolves to $6B76. Bit 15 marks an image leaf; clear it before adding scene base $4DE4."
+  },
+  {
+   "address": 20155,
+   "type": "line",
+   "text": "Scene directory entry 074: stored word $1EC1 resolves to $6CA5. Bit 15 marks an image leaf; clear it before adding scene base $4DE4."
+  },
+  {
+   "address": 20157,
+   "type": "line",
+   "text": "Scene directory entry 075: stored word $1EC2 resolves to $6CA6. Bit 15 marks an image leaf; clear it before adding scene base $4DE4."
+  },
+  {
+   "address": 20159,
+   "type": "line",
+   "text": "Scene directory entry 076: stored word $2022 resolves to $6E06. Bit 15 marks an image leaf; clear it before adding scene base $4DE4."
+  },
+  {
+   "address": 20161,
+   "type": "line",
+   "text": "Scene directory entry 077: stored word $2137 resolves to $6F1B. Bit 15 marks an image leaf; clear it before adding scene base $4DE4."
+  },
+  {
+   "address": 20163,
+   "type": "line",
+   "text": "Scene directory entry 078: stored word $2207 resolves to $6FEB. Bit 15 marks an image leaf; clear it before adding scene base $4DE4."
+  },
+  {
+   "address": 20165,
+   "type": "line",
+   "text": "Scene directory entry 079: stored word $22EB resolves to $70CF. Bit 15 marks an image leaf; clear it before adding scene base $4DE4."
+  },
+  {
+   "address": 20167,
+   "type": "line",
+   "text": "Scene directory entry 080: stored word $243D resolves to $7221. Bit 15 marks an image leaf; clear it before adding scene base $4DE4."
+  },
+  {
+   "address": 20169,
+   "type": "line",
+   "text": "Scene directory entry 081: stored word $2675 resolves to $7459. Bit 15 marks an image leaf; clear it before adding scene base $4DE4."
+  },
+  {
+   "address": 20171,
+   "type": "line",
+   "text": "Scene directory entry 082: stored word $268E resolves to $7472. Bit 15 marks an image leaf; clear it before adding scene base $4DE4."
+  },
+  {
+   "address": 20173,
+   "type": "line",
+   "text": "Scene directory entry 083: stored word $2949 resolves to $772D. Bit 15 marks an image leaf; clear it before adding scene base $4DE4."
+  },
+  {
+   "address": 20175,
+   "type": "line",
+   "text": "Scene directory entry 084: stored word $2962 resolves to $7746. Bit 15 marks an image leaf; clear it before adding scene base $4DE4."
+  },
+  {
+   "address": 20177,
+   "type": "line",
+   "text": "Scene directory entry 085: stored word $2BEB resolves to $79CF. Bit 15 marks an image leaf; clear it before adding scene base $4DE4."
+  },
+  {
+   "address": 20179,
+   "type": "line",
+   "text": "Scene directory entry 086: stored word $2C08 resolves to $79EC. Bit 15 marks an image leaf; clear it before adding scene base $4DE4."
+  },
+  {
+   "address": 20181,
+   "type": "line",
+   "text": "Scene directory entry 087: stored word $2D1A resolves to $7AFE. Bit 15 marks an image leaf; clear it before adding scene base $4DE4."
+  },
+  {
+   "address": 20183,
+   "type": "line",
+   "text": "Scene directory entry 088: stored word $2D3B resolves to $7B1F. Bit 15 marks an image leaf; clear it before adding scene base $4DE4."
+  },
+  {
+   "address": 20185,
+   "type": "line",
+   "text": "Scene directory entry 089: stored word $2FE7 resolves to $7DCB. Bit 15 marks an image leaf; clear it before adding scene base $4DE4."
+  },
+  {
+   "address": 20187,
+   "type": "line",
+   "text": "Scene directory entry 090: stored word $3198 resolves to $7F7C. Bit 15 marks an image leaf; clear it before adding scene base $4DE4."
+  },
+  {
+   "address": 20189,
+   "type": "line",
+   "text": "Scene directory entry 091: stored word $3199 resolves to $7F7D. Bit 15 marks an image leaf; clear it before adding scene base $4DE4."
+  },
+  {
+   "address": 20191,
+   "type": "line",
+   "text": "Scene directory entry 092: stored word $B30F resolves to $80F3. Bit 15 marks an image leaf; clear it before adding scene base $4DE4."
+  },
+  {
+   "address": 20193,
+   "type": "line",
+   "text": "Scene directory entry 093: stored word $B388 resolves to $816C. Bit 15 marks an image leaf; clear it before adding scene base $4DE4."
+  },
+  {
+   "address": 20195,
+   "type": "line",
+   "text": "Scene directory entry 094: stored word $B393 resolves to $8177. Bit 15 marks an image leaf; clear it before adding scene base $4DE4."
+  },
+  {
+   "address": 20197,
+   "type": "line",
+   "text": "Scene directory entry 095: stored word $B524 resolves to $8308. Bit 15 marks an image leaf; clear it before adding scene base $4DE4."
+  },
+  {
+   "address": 20199,
+   "type": "line",
+   "text": "Scene directory entry 096: stored word $B561 resolves to $8345. Bit 15 marks an image leaf; clear it before adding scene base $4DE4."
+  },
+  {
+   "address": 20201,
+   "type": "line",
+   "text": "Scene directory entry 097: stored word $B6F2 resolves to $84D6. Bit 15 marks an image leaf; clear it before adding scene base $4DE4."
+  },
+  {
+   "address": 20203,
+   "type": "line",
+   "text": "Scene directory entry 098: stored word $B707 resolves to $84EB. Bit 15 marks an image leaf; clear it before adding scene base $4DE4."
+  },
+  {
+   "address": 20205,
+   "type": "line",
+   "text": "Scene directory entry 099: stored word $371C resolves to $8500. Bit 15 marks an image leaf; clear it before adding scene base $4DE4."
+  },
+  {
+   "address": 20207,
+   "type": "line",
+   "text": "Scene directory entry 100: stored word $B71D resolves to $8501. Bit 15 marks an image leaf; clear it before adding scene base $4DE4."
+  },
+  {
+   "address": 20209,
+   "type": "line",
+   "text": "Scene directory entry 101: stored word $B728 resolves to $850C. Bit 15 marks an image leaf; clear it before adding scene base $4DE4."
+  },
+  {
+   "address": 20211,
+   "type": "line",
+   "text": "Scene directory entry 102: stored word $B751 resolves to $8535. Bit 15 marks an image leaf; clear it before adding scene base $4DE4."
+  },
+  {
+   "address": 20213,
+   "type": "line",
+   "text": "Scene directory entry 103: stored word $B75C resolves to $8540. Bit 15 marks an image leaf; clear it before adding scene base $4DE4."
+  },
+  {
+   "address": 20215,
+   "type": "line",
+   "text": "Scene directory entry 104: stored word $B7D5 resolves to $85B9. Bit 15 marks an image leaf; clear it before adding scene base $4DE4."
+  },
+  {
+   "address": 20217,
+   "type": "line",
+   "text": "Scene directory entry 105: stored word $B876 resolves to $865A. Bit 15 marks an image leaf; clear it before adding scene base $4DE4."
+  },
+  {
+   "address": 20219,
+   "type": "line",
+   "text": "Scene directory entry 106: stored word $B89F resolves to $8683. Bit 15 marks an image leaf; clear it before adding scene base $4DE4."
+  },
+  {
+   "address": 20221,
+   "type": "line",
+   "text": "Scene directory entry 107: stored word $B8AA resolves to $868E. Bit 15 marks an image leaf; clear it before adding scene base $4DE4."
+  },
+  {
+   "address": 20223,
+   "type": "line",
+   "text": "Scene directory entry 108: stored word $38D3 resolves to $86B7. Bit 15 marks an image leaf; clear it before adding scene base $4DE4."
+  },
+  {
+   "address": 20225,
+   "type": "line",
+   "text": "Scene directory entry 109: stored word $38F2 resolves to $86D6. Bit 15 marks an image leaf; clear it before adding scene base $4DE4."
+  },
+  {
+   "address": 20227,
+   "type": "line",
+   "text": "Scene directory entry 110: stored word $3907 resolves to $86EB. Bit 15 marks an image leaf; clear it before adding scene base $4DE4."
+  },
+  {
+   "address": 20229,
+   "type": "line",
+   "text": "Scene directory entry 111: stored word $392F resolves to $8713. Bit 15 marks an image leaf; clear it before adding scene base $4DE4."
+  },
+  {
+   "address": 20231,
+   "type": "line",
+   "text": "Scene directory entry 112: stored word $3A94 resolves to $8878. Bit 15 marks an image leaf; clear it before adding scene base $4DE4."
+  },
+  {
+   "address": 20233,
+   "type": "line",
+   "text": "Scene directory entry 113: stored word $3A9B resolves to $887F. Bit 15 marks an image leaf; clear it before adding scene base $4DE4."
+  },
+  {
+   "address": 20235,
+   "type": "line",
+   "text": "Scene directory entry 114: stored word $3AA5 resolves to $8889. Bit 15 marks an image leaf; clear it before adding scene base $4DE4."
+  },
+  {
+   "address": 20237,
+   "type": "line",
+   "text": "Scene directory entry 115: stored word $3BB5 resolves to $8999. Bit 15 marks an image leaf; clear it before adding scene base $4DE4."
+  },
+  {
+   "address": 20239,
+   "type": "line",
+   "text": "Scene directory entry 116: stored word $3BF3 resolves to $89D7. Bit 15 marks an image leaf; clear it before adding scene base $4DE4."
+  },
+  {
+   "address": 20241,
+   "type": "line",
+   "text": "Scene directory entry 117: stored word $BC01 resolves to $89E5. Bit 15 marks an image leaf; clear it before adding scene base $4DE4."
+  },
+  {
    "address": 20245,
    "type": "line",
    "text": "Scene node 0, $4F15-$4F8D, selected by the word at $4E27. Pointer bit 15 identifies a leaf; the remaining offset is added to $4DE4. Leaf size 4 by 3 character cells, encoded as width/height nibbles in the first byte. Each cell stores eight bitmap bytes and two colour bytes, so the checked length is 1 + 10*width*height."
+  },
+  {
+   "address": 20263,
+   "type": "line",
+   "text": "Bitmap/colour payload inside scene leaf 000, whose header starts $4F15 and whose record ends $4F8D. The code also uses $4F27 as an alternate directory base when a doubled selector carries, equivalent to directory index 128; the declared directory has only 118 entries, and all checked child indices are below 118. That alternate path does not make this payload a second pointer directory."
   },
   {
    "address": 20366,
@@ -15741,6 +19340,16 @@
    "text": "Scene node 91, $7F7D-$80F2, selected by the word at $4EDD. Pointer bit 15 identifies a leaf; the remaining offset is added to $4DE4. Composite with 111 child records and a final $FF. Child indices: 3, 3, 3, 3, 3, 3, 23, 23, 23, 23, 45, 45, 45, 45, 2, 2, 2, 22, 2, 8, 8, 8, 8, 23, 23, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 1, 1, 1, 1, 1, 1, 1, 42, 42, 42, 42, 42, 25, 25, 25, 25, 48, 25, 46, 46, 46, 46, 95, 95, 95, 95, 94, 6, 6, 6, 6, 26, 25, 25, 96, 44, 44, 44, 36, 36, 36, 36, 36, 24, 17, 10, 11, 41, 41, 103, 39, 31, 31, 31, 31, 31, 31, 31, 31, 24, 9, 39, 37, 8, 8, 8, 8, 8, 8. Each child has three base bytes plus one optional byte selected by byte-1 bit 6 and 0-3 additional bytes selected by byte-2 bits 5-6; $8AB7 advances by that length."
   },
   {
+   "address": 32767,
+   "type": "line",
+   "text": "Composite scene 091, child command 37: scene index 3, coordinate fields $12/$31, and one extra byte $62 selected by bits 5-6 of the third field. Remaining child commands continue through $80F1; the outer $FF terminator is $80F2. This command crosses the $8000 boundary."
+  },
+  {
+   "address": 32768,
+   "type": "line",
+   "text": "X coordinate field $12 of composite scene 091 child command 37, which starts $7FFF. The Y/control field $31 and extra byte $62 follow; commands 38-110 continue to the $FF terminator at $80F2. This is a continuation across the disassembler block boundary, not a new scene record."
+  },
+  {
    "address": 33011,
    "type": "line",
    "text": "Scene node 92, $80F3-$816B, selected by the word at $4EDF. Pointer bit 15 identifies a leaf; the remaining offset is added to $4DE4. Leaf size 4 by 3 character cells, encoded as width/height nibbles in the first byte. Each cell stores eight bitmap bytes and two colour bytes, so the checked length is 1 + 10*width*height."
@@ -15926,6 +19535,36 @@
    "text": "Purpose: clear the display and render Central Park's credit/title card from six inline records. Inputs: resident display-clear routine $140E and inline-record renderer $1583 are active; six well-formed inline records follow their calls. Outputs: the credit/title card is displayed and $7B is set to $B7. Assumptions: $1583 consumes each zero-terminated inline record and resumes at the instruction after it. Clobbers: A, X, Y, flags, $7B, and renderer scratch. Hardware changes: changes visible display memory through resident helpers."
   },
   {
+   "address": 36365,
+   "type": "line",
+   "text": "Inline text after JSR $1583 at $8E0A: X=7, Y=2, colour fields $07/$C0, then 16 glyph codes and a zero terminator at $8E21. The renderer masks each code to six bits and copies eight bytes from $1AE8 + 8*glyph. Decoded glyph sequence: 'LAST NINJA REMIX'. It resumes execution at $8E22."
+  },
+  {
+   "address": 36389,
+   "type": "line",
+   "text": "Inline text after JSR $1583 at $8E22: X=9, Y=4, colour fields $07/$C0, then 12 glyph codes and a zero terminator at $8E35. The renderer masks each code to six bits and copies eight bytes from $1AE8 + 8*glyph. Decoded glyph sequence: 'CENTRAL PARK'. It resumes execution at $8E36."
+  },
+  {
+   "address": 36409,
+   "type": "line",
+   "text": "Inline text after JSR $1583 at $8E36: X=7, Y=6, colour fields $07/$C0, then 16 glyph codes and a zero terminator at $8E4D. The renderer masks each code to six bits and copies eight bytes from $1AE8 + 8*glyph. Decoded glyph sequence: '[glyph 27][glyph 28]1990  SYSTEM 3'. It resumes execution at $8E4E."
+  },
+  {
+   "address": 36437,
+   "type": "line",
+   "text": "Inline text after JSR $1583 at $8E52: X=4, Y=10, colour fields $07/$C0, then 22 glyph codes and a zero terminator at $8E6F. The renderer masks each code to six bits and copies eight bytes from $1AE8 + 8*glyph. Decoded glyph sequence: 'WRITTEN BY JOHN TWIDDY'. It resumes execution at $8E70."
+  },
+  {
+   "address": 36467,
+   "type": "line",
+   "text": "Inline text after JSR $1583 at $8E70: X=4, Y=12, colour fields $07/$C0, then 22 glyph codes and a zero terminator at $8E8D. The renderer masks each code to six bits and copies eight bytes from $1AE8 + 8*glyph. Decoded glyph sequence: 'GRAPHICS BY HUGH RILEY'. It resumes execution at $8E8E."
+  },
+  {
+   "address": 36497,
+   "type": "line",
+   "text": "Inline text after JSR $1583 at $8E8E: X=4, Y=14, colour fields $07/$C0, then 22 glyph codes and a zero terminator at $8EAB. The renderer masks each code to six bits and copies eight bytes from $1AE8 + 8*glyph. Decoded glyph sequence: 'MUSIC BY REYN OUWEHAND'. It resumes execution at $8EAC."
+  },
+  {
    "address": 36525,
    "type": "line",
    "text": "Purpose: initialize Central Park gameplay and enter its main engine loop. Inputs: resident loader state restored and Central Park data active. Outputs: initialized engine flags/state followed by permanent transfer to the loop at `$8EE0`. Assumptions: resident helpers and Central Park tables are loaded in their verified phase ranges. Clobbers: A, X, Y, flags and engine state including `$AA` and `$03CB`. Hardware changes: invokes display/input helpers and sets VIC-II background color `$D021=0` before entering the loop.\nfunction: undefined CentralParkEngineEntry()"
@@ -15951,9 +19590,59 @@
    "text": "Purpose: resolve player death or the requested Central Park exit, present the result, and select restart, title, or next-load flow\nInputs: death/exit latches $B4/$02AF, lives $03F2, special-life state $03E0, selected object $0279, and the four required-objective bytes indexed by $96FB\nOutputs: clears transition presentation state; on a recoverable death decrements/updates lives and restarts at $8EFB; on terminal death renders GAME OVER and returns to title/setup; on exit either reports missing objectives or hands off to CoordinateLevelLoad\nAssumptions: resident text/display/timing services are active and the persistent state arrays are valid\nClobbers: A, X, Y, flags and renderer, delay, object, transition, and loader scratch; successful load handoff does not return\nHardware changes: directly sets $D021=0 on the exit path; other display and SID-facing changes occur through called resident/level helpers"
   },
   {
+   "address": 36824,
+   "type": "line",
+   "text": "Inline text after JSR $1583 at $8FD5: X=9, Y=8, colour fields $07/$C0, then 12 glyph codes and a zero terminator at $8FE8. The renderer masks each code to six bits and copies eight bytes from $1AE8 + 8*glyph. Decoded glyph sequence: '0 LIVES LEFT'. It resumes execution at $8FE9."
+  },
+  {
+   "address": 36847,
+   "type": "line",
+   "text": "Inline text after JSR $1583 at $8FEC: X=7, Y=8, colour fields $07/$C0, then 16 glyph codes and a zero terminator at $9003. The renderer masks each code to six bits and copies eight bytes from $1AE8 + 8*glyph. Decoded glyph sequence: '1 LIFE REMAINING'. It resumes execution at $9004."
+  },
+  {
+   "address": 36918,
+   "type": "line",
+   "text": "Inline text after JSR $1583 at $9033: X=10, Y=8, colour fields $07/$F0, then 9 glyph codes and a zero terminator at $9043. The renderer masks each code to six bits and copies eight bytes from $1AE8 + 8*glyph. Decoded glyph sequence: 'GAME OVER'. It resumes execution at $9044."
+  },
+  {
    "address": 36943,
    "type": "line",
    "text": "Purpose: Resolve Central Park completion by checking required persistent objects, optionally asking for confirmation, then resuming the occupant or awarding score and handing off to the resident loader.\nInputs: completion request $02AF, persistent state $03D8+, required-object indices $96FB-$96FE, normalized input, score/HUD state, and the resident load coordinator.\nOutputs: a declined confirmation clears completion/death/event latches and reloads the selected Central Park spawn; acceptance awards $50 packed score, clears $03DD-$03DF, rebuilds the HUD, completes the IRQ handshake, and jumps to $16AD without returning.\nAssumptions: entered only for a nonzero completion request with the active Central Park occupant, resident renderer, IRQ publisher, input scanner, and loader installed.\nClobbers: A, X, Y, flags, completion/prompt scratch, selected transition and death/event latches on decline, score/HUD/object state on acceptance, and loader scratch after handoff.\nHardware changes: sets VIC-II background $D021 to black; called renderer and IRQ-handshake paths change visible display state, and accepted completion enters the resident CIA/KERNAL-facing loader."
+  },
+  {
+   "address": 37017,
+   "type": "line",
+   "text": "Inline text after JSR $1583 at $9096: X=9, Y=5, colour fields $07/$C0, then 12 glyph codes and a zero terminator at $90A9. The renderer masks each code to six bits and copies eight bytes from $1AE8 + 8*glyph. Decoded glyph sequence: 'ARE YOU SURE'. It resumes execution at $90AA."
+  },
+  {
+   "address": 37037,
+   "type": "line",
+   "text": "Inline text after JSR $1583 at $90AA: X=7, Y=7, colour fields $07/$C0, then 16 glyph codes and a zero terminator at $90C1. The renderer masks each code to six bits and copies eight bytes from $1AE8 + 8*glyph. Decoded glyph sequence: 'YOU ARE PREPARED'. It resumes execution at $90C2."
+  },
+  {
+   "address": 37061,
+   "type": "line",
+   "text": "Inline text after JSR $1583 at $90C2: X=6, Y=9, colour fields $07/$C0, then 18 glyph codes and a zero terminator at $90DB. The renderer masks each code to six bits and copies eight bytes from $1AE8 + 8*glyph. Decoded glyph sequence: 'FOR THE NEXT LEVEL'. It resumes execution at $90DC."
+  },
+  {
+   "address": 37091,
+   "type": "line",
+   "text": "Inline text after JSR $1583 at $90E0: X=11, Y=12, colour fields $0B/$90, then 3 glyph codes and a zero terminator at $90EA. The renderer masks each code to six bits and copies eight bytes from $1AE8 + 8*glyph. Decoded glyph sequence: 'YES'. It resumes execution at $90EB."
+  },
+  {
+   "address": 37102,
+   "type": "line",
+   "text": "Inline text after JSR $1583 at $90EB: X=16, Y=12, colour fields $07/$C0, then 2 glyph codes and a zero terminator at $90F4. The renderer masks each code to six bits and copies eight bytes from $1AE8 + 8*glyph. Decoded glyph sequence: 'NO'. It resumes execution at $90F5."
+  },
+  {
+   "address": 37148,
+   "type": "line",
+   "text": "Inline text after JSR $1583 at $9119: X=11, Y=12, colour fields $07/$C0, then 3 glyph codes and a zero terminator at $9123. The renderer masks each code to six bits and copies eight bytes from $1AE8 + 8*glyph. Decoded glyph sequence: 'YES'. It resumes execution at $9124."
+  },
+  {
+   "address": 37159,
+   "type": "line",
+   "text": "Inline text after JSR $1583 at $9124: X=16, Y=12, colour fields $0B/$90, then 2 glyph codes and a zero terminator at $912D. The renderer masks each code to six bits and copies eight bytes from $1AE8 + 8*glyph. Decoded glyph sequence: 'NO'. It resumes execution at $912E."
   },
   {
    "address": 37216,
@@ -16009,6 +19698,11 @@
    "address": 37912,
    "type": "line",
    "text": "Purpose: sample and normalize gameplay input and process edge-triggered interface controls for Central Park. Inputs: active-low control-port-2 state, control-port-1/keyboard state, keyboard-select table `$1DA5`, previous edge latches, and current interface state. Outputs: `$7C` bits 0\u20134 from control-port-2 direction/fire and bit 5 from the POTX threshold, raw keyboard rows `$0260-$0267`, edge latches `$02AA-$02AE/$02BF`, and phase interface/action state. Assumptions: I/O is visible, CIA ports and the keyboard-select table are configured, and the corresponding phase plus low workspace are active. Clobbers: A, X, Y, flags, and scanner/interface scratch. Hardware changes: writes `$FF`, keyboard-column masks, and `$80` to CIA 1 port A `$DC00`; reads `$DC00`, CIA 1 port B `$DC01`, and SID POTX `$D419`; on the mode-toggle edge it can clear SID registers `$D400-$D417`."
+  },
+  {
+   "address": 38271,
+   "type": "line",
+   "text": "Inline text after JSR $1583 at $957C: X=17, Y=20, colour fields $03/$E6, then 6 glyph codes and a zero terminator at $9589. The renderer masks each code to six bits and copies eight bytes from $1AE8 + 8*glyph. Decoded glyph sequence: 'MODE  '. It resumes execution at $958A."
   },
   {
    "address": 38377,
@@ -16158,7 +19852,7 @@
   {
    "address": 41573,
    "type": "line",
-   "text": "Purpose: Select target Y $5D, enable mode $EF, and advance one scripted animation/update cycle.\nInputs: Current actor/animation state.\nOutputs: Stores $74=$5D and $EF=$FF, calls the one-cycle path through $A2F5, then clears command $81.\nAssumptions: The Central Park PLAY occupant is active, its dispatch tables contain stored return addresses equal to target minus one, and the resident kernel and zero-page gameplay workspace match this phase.\nClobbers: A, X, Y, flags, $74, $EF, $81, $0234, and animation/actor scratch.\nHardware changes: None directly; the entry changes RAM and/or delegates to gameplay helpers rather than writing C64 I/O registers."
+   "text": "Command $19 selects target Y=$5D, then branches to $A26F to store it, set mode $EF=$FF and run one scripted update cycle before clearing command $81. This entry shares that tail with the $00/$7D target variants; it differs from $A259 in its branch path."
   },
   {
    "address": 41577,
@@ -16173,7 +19867,7 @@
   {
    "address": 41589,
    "type": "line",
-   "text": "Purpose: Advance 1 scripted animation/update cycle, then consume the pending command.\nInputs: Target/mode already prepared in $74/$EF and current actor/animation state.\nOutputs: Calls $A2F5 with A=1; after the bounded loop, clears $81 and returns.\nAssumptions: The Central Park PLAY occupant is active, its dispatch tables contain stored return addresses equal to target minus one, and the resident kernel and zero-page gameplay workspace match this phase.\nClobbers: A, X, Y, flags, $81, $0234, and animation/actor scratch.\nHardware changes: None directly; the entry changes RAM and/or delegates to gameplay helpers rather than writing C64 I/O registers."
+   "text": "Command $11 loads A=1 and branches to the bounded update loop at $A27F. Target $74 and mode $EF must already be prepared; the tail calls $A2F5 once and clears $81. Unlike the target-setting entries, this entry writes neither target nor mode itself."
   },
   {
    "address": 41593,
@@ -16648,7 +20342,7 @@
   {
    "address": 46410,
    "type": "line",
-   "text": "Purpose: subtract one hit from player health with saturation and install the resulting hit or death reaction\nInputs: A = unsigned damage; player health $0229; facing $69\nOutputs: stores max($0229-A,0) to $0229; on a damaging result sets reaction $6D=($69>>1)+$24; when health reaches zero also sets death/condition latch $B6=$FF\nAssumptions: health and damage use the same unsigned scale\nClobbers: A and flags; X and Y are preserved\nHardware changes: none"
+   "text": "Subtract unsigned A from player health $0229 with saturation at zero. Positive remaining health preserves action $6D and death latch $B6. Only the zero-result path sets $6D=($69>>1)+$24 and $B6=$FF. X/Y are preserved; no hardware registers are written. Live tests cover positive, equal, excessive and zero damage, including health 0 and 255."
   },
   {
    "address": 46440,
@@ -16866,9 +20560,709 @@
    "text": "Purpose: periodically render the alternating active-state image for the first eligible object in the current area\nInputs: timer slot 5; phase counter $A9; current area $A2; 14-byte records at $C0D0; persistent active bytes $03D8,Y; two active scene pointers in record bytes 5-6 and 7-8\nOutputs: on an admitted tick decrements $A9, selects one of the two active pointers by $A9 bit 0, loads it into $02/$03, and tail-enters the recursive renderer; clears $A9 and returns when no eligible object remains\nAssumptions: area records are ordered, both active pointer fields are either valid or zero, and the timer service is initialized\nClobbers: A, X, Y, flags, $A9, $02/$03, and scene-renderer scratch on a render path\nHardware changes: none directly; the scene renderer updates display work RAM and color/background presentation as applicable"
   },
   {
+   "address": 49860,
+   "type": "line",
+   "text": "CentralParkAnimationScripts: animation commands consumed by $A829-$A899. Bit 1 supplies a new delay, every command supplies a frame, bit 7 supplies signed X/Y deltas, bit 0 supplies an event, and bit 5 supplies a little-endian continuation (zero ends the stream). $C2C4: control $1A, delay 4, frame 49; $C2C7: control $12, delay 8, frame 49; $C2CA: control $30, frame 16, stop."
+  },
+  {
+   "address": 49870,
+   "type": "line",
+   "text": "CentralParkAnimationScript07: animation commands consumed by $A829-$A899. Bit 1 supplies a new delay, every command supplies a frame, bit 7 supplies signed X/Y deltas, bit 0 supplies an event, and bit 5 supplies a little-endian continuation (zero ends the stream). $C2CE: control $1A, delay 4, frame 50; $C2D1: control $12, delay 8, frame 50; $C2D4: control $30, frame 17, stop."
+  },
+  {
+   "address": 49880,
+   "type": "line",
+   "text": "CentralParkAnimationScript00: animation commands consumed by $A829-$A899. Bit 1 supplies a new delay, every command supplies a frame, bit 7 supplies signed X/Y deltas, bit 0 supplies an event, and bit 5 supplies a little-endian continuation (zero ends the stream). $C2D8: control $1E, delay 7, frame 59; $C2DB: control $1C, frame 51; $C2DD: control $1C, frame 52; $C2DF: control $1C, frame 53; $C2E1: control $1C, frame 54; $C2E3: control $1C, frame 60; $C2E5: control $1C, frame 63; $C2E7: control $3C, frame 16, stop."
+  },
+  {
+   "address": 49899,
+   "type": "line",
+   "text": "CentralParkAnimationScript01: animation commands consumed by $A829-$A899. Bit 1 supplies a new delay, every command supplies a frame, bit 7 supplies signed X/Y deltas, bit 0 supplies an event, and bit 5 supplies a little-endian continuation (zero ends the stream). $C2EB: control $1E, delay 7, frame 61; $C2EE: control $1C, frame 55; $C2F0: control $1C, frame 56; $C2F2: control $1C, frame 57; $C2F4: control $1C, frame 58; $C2F6: control $1C, frame 62; $C2F8: control $1E, delay 7, frame 64; $C2FB: control $3E, delay 7, frame 17, stop."
+  },
+  {
+   "address": 49920,
+   "type": "line",
+   "text": "CentralParkAnimationScript02: animation commands consumed by $A829-$A899. Bit 1 supplies a new delay, every command supplies a frame, bit 7 supplies signed X/Y deltas, bit 0 supplies an event, and bit 5 supplies a little-endian continuation (zero ends the stream). $C300: control $12, delay 8, frame 16; $C303: control $10, frame 47; $C305: control $10, frame 65; $C307: control $11, frame 66, event 1; $C30A: control $10, frame 65; $C30C: control $10, frame 47; $C30E: control $30, frame 16, stop."
+  },
+  {
+   "address": 49938,
+   "type": "line",
+   "text": "CentralParkAnimationScript03: animation commands consumed by $A829-$A899. Bit 1 supplies a new delay, every command supplies a frame, bit 7 supplies signed X/Y deltas, bit 0 supplies an event, and bit 5 supplies a little-endian continuation (zero ends the stream). $C312: control $12, delay 8, frame 17; $C315: control $10, frame 48; $C317: control $10, frame 67; $C319: control $11, frame 68, event 1; $C31C: control $10, frame 67; $C31E: control $10, frame 48; $C320: control $30, frame 17, stop."
+  },
+  {
+   "address": 49956,
+   "type": "line",
+   "text": "CentralParkAnimationScript12: animation commands consumed by $A829-$A899. Bit 1 supplies a new delay, every command supplies a frame, bit 7 supplies signed X/Y deltas, bit 0 supplies an event, and bit 5 supplies a little-endian continuation (zero ends the stream). $C324: control $1A, delay 4, frame 24; $C327: control $1B, delay 8, frame 25, event 4; $C32B: control $18, frame 24; $C32D: control $30, frame 16, stop."
+  },
+  {
+   "address": 49969,
+   "type": "line",
+   "text": "CentralParkAnimationScript13: animation commands consumed by $A829-$A899. Bit 1 supplies a new delay, every command supplies a frame, bit 7 supplies signed X/Y deltas, bit 0 supplies an event, and bit 5 supplies a little-endian continuation (zero ends the stream). $C331: control $1A, delay 8, frame 26; $C334: control $1B, delay 10, frame 27, event 4; $C338: control $1A, delay 8, frame 26; $C33B: control $30, frame 17, stop."
+  },
+  {
+   "address": 49983,
+   "type": "line",
+   "text": "CentralParkAnimationScript20: animation commands consumed by $A829-$A899. Bit 1 supplies a new delay, every command supplies a frame, bit 7 supplies signed X/Y deltas, bit 0 supplies an event, and bit 5 supplies a little-endian continuation (zero ends the stream). $C33F: control $1A, delay 2, frame 18; $C342: control $1B, delay 8, frame 19, event 5; $C346: control $1A, delay 4, frame 20; $C349: control $30, frame 16, stop."
+  },
+  {
+   "address": 49997,
+   "type": "line",
+   "text": "CentralParkAnimationScript21: animation commands consumed by $A829-$A899. Bit 1 supplies a new delay, every command supplies a frame, bit 7 supplies signed X/Y deltas, bit 0 supplies an event, and bit 5 supplies a little-endian continuation (zero ends the stream). $C34D: control $1A, delay 2, frame 21; $C350: control $1B, delay 8, frame 22, event 5; $C354: control $1A, delay 4, frame 23; $C357: control $30, frame 17, stop."
+  },
+  {
+   "address": 50011,
+   "type": "line",
+   "text": "central_park_animation_sequence_c35b: animation commands consumed by $A829-$A899. Bit 1 supplies a new delay, every command supplies a frame, bit 7 supplies signed X/Y deltas, bit 0 supplies an event, and bit 5 supplies a little-endian continuation (zero ends the stream). $C35B: control $1A, delay 16, frame 16; $C35E: control $1A, delay 2, frame 18; $C361: control $1B, delay 8, frame 19, event 6; $C365: control $1A, delay 4, frame 20; $C368: control $30, frame 16, stop."
+  },
+  {
+   "address": 50014,
+   "type": "line",
+   "text": "CentralParkAnimationScript04: animation commands consumed by $A829-$A899. Bit 1 supplies a new delay, every command supplies a frame, bit 7 supplies signed X/Y deltas, bit 0 supplies an event, and bit 5 supplies a little-endian continuation (zero ends the stream). $C35E: control $1A, delay 2, frame 18; $C361: control $1B, delay 8, frame 19, event 6; $C365: control $1A, delay 4, frame 20; $C368: control $30, frame 16, stop."
+  },
+  {
+   "address": 50028,
+   "type": "line",
+   "text": "central_park_animation_sequence_c36c: animation commands consumed by $A829-$A899. Bit 1 supplies a new delay, every command supplies a frame, bit 7 supplies signed X/Y deltas, bit 0 supplies an event, and bit 5 supplies a little-endian continuation (zero ends the stream). $C36C: control $1A, delay 16, frame 17; $C36F: control $1A, delay 2, frame 21; $C372: control $1B, delay 8, frame 22, event 6; $C376: control $1A, delay 4, frame 23; $C379: control $30, frame 17, stop."
+  },
+  {
+   "address": 50031,
+   "type": "line",
+   "text": "CentralParkAnimationScript05: animation commands consumed by $A829-$A899. Bit 1 supplies a new delay, every command supplies a frame, bit 7 supplies signed X/Y deltas, bit 0 supplies an event, and bit 5 supplies a little-endian continuation (zero ends the stream). $C36F: control $1A, delay 2, frame 21; $C372: control $1B, delay 8, frame 22, event 6; $C376: control $1A, delay 4, frame 23; $C379: control $30, frame 17, stop."
+  },
+  {
+   "address": 50045,
+   "type": "line",
+   "text": "CentralParkAnimationScript16: animation commands consumed by $A829-$A899. Bit 1 supplies a new delay, every command supplies a frame, bit 7 supplies signed X/Y deltas, bit 0 supplies an event, and bit 5 supplies a little-endian continuation (zero ends the stream). $C37D: control $1A, delay 4, frame 47; $C380: control $1A, delay 6, frame 34; $C383: control $1A, delay 4, frame 35; $C386: control $18, frame 36; $C388: control $18, frame 37; $C38A: control $1B, delay 8, frame 38, event 7; $C38E: control $1A, delay 4, frame 39; $C391: control $30, frame 16, stop."
+  },
+  {
+   "address": 50069,
+   "type": "line",
+   "text": "CentralParkAnimationScript17: animation commands consumed by $A829-$A899. Bit 1 supplies a new delay, every command supplies a frame, bit 7 supplies signed X/Y deltas, bit 0 supplies an event, and bit 5 supplies a little-endian continuation (zero ends the stream). $C395: control $1A, delay 4, frame 48; $C398: control $1A, delay 6, frame 40; $C39B: control $1A, delay 4, frame 48; $C39E: control $18, frame 17; $C3A0: control $18, frame 31; $C3A2: control $1B, delay 8, frame 41, event 7; $C3A6: control $1A, delay 4, frame 31; $C3A9: control $30, frame 17, stop."
+  },
+  {
+   "address": 50093,
+   "type": "line",
+   "text": "CentralParkAnimationScript08: animation commands consumed by $A829-$A899. Bit 1 supplies a new delay, every command supplies a frame, bit 7 supplies signed X/Y deltas, bit 0 supplies an event, and bit 5 supplies a little-endian continuation (zero ends the stream). $C3AD: control $1A, delay 6, frame 28; $C3B0: control $1A, delay 8, frame 29; $C3B3: control $1B, delay 6, frame 30, event 8; $C3B7: control $18, frame 28; $C3B9: control $30, frame 16, stop."
+  },
+  {
+   "address": 50109,
+   "type": "line",
+   "text": "CentralParkAnimationScript09: animation commands consumed by $A829-$A899. Bit 1 supplies a new delay, every command supplies a frame, bit 7 supplies signed X/Y deltas, bit 0 supplies an event, and bit 5 supplies a little-endian continuation (zero ends the stream). $C3BD: control $1A, delay 8, frame 31; $C3C0: control $18, frame 32; $C3C2: control $19, frame 33, event 8; $C3C5: control $18, frame 31; $C3C7: control $30, frame 17, stop."
+  },
+  {
+   "address": 50123,
+   "type": "line",
+   "text": "central_park_animation_sequence_c3cb: animation commands consumed by $A829-$A899. Bit 1 supplies a new delay, every command supplies a frame, bit 7 supplies signed X/Y deltas, bit 0 supplies an event, and bit 5 supplies a little-endian continuation (zero ends the stream). $C3CB: control $0A, delay 16, frame 44; $C3CE: control $08, frame 45; $C3D0: control $09, frame 46, event 3; $C3D3: control $28, frame 46, stop."
+  },
+  {
+   "address": 50135,
+   "type": "line",
+   "text": "central_park_animation_sequence_c3d7: animation commands consumed by $A829-$A899. Bit 1 supplies a new delay, every command supplies a frame, bit 7 supplies signed X/Y deltas, bit 0 supplies an event, and bit 5 supplies a little-endian continuation (zero ends the stream). $C3D7: control $4A, delay 16, frame 44; $C3DA: control $48, frame 45; $C3DC: control $49, frame 46, event 3; $C3DF: control $68, frame 46, stop."
+  },
+  {
+   "address": 50147,
+   "type": "line",
+   "text": "central_park_animation_sequence_c3e3: animation commands consumed by $A829-$A899. Bit 1 supplies a new delay, every command supplies a frame, bit 7 supplies signed X/Y deltas, bit 0 supplies an event, and bit 5 supplies a little-endian continuation (zero ends the stream). $C3E3: control $0A, delay 12, frame 45; $C3E6: control $08, frame 44; $C3E8: control $29, frame 44, event 2, stop."
+  },
+  {
+   "address": 50157,
+   "type": "line",
+   "text": "central_park_animation_sequence_c3ed: animation commands consumed by $A829-$A899. Bit 1 supplies a new delay, every command supplies a frame, bit 7 supplies signed X/Y deltas, bit 0 supplies an event, and bit 5 supplies a little-endian continuation (zero ends the stream). $C3ED: control $4A, delay 12, frame 45; $C3F0: control $48, frame 44; $C3F2: control $69, frame 44, event 2, stop."
+  },
+  {
+   "address": 50167,
+   "type": "line",
+   "text": "central_park_animation_sequence_c3f7: animation commands consumed by $A829-$A899. Bit 1 supplies a new delay, every command supplies a frame, bit 7 supplies signed X/Y deltas, bit 0 supplies an event, and bit 5 supplies a little-endian continuation (zero ends the stream). $C3F7: control $1A, delay 8, frame 43; $C3FA: control $39, frame 43, event 2, stop."
+  },
+  {
+   "address": 50175,
+   "type": "line",
+   "text": "central_park_animation_sequence_c3ff: animation commands consumed by $A829-$A899. Bit 1 supplies a new delay, every command supplies a frame, bit 7 supplies signed X/Y deltas, bit 0 supplies an event, and bit 5 supplies a little-endian continuation (zero ends the stream). $C3FF: control $1A, delay 8, frame 42; $C402: control $39, frame 42, event 2, stop."
+  },
+  {
+   "address": 50183,
+   "type": "line",
+   "text": "central_park_animation_sequence_c407: animation commands consumed by $A829-$A899. Bit 1 supplies a new delay, every command supplies a frame, bit 7 supplies signed X/Y deltas, bit 0 supplies an event, and bit 5 supplies a little-endian continuation (zero ends the stream). $C407: control $0A, delay 16, frame 44; $C40A: control $29, frame 44, event 2, stop."
+  },
+  {
+   "address": 50191,
+   "type": "line",
+   "text": "central_park_animation_sequence_c40f: animation commands consumed by $A829-$A899. Bit 1 supplies a new delay, every command supplies a frame, bit 7 supplies signed X/Y deltas, bit 0 supplies an event, and bit 5 supplies a little-endian continuation (zero ends the stream). $C40F: control $4A, delay 16, frame 44; $C412: control $69, frame 44, event 2, stop."
+  },
+  {
+   "address": 50199,
+   "type": "line",
+   "text": "central_park_animation_sequence_c417: animation commands consumed by $A829-$A899. Bit 1 supplies a new delay, every command supplies a frame, bit 7 supplies signed X/Y deltas, bit 0 supplies an event, and bit 5 supplies a little-endian continuation (zero ends the stream). $C417: control $0A, delay 5, frame 44; $C41A: control $0A, delay 12, frame 45; $C41D: control $0A, delay 5, frame 44; $C420: control $29, frame 44, event 2, stop."
+  },
+  {
+   "address": 50213,
+   "type": "line",
+   "text": "central_park_animation_sequence_c425: animation commands consumed by $A829-$A899. Bit 1 supplies a new delay, every command supplies a frame, bit 7 supplies signed X/Y deltas, bit 0 supplies an event, and bit 5 supplies a little-endian continuation (zero ends the stream). $C425: control $4A, delay 5, frame 44; $C428: control $4A, delay 12, frame 45; $C42B: control $4A, delay 5, frame 44; $C42E: control $69, frame 44, event 2, stop."
+  },
+  {
+   "address": 50227,
+   "type": "line",
+   "text": "CentralParkAnimationScript11: animation commands consumed by $A829-$A899. Bit 1 supplies a new delay, every command supplies a frame, bit 7 supplies signed X/Y deltas, bit 0 supplies an event, and bit 5 supplies a little-endian continuation (zero ends the stream). $C433: control $1B, delay 10, frame 71, event 9; $C437: control $19, frame 50, event 10; $C43A: control $19, frame 72, event 11; $C43D: control $18, frame 50; $C43F: control $18, frame 71; $C441: control $38, frame 17, stop."
+  },
+  {
+   "address": 50245,
+   "type": "line",
+   "text": "CentralParkAnimationScript10: animation commands consumed by $A829-$A899. Bit 1 supplies a new delay, every command supplies a frame, bit 7 supplies signed X/Y deltas, bit 0 supplies an event, and bit 5 supplies a little-endian continuation (zero ends the stream). $C445: control $1B, delay 10, frame 69, event 9; $C449: control $19, frame 49, event 10; $C44C: control $19, frame 70, event 11; $C44F: control $18, frame 49; $C451: control $18, frame 69; $C453: control $38, frame 16, stop."
+  },
+  {
+   "address": 50263,
+   "type": "line",
+   "text": "central_park_animation_sequence_c457: animation commands consumed by $A829-$A899. Bit 1 supplies a new delay, every command supplies a frame, bit 7 supplies signed X/Y deltas, bit 0 supplies an event, and bit 5 supplies a little-endian continuation (zero ends the stream). $C457: control $1A, delay 6, frame 73; $C45A: control $18, frame 74; $C45C: control $9A, delay 6, frame 75, delta (0,-4); $C461: control $98, frame 76, delta (0,-1); $C465: control $98, frame 75, delta (0,-5); $C469: control $98, frame 74, delta (0,-1); $C46D: control $38, frame 74, stop."
+  },
+  {
+   "address": 50289,
+   "type": "line",
+   "text": "central_park_animation_sequence_c471: animation commands consumed by $A829-$A899. Bit 1 supplies a new delay, every command supplies a frame, bit 7 supplies signed X/Y deltas, bit 0 supplies an event, and bit 5 supplies a little-endian continuation (zero ends the stream). $C471: control $9A, delay 6, frame 59, delta (0,-4); $C476: control $98, frame 51, delta (-4,-4); $C47A: control $98, frame 52, delta (-4,-6); $C47E: control $98, frame 53, delta (-4,-6); $C482: control $98, frame 54, delta (-4,-6); $C486: control $98, frame 60, delta (-4,-6); $C48A: control $18, frame 49; $C48C: control $3C, frame 0, stop."
+  },
+  {
+   "address": 50320,
+   "type": "line",
+   "text": "central_park_animation_sequence_c490: animation commands consumed by $A829-$A899. Bit 1 supplies a new delay, every command supplies a frame, bit 7 supplies signed X/Y deltas, bit 0 supplies an event, and bit 5 supplies a little-endian continuation (zero ends the stream). $C490: control $9A, delay 3, frame 75, delta (0,8); $C495: control $9A, delay 3, frame 75, delta (0,8); $C49A: control $98, frame 75, delta (0,8); $C49E: control $98, frame 75, delta (0,8); $C4A2: control $9A, delay 6, frame 74, delta (0,4); $C4A7: control $98, frame 75, delta (0,1); $C4AB: control $98, frame 76, delta (0,5); $C4AF: control $98, frame 75, delta (0,1); $C4B3: control $38, frame 75, stop."
+  },
+  {
+   "address": 50359,
+   "type": "line",
+   "text": "central_park_animation_sequence_c4b7: animation commands consumed by $A829-$A899. Bit 1 supplies a new delay, every command supplies a frame, bit 7 supplies signed X/Y deltas, bit 0 supplies an event, and bit 5 supplies a little-endian continuation (zero ends the stream). $C4B7: control $9A, delay 6, frame 74, delta (0,4); $C4BC: control $18, frame 73; $C4BE: control $38, frame 16, stop."
+  },
+  {
    "address": 50370,
    "type": "line",
-   "text": "106 little-endian absolute frame-descriptor pointers, indexed by twice the selected frame number at $BBDB. Targets occupy $C596-$CE53; the table order differs from storage order."
+   "text": "Frame directory entry 000: stored word $C666 resolves to $C666. Absolute address of the selected frame descriptor."
+  },
+  {
+   "address": 50371,
+   "type": "line",
+   "text": "Indexed high-byte base for the 106-entry frame directory at $C4C2. This alias is the high byte of entry 000; high bytes remain interleaved with low bytes at stride two."
+  },
+  {
+   "address": 50372,
+   "type": "line",
+   "text": "Frame directory entry 001: stored word $C680 resolves to $C680. Absolute address of the selected frame descriptor."
+  },
+  {
+   "address": 50374,
+   "type": "line",
+   "text": "Frame directory entry 002: stored word $C69A resolves to $C69A. Absolute address of the selected frame descriptor."
+  },
+  {
+   "address": 50376,
+   "type": "line",
+   "text": "Frame directory entry 003: stored word $C6B4 resolves to $C6B4. Absolute address of the selected frame descriptor."
+  },
+  {
+   "address": 50378,
+   "type": "line",
+   "text": "Frame directory entry 004: stored word $C6CE resolves to $C6CE. Absolute address of the selected frame descriptor."
+  },
+  {
+   "address": 50380,
+   "type": "line",
+   "text": "Frame directory entry 005: stored word $C6E8 resolves to $C6E8. Absolute address of the selected frame descriptor."
+  },
+  {
+   "address": 50382,
+   "type": "line",
+   "text": "Frame directory entry 006: stored word $C702 resolves to $C702. Absolute address of the selected frame descriptor."
+  },
+  {
+   "address": 50384,
+   "type": "line",
+   "text": "Frame directory entry 007: stored word $C71C resolves to $C71C. Absolute address of the selected frame descriptor."
+  },
+  {
+   "address": 50386,
+   "type": "line",
+   "text": "Frame directory entry 008: stored word $C596 resolves to $C596. Absolute address of the selected frame descriptor."
+  },
+  {
+   "address": 50388,
+   "type": "line",
+   "text": "Frame directory entry 009: stored word $C5B0 resolves to $C5B0. Absolute address of the selected frame descriptor."
+  },
+  {
+   "address": 50390,
+   "type": "line",
+   "text": "Frame directory entry 010: stored word $C5CA resolves to $C5CA. Absolute address of the selected frame descriptor."
+  },
+  {
+   "address": 50392,
+   "type": "line",
+   "text": "Frame directory entry 011: stored word $C5E4 resolves to $C5E4. Absolute address of the selected frame descriptor."
+  },
+  {
+   "address": 50394,
+   "type": "line",
+   "text": "Frame directory entry 012: stored word $C5FE resolves to $C5FE. Absolute address of the selected frame descriptor."
+  },
+  {
+   "address": 50396,
+   "type": "line",
+   "text": "Frame directory entry 013: stored word $C618 resolves to $C618. Absolute address of the selected frame descriptor."
+  },
+  {
+   "address": 50398,
+   "type": "line",
+   "text": "Frame directory entry 014: stored word $C632 resolves to $C632. Absolute address of the selected frame descriptor."
+  },
+  {
+   "address": 50400,
+   "type": "line",
+   "text": "Frame directory entry 015: stored word $C64C resolves to $C64C. Absolute address of the selected frame descriptor."
+  },
+  {
+   "address": 50402,
+   "type": "line",
+   "text": "Frame directory entry 016: stored word $C750 resolves to $C750. Absolute address of the selected frame descriptor."
+  },
+  {
+   "address": 50404,
+   "type": "line",
+   "text": "Frame directory entry 017: stored word $C736 resolves to $C736. Absolute address of the selected frame descriptor."
+  },
+  {
+   "address": 50406,
+   "type": "line",
+   "text": "Frame directory entry 018: stored word $C95C resolves to $C95C. Absolute address of the selected frame descriptor."
+  },
+  {
+   "address": 50408,
+   "type": "line",
+   "text": "Frame directory entry 019: stored word $C976 resolves to $C976. Absolute address of the selected frame descriptor."
+  },
+  {
+   "address": 50410,
+   "type": "line",
+   "text": "Frame directory entry 020: stored word $C990 resolves to $C990. Absolute address of the selected frame descriptor."
+  },
+  {
+   "address": 50412,
+   "type": "line",
+   "text": "Frame directory entry 021: stored word $C90E resolves to $C90E. Absolute address of the selected frame descriptor."
+  },
+  {
+   "address": 50414,
+   "type": "line",
+   "text": "Frame directory entry 022: stored word $C928 resolves to $C928. Absolute address of the selected frame descriptor."
+  },
+  {
+   "address": 50416,
+   "type": "line",
+   "text": "Frame directory entry 023: stored word $C942 resolves to $C942. Absolute address of the selected frame descriptor."
+  },
+  {
+   "address": 50418,
+   "type": "line",
+   "text": "Frame directory entry 024: stored word $C9DE resolves to $C9DE. Absolute address of the selected frame descriptor."
+  },
+  {
+   "address": 50420,
+   "type": "line",
+   "text": "Frame directory entry 025: stored word $C9F8 resolves to $C9F8. Absolute address of the selected frame descriptor."
+  },
+  {
+   "address": 50422,
+   "type": "line",
+   "text": "Frame directory entry 026: stored word $C9AA resolves to $C9AA. Absolute address of the selected frame descriptor."
+  },
+  {
+   "address": 50424,
+   "type": "line",
+   "text": "Frame directory entry 027: stored word $C9C4 resolves to $C9C4. Absolute address of the selected frame descriptor."
+  },
+  {
+   "address": 50426,
+   "type": "line",
+   "text": "Frame directory entry 028: stored word $CA60 resolves to $CA60. Absolute address of the selected frame descriptor."
+  },
+  {
+   "address": 50428,
+   "type": "line",
+   "text": "Frame directory entry 029: stored word $CA7A resolves to $CA7A. Absolute address of the selected frame descriptor."
+  },
+  {
+   "address": 50430,
+   "type": "line",
+   "text": "Frame directory entry 030: stored word $CA94 resolves to $CA94. Absolute address of the selected frame descriptor."
+  },
+  {
+   "address": 50432,
+   "type": "line",
+   "text": "Frame directory entry 031: stored word $CA12 resolves to $CA12. Absolute address of the selected frame descriptor."
+  },
+  {
+   "address": 50434,
+   "type": "line",
+   "text": "Frame directory entry 032: stored word $CA2C resolves to $CA2C. Absolute address of the selected frame descriptor."
+  },
+  {
+   "address": 50436,
+   "type": "line",
+   "text": "Frame directory entry 033: stored word $CA46 resolves to $CA46. Absolute address of the selected frame descriptor."
+  },
+  {
+   "address": 50438,
+   "type": "line",
+   "text": "Frame directory entry 034: stored word $CAE2 resolves to $CAE2. Absolute address of the selected frame descriptor."
+  },
+  {
+   "address": 50440,
+   "type": "line",
+   "text": "Frame directory entry 035: stored word $CAFC resolves to $CAFC. Absolute address of the selected frame descriptor."
+  },
+  {
+   "address": 50442,
+   "type": "line",
+   "text": "Frame directory entry 036: stored word $CB16 resolves to $CB16. Absolute address of the selected frame descriptor."
+  },
+  {
+   "address": 50444,
+   "type": "line",
+   "text": "Frame directory entry 037: stored word $CB30 resolves to $CB30. Absolute address of the selected frame descriptor."
+  },
+  {
+   "address": 50446,
+   "type": "line",
+   "text": "Frame directory entry 038: stored word $CB4A resolves to $CB4A. Absolute address of the selected frame descriptor."
+  },
+  {
+   "address": 50448,
+   "type": "line",
+   "text": "Frame directory entry 039: stored word $CB64 resolves to $CB64. Absolute address of the selected frame descriptor."
+  },
+  {
+   "address": 50450,
+   "type": "line",
+   "text": "Frame directory entry 040: stored word $CAAE resolves to $CAAE. Absolute address of the selected frame descriptor."
+  },
+  {
+   "address": 50452,
+   "type": "line",
+   "text": "Frame directory entry 041: stored word $CAC8 resolves to $CAC8. Absolute address of the selected frame descriptor."
+  },
+  {
+   "address": 50454,
+   "type": "line",
+   "text": "Frame directory entry 042: stored word $CB98 resolves to $CB98. Absolute address of the selected frame descriptor."
+  },
+  {
+   "address": 50456,
+   "type": "line",
+   "text": "Frame directory entry 043: stored word $CB7E resolves to $CB7E. Absolute address of the selected frame descriptor."
+  },
+  {
+   "address": 50458,
+   "type": "line",
+   "text": "Frame directory entry 044: stored word $CBB2 resolves to $CBB2. Absolute address of the selected frame descriptor."
+  },
+  {
+   "address": 50460,
+   "type": "line",
+   "text": "Frame directory entry 045: stored word $CBCC resolves to $CBCC. Absolute address of the selected frame descriptor."
+  },
+  {
+   "address": 50462,
+   "type": "line",
+   "text": "Frame directory entry 046: stored word $CBE6 resolves to $CBE6. Absolute address of the selected frame descriptor."
+  },
+  {
+   "address": 50464,
+   "type": "line",
+   "text": "Frame directory entry 047: stored word $C8C0 resolves to $C8C0. Absolute address of the selected frame descriptor."
+  },
+  {
+   "address": 50466,
+   "type": "line",
+   "text": "Frame directory entry 048: stored word $C872 resolves to $C872. Absolute address of the selected frame descriptor."
+  },
+  {
+   "address": 50468,
+   "type": "line",
+   "text": "Frame directory entry 049: stored word $C7EC resolves to $C7EC. Absolute address of the selected frame descriptor."
+  },
+  {
+   "address": 50470,
+   "type": "line",
+   "text": "Frame directory entry 050: stored word $C7A6 resolves to $C7A6. Absolute address of the selected frame descriptor."
+  },
+  {
+   "address": 50472,
+   "type": "line",
+   "text": "Frame directory entry 051: stored word $C7C0 resolves to $C7C0. Absolute address of the selected frame descriptor."
+  },
+  {
+   "address": 50474,
+   "type": "line",
+   "text": "Frame directory entry 052: stored word $C7CE resolves to $C7CE. Absolute address of the selected frame descriptor."
+  },
+  {
+   "address": 50476,
+   "type": "line",
+   "text": "Frame directory entry 053: stored word $C7D8 resolves to $C7D8. Absolute address of the selected frame descriptor."
+  },
+  {
+   "address": 50478,
+   "type": "line",
+   "text": "Frame directory entry 054: stored word $C7E2 resolves to $C7E2. Absolute address of the selected frame descriptor."
+  },
+  {
+   "address": 50480,
+   "type": "line",
+   "text": "Frame directory entry 055: stored word $C76A resolves to $C76A. Absolute address of the selected frame descriptor."
+  },
+  {
+   "address": 50482,
+   "type": "line",
+   "text": "Frame directory entry 056: stored word $C77C resolves to $C77C. Absolute address of the selected frame descriptor."
+  },
+  {
+   "address": 50484,
+   "type": "line",
+   "text": "Frame directory entry 057: stored word $C78A resolves to $C78A. Absolute address of the selected frame descriptor."
+  },
+  {
+   "address": 50486,
+   "type": "line",
+   "text": "Frame directory entry 058: stored word $C798 resolves to $C798. Absolute address of the selected frame descriptor."
+  },
+  {
+   "address": 50488,
+   "type": "line",
+   "text": "Frame directory entry 059: stored word $C806 resolves to $C806. Absolute address of the selected frame descriptor."
+  },
+  {
+   "address": 50490,
+   "type": "line",
+   "text": "Frame directory entry 060: stored word $C814 resolves to $C814. Absolute address of the selected frame descriptor."
+  },
+  {
+   "address": 50492,
+   "type": "line",
+   "text": "Frame directory entry 061: stored word $C81E resolves to $C81E. Absolute address of the selected frame descriptor."
+  },
+  {
+   "address": 50494,
+   "type": "line",
+   "text": "Frame directory entry 062: stored word $C830 resolves to $C830. Absolute address of the selected frame descriptor."
+  },
+  {
+   "address": 50496,
+   "type": "line",
+   "text": "Frame directory entry 063: stored word $C83E resolves to $C83E. Absolute address of the selected frame descriptor."
+  },
+  {
+   "address": 50498,
+   "type": "line",
+   "text": "Frame directory entry 064: stored word $C858 resolves to $C858. Absolute address of the selected frame descriptor."
+  },
+  {
+   "address": 50500,
+   "type": "line",
+   "text": "Frame directory entry 065: stored word $C8DA resolves to $C8DA. Absolute address of the selected frame descriptor."
+  },
+  {
+   "address": 50502,
+   "type": "line",
+   "text": "Frame directory entry 066: stored word $C8F4 resolves to $C8F4. Absolute address of the selected frame descriptor."
+  },
+  {
+   "address": 50504,
+   "type": "line",
+   "text": "Frame directory entry 067: stored word $C88C resolves to $C88C. Absolute address of the selected frame descriptor."
+  },
+  {
+   "address": 50506,
+   "type": "line",
+   "text": "Frame directory entry 068: stored word $C8A6 resolves to $C8A6. Absolute address of the selected frame descriptor."
+  },
+  {
+   "address": 50508,
+   "type": "line",
+   "text": "Frame directory entry 069: stored word $CC34 resolves to $CC34. Absolute address of the selected frame descriptor."
+  },
+  {
+   "address": 50510,
+   "type": "line",
+   "text": "Frame directory entry 070: stored word $CC4E resolves to $CC4E. Absolute address of the selected frame descriptor."
+  },
+  {
+   "address": 50512,
+   "type": "line",
+   "text": "Frame directory entry 071: stored word $CC00 resolves to $CC00. Absolute address of the selected frame descriptor."
+  },
+  {
+   "address": 50514,
+   "type": "line",
+   "text": "Frame directory entry 072: stored word $CC1A resolves to $CC1A. Absolute address of the selected frame descriptor."
+  },
+  {
+   "address": 50516,
+   "type": "line",
+   "text": "Frame directory entry 073: stored word $CC68 resolves to $CC68. Absolute address of the selected frame descriptor."
+  },
+  {
+   "address": 50518,
+   "type": "line",
+   "text": "Frame directory entry 074: stored word $CC76 resolves to $CC76. Absolute address of the selected frame descriptor."
+  },
+  {
+   "address": 50520,
+   "type": "line",
+   "text": "Frame directory entry 075: stored word $CC84 resolves to $CC84. Absolute address of the selected frame descriptor."
+  },
+  {
+   "address": 50522,
+   "type": "line",
+   "text": "Frame directory entry 076: stored word $CC92 resolves to $CC92. Absolute address of the selected frame descriptor."
+  },
+  {
+   "address": 50524,
+   "type": "line",
+   "text": "Frame directory entry 077: stored word $CCA0 resolves to $CCA0. Absolute address of the selected frame descriptor."
+  },
+  {
+   "address": 50526,
+   "type": "line",
+   "text": "Frame directory entry 078: stored word $CCEC resolves to $CCEC. Absolute address of the selected frame descriptor."
+  },
+  {
+   "address": 50528,
+   "type": "line",
+   "text": "Frame directory entry 079: stored word $CCF6 resolves to $CCF6. Absolute address of the selected frame descriptor."
+  },
+  {
+   "address": 50530,
+   "type": "line",
+   "text": "Frame directory entry 080: stored word $CD00 resolves to $CD00. Absolute address of the selected frame descriptor."
+  },
+  {
+   "address": 50532,
+   "type": "line",
+   "text": "Frame directory entry 081: stored word $CD0A resolves to $CD0A. Absolute address of the selected frame descriptor."
+  },
+  {
+   "address": 50534,
+   "type": "line",
+   "text": "Frame directory entry 082: stored word $CD14 resolves to $CD14. Absolute address of the selected frame descriptor."
+  },
+  {
+   "address": 50536,
+   "type": "line",
+   "text": "Frame directory entry 083: stored word $CCA6 resolves to $CCA6. Absolute address of the selected frame descriptor."
+  },
+  {
+   "address": 50538,
+   "type": "line",
+   "text": "Frame directory entry 084: stored word $CCB4 resolves to $CCB4. Absolute address of the selected frame descriptor."
+  },
+  {
+   "address": 50540,
+   "type": "line",
+   "text": "Frame directory entry 085: stored word $CCC2 resolves to $CCC2. Absolute address of the selected frame descriptor."
+  },
+  {
+   "address": 50542,
+   "type": "line",
+   "text": "Frame directory entry 086: stored word $CCD0 resolves to $CCD0. Absolute address of the selected frame descriptor."
+  },
+  {
+   "address": 50544,
+   "type": "line",
+   "text": "Frame directory entry 087: stored word $CCDE resolves to $CCDE. Absolute address of the selected frame descriptor."
+  },
+  {
+   "address": 50546,
+   "type": "line",
+   "text": "Frame directory entry 088: stored word $CD1E resolves to $CD1E. Absolute address of the selected frame descriptor."
+  },
+  {
+   "address": 50548,
+   "type": "line",
+   "text": "Frame directory entry 089: stored word $CD2C resolves to $CD2C. Absolute address of the selected frame descriptor."
+  },
+  {
+   "address": 50550,
+   "type": "line",
+   "text": "Frame directory entry 090: stored word $CD36 resolves to $CD36. Absolute address of the selected frame descriptor."
+  },
+  {
+   "address": 50552,
+   "type": "line",
+   "text": "Frame directory entry 091: stored word $CD3C resolves to $CD3C. Absolute address of the selected frame descriptor."
+  },
+  {
+   "address": 50554,
+   "type": "line",
+   "text": "Frame directory entry 092: stored word $CD42 resolves to $CD42. Absolute address of the selected frame descriptor."
+  },
+  {
+   "address": 50556,
+   "type": "line",
+   "text": "Frame directory entry 093: stored word $CD48 resolves to $CD48. Absolute address of the selected frame descriptor."
+  },
+  {
+   "address": 50558,
+   "type": "line",
+   "text": "Frame directory entry 094: stored word $CD4E resolves to $CD4E. Absolute address of the selected frame descriptor."
+  },
+  {
+   "address": 50560,
+   "type": "line",
+   "text": "Frame directory entry 095: stored word $CD54 resolves to $CD54. Absolute address of the selected frame descriptor."
+  },
+  {
+   "address": 50562,
+   "type": "line",
+   "text": "Frame directory entry 096: stored word $CD5A resolves to $CD5A. Absolute address of the selected frame descriptor."
+  },
+  {
+   "address": 50564,
+   "type": "line",
+   "text": "Frame directory entry 097: stored word $CD60 resolves to $CD60. Absolute address of the selected frame descriptor."
+  },
+  {
+   "address": 50566,
+   "type": "line",
+   "text": "Frame directory entry 098: stored word $CD66 resolves to $CD66. Absolute address of the selected frame descriptor."
+  },
+  {
+   "address": 50568,
+   "type": "line",
+   "text": "Frame directory entry 099: stored word $CDCB resolves to $CDCB. Absolute address of the selected frame descriptor."
+  },
+  {
+   "address": 50570,
+   "type": "line",
+   "text": "Frame directory entry 100: stored word $CDD9 resolves to $CDD9. Absolute address of the selected frame descriptor."
+  },
+  {
+   "address": 50572,
+   "type": "line",
+   "text": "Frame directory entry 101: stored word $CDE7 resolves to $CDE7. Absolute address of the selected frame descriptor."
+  },
+  {
+   "address": 50574,
+   "type": "line",
+   "text": "Frame directory entry 102: stored word $CDF5 resolves to $CDF5. Absolute address of the selected frame descriptor."
+  },
+  {
+   "address": 50576,
+   "type": "line",
+   "text": "Frame directory entry 103: stored word $CE14 resolves to $CE14. Absolute address of the selected frame descriptor."
+  },
+  {
+   "address": 50578,
+   "type": "line",
+   "text": "Frame directory entry 104: stored word $CE32 resolves to $CE32. Absolute address of the selected frame descriptor."
+  },
+  {
+   "address": 50580,
+   "type": "line",
+   "text": "Frame directory entry 105: stored word $CE46 resolves to $CE46. Absolute address of the selected frame descriptor."
   },
   {
    "address": 50582,
@@ -17401,6 +21795,821 @@
    "text": "Central Park frame 105: header $A2, doubled-coordinate input 8, and 3 four-byte component slots read by $BBD5/$BD45. Sprite selectors: 13, 13, 13. Each occupied slot contains a sprite selector, X field, Y field, and attribute byte; $FF skips the remaining three bytes. Bit 7 selects the counted low-two-bit component path. The component payload ends at $CE53."
   },
   {
+   "address": 52820,
+   "type": "line",
+   "text": "Sprite directory entry 000: stored word $C144 resolves to $CF98. Add $0E54 to the biased sprite offset."
+  },
+  {
+   "address": 52821,
+   "type": "line",
+   "text": "Indexed high-byte base for the 162-entry sprite directory at $CE54. This alias is the high byte of entry 000; high bytes remain interleaved with low bytes at stride two."
+  },
+  {
+   "address": 52822,
+   "type": "line",
+   "text": "Sprite directory entry 001: stored word $C177 resolves to $CFCB. Add $0E54 to the biased sprite offset."
+  },
+  {
+   "address": 52824,
+   "type": "line",
+   "text": "Sprite directory entry 002: stored word $C1AA resolves to $CFFE. Add $0E54 to the biased sprite offset."
+  },
+  {
+   "address": 52826,
+   "type": "line",
+   "text": "Sprite directory entry 003: stored word $C1E0 resolves to $D034. Add $0E54 to the biased sprite offset."
+  },
+  {
+   "address": 52828,
+   "type": "line",
+   "text": "Sprite directory entry 004: stored word $C213 resolves to $D067. Add $0E54 to the biased sprite offset."
+  },
+  {
+   "address": 52830,
+   "type": "line",
+   "text": "Sprite directory entry 005: stored word $C246 resolves to $D09A. Add $0E54 to the biased sprite offset."
+  },
+  {
+   "address": 52832,
+   "type": "line",
+   "text": "Sprite directory entry 006: stored word $C279 resolves to $D0CD. Add $0E54 to the biased sprite offset."
+  },
+  {
+   "address": 52834,
+   "type": "line",
+   "text": "Sprite directory entry 007: stored word $C2B0 resolves to $D104. Add $0E54 to the biased sprite offset."
+  },
+  {
+   "address": 52836,
+   "type": "line",
+   "text": "Sprite directory entry 008: stored word $C2E3 resolves to $D137. Add $0E54 to the biased sprite offset."
+  },
+  {
+   "address": 52838,
+   "type": "line",
+   "text": "Sprite directory entry 009: stored word $C31F resolves to $D173. Add $0E54 to the biased sprite offset."
+  },
+  {
+   "address": 52840,
+   "type": "line",
+   "text": "Sprite directory entry 010: stored word $C358 resolves to $D1AC. Add $0E54 to the biased sprite offset."
+  },
+  {
+   "address": 52842,
+   "type": "line",
+   "text": "Sprite directory entry 011: stored word $C390 resolves to $D1E4. Add $0E54 to the biased sprite offset."
+  },
+  {
+   "address": 52844,
+   "type": "line",
+   "text": "Sprite directory entry 012: stored word $C3C8 resolves to $D21C. Add $0E54 to the biased sprite offset."
+  },
+  {
+   "address": 52846,
+   "type": "line",
+   "text": "Sprite directory entry 013: stored word $C401 resolves to $D255. Add $0E54 to the biased sprite offset."
+  },
+  {
+   "address": 52848,
+   "type": "line",
+   "text": "Sprite directory entry 014: stored word $C43C resolves to $D290. Add $0E54 to the biased sprite offset."
+  },
+  {
+   "address": 52850,
+   "type": "line",
+   "text": "Sprite directory entry 015: stored word $C475 resolves to $D2C9. Add $0E54 to the biased sprite offset."
+  },
+  {
+   "address": 52852,
+   "type": "line",
+   "text": "Sprite directory entry 016: stored word $C4AD resolves to $D301. Add $0E54 to the biased sprite offset."
+  },
+  {
+   "address": 52854,
+   "type": "line",
+   "text": "Sprite directory entry 017: stored word $C4C7 resolves to $D31B. Add $0E54 to the biased sprite offset."
+  },
+  {
+   "address": 52856,
+   "type": "line",
+   "text": "Sprite directory entry 018: stored word $C4DD resolves to $D331. Add $0E54 to the biased sprite offset."
+  },
+  {
+   "address": 52858,
+   "type": "line",
+   "text": "Sprite directory entry 019: stored word $C4F3 resolves to $D347. Add $0E54 to the biased sprite offset."
+  },
+  {
+   "address": 52860,
+   "type": "line",
+   "text": "Sprite directory entry 020: stored word $C508 resolves to $D35C. Add $0E54 to the biased sprite offset."
+  },
+  {
+   "address": 52862,
+   "type": "line",
+   "text": "Sprite directory entry 021: stored word $C51F resolves to $D373. Add $0E54 to the biased sprite offset."
+  },
+  {
+   "address": 52864,
+   "type": "line",
+   "text": "Sprite directory entry 022: stored word $C539 resolves to $D38D. Add $0E54 to the biased sprite offset."
+  },
+  {
+   "address": 52866,
+   "type": "line",
+   "text": "Sprite directory entry 023: stored word $C551 resolves to $D3A5. Add $0E54 to the biased sprite offset."
+  },
+  {
+   "address": 52868,
+   "type": "line",
+   "text": "Sprite directory entry 024: stored word $C56A resolves to $D3BE. Add $0E54 to the biased sprite offset."
+  },
+  {
+   "address": 52870,
+   "type": "line",
+   "text": "Sprite directory entry 025: stored word $C587 resolves to $D3DB. Add $0E54 to the biased sprite offset."
+  },
+  {
+   "address": 52872,
+   "type": "line",
+   "text": "Sprite directory entry 026: stored word $C5BD resolves to $D411. Add $0E54 to the biased sprite offset."
+  },
+  {
+   "address": 52874,
+   "type": "line",
+   "text": "Sprite directory entry 027: stored word $C5F7 resolves to $D44B. Add $0E54 to the biased sprite offset."
+  },
+  {
+   "address": 52876,
+   "type": "line",
+   "text": "Sprite directory entry 028: stored word $C630 resolves to $D484. Add $0E54 to the biased sprite offset."
+  },
+  {
+   "address": 52878,
+   "type": "line",
+   "text": "Sprite directory entry 029: stored word $C663 resolves to $D4B7. Add $0E54 to the biased sprite offset."
+  },
+  {
+   "address": 52880,
+   "type": "line",
+   "text": "Sprite directory entry 030: stored word $C675 resolves to $D4C9. Add $0E54 to the biased sprite offset."
+  },
+  {
+   "address": 52882,
+   "type": "line",
+   "text": "Sprite directory entry 031: stored word $C6AC resolves to $D500. Add $0E54 to the biased sprite offset."
+  },
+  {
+   "address": 52884,
+   "type": "line",
+   "text": "Sprite directory entry 032: stored word $C6E0 resolves to $D534. Add $0E54 to the biased sprite offset."
+  },
+  {
+   "address": 52886,
+   "type": "line",
+   "text": "Sprite directory entry 033: stored word $C70A resolves to $D55E. Add $0E54 to the biased sprite offset."
+  },
+  {
+   "address": 52888,
+   "type": "line",
+   "text": "Sprite directory entry 034: stored word $C737 resolves to $D58B. Add $0E54 to the biased sprite offset."
+  },
+  {
+   "address": 52890,
+   "type": "line",
+   "text": "Sprite directory entry 035: stored word $C75A resolves to $D5AE. Add $0E54 to the biased sprite offset."
+  },
+  {
+   "address": 52892,
+   "type": "line",
+   "text": "Sprite directory entry 036: stored word $C790 resolves to $D5E4. Add $0E54 to the biased sprite offset."
+  },
+  {
+   "address": 52894,
+   "type": "line",
+   "text": "Sprite directory entry 037: stored word $C7C6 resolves to $D61A. Add $0E54 to the biased sprite offset."
+  },
+  {
+   "address": 52896,
+   "type": "line",
+   "text": "Sprite directory entry 038: stored word $C7FB resolves to $D64F. Add $0E54 to the biased sprite offset."
+  },
+  {
+   "address": 52898,
+   "type": "line",
+   "text": "Sprite directory entry 039: stored word $C832 resolves to $D686. Add $0E54 to the biased sprite offset."
+  },
+  {
+   "address": 52900,
+   "type": "line",
+   "text": "Sprite directory entry 040: stored word $C865 resolves to $D6B9. Add $0E54 to the biased sprite offset."
+  },
+  {
+   "address": 52902,
+   "type": "line",
+   "text": "Sprite directory entry 041: stored word $C89D resolves to $D6F1. Add $0E54 to the biased sprite offset."
+  },
+  {
+   "address": 52904,
+   "type": "line",
+   "text": "Sprite directory entry 042: stored word $C8CB resolves to $D71F. Add $0E54 to the biased sprite offset."
+  },
+  {
+   "address": 52906,
+   "type": "line",
+   "text": "Sprite directory entry 043: stored word $C8FF resolves to $D753. Add $0E54 to the biased sprite offset."
+  },
+  {
+   "address": 52908,
+   "type": "line",
+   "text": "Sprite directory entry 044: stored word $C91E resolves to $D772. Add $0E54 to the biased sprite offset."
+  },
+  {
+   "address": 52910,
+   "type": "line",
+   "text": "Sprite directory entry 045: stored word $C942 resolves to $D796. Add $0E54 to the biased sprite offset."
+  },
+  {
+   "address": 52912,
+   "type": "line",
+   "text": "Sprite directory entry 046: stored word $C97C resolves to $D7D0. Add $0E54 to the biased sprite offset."
+  },
+  {
+   "address": 52914,
+   "type": "line",
+   "text": "Sprite directory entry 047: stored word $C9B6 resolves to $D80A. Add $0E54 to the biased sprite offset."
+  },
+  {
+   "address": 52916,
+   "type": "line",
+   "text": "Sprite directory entry 048: stored word $C9F3 resolves to $D847. Add $0E54 to the biased sprite offset."
+  },
+  {
+   "address": 52918,
+   "type": "line",
+   "text": "Sprite directory entry 049: stored word $CA30 resolves to $D884. Add $0E54 to the biased sprite offset."
+  },
+  {
+   "address": 52920,
+   "type": "line",
+   "text": "Sprite directory entry 050: stored word $CA60 resolves to $D8B4. Add $0E54 to the biased sprite offset."
+  },
+  {
+   "address": 52922,
+   "type": "line",
+   "text": "Sprite directory entry 051: stored word $CA98 resolves to $D8EC. Add $0E54 to the biased sprite offset."
+  },
+  {
+   "address": 52924,
+   "type": "line",
+   "text": "Sprite directory entry 052: stored word $CAD3 resolves to $D927. Add $0E54 to the biased sprite offset."
+  },
+  {
+   "address": 52926,
+   "type": "line",
+   "text": "Sprite directory entry 053: stored word $CB0E resolves to $D962. Add $0E54 to the biased sprite offset."
+  },
+  {
+   "address": 52928,
+   "type": "line",
+   "text": "Sprite directory entry 054: stored word $CB32 resolves to $D986. Add $0E54 to the biased sprite offset."
+  },
+  {
+   "address": 52930,
+   "type": "line",
+   "text": "Sprite directory entry 055: stored word $CB6B resolves to $D9BF. Add $0E54 to the biased sprite offset."
+  },
+  {
+   "address": 52932,
+   "type": "line",
+   "text": "Sprite directory entry 056: stored word $CB7C resolves to $D9D0. Add $0E54 to the biased sprite offset."
+  },
+  {
+   "address": 52934,
+   "type": "line",
+   "text": "Sprite directory entry 057: stored word $CB90 resolves to $D9E4. Add $0E54 to the biased sprite offset."
+  },
+  {
+   "address": 52936,
+   "type": "line",
+   "text": "Sprite directory entry 058: stored word $CB9F resolves to $D9F3. Add $0E54 to the biased sprite offset."
+  },
+  {
+   "address": 52938,
+   "type": "line",
+   "text": "Sprite directory entry 059: stored word $CBB4 resolves to $DA08. Add $0E54 to the biased sprite offset."
+  },
+  {
+   "address": 52940,
+   "type": "line",
+   "text": "Sprite directory entry 060: stored word $CBCF resolves to $DA23. Add $0E54 to the biased sprite offset."
+  },
+  {
+   "address": 52942,
+   "type": "line",
+   "text": "Sprite directory entry 061: stored word $CBE3 resolves to $DA37. Add $0E54 to the biased sprite offset."
+  },
+  {
+   "address": 52944,
+   "type": "line",
+   "text": "Sprite directory entry 062: stored word $CBF9 resolves to $DA4D. Add $0E54 to the biased sprite offset."
+  },
+  {
+   "address": 52946,
+   "type": "line",
+   "text": "Sprite directory entry 063: stored word $CC0E resolves to $DA62. Add $0E54 to the biased sprite offset."
+  },
+  {
+   "address": 52948,
+   "type": "line",
+   "text": "Sprite directory entry 064: stored word $CC23 resolves to $DA77. Add $0E54 to the biased sprite offset."
+  },
+  {
+   "address": 52950,
+   "type": "line",
+   "text": "Sprite directory entry 065: stored word $CC37 resolves to $DA8B. Add $0E54 to the biased sprite offset."
+  },
+  {
+   "address": 52952,
+   "type": "line",
+   "text": "Sprite directory entry 066: stored word $CC4E resolves to $DAA2. Add $0E54 to the biased sprite offset."
+  },
+  {
+   "address": 52954,
+   "type": "line",
+   "text": "Sprite directory entry 067: stored word $CC67 resolves to $DABB. Add $0E54 to the biased sprite offset."
+  },
+  {
+   "address": 52956,
+   "type": "line",
+   "text": "Sprite directory entry 068: stored word $CC7C resolves to $DAD0. Add $0E54 to the biased sprite offset."
+  },
+  {
+   "address": 52958,
+   "type": "line",
+   "text": "Sprite directory entry 069: stored word $CC96 resolves to $DAEA. Add $0E54 to the biased sprite offset."
+  },
+  {
+   "address": 52960,
+   "type": "line",
+   "text": "Sprite directory entry 070: stored word $CCB6 resolves to $DB0A. Add $0E54 to the biased sprite offset."
+  },
+  {
+   "address": 52962,
+   "type": "line",
+   "text": "Sprite directory entry 071: stored word $CCCC resolves to $DB20. Add $0E54 to the biased sprite offset."
+  },
+  {
+   "address": 52964,
+   "type": "line",
+   "text": "Sprite directory entry 072: stored word $CCE1 resolves to $DB35. Add $0E54 to the biased sprite offset."
+  },
+  {
+   "address": 52966,
+   "type": "line",
+   "text": "Sprite directory entry 073: stored word $CCEE resolves to $DB42. Add $0E54 to the biased sprite offset."
+  },
+  {
+   "address": 52968,
+   "type": "line",
+   "text": "Sprite directory entry 074: stored word $CCFD resolves to $DB51. Add $0E54 to the biased sprite offset."
+  },
+  {
+   "address": 52970,
+   "type": "line",
+   "text": "Sprite directory entry 075: stored word $CD0C resolves to $DB60. Add $0E54 to the biased sprite offset."
+  },
+  {
+   "address": 52972,
+   "type": "line",
+   "text": "Sprite directory entry 076: stored word $CD1C resolves to $DB70. Add $0E54 to the biased sprite offset."
+  },
+  {
+   "address": 52974,
+   "type": "line",
+   "text": "Sprite directory entry 077: stored word $CD30 resolves to $DB84. Add $0E54 to the biased sprite offset."
+  },
+  {
+   "address": 52976,
+   "type": "line",
+   "text": "Sprite directory entry 078: stored word $CD44 resolves to $DB98. Add $0E54 to the biased sprite offset."
+  },
+  {
+   "address": 52978,
+   "type": "line",
+   "text": "Sprite directory entry 079: stored word $CD63 resolves to $DBB7. Add $0E54 to the biased sprite offset."
+  },
+  {
+   "address": 52980,
+   "type": "line",
+   "text": "Sprite directory entry 080: stored word $CD7A resolves to $DBCE. Add $0E54 to the biased sprite offset."
+  },
+  {
+   "address": 52982,
+   "type": "line",
+   "text": "Sprite directory entry 081: stored word $CD86 resolves to $DBDA. Add $0E54 to the biased sprite offset."
+  },
+  {
+   "address": 52984,
+   "type": "line",
+   "text": "Sprite directory entry 082: stored word $CDB1 resolves to $DC05. Add $0E54 to the biased sprite offset."
+  },
+  {
+   "address": 52986,
+   "type": "line",
+   "text": "Sprite directory entry 083: stored word $CDCD resolves to $DC21. Add $0E54 to the biased sprite offset."
+  },
+  {
+   "address": 52988,
+   "type": "line",
+   "text": "Sprite directory entry 084: stored word $CDE9 resolves to $DC3D. Add $0E54 to the biased sprite offset."
+  },
+  {
+   "address": 52990,
+   "type": "line",
+   "text": "Sprite directory entry 085: stored word $CE11 resolves to $DC65. Add $0E54 to the biased sprite offset."
+  },
+  {
+   "address": 52992,
+   "type": "line",
+   "text": "Sprite directory entry 086: stored word $CE20 resolves to $DC74. Add $0E54 to the biased sprite offset."
+  },
+  {
+   "address": 52994,
+   "type": "line",
+   "text": "Sprite directory entry 087: stored word $CE3A resolves to $DC8E. Add $0E54 to the biased sprite offset."
+  },
+  {
+   "address": 52996,
+   "type": "line",
+   "text": "Sprite directory entry 088: stored word $CE5A resolves to $DCAE. Add $0E54 to the biased sprite offset."
+  },
+  {
+   "address": 52998,
+   "type": "line",
+   "text": "Sprite directory entry 089: stored word $CE78 resolves to $DCCC. Add $0E54 to the biased sprite offset."
+  },
+  {
+   "address": 53000,
+   "type": "line",
+   "text": "Sprite directory entry 090: stored word $CE91 resolves to $DCE5. Add $0E54 to the biased sprite offset."
+  },
+  {
+   "address": 53002,
+   "type": "line",
+   "text": "Sprite directory entry 091: stored word $CEA1 resolves to $DCF5. Add $0E54 to the biased sprite offset."
+  },
+  {
+   "address": 53004,
+   "type": "line",
+   "text": "Sprite directory entry 092: stored word $CEAD resolves to $DD01. Add $0E54 to the biased sprite offset."
+  },
+  {
+   "address": 53006,
+   "type": "line",
+   "text": "Sprite directory entry 093: stored word $CEC5 resolves to $DD19. Add $0E54 to the biased sprite offset."
+  },
+  {
+   "address": 53008,
+   "type": "line",
+   "text": "Sprite directory entry 094: stored word $CEFB resolves to $DD4F. Add $0E54 to the biased sprite offset."
+  },
+  {
+   "address": 53010,
+   "type": "line",
+   "text": "Sprite directory entry 095: stored word $CF2E resolves to $DD82. Add $0E54 to the biased sprite offset."
+  },
+  {
+   "address": 53012,
+   "type": "line",
+   "text": "Sprite directory entry 096: stored word $CF62 resolves to $DDB6. Add $0E54 to the biased sprite offset."
+  },
+  {
+   "address": 53014,
+   "type": "line",
+   "text": "Sprite directory entry 097: stored word $CF96 resolves to $DDEA. Add $0E54 to the biased sprite offset."
+  },
+  {
+   "address": 53016,
+   "type": "line",
+   "text": "Sprite directory entry 098: stored word $CFCD resolves to $DE21. Add $0E54 to the biased sprite offset."
+  },
+  {
+   "address": 53018,
+   "type": "line",
+   "text": "Sprite directory entry 099: stored word $D001 resolves to $DE55. Add $0E54 to the biased sprite offset."
+  },
+  {
+   "address": 53020,
+   "type": "line",
+   "text": "Sprite directory entry 100: stored word $D035 resolves to $DE89. Add $0E54 to the biased sprite offset."
+  },
+  {
+   "address": 53022,
+   "type": "line",
+   "text": "Sprite directory entry 101: stored word $D069 resolves to $DEBD. Add $0E54 to the biased sprite offset."
+  },
+  {
+   "address": 53024,
+   "type": "line",
+   "text": "Sprite directory entry 102: stored word $D0A4 resolves to $DEF8. Add $0E54 to the biased sprite offset."
+  },
+  {
+   "address": 53026,
+   "type": "line",
+   "text": "Sprite directory entry 103: stored word $D0DB resolves to $DF2F. Add $0E54 to the biased sprite offset."
+  },
+  {
+   "address": 53028,
+   "type": "line",
+   "text": "Sprite directory entry 104: stored word $D0F0 resolves to $DF44. Add $0E54 to the biased sprite offset."
+  },
+  {
+   "address": 53030,
+   "type": "line",
+   "text": "Sprite directory entry 105: stored word $D12D resolves to $DF81. Add $0E54 to the biased sprite offset."
+  },
+  {
+   "address": 53032,
+   "type": "line",
+   "text": "Sprite directory entry 106: stored word $D15E resolves to $DFB2. Add $0E54 to the biased sprite offset."
+  },
+  {
+   "address": 53034,
+   "type": "line",
+   "text": "Sprite directory entry 107: stored word $D196 resolves to $DFEA. Add $0E54 to the biased sprite offset."
+  },
+  {
+   "address": 53036,
+   "type": "line",
+   "text": "Sprite directory entry 108: stored word $D1CD resolves to $E021. Add $0E54 to the biased sprite offset."
+  },
+  {
+   "address": 53038,
+   "type": "line",
+   "text": "Sprite directory entry 109: stored word $D1FF resolves to $E053. Add $0E54 to the biased sprite offset."
+  },
+  {
+   "address": 53040,
+   "type": "line",
+   "text": "Sprite directory entry 110: stored word $D214 resolves to $E068. Add $0E54 to the biased sprite offset."
+  },
+  {
+   "address": 53042,
+   "type": "line",
+   "text": "Sprite directory entry 111: stored word $D248 resolves to $E09C. Add $0E54 to the biased sprite offset."
+  },
+  {
+   "address": 53044,
+   "type": "line",
+   "text": "Sprite directory entry 112: stored word $D285 resolves to $E0D9. Add $0E54 to the biased sprite offset."
+  },
+  {
+   "address": 53046,
+   "type": "line",
+   "text": "Sprite directory entry 113: stored word $D2BE resolves to $E112. Add $0E54 to the biased sprite offset."
+  },
+  {
+   "address": 53048,
+   "type": "line",
+   "text": "Sprite directory entry 114: stored word $D2F6 resolves to $E14A. Add $0E54 to the biased sprite offset."
+  },
+  {
+   "address": 53050,
+   "type": "line",
+   "text": "Sprite directory entry 115: stored word $D32E resolves to $E182. Add $0E54 to the biased sprite offset."
+  },
+  {
+   "address": 53052,
+   "type": "line",
+   "text": "Sprite directory entry 116: stored word $D363 resolves to $E1B7. Add $0E54 to the biased sprite offset."
+  },
+  {
+   "address": 53054,
+   "type": "line",
+   "text": "Sprite directory entry 117: stored word $D385 resolves to $E1D9. Add $0E54 to the biased sprite offset."
+  },
+  {
+   "address": 53056,
+   "type": "line",
+   "text": "Sprite directory entry 118: stored word $D3AE resolves to $E202. Add $0E54 to the biased sprite offset."
+  },
+  {
+   "address": 53058,
+   "type": "line",
+   "text": "Sprite directory entry 119: stored word $D3E6 resolves to $E23A. Add $0E54 to the biased sprite offset."
+  },
+  {
+   "address": 53060,
+   "type": "line",
+   "text": "Sprite directory entry 120: stored word $D41B resolves to $E26F. Add $0E54 to the biased sprite offset."
+  },
+  {
+   "address": 53062,
+   "type": "line",
+   "text": "Sprite directory entry 121: stored word $D453 resolves to $E2A7. Add $0E54 to the biased sprite offset."
+  },
+  {
+   "address": 53064,
+   "type": "line",
+   "text": "Sprite directory entry 122: stored word $D481 resolves to $E2D5. Add $0E54 to the biased sprite offset."
+  },
+  {
+   "address": 53066,
+   "type": "line",
+   "text": "Sprite directory entry 123: stored word $D48E resolves to $E2E2. Add $0E54 to the biased sprite offset."
+  },
+  {
+   "address": 53068,
+   "type": "line",
+   "text": "Sprite directory entry 124: stored word $D4C5 resolves to $E319. Add $0E54 to the biased sprite offset."
+  },
+  {
+   "address": 53070,
+   "type": "line",
+   "text": "Sprite directory entry 125: stored word $D500 resolves to $E354. Add $0E54 to the biased sprite offset."
+  },
+  {
+   "address": 53072,
+   "type": "line",
+   "text": "Sprite directory entry 126: stored word $D539 resolves to $E38D. Add $0E54 to the biased sprite offset."
+  },
+  {
+   "address": 53074,
+   "type": "line",
+   "text": "Sprite directory entry 127: stored word $D570 resolves to $E3C4. Add $0E54 to the biased sprite offset."
+  },
+  {
+   "address": 53076,
+   "type": "line",
+   "text": "Sprite directory entry 128: stored word $D5A6 resolves to $E3FA. Add $0E54 to the biased sprite offset."
+  },
+  {
+   "address": 53078,
+   "type": "line",
+   "text": "Sprite directory entry 129: stored word $D5DF resolves to $E433. Add $0E54 to the biased sprite offset."
+  },
+  {
+   "address": 53080,
+   "type": "line",
+   "text": "Sprite directory entry 130: stored word $D61D resolves to $E471. Add $0E54 to the biased sprite offset."
+  },
+  {
+   "address": 53082,
+   "type": "line",
+   "text": "Sprite directory entry 131: stored word $D659 resolves to $E4AD. Add $0E54 to the biased sprite offset."
+  },
+  {
+   "address": 53084,
+   "type": "line",
+   "text": "Sprite directory entry 132: stored word $D68B resolves to $E4DF. Add $0E54 to the biased sprite offset."
+  },
+  {
+   "address": 53086,
+   "type": "line",
+   "text": "Sprite directory entry 133: stored word $D6B3 resolves to $E507. Add $0E54 to the biased sprite offset."
+  },
+  {
+   "address": 53088,
+   "type": "line",
+   "text": "Sprite directory entry 134: stored word $D6ED resolves to $E541. Add $0E54 to the biased sprite offset."
+  },
+  {
+   "address": 53090,
+   "type": "line",
+   "text": "Sprite directory entry 135: stored word $D722 resolves to $E576. Add $0E54 to the biased sprite offset."
+  },
+  {
+   "address": 53092,
+   "type": "line",
+   "text": "Sprite directory entry 136: stored word $D757 resolves to $E5AB. Add $0E54 to the biased sprite offset."
+  },
+  {
+   "address": 53094,
+   "type": "line",
+   "text": "Sprite directory entry 137: stored word $D782 resolves to $E5D6. Add $0E54 to the biased sprite offset."
+  },
+  {
+   "address": 53096,
+   "type": "line",
+   "text": "Sprite directory entry 138: stored word $D7BE resolves to $E612. Add $0E54 to the biased sprite offset."
+  },
+  {
+   "address": 53098,
+   "type": "line",
+   "text": "Sprite directory entry 139: stored word $D7FA resolves to $E64E. Add $0E54 to the biased sprite offset."
+  },
+  {
+   "address": 53100,
+   "type": "line",
+   "text": "Sprite directory entry 140: stored word $D836 resolves to $E68A. Add $0E54 to the biased sprite offset."
+  },
+  {
+   "address": 53102,
+   "type": "line",
+   "text": "Sprite directory entry 141: stored word $D870 resolves to $E6C4. Add $0E54 to the biased sprite offset."
+  },
+  {
+   "address": 53104,
+   "type": "line",
+   "text": "Sprite directory entry 142: stored word $D899 resolves to $E6ED. Add $0E54 to the biased sprite offset."
+  },
+  {
+   "address": 53106,
+   "type": "line",
+   "text": "Sprite directory entry 143: stored word $D8A8 resolves to $E6FC. Add $0E54 to the biased sprite offset."
+  },
+  {
+   "address": 53108,
+   "type": "line",
+   "text": "Sprite directory entry 144: stored word $D8E4 resolves to $E738. Add $0E54 to the biased sprite offset."
+  },
+  {
+   "address": 53110,
+   "type": "line",
+   "text": "Sprite directory entry 145: stored word $D91F resolves to $E773. Add $0E54 to the biased sprite offset."
+  },
+  {
+   "address": 53112,
+   "type": "line",
+   "text": "Sprite directory entry 146: stored word $D955 resolves to $E7A9. Add $0E54 to the biased sprite offset."
+  },
+  {
+   "address": 53114,
+   "type": "line",
+   "text": "Sprite directory entry 147: stored word $D961 resolves to $E7B5. Add $0E54 to the biased sprite offset."
+  },
+  {
+   "address": 53116,
+   "type": "line",
+   "text": "Sprite directory entry 148: stored word $D97F resolves to $E7D3. Add $0E54 to the biased sprite offset."
+  },
+  {
+   "address": 53118,
+   "type": "line",
+   "text": "Sprite directory entry 149: stored word $D998 resolves to $E7EC. Add $0E54 to the biased sprite offset."
+  },
+  {
+   "address": 53120,
+   "type": "line",
+   "text": "Sprite directory entry 150: stored word $D9AC resolves to $E800. Add $0E54 to the biased sprite offset."
+  },
+  {
+   "address": 53122,
+   "type": "line",
+   "text": "Sprite directory entry 151: stored word $D9B8 resolves to $E80C. Add $0E54 to the biased sprite offset."
+  },
+  {
+   "address": 53124,
+   "type": "line",
+   "text": "Sprite directory entry 152: stored word $D9D8 resolves to $E82C. Add $0E54 to the biased sprite offset."
+  },
+  {
+   "address": 53126,
+   "type": "line",
+   "text": "Sprite directory entry 153: stored word $D9EF resolves to $E843. Add $0E54 to the biased sprite offset."
+  },
+  {
+   "address": 53128,
+   "type": "line",
+   "text": "Sprite directory entry 154: stored word $DA0A resolves to $E85E. Add $0E54 to the biased sprite offset."
+  },
+  {
+   "address": 53130,
+   "type": "line",
+   "text": "Sprite directory entry 155: stored word $DA18 resolves to $E86C. Add $0E54 to the biased sprite offset."
+  },
+  {
+   "address": 53132,
+   "type": "line",
+   "text": "Sprite directory entry 156: stored word $DA2C resolves to $E880. Add $0E54 to the biased sprite offset."
+  },
+  {
+   "address": 53134,
+   "type": "line",
+   "text": "Sprite directory entry 157: stored word $DA60 resolves to $E8B4. Add $0E54 to the biased sprite offset."
+  },
+  {
+   "address": 53136,
+   "type": "line",
+   "text": "Sprite directory entry 158: stored word $DA86 resolves to $E8DA. Add $0E54 to the biased sprite offset."
+  },
+  {
+   "address": 53138,
+   "type": "line",
+   "text": "Sprite directory entry 159: stored word $DA9D resolves to $E8F1. Add $0E54 to the biased sprite offset."
+  },
+  {
+   "address": 53140,
+   "type": "line",
+   "text": "Sprite directory entry 160: stored word $DAB6 resolves to $E90A. Add $0E54 to the biased sprite offset."
+  },
+  {
+   "address": 53142,
+   "type": "line",
+   "text": "Sprite directory entry 161: stored word $DAC7 resolves to $E91B. Add $0E54 to the biased sprite offset."
+  },
+  {
    "address": 53144,
    "type": "line",
    "text": "Compressed sprite image 0, $CF98-$CFCA: 51 stored bytes decode to exactly 63 hardware-sprite bytes. Pointer 0 at $CE54 plus $0E54 selects this record. Decoder $BF43 treats $68 as an escape for the following literal, $69-$6F as 1-7 zeros, and other bytes as literals. The checked stream ends exactly at the next record."
@@ -17414,6 +22623,11 @@
    "address": 53246,
    "type": "line",
    "text": "Compressed sprite image 2, $CFFE-$D033: 54 stored bytes decode to exactly 63 hardware-sprite bytes. Pointer 2 at $CE58 plus $0E54 selects this record. Decoder $BF43 treats $68 as an escape for the following literal, $69-$6F as 1-7 zeros, and other bytes as literals. The checked stream ends exactly at the next record."
+  },
+  {
+   "address": 53248,
+   "type": "line",
+   "text": "Packed sprite 002 continuation at the I/O boundary: two encoded bytes already precede this address at $CFFE-$CFFF. The remaining 52 bytes through $D033 belong to the same independently validated 63-byte expansion; next sprite 003 starts $D034. The compositor maps RAM here, not VIC-II registers."
   },
   {
    "address": 53300,
@@ -17939,6 +23153,11 @@
    "address": 57322,
    "type": "line",
    "text": "Compressed sprite image 107, $DFEA-$E020: 55 stored bytes decode to exactly 63 hardware-sprite bytes. Pointer 107 at $CF2A plus $0E54 selects this record. Decoder $BF43 treats $68 as an escape for the following literal, $69-$6F as 1-7 zeros, and other bytes as literals. The checked stream ends exactly at the next record."
+  },
+  {
+   "address": 57344,
+   "type": "line",
+   "text": "Packed sprite 107 continuation, encoded offset 22 from $DFEA: the record continues through $E020 and next sprite 108 starts $E021. All 55 bytes together expand to exactly 63 bytes; this is packed resource RAM, not executable code or a second sprite record."
   },
   {
    "address": 57377,

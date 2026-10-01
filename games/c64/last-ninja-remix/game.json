@@ -9,7 +9,7 @@
  "title_image": "reference/central-park.png",
  "build": "I-TAL/TSM release; Central Park in active play, one declared level",
  "tier": "bronze",
- "coverage_percent": 89.9,
+ "coverage_percent": 92.9,
  "copy": "agent-draft",
  "steward": "",
  "credits": [],
@@ -28,7 +28,48 @@
   "charset": ""
  },
  "coverage": {
-  "extra": [],
+  "extra": [
+   [
+    "$CE54",
+    "$CF97",
+    "162 main packed-sprite pointer words, independently validated"
+   ],
+   [
+    "$C4C2",
+    "$C595",
+    "106 absolute frame pointer words, all destinations checked"
+   ],
+   [
+    "$4E27",
+    "$4F12",
+    "118 biased scene pointer words, all record boundaries checked"
+   ],
+   [
+    "$1AE8",
+    "$1C2F",
+    "Retained eight-byte multicolor glyph cells, inline text renderer base $1AE8; resident code starts $1C30"
+   ],
+   [
+    "$1200",
+    "$12FF",
+    "All 256 multicolor pair-reversal entries, formula checked"
+   ],
+   [
+    "$1300",
+    "$13FF",
+    "All 256 bit-reversal entries, formula checked"
+   ],
+   [
+    "$4F15",
+    "$8A0D",
+    "Complete scene record pool: all 118 lengths/boundaries independently checked"
+   ],
+   [
+    "$CF98",
+    "$E927",
+    "Complete 162-record packed sprite pool, all expansion lengths and boundaries checked"
+   ]
+  ],
   "include": [
    [
     "$D000",
@@ -46,6 +87,11 @@
     "$2000",
     "$3F3F",
     "Runtime bitmap output"
+   ],
+   [
+    "$4036",
+    "$40B0",
+    "Runtime music state: initialized at $40B1-$40FF and updated by $4116 onward, three voice arrays and shared tick/filter/fade state"
    ]
   ]
  },
