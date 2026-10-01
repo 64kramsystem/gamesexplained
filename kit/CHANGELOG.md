@@ -12,7 +12,7 @@ Changes to the site, the folder layout, the delivery process, the prose
 style or the install mechanics are in the pull requests, not here.
 Versions that taught nothing of the kind do not appear.
 
-## next · 1 October 2026 · Impossible Mission · chunkypixel with Claude
+## 0.0.52 · 1 October 2026 · Impossible Mission · chunkypixel with Claude
 
 **Data the start-up moves is invisible to the hand-over comparison.**
 Comparing the hand-over snapshot with the play snapshot finds loaded
