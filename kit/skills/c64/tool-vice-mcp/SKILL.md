@@ -28,7 +28,7 @@ call costs a round trip.
 ```
 python3 kit/scripts/tools.py status            # which build: release <tag>, or own build of <repo>, commit ...
 python3 kit/scripts/tools.py get-vice          # is there a newer one for this machine? changes nothing
-python3 kit/scripts/tools.py check-emulator    # kit/EMULATOR.md's four phases, under a minute
+python3 kit/scripts/tools.py --platform c64 check-emulator    # kit/EMULATOR.md's four phases, under a minute
 ```
 
 If `get-vice` names a newer release than the one installed, tell the
@@ -49,7 +49,8 @@ the table at the top of that file: on 22 September 2026 the v3.11.0
 release failed 28 of the 56 checks, most of phase 4 among them; on 24
 September v3.13 built from source passed all 56; on 26 September, with
 a 57th added, the v3.13.1 release on Linux passed all but
-`pause-at-instruction`.
+`pause-at-instruction`; on 2 October the v3.13.2 release on Linux passed
+all 57, five runs out of five.
 
 ## The sequence that works
 
@@ -90,7 +91,7 @@ a 57th added, the v3.13.1 release on Linux passed all but
    `vice.py`, never straight after `vice_execution_pause`
    (`pause-at-instruction`). Snapshots are written to
    `tools/vice-home/config/vice/mcp_snapshots/`
-   (`python3 kit/scripts/tools.py snapshots` lists them); copy the `.vsf`
+   (`python3 kit/scripts/tools.py --platform c64 snapshots` lists them); copy the `.vsf`
    into the game's `work/`.
 5. `vice_memory_read` (hex encoding, any size), `vice_memory_write`,
    `vice_memory_search`, `vice_disassemble` for live inspection.
@@ -136,10 +137,9 @@ in-game input hook below does the same job.
   watchpoints on what you want to see written, visits every such write of
   one frame and ends at its boundary. After a store the machine stops on
   the next instruction, with the value already written. The raster line at
-  each stop and the cycle stopwatch place each write on its line and cycle:
-  the raster register steps in the first cycle of a line, except that line
-  0's first cycle still reads 311. `kit/c64/frame.py capture` does all of
-  this for the video chip.
+  each stop and the cycle stopwatch place each write on its line and cycle
+  (`c64-reference`, "The video chip, cycle by cycle"). `kit/c64/frame.py
+  capture` does all of this for the video chip.
 - **The stick.** `vice_joystick_set` with `port` 1 is control port 1
   (`$DC01`), 2 is `$DC00`. A value set while stopped is in the register
   before the call returns, seen by the next instruction, and stays until
@@ -238,22 +238,10 @@ the batch.
   absence in the game. The test is a hit count that grows on a routine
   known to run, such as the loop or the interrupt handler. Two reads of the
   program counter are not the test: a game idling in a two-instruction
-  delay loop returns the same address twice while running.
-- **Keep a control checkpoint.** In every batch of hit counts, count one
-  routine you know runs. If the control reads zero, the instrument is dead
-  and no other number in the batch means anything. It costs one call, and
-  on a build that fails `checkpoints-survive-load` it is the only thing
-  that tells you.
-- **Prove the machine is stopped before you poke it.** `vice_ping`, or a
-  read of the PC twice. A write to a running game is overwritten by the
-  game.
-- **Poke, then read a derived value, and a whole update may have run in
-  between.** Stop at a point *after* the update and before the code you are
-  testing, or expect the game's own per-frame change to be added to whatever
-  you wrote. Numbers that are consistently one step out are this.
-- **Screenshots are seconds apart on a running machine.** To catch a
-  short-lived screen, stop and step to it, or read the state variables that
-  prove it happened.
+  delay loop returns the same address twice while running. Keep that
+  count in every batch as the control (`60-verify`, "Carry a control"): on
+  a build that fails `checkpoints-survive-load` it is the only thing that
+  tells you the instrument is dead.
 - **Memory reads honour banking.** Use the bank argument
   (`vice_memory_banks` lists them) when you need RAM under I/O or ROM. The
   banks are `default`, `cpu`, `ram`, `rom`, `io` and `cart`; reading a
@@ -265,10 +253,6 @@ the batch.
   flaky tool and it is not. Read the interrupt handler to work out what
   each band does, and record the frame with `kit/c64/frame.py capture`,
   which stops at every write of one frame instead of sampling.
-- **Validate a measuring tool before you trust a figure from it**, against
-  a known quantity (a timer latch you can compute, a loop you can count),
-  and record in `features.md` when an input path could not be exercised
-  rather than calling it confirmed.
 - **Measure in the machine's time, not the host's.** A non-stopping
   checkpoint on a busy loop can slow the machine below real time, and VICE
   then runs faster than real time until it has caught up: half a second of
@@ -308,7 +292,7 @@ the batch.
   or not. Resume it with `vice_execution_run` before waiting for `READY.`.
   So does `vice_autostart`: on a paused machine it attaches and returns,
   and nothing loads. `frame.py test` leaves the machine paused, so
-  resume it before the first autostart; `tools.py check-emulator` resumes
+  resume it before the first autostart; `tools.py --platform c64 check-emulator` resumes
   it at the end.
 - **`vice_autostart`'s `index` counts from 1, not from 0.** The tool's
   schema says 0-based, but the server hands the number to VICE's own
