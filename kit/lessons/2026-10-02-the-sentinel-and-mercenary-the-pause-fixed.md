@@ -1,4 +1,4 @@
-## next · 2 October 2026 · The Sentinel and Mercenary, the pause fixed in the emulator · air with Claude
+## 0.0.57 · 2 October 2026 · The Sentinel and Mercenary, the pause fixed in the emulator · air with Claude
 
 **On a build that passes every check, read no workaround.** The pause
 that stopped part way through an instruction, found in these two games on
