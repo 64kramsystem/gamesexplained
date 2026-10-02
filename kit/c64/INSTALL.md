@@ -37,6 +37,7 @@ measures whatever was installed. The measurements, each dated:
 | v3.13.1 release, `v3.13.1-linux-x86_64-gui.zip` | Linux x86_64, no display | 26 September 2026 | 56 of 57, five runs: all but `pause-at-instruction` |
 | v3.13.1 release, `v3.13.1-macos-arm64-gui.dmg` | macOS arm64 | 28 September 2026 | 56 of 57: all but `pause-at-instruction` |
 | v3.13.2 release, `v3.13.2-linux-x86_64-gui.zip` | Linux x86_64, no display | 2 October 2026 | 57 of 57, five runs |
+| v3.13.2 release, `v3.13.2-macos-arm64-gui.dmg` | macOS arm64 | 2 October 2026 | 57 of 57, five runs |
 
 Add a row whenever a build is measured on a machine not listed, and bring
 that machine's `c64` cell in `site/status.json` into line with it. The two
@@ -50,10 +51,10 @@ instruction, where the registers read stale and a load keeps the old
 ones. From 26 September 2026 `check-emulator` measures
 that as `pause-at-instruction`, and the three stop with `pause()` in
 `kit/c64/vice.py`; on the release they then passed in five runs out of
-five. Stop the machine the same way on a build that fails it
-(`workarounds.md`). Pull request #30 on `barryw/vice-mcp` fixes the
-pause in the server, and v3.13.2 carries it: on 2 October 2026 its Linux
-release lost no register set in thirty pauses, in each of five runs. What the
+five. Stop the machine the same way on a build that fails it. Pull
+request #30 on `barryw/vice-mcp` fixes the pause in the server, and
+v3.13.2 carries it: on 2 October 2026 its Linux and macOS arm64 releases
+lost no register set in thirty pauses, in each of five runs. What the
 v3.11.0 release fails, by phase, is below. A contributor who declines to
 build is offered the newest release with a build for their machine, and
 on 24 September 2026 that was v3.11.0 for a Mac. On an emulator that has
@@ -212,7 +213,7 @@ The builds the project publishes, when a release has them:
 
 | Operating system | Asset | Notes |
 |---|---|---|
-| macOS, Apple silicon | `...-macos-arm64-gui.dmg` | the first three games used v3.11.0; v3.13.1's measured 56 of 57 on 28 September 2026 (table above) |
+| macOS, Apple silicon | `...-macos-arm64-gui.dmg` | the first three games used v3.11.0; v3.13.1's measured 56 of 57 on 28 September 2026 and v3.13.2's 57 of 57 on 2 October 2026 (table above) |
 | macOS, Apple silicon | `...-macos-arm64-headless.zip` | no window; **nothing stops the CPU**, see below; no run recorded |
 | Linux x86_64 | `...-linux-x86_64-gui.zip` or `-headless.zip` | the GUI zip run on 24 September 2026 in a container with no display (Linux, below) |
 | Windows x86_64 | `...-windows-x86_64-headless.zip` | headless, so **stops do not work in it** at all; no run recorded |
@@ -314,7 +315,8 @@ loaded. On 24 September 2026, on macOS arm64 with vice-mcp 3.13.1 and
 JavaScriptCore, it passed: every pixel matched but the handful at a
 mid-line change of mode or scroll that the renderer does not follow to
 the pixel. On 26 September, on Linux x86_64 with the v3.13.1 release and
-node, the same, and on 2 October with the v3.13.2 release.
+node, the same, and on 2 October with the v3.13.2 release, there and on
+macOS arm64.
 
 ## macOS — known to work
 
