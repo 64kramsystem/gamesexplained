@@ -210,9 +210,21 @@ def r2000(path):
 # emulator through `script`, and on a macOS release build bin/x64sc is a shell wrapper that execs
 # VICE.app/Contents/Resources/bin/x64sc, so the process holding :6510 has neither of those as its
 # first word. Every match still has to lie under this clone's tools/, so no other clone is touched.
-# The emulator alone is killed: its wrappers (script, bash, xvfb-run) exit with it.
+# The emulator alone is killed (kill_matching): its wrappers (script, xvfb-run) exit with it. Killing
+# xvfb-run as well stops it before it can shut its Xvfb down and delete its folder under /tmp,
+# which left one of each behind per start on Linux (2 October 2026).
 STOP_PATTERNS = {"vice": re.escape(VICE_DIR + os.sep) + ".*-mcpserver",
                  "r2000": "regenerator2000 --mcp-server " + re.escape(os.path.join(ROOT, ""))}
+WRAPPERS = ("script", "xvfb-run")
+
+
+def kill_matching(pattern):
+    """Signal the processes whose command line matches, except the wrappers the launcher put round them."""
+    pids = subprocess.run(["pgrep", "-f", "--", pattern], capture_output=True, text=True).stdout.split()
+    for pid in pids:
+        comm = subprocess.run(["ps", "-o", "comm=", "-p", pid], capture_output=True, text=True).stdout.strip()
+        if os.path.basename(comm) not in WRAPPERS:
+            subprocess.run(["kill", pid], stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL)
 
 
 def elapsed(etime):
@@ -284,7 +296,7 @@ def stop(which="all", force=False):
         if held:
             kinds.remove("r2000")    # the disassembler stays up; anything else asked for still stops
     for k in kinds:
-        subprocess.run(["pkill", "-f", "--", STOP_PATTERNS[k]], stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL)
+        kill_matching(STOP_PATTERNS[k])
     if kinds:
         time.sleep(1)
     status()
