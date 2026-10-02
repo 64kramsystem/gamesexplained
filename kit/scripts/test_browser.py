@@ -62,6 +62,17 @@ class BrowserTests(unittest.TestCase):
             stop.assert_called_once()
             platform.assert_not_called()
 
+    def test_all_platform_status_and_stop_include_browser_once(self):
+        declarations = {'COMMANDS': ('status', 'stop'), 'TOOL_NAMES': ()}
+        with patch.object(launcher, 'platforms', return_value=['c64', 'future']), patch.object(launcher, 'declared', return_value=declarations), patch.object(launcher.os, 'getcwd', return_value='/tmp'), patch.dict(launcher.os.environ, {}, clear=True), patch.object(launcher.subprocess, 'run', return_value=SimpleNamespace(returncode=0)) as platform, patch.object(browser, 'status') as status, patch.object(browser, 'stop') as stop:
+            for args in (['status'], ['stop', 'all']):
+                with patch.object(sys, 'argv', ['tools.py', *args]), self.assertRaises(SystemExit) as result:
+                    launcher.main()
+                self.assertEqual(result.exception.code, 0)
+            status.assert_called_once()
+            stop.assert_called_once()
+            self.assertEqual(platform.call_count, 4)
+
     def test_platform_status_and_stop_include_browser(self):
         with patch.object(launcher, 'platforms', return_value=['c64']), patch.dict(launcher.os.environ, {'KIT_PLATFORM': 'c64'}), patch.object(launcher.runpy, 'run_path') as platform, patch.object(browser, 'status') as status, patch.object(browser, 'stop') as stop:
             for args in (['status'], ['stop'], ['stop', 'all', '--force']):

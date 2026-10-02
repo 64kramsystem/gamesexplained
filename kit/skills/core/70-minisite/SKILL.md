@@ -8,10 +8,9 @@ description: Build the game's minisite. The "How it works" page (index.html) fro
 Start the clock: `python3 kit/scripts/clock.py start 70-minisite --model <your model id> games/<platform>/<slug>`. No figure yet; yours goes on the runs table.
 
 The minisite is the deliverable: a small site that explains the game, where
-the writing is the spine but anything can live. Interactivity is the point,
-and the minisite can hold anything that explains the game — widgets, level
-browsers, tune players, even a full JavaScript port of the game itself. If
-you can build it, build it.
+the writing is the spine but anything that explains the game can live
+(widgets, level browsers, tune players, even a full JavaScript port of the
+game itself). If you can build it, build it.
 
 Every game is a small site with the same tabs in the same order: **How it
 works** (`index.html`, authored), **Source code** (`source.html`, generated
@@ -88,10 +87,9 @@ address links into the Source tab, and the house style in `kit/style.md`.
 - **Secrets, quirks and bugs.** The best part. Things a player who
    finished the game would not know, each verified live, with the
    evidence beside it. One kind deserves a special look: a state the code
-   accepts but the programmer never meant anyone to reach. It shows up as
-   an exact-match test where a range was intended, a comparison that
-   assumes a sign, an eight-bit sum that can wrap, a test run in an order
-   that leaves a gap, and it is classic tool-assisted-speedrun material,
+   accepts but the programmer never meant anyone to reach (the open
+   questions `50-coverage` notes and `60-verify`, "What a test lets
+   through", settles). It is classic tool-assisted-speedrun material,
    invisible in play and plain in the listing. Landing while climbing, and
    being paid more for it, is one. When you find one, do not stop at the
    poke: prove a player could get there (`60-verify`, reachability), and
@@ -137,6 +135,15 @@ can open with that instead.
   `build.py` stops on one. It reads every `src=` and `href=` in the page,
   the comments of an inlined script included, so a comment that names a
   file should not put it in an attribute.
+- The built page also loads the site's stylesheet, `site/lib/site.css`,
+  which has class names of its own (`.strip` is one). A page class with
+  the same name picks up its rules and the layout breaks only in the
+  built site. Check the stylesheet before naming a class, or prefix the
+  page's own.
+- A trace for a port has to catch the mechanic running. Before
+  recording, check that the state has the objects alive (the slots
+  active, the counters moving): a snapshot taken between waves records
+  hundreds of empty passes that test nothing.
 - Start from `kit/template/index.html` for the design tokens and layout.
   Keep its `<!-- tabs -->` marker; the build puts the tab bar there.
   A finished example to borrow patterns from is any Gold game in `games/`:
@@ -188,6 +195,13 @@ can open with that instead.
   the snapshots.
   Porting is work that splits well across agents: one mechanic each, each
   with its own trace and its own files.
+- **Draw from the memory the game draws from.** A renderer fed from the
+  listing reads the hand-over image, and a game that swaps character
+  shapes per area or per level has different glyphs there than in play:
+  one map drawn that way showed letters where the stalactites belong.
+  Compare the character set and the colour table of the hand-over with a
+  play snapshot, and embed the bytes that differ for the state the
+  picture claims to show.
 - Reference images go in `reference/`; the page refers to them by
   relative path from the game folder (`reference/<name>.png`).
 
