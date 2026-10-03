@@ -1,4 +1,4 @@
-## next · 1 October 2026 · Last Ninja Remix · 64kramsystem with Codex
+## 0.0.59 · 1 October 2026 · Last Ninja Remix · 64kramsystem with Codex
 
 Last Ninja Remix, contributed by Saverio Miroddi: short frame descriptors
 were followed by eleven animation streams, which a frame-only boundary
