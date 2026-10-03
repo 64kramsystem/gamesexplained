@@ -1,4 +1,4 @@
-## next · 3 October 2026 · Fat Worm Blows a Sparky, the first ZX Spectrum game · yozlet with Pi (DeepSeek 4.1 Flash), over two passes, and a third by air with Claude Code (Claude Opus 5.5)
+## 0.0.72 · 3 October 2026 · Fat Worm Blows a Sparky, the first ZX Spectrum game · yozlet with Pi (DeepSeek 4.1 Flash), over two passes, and a third by air with Claude Code (Claude Opus 5.5)
 
 **A control file is not a flow tracer, and coverage cannot see the
 difference.** The kit's first Spectrum game was annotated through a
