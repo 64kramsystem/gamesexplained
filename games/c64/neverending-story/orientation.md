@@ -15,3 +15,15 @@ The wrapper $03A0-$03E0 exchanges $CC00-$CFFF with hidden RAM $DC00-$DFFF, calls
 ## Rebuild
 
 Use `symbols_import.py` on the symbol map and `work/part1-command.vsf`, start its private project through `tools.py`, export with `symbols_export.py`, and generate Source with `listing.py` on the same snapshot. The Ghidra export supplies annotations; it does not generate Source directly. No binary or snapshot is published.
+
+## Review capture, 3 October 2026
+
+VICE MCP v3.13.2 macOS arm64 passed 57/57 emulator checks, then ran with
+`-console -sounddev dummy` through `tools.py vice x64sc-review`. The fresh
+private `work/part1-review.vsf` supplies the rebuilt Source listing. The
+three reviewed code spans and ICON_17 match the preceding listing.
+The preceding code differs only at the already documented self-modified
+capitalization byte $0AFF and action-handler operands $169A/$169B.
+Seven data bytes differ; facts.md identifies them. Wait for each named
+screen rather than relying on fixed loading batches. The earlier Linux
+captures and their measurements above remain the original run's record.

@@ -5,10 +5,13 @@
   kit/skills/core/       workflow only: no game names
   kit/skills/<platform>/ platform facts only: no game names
   games/*/*/facts.md, features.md   current truth, no narration of past mistakes
+  games/*/*/kit-feedback.md   the skill text that changed what the run did, named in the
+                     form skill_usage.py counts, or "None." (kit/skills/core/80-retro, step 1)
   kit/lessons/       one entry a file, under one heading that names the game that taught it
   games/, kit/, site/, AGENTS.md, README.md   no path on the contributor's computer:
                      a home folder usually names a person, and helps nobody else
   games/*/*/game.json   Silver or above only on proven models, or checked (models.py)
+  games/*/*/kit-feedback.md   each maintainer ask filed (#123) or fileable (maintainer_asks.py)
 
 Usage: check_docs.py      exit 1 on failure
 """
@@ -86,8 +89,15 @@ def main():
     for f in sorted(set(published)):
         fails += scan(f, HOME, "a path on the contributor's computer (name where it can be had instead)")
     sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
+    from skill_usage import parse as named_skill_text
+    for f in sorted(glob.glob(os.path.join(ROOT, "games", "*", "*", "kit-feedback.md"))):
+        for n, msg in named_skill_text(f)["problems"]:   # the words themselves: skill_usage.py --game
+            print(f"  x  {os.path.relpath(f, ROOT)}:{n}  skill text that changed what I did: {msg}")
+            fails += 1
     from models import check as models_check
     fails += models_check()
+    from maintainer_asks import check as asks_check
+    fails += asks_check(sorted(glob.glob(os.path.join(ROOT, "games", "*", "*", "kit-feedback.md"))))
     if fails:
         print(f"\nFAILED - {fails} issue(s). Rules in AGENTS.md; workflow in kit/skills/core; platform in kit/skills/<platform>; game facts in games/.")
         sys.exit(1)

@@ -3,7 +3,7 @@
   "platform": "c64",
   "game": "neverending-story",
   "build": "Ocean disk release; Part 1 at the command prompt",
-  "source": "regenerator2000 live",
+  "source": "regen2000proj",
   "regions": {
     "exclude": [
       [
@@ -274,7 +274,7 @@
     {
       "start": 1691,
       "end": 1806,
-      "type": "Byte"
+      "type": "Code"
     },
     {
       "start": 1807,
@@ -329,7 +329,7 @@
     {
       "start": 5504,
       "end": 5591,
-      "type": "Byte"
+      "type": "Code"
     },
     {
       "start": 5592,
@@ -443,8 +443,13 @@
     },
     {
       "start": 43080,
-      "end": 43154,
+      "end": 43135,
       "type": "Byte"
+    },
+    {
+      "start": 43136,
+      "end": 43154,
+      "type": "Code"
     },
     {
       "start": 43155,
@@ -1558,8 +1563,8 @@
     },
     {
       "address": 1691,
-      "name": "EXCLUDED_INTRO_SETUP_BYTES",
-      "type": "UserDefined",
+      "name": "INITIALIZE_PART1_DISPLAY",
+      "type": "Subroutine",
       "kind": "user"
     },
     {
@@ -3148,8 +3153,8 @@
     },
     {
       "address": 5504,
-      "name": "EXCLUDED_INTRO_BYTES",
-      "type": "UserDefined",
+      "name": "SHOW_OPENING_NARRATIVE_AND_ENTER_PLAY",
+      "type": "Subroutine",
       "kind": "user"
     },
     {
@@ -6688,7 +6693,7 @@
     },
     {
       "address": 43136,
-      "name": "EXCLUDED_INTRO_IRQ_BYTES",
+      "name": "TEMPORARY_PART1_RASTER_IRQ",
       "type": "UserDefined",
       "kind": "user"
     },
@@ -7657,12 +7662,12 @@
     {
       "address": 1024,
       "type": "line",
-      "text": "ENTRY_POINT ($0400)\nPurpose: Resident handoff from the excluded startup/intro occupant into gameplay. The two calls at $0400 and $0403 enter excluded byte ranges; the retained boundary fact is that the chain returns at $0406 with the gameplay display, raster IRQ and banking installed. $0406 then initialises the adventure and falls through into the command loop.\nInputs: None in registers. Requires the expanded gameplay image resident in RAM as captured.\nOutputs: Gameplay display, IRQ vector and banking installed; adventure state initialised by INIT_GAME; control enters MAIN_LOOP and never returns.\nAssumptions: The captured 64 KiB image and an otherwise normal C64. The excluded callees at $069B and $1580 are provenance only; the only asserted contract is that they return with the gameplay display installed.\nClobbers: A, X, Y, flags, and effectively the whole engine zero page and state block through callees.\nHardware changes: Through the excluded chain and ENTER_GAMEPLAY_DISPLAY: the 6510 port $01, VIC-II display and interrupt registers, SID, colour RAM, and the KERNAL RAM IRQ vector CINV at $0314/$0315."
+      "text": "Part-1 entry calls display setup $069B, then opening narrative and gameplay transition $1580. Both calls return before $0406 initializes the adventure and enters the command loop. The first phase installs temporary IRQ $A880; $070F installs gameplay IRQ $A7E0. The callees\u2019 direct contracts are described at their entries and checked by reference/review-checks.js."
     },
     {
       "address": 1024,
       "type": "side",
-      "text": "excluded intro-stage setup (not reversed)"
+      "text": "Initialize the first display phase before the opening narrative."
     },
     {
       "address": 1027,
@@ -8477,7 +8482,7 @@
     {
       "address": 1691,
       "type": "line",
-      "text": "Excluded pre-game intro setup bytes retained exactly from the gameplay snapshot. This prior-stage code is not reversed."
+      "text": "Initialize the first Part-1 display phase. Mask IRQs, select port $36, call KERNAL IOINIT ($FF84) and SETMSG ($FF90) with A=0, stop CIA1 timer A, and copy zero-page bytes $0002-$00FF to $A002-$A0FF. Install temporary IRQ $A880 through $0314/$0315, enable VIC interrupts with $D01A=$F1, set compare $D012=$33, select VIC bank $C000 and text layout $D018=$3E/$D011=$1B/$D016=$C8. Initialize screen and colour cursors to $CC00/$D800, clear the text screen through $07E8, set $5E=$FF, call $96A1 and $96DA with RAM under KERNAL visible ($01=$35), restore $01=$36 and enable IRQs. Controlled source calls verify its own writes and call order; the internal effects of the $96xx callees are not established by those hooked calls."
     },
     {
       "address": 1807,
@@ -11497,7 +11502,7 @@
     {
       "address": 5504,
       "type": "line",
-      "text": "Excluded resident intro bytes retained exactly from the gameplay snapshot and source media. This pre-game phase is not reversed. The only retained boundary fact is that it returns to the startup chain after installing the gameplay display."
+      "text": "Show the two opening narrative strings, wait for a key, and enter the gameplay display. Set background $0C and border $0B; use pointers at $B780/$B782 with lengths at $B784/$B785 for two PRINT_WORD calls ($0ADB). Put screen codes $5E/$5F at $CFC0/$CFE7 with colour $0B at $DBC0/$DBE7. WAIT_FOR_KEY ($0552) gates the transition. Mask IRQs, switch to $01=$35 for a call to $96A1, restore $36 and enable IRQs, then call ENTER_GAMEPLAY_DISPLAY ($070F), which installs the gameplay IRQ $A7E0. reference/review-checks.js checks the direct writes, two print-call arguments and transition-call order with callees hooked."
     },
     {
       "address": 5592,
@@ -14357,7 +14362,7 @@
     {
       "address": 42336,
       "type": "line",
-      "text": "OBJECT_ICON_TABLE ($A560-$BBDF, 5760 bytes) - 36 fixed 160-byte slots originally allocated\nto inventory and scripted-scene icons, laid out back to back with no header.\nADDRESSING\nCALC_OBJECT_GRAPHIC_PTR ($0F70) computes the slot address as $A560 + $A0 * CURRENT_OBJECT_INDEX\nby repeated addition, leaving it in GRAPHIC_RECORD_PTR ($5A/$5B). For normal inventory icons the index is the position at which the resolver at $15E3 found the\nparsed noun key inside NOUN_TO_OBJECT_INDEX ($22A4). SCRIPT_SET_OBJECT_GRAPHIC ($113D) instead\nreads an icon index directly from action bytecode, so a scripted scene can select a slot that no\nparsed noun can reach. NOUN_TO_OBJECT_INDEX holds 36 entries before its $FF terminator at $22C8,\nand 36 * 160 = 5760 lands the last byte on $BBDF, immediately below SAVED_BITMAP ($BC00). Table\nextent and slot stride therefore corroborate each other.\nPAYLOAD FORMAT - identical to a RoomGraphicRecord payload with width = 4 cells and\nheight = 4 character rows. The source stream is interleaved per character row:\n32 bytes  bitmap      (4 cells x 8 scanlines)\n4 bytes  screen matrix\n4 bytes  colour RAM\n------------------------------------------------\n40 bytes per character row, 4 rows = 160 bytes per icon\nBLIT_ROOM_GRAPHIC ($05BF) / COPY_BLIT_ROW ($0676) scatter those three spans to three different\ndestinations, which is why they are interleaved rather than stored as three flat planes.\nC64 DISPLAY SEMANTICS (for a reader fluent in 6510 but not in VIC-II)\nThe picture band runs in multicolor bitmap mode: RASTER_SPLIT_PICTURE ($A7E3) sets $D011=$3B\n(BMM=1, bitmap mode), $D016=$D8 (MCM=1, multicolor), $D018=$38 (video matrix $CC00, bitmap\n$E000, both inside VIC bank 3) and $D021=$00. In that mode the VIC consumes TWO bitmap bits per\npixel, so horizontal resolution halves - each 8x8 cell is 4 double-wide pixels across - and the\ncolour of a pixel is selected by the bit pair:\n00 -> background register $D021\n01 -> high nybble of that cell's screen-matrix byte\n10 -> low  nybble of that cell's screen-matrix byte\n11 -> low  nybble of that cell's colour-RAM byte\nHence the 4 screen bytes and 4 colour bytes per row: they carry three of the four palette\nentries for the four cells in that row. An icon is 32 x 32 screen pixels (16 double-wide\nmulticolor pixels wide).\nWHERE THEY ARE DRAWN\nVISIBLE_OBJECT_RECORDS ($2943) is six 6-byte RoomGraphicRecords, all with height=4 width=4, at\n(row 0, col 21), (0,28), (0,35), (5,21), (5,28), (5,35) - a 3x2 inventory grid to the right of\nthe room illustration, which occupies columns 3-16. SHOW_OBJECT_ICON ($0F3A) scans those six\nrecords for one whose source_ptr high byte is zero, writes the computed icon address into it,\nand calls RENDER_ROOM_GRAPHICS ($0570) to repaint the band.\nSCRIPTED, UNUSED, AND OVERWRITTEN SLOTS\nPart 1's NOUN_TO_OBJECT_INDEX holds 0 at positions 4, 5, 23, 24, 27, 29, 30 and 31. Because\nthe normal noun resolver searches linearly and position 0 legitimately holds key 0 (noun \"aur\"\nnot make every such graphics slot dead: action opcode $17 reads the following byte as a slot\nindex directly.\nSlot 23 is Falkor. Dynamic execution of \"get falkor\" in part 1 at room $21 selected verb-rule\npair 14 and ACTION_SCRIPT_GET_FALKOR; bytes $17,$17 at $2B8F-$2B90 made\nSCRIPT_SET_OBJECT_GRAPHIC cache index $17 and COPY_BLIT_ROW read from $B3C0.\nSlot 24 is Artax. Vocabulary entry \"art\" has noun id $57, VERB_RULE_GET_ARTAX is pair 13\n($15,$57), its pointer selects ACTION_SCRIPT_GET_ARTAX at $2B55, and that script's successful\nroom-$25 branch contains $17,$18 at $2B5E-$2B5F. The horse artwork therefore has a direct,\nunambiguous code identity even though it is not selected by ordinary noun-to-icon mapping.\nSlot 27 is unused crucifix artwork. The image is a Latin cross and vocabulary entry \"cru\" has\nnoun id $5A, but the corresponding resolver key $28 is absent from NOUN_TO_OBJECT_INDEX.\nCURRENT_OBJECT_INDEX has only two writers: the noun resolver at $15FB and direct script action\n$17 at $114F. No action bytecode contains the required direct pair $17,$1B, and no decoded instruction or recorded reference reads $B640-$B6DF. The artwork is resident,\nrecognisable abandoned content, not a live part-specific remap.\nThe build reuses otherwise unreachable slot ranges:\nslot  4  $A7E0-$A87F  active gameplay raster handlers through $A847; artwork tail at $A848\nslot  5  $A880-$A91F  excluded intro IRQ bytes through $A892, active system-handoff\nroutines through $A8DE, and artwork tail at $A8DF\nslots 29-31 $B780-$B95F  excluded intro data through $B906 and artwork tail at $B907\nThe exact boundaries $A7E0 = $A560 + 4*160 and $B780 = $A560 + 29*160 corroborate the slot arithmetic. The excluded intro occupants are retained only as typed bytes.\nDecoding each 160-byte slot with the interleaved multicolor rule above yields 36 recognisable\nadventure objects, and they match the game's own three-letter noun stems: slot 0 (noun key $00,\nobject id $32, stem \"aur\") renders as the two-serpent AURYN amulet; \"kni\" is a dagger, \"web\" a\nspider web, \"dia\" a faceted diamond, \"app\" an apple, \"coi\" a coin, and so on. Verified against\nthe retained gameplay image over $0000-$CFFF apart from the CPU port at $0000/$0001."
+      "text": "OBJECT_ICON_TABLE ($A560-$BBDF, 5760 bytes) - 36 fixed 160-byte slots originally allocated\nto inventory and scripted-scene icons, laid out back to back with no header.\nADDRESSING\nCALC_OBJECT_GRAPHIC_PTR ($0F70) computes the slot address as $A560 + $A0 * CURRENT_OBJECT_INDEX\nby repeated addition, leaving it in GRAPHIC_RECORD_PTR ($5A/$5B). For normal inventory icons the index is the position at which the resolver at $15E3 found the\nparsed noun key inside NOUN_TO_OBJECT_INDEX ($22A4). SCRIPT_SET_OBJECT_GRAPHIC ($113D) instead\nreads an icon index directly from action bytecode, so a scripted scene can select a slot that no\nparsed noun can reach. NOUN_TO_OBJECT_INDEX holds 36 entries before its $FF terminator at $22C8,\nand 36 * 160 = 5760 lands the last byte on $BBDF, immediately below SAVED_BITMAP ($BC00). Table\nextent and slot stride therefore corroborate each other.\nPAYLOAD FORMAT - identical to a RoomGraphicRecord payload with width = 4 cells and\nheight = 4 character rows. The source stream is interleaved per character row:\n32 bytes  bitmap      (4 cells x 8 scanlines)\n4 bytes  screen matrix\n4 bytes  colour RAM\n------------------------------------------------\n40 bytes per character row, 4 rows = 160 bytes per icon\nBLIT_ROOM_GRAPHIC ($05BF) / COPY_BLIT_ROW ($0676) scatter those three spans to three different\ndestinations, which is why they are interleaved rather than stored as three flat planes.\nC64 DISPLAY SEMANTICS (for a reader fluent in 6510 but not in VIC-II)\nThe picture band runs in multicolor bitmap mode: RASTER_SPLIT_PICTURE ($A7E3) sets $D011=$3B\n(BMM=1, bitmap mode), $D016=$D8 (MCM=1, multicolor), $D018=$38 (video matrix $CC00, bitmap\n$E000, both inside VIC bank 3) and $D021=$00. In that mode the VIC consumes TWO bitmap bits per\npixel, so horizontal resolution halves - each 8x8 cell is 4 double-wide pixels across - and the\ncolour of a pixel is selected by the bit pair:\n00 -> background register $D021\n01 -> high nybble of that cell's screen-matrix byte\n10 -> low  nybble of that cell's screen-matrix byte\n11 -> low  nybble of that cell's colour-RAM byte\nHence the 4 screen bytes and 4 colour bytes per row: they carry three of the four palette\nentries for the four cells in that row. An icon is 32 x 32 screen pixels (16 double-wide\nmulticolor pixels wide).\nWHERE THEY ARE DRAWN\nVISIBLE_OBJECT_RECORDS ($2943) is six 6-byte RoomGraphicRecords, all with height=4 width=4, at\n(row 0, col 21), (0,28), (0,35), (5,21), (5,28), (5,35) - a 3x2 inventory grid to the right of\nthe room illustration, which occupies columns 3-16. SHOW_OBJECT_ICON ($0F3A) scans those six\nrecords for one whose source_ptr high byte is zero, writes the computed icon address into it,\nand calls RENDER_ROOM_GRAPHICS ($0570) to repaint the band.\nSCRIPTED, UNUSED, AND OVERWRITTEN SLOTS\nPart 1's NOUN_TO_OBJECT_INDEX holds 0 at positions 4, 5, 23, 24, 27, 29, 30 and 31. Because\nthe normal noun resolver searches linearly and position 0 legitimately holds key 0 (noun \"aur\"\nnot make every such graphics slot dead: action opcode $17 reads the following byte as a slot\nindex directly.\nSlot 23 is Falkor. Dynamic execution of \"get falkor\" in part 1 at room $21 selected verb-rule\npair 14 and ACTION_SCRIPT_GET_FALKOR; bytes $17,$17 at $2B8F-$2B90 made\nSCRIPT_SET_OBJECT_GRAPHIC cache index $17 and COPY_BLIT_ROW read from $B3C0.\nSlot 24 is Artax. Vocabulary entry \"art\" has noun id $57, VERB_RULE_GET_ARTAX is pair 13\n($15,$57), its pointer selects ACTION_SCRIPT_GET_ARTAX at $2B55, and that script's successful\nroom-$25 branch contains $17,$18 at $2B5E-$2B5F. The horse artwork therefore has a direct,\nunambiguous code identity even though it is not selected by ordinary noun-to-icon mapping.\nSlot 27 is unused crucifix artwork. The image is a Latin cross and vocabulary entry \"cru\" has\nnoun id $5A, but the corresponding resolver key $28 is absent from NOUN_TO_OBJECT_INDEX.\nCURRENT_OBJECT_INDEX has only two writers: the noun resolver at $15FB and direct script action\n$17 at $114F. No action bytecode contains the required direct pair $17,$1B, and no decoded instruction or recorded reference reads $B640-$B6DF. The artwork is resident,\nrecognisable abandoned content, not a live part-specific remap.\nThe build reuses otherwise unreachable slot ranges:\nslot  4  $A7E0-$A87F  active gameplay raster handlers through $A847; artwork tail at $A848\nslot  5  $A880-$A91F  temporary startup IRQ code through $A892, active system-handoff\nroutines through $A8DE, and artwork tail at $A8DF\nslots 29-31 $B780-$B95F  excluded intro data through $B906 and artwork tail at $B907\nThe exact boundaries $A7E0 = $A560 + 4*160 and $B780 = $A560 + 29*160 corroborate the slot arithmetic. The startup IRQ at $A880-$A892 is typed and described as code; the intro text/data remain a separate retained occupant.\nDecoding each 160-byte slot with the interleaved multicolor rule above yields 36 recognisable\nadventure objects, and they match the game's own three-letter noun stems: slot 0 (noun key $00,\nobject id $32, stem \"aur\") renders as the two-serpent AURYN amulet; \"kni\" is a dagger, \"web\" a\nspider web, \"dia\" a faceted diamond, \"app\" an apple, \"coi\" a coin, and so on. Verified against\nthe retained gameplay image over $0000-$CFFF apart from the CPU port at $0000/$0001."
     },
     {
       "address": 42496,
@@ -14612,7 +14617,7 @@
     {
       "address": 43136,
       "type": "line",
-      "text": "Excluded intro-phase raster IRQ bytes. The temporary handler is superseded by the in-scope gameplay dispatcher at $A7E0 before the command loop begins. Retained as byte-exact data; not reversed."
+      "text": "Temporary pre-command-loop raster IRQ: select RAM under KERNAL with $01=$35, call $9695, restore $01=$36, acknowledge the VIC raster interrupt by writing $01 to $D019, and tail-jump to the KERNAL IRQ epilogue $EA81. The setup at $069B installs this vector; $070F later replaces it with $A7E0. Controlled source execution verifies both banking values, acknowledgement and tail target with $9695 hooked; no separate claim about that callee\u2019s effect is made."
     },
     {
       "address": 43155,
@@ -14627,7 +14632,7 @@
     {
       "address": 43231,
       "type": "line",
-      "text": "ICON_SLOT_05_ARTWORK_TAIL ($A8DF-$A91F, 65 bytes) \u2014 surviving tail of OBJECT_ICON_TABLE slot 5.\nSlot 5 spans $A880-$A91F ($A560 + 5*160). Its first 19 bytes are excluded intro IRQ bytes; the next 76 bytes contain the active system-handoff routines RESTORE_SYSTEM_TO_BASIC ($A893-$A8CB) and INSTALL_GAME_IRQ ($A8CC-$A8DE). These final 65 bytes are the remains of the overwritten icon. Slot 5 is unreachable through ordinary noun resolution because NOUN_TO_OBJECT_INDEX[5] is 0 behind the valid zero at index 0.\nICON_06 resumes exactly at the next slot boundary, $A920."
+      "text": "ICON_SLOT_05_ARTWORK_TAIL ($A8DF-$A91F, 65 bytes) \u2014 surviving tail of OBJECT_ICON_TABLE slot 5.\nSlot 5 spans $A880-$A91F ($A560 + 5*160). Its first 19 bytes are the temporary startup IRQ, typed and described as code; the next 76 bytes contain the active system-handoff routines RESTORE_SYSTEM_TO_BASIC ($A893-$A8CB) and INSTALL_GAME_IRQ ($A8CC-$A8DE). These final 65 bytes are the remains of the overwritten icon. Slot 5 is unreachable through ordinary noun resolution because NOUN_TO_OBJECT_INDEX[5] is 0 behind the valid zero at index 0.\nICON_06 resumes exactly at the next slot boundary, $A920."
     },
     {
       "address": 43296,
@@ -14687,7 +14692,7 @@
     {
       "address": 45056,
       "type": "line",
-      "text": "ICON_17 - brand / bar-shaped implement, drawn upright on a white ground. Slot 17 of\nOBJECT_ICON_TABLE: 4x4-cell multicolor payload, 160 bytes; see the plate at $A560.\nNOUN_TO_OBJECT_INDEX[17] = $1D, parser object id $4F, vocabulary stem \"bra\"."
+      "text": "ICON_17 - brand / bar-shaped implement, drawn upright on a light-grey ground (colour-RAM value 15). Slot 17 of\nOBJECT_ICON_TABLE: 4x4-cell multicolor payload, 160 bytes; see the plate at $A560.\nNOUN_TO_OBJECT_INDEX[17] = $1D, parser object id $4F, vocabulary stem \"bra\"."
     },
     {
       "address": 45216,

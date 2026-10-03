@@ -61,3 +61,29 @@ Imported `neverending_story_full_listing.txt`, SHA-256 `ef4cadfc4fb0bbe410a3a088
 A cycle-positioned frame capture recorded eight video-register writes. C64.renderFrame matched all 104,448 pixels of the emulator capture, with zero differences. The page embeds the trimmed 4,505 RAM bytes read by the renderer, plus the captured colour state; it carries no ROM image.
 
 A controlled direct-call test placed noun token $45 (WEB) in the current room by setting its relative noun-state index 19 to room 1 and its carried count to zero. TAKE at $0F02 changed that location to $FC and incremented the count to one; the noun resolver selected icon slot 8, whose $AA60 source pointer appeared in a visible overlay. DROP at $0EB0 restored location 1, decremented the count to zero, and removed that pointer. This verifies the state and icon mechanics under the stated synthetic setup; it does not claim that WEB occurs in the starting clearing during ordinary play.
+
+## Startup and review verification, 3 October 2026
+
+`node games/c64/neverending-story/reference/review-checks.js` executes
+the published bytes of $069B, $1580 and $A880. Controlled calls verify the
+zero-page backup, temporary IRQ vector and VIC/CIA setup writes; both
+opening-text pointers and lengths, prompt-cell writes and transition-call
+order; and the IRQ's $35/$36 banking, acknowledgement and KERNAL tail.
+Callees are hooked to isolate those contracts, so this test does not
+establish the internal behavior of the $96xx routines or ordinary input
+reachability. $069B and $1580 are the first two calls from $0400; all
+223 bytes are now typed and described as startup/transition code.
+
+ICON_17 at $B000 uses bit pair 11 for its 338 ground pixels. Every cell's
+colour-RAM byte selects value 15, light grey. It is not a white ground.
+
+A fresh Ocean disk boot on 3 October 2026 reached the Part-1 command
+prompt using VICE MCP v3.13.2 with console mode and dummy sound. The
+three reviewed routine spans and ICON_17 match the preceding published
+bytes exactly. Compared with that listing, the existing code differs
+only at the capitalization flag $0AFF and action-handler operands
+$169A/$169B, all already documented as self-modified state. Seven
+data bytes also differ: $980C, $9833 and retained boot-copy bytes $D01B,
+$D070, $D07E, $D098, $D0D7; their equality is not assumed. Source was
+rebuilt from this private capture and the updated symbol export.
+Coverage is 49,311 of 49,311 tracked bytes, including 4,972 code bytes.

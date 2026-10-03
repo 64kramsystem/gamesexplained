@@ -11,3 +11,13 @@ All 21 Part-1 illustration descriptors were decoded from the fresh snapshot and 
 Cold-boot watches established the hidden-page copy and eight high-byte-first repair pointers; all pointed bytes changed $D4 to $D3. The final 17-byte boot trailer was observed being decompressed at $0182. The retained title-player tail was decoded separately, with phase-aware operand aliases where its old call targets overlap the installed gameplay loader. Native parser outcomes and the disabled SAVE/LOAD dispatch were checked. The picture browser now starts at the fresh capture’s illustration id 3, replacing imported id 4.
 
 A controlled TAKE/DROP test distinguished relative noun-state index 19 from icon slot 8 and checked count and overlay updates. The shared frame renderer matched the captured bitmap/text raster split with zero differing pixels; its trimmed memory excerpt is embedded in the article. Firefox checked all 21 picture outputs and the frame’s mode-change marker. The retrospective adds producer-phase and bank-watch controls to the kit.
+
+## Review correction, 3 October 2026
+
+Corrected ICON_17's ground from white to light grey. The three ranges
+formerly described only as “not reversed” are executable startup/display
+code: $069B saves zero page and installs the first display/IRQ phase;
+$1580 prints the opening narrative and enters the gameplay display; $A880
+is its temporary IRQ. Replaced the misleading excluded-intro names and
+comments, including the $0400 entry description. Controlled source checks
+separate the routines' direct contracts from hooked callee behavior.
