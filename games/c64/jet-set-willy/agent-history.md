@@ -20,3 +20,17 @@ All item records and BCD boundaries passed controlled native collection calls. A
 ## 1 October 2026 — annotation review correction
 
 Corrected 121 inherited comments whose text had been attached to the following row. Matched each moved text to its original Ghidra address, restored missing original descriptions where no newer annotation existed, and retained independently tested replacement claims. The Commodware review exposed the import error; byte data and code boundaries are unchanged.
+
+## Review corrections, 3 October 2026
+
+Corrected $0D6F from skipping byte-1 spaces to rejecting them via the
+editor error path; $0BC5 is the actual skipper. Corrected the title's
+fire condition: it requires a held key, while Return starts directly.
+Described the 612-byte rope directory/trajectory span at $1858 and the
+seven mask-table bytes at $2233. The former 100% metadata overstated the
+99.0% measured ledger; the corrected descriptions now reproduce 100%.
+Reran verification against the published code and a fresh private
+headless/dummy-sound gameplay snapshot. Re-export preserved the previous
+auto symbols as well as the edited user annotations. Remaining loaded
+gaps and mechanics stay open; tier remains Bronze pending a fresh
+maintainer check.

@@ -51,3 +51,31 @@ The retained copyright display's pointer calculations address `$0A00-$0B3F` in i
 - **Death (controlled native entry):** all eight checkpoint fields at `$57-$5E` were restored to their corresponding player variables. Six spare-counter cases 8, 1, 0, `$80`, `$81`, `$FF` agreed with decrement-then-BPL: resulting nonnegative bytes enter room setup at `$2E07`, negative ones enter game over at `$383B`. The initialized value 8 represents eight spares in addition to the current attempt. The high-byte counter cases are synthetic arithmetic boundaries, not reachable-life claims.
 - **Maria flag (controlled room states):** room 35 with flag zero enables sprite 7. A nonzero flag makes `$3284` skip its writes; it does not clear an already enabled sprite-7 bit. Room initialization at `$2E07` clears that bit, and the flag prevents re-enabling it. Five controlled room/flag/enable combinations and a room reset matched. Whether a player can arrange the fiftieth pickup in a state with Maria already displayed is open.
 - **Additional copy helpers (relocated native calls):** the preserved helpers at `$3F00-$3F2A` and physical `$FF00-$FF2B` copy 8 KB from `$B000-$CFFF` to `$2000-$3FFF` and `$E000-$FFFF` respectively. Clones executed at `$0200` matched every output byte and restored port `$37`. Their original addresses lie inside their destinations, so neither their earlier caller nor safe in-place execution is inferred from the clone tests.
+
+## Review verification, 3 October 2026
+
+`node games/c64/jet-set-willy/reference/review-checks.js` runs 44
+controlled checks against bytes in the committed listing. Four editor
+inputs distinguish rejected byte-1 spaces, accepted decimal digits and a
+non-digit. Four title-loop inputs distinguish fire alone, Return, another
+key with fire and another key without fire. All 34 rope-directory pointers
+and trajectory-pointer calls match their address formulas; both eight-byte
+bit-mask tables match entry by entry. These simulator calls confirm routine
+contracts, not legal routes from ordinary play.
+
+The rope storage ends at $1ABC: the pointer directory is $1856-$1899;
+the active attachment windows start at $189C and cover seventeen 32-byte
+windows through $1ABB. The preceding pair at $189A/$189B is $80,$04;
+no independent header role is claimed. $2233-$2239 crosses from the final
+six ascending masks into the first inverted mask.
+
+A fresh CMM boot on 3 October 2026 with VICE MCP v3.13.2, console mode
+and dummy sound reached the title with all trainers disabled. Holding
+port-2 fire for 120 frames with $50/$51 both zero produced no execution
+hits at $A7EE; Return then reached THE BATHROOM. The private play snapshot
+matches all 7,415 code bytes and 560 word bytes of the preceding listing.
+Twenty-four byte-data bytes differ at the title glyph area $79E0 onward;
+these differing bytes are not treated as immutable. Source was
+rebuilt from the fresh play snapshot. Coverage measures 59,668 of 59,668
+tracked bytes; this does not close the loaded-image audit or the open
+mechanics in the scope notes.

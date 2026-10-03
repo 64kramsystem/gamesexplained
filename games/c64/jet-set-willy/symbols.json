@@ -1692,7 +1692,7 @@
   },
   {
    "address": 3439,
-   "name": "RETAINED_EDITOR_SKIP_SPACES_AND_TEST_DIGIT",
+   "name": "RETAINED_EDITOR_REJECT_SPACE_AND_TEST_DIGIT",
    "type": "UserDefined",
    "kind": "user"
   },
@@ -8465,7 +8465,7 @@
   {
    "address": 3439,
    "type": "line",
-   "text": "Skips byte-1 spaces, tests ASCII 0-9 and leaves carry clear for a digit. The hex helper uses carry to distinguish digits from A-F."
+   "text": "Reads one command character through $0B8E and rejects byte-1 spaces through $0D6B (TXA; JMP $0BB9), the editor error path. Tests ASCII 0-9 and returns a digit with carry clear; other characters return carry set for the hex helper. The repeat parser at $0BC5 is the separate routine that skips byte-1 spaces."
   },
   {
    "address": 3453,
@@ -8913,6 +8913,11 @@
    "text": "Interleaved little-endian pointers selecting the rope source-sprite triplet for each rope position.\nHigh-byte operand base for indexed reads of the interleaved rope source-sprite pointer table."
   },
   {
+   "address": 6232,
+   "type": "line",
+   "text": "Remaining 33 little-endian source pointers in the 34-position rope directory $1856-$1899: pointer i is $8100+192*i and $16CD/$16D2 select it with twice oscillator position $0403. The following $189A-$1ABB contains the rope attachment coordinate storage: two leading bytes $80,$04 precede the active trajectory windows. $1C86 returns $189C+32*(position modulo 17); player state 6 at $1B65 doubles attachment index $1019 to read alternating horizontal and vertical bytes, mirroring horizontal values as $F7-x in the second half-cycle. The seventeen 32-byte windows end exactly at the code entry $1ABC. All 34 directory values and trajectory-pointer calls are checked by reference/review-checks.js. The two leading bytes are retained coordinate-shaped storage; no separate header meaning is asserted."
+  },
+  {
    "address": 6844,
    "type": "line",
    "text": "Purpose: Player state 6 follows the selected rope trajectory, permits jump-off, screen-top transition, and tile checks. Inputs: rope trajectory pointer, oscillator/player/input state. Outputs: player position/state/room or death. Assumptions: the active phase is initialized and the stated inputs and state are valid. Clobbers: A,X,Y and player state. Hardware: relies on staged rope sprite/collision state."
@@ -9036,6 +9041,11 @@
    "address": 8754,
    "type": "line",
    "text": "Second entry of the ascending bit-mask table, named because indexed references begin here."
+  },
+  {
+   "address": 8755,
+   "type": "line",
+   "text": "Entries 2-7 ($04,$08,$10,$20,$40,$80) of the ascending bit-mask table $2231-$2238, followed by entry 0 ($FE) of its bitwise-inverted counterpart $2239-$2240. Indexed consumers use bases $2231/$2232 for setting bits and $223A for clearing them. Each inverted entry is $FF XOR the matching ascending mask; the final seven inverse entries are described at $223A."
   },
   {
    "address": 8762,
@@ -11190,7 +11200,7 @@
   {
    "address": 42963,
    "type": "line",
-   "text": "Purpose: Wait for Return or port-2 fire, restart music on end, and launch game through $2000. Inputs: decoded title keys, joystick port 2, end flag $FE. Outputs: title continues/restarts or gameplay begins. Assumptions: the active phase is initialized and the stated inputs and state are valid. Clobbers: A and flags. Hardware: reads CIA 1 port A; fire bit 4 is active low."
+   "text": "Waits for a decoded title key before testing launch inputs. With $50=0, the loop skips the port-2 fire read entirely. Return ($51=$0D) starts through $2000; with another decoded key held, port-2 fire can also select that launch path. Fire alone does not start the game. The end flag $FE restarts title music through $A0CD."
   },
   {
    "address": 43009,

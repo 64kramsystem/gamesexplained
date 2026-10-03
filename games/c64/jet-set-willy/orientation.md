@@ -23,3 +23,13 @@ VICE MCP 3.13.1 health check on 30 September 2026: 55/57 passed; `pause-at-instr
 Rebuild the disassembler project with `symbols_import.py <game> work/play.vsf`, start it through `tools.py r2000`, export with `symbols_export.py`, then `listing.py <game> work/play.vsf`. Binaries, snapshots and projects remain private.
 
 The final cold hand-over snapshot is `work/entry.vsf`, stopped at `$3C23` after answering all three trainer prompts with N. The RLE decoder jumps there at `$0140`; port `$37`, DDR `$2F`, CIA2 `$97` and `$D018=$15` were observed. It matches all 7,415 code-typed bytes of the play image. The retained copy routine under I/O can be executed in a controlled test, but its entry did not run on this CMM boot.
+
+## Review capture, 3 October 2026
+
+VICE MCP v3.13.2 macOS arm64 passed 57/57 emulator checks, then ran through
+`tools.py vice x64sc-review` with `-console -sounddev dummy`. The fresh
+private `work/play-review.vsf` supplies the rebuilt Source listing. All
+7,415 code bytes and 560 word bytes match the preceding listing; 24
+byte-data bytes differ at $79E0 onward. Wait for the trainer, title and
+Bathroom screens: the loader can take longer than a fixed frame batch.
+The earlier Linux measurements above describe the original capture.
