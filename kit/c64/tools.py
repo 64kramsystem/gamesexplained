@@ -26,6 +26,7 @@ Usage:
   tools.py use-vice release        go back to the release (kept at tools/vice-mcp-release)
   tools.py check-emulator          test the emulator against kit/EMULATOR.md (kit/c64/check_emulator.py)
   tools.py build-vice <src dir>    build a vice-mcp source tree into <src dir>/install and use it (kit/c64/build_vice.py)
+  tools.py ghidra-fixture <installation>  regenerate the synthetic Ghidra importer fixture
   tools.py snapshots               where emulator snapshots are, and what is there
   tools.py verify-footprint        prove the tools write nothing outside this repository
 
@@ -39,7 +40,7 @@ import os, re, shutil, subprocess, sys, time
 # What this launcher serves, read by the dispatcher (kit/scripts/tools.py) when several
 # platforms have a launcher. Keep in step with main() below.
 COMMANDS = ("status", "vice", "r2000", "stop", "verify-footprint", "use-vice", "check-emulator",
-            "get-vice", "build-vice", "snapshots")
+            "get-vice", "build-vice", "snapshots", "ghidra-fixture")
 TOOL_NAMES = ("vice", "r2000")   # what `stop` takes
 
 ROOT = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
@@ -411,6 +412,9 @@ def main():
         sys.exit(subprocess.run([sys.executable, os.path.join(os.path.dirname(os.path.abspath(__file__)), "get_vice.py"), *a[1:]]).returncode)
     elif a[0] == "build-vice":
         sys.exit(subprocess.run([sys.executable, os.path.join(os.path.dirname(os.path.abspath(__file__)), "build_vice.py"), *a[1:]]).returncode)
+    elif a[0] == "ghidra-fixture":
+        script = os.path.join(os.path.dirname(os.path.abspath(__file__)), "ghidra_export", "regenerate_fixture.py")
+        sys.exit(subprocess.run([sys.executable, script, *a[1:]]).returncode)
     elif a[0] == "snapshots":
         print(os.path.relpath(SNAPSHOTS, ROOT))
         for f in sorted(os.listdir(SNAPSHOTS)) if os.path.isdir(SNAPSHOTS) else []:

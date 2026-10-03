@@ -40,6 +40,7 @@ measures whatever was installed. The measurements, each dated:
 | v3.13.1, from source (`get-vice build`) | Linux x86_64, no display | 24 September 2026 | 53, 54, 54 and 56 of 56, four runs |
 | v3.13.1 release, `v3.13.1-linux-x86_64-gui.zip` | Linux x86_64, no display | 26 September 2026 | 56 of 57, five runs: all but `pause-at-instruction` |
 | v3.13.1 release, `v3.13.1-macos-arm64-gui.dmg` | macOS arm64 | 28 September 2026 | 56 of 57: all but `pause-at-instruction` |
+| v3.13.1 release, GUI; regenerator2000 0.9.20 | Ubuntu 24.04.5 x86_64, desktop | 30 September 2026 | 56 of 57: all but `pause-at-instruction` |
 | v3.13.2 release, `v3.13.2-linux-x86_64-gui.zip` | Linux x86_64, no display | 2 October 2026 | 57 of 57, five runs |
 | v3.13.2 release, `v3.13.2-macos-arm64-gui.dmg` | macOS arm64 | 2 October 2026 | 57 of 57, five runs |
 | v3.13.1 release, `v3.13.1-linux-x86_64-gui.zip` | Linux x86_64 desktop (Ubuntu 24.04), under `xvfb-run` | 30 September 2026 | 56 of 57: all but `warp` |
@@ -413,6 +414,18 @@ passes a second against 51 without, where the check wants over 100. The
 cause is unknown: container runs, also under `xvfb-run`, pass it. `verify-footprint`
 was clean, and regenerator2000 wrote nothing to `~/.config/regenerator2000`.
 
+## Linux — a second desktop run, 30 September 2026, with regenerator2000
+
+On Ubuntu 24.04.5 x86_64, the v3.13.1 GUI release passed 56 of 57
+checks; `pause-at-instruction` failed, so inspection used the documented
+pause workaround. Restoring an existing snapshot reached gameplay.
+regenerator2000 0.9.20 was also exercised. The run reported no external
+changes in the bounded footprint comparison, but did not preserve whether
+`~/.config/regenerator2000/config.toml` was listed as a known leftover.
+That report cannot establish absence of an external settings file:
+a maintainer observed 0.9.20 writing it with opened project paths.
+Check both changed files and known leftovers when repeating the run.
+
 ## Linux — run on a server with no display, 24 September 2026
 
 Run on 24 September 2026 on Ubuntu 24.04, x86_64, four cores, in cloud
@@ -420,8 +433,7 @@ containers with no display (gcc 13.3, Python 3.11, cargo 1.94). The first
 run built v3.13.0 from source and measured `check-emulator` 56 of 56 three
 times, `verify-footprint` clean. A second run the same day used the
 v3.13.1 release zip and then a source build of the same tag (the table at
-the top of this file). No run is recorded on a Linux desktop, on ARM or on
-another distribution.
+the top of this file). No run is recorded on ARM or another distribution.
 
 **A network that refuses the GitHub API.** In those containers the proxy
 answered `api.github.com`, the project's web pages and `codeload` with 403
