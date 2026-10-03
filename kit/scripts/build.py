@@ -37,19 +37,16 @@ PLATFORM_NAMES = {"c64": "Commodore 64", "spectrum": "ZX Spectrum", "nes": "NES"
 # its own, so a C64 page does not fetch spectrum.js and a third platform adds a row.
 PLATFORM_MAPS = {"c64": "C64Map", "spectrum": "SpectrumMap"}
 PLATFORM_MAP_LIBS = {"c64": [], "spectrum": ["spectrum.js"]}
-# How the footprint blurb names the address space and its dim areas, so the C64 pages keep
-# their copy. The C64 has 64 KB of RAM; the Spectrum's 64 KB is the Z80's address space, a
-# quarter of it ROM (kit/skills/spectrum/zx-spectrum-reference, "Memory map (48K)").
-PLATFORM_MEM = {"c64": "the C64's 64 KB",
-                "spectrum": "the Spectrum's 64 KB address space (16 KB of ROM, then 48 KB of RAM)"}
-PLATFORM_DIM = {"spectrum": "the ROM, the screen and working memory"}
-# The footprint table's words: its share column, and the machine's own areas in the same
-# words as the map's legend above it (memmap.js for the C64, spectrum.js for the Spectrum).
-PLATFORM_FOOT_WORDS = {"c64": {"share": "Of 64 KB", "runtime": "Screen, bitmap, colour, stack, I/O",
-                               "rom": "ROM the game runs under"},
-                       "spectrum": {"share": "Of the 64 KB address space",
-                                    "runtime": "Screen, attributes, stack, system variables",
-                                    "rom": "ROM (the machine's routines)"}}
+# The addresses the footprint draws, [start, end): all 64 KB, except on a machine whose ROM
+# sits at a fixed place no game can write to. The 48K Spectrum's ROM is $0000-$3FFF
+# (kit/skills/spectrum/zx-spectrum-reference, "Memory map (48K)"), so its map is the 48 KB of RAM.
+PLATFORM_MAP_SPAN = {"spectrum": (0x4000, 0x10000)}
+# How the footprint blurb names what it draws, so the C64 pages keep their copy.
+PLATFORM_MEM = {"c64": "the C64's 64 KB", "spectrum": "the Spectrum's 48 KB of RAM"}
+# The footprint table's names for the machine's own areas, in the same words as the map's
+# legend above it (memmap.js for the C64, spectrum.js for the Spectrum).
+PLATFORM_FOOT_WORDS = {"c64": {"runtime": "Screen, bitmap, colour, stack, I/O", "rom": "ROM the game runs under"},
+                       "spectrum": {"runtime": "Screen, attributes and working memory"}}
 TABS = [("index.html", "How it works"), ("source.html", "Source code"), ("levels.html", "Maps / levels"),
         ("play.html", "Play"), ("about.html", "About")]
 _warned = set()
@@ -150,7 +147,8 @@ def hexint(v):
 
 
 def footprint(gdir, game):
-    """Classify all 65536 bytes. Returns (runs, totals, symbols)."""
+    """Classify every byte the platform's map draws (PLATFORM_MAP_SPAN, else all 65536).
+    Returns (runs, totals, symbols, span)."""
     sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
     from symbols_export import regions as cov_regions, PLATFORM_DEFAULTS, platform_of
     lp = os.path.join(gdir, "listing.json")
@@ -201,21 +199,24 @@ def footprint(gdir, game):
         for a in range(hexint(lo), hexint(hi) + 1):
             if cat[a] != "unused":
                 cat[a] = k; why[a] = name
+    lo, hi = PLATFORM_MAP_SPAN.get(platform_of(game), (0, 0x10000))
+    if lo:   # the ROM is off this map, so RAM that a game.json names after the ROM is working memory
+        cat[lo:hi] = ["runtime" if k == "rom" else k for k in cat[lo:hi]]
     runs, totals = [], {k: 0 for k in CATS}
-    a = 0
-    while a < 0x10000:
+    a = lo
+    while a < hi:
         b = a
-        while b < 0x10000 and cat[b] == cat[a] and why[b] == why[a]:
+        while b < hi and cat[b] == cat[a] and why[b] == why[a]:
             b += 1
         totals[cat[a]] += b - a
         if cat[a] != "unused":
             runs.append([a, b - a, cat[a], why[a]])
         a = b
     symbols = [[e["a"], e["n"]] for e in L["index"] if e["k"] != "branch"]
-    return runs, totals, symbols
+    return runs, totals, symbols, (lo, hi)
 
 
-def footprint_table(totals, plat="c64"):
+def footprint_table(totals, plat="c64", span=(0, 0x10000)):
     names = PLATFORM_FOOT_WORDS.get(plat, PLATFORM_FOOT_WORDS["c64"])
     program = sum(totals[k] for k in ("code", "graphics", "levels", "sound", "text", "tables", "variables"))
     rows = [("Program", program)] + [(html.escape({"code": "Code", "graphics": "Graphics", "levels": "Level data", "sound": "Sound",
@@ -223,12 +224,13 @@ def footprint_table(totals, plat="c64"):
              ("code", "graphics", "levels", "sound", "text", "tables", "variables") if totals[k]]
     rows += [(html.escape(names["runtime"]), totals["runtime"])]
     if totals["rom"]:
-        rows += [(html.escape(names["rom"]), totals["rom"])]
+        rows += [(html.escape(names.get("rom", "ROM")), totals["rom"])]
     rows += [("Unused", totals["unused"])]
-    out = f"<div class='tablewrap'><table><tr><th>What</th><th>Bytes</th><th>{html.escape(names['share'])}</th></tr>"
+    size = span[1] - span[0]
+    out = f"<div class='tablewrap'><table><tr><th>What</th><th>Bytes</th><th>Of {size // 1024} KB</th></tr>"
     for i, (name, n) in enumerate(rows):
         b = "<b>" if i == 0 else ""; e = "</b>" if i == 0 else ""
-        out += f"<tr><td>{b}{name}{e}</td><td>{b}{n:,}{e}</td><td>{b}{100*n/65536:.1f} %{e}</td></tr>"
+        out += f"<tr><td>{b}{name}{e}</td><td>{b}{n:,}{e}</td><td>{b}{100*n/size:.1f} %{e}</td></tr>"
     return out + "</table></div>"
 
 
@@ -642,8 +644,7 @@ def build_game(gdir, out_root):
                   platform=plat, platform_name=PLATFORM_NAMES.get(plat, plat), year=game.get("year") or "",
                   publisher=html.escape(game.get("publisher") or ""),
                   platform_map=PLATFORM_MAPS.get(plat, "C64Map"), platform_scripts=platform_scripts,
-                  platform_mem=PLATFORM_MEM.get(plat, "the machine's 64 KB"),
-                  platform_dim=PLATFORM_DIM.get(plat, "screen and working memory"))
+                  platform_mem=PLATFORM_MEM.get(plat, "the machine's 64 KB"))
     for f in authored(gdir, game):
         open(os.path.join(out, f), "w").write(authored_page(gdir, game, f, nav, ban))
     # source
@@ -670,13 +671,16 @@ def build_game(gdir, out_root):
     links = {k: u for k, u in (game.get("links") or {}).items() if u}   # empty slots from the template are not links
     link_html = "<ul>" + "".join(f'<li><a href="{html.escape(u)}">{html.escape(k)}</a></li>' for k, u in links.items()) + "</ul>" if links else "<p class='mute'>None listed yet. Know a write-up, port or forum thread about this game? Add it to game.json.</p>"
     tools = game.get("tools") or {}
-    runs, totals, symbols = footprint(gdir, game)
-    json.dump({"runs": runs, "totals": totals, "symbols": symbols}, open(os.path.join(out, "memmap.json"), "w"), separators=(",", ":"))
+    runs, totals, symbols, span = footprint(gdir, game)
+    memmap = {"runs": runs, "totals": totals, "symbols": symbols}
+    if span != (0, 0x10000):   # memmap.js draws all 64 KB unless told otherwise
+        memmap.update(base=span[0], size=span[1] - span[0])
+    json.dump(memmap, open(os.path.join(out, "memmap.json"), "w"), separators=(",", ":"))
     game["_totals"] = totals
     about_template = os.path.join(gdir, "about-layout.html")
     if not os.path.isfile(about_template):
         about_template = os.path.join(SITE, "about.html")
-    about = fill(read(about_template), **common, footprint=footprint_table(totals, plat),
+    about = fill(read(about_template), **common, footprint=footprint_table(totals, plat, span), map_row=(span[1] - span[0]) // 128,
                  tier=html.escape(tier_name(game.get("tier", "none"))), coverage=f"{game.get('coverage_percent') or 0:g} %",
                  copy=html.escape(str(game.get("copy", ""))), tools=html.escape(", ".join(f"{k}: {v}" for k, v in tools.items())),
                  model=html.escape(str(game.get("model", ""))), kit_version=html.escape(str(game.get("kit_version", ""))),

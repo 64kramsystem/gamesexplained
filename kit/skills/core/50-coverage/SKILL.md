@@ -337,9 +337,10 @@ Routines are independent, so the burn-down parallelises. What matters:
 
 ## Declare what the bytes are
 
-The About tab draws the game's footprint in the 64 KB space and counts
-code, graphics, level data, sound, text, tables and variables. The build
-classifies from the listing (code, text, data), the video bases in
+The About tab draws the game's footprint in the 64 KB space (on the
+Spectrum, the 48 KB of RAM above the ROM) and counts code, graphics,
+level data, sound, text, tables and variables. The build classifies
+from the listing (code, text, data), the video bases in
 `game.json` (the character set) and symbol-name hints (`str_`, `tune_`,
 `sprite`, `maze`, and the like). Anything larger than a few bytes that
 those cannot see, declare in `game.json` under `regions`:
