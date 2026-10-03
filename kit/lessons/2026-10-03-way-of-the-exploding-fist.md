@@ -1,4 +1,4 @@
-## next · 3 October 2026 · Way of the Exploding Fist · chunkypixel with Claude
+## 0.0.62 · 3 October 2026 · Way of the Exploding Fist · chunkypixel with Claude
 
 **The disk's files say what memory holds.** Way of the Exploding Fist
 loads ten files from a protected disk. Searching both snapshots for each
