@@ -23,7 +23,9 @@ in order:
    by starting the clock (`kit/scripts/clock.py start <step> --model
    <id>`); a run takes hours, and the per-step times, each with the model
    that took it, are what let the next run be shorter. `timings.json` is
-   committed with the game.
+   committed with the game. The clock times pure machine work, with no
+   person in it: before you hand the turn to the contributor and wait,
+   run `clock.py stop`, and start the same step again when they answer.
 
    | Step | Skill | Produces |
    |---|---|---|
@@ -36,8 +38,8 @@ in order:
    | minisite | `kit/skills/core/70-minisite` | `index.html` (How it works), `listing.json` (Source code), optional `levels.html` and `play.html` |
    | retrospective | `kit/skills/core/80-retro` | the skill text that helped, named; fixes to the kit; `kit-feedback.md`; `game.json` complete |
 
-   Work on a game after its run is clocked apart: `curate` for the
-   Gold pass, `play` for a Play tab added later (`clock.py -h`).
+   A Play tab added after the run is clocked apart, as `play`. The Gold
+   pass is not clocked at all: a person paces it (`clock.py -h`).
 
    A Bronze run stops after `40-sweep`. It exports the symbol map and
    builds the listing (step 4), cuts `index.html` down to the header plus
