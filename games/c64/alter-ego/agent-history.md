@@ -13,3 +13,13 @@ The first questionnaire harness used an unsuitable input buffer overlapping syst
 Recovered 161-byte signed/unsigned division helpers from byte data, tested all four wrappers, and rebuilt Source from the updated live project and canonical snapshot. Added complete allocation extents to the ledger and named unresolved boundaries; this exposes more bare data instead of hiding it behind nearby comments. The questionnaire, glyph and heap widgets match the native outputs; article copy received a separate final pass. Private originals remain unchanged.
 
 PR #118 merged during this continuation. The verified corrections were moved onto a fresh branch from main at kit 0.0.48; the canonical snapshot and checked Source bytes were retained.
+
+## Review correction, 3 October 2026
+
+Removed the inherited “Thirty byte-data bytes differ” claim from facts
+and orientation: it did not identify a reproducible pair of captures or
+separate mutable state from loaded data. The recorded hand-over/name-prompt
+comparison is the evidence retained instead. Questionnaire harness calls
+are confirmed, not live UI completion. Compressed text uses two initial
+nine-bit codes before switching to ten-bit groups; the heap example now
+names the expression-stack pointer at the guard comparison.

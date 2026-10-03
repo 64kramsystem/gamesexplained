@@ -52,7 +52,7 @@ Four split address/offset tables match every entry: 40 columns at `8*i`, 40 pack
 
 ## Heap and retained arithmetic
 
-`$6E70` uses a 16-bit heap pointer `$7FCB/$7FCC`, not a 32-bit pointer. It compares wrapped `heap+size` with its expression stack minus 256. Eight native cases with heap `$C465` and controlled stack `$CE00` verify maximum 2193-byte acceptance, 2194-byte rejection, and overflow. Size `$FFFF` is accepted and moves the pointer back one; sizes 15259/15260 wrap it to zero/one and are also accepted. A player-visible oversized-request route has not been established.
+`$6E70` uses a 16-bit heap pointer `$7FCB/$7FCC`, not a 32-bit pointer. It compares wrapped `heap+size` with its expression stack minus 256. Eight native cases with heap `$C465` and caller stack `$CE00` (expression-stack pointer `$CDF6` at the guard comparison, hence guard `$CCF6`) verify maximum 2193-byte acceptance, 2194-byte rejection, and overflow. Size `$FFFF` is accepted and moves the pointer back one; sizes 15259/15260 wrap it to zero/one and are also accepted. A player-visible oversized-request route has not been established.
 
 161 bytes `$B46B-$B50B` form signed/unsigned quotient/remainder wrappers and their restoring-division kernel. Forty-four native cases reproduce integer calculations, mixed signs, minimum-value/-1 overflow and divisor zero. Zero divisor yields unsigned quotient `$FFFF` and unchanged dividend as remainder; signed quotient follows the wrapper's sign rule. No normal caller/route is established merely by executing a controlled call.
 

@@ -39,13 +39,6 @@ unread copy: runtime dictionaries, buffers and saved frames can still match
 an initialization seed. A changed byte can identify a runtime write, but an
 unchanged byte is not proof of non-use. Name an unproved consumer as open.
 
-When a region looks like compressed text, tokens or their byte projection,
-rebuild the proposed format independently from the supplied disk data.
-Compare complete prefix/suffix tables, boundaries and a complete decoded
-record, rather than accepting a plausible low-byte resemblance. Use a
-different representation or algorithm from the imported decoder when
-possible; rerunning that decoder checks reproducibility, not its semantics.
-
 ## A documented version on another machine
 
 Many games were written for one machine and converted to others, often by
@@ -108,6 +101,9 @@ maker is unknown is in the position of a run on an unproven model.
 4. **Verify as usual** (`60-verify`). A claim the analysis makes is
    unverified until it is traced or observed here. The analysis's own
    notes of what it tested are a lead to a check, not the check.
+   Rerunning a decoder the analysis came with shows that it reproduces,
+   not what it means: test a decoded format with a decoder of your own,
+   against whole records.
 5. **Record the import** in `game.json`, beside the run's own model:
 
    ```
