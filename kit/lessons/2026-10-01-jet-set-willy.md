@@ -1,4 +1,4 @@
-## next · 1 October 2026 · Jet Set Willy · 64kramsystem with Codex
+## 0.0.63 · 1 October 2026 · Jet Set Willy · 64kramsystem with Codex
 
 Jet Set Willy, contributed by Saverio Miroddi: a reset acknowledgment in a
 paused emulator did not execute the queued reset until a separate run.
