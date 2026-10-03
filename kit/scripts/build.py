@@ -37,8 +37,17 @@ PLATFORM_NAMES = {"c64": "Commodore 64", "spectrum": "ZX Spectrum", "nes": "NES"
 # its own, so a C64 page does not fetch spectrum.js and a third platform adds a row.
 PLATFORM_MAPS = {"c64": "C64Map", "spectrum": "SpectrumMap"}
 PLATFORM_MAP_LIBS = {"c64": [], "spectrum": ["spectrum.js"]}
-# How the footprint blurb names the address space, so the C64 pages keep their copy.
-PLATFORM_MEM = {"c64": "the C64's 64 KB", "spectrum": "the Spectrum's 64 KB"}
+# How the footprint blurb names the address space and its dim areas, so the C64 pages keep
+# their copy. The C64 has 64 KB of RAM; the Spectrum's 64 KB is the Z80's address space, a
+# quarter of it ROM (kit/skills/spectrum/zx-spectrum-reference, "Memory map (48K)").
+PLATFORM_MEM = {"c64": "the C64's 64 KB",
+                "spectrum": "the Spectrum's 64 KB address space (16 KB of ROM, then 48 KB of RAM)"}
+PLATFORM_DIM = {"spectrum": "the ROM, the screen and working memory"}
+# The footprint table's names for the machine's own areas, in the same words as the map's
+# legend under it (memmap.js for the C64, spectrum.js for the Spectrum).
+PLATFORM_FOOT_ROWS = {"c64": {"runtime": "Screen, bitmap, colour, stack, I/O", "rom": "ROM the game runs under"},
+                      "spectrum": {"runtime": "Screen, attributes, stack, system variables",
+                                   "rom": "ROM (the machine's routines)"}}
 TABS = [("index.html", "How it works"), ("source.html", "Source code"), ("levels.html", "Maps / levels"),
         ("play.html", "Play"), ("about.html", "About")]
 _warned = set()
@@ -204,14 +213,15 @@ def footprint(gdir, game):
     return runs, totals, symbols
 
 
-def footprint_table(totals):
+def footprint_table(totals, plat="c64"):
+    names = PLATFORM_FOOT_ROWS.get(plat, PLATFORM_FOOT_ROWS["c64"])
     program = sum(totals[k] for k in ("code", "graphics", "levels", "sound", "text", "tables", "variables"))
     rows = [("Program", program)] + [(html.escape({"code": "Code", "graphics": "Graphics", "levels": "Level data", "sound": "Sound",
              "text": "Text", "tables": "Tables", "variables": "Variables"}[k]), totals[k]) for k in
              ("code", "graphics", "levels", "sound", "text", "tables", "variables") if totals[k]]
-    rows += [("Screen, bitmap, colour, stack, I/O", totals["runtime"])]
+    rows += [(html.escape(names["runtime"]), totals["runtime"])]
     if totals["rom"]:
-        rows += [("ROM the game runs under", totals["rom"])]
+        rows += [(html.escape(names["rom"]), totals["rom"])]
     rows += [("Unused", totals["unused"])]
     out = "<div class='tablewrap'><table><tr><th>What</th><th>Bytes</th><th>Of 64 KB</th></tr>"
     for i, (name, n) in enumerate(rows):
@@ -630,7 +640,8 @@ def build_game(gdir, out_root):
                   platform=plat, platform_name=PLATFORM_NAMES.get(plat, plat), year=game.get("year") or "",
                   publisher=html.escape(game.get("publisher") or ""),
                   platform_map=PLATFORM_MAPS.get(plat, "C64Map"), platform_scripts=platform_scripts,
-                  platform_mem=PLATFORM_MEM.get(plat, "the machine's 64 KB"))
+                  platform_mem=PLATFORM_MEM.get(plat, "the machine's 64 KB"),
+                  platform_dim=PLATFORM_DIM.get(plat, "screen and working memory"))
     for f in authored(gdir, game):
         open(os.path.join(out, f), "w").write(authored_page(gdir, game, f, nav, ban))
     # source
@@ -663,7 +674,7 @@ def build_game(gdir, out_root):
     about_template = os.path.join(gdir, "about-layout.html")
     if not os.path.isfile(about_template):
         about_template = os.path.join(SITE, "about.html")
-    about = fill(read(about_template), **common, footprint=footprint_table(totals),
+    about = fill(read(about_template), **common, footprint=footprint_table(totals, plat),
                  tier=html.escape(tier_name(game.get("tier", "none"))), coverage=f"{game.get('coverage_percent') or 0:g} %",
                  copy=html.escape(str(game.get("copy", ""))), tools=html.escape(", ".join(f"{k}: {v}" for k, v in tools.items())),
                  model=html.escape(str(game.get("model", ""))), kit_version=html.escape(str(game.get("kit_version", ""))),
