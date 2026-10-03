@@ -87,6 +87,15 @@ nothing. Close the monitor window, or restart the emulator
 (`tools.py stop vice`, `tools.py vice`), and never ask for a stop on a
 watchpoint: count instead.
 
+## A reset acknowledgment can precede execution
+
+A paused session can acknowledge `vice_machine_reset` with
+`run_after: true` before the queued reset has actually run. Follow it
+with `vice_execution_run`. Carry a checkpoint on the reset entry from
+the platform reference as a positive control before interpreting another
+entry's zero hit count. Confirm the processor-port direction register at
+the stopped entry; the acknowledgment alone is not a measurement of it.
+
 ## Watchpoints
 
 `watch-args`, `watch-store`, `watch-load`, `watch-stop`
