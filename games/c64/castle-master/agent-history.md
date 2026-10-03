@@ -16,13 +16,26 @@ Independent object traversal predicted a 652-byte save payload; controlled nativ
 
 ### 1 October 2026 — allocation audit, interactive article and retrospective
 
-Authored localization, trig, topology, keyboard and music allocation tails were added explicitly; generated renderer/collision/interpreter buffers were excluded only after identifying writers/consumers. Operand aliases retain instruction-byte meanings. The completed ledger has52,770 tracked/described bytes, zero bare bytes and no loaded-data audit stretches. Several residue/header roles and behavioral boundaries remain open in TODO.md, regardless of that metric.
+Authored localization, trig, topology, keyboard and music allocation tails were added explicitly; generated renderer/collision/interpreter buffers were excluded only after identifying writers/consumers. Operand aliases retain instruction-byte meanings. The completed ledger has 52,770 tracked/described bytes, zero bare bytes and no loaded-data audit stretches. Several residue/header roles and behavioral boundaries remain open in TODO.md, regardless of that metric.
 
-The article was drafted from checked facts and rewritten under the house style. Firefox exercised all34 area selectors/546 object records,14 native projection cases,59 glyphs,8 instrument windows and save-position controls. The display matches all104,448 colour-index pixels after accounting for the emulator and page palettes. Raw RGB comparison initially differed because the palettes differ; the one-to-one colour correspondence matches the shared frame check.
+The article was drafted from checked facts and rewritten under the house style. Firefox exercised all 34 area selectors/546 object records,14 native projection cases,59 glyphs,8 instrument windows and save-position controls. The display matches all 104,448 colour-index pixels after accounting for the emulator and page palettes. Raw RGB comparison initially differed because the palettes differ; the one-to-one colour correspondence matches the shared frame check.
 
-All17 music request groups completed25 native ticks with the final voice root matching the independent directory. This finite check does not establish exact sustained audio. The frame phase fix passes five pure regressions and a native frame capture with zero writes; broad include precedence is now documented. Maintainer review remains necessary for Silver.
+All 17 music request groups completed 25 native ticks with the final voice root matching the independent directory. This finite check does not establish exact sustained audio. The frame phase fix passes five pure regressions and a native frame capture with zero writes; broad include precedence is now documented. Maintainer review remains necessary for Silver.
 
 
 ## 1 October 2026 — annotation review correction
 
 Corrected $37C6/$37C7/$37C9 to the five-way clip-plane intersection dispatcher, selected by $104B. Corrected $2A17 to describe a rewritten absolute JMP operand. The surrounding instructions and original Ghidra comments substantiate both corrections; geometry-constructor and indirect-JMP wording was wrong.
+
+## Review edits, 3 October 2026
+
+Repaired prose separators in the canonical symbol comments and regenerated
+Source with listing.py --recomment. That route preserves every captured
+byte, block and cross-reference; the ledger remains 52,770/52,770.
+Moved the projection-loop quirk to the section opening and kept test
+counts in facts. Split feature rows by what was actually observed,
+confirmed in controlled calls, or still open; disk and tape saving now
+have separate rows. Published the code-difference audit recipe instead of
+requiring a private JSON. Browser checks exercised all 34 areas, fourteen
+projection cases, 59 glyphs, eight instruments and save controls at phone
+width, without script errors or horizontal overflow.
