@@ -33,6 +33,12 @@ import glob, html, html.parser, json, os, re, shutil, subprocess, sys
 ROOT = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 SITE = os.path.join(ROOT, "site")
 PLATFORM_NAMES = {"c64": "Commodore 64", "spectrum": "ZX Spectrum", "nes": "NES"}
+# The footprint widget and the extra script it needs, per platform: a page loads only
+# its own, so a C64 page does not fetch spectrum.js and a third platform adds a row.
+PLATFORM_MAPS = {"c64": "C64Map", "spectrum": "SpectrumMap"}
+PLATFORM_MAP_LIBS = {"c64": [], "spectrum": ["spectrum.js"]}
+# How the footprint blurb names the address space, so the C64 pages keep their copy.
+PLATFORM_MEM = {"c64": "the C64's 64 KB", "spectrum": "the Spectrum's 64 KB"}
 TABS = [("index.html", "How it works"), ("source.html", "Source code"), ("levels.html", "Maps / levels"),
         ("play.html", "Play"), ("about.html", "About")]
 _warned = set()
@@ -135,7 +141,7 @@ def hexint(v):
 def footprint(gdir, game):
     """Classify all 65536 bytes. Returns (runs, totals, symbols)."""
     sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
-    from symbols_export import regions as cov_regions
+    from symbols_export import regions as cov_regions, PLATFORM_DEFAULTS, platform_of
     lp = os.path.join(gdir, "listing.json")
     if not os.path.isfile(lp):
         rel = os.path.relpath(gdir, ROOT)
@@ -170,11 +176,13 @@ def footprint(gdir, game):
         k = "rom" if re.search(r"\bROMs?\b", name, re.I) else "runtime"   # the word, not "from"
         for a in range(lo, hi + 1):
             cat[a] = k; why[a] = name
-    # video charset: graphics
+    # video charset: graphics. Its size is the machine's (symbols_export.PLATFORM_DEFAULTS):
+    # the C64's font is 2 KB, the Spectrum's ROM font 768 bytes.
     v = game.get("video") or {}
     if v.get("charset"):
         a0 = hexint(v["charset"])
-        for a in range(a0, a0 + 0x800):
+        cs = PLATFORM_DEFAULTS.get(platform_of(game), {}).get("charset_size", 0x800)
+        for a in range(a0, a0 + cs):
             if cat[a] != "unused":
                 cat[a] = "graphics"; why[a] = "character set"
     # declared regions win
@@ -617,9 +625,12 @@ def build_game(gdir, out_root):
     cons = contributors(gdir)
     nav = tabbar(game, present, lib)
     ban = banner(game, cons)
+    platform_scripts = "".join(f'<script src="{lib}/{f}"></script>' for f in PLATFORM_MAP_LIBS.get(plat, []))
     common = dict(title=html.escape(game.get("title", slug)), lib=lib, build=html.escape(game.get("build") or ""),
-                  platform_name=PLATFORM_NAMES.get(plat, plat), year=game.get("year") or "",
-                  publisher=html.escape(game.get("publisher") or ""))
+                  platform=plat, platform_name=PLATFORM_NAMES.get(plat, plat), year=game.get("year") or "",
+                  publisher=html.escape(game.get("publisher") or ""),
+                  platform_map=PLATFORM_MAPS.get(plat, "C64Map"), platform_scripts=platform_scripts,
+                  platform_mem=PLATFORM_MEM.get(plat, "the machine's 64 KB"))
     for f in authored(gdir, game):
         open(os.path.join(out, f), "w").write(authored_page(gdir, game, f, nav, ban))
     # source
@@ -688,7 +699,7 @@ ANALYTICS = """<!-- Google Analytics 4. Only on the live domain, never on a loca
 """
 
 
-LIB_FILES = ("site.css", "site.js", "memmap.js", "c64.js", "sid.js")
+LIB_FILES = ("site.css", "site.js", "memmap.js", "c64.js", "sid.js", "spectrum.js")
 
 
 def version_lib(out_root):
