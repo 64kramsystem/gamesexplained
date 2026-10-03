@@ -1,4 +1,4 @@
-## next · 1 October 2026 · Jupiter Lander · 64kramsystem with Codex
+## 0.0.66 · 1 October 2026 · Jupiter Lander · 64kramsystem with Codex
 
 **Preserve unknown memory when importing annotations.** Jupiter Lander's
 symbol-map round trip exposed a coverage increase when omitted ranges were
