@@ -67,7 +67,8 @@ class ImportTests(unittest.TestCase):
         sym = json.loads(convert(rows, game, 'synthetic'))
         self.assertEqual(sym['blocks'], [
             {'start': 0x1000, 'end': 0x100c, 'type': 'Code'},
-            {'start': 0x100d, 'end': 0x100e, 'type': 'Byte'},
+            {'start': 0x100d, 'end': 0x100d, 'type': 'Undefined'},
+            {'start': 0x100e, 'end': 0x100e, 'type': 'Byte'},
             {'start': 0x100f, 'end': 0x1010, 'type': 'Word'},
         ])
         names = {s['name']: s for s in sym['symbols']}
@@ -82,6 +83,25 @@ class ImportTests(unittest.TestCase):
         })
         self.assertEqual(bytes(b for r in rows for b in r['b']),
                          bytes.fromhex('ad0e10200910d0f860ee0e106000070123'))
+
+    def test_undefined_bytes_do_not_extend_typed_data_coverage(self):
+        import ledger
+        rows = self.parse_text('counter:\n2000 01 byte 1\n                ; One named byte.\n' +
+                               ''.join(f'{a:04x} 00 ?? undefined\n' for a in range(0x2001, 0x2101)))
+        sym = json.loads(convert(rows, {'platform': 'c64', 'slug': 'fixture',
+                                       'build': 'synthetic'}, 'synthetic'))
+        measured = ledger.compute(*(sym[k] for k in ('blocks', 'symbols', 'comments', 'regions')))
+        self.assertEqual(sum(x == 2 for x in measured['state'][0x2000:0x2101]), 1)
+
+    def test_uninitialized_annotations_are_reported(self):
+        from contextlib import redirect_stderr
+        from io import StringIO
+        warning = StringIO()
+        with redirect_stderr(warning):
+            rows = self.parse_text('                ; Zero-page variable.\nvariable:\n'
+                                   '0002 ?? ?? uninitialized\n1000 60 RTS\n')
+        self.assertEqual(len(rows), 1)
+        self.assertIn('omitted 1 labels and 1 comments', warning.getvalue())
 
     def test_cli_writes_only_symbols(self):
         import subprocess, sys

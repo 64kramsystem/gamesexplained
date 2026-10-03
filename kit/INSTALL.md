@@ -118,7 +118,13 @@ or use the personal profile. Firefox 157.0 was exercised through WebDriver
 BiDi on Ubuntu 24.04.5 x86_64 on 30 September 2026, including screenshots,
 script-error collection,
 all page controls and narrow-screen layouts. Stop it with `tools.py stop
-browser`. Deleting `tools/firefox/` removes its local state.
+browser`. The package origin (native package, Mozilla archive or snap) and
+BiDi client were not recorded for that run; it establishes page behavior,
+not containment of an arbitrary Firefox package. A snap can create
+`~/snap/firefox/` through snapd regardless of the supplied profile and XDG
+paths. Use a native Firefox executable and check its footprint before
+claiming containment; `verify-footprint` does not scan Firefox state.
+Deleting `tools/firefox/` removes its local state.
 
 The launcher uses `pkill` to stop the process whose command names this
 clone's exact profile. The recorded host test is Linux; verify containment

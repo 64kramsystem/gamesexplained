@@ -213,7 +213,9 @@ def r2000(path):
 # first word. Every match still has to lie under this clone's tools/, so no other clone is touched.
 # The emulator alone is killed (kill_matching): its wrappers (script, xvfb-run) exit with it. Killing
 # xvfb-run as well stops it before it can shut its Xvfb down and delete its folder under /tmp,
-# which left one of each behind per start on Linux (2 October 2026).
+# which left one of each behind per start on Linux (2 October 2026). On macOS the release's two
+# shell wrappers match the pattern and are signalled with the emulator; `script` exits after them,
+# and nothing was left (v3.13.2 dmg, 2 October 2026).
 STOP_PATTERNS = {"vice": re.escape(VICE_DIR + os.sep) + ".*-mcpserver",
                  "r2000": "regenerator2000 --mcp-server " + re.escape(os.path.join(ROOT, ""))}
 WRAPPERS = ("script", "xvfb-run")

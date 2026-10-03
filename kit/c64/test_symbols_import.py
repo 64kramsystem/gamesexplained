@@ -47,6 +47,9 @@ class ProjectBlocksTests(unittest.TestCase):
             work = Path(folder)
             for name in ("game.json", "symbols.json"):
                 (work / name).write_bytes((game / name).read_bytes())
+            symbols = json.loads((work / "symbols.json").read_text())
+            symbols["blocks"] = [b for b in symbols["blocks"] if b["type"] != "Undefined"]
+            (work / "symbols.json").write_text(json.dumps(symbols))
             snapshot = work / "synthetic.vsf"
             snapshot.write_bytes(bytes(module.VSF_RAM_OFFSET + 0x10000))
             project = work / "roundtrip.regen2000proj"

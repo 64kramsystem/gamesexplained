@@ -31,11 +31,15 @@ def parse(path, space=''):
     rows, names, prose, fields = [], [], [], []
     occupied = set()
     header, last = False, None
+    dropped_names = dropped_comments = 0
     for line in Path(path).read_text().splitlines():
         m = ROW.match(line)
         if m:
             namespace, address, raw, op, operand = m.groups()
             address = int(address, 16)
+            if (namespace or '') == space and raw == '??':
+                dropped_names += len(names) + len(fields)
+                dropped_comments += bool(prose) or ';' in operand
             if (namespace or '') != space or raw == '??':
                 names, prose, fields = [], [], []
                 header, last = False, None
@@ -47,7 +51,7 @@ def parse(path, space=''):
             occupied |= addresses
             code = (data[0] in OPS and OPS[data[0]][0].upper() == op.upper()
                     and LEN[OPS[data[0]][1]] == len(data))
-            typ = 'Code' if code else 'Word' if op == 'word' else 'Byte'
+            typ = 'Code' if code else 'Word' if op == 'word' else 'Undefined' if op == '??' else 'Byte'
             text = '\n'.join(prose).strip()
             if ';' in operand:
                 operand, side = operand.split(';', 1)
@@ -73,6 +77,9 @@ def parse(path, space=''):
                     last['c'] = '\n'.join(filter(None, (last['c'], text)))
                 else:
                     prose.append(text)
+    if dropped_names or dropped_comments:
+        print(f'Warning: uninitialized rows omitted {dropped_names} labels and '
+              f'{dropped_comments} comments; preserve those annotations separately.', file=sys.stderr)
     if not rows:
         raise ValueError('No initialized rows in the selected address space')
     return sorted(rows, key=lambda r: r['a'])
