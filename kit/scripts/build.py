@@ -43,11 +43,13 @@ PLATFORM_MAP_LIBS = {"c64": [], "spectrum": ["spectrum.js"]}
 PLATFORM_MEM = {"c64": "the C64's 64 KB",
                 "spectrum": "the Spectrum's 64 KB address space (16 KB of ROM, then 48 KB of RAM)"}
 PLATFORM_DIM = {"spectrum": "the ROM, the screen and working memory"}
-# The footprint table's names for the machine's own areas, in the same words as the map's
-# legend under it (memmap.js for the C64, spectrum.js for the Spectrum).
-PLATFORM_FOOT_ROWS = {"c64": {"runtime": "Screen, bitmap, colour, stack, I/O", "rom": "ROM the game runs under"},
-                      "spectrum": {"runtime": "Screen, attributes, stack, system variables",
-                                   "rom": "ROM (the machine's routines)"}}
+# The footprint table's words: its share column, and the machine's own areas in the same
+# words as the map's legend above it (memmap.js for the C64, spectrum.js for the Spectrum).
+PLATFORM_FOOT_WORDS = {"c64": {"share": "Of 64 KB", "runtime": "Screen, bitmap, colour, stack, I/O",
+                               "rom": "ROM the game runs under"},
+                       "spectrum": {"share": "Of the 64 KB address space",
+                                    "runtime": "Screen, attributes, stack, system variables",
+                                    "rom": "ROM (the machine's routines)"}}
 TABS = [("index.html", "How it works"), ("source.html", "Source code"), ("levels.html", "Maps / levels"),
         ("play.html", "Play"), ("about.html", "About")]
 _warned = set()
@@ -214,7 +216,7 @@ def footprint(gdir, game):
 
 
 def footprint_table(totals, plat="c64"):
-    names = PLATFORM_FOOT_ROWS.get(plat, PLATFORM_FOOT_ROWS["c64"])
+    names = PLATFORM_FOOT_WORDS.get(plat, PLATFORM_FOOT_WORDS["c64"])
     program = sum(totals[k] for k in ("code", "graphics", "levels", "sound", "text", "tables", "variables"))
     rows = [("Program", program)] + [(html.escape({"code": "Code", "graphics": "Graphics", "levels": "Level data", "sound": "Sound",
              "text": "Text", "tables": "Tables", "variables": "Variables"}[k]), totals[k]) for k in
@@ -223,7 +225,7 @@ def footprint_table(totals, plat="c64"):
     if totals["rom"]:
         rows += [(html.escape(names["rom"]), totals["rom"])]
     rows += [("Unused", totals["unused"])]
-    out = "<div class='tablewrap'><table><tr><th>What</th><th>Bytes</th><th>Of 64 KB</th></tr>"
+    out = f"<div class='tablewrap'><table><tr><th>What</th><th>Bytes</th><th>{html.escape(names['share'])}</th></tr>"
     for i, (name, n) in enumerate(rows):
         b = "<b>" if i == 0 else ""; e = "</b>" if i == 0 else ""
         out += f"<tr><td>{b}{name}{e}</td><td>{b}{n:,}{e}</td><td>{b}{100*n/65536:.1f} %{e}</td></tr>"
