@@ -21,3 +21,7 @@ $1580 prints the opening narrative and enters the gameplay display; $A880
 is its temporary IRQ. Replaced the misleading excluded-intro names and
 comments, including the $0400 entry description. Controlled source checks
 separate the routines' direct contracts from hooked callee behavior.
+
+## 4 October 2026 — the game in parts
+
+The kit gained a layout for a game that loads in parts (#202), and this game was one of the cases that asked for it (RFC #124). The analysed image became the part `part-1` as it stood, with no rebuild: its listing still matches its symbol map. The title, Part 2 and Part 3 were given folders that hold their names and nothing else, so the page counts them. The title is counted because Space there starts the Part-1 load. Nothing new was analysed; the review checks in `reference/review-checks.js` read the part's listing and still pass.

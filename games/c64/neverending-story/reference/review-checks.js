@@ -2,7 +2,7 @@
 'use strict';
 const fs=require('fs'),path=require('path'),assert=require('assert/strict');
 const {CPU}=require(path.resolve(__dirname,'../../../../kit/c64/cpu6502.js'));
-const listing=JSON.parse(fs.readFileSync(path.resolve(__dirname,'../listing.json')));
+const listing=JSON.parse(fs.readFileSync(path.resolve(__dirname,'../parts/part-1/listing.json')));
 const image=new Uint8Array(65536);
 for(const r of listing.records)if(r.b)image.set(r.b,r.a);
 const cpu=new CPU(image.slice()); const calls=[];
