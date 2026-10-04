@@ -37,7 +37,7 @@ import json, os, re, sys, threading, time, traceback
 HERE = os.path.dirname(os.path.abspath(__file__))
 ROOT = os.path.dirname(os.path.dirname(HERE))
 sys.path.insert(0, HERE)
-from zesarux import ZesaruxError, connect, FRAME_TSTATES   # noqa: E402
+from zesarux import ZesaruxError, connect, FRAME_TSTATES, DEFAULT_PORT   # noqa: E402
 
 SNAPDIR = os.path.join(ROOT, "tools", "zesarux-home", "snapshots")
 OUT = os.path.join(ROOT, "tools", "logs", "check-emulator")
@@ -413,8 +413,9 @@ def p2(rpc):
 
 @phase("phase 2: after a restart of the emulator")
 def p2_restart(rpc):
-    print("  ", tools("stop"))
-    print("  ", tools("zesarux"))
+    port = ("--port", str(DEFAULT_PORT))         # this emulator only: other machines on other ports keep running
+    print("  ", tools("stop", *port))
+    print("  ", tools("zesarux", *port))
     rpc = connect(timeout=30)
     again = stop_after_passes(rpc, STOP["base"], 1000)
     check("determinism-restart", again == STOP["ref"],
