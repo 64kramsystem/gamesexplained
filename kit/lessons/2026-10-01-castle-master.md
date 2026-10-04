@@ -1,4 +1,4 @@
-## next · 1 October 2026 · Castle Master · 64kramsystem with Codex
+## 0.0.82 · 1 October 2026 · Castle Master · 64kramsystem with Codex
 
 **Count the authored parts of a mixed display plane.** A hand-over snapshot can contain loaded artwork around a generated scene. Declare the complete picture allocation, then exclude the demonstrated output rows/cells. Broad `coverage.include` ranges override custom exclusions too, so restore only authored gaps beneath a platform exclusion. Re-run the allocation audit after recovering code: new operand references can split an already described table.
 
