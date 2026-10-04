@@ -1,4 +1,4 @@
-## next · 4 October 2026 · Mr. Hat · jankfoundry with Claude
+## 0.0.76 · 4 October 2026 · Mr. Hat · jankfoundry with Claude
 
 **A twin that nothing writes can still differ.** Mr. Hat's title font
 sits at `$CE00` and is copied to `$2800` each time the title is set up.
