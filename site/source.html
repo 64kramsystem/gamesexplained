@@ -170,7 +170,8 @@
     lab.hidden=false; lab.querySelector('span').textContent='only '+PART.title;
     box.addEventListener('change',()=>{ use(box.checked?L:WHOLE); done=0; want=-1; hl=null; main.textContent=''; renderIdx(); slice(); goHash(); });
   }
-  // xref popovers
+  // xref popovers: on the listing itself, under the counter. Inside the label cell they were
+  // clipped by its overflow and by the block's containment (#147).
   let pop=null;
   main.addEventListener('click',e=>{
     const x=e.target.closest('.xr');
@@ -178,7 +179,9 @@
     if(!x) return;
     pop=document.createElement('div'); pop.className='xlist';
     pop.innerHTML='<div class="note">referenced by</div>'+x.dataset.x.split(',').map(a=>{const n=+a; const id=id4(n); return `<a href="#${id}">${id} ${esc(names.get(n)||'')}</a>`;}).join('');
-    x.parentElement.style.position='relative'; x.parentElement.appendChild(pop);
+    const r=x.getBoundingClientRect(), m=main.getBoundingClientRect();
+    pop.style.left=(r.left-m.left+main.scrollLeft)+'px'; pop.style.top=(r.bottom-m.top+main.scrollTop+4)+'px';
+    main.appendChild(pop);
     e.stopPropagation();
   });
   document.addEventListener('click',()=>{if(pop){pop.remove();pop=null;}});
