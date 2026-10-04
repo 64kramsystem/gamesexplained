@@ -4,7 +4,8 @@
   AGENTS.md          agent rules only: no platform or game subject matter
   kit/skills/core/       workflow only: no game names
   kit/skills/<platform>/ platform facts only: no game names
-  games/*/*/facts.md, features.md   current truth, no narration of past mistakes
+  games/*/*/facts.md, features.md   current truth, no narration of past mistakes; what the
+                     game itself prints may be quoted as it appears (`...`, "...", or in capitals)
   games/*/*/*.md     the template's notes and no others: a check's result goes in facts.md,
                      its working record in work/ (kit/skills/core/60-verify)
   games/*/*/kit-feedback.md   the skill text that changed what the run did, named in the
@@ -29,16 +30,23 @@ NARRATION = [r"\bcorrect(ed|ion)\b", r"\bretract", r"\bmislabell?ed\b", r"\bmisr
              r"\bturned out to be wrong\b", r"\bwas wrong\b", r"\bwritten off as\b",
              r"\bfound and fixed\b", r"\bused to (say|be labelled)\b"]
 EXEMPT = re.compile(r"^\s*\|.*(kit/|skills/|games/)")
+# Text the game prints, quoted as it appears, is not narration: Impossible Mission's
+# "ORIENTATION CORRECTED" (#145). Backticks, double quotes, and words in capitals are blanked
+# before NARRATION is matched, so the rest of the line is still read.
+GAME_TEXT = re.compile(r"`[^`\n]*`|\"[^\"\n]*\"|\u201c[^\u201d\n]*\u201d|\b[A-Z]{2,}(?:[ '-]+[A-Z]{2,})*\b")
 HOME = [r"(?<![\w.-])/(Users|home)/[^/\s\"'<>`]+", r"\b[A-Z]:[\\/]Users[\\/]"]   # macOS, Linux, Windows
 
 
-def scan(path, patterns, label, exempt=None):
+def scan(path, patterns, label, exempt=None, blank=None):
     bad = 0
-    for n, line in enumerate(open(path, encoding="utf-8", errors="replace"), 1):
+    with open(path, encoding="utf-8", errors="replace") as fh:
+        lines = list(fh)
+    for n, line in enumerate(lines, 1):
         if exempt and exempt.match(line):
             continue
+        text = blank.sub(lambda q: " " * len(q.group(0)), line) if blank else line
         for p in patterns:
-            m = re.search(p, line, re.I)
+            m = re.search(p, text, re.I)
             if m:
                 print(f"  x  {os.path.relpath(path, ROOT)}:{n}  {label}: {m.group(0)!r}")
                 print(f"        {line.strip()[:88]}")
@@ -81,7 +89,7 @@ def main():
         fails += 1
     for f in glob.glob(os.path.join(ROOT, "games", "*", "*", "facts.md")) + \
              glob.glob(os.path.join(ROOT, "games", "*", "*", "features.md")):
-        fails += scan(f, NARRATION, "narrating a past mistake (belongs in agent-history.md)")
+        fails += scan(f, NARRATION, "narrating a past mistake (belongs in agent-history.md)", blank=GAME_TEXT)
     notes = sorted(os.path.basename(f) for f in glob.glob(os.path.join(ROOT, "kit", "template", "*.md")))
     for f in sorted(glob.glob(os.path.join(ROOT, "games", "*", "*", "*.md"))):
         if os.path.basename(f) not in notes:
