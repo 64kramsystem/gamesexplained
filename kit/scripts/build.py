@@ -41,6 +41,7 @@ import glob, html, html.parser, json, os, re, shutil, subprocess, sys
 
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 from parts import parts, load_game, started, under, above   # noqa: E402  a game of several loads
+from models import awaits_check, proven   # noqa: E402  which games still need a maintainer's check
 
 ROOT = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 SITE = os.path.join(ROOT, "site")
@@ -294,6 +295,16 @@ def tabbar(game, present, lib):
             f'{tabs}<span class="tier">tier <b>{html.escape(tier_name(tier))}</b></span></div></nav>')
 
 
+_proven = {}
+
+
+def proven_models():
+    """The proven models, worked out once a build: models.py reads every game.json to settle them."""
+    if "p" not in _proven:
+        _proven["p"] = proven()
+    return _proven["p"]
+
+
 def banner(game, cons):
     """One line under the tabs: who curated it, or how to take it further.
 
@@ -304,6 +315,8 @@ def banner(game, cons):
     starts the same work twice.
     Bronze, or no tier, is unfinished and asks for a
     contributor. The prompt behind the button is the one line to paste into an agent.
+    A run on a model not yet proven is published whole, and its banner says that it awaits
+    a maintainer's check (kit/CHECKING.md) before saying what else is missing (#142).
     """
     tier = game.get("tier", "none")
     repo = json.load(open(os.path.join(SITE, "config.json"))).get("repo", "")
@@ -332,9 +345,18 @@ def banner(game, cons):
         n, m = game.get("_parts", (1, 1))
         how = (f'{cov:g} % of the program is explained' if n == m else
                f'{n} of its {m} parts {"is" if n == 1 else "are"} analysed, and {cov:g} % of that is explained')
-        body = (f'This minisite is not complete: {how}. '
-                f'<span class="prompt" id="prompt">{html.escape(prompt)}</span>'
-                '<button type="button" data-copy="#prompt">Copy the prompt to work on it</button>')
+        ask = (f'<span class="prompt" id="prompt">{html.escape(prompt)}</span>'
+               '<button type="button" data-copy="#prompt">Copy the prompt to work on it</button>')
+        need = awaits_check(game, proven_models())
+        if not need:
+            body = f'This minisite is not complete: {how}. ' + ask
+        else:
+            who = " and ".join("one whose name was not recorded" if x == "unknown" else html.escape(x) for x in need)
+            body = (f'This minisite awaits a maintainer\u2019s check. {"A model" if len(need) == 1 else "Models"} '
+                    f'this site has not proven yet worked on it ({who}), so its claims have not been tested '
+                    f'against the game (<a href="{repo}/blob/main/kit/CHECKING.md">how the check works</a>).')
+            if cov < 100 or n < m:
+                body += f' It is not complete either: {how}. ' + ask
     return f'<div class="gamebanner {html.escape(tier)}">{body}</div>'
 
 
