@@ -372,6 +372,14 @@ Routines are independent, so the burn-down parallelises. What matters:
   agent with a message (the harness's resume, not a new agent), telling
   it what is already in the disassembler. A new agent rereads its range
   from nothing.
+- **An account that pays by credit can fail every agent at its first
+  call**, and on every retry: one run's four agents got
+  `402 payment_required` because the runner asked for 128,000 tokens the
+  balance could not cover, and one also met the account's cap on
+  requests in flight, below five. Before a fan-out on such an account,
+  check the balance, start fewer agents, and lower the runner's
+  `max_tokens` where it has the setting. An agent that failed at its
+  first call left nothing to resume.
 - **Correct the brief the moment a fact in it turns out wrong**, and say
   in it that it was corrected. Agents still running read the old line;
   their reports will contradict it, which is how one run found that its
