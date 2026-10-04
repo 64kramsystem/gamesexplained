@@ -140,11 +140,27 @@ assert LABELS == ILABELS, "the interrupt variant must lay out identically to the
 LOOP, DEAD = LABELS["loop"], LABELS["dead"]
 
 results = []
+speed = {}     # the host: what a frame step costs here, and how busy it was. Never a check
+notes = []     # what was said about the host; repeated in the summary
 
 
 def check(name, ok, what, detail=""):
     print(f"{'PASS' if ok else 'FAIL'}  {name:26} {what}" + (f"  [{detail}]" if detail else ""), flush=True)
     results.append((name, bool(ok)))
+
+
+def note(text):
+    """Something about the host, not the emulator: said, kept for the summary, failing nothing."""
+    print(f"NOTE  {text}", flush=True)
+    notes.append(text)
+
+
+def host_load():
+    """The host's one-minute load average and its CPUs, or None where the OS has no load average."""
+    try:
+        return round(os.getloadavg()[0], 2), os.cpu_count()
+    except (AttributeError, OSError):
+        return None
 
 
 def word(rpc, a):
@@ -627,14 +643,25 @@ def p4(rpc):
           "thirty stops at varied moments: a register set after each survives a frame",
           f"lost after {lost} of {tries}")
 
-    # the cost of the loop EMULATOR.md says has to run at tens of steps a second
+    # The loop EMULATOR.md says has to run at tens of steps a second. What the emulator owes it is
+    # twenty frame steps in a row that each come back on the boundary. What a step costs in time
+    # is the host's: it passed on an idle Mac and failed a half-second bound on the same Mac
+    # under load (#178), so the cost is printed on a SPEED line with the host's load, kept in
+    # the result, and fails nothing. The C64's check does the same (#177).
     rpc.enter_step()
     t0 = time.time()
-    for _ in range(20):
-        rpc.frames(1, timeout=20)
+    got = [safe(lambda: rpc.frames(1, timeout=20), default=-1) for _ in range(20)]
     per = (time.time() - t0) / 20
-    check("cheap-loop", per < 0.5, "a frame step with its round trip costs well under a second",
-          f"{per * 1000:.0f} ms a step, {1 / per:.0f} a second")
+    load = host_load()
+    busy = f", load {load[0]} on {load[1]} CPUs" if load else ""
+    check("cheap-loop", all(isinstance(g, int) and g >= FRAME_TSTATES for g in got),
+          "twenty frame steps in a row each stop at the end of their frame",
+          f"{sum(1 for g in got if isinstance(g, int) and g >= FRAME_TSTATES)} of 20")
+    speed.update(frame_step_ms=round(per * 1000), load=load[0] if load else None, cpus=load[1] if load else None)
+    print(f"SPEED {'host':26} a frame step costs {per * 1000:.0f} ms, {1 / per:.0f} a second{busy}", flush=True)
+    if per >= 0.5:
+        note(f"a frame step costs {per * 1000:.0f} ms on this host{busy}: over the half second "
+             "kit/EMULATOR.md's frame-stepping loop allows")
 
 
 @phase("transport")
@@ -720,7 +747,7 @@ def main():
     failed = sorted({n for n, ok in results if not ok})
     passed = sorted({n for n, ok in results if ok} - set(failed))
     summary = {"build": build, "when": time.strftime("%Y-%m-%d %H:%M"), "seconds": round(time.time() - started),
-               "passed": passed, "failed": failed}
+               "passed": passed, "failed": failed, "speed": speed, "notes": notes}
     with open(os.path.join(OUT, RESULT), "w") as f:
         json.dump(summary, f, indent=2)
     print(f"\n=== {len(results) - sum(1 for _, ok in results if not ok)} passed, "
@@ -730,6 +757,11 @@ def main():
         print(f"read {WORKAROUNDS} for each of these, and only these")
     else:
         print(f"nothing failed; {WORKAROUNDS} does not apply to this build")
+    if notes:
+        print("about the host, not the emulator, and no check fails for it:")
+        for n in notes:
+            print(f"  {n}")
+        print(f"  read \"A slow host\" in {WORKAROUNDS}")
     print(f"written to {os.path.relpath(os.path.join(OUT, RESULT), ROOT)}")
 
 
