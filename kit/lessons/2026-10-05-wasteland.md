@@ -1,4 +1,4 @@
-## next · 5 October 2026 · Wasteland · air with Claude
+## 0.0.89 · 5 October 2026 · Wasteland · air with Claude
 
 **A reader of the disk can be more right than the game.** Wasteland
 keeps its maps in raw sectors, and its loader goes on to the track below
