@@ -105,6 +105,23 @@ format, how to check the result against it, and how to read it back
   byte for byte. Before a region goes in `exclude`, take every table the
   code indexes as an address (lo/hi pairs, split lo/hi tables) and check
   where its entries land. If any land in the region, it is data.
+- **An unpacked load can run on past its own data.** An unpacker that
+  stops at the end of its read window, or on a count, goes on decoding
+  whatever follows its stream (the next file's packed bytes, a sector's
+  filler) with this load's table, and writes the result after the real
+  data, where it looks like more of the same. Find where the stream ends:
+  trace the unpacker and count what it takes, or compare the same file
+  loaded from two disks or sides, which agree on the data and can differ
+  after it. Exclude the rest, with that reason, once nothing reads it.
+- **A comment a program writes is one claim made for every record.**
+  Level data of a known format is quickest described by a script that
+  writes each record's comment from templates. Before it writes, test
+  each sentence a template produces against the code on every path that
+  reads the field: a flag can change which routine reads it, when that
+  runs, or whether anything does, and a sentence written from the
+  commonest case is wrong for every other. Make the template choose its
+  sentence from the record's own bytes (`60-verify` says how such
+  comments are sampled).
 - **Runtime state is excluded** from the denominator: stack, screen
   memory, I/O. Authored data nothing references by address (a character
   set, a packed string block) is **added** through the `coverage` object
@@ -183,7 +200,8 @@ own: give `coverage.py`, `symbols_export.py` and `listing.py` the part's
 folder. The game's figure is the sum, `coverage.py <game dir>`, and it
 counts each byte once, because each byte has one owner: a part that lies
 over another counts only its `"ranges"`, and the part beneath does not
-count them. 100 % means every part the game has a folder for. A part
+count them, unless they fall in ranges of its own (its snapshot holds its
+own bytes there). 100 % means every part the game has a folder for. A part
 with a folder and no analysis is not in the figure, and the page says so
 beside it.
 
@@ -204,6 +222,14 @@ from any snapshot that holds it, and of each part over it from that
 part's own. `listing.py` names what the part calls by the names of the
 part beneath, and `check_listing.py` says when one of those has changed
 (`listing.py <part> --relabel`, no snapshot needed).
+
+The session traces the code of the part beneath as well, and where that
+code refers to an address in this part's ranges the disassembler mints an
+automatic symbol there, which the export keeps as this part's. It names an
+address this part's own code may never use, and it can hold the figure
+down. Look for automatic symbols in the part's ranges whose every
+cross-reference comes from outside them, and delete each (a temporary
+name, then an empty one); a rebuilt session mints them again. <!-- until #213 -->
 
 ## Data the ledger cannot see
 
