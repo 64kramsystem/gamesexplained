@@ -19,16 +19,3 @@ One fresh male name-prompt state, with final hand-over comparison. Original mode
 ## Maintainer asks
 
 Existing #113 import policy and #124 multiple-state RFC; no new ask or relaxed rule.
-
-## Recorded sessions
-
-| Step | Minutes | Model | Sessions | What dominated |
-|---|---:|---|---:|---|
-| 10-orient | 13 | gpt-6.1-sol | 1 | Fresh boot to name prompt; all imported code and words match. Second boot captured final hand-over at $4000; direct matrix Space required, and an early key cancelled autostart RUN once. |
-| 40-sweep | 3 | gpt-6.1-sol | 1 | Fresh snapshot code/word comparison, reran recovered VM decoder: 82 procedures and 7071 operations match; extended verified parked VM mirror from 1599 to 2048 bytes |
-| 50-coverage | 36 | gpt-6.1-sol | 3 | One agent; VM frame/body and native continuation descriptions, text records, hidden RAM mirror; remaining workspace/untracked data explicit; One agent; directory audit and fresh independent MAP1 decode matched all 3072 dictionary bytes, 80 boundary bytes, the 394-byte descriptor and 4560-byte graphic resource.; Dictionary/source full spans, descriptor grammar, static display/SID/VM boundaries; native 60 questionnaire profiles, 8 heap cases and 44 division cases; one agent. |
-| 60-verify | 20 | gpt-6.1-sol | 2 | Independent MAP1 LZW/dictionary decode; 16 native bit reader and 4 width transition cases; 16 custom and 91 ROM glyph copies; resulting annotation corrections, one agent.; 44 native division/remainder cases, primitive selectors zero/one, ordinary name typing/deletion/16-character limit/Return; annotations and evidence reconciliation, one agent. |
-| 70-minisite | 20 | gpt-6.1-sol | 2 | Questionnaire/glyph/heap interactive page; browser matches 60 native profiles, 8 heap cases and all 16 glyph patterns; separate copy rewrite; one agent. |
-| 80-retro | 6 | gpt-6.1-sol | 2 | Publication from the existing disassembly; one agent alternated between five contributions. No new full reverse-engineering run.; Independent dictionary/twin lessons added to sweep; honest expanded denominator and open allocations retained; publication checks and existing PR update, one agent. |
-| total | 96 | gpt-6.1-sol | | 1.6 h of work, over 29.5 h |
-

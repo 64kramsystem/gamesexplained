@@ -105,6 +105,23 @@ format, how to check the result against it, and how to read it back
   byte for byte. Before a region goes in `exclude`, take every table the
   code indexes as an address (lo/hi pairs, split lo/hi tables) and check
   where its entries land. If any land in the region, it is data.
+- **An unpacked load can run on past its own data.** An unpacker that
+  stops at the end of its read window, or on a count, goes on decoding
+  whatever follows its stream (the next file's packed bytes, a sector's
+  filler) with this load's table, and writes the result after the real
+  data, where it looks like more of the same. Find where the stream ends:
+  trace the unpacker and count what it takes, or compare the same file
+  loaded from two disks or sides, which agree on the data and can differ
+  after it. Exclude the rest, with that reason, once nothing reads it.
+- **A comment a program writes is one claim made for every record.**
+  Level data of a known format is quickest described by a script that
+  writes each record's comment from templates. Before it writes, test
+  each sentence a template produces against the code on every path that
+  reads the field: a flag can change which routine reads it, when that
+  runs, or whether anything does, and a sentence written from the
+  commonest case is wrong for every other. Make the template choose its
+  sentence from the record's own bytes (`60-verify` says how such
+  comments are sampled).
 - **Runtime state is excluded** from the denominator: stack, screen
   memory, I/O. Authored data nothing references by address (a character
   set, a packed string block) is **added** through the `coverage` object
@@ -138,6 +155,13 @@ format, how to check the result against it, and how to read it back
   game's first instruction (the loader's hand-over) with one in play. A
   screen or bitmap that is already there before the game runs is authored
   data, to be described; one the game builds is output, to be excluded.
+  A plane can contain both. Declare its complete authored extent, then
+  exclude only the generated cells or rows. `coverage.include` overrides
+  custom exclusions as well as platform defaults: a broad include of the
+  whole plane gives the output back. Include only its authored gaps when
+  the plane sits under a platform exclusion. Re-run the loaded-data audit
+  after changing the scope or recovering code: new operand references can
+  split an already described allocation into undescribed aliases.
 - **Never bulk-disassemble every labelled address** to "recover"
   coverage. Many labels sit on data; disassembling them misclassifies the
   bytes as code. Undo by setting the data type back to undefined.
@@ -169,6 +193,44 @@ format, how to check the result against it, and how to read it back
   or most of it stays out of the count however well you have explained
   the whole.
 
+## A game of several parts
+
+Each part (`10-orient`, "A game of several parts") has a ledger of its
+own: give `coverage.py`, `symbols_export.py` and `listing.py` the part's
+folder. The game's figure is the sum, `coverage.py <game dir>`, and it
+counts each byte once, because each byte has one owner: a part that lies
+over another counts only its `"ranges"`, and the part beneath does not
+count them, unless they fall in ranges of its own (its snapshot holds its
+own bytes there). 100 % means every part the game has a folder for. A part
+with a folder and no analysis is not in the figure, and the page says so
+beside it.
+
+A part that lies over another is annotated in one session with it: the
+snapshot holds both. `symbols_import.py <part> <snapshot>` puts the
+names of the part beneath into the session, so the code the part calls
+is readable. Export each part's share from that session:
+
+```
+python3 kit/scripts/symbols_export.py games/<platform>/<slug>/parts/<level>
+python3 kit/scripts/symbols_export.py games/<platform>/<slug>/parts/<engine> --from games/<platform>/<slug>/parts/<level>
+```
+
+The export says when the session holds a label or a comment of yours at
+an address the part does not own and no other part has it: export the
+part that owns it, or it is lost. Build the listing of the part beneath
+from any snapshot that holds it, and of each part over it from that
+part's own. `listing.py` names what the part calls by the names of the
+part beneath, and `check_listing.py` says when one of those has changed
+(`listing.py <part> --relabel`, no snapshot needed).
+
+The session traces the code of the part beneath as well, and where that
+code refers to an address in this part's ranges the disassembler mints an
+automatic symbol there, which the export keeps as this part's. It names an
+address this part's own code may never use, and it can hold the figure
+down. Look for automatic symbols in the part's ranges whose every
+cross-reference comes from outside them, and delete each (a temporary
+name, then an empty one); a rebuilt session mints them again. <!-- until #213 -->
+
 ## Data the ledger cannot see
 
 The ledger counts what code, symbols and `game.json` name. Data that
@@ -194,12 +256,16 @@ exclusion) or `coverage.exclude` (not the game's, with the reason). One
 game reached 100 % with 1.6 KB of its own tables and its picture's
 colours outside the count.
 
-The list only finds data that sits at the same address in both images:
-data the start-up copies elsewhere (out of the way of the I/O area, under
-a ROM, into another bank) differs between them and is never listed.
-Search the play snapshot for the start-up's copy loops' destinations, and
-check each against the ledger; one game reached 100 % with half a
-kilobyte of moved graphics outside every span. <!-- until #146 -->
+Data the start-up copies elsewhere (out of the way of the I/O area, under
+a ROM, into another bank) differs between the images at its own address,
+so the list also looks for it at another: an untracked stretch of 32
+bytes or more in play that the hand-over holds somewhere else is listed
+with both addresses ("copied here after the hand-over"). One game reached
+100 % with half a kilobyte of moved graphics outside every span before
+the list did this. A copy the start-up changes on the way (unpacked,
+shifted, interleaved, or built from pieces) matches nowhere, so follow
+the start-up's copy loops to their destinations as well, and check each
+against the ledger.
 
 ## Interpreted programs and code loaded as level data
 
@@ -282,7 +348,30 @@ needs a guard inside the script or a background run you poll.
 
 ## Splitting the work across subagents
 
-Routines are independent, so the burn-down parallelises. What matters:
+**One agent is the default.** Every agent starts cold: it reads the
+brief, the game's notes and its neighbours' code before it writes
+anything, so tokens grow with the number of agents, not with the game.
+The record bears it out. Single agents took 20 to 22 KB of code to
+100 % in 30 to 40 minutes; runs of seven to twelve agents took 14 to 62
+minutes and then spent the difference on merging, naming collisions and
+reconciling reports in `60-verify`. Two nine-agent runs used up the
+account's session limit within minutes and sat idle for hours. Fanning
+out bought no quality either: what caught wrong readings was checking by
+an agent that did not write them, not parallel writing.
+
+Split only when one of these holds, and the contributor's answer about
+their usage limit (`kit/START.md`) allows it:
+
+- **The game is several parts**: one agent to a part (below).
+- **What is left after your own first pass is too much for one
+  context**: as a guide, more than about 32 KB of code still undescribed.
+
+Annotate first yourself, then split. Take the main loop, the interrupt
+handlers, the core variables and the naming conventions to described
+before anyone else starts: the brief's "Established" list is then short
+and checked, and the agents inherit names instead of inventing rival
+ones. Start at most four agents, and fewer on a tight limit. When you
+do split, what matters:
 
 - **One shared disassembler.** Concurrent reads are safe; concurrent
   writes are safe only if agents own **disjoint address ranges**. Assign
@@ -323,12 +412,27 @@ Routines are independent, so the burn-down parallelises. What matters:
   (the template's opening comment says why).
 - Force the model explicitly. Spot-check one claim per agent against the
   source before believing the report.
+- **A game of several parts splits by part before it splits by range**:
+  one agent to a part, each with a disassembler of its own on that
+  part's snapshot. The platform's tool notes say how several run at
+  once. Give each agent its part's folder, and have every command name
+  it: a command that names no folder reaches whichever session the clone
+  started last, and an export from the wrong session writes one part's
+  names into another's map.
 - **An agent stopped by the account's usage limit keeps its context.**
   Nine agents at once use up a session's allowance quickly; when they
   stop on the limit, export at once, wait for the reset and resume each
   agent with a message (the harness's resume, not a new agent), telling
   it what is already in the disassembler. A new agent rereads its range
   from nothing.
+- **An account that pays by credit can fail every agent at its first
+  call**, and on every retry: one run's four agents got
+  `402 payment_required` because the runner asked for 128,000 tokens the
+  balance could not cover, and one also met the account's cap on
+  requests in flight, below five. Before a fan-out on such an account,
+  check the balance, start fewer agents, and lower the runner's
+  `max_tokens` where it has the setting. An agent that failed at its
+  first call left nothing to resume.
 - **Correct the brief the moment a fact in it turns out wrong**, and say
   in it that it was corrected. Agents still running read the old line;
   their reports will contradict it, which is how one run found that its

@@ -6,7 +6,9 @@ description: Cheap mechanical sweeps that convert large regions from unknown to 
 # Sweeps that find what code-reading misses
 
 All of them are cheap and mechanical. Run them from the snapshot's RAM image
-directly (Python over the file) or through the disassembler.
+directly (Python over the file) or through the disassembler. A game of
+several parts (`10-orient`) is swept part by part, each from its own
+snapshot.
 
 ## Hardware register census
 
@@ -34,8 +36,14 @@ Relocating loaders can leave a second copy of code or tables in memory.
 Before describing a region, compare the two byte for byte and trace their
 producers and consumers separately. Equality establishes a twin, not an
 unread copy: runtime dictionaries, buffers and saved frames can still match
-an initialization seed. A changed byte can identify a runtime write, but an
-unchanged byte is not proof of non-use. Name an unproved consumer as open.
+an initialization seed. A byte that differs is usually a variable written at
+run time, but an unchanged byte is not proof of non-use. When no instruction
+can write the bytes that differ (`opcodes.py --refs`, and no pointer built to
+them), they were changed from outside the game, often before a freezer saved
+it. Then the copy made earlier is the right one, and the next time the game
+copies again the damage reaches the screen: a bug the player sees, worth
+running live. Describe the copy the code reads, and name an unproved
+consumer as open.
 
 ## A documented version on another machine
 

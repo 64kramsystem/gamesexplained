@@ -9,6 +9,8 @@ Usage:
   symbols_export.py <game dir>                      from the live disassembler
   symbols_export.py <game dir> --project <file>     from a regenerator2000 project (c64)
   symbols_export.py <game dir> --ctl <file>         from a SkoolKit control file (spectrum)
+  symbols_export.py <part dir> --from <part dir>    a part's share of the live session that was
+                                                    started on another part's snapshot
 
 Coverage regions come from game.json. The platform rule is the same for
 every game: "video" names the screen base (excluded: it is output) and the
@@ -19,6 +21,11 @@ blocks on top, and "include" gives back part of a default exclusion that
 the game really uses (RAM under the I/O area, in a game that banks the I/O
 out to run code or keep tables there). Addresses are hex strings like
 "$0400".
+
+A part of a game that is several loads (kit/scripts/parts.py) is exported
+from its own folder, and takes only what lies at the addresses it owns: one
+session on a snapshot that holds a level over its engine exports twice, the
+engine's folder and the level's, and each gets its share.
 """
 import importlib.util, json, os, sys
 
@@ -76,9 +83,10 @@ def platform_fn(plat, fname, modules):
              f"see kit/PLATFORMS.md")
 
 
-def read_live(plat):
-    """(blocks, symbols, comments) from a live disassembler, per platform."""
-    return platform_fn(plat, "read_live", ("r2000", "skoolkit"))()
+def read_live(plat, gdir=None):
+    """(blocks, symbols, comments) from a live disassembler, per platform. gdir is the game
+    or part being read: a client that keeps one disassembler per part finds its own by it."""
+    return platform_fn(plat, "read_live", ("r2000", "skoolkit"))(gdir)
 
 
 def read_file(plat, path, kind="project"):
@@ -126,7 +134,13 @@ def regions(game):
             if lo < a: carved.append([lo, a - 1, n])
             if hi > b: carved.append([b + 1, hi, n])
         exclude = carved
-    return {"exclude": exclude, "extra": extra}
+    out = {"exclude": exclude, "extra": extra}
+    # a part of a game that is several loads: the addresses another part owns are not this
+    # one's to count, whatever "include" says (kit/scripts/parts.py, load_game)
+    if game.get("elsewhere"):
+        out["elsewhere"] = [[lo, hi, n] for lo, hi, n in game["elsewhere"]]
+        out["exclude"] = exclude + out["elsewhere"]
+    return out
 
 
 def main():
@@ -134,7 +148,11 @@ def main():
     if not argv or argv[0] in ("-h", "--help"):
         print(__doc__); return
     gdir = argv[0]
-    game = json.load(open(os.path.join(gdir, "game.json")))
+    sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
+    from parts import load_game, parts, clip, home
+    if parts(gdir):
+        sys.exit(f"{gdir} is a game of several parts: export one, {os.path.join(gdir, 'parts', '<id>')}")
+    game = load_game(gdir)
     plat = platform_of(game)
     key = next((k for k in ("--project", "--ctl") if k in argv), None)
     if key:
@@ -142,26 +160,81 @@ def main():
                                            "ctl" if key == "--ctl" else "project")
         source = "regen2000proj" if key == "--project" else "control file"
     else:
-        blocks, syms, comments = read_live(plat)
+        blocks, syms, comments = read_live(plat, argv[argv.index("--from") + 1] if "--from" in argv else gdir)
         source = "regenerator2000 live" if plat == "c64" else "live"
+    reg, left = regions(game), []
+    if reg.get("elsewhere"):
+        blocks, syms, comments, left = clip(blocks, syms, comments, reg["elsewhere"])
     syms.sort(key=lambda s: s["address"])
     comments.sort(key=lambda c: (c["address"], c["type"]))
-    out = {
-        "schema": 1,
-        "platform": game.get("platform"),
-        "game": game.get("slug"),
+    out = {"schema": 1, "platform": game.get("platform"), "game": game.get("slug")}
+    if game.get("part"):
+        out["part"] = game["part"]["id"]
+    out.update({
         "build": game.get("build"),
         "source": source,
-        "regions": regions(game),
+        "regions": reg,
         "blocks": sorted(blocks, key=lambda b: b["start"]),
         "symbols": syms,
         "comments": comments,
-    }
+    })
     path = os.path.join(gdir, "symbols.json")
+    before = None
+    if os.path.isfile(path):
+        try:
+            B = json.load(open(path))
+            before = (sum(1 for s in B["symbols"] if s.get("kind") == "user"), len(B["comments"]))
+        except (ValueError, KeyError):
+            pass
     with open(path, "w") as f:
         json.dump(out, f, indent=1)
-    print(f"wrote {path}: {len(blocks)} blocks, {len(syms)} symbols "
-          f"({sum(1 for s in syms if s['kind']=='user')} user), {len(comments)} comments")
+    users = sum(1 for s in syms if s['kind'] == 'user')
+    print(f"wrote {path}: {len(blocks)} blocks, {len(syms)} symbols ({users} user), {len(comments)} comments")
+    if before and (users < before[0] or len(comments) < before[1]):
+        # a session restarted from an old project, or a project file never saved, exports less than it holds
+        print(f"\nThe symbols.json this replaced had {before[0]} user labels and {before[1]} comments, more than this "
+              f"session holds. If that was not meant, the session started from older work than the file had: "
+              f"restore the file (`git checkout -- {path}`, when it was committed) and seed a session from it "
+              f"with symbols_import.py.")
+    if left:
+        # what the session holds at addresses another part owns: kept only if that part has it too
+        top = home(gdir)[0]
+        have, names, said = set(), {}, set()
+        for p in parts(top):
+            f = os.path.join(p["dir"], "symbols.json")
+            if p["id"] != game["part"]["id"] and os.path.isfile(f):
+                S = json.load(open(f))
+                have |= {(x["address"], x["name"]) for x in S["symbols"]}
+                have |= {(x["address"], x["type"], x["text"]) for x in S["comments"]}
+                for x in S["symbols"]:
+                    if x.get("kind") == "user":
+                        names.setdefault(x["address"], x["name"])
+                said |= {(x["address"], x["type"]) for x in S["comments"]}
+        lost = [x for x in left if ((x["address"], x["name"]) if "name" in x else
+                                    (x["address"], x["type"], x["text"])) not in have]
+
+        def theirs(x):
+            """What another part's symbols.json holds where x is: a name or comment of its own, or None."""
+            if "name" in x:
+                return names.get(x["address"])
+            return f"a {x['type']} comment of its own" if (x["address"], x["type"]) in said else None
+        if lost:
+            fresh = [x for x in lost if theirs(x) is None]
+            stale = [x for x in lost if theirs(x) is not None]
+            print(f"\n{len(lost)} label(s) and comment(s) of yours are at addresses this part does not own and are in "
+                  "no other part's symbols.json:")
+            for x in (fresh + stale)[:8]:
+                print(f"  ${x['address']:04X}  {x.get('name') or x['text'][:60]}"
+                      + (f"  (the part that owns it has {theirs(x)})" if theirs(x) else ""))
+            if len(lost) > 8:
+                print(f"  and {len(lost) - 8} more")
+            if stale:
+                print(f"{len(stale)} of them are where the part that owns the address has a name or comment of its own. "
+                      "Where that part's changed after this session was seeded with it, yours is the old one and "
+                      "nothing is lost: symbols_import.py seeds a session with the current ones.")
+            if fresh:
+                print(f"{'The other ' + str(len(fresh)) if stale else 'They'} are lost when the project is next rebuilt, "
+                      "unless you export the part that owns them from this session too (its folder in place of this one).")
 
 
 if __name__ == "__main__":
