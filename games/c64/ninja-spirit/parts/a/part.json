@@ -1,0 +1,69 @@
+{
+  "title": "Disk load A",
+  "order": 2,
+  "video": {
+    "screen": "",
+    "charset": ""
+  },
+  "coverage": {
+    "exclude": [
+      [
+        "$2CD0",
+        "$2D02",
+        "Placement flags maintained by the viewport scanner and spawn callbacks"
+      ],
+      [
+        "$3A43",
+        "$3FFF",
+        "Packed gap after the last live load A variable, dominated by alternating fill. The placement callbacks index $3A3E only for component slots 0\u20133. The CPU load and store probe registered zero hits."
+      ],
+      [
+        "$3142",
+        "$3142",
+        "Running spawn colour counter"
+      ],
+      [
+        "$3A38",
+        "$3A42",
+        "Round, encounter and component slot state"
+      ]
+    ],
+    "extra": [
+      [
+        "$2780",
+        "$3FFF",
+        "First packet contains the stage routines and tables below the map"
+      ],
+      [
+        "$4000",
+        "$9FFF",
+        "Stage tile map"
+      ],
+      [
+        "$DB40",
+        "$F7FF",
+        "Second packet contains stage graphics"
+      ]
+    ],
+    "include": [
+      [
+        "$DB40",
+        "$DFFF",
+        "Stage graphics unpacked beneath I/O"
+      ]
+    ]
+  },
+  "io": [],
+  "regions": [],
+  "over": "engine",
+  "ranges": [
+    [
+      "$2780",
+      "$9FFF"
+    ],
+    [
+      "$DB40",
+      "$F7FF"
+    ]
+  ]
+}

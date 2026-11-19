@@ -1,0 +1,64 @@
+{
+  "title": "Disk load D",
+  "order": 5,
+  "video": {
+    "screen": "",
+    "charset": ""
+  },
+  "coverage": {
+    "exclude": [
+      [
+        "$2CCE",
+        "$2CD3",
+        "Placement flags maintained by the running stage"
+      ],
+      [
+        "$3A29",
+        "$3FFF",
+        "Previous load C map bytes from $56A9\u2013$5C7F preserved in the packed region. Identical at handover, after the last referenced state byte $3A28, with zero CPU load or store hits in the local play probe"
+      ],
+      [
+        "$3A12",
+        "$3A28",
+        "Live section, encounter, component slot and ending animation state"
+      ]
+    ],
+    "extra": [
+      [
+        "$2780",
+        "$3FFF",
+        "First packet contains the stage routines and tables below the map"
+      ],
+      [
+        "$4000",
+        "$9FFF",
+        "Stage tile map"
+      ],
+      [
+        "$DB40",
+        "$F7FF",
+        "Second packet contains stage graphics"
+      ]
+    ],
+    "include": [
+      [
+        "$DB40",
+        "$DFFF",
+        "Stage graphics unpacked beneath I/O"
+      ]
+    ]
+  },
+  "io": [],
+  "regions": [],
+  "over": "engine",
+  "ranges": [
+    [
+      "$2780",
+      "$9FFF"
+    ],
+    [
+      "$DB40",
+      "$F7FF"
+    ]
+  ]
+}

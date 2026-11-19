@@ -1,0 +1,83 @@
+{
+  "title": "Shared engine",
+  "order": 1,
+  "video": {
+    "screen": "$F800",
+    "charset": ""
+  },
+  "coverage": {
+    "exclude": [
+      [
+        "$0400",
+        "$07E7",
+        "KERNAL text screen from boot; stage initialisation selects VIC bank $C000 and screen $F800"
+      ],
+      [
+        "$F800",
+        "$FBFF",
+        "Video output. Map copier and HUD writes target this screen and the raster uses the last eight bytes as sprite pointers"
+      ],
+      [
+        "$07EB",
+        "$0800",
+        "Boot depacker workspace copied by the instruction at $0005, measured with a write breakpoint before transfer to $0803"
+      ],
+      [
+        "$B904",
+        "$B9FF",
+        "Boot copy residue beyond the last music sequence. The title through gameplay snapshots agree byte for byte, the decoded tune pointers terminate by $B903, no decoded operand reaches this interval and the CPU watches registered zero hits."
+      ],
+      [
+        "$25CE",
+        "$277F",
+        "Live stage state: mode flags, viewport and timer fields, shadow histories, projectile state, collision fields and raster parameters. Both the shared engine and the stage loops update these bytes."
+      ],
+      [
+        "$0000",
+        "$00FF",
+        "CPU port, zero-page object arrays, scratch and runtime dispatch pointers. The boot depacker reuses this space before gameplay."
+      ],
+      [
+        "$A200",
+        "$A241",
+        "Three interleaved effect-voice work areas seeded and updated by the SID effect driver"
+      ],
+      [
+        "$A9EF",
+        "$A9FD",
+        "Music driver\u2019s live counters and per-note scratch"
+      ],
+      [
+        "$AA24",
+        "$AA33",
+        "Live copy of the selected tune descriptor, filled by $A4E6"
+      ],
+      [
+        "$AA37",
+        "$AA9F",
+        "Voice playback state and modulation workspace updated by the music tick"
+      ]
+    ],
+    "extra": [
+      [
+        "$C000",
+        "$DB3F",
+        "Shared sprite patterns"
+      ],
+      [
+        "$FC00",
+        "$FFF9",
+        "HUD glyphs above the screen buffer"
+      ]
+    ],
+    "include": [
+      [
+        "$D000",
+        "$DB3F",
+        "Shared sprite patterns in the VIC bank beneath I/O"
+      ]
+    ]
+  },
+  "io": [],
+  "regions": []
+}

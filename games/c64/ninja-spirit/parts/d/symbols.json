@@ -1,0 +1,2786 @@
+{
+ "schema": 1,
+ "platform": "c64",
+ "game": "ninja-spirit",
+ "part": "d",
+ "build": "DCS disk release",
+ "source": "regenerator2000 live",
+ "regions": {
+  "exclude": [
+   [
+    256,
+    511,
+    "stack"
+   ],
+   [
+    53248,
+    56127,
+    "I/O and colour RAM"
+   ],
+   [
+    11470,
+    11475,
+    "Placement flags maintained by the running stage"
+   ],
+   [
+    14889,
+    16383,
+    "Previous load C map bytes from $56A9\u2013$5C7F preserved in the packed region. Identical at handover, after the last referenced state byte $3A28, with zero CPU load or store hits in the local play probe"
+   ],
+   [
+    14866,
+    14888,
+    "Live section, encounter, component slot and ending animation state"
+   ],
+   [
+    0,
+    10111,
+    "Shared engine"
+   ],
+   [
+    40960,
+    56127,
+    "Shared engine"
+   ],
+   [
+    63488,
+    65535,
+    "Shared engine"
+   ]
+  ],
+  "extra": [
+   [
+    10112,
+    16383,
+    "First packet contains the stage routines and tables below the map"
+   ],
+   [
+    16384,
+    40959,
+    "Stage tile map"
+   ],
+   [
+    56128,
+    63487,
+    "Second packet contains stage graphics"
+   ]
+  ],
+  "edges": [
+   0,
+   256,
+   512,
+   1024,
+   2048,
+   4096,
+   16384,
+   32768,
+   40960,
+   49152,
+   53248,
+   57344
+  ],
+  "beneath": [
+   [
+    56128,
+    57343
+   ]
+  ],
+  "elsewhere": [
+   [
+    0,
+    10111,
+    "Shared engine"
+   ],
+   [
+    40960,
+    56127,
+    "Shared engine"
+   ],
+   [
+    63488,
+    65535,
+    "Shared engine"
+   ]
+  ]
+ },
+ "blocks": [
+  {
+   "start": 10112,
+   "end": 10865,
+   "type": "Code"
+  },
+  {
+   "start": 10866,
+   "end": 10879,
+   "type": "Byte"
+  },
+  {
+   "start": 10880,
+   "end": 10922,
+   "type": "Code"
+  },
+  {
+   "start": 10923,
+   "end": 10938,
+   "type": "Byte"
+  },
+  {
+   "start": 10939,
+   "end": 11046,
+   "type": "Code"
+  },
+  {
+   "start": 11047,
+   "end": 11050,
+   "type": "Address"
+  },
+  {
+   "start": 11051,
+   "end": 11121,
+   "type": "Undefined"
+  },
+  {
+   "start": 11122,
+   "end": 11139,
+   "type": "Code"
+  },
+  {
+   "start": 11140,
+   "end": 11143,
+   "type": "Address"
+  },
+  {
+   "start": 11144,
+   "end": 11198,
+   "type": "Undefined"
+  },
+  {
+   "start": 11199,
+   "end": 11213,
+   "type": "Code"
+  },
+  {
+   "start": 11214,
+   "end": 11247,
+   "type": "Byte"
+  },
+  {
+   "start": 11248,
+   "end": 11447,
+   "type": "Code"
+  },
+  {
+   "start": 11448,
+   "end": 11475,
+   "type": "Byte"
+  },
+  {
+   "start": 11476,
+   "end": 11487,
+   "type": "Address"
+  },
+  {
+   "start": 11488,
+   "end": 11567,
+   "type": "Code"
+  },
+  {
+   "start": 11568,
+   "end": 11571,
+   "type": "Byte"
+  },
+  {
+   "start": 11572,
+   "end": 11693,
+   "type": "Code"
+  },
+  {
+   "start": 11694,
+   "end": 11695,
+   "type": "Byte"
+  },
+  {
+   "start": 11696,
+   "end": 11878,
+   "type": "Code"
+  },
+  {
+   "start": 11879,
+   "end": 11940,
+   "type": "Address"
+  },
+  {
+   "start": 11941,
+   "end": 12064,
+   "type": "Byte"
+  },
+  {
+   "start": 12065,
+   "end": 12426,
+   "type": "Code"
+  },
+  {
+   "start": 12427,
+   "end": 12428,
+   "type": "Byte"
+  },
+  {
+   "start": 12429,
+   "end": 12512,
+   "type": "Code"
+  },
+  {
+   "start": 12513,
+   "end": 12528,
+   "type": "Byte"
+  },
+  {
+   "start": 12529,
+   "end": 12633,
+   "type": "Code"
+  },
+  {
+   "start": 12634,
+   "end": 12649,
+   "type": "Byte"
+  },
+  {
+   "start": 12650,
+   "end": 12733,
+   "type": "Code"
+  },
+  {
+   "start": 12734,
+   "end": 12749,
+   "type": "Byte"
+  },
+  {
+   "start": 12750,
+   "end": 12862,
+   "type": "Code"
+  },
+  {
+   "start": 12863,
+   "end": 12878,
+   "type": "Byte"
+  },
+  {
+   "start": 12879,
+   "end": 12997,
+   "type": "Code"
+  },
+  {
+   "start": 12998,
+   "end": 13007,
+   "type": "Byte"
+  },
+  {
+   "start": 13008,
+   "end": 13781,
+   "type": "Code"
+  },
+  {
+   "start": 13782,
+   "end": 14113,
+   "type": "Byte"
+  },
+  {
+   "start": 14114,
+   "end": 14168,
+   "type": "Code"
+  },
+  {
+   "start": 14169,
+   "end": 14438,
+   "type": "Byte"
+  },
+  {
+   "start": 14439,
+   "end": 14865,
+   "type": "Code"
+  },
+  {
+   "start": 14866,
+   "end": 16383,
+   "type": "Undefined"
+  },
+  {
+   "start": 16384,
+   "end": 40959,
+   "type": "Byte"
+  },
+  {
+   "start": 56128,
+   "end": 63487,
+   "type": "Byte"
+  }
+ ],
+ "symbols": [
+  {
+   "address": 10112,
+   "name": "initialise_load_d",
+   "type": "Jump",
+   "kind": "user"
+  },
+  {
+   "address": 10195,
+   "name": "initialise_section_view",
+   "type": "Jump",
+   "kind": "user"
+  },
+  {
+   "address": 10223,
+   "name": "j_27EF",
+   "type": "Jump",
+   "kind": "auto"
+  },
+  {
+   "address": 10249,
+   "name": "refresh_lives_and_section_tune",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 10269,
+   "name": "read_controls_and_step_player",
+   "type": "Branch",
+   "kind": "user"
+  },
+  {
+   "address": 10320,
+   "name": "tick_load_d_section",
+   "type": "Branch",
+   "kind": "user"
+  },
+  {
+   "address": 10384,
+   "name": "b_2890",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 10387,
+   "name": "advance_local_section",
+   "type": "Branch",
+   "kind": "user"
+  },
+  {
+   "address": 10393,
+   "name": "lose_life_in_load_d",
+   "type": "Branch",
+   "kind": "user"
+  },
+  {
+   "address": 10415,
+   "name": "b_28AF",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 10449,
+   "name": "b_28D1",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 10456,
+   "name": "handle_exhausted_lives",
+   "type": "Branch",
+   "kind": "user"
+  },
+  {
+   "address": 10472,
+   "name": "b_28E8",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 10485,
+   "name": "b_28F5",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 10525,
+   "name": "b_291D",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 10531,
+   "name": "start_end_sequence",
+   "type": "Jump",
+   "kind": "user"
+  },
+  {
+   "address": 10566,
+   "name": "b_2946",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 10583,
+   "name": "j_2957",
+   "type": "Jump",
+   "kind": "auto"
+  },
+  {
+   "address": 10611,
+   "name": "b_2973",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 10631,
+   "name": "start_ending_horizontal_pan",
+   "type": "Branch",
+   "kind": "user"
+  },
+  {
+   "address": 10682,
+   "name": "b_29BA",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 10701,
+   "name": "b_29CD",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 10768,
+   "name": "start_ending_vertical_pan",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 10817,
+   "name": "b_2A41",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 10866,
+   "name": "ending_figure_shapes",
+   "type": "Field",
+   "kind": "user"
+  },
+  {
+   "address": 10878,
+   "name": "local_section_tunes_d",
+   "type": "Field",
+   "kind": "user"
+  },
+  {
+   "address": 10880,
+   "name": "set_horizontal_pan_sprite_pairs",
+   "type": "Subroutine",
+   "kind": "user"
+  },
+  {
+   "address": 10882,
+   "name": "b_2A82",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 10923,
+   "name": "ending_sprite_pair_x",
+   "type": "Field",
+   "kind": "user"
+  },
+  {
+   "address": 10931,
+   "name": "ending_sprite_pair_colours",
+   "type": "Field",
+   "kind": "user"
+  },
+  {
+   "address": 10939,
+   "name": "advance_ending_sprite_pair",
+   "type": "Subroutine",
+   "kind": "user"
+  },
+  {
+   "address": 10971,
+   "name": "r_2ADB",
+   "type": "Return",
+   "kind": "auto"
+  },
+  {
+   "address": 10972,
+   "name": "b_2ADC",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 10981,
+   "name": "apply_surface_height_to_player",
+   "type": "Subroutine",
+   "kind": "user"
+  },
+  {
+   "address": 11028,
+   "name": "r_2B14",
+   "type": "Return",
+   "kind": "auto"
+  },
+  {
+   "address": 11029,
+   "name": "dispatch_section_setup",
+   "type": "Subroutine",
+   "kind": "user"
+  },
+  {
+   "address": 11047,
+   "name": "section_setup_pointers_d",
+   "type": "Field",
+   "kind": "user"
+  },
+  {
+   "address": 11048,
+   "name": "section_setup_pointer_high_d",
+   "type": "Field",
+   "kind": "user"
+  },
+  {
+   "address": 11051,
+   "name": "setup_wide_map_section",
+   "type": "AbsoluteAddress",
+   "kind": "user"
+  },
+  {
+   "address": 11082,
+   "name": "setup_narrow_map_section",
+   "type": "AbsoluteAddress",
+   "kind": "user"
+  },
+  {
+   "address": 11122,
+   "name": "dispatch_section_palette",
+   "type": "Subroutine",
+   "kind": "user"
+  },
+  {
+   "address": 11140,
+   "name": "section_colour_pointers_d",
+   "type": "Field",
+   "kind": "user"
+  },
+  {
+   "address": 11141,
+   "name": "section_colour_pointer_high_d",
+   "type": "Field",
+   "kind": "user"
+  },
+  {
+   "address": 11144,
+   "name": "first_section_colours_d",
+   "type": "AbsoluteAddress",
+   "kind": "user"
+  },
+  {
+   "address": 11170,
+   "name": "second_section_colours_d",
+   "type": "AbsoluteAddress",
+   "kind": "user"
+  },
+  {
+   "address": 11199,
+   "name": "show_no_continues_d",
+   "type": "Subroutine",
+   "kind": "user"
+  },
+  {
+   "address": 11204,
+   "name": "b_2BC4",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 11214,
+   "name": "restart_message_d",
+   "type": "Field",
+   "kind": "user"
+  },
+  {
+   "address": 11248,
+   "name": "clear_weapon_upgrades_and_shadows_d",
+   "type": "Subroutine",
+   "kind": "user"
+  },
+  {
+   "address": 11250,
+   "name": "b_2BF2",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 11269,
+   "name": "select_next_weapon_d",
+   "type": "Subroutine",
+   "kind": "user"
+  },
+  {
+   "address": 11290,
+   "name": "b_2C1A",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 11313,
+   "name": "b_2C31",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 11340,
+   "name": "b_2C4C",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 11345,
+   "name": "r_2C51",
+   "type": "Return",
+   "kind": "auto"
+  },
+  {
+   "address": 11346,
+   "name": "b_2C52",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 11352,
+   "name": "scan_visible_stage_placements",
+   "type": "Subroutine",
+   "kind": "user"
+  },
+  {
+   "address": 11360,
+   "name": "b_2C60",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 11411,
+   "name": "b_2C93",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 11427,
+   "name": "j_2CA3",
+   "type": "Jump",
+   "kind": "auto"
+  },
+  {
+   "address": 11440,
+   "name": "b_2CB0",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 11448,
+   "name": "placement_upper_index",
+   "type": "Field",
+   "kind": "user"
+  },
+  {
+   "address": 11450,
+   "name": "placement_stop_index",
+   "type": "Field",
+   "kind": "user"
+  },
+  {
+   "address": 11452,
+   "name": "placement_column_low",
+   "type": "Field",
+   "kind": "user"
+  },
+  {
+   "address": 11458,
+   "name": "placement_column_high",
+   "type": "Field",
+   "kind": "user"
+  },
+  {
+   "address": 11464,
+   "name": "placement_row",
+   "type": "Field",
+   "kind": "user"
+  },
+  {
+   "address": 11470,
+   "name": "placement_work_flags",
+   "type": "Field",
+   "kind": "user"
+  },
+  {
+   "address": 11476,
+   "name": "placement_handlers",
+   "type": "Field",
+   "kind": "user"
+  },
+  {
+   "address": 11477,
+   "name": "first_placement_pointer_high_d",
+   "type": "Field",
+   "kind": "user"
+  },
+  {
+   "address": 11488,
+   "name": "compose_placement_helpers",
+   "type": "AbsoluteAddress",
+   "kind": "user"
+  },
+  {
+   "address": 11497,
+   "name": "initialise_four_slot_moving_encounter",
+   "type": "Subroutine",
+   "kind": "user"
+  },
+  {
+   "address": 11523,
+   "name": "b_2D03",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 11567,
+   "name": "r_2D2F",
+   "type": "Return",
+   "kind": "auto"
+  },
+  {
+   "address": 11568,
+   "name": "initial_moving_encounter_types",
+   "type": "Field",
+   "kind": "user"
+  },
+  {
+   "address": 11572,
+   "name": "reserve_type_11_encounter_slot",
+   "type": "AbsoluteAddress",
+   "kind": "user"
+  },
+  {
+   "address": 11628,
+   "name": "r_2D6C",
+   "type": "Return",
+   "kind": "auto"
+  },
+  {
+   "address": 11629,
+   "name": "j_2D6D",
+   "type": "Jump",
+   "kind": "auto"
+  },
+  {
+   "address": 11693,
+   "name": "r_2DAD",
+   "type": "Return",
+   "kind": "auto"
+  },
+  {
+   "address": 11694,
+   "name": "placement_extra_child_y_d",
+   "type": "Field",
+   "kind": "user"
+  },
+  {
+   "address": 11696,
+   "name": "launch_type_27_actor",
+   "type": "Subroutine",
+   "kind": "user"
+  },
+  {
+   "address": 11745,
+   "name": "r_2DE1",
+   "type": "Return",
+   "kind": "auto"
+  },
+  {
+   "address": 11746,
+   "name": "placement_to_screen_d",
+   "type": "Subroutine",
+   "kind": "user"
+  },
+  {
+   "address": 11789,
+   "name": "update_stage_objects",
+   "type": "Subroutine",
+   "kind": "user"
+  },
+  {
+   "address": 11798,
+   "name": "b_2E16",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 11846,
+   "name": "b_2E46",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 11849,
+   "name": "b_2E49",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 11854,
+   "name": "b_2E4E",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 11876,
+   "name": "dispatch_stage_callback",
+   "type": "Subroutine",
+   "kind": "user"
+  },
+  {
+   "address": 11879,
+   "name": "object_type_handlers",
+   "type": "Field",
+   "kind": "user"
+  },
+  {
+   "address": 11880,
+   "name": "first_object_callback_high_d",
+   "type": "Field",
+   "kind": "user"
+  },
+  {
+   "address": 11941,
+   "name": "object_left_extent",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 11972,
+   "name": "object_overlap_enabled",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 12003,
+   "name": "object_top_extent",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 12034,
+   "name": "object_bottom_extent",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 12065,
+   "name": "animate_final_defeat",
+   "type": "AbsoluteAddress",
+   "kind": "user"
+  },
+  {
+   "address": 12155,
+   "name": "r_2F7B",
+   "type": "Return",
+   "kind": "auto"
+  },
+  {
+   "address": 12156,
+   "name": "b_2F7C",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 12160,
+   "name": "update_type_12_effect_shapes",
+   "type": "AbsoluteAddress",
+   "kind": "user"
+  },
+  {
+   "address": 12185,
+   "name": "r_2F99",
+   "type": "Return",
+   "kind": "auto"
+  },
+  {
+   "address": 12186,
+   "name": "b_2F9A",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 12216,
+   "name": "b_2FB8",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 12225,
+   "name": "j_2FC1",
+   "type": "Jump",
+   "kind": "auto"
+  },
+  {
+   "address": 12254,
+   "name": "b_2FDE",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 12257,
+   "name": "b_2FE1",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 12266,
+   "name": "j_2FEA",
+   "type": "Jump",
+   "kind": "auto"
+  },
+  {
+   "address": 12281,
+   "name": "r_2FF9",
+   "type": "Return",
+   "kind": "auto"
+  },
+  {
+   "address": 12282,
+   "name": "update_type_11_encounter_hits",
+   "type": "AbsoluteAddress",
+   "kind": "user"
+  },
+  {
+   "address": 12357,
+   "name": "b_3045",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 12366,
+   "name": "b_304E",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 12370,
+   "name": "b_3052",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 12373,
+   "name": "b_3055",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 12415,
+   "name": "b_307F",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 12427,
+   "name": "type_11_hit_shapes_d",
+   "type": "Field",
+   "kind": "user"
+  },
+  {
+   "address": 12429,
+   "name": "update_type_19_horizontal_phase",
+   "type": "AbsoluteAddress",
+   "kind": "user"
+  },
+  {
+   "address": 12447,
+   "name": "b_309F",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 12474,
+   "name": "b_30BA",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 12483,
+   "name": "b_30C3",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 12497,
+   "name": "b_30D1",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 12499,
+   "name": "b_30D3",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 12513,
+   "name": "moving_encounter_initial_shapes_d",
+   "type": "Field",
+   "kind": "user"
+  },
+  {
+   "address": 12517,
+   "name": "moving_encounter_first_alt_shapes_d",
+   "type": "Field",
+   "kind": "user"
+  },
+  {
+   "address": 12521,
+   "name": "moving_encounter_initial_dx_d",
+   "type": "Field",
+   "kind": "user"
+  },
+  {
+   "address": 12525,
+   "name": "moving_encounter_initial_dy_d",
+   "type": "Field",
+   "kind": "user"
+  },
+  {
+   "address": 12529,
+   "name": "update_type_20_vertical_phase",
+   "type": "AbsoluteAddress",
+   "kind": "user"
+  },
+  {
+   "address": 12552,
+   "name": "b_3108",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 12583,
+   "name": "b_3127",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 12592,
+   "name": "b_3130",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 12612,
+   "name": "b_3144",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 12614,
+   "name": "b_3146",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 12634,
+   "name": "moving_encounter_second_shapes_d",
+   "type": "Field",
+   "kind": "user"
+  },
+  {
+   "address": 12638,
+   "name": "moving_encounter_second_alt_shapes_d",
+   "type": "Field",
+   "kind": "user"
+  },
+  {
+   "address": 12642,
+   "name": "moving_encounter_second_dx_d",
+   "type": "Field",
+   "kind": "user"
+  },
+  {
+   "address": 12646,
+   "name": "moving_encounter_second_dy_d",
+   "type": "Field",
+   "kind": "user"
+  },
+  {
+   "address": 12650,
+   "name": "update_type_21_horizontal_phase",
+   "type": "AbsoluteAddress",
+   "kind": "user"
+  },
+  {
+   "address": 12668,
+   "name": "b_317C",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 12695,
+   "name": "b_3197",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 12704,
+   "name": "b_31A0",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 12718,
+   "name": "b_31AE",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 12720,
+   "name": "b_31B0",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 12734,
+   "name": "moving_encounter_third_shapes_d",
+   "type": "Field",
+   "kind": "user"
+  },
+  {
+   "address": 12738,
+   "name": "moving_encounter_third_alt_shapes_d",
+   "type": "Field",
+   "kind": "user"
+  },
+  {
+   "address": 12742,
+   "name": "moving_encounter_third_dx_d",
+   "type": "Field",
+   "kind": "user"
+  },
+  {
+   "address": 12746,
+   "name": "moving_encounter_third_dy_d",
+   "type": "Field",
+   "kind": "user"
+  },
+  {
+   "address": 12750,
+   "name": "update_type_22_return_phase",
+   "type": "AbsoluteAddress",
+   "kind": "user"
+  },
+  {
+   "address": 12781,
+   "name": "b_31ED",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 12812,
+   "name": "b_320C",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 12821,
+   "name": "b_3215",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 12841,
+   "name": "b_3229",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 12843,
+   "name": "b_322B",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 12863,
+   "name": "moving_encounter_fourth_shapes_d",
+   "type": "Field",
+   "kind": "user"
+  },
+  {
+   "address": 12867,
+   "name": "moving_encounter_fourth_alt_shapes_d",
+   "type": "Field",
+   "kind": "user"
+  },
+  {
+   "address": 12871,
+   "name": "moving_encounter_fourth_dx_d",
+   "type": "Field",
+   "kind": "user"
+  },
+  {
+   "address": 12875,
+   "name": "moving_encounter_fourth_dy_d",
+   "type": "Field",
+   "kind": "user"
+  },
+  {
+   "address": 12879,
+   "name": "update_three_component_type_13",
+   "type": "AbsoluteAddress",
+   "kind": "user"
+  },
+  {
+   "address": 12889,
+   "name": "b_3259",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 12940,
+   "name": "b_328C",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 12985,
+   "name": "r_32B9",
+   "type": "Return",
+   "kind": "auto"
+  },
+  {
+   "address": 12986,
+   "name": "b_32BA",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 12998,
+   "name": "type_13_animation_shapes_d",
+   "type": "Field",
+   "kind": "user"
+  },
+  {
+   "address": 13005,
+   "name": "type_13_extra_component_shapes_d",
+   "type": "Field",
+   "kind": "user"
+  },
+  {
+   "address": 13008,
+   "name": "advance_type_14_effect",
+   "type": "AbsoluteAddress",
+   "kind": "user"
+  },
+  {
+   "address": 13033,
+   "name": "r_32E9",
+   "type": "Return",
+   "kind": "auto"
+  },
+  {
+   "address": 13034,
+   "name": "b_32EA",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 13037,
+   "name": "process_type_28_pending_hit",
+   "type": "AbsoluteAddress",
+   "kind": "user"
+  },
+  {
+   "address": 13084,
+   "name": "b_331C",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 13092,
+   "name": "b_3324",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 13095,
+   "name": "b_3327",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 13114,
+   "name": "b_333A",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 13142,
+   "name": "b_3356",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 13146,
+   "name": "remove_linked_object_d",
+   "type": "Subroutine",
+   "kind": "user"
+  },
+  {
+   "address": 13159,
+   "name": "test_type_28_player_rectangle",
+   "type": "Branch",
+   "kind": "user"
+  },
+  {
+   "address": 13237,
+   "name": "b_33B5",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 13263,
+   "name": "b_33CF",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 13268,
+   "name": "b_33D4",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 13291,
+   "name": "b_33EB",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 13315,
+   "name": "b_3403",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 13324,
+   "name": "b_340C",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 13339,
+   "name": "r_341B",
+   "type": "Return",
+   "kind": "auto"
+  },
+  {
+   "address": 13340,
+   "name": "process_type_27_pending_hit",
+   "type": "AbsoluteAddress",
+   "kind": "user"
+  },
+  {
+   "address": 13387,
+   "name": "b_344B",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 13395,
+   "name": "b_3453",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 13398,
+   "name": "b_3456",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 13417,
+   "name": "b_3469",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 13445,
+   "name": "b_3485",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 13462,
+   "name": "b_3496",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 13540,
+   "name": "b_34E4",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 13566,
+   "name": "b_34FE",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 13571,
+   "name": "b_3503",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 13594,
+   "name": "b_351A",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 13618,
+   "name": "b_3532",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 13627,
+   "name": "b_353B",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 13642,
+   "name": "r_354A",
+   "type": "Return",
+   "kind": "auto"
+  },
+  {
+   "address": 13643,
+   "name": "apply_surface_height_to_object",
+   "type": "Subroutine",
+   "kind": "user"
+  },
+  {
+   "address": 13681,
+   "name": "animate_pickup_and_scatter_particles",
+   "type": "AbsoluteAddress",
+   "kind": "user"
+  },
+  {
+   "address": 13738,
+   "name": "r_35AA",
+   "type": "Return",
+   "kind": "auto"
+  },
+  {
+   "address": 13739,
+   "name": "write_playfield_row_colours_d",
+   "type": "Subroutine",
+   "kind": "user"
+  },
+  {
+   "address": 13751,
+   "name": "b_35B7",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 13757,
+   "name": "b_35BD",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 13773,
+   "name": "b_35CD",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 13782,
+   "name": "first_section_row_colours_d",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 13801,
+   "name": "second_section_row_colours_d",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 13820,
+   "name": "ending_pan_row_colours_d",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 13839,
+   "name": "ending_vertical_row_colours_d",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 13858,
+   "name": "tile_attributes",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 14114,
+   "name": "spawn_rising_actor_in_narrow_section",
+   "type": "Subroutine",
+   "kind": "user"
+  },
+  {
+   "address": 14168,
+   "name": "r_3758",
+   "type": "Return",
+   "kind": "auto"
+  },
+  {
+   "address": 14169,
+   "name": "narrow_section_spawn_positions",
+   "type": "Field",
+   "kind": "user"
+  },
+  {
+   "address": 14425,
+   "name": "trailing_spawn_table_bytes",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 14439,
+   "name": "align_narrow_section_view",
+   "type": "Subroutine",
+   "kind": "user"
+  },
+  {
+   "address": 14447,
+   "name": "b_386F",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 14462,
+   "name": "b_387E",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 14477,
+   "name": "b_388D",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 14497,
+   "name": "b_38A1",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 14500,
+   "name": "patch_narrow_viewport_row_operands",
+   "type": "Subroutine",
+   "kind": "user"
+  },
+  {
+   "address": 14866,
+   "name": "a_3A12",
+   "type": "AbsoluteAddress",
+   "kind": "auto"
+  },
+  {
+   "address": 14867,
+   "name": "a_3A13",
+   "type": "AbsoluteAddress",
+   "kind": "auto"
+  },
+  {
+   "address": 14868,
+   "name": "f_3A14",
+   "type": "Field",
+   "kind": "auto"
+  },
+  {
+   "address": 14883,
+   "name": "a_3A23",
+   "type": "AbsoluteAddress",
+   "kind": "auto"
+  },
+  {
+   "address": 14884,
+   "name": "a_3A24",
+   "type": "AbsoluteAddress",
+   "kind": "auto"
+  },
+  {
+   "address": 14885,
+   "name": "a_3A25",
+   "type": "AbsoluteAddress",
+   "kind": "auto"
+  },
+  {
+   "address": 14886,
+   "name": "a_3A26",
+   "type": "AbsoluteAddress",
+   "kind": "auto"
+  },
+  {
+   "address": 14887,
+   "name": "a_3A27",
+   "type": "AbsoluteAddress",
+   "kind": "auto"
+  },
+  {
+   "address": 14888,
+   "name": "ending_figure_animation_index",
+   "type": "AbsoluteAddress",
+   "kind": "user"
+  },
+  {
+   "address": 16384,
+   "name": "map_cells_4000",
+   "type": "Field",
+   "kind": "user"
+  },
+  {
+   "address": 16896,
+   "name": "map_cells_4200",
+   "type": "Field",
+   "kind": "user"
+  },
+  {
+   "address": 17408,
+   "name": "map_cells_4400",
+   "type": "Field",
+   "kind": "user"
+  },
+  {
+   "address": 17920,
+   "name": "map_cells_4600",
+   "type": "Field",
+   "kind": "user"
+  },
+  {
+   "address": 18432,
+   "name": "map_cells_4800",
+   "type": "Field",
+   "kind": "user"
+  },
+  {
+   "address": 18944,
+   "name": "map_cells_4a00",
+   "type": "Field",
+   "kind": "user"
+  },
+  {
+   "address": 19456,
+   "name": "map_cells_4c00",
+   "type": "Field",
+   "kind": "user"
+  },
+  {
+   "address": 19968,
+   "name": "map_cells_4e00",
+   "type": "Field",
+   "kind": "user"
+  },
+  {
+   "address": 20480,
+   "name": "map_cells_5000",
+   "type": "Field",
+   "kind": "user"
+  },
+  {
+   "address": 20992,
+   "name": "map_cells_5200",
+   "type": "Field",
+   "kind": "user"
+  },
+  {
+   "address": 21504,
+   "name": "map_cells_5400",
+   "type": "Field",
+   "kind": "user"
+  },
+  {
+   "address": 21931,
+   "name": "map_cells_55ab",
+   "type": "AbsoluteAddress",
+   "kind": "user"
+  },
+  {
+   "address": 22016,
+   "name": "map_cells_5600",
+   "type": "Field",
+   "kind": "user"
+  },
+  {
+   "address": 22528,
+   "name": "map_cells_5800",
+   "type": "Field",
+   "kind": "user"
+  },
+  {
+   "address": 23040,
+   "name": "map_cells_5a00",
+   "type": "Field",
+   "kind": "user"
+  },
+  {
+   "address": 23552,
+   "name": "map_cells_5c00",
+   "type": "Field",
+   "kind": "user"
+  },
+  {
+   "address": 24064,
+   "name": "map_cells_5e00",
+   "type": "Field",
+   "kind": "user"
+  },
+  {
+   "address": 24576,
+   "name": "map_cells_6000",
+   "type": "Field",
+   "kind": "user"
+  },
+  {
+   "address": 24736,
+   "name": "map_cells_60a0",
+   "type": "AbsoluteAddress",
+   "kind": "user"
+  },
+  {
+   "address": 25088,
+   "name": "map_cells_6200",
+   "type": "Field",
+   "kind": "user"
+  },
+  {
+   "address": 25600,
+   "name": "map_cells_6400",
+   "type": "Field",
+   "kind": "user"
+  },
+  {
+   "address": 26010,
+   "name": "map_cells_659a",
+   "type": "AbsoluteAddress",
+   "kind": "user"
+  },
+  {
+   "address": 26624,
+   "name": "map_cells_6800",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 26858,
+   "name": "map_cells_68ea",
+   "type": "Field",
+   "kind": "user"
+  },
+  {
+   "address": 27648,
+   "name": "map_cells_6c00",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 28672,
+   "name": "map_cells_7000",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 29696,
+   "name": "map_cells_7400",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 30720,
+   "name": "map_cells_7800",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 31744,
+   "name": "map_cells_7c00",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 32768,
+   "name": "map_cells_8000",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 33792,
+   "name": "map_cells_8400",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 34816,
+   "name": "map_cells_8800",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 35840,
+   "name": "map_cells_8c00",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 36864,
+   "name": "map_cells_9000",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 37888,
+   "name": "map_cells_9400",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 38912,
+   "name": "map_cells_9800",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 39936,
+   "name": "map_cells_9c00",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 56128,
+   "name": "stage_sprite_patterns_db40",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 56216,
+   "name": "stage_sprite_patterns_db98",
+   "type": "Field",
+   "kind": "user"
+  },
+  {
+   "address": 57152,
+   "name": "stage_sprite_patterns_df40",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 57344,
+   "name": "stage_sprite_patterns_e000",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 58176,
+   "name": "stage_sprite_patterns_e340",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 59129,
+   "name": "stage_sprite_patterns_e6f9",
+   "type": "Field",
+   "kind": "user"
+  },
+  {
+   "address": 59200,
+   "name": "stage_sprite_patterns_e740",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 60224,
+   "name": "stage_sprite_patterns_eb40",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 60681,
+   "name": "stage_sprite_patterns_ed09",
+   "type": "Predefined",
+   "kind": "user"
+  },
+  {
+   "address": 60691,
+   "name": "stage_sprite_patterns_ed13",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 60694,
+   "name": "stage_sprite_patterns_ed16",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 60871,
+   "name": "stage_sprite_patterns_edc7",
+   "type": "Predefined",
+   "kind": "user"
+  },
+  {
+   "address": 60911,
+   "name": "stage_sprite_patterns_edef",
+   "type": "Predefined",
+   "kind": "user"
+  },
+  {
+   "address": 60947,
+   "name": "stage_sprite_patterns_ee13",
+   "type": "Predefined",
+   "kind": "user"
+  },
+  {
+   "address": 61248,
+   "name": "stage_sprite_patterns_ef40",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 61440,
+   "name": "stage_characters_f000",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 62421,
+   "name": "stage_characters_f3d5",
+   "type": "Subroutine",
+   "kind": "user"
+  },
+  {
+   "address": 62464,
+   "name": "stage_characters_f400",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 63042,
+   "name": "stage_characters_f642",
+   "type": "Subroutine",
+   "kind": "user"
+  }
+ ],
+ "comments": [
+  {
+   "address": 10112,
+   "type": "line",
+   "text": "Set shared IRQ and sound state, initialise the load-specific tables and clear the section and stage state. Configure video and sprite slots before entering the stage loop."
+  },
+  {
+   "address": 10195,
+   "type": "line",
+   "text": "Clear the map stride flag, apply the local section setup and clear the camera and completion fields before initialising stage objects."
+  },
+  {
+   "address": 10249,
+   "type": "line",
+   "text": "Refresh the HUD life sprites and compare the section's tune ID from $2A7E to the last selected tune."
+  },
+  {
+   "address": 10269,
+   "type": "line",
+   "text": "Read port 2 from CIA1 port A and run the player's input and update code after a raster tick. If $25DE is set, redraw without advancing the stage counter."
+  },
+  {
+   "address": 10320,
+   "type": "line",
+   "text": "Update stage placements, active objects, weapon selection, pause state and time, then update display state and check the round status."
+  },
+  {
+   "address": 10387,
+   "type": "line",
+   "text": "Increment the local section index and run section setup again when the player Y state reaches $C8."
+  },
+  {
+   "address": 10393,
+   "type": "line",
+   "text": "Reset transient state and spend a life. Choose the restart position using the local section counter and checkpoint flag $3A27."
+  },
+  {
+   "address": 10456,
+   "type": "line",
+   "text": "Handle game over and high scores, poll for a continuation and clear the score and refill lives when accepted."
+  },
+  {
+   "address": 10531,
+   "type": "line",
+   "text": "Reset the sprite slots, set up the ending figure and choose tune 0. Clear the screen before stepping through its shape sequence on the raster tick."
+  },
+  {
+   "address": 10631,
+   "type": "line",
+   "text": "Reset fine scroll and choose a new map origin and row palette. Scroll horizontally while advancing the eight ending sprite slots."
+  },
+  {
+   "address": 10768,
+   "type": "line",
+   "text": "Select the 96-byte row stride, clear object slots and prepare the next map view. Advance the view vertically and enter the game-over display and score handling at its end."
+  },
+  {
+   "address": 10866,
+   "type": "line",
+   "text": "Ending sprite pointers indexed by the animation counter at $3A28."
+  },
+  {
+   "address": 10878,
+   "type": "line",
+   "text": "The two tune IDs indexed by the current local section."
+  },
+  {
+   "address": 10880,
+   "type": "line",
+   "text": "Initialise four pairs of animation slots with shapes $B5 and $B6, paired X coordinates and a shared Y coordinate."
+  },
+  {
+   "address": 10923,
+   "type": "line",
+   "text": "Initial horizontal positions for the four pairs of ending sprites."
+  },
+  {
+   "address": 10931,
+   "type": "line",
+   "text": "Colours assigned to those sprite pairs by the ending initialiser."
+  },
+  {
+   "address": 10939,
+   "type": "line",
+   "text": "Advance a pair\u2019s own animation timer. At the phase boundary move each sprite left and change its shape, wrapping the pair\u2019s shape indices back to $B5 and $B6."
+  },
+  {
+   "address": 10981,
+   "type": "line",
+   "text": "When the player is on the ground in the first section, sample the map data used as a surface-height offset and apply it to the low Y bits."
+  },
+  {
+   "address": 11029,
+   "type": "line",
+   "text": "Use the section index to read a pointer from the following table and jump through $14."
+  },
+  {
+   "address": 11047,
+   "type": "line",
+   "text": "Two pointers to the local section setup routines."
+  },
+  {
+   "address": 11048,
+   "type": "line",
+   "text": "High byte of the first section setup address, indexed by twice the section."
+  },
+  {
+   "address": 11051,
+   "type": "line",
+   "text": "Clear the starting scroll coordinates and set the map bounds for the wide section."
+  },
+  {
+   "address": 11082,
+   "type": "line",
+   "text": "Set the fixed column and starting row bounds and select row stride 96 with $277E."
+  },
+  {
+   "address": 11122,
+   "type": "line",
+   "text": "Use the section index to select its palette and draw setup handler."
+  },
+  {
+   "address": 11140,
+   "type": "line",
+   "text": "Pointers selecting the setup for each section\u2019s colours."
+  },
+  {
+   "address": 11141,
+   "type": "line",
+   "text": "High byte of the first interleaved section palette pointer."
+  },
+  {
+   "address": 11144,
+   "type": "line",
+   "text": "Set the VIC colours and use the row palette at $35D6."
+  },
+  {
+   "address": 11170,
+   "type": "line",
+   "text": "Set the section colours and use the row palette at $35E9."
+  },
+  {
+   "address": 11199,
+   "type": "line",
+   "text": "Draw the high-score table and write the restart prompt at $FA33."
+  },
+  {
+   "address": 11214,
+   "type": "line",
+   "text": "The 34 glyphs of REWIND TAPE TO 0000 THEN PRESS PLAY, copied to the restart panel at $FA33."
+  },
+  {
+   "address": 11248,
+   "type": "line",
+   "text": "Clear the four weapon upgrade flags and the current shadow count. Reset the corresponding HUD shape slots."
+  },
+  {
+   "address": 11269,
+   "type": "line",
+   "text": "Detect a fresh Space press and update the even weapon selector. Clear active projectiles and refresh the rendering and attack callbacks for the new weapon."
+  },
+  {
+   "address": 11352,
+   "type": "line",
+   "text": "Read section-specific placement bounds, check each candidate against the column and row window and call its handler. Clear the work flag when a placement leaves the active window."
+  },
+  {
+   "address": 11448,
+   "type": "line",
+   "text": "Starting placement index for each of this load\u2019s 2 sections. The scanner walks backward."
+  },
+  {
+   "address": 11450,
+   "type": "line",
+   "text": "The scanner stops once its decremented placement index equals this section\u2019s stop value."
+  },
+  {
+   "address": 11452,
+   "type": "line",
+   "text": "Low bytes of the map columns compared with the current viewport column."
+  },
+  {
+   "address": 11458,
+   "type": "line",
+   "text": "High bytes of those columns, compared with the active map page before checking X and Y."
+  },
+  {
+   "address": 11464,
+   "type": "line",
+   "text": "Map row for each placement. The scanner tests it against the current row and its lower margin."
+  },
+  {
+   "address": 11470,
+   "type": "line",
+   "text": "Work flags for each placement. The scanner clears the corresponding byte when its placement leaves the active viewport."
+  },
+  {
+   "address": 11476,
+   "type": "line",
+   "text": "Map placement callbacks for this load. The scanner at $2C58 selects one of 6 pointers and jumps to it via $14."
+  },
+  {
+   "address": 11477,
+   "type": "line",
+   "text": "High byte of the position-specific callback, indexed using the even placement number."
+  },
+  {
+   "address": 11488,
+   "type": "line",
+   "text": "Run the shared placement setup and the extra placement helper before the next stage action at $2D6D."
+  },
+  {
+   "address": 11497,
+   "type": "line",
+   "text": "On the 128-tick phase, reserve four slots, record their indices and apply the shape and coordinate offsets for each component."
+  },
+  {
+   "address": 11568,
+   "type": "line",
+   "text": "Four component type bytes installed during initialisation."
+  },
+  {
+   "address": 11572,
+   "type": "line",
+   "text": "Require no active encounter and a free slot, then position it from the level placement and constrain the camera\u2019s horizontal origin."
+  },
+  {
+   "address": 11694,
+   "type": "line",
+   "text": "Two initial Y values for the children created by the stage placement."
+  },
+  {
+   "address": 11696,
+   "type": "line",
+   "text": "On the selected periodic stage tick, initialise a free type-$1B object at screen coordinates $A0 and $64."
+  },
+  {
+   "address": 11746,
+   "type": "line",
+   "text": "Apply the fine scroll phase to the placement\u2019s map column and row offsets to obtain the object position."
+  },
+  {
+   "address": 11789,
+   "type": "line",
+   "text": "Scan active logical slots and select each slot\u2019s type handler. Subtract the camera movement from object coordinates and check the new position against the viewport limits before dispatch."
+  },
+  {
+   "address": 11876,
+   "type": "line",
+   "text": "Jump through the object or placement callback pointer in $14."
+  },
+  {
+   "address": 11879,
+   "type": "line",
+   "text": "31 little-endian pointer entries indexed by twice the active slot type at $8E,X. The update pass at $2E0D skips a zero type before fetching its pointer."
+  },
+  {
+   "address": 11880,
+   "type": "line",
+   "text": "High byte of the object\u2019s interleaved callback address."
+  },
+  {
+   "address": 11941,
+   "type": "line",
+   "text": "Left-side extent used by the collision rectangle code at $1740."
+  },
+  {
+   "address": 11972,
+   "type": "line",
+   "text": "Per-type flag gating the collision callback in the shared pass at $1586."
+  },
+  {
+   "address": 12003,
+   "type": "line",
+   "text": "Top-side extent read by $1740 when constructing an object\u2019s tile rectangle."
+  },
+  {
+   "address": 12034,
+   "type": "line",
+   "text": "Bottom-side extent read by $1740 to bound the vertical overlap test."
+  },
+  {
+   "address": 12065,
+   "type": "line",
+   "text": "Mark the encounter active and queue sound $0D. Periodically spawn a burst at random offsets and check the twenty-count completion threshold."
+  },
+  {
+   "address": 12160,
+   "type": "line",
+   "text": "Check player overlap and step through the pointer sequence on every eighth tick, with special handling at shape $77 and removal at $7A."
+  },
+  {
+   "address": 12282,
+   "type": "line",
+   "text": "Mark the encounter active and change the playfield colour after a registered hit. Clear the hit flag, start a cooldown and advance the hit tally."
+  },
+  {
+   "address": 12427,
+   "type": "line",
+   "text": "Two shape pointers used by the live encounter handler."
+  },
+  {
+   "address": 12429,
+   "type": "line",
+   "text": "Check player contact and test the sprite X threshold. At the threshold, advance the stage object type and reload all four component positions from the shape and offset tables."
+  },
+  {
+   "address": 12513,
+   "type": "line",
+   "text": "Four component pointers loaded at initialisation."
+  },
+  {
+   "address": 12517,
+   "type": "line",
+   "text": "Four alternate pointers for the same group of components."
+  },
+  {
+   "address": 12521,
+   "type": "line",
+   "text": "Four horizontal offsets from the component leader."
+  },
+  {
+   "address": 12525,
+   "type": "line",
+   "text": "Four vertical offsets used with those horizontal offsets."
+  },
+  {
+   "address": 12529,
+   "type": "line",
+   "text": "When the leading Y drops below $46, advance the type and set the four shape pointers. Calculate each X from the leading X minus $14 and each Y from the fixed base $50, plus the relevant table offset."
+  },
+  {
+   "address": 12634,
+   "type": "line",
+   "text": "Four component pointers selected by the first horizontal transition."
+  },
+  {
+   "address": 12638,
+   "type": "line",
+   "text": "Alternate pose group for that component arrangement."
+  },
+  {
+   "address": 12642,
+   "type": "line",
+   "text": "Four horizontal offsets for the second component arrangement."
+  },
+  {
+   "address": 12646,
+   "type": "line",
+   "text": "Four matching vertical offsets."
+  },
+  {
+   "address": 12650,
+   "type": "line",
+   "text": "Test the X threshold to transition to the next movement phase. Apply the indexed component shapes and horizontal offsets."
+  },
+  {
+   "address": 12734,
+   "type": "line",
+   "text": "Four sprite pointers selected when the phase reaches its Y threshold."
+  },
+  {
+   "address": 12738,
+   "type": "line",
+   "text": "Alternate pointers for the four component slots during that phase."
+  },
+  {
+   "address": 12742,
+   "type": "line",
+   "text": "Four horizontal offsets for the vertical movement phase."
+  },
+  {
+   "address": 12746,
+   "type": "line",
+   "text": "Four vertical offsets paired with them."
+  },
+  {
+   "address": 12750,
+   "type": "line",
+   "text": "Test player overlap and both the object Y and map origin thresholds before setting the type back to $13 and repositioning its components."
+  },
+  {
+   "address": 12863,
+   "type": "line",
+   "text": "Four sprite pointers for the other horizontal phase."
+  },
+  {
+   "address": 12867,
+   "type": "line",
+   "text": "Other group of four pointers in that phase\u2019s animation."
+  },
+  {
+   "address": 12871,
+   "type": "line",
+   "text": "Four horizontal offsets for the fourth movement phase."
+  },
+  {
+   "address": 12875,
+   "type": "line",
+   "text": "Four vertical offsets for that phase."
+  },
+  {
+   "address": 12879,
+   "type": "line",
+   "text": "After the initial timer delay, check contact and schedule the transition on the fourth tick. At phase six allocate the additional component slots."
+  },
+  {
+   "address": 12998,
+   "type": "line",
+   "text": "Seven sprite pointers for the type-$0D object\u2019s current phase."
+  },
+  {
+   "address": 13005,
+   "type": "line",
+   "text": "Three sprite pointers for the extra slots allocated during that animation."
+  },
+  {
+   "address": 13008,
+   "type": "line",
+   "text": "Advance the pointer four at a time on every eighth tick after its creation tick. Remove the slot at the $8C limit."
+  },
+  {
+   "address": 13037,
+   "type": "line",
+   "text": "Reset to normal colour and test cooldown. When a new hit arrives, flash the component, clear the flag and increment its hit count."
+  },
+  {
+   "address": 13146,
+   "type": "line",
+   "text": "Inactivate the object\u2019s linked slot and move it out of the playfield."
+  },
+  {
+   "address": 13159,
+   "type": "line",
+   "text": "Compare the player with the object\u2019s X and Y rectangle and reserve a free slot when inside it."
+  },
+  {
+   "address": 13340,
+   "type": "line",
+   "text": "Run the hit flash and cooldown for the other encounter component and advance its registered hit count."
+  },
+  {
+   "address": 13643,
+   "type": "line",
+   "text": "Read the stage surface-height byte at the object\u2019s current horizontal position and merge it into the low bits of the object\u2019s Y value."
+  },
+  {
+   "address": 13681,
+   "type": "line",
+   "text": "Advance the pickup animation and try to allocate an effect object with random offsets on every fourth raster tick."
+  },
+  {
+   "address": 13739,
+   "type": "line",
+   "text": "Fill the 19 colour RAM rows with forty copies of the colour selected for each row."
+  },
+  {
+   "address": 13782,
+   "type": "line",
+   "text": "Nineteen row colours used by the first section."
+  },
+  {
+   "address": 13801,
+   "type": "line",
+   "text": "Nineteen row colours used by the second section."
+  },
+  {
+   "address": 13820,
+   "type": "line",
+   "text": "Nineteen row colours loaded before the horizontal pan in the ending."
+  },
+  {
+   "address": 13839,
+   "type": "line",
+   "text": "Nineteen row colours for the ending\u2019s vertical pan."
+  },
+  {
+   "address": 13858,
+   "type": "line",
+   "text": "The attribute byte returned by the shared map query at $127B for the tile read from the stage map."
+  },
+  {
+   "address": 14114,
+   "type": "line",
+   "text": "When the camera row is below $C8, count updates and allocate a free sprite every fourth pass. Select its X from the launch table and its shape from the low X bit."
+  },
+  {
+   "address": 14169,
+   "type": "line",
+   "text": "Horizontal start values indexed by the incrementing eight-bit counter at $3A25. The same byte\u2019s low bit selects one of two sprite shapes."
+  },
+  {
+   "address": 14425,
+   "type": "line",
+   "text": "Fourteen bytes after the 256 offsets addressable by the eight-bit spawn index."
+  },
+  {
+   "address": 14439,
+   "type": "line",
+   "text": "Use the shared patcher for the wide map. For the narrow map, keep the player between lateral limits, cycle the camera row at the section boundary and call the rising actor allocator."
+  },
+  {
+   "address": 14500,
+   "type": "line",
+   "text": "Form the 96-byte row address from the camera\u2019s row and column. Update nineteen load operands in the common screen copier, then jump to that copier."
+  },
+  {
+   "address": 14888,
+   "type": "line",
+   "text": "The ending loop advances this index on its raster cadence to pick the next sprite shape."
+  },
+  {
+   "address": 16384,
+   "type": "line",
+   "text": "Load D tile codes at map offset $0000 for 512 bytes. The renderer uses the row-stride state at $277E to address the viewport."
+  },
+  {
+   "address": 16896,
+   "type": "line",
+   "text": "Load D tile codes at map offset $0200 for 512 bytes. The renderer uses the row-stride state at $277E to address the viewport."
+  },
+  {
+   "address": 17408,
+   "type": "line",
+   "text": "Load D tile codes at map offset $0400 for 512 bytes. The renderer uses the row-stride state at $277E to address the viewport."
+  },
+  {
+   "address": 17920,
+   "type": "line",
+   "text": "Load D tile codes at map offset $0600 for 512 bytes. The renderer uses the row-stride state at $277E to address the viewport."
+  },
+  {
+   "address": 18432,
+   "type": "line",
+   "text": "Load D tile codes at map offset $0800 for 512 bytes. The renderer uses the row-stride state at $277E to address the viewport."
+  },
+  {
+   "address": 18944,
+   "type": "line",
+   "text": "Load D tile codes at map offset $0A00 for 512 bytes. The renderer uses the row-stride state at $277E to address the viewport."
+  },
+  {
+   "address": 19456,
+   "type": "line",
+   "text": "Load D tile codes at map offset $0C00 for 512 bytes. The renderer uses the row-stride state at $277E to address the viewport."
+  },
+  {
+   "address": 19968,
+   "type": "line",
+   "text": "Load D tile codes at map offset $0E00 for 512 bytes. The renderer uses the row-stride state at $277E to address the viewport."
+  },
+  {
+   "address": 20480,
+   "type": "line",
+   "text": "Load D tile codes at map offset $1000 for 512 bytes. The renderer uses the row-stride state at $277E to address the viewport."
+  },
+  {
+   "address": 20992,
+   "type": "line",
+   "text": "Load D tile codes at map offset $1200 for 512 bytes. The renderer uses the row-stride state at $277E to address the viewport."
+  },
+  {
+   "address": 21504,
+   "type": "line",
+   "text": "Load D tile codes at map offset $1400 for 427 bytes. The renderer uses the row-stride state at $277E to address the viewport."
+  },
+  {
+   "address": 21931,
+   "type": "line",
+   "text": "Load D tile codes at map offset $15AB for 85 bytes. The renderer uses the row-stride state at $277E to address the viewport."
+  },
+  {
+   "address": 22016,
+   "type": "line",
+   "text": "Load D tile codes at map offset $1600 for 512 bytes. The renderer uses the row-stride state at $277E to address the viewport."
+  },
+  {
+   "address": 22528,
+   "type": "line",
+   "text": "Load D tile codes at map offset $1800 for 512 bytes. The renderer uses the row-stride state at $277E to address the viewport."
+  },
+  {
+   "address": 23040,
+   "type": "line",
+   "text": "Load D tile codes at map offset $1A00 for 512 bytes. The renderer uses the row-stride state at $277E to address the viewport."
+  },
+  {
+   "address": 23552,
+   "type": "line",
+   "text": "Load D tile codes at map offset $1C00 for 512 bytes. The renderer uses the row-stride state at $277E to address the viewport."
+  },
+  {
+   "address": 24064,
+   "type": "line",
+   "text": "Load D tile codes at map offset $1E00 for 512 bytes. The renderer uses the row-stride state at $277E to address the viewport."
+  },
+  {
+   "address": 24576,
+   "type": "line",
+   "text": "Load D tile codes at map offset $2000 for 160 bytes. The renderer uses the row-stride state at $277E to address the viewport."
+  },
+  {
+   "address": 24736,
+   "type": "line",
+   "text": "Load D tile codes at map offset $20A0 for 352 bytes. The renderer uses the row-stride state at $277E to address the viewport."
+  },
+  {
+   "address": 25088,
+   "type": "line",
+   "text": "Load D tile codes at map offset $2200 for 512 bytes. The renderer uses the row-stride state at $277E to address the viewport."
+  },
+  {
+   "address": 25600,
+   "type": "line",
+   "text": "Load D tile codes at map offset $2400 for 410 bytes. The renderer uses the row-stride state at $277E to address the viewport."
+  },
+  {
+   "address": 26010,
+   "type": "line",
+   "text": "Load D tile codes at map offset $259A for 614 bytes. The renderer uses the row-stride state at $277E to address the viewport."
+  },
+  {
+   "address": 26624,
+   "type": "line",
+   "text": "Load D tile codes at map offset $2800 for 234 bytes. The renderer uses the row-stride state at $277E to address the viewport."
+  },
+  {
+   "address": 26858,
+   "type": "line",
+   "text": "Load D tile codes at map offset $28EA for 790 bytes. The renderer uses the row-stride state at $277E to address the viewport."
+  },
+  {
+   "address": 27648,
+   "type": "line",
+   "text": "Load D tile codes at map offset $2C00 for 1024 bytes. The renderer uses the row-stride state at $277E to address the viewport."
+  },
+  {
+   "address": 28672,
+   "type": "line",
+   "text": "Load D tile codes at map offset $3000 for 1024 bytes. The renderer uses the row-stride state at $277E to address the viewport."
+  },
+  {
+   "address": 29696,
+   "type": "line",
+   "text": "Load D tile codes at map offset $3400 for 1024 bytes. The renderer uses the row-stride state at $277E to address the viewport."
+  },
+  {
+   "address": 30720,
+   "type": "line",
+   "text": "Load D tile codes at map offset $3800 for 1024 bytes. The renderer uses the row-stride state at $277E to address the viewport."
+  },
+  {
+   "address": 31744,
+   "type": "line",
+   "text": "Load D tile codes at map offset $3C00 for 1024 bytes. The renderer uses the row-stride state at $277E to address the viewport."
+  },
+  {
+   "address": 32768,
+   "type": "line",
+   "text": "Load D tile codes at map offset $4000 for 1024 bytes. The renderer uses the row-stride state at $277E to address the viewport."
+  },
+  {
+   "address": 33792,
+   "type": "line",
+   "text": "Load D tile codes at map offset $4400 for 1024 bytes. The renderer uses the row-stride state at $277E to address the viewport."
+  },
+  {
+   "address": 34816,
+   "type": "line",
+   "text": "Load D tile codes at map offset $4800 for 1024 bytes. The renderer uses the row-stride state at $277E to address the viewport."
+  },
+  {
+   "address": 35840,
+   "type": "line",
+   "text": "Load D tile codes at map offset $4C00 for 1024 bytes. The renderer uses the row-stride state at $277E to address the viewport."
+  },
+  {
+   "address": 36864,
+   "type": "line",
+   "text": "Load D tile codes at map offset $5000 for 1024 bytes. The renderer uses the row-stride state at $277E to address the viewport."
+  },
+  {
+   "address": 37888,
+   "type": "line",
+   "text": "Load D tile codes at map offset $5400 for 1024 bytes. The renderer uses the row-stride state at $277E to address the viewport."
+  },
+  {
+   "address": 38912,
+   "type": "line",
+   "text": "Load D tile codes at map offset $5800 for 1024 bytes. The renderer uses the row-stride state at $277E to address the viewport."
+  },
+  {
+   "address": 39936,
+   "type": "line",
+   "text": "Load D tile codes at map offset $5C00 for 1024 bytes. The renderer uses the row-stride state at $277E to address the viewport."
+  },
+  {
+   "address": 56128,
+   "type": "line",
+   "text": "Load D VIC sprite pattern bytes from slot $6D, byte 0, spanning 88 bytes. This bank section contains directional projectile tips, small flying objects and first burst circles."
+  },
+  {
+   "address": 56216,
+   "type": "line",
+   "text": "Load D VIC sprite pattern bytes from slot $6E, byte 24, spanning 936 bytes. This bank section contains directional projectile tips, small flying objects and first burst circles."
+  },
+  {
+   "address": 57152,
+   "type": "line",
+   "text": "Load D VIC sprite pattern bytes from slot $7D, byte 0, spanning 192 bytes. This bank section contains scattered particles, flying shapes and two matching humanoid views."
+  },
+  {
+   "address": 57344,
+   "type": "line",
+   "text": "Load D VIC sprite pattern bytes from slot $80, byte 0, spanning 832 bytes. This bank section contains humanoid movements and separate joint or weapon shapes."
+  },
+  {
+   "address": 58176,
+   "type": "line",
+   "text": "Load D VIC sprite pattern bytes from slot $8D, byte 0, spanning 953 bytes. This bank section contains humanoid movements and separate joint or weapon shapes."
+  },
+  {
+   "address": 59129,
+   "type": "line",
+   "text": "Load D VIC sprite pattern bytes from slot $9B, byte 57, spanning 71 bytes. This bank section contains humanoid movements and separate joint or weapon shapes."
+  },
+  {
+   "address": 59200,
+   "type": "line",
+   "text": "Load D VIC sprite pattern bytes from slot $9D, byte 0, spanning 1024 bytes. This bank section contains additional joint or weapon shapes with diagonally drawn limbs."
+  },
+  {
+   "address": 60224,
+   "type": "line",
+   "text": "Load D VIC sprite pattern bytes from slot $AD, byte 0, spanning 457 bytes. This bank section contains last moving figure fragments and impact shapes."
+  },
+  {
+   "address": 60681,
+   "type": "line",
+   "text": "Load D VIC sprite pattern bytes from slot $B4, byte 9, spanning 10 bytes. This bank section contains last moving figure fragments and impact shapes."
+  },
+  {
+   "address": 60691,
+   "type": "line",
+   "text": "Load D VIC sprite pattern bytes from slot $B4, byte 19, spanning 3 bytes. This bank section contains last moving figure fragments and impact shapes."
+  },
+  {
+   "address": 60694,
+   "type": "line",
+   "text": "Load D VIC sprite pattern bytes from slot $B4, byte 22, spanning 177 bytes. This bank section contains last moving figure fragments and impact shapes."
+  },
+  {
+   "address": 60871,
+   "type": "line",
+   "text": "Load D VIC sprite pattern bytes from slot $B7, byte 7, spanning 40 bytes. This bank section contains last moving figure fragments and impact shapes."
+  },
+  {
+   "address": 60911,
+   "type": "line",
+   "text": "Load D VIC sprite pattern bytes from slot $B7, byte 47, spanning 36 bytes. This bank section contains last moving figure fragments and impact shapes."
+  },
+  {
+   "address": 60947,
+   "type": "line",
+   "text": "Load D VIC sprite pattern bytes from slot $B8, byte 19, spanning 301 bytes. This bank section contains last moving figure fragments and impact shapes."
+  },
+  {
+   "address": 61248,
+   "type": "line",
+   "text": "Load D VIC sprite pattern bytes from slot $BD, byte 0, spanning 192 bytes. This bank section contains last moving figure fragments and impact shapes."
+  },
+  {
+   "address": 61440,
+   "type": "line",
+   "text": "Load D playfield character patterns from code $00, byte 0, spanning 981 bytes. The VIC fetches eight row bytes per character when $D018 selects $F000."
+  },
+  {
+   "address": 62421,
+   "type": "line",
+   "text": "Load D playfield character patterns from code $7A, byte 5, spanning 43 bytes. The VIC fetches eight row bytes per character when $D018 selects $F000."
+  },
+  {
+   "address": 62464,
+   "type": "line",
+   "text": "Load D playfield character patterns from code $80, byte 0, spanning 578 bytes. The VIC fetches eight row bytes per character when $D018 selects $F000."
+  },
+  {
+   "address": 63042,
+   "type": "line",
+   "text": "Load D playfield character patterns from code $C8, byte 2, spanning 446 bytes. The VIC fetches eight row bytes per character when $D018 selects $F000."
+  }
+ ]
+}
