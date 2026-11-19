@@ -24,9 +24,39 @@
     "features": "gpt-6.2-sol",
     "text": "gpt-6.2-sol",
     "sweep": "gpt-6.2-sol",
-    "coverage": "gpt-6.2-sol"
+    "coverage": "gpt-6.2-sol",
+    "50-coverage": [
+      "gpt-6.2-sol"
+    ],
+    "60-verify": [
+      "gpt-6.2-sol"
+    ]
   },
-  "accuracy": [],
+  "accuracy": [
+    {
+      "step": "research",
+      "web": true,
+      "models": [
+        "gpt-6.2-sol"
+      ]
+    },
+    {
+      "step": "annotate",
+      "models": [
+        "gpt-6.2-sol"
+      ]
+    },
+    {
+      "step": "sample",
+      "size": 70,
+      "wrong": 10,
+      "fixed": 10,
+      "seed": 20261119,
+      "models": [
+        "gpt-6.2-sol"
+      ]
+    }
+  ],
   "kit_version": "0.0.360",
   "created": "2026-11-19",
   "video": {
@@ -44,13 +74,43 @@
         "$E000",
         "$FF3F",
         "VIC bitmap output. A store watch at $FD30 stopped in the startup clear loop at $6272. The apparent copy of KERNAL vectors there predates unpacking."
+      ],
+      [
+        "$CC00",
+        "$CEFF",
+        "Zero at entry. Generated message and drawing workspace cleared at $57DC\u2013$57E2. A store watch on the last two pages caught $57DF with the CPU port at $30."
+      ],
+      [
+        "$FFF8",
+        "$FFFF",
+        "The runtime vector block is initialised from the eight authored bytes at $3959. A store watch caught the first write at $38D5 with X=$07."
+      ],
+      [
+        "$0900",
+        "$14FF",
+        "Zero fill introduced by the disk expansion. A write watch from cassette LOAD through the original hand-off at $3800 recorded zero writes, and this interval retained its power-on contents."
+      ],
+      [
+        "$9400",
+        "$95FF",
+        "Zero fill introduced by the disk expansion. On the original cassette a write watch was silent through $3800 while the separate watch at $9600 caught STA ($FB),Y at $03C0."
+      ],
+      [
+        "$0000",
+        "$00FF",
+        "CPU port and runtime zero-page state with no code in the hand-off. The game copies its initial state from the authored template at $C508 to $0010\u2013$0077 with $3F69/$3F6C. Other zero-page values are loader state or scratch."
+      ],
+      [
+        "$0400",
+        "$059C",
+        "Text screen residue at hand-off and generated sound workspace during gameplay. A first-access watch caught the $0404 screen byte read at $5EE9, then the first write from $5EEF. The two loops fill $0400\u2013$0599 with zero before restoring the screen byte used as initial SID volume and mode. $059A holds an effect header field and $059B/$059C hold the saved Timer B hook, both installed by code."
       ]
     ],
     "extra": [
       [
         "$0820",
         "$CFFF",
-        "Exact expanded payload reproduced from the packed PRG. Loaded bytes remain in scope pending classification."
+        "Expanded disk payload reproduced from the packed PRG. The original cassette write watches distinguish the two disk zero-fill ranges from the cassette payload."
       ]
     ],
     "include": []
