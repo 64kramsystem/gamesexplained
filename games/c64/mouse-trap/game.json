@@ -1,0 +1,163 @@
+{
+  "schema": 1,
+  "platform": "c64",
+  "slug": "mouse-trap",
+  "title": "Mouse Trap",
+  "year": 1987,
+  "publisher": "MicroValue",
+  "developer": "Tynesoft",
+  "title_image": "reference/title.png",
+  "build": "ATC / Brute Force, Normal",
+  "tier": "bronze",
+  "coverage_percent": 100.0,
+  "copy": "agent-draft",
+  "steward": "",
+  "credits": [],
+  "tools": {
+    "emulator": "vice-mcp v3.14.0 macOS arm64 headless, dummy audio",
+    "disassembler": "regenerator2000 0.9.18",
+    "host": "macOS-26.6.2-arm64-arm-64bit-Mach-O"
+  },
+  "model": "gpt-6.2-sol",
+  "step_models": {
+    "10-orient": [
+      "gpt-6.2-sol"
+    ],
+    "50-coverage": [
+      "gpt-6.2-sol"
+    ],
+    "60-verify": [
+      "gpt-6.2-sol"
+    ]
+  },
+  "accuracy": [
+    {
+      "step": "research",
+      "web": true,
+      "models": [
+        "gpt-6.2-sol"
+      ]
+    },
+    {
+      "step": "annotate",
+      "models": [
+        "gpt-6.2-sol"
+      ]
+    },
+    {
+      "step": "sample",
+      "size": 60,
+      "wrong": 8,
+      "fixed": 8,
+      "seed": 5031,
+      "models": [
+        "gpt-6.2-sol"
+      ]
+    }
+  ],
+  "kit_version": "0.0.360",
+  "created": "2026-11-19",
+  "video": {
+    "screen": "$5400",
+    "charset": ""
+  },
+  "coverage": {
+    "exclude": [
+      [
+        "$0000",
+        "$00FF",
+        "CPU port, zero-page workspace and copies of resident initial data"
+      ],
+      [
+        "$0200",
+        "$03FF",
+        "KERNAL buffers and vectors, including the runtime SID IRQ installation"
+      ],
+      [
+        "$0400",
+        "$07FF",
+        "Trainer menu screen and KERNAL screen buffer"
+      ],
+      [
+        "$0800",
+        "$09FF",
+        "Trainer bootstrap, menu and optional hooks, outside the engine"
+      ],
+      [
+        "$0A00",
+        "$0AFF",
+        "Runtime copy of the tile and bitmap-row lookup source at $3700"
+      ],
+      [
+        "$0C50",
+        "$0CDF",
+        "Room-dependent tile pointers, actor slot state and bitmap history"
+      ],
+      [
+        "$0CF0",
+        "$0CF6",
+        "In-play decimal score workspace initialised by $188F"
+      ],
+      [
+        "$3F00",
+        "$3FFF",
+        "Runtime collision map expanded by the engine from the room streams"
+      ],
+      [
+        "$5400",
+        "$57FF",
+        "VIC screen matrix generated from $5000 and changed by each room palette"
+      ],
+      [
+        "$6000",
+        "$7FFF",
+        "VIC bitmap destination drawn by the title copier, room tile and actor blitters"
+      ],
+      [
+        "$924C",
+        "$924D",
+        "Bitmap text cursor state"
+      ],
+      [
+        "$926E",
+        "$927C",
+        "Printer command and glyph workspace, keyboard latch and SID IRQ re-entry state"
+      ],
+      [
+        "$9285",
+        "$92A0",
+        "Palette register save bytes, printer arguments and glyph output buffer"
+      ],
+      [
+        "$FD00",
+        "$FEFF",
+        "Exact duplicate of $9800-$99FF. The title copier uses the low source."
+      ],
+      [
+        "$FF00",
+        "$FFFF",
+        "Startup at $8E19 replaces the page, then installs IRQ vectors and a RAM character output jump."
+      ],
+      [
+        "$C700",
+        "$CFFF",
+        "Earlier loader entry, its duplicate and packed staging residue. The resident game boot and all room initialisers leave the range unread."
+      ],
+      [
+        "$D000",
+        "$DFFF",
+        "Physical RAM under I/O holds earlier packed staging and copied program fragments. The resident engine keeps I/O selected at $01=$05."
+      ]
+    ],
+    "extra": [],
+    "include": []
+  },
+  "io": [],
+  "regions": [],
+  "links": {
+    "wiki": {
+      "title": "Mouse Trap, GameBase64",
+      "url": "https://gb64.com/game.php?id=5031"
+    }
+  }
+}
