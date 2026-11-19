@@ -1,0 +1,572 @@
+{
+ "schema": 1,
+ "platform": "c64",
+ "game": "world-class-leaderboard",
+ "part": "print-scorecard",
+ "build": "Nostalgia two-sided disk release",
+ "source": "regenerator2000 live",
+ "regions": {
+  "exclude": [
+   [
+    256,
+    511,
+    "stack"
+   ],
+   [
+    53248,
+    57343,
+    "I/O and colour RAM"
+   ],
+   [
+    0,
+    26623,
+    "Golf engine"
+   ],
+   [
+    28160,
+    65535,
+    "Golf engine"
+   ]
+  ],
+  "extra": [],
+  "edges": [
+   0,
+   256,
+   512,
+   1024,
+   2048,
+   4096,
+   16384,
+   32768,
+   40960,
+   49152,
+   53248,
+   57344
+  ],
+  "elsewhere": [
+   [
+    0,
+    26623,
+    "Golf engine"
+   ],
+   [
+    28160,
+    65535,
+    "Golf engine"
+   ]
+  ]
+ },
+ "blocks": [
+  {
+   "start": 26624,
+   "end": 27500,
+   "type": "Code"
+  },
+  {
+   "start": 27501,
+   "end": 27502,
+   "type": "Byte"
+  },
+  {
+   "start": 27503,
+   "end": 27542,
+   "type": "PETSCII Text"
+  },
+  {
+   "start": 27543,
+   "end": 27543,
+   "type": "Byte"
+  },
+  {
+   "start": 27544,
+   "end": 27935,
+   "type": "PETSCII Text"
+  },
+  {
+   "start": 27936,
+   "end": 28159,
+   "type": "Byte"
+  }
+ ],
+ "symbols": [
+  {
+   "address": 26624,
+   "name": "run_scorecard_printer",
+   "type": "Jump",
+   "kind": "user"
+  },
+  {
+   "address": 26640,
+   "name": "write_scorecards",
+   "type": "Subroutine",
+   "kind": "user"
+  },
+  {
+   "address": 26668,
+   "name": "b_682C",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 26681,
+   "name": "b_6839",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 26703,
+   "name": "j_684F",
+   "type": "Jump",
+   "kind": "auto"
+  },
+  {
+   "address": 26763,
+   "name": "b_688B",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 26773,
+   "name": "b_6895",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 26842,
+   "name": "b_68DA",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 26897,
+   "name": "b_6911",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 26983,
+   "name": "b_6967",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 27046,
+   "name": "b_69A6",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 27060,
+   "name": "j_69B4",
+   "type": "Jump",
+   "kind": "auto"
+  },
+  {
+   "address": 27087,
+   "name": "b_69CF",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 27101,
+   "name": "j_69DD",
+   "type": "Jump",
+   "kind": "auto"
+  },
+  {
+   "address": 27128,
+   "name": "b_69F8",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 27142,
+   "name": "j_6A06",
+   "type": "Jump",
+   "kind": "auto"
+  },
+  {
+   "address": 27171,
+   "name": "b_6A23",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 27188,
+   "name": "send_zero_terminated_text",
+   "type": "Subroutine",
+   "kind": "user"
+  },
+  {
+   "address": 27194,
+   "name": "b_6A3A",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 27199,
+   "name": "b_6A3F",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 27205,
+   "name": "print_skill_label",
+   "type": "Subroutine",
+   "kind": "user"
+  },
+  {
+   "address": 27220,
+   "name": "b_6A54",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 27223,
+   "name": "b_6A57",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 27227,
+   "name": "b_6A5B",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 27238,
+   "name": "print_three_column_number",
+   "type": "Subroutine",
+   "kind": "user"
+  },
+  {
+   "address": 27258,
+   "name": "b_6A7A",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 27268,
+   "name": "b_6A84",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 27280,
+   "name": "b_6A90",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 27289,
+   "name": "b_6A99",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 27299,
+   "name": "b_6AA3",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 27311,
+   "name": "b_6AAF",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 27323,
+   "name": "emit_repeated_character",
+   "type": "Subroutine",
+   "kind": "user"
+  },
+  {
+   "address": 27324,
+   "name": "b_6ABC",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 27331,
+   "name": "encode_player_letter_for_printer",
+   "type": "Subroutine",
+   "kind": "user"
+  },
+  {
+   "address": 27338,
+   "name": "b_6ACA",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 27342,
+   "name": "print_rule",
+   "type": "Subroutine",
+   "kind": "user"
+  },
+  {
+   "address": 27355,
+   "name": "print_round_padding",
+   "type": "Subroutine",
+   "kind": "user"
+  },
+  {
+   "address": 27363,
+   "name": "print_player_round_total",
+   "type": "Subroutine",
+   "kind": "user"
+  },
+  {
+   "address": 27382,
+   "name": "print_par_row",
+   "type": "Subroutine",
+   "kind": "user"
+  },
+  {
+   "address": 27387,
+   "name": "b_6AFB",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 27441,
+   "name": "b_6B31",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 27501,
+   "name": "front_nine_sum_or_stride",
+   "type": "AbsoluteAddress",
+   "kind": "user"
+  },
+  {
+   "address": 27502,
+   "name": "back_nine_par_sum",
+   "type": "AbsoluteAddress",
+   "kind": "user"
+  },
+  {
+   "address": 27503,
+   "name": "printer_skill_fields",
+   "type": "Field",
+   "kind": "user"
+  },
+  {
+   "address": 27543,
+   "name": "printer_player_index",
+   "type": "AbsoluteAddress",
+   "kind": "user"
+  },
+  {
+   "address": 27544,
+   "name": "scorecard_heading",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 27584,
+   "name": "scorecard_publisher",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 27618,
+   "name": "scorecard_round_label",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 27629,
+   "name": "scorecard_date_field",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 27653,
+   "name": "scorecard_hole_columns",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 27738,
+   "name": "scorecard_par_label",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 27748,
+   "name": "scorecard_score_label",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 27758,
+   "name": "scorecard_round_totals",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 27814,
+   "name": "scorecard_name_field",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 27825,
+   "name": "scorecard_signature_field",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 27864,
+   "name": "scorecard_attest_field",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 27900,
+   "name": "scorecard_caddy_field",
+   "type": "UserDefined",
+   "kind": "user"
+  }
+ ],
+ "comments": [
+  {
+   "address": 26624,
+   "type": "line",
+   "text": "Banks in the KERNAL, calls the printer routine and restores the play memory map. Jumps to $BA82 with the printer status in carry."
+  },
+  {
+   "address": 26640,
+   "type": "line",
+   "text": "Opens device 4 with secondary address 7 and selects its output channel. Prints a card per configured player with course and round, hole strokes split by nine, totals, skill and form fields. Returns carry set on channel setup failure or clear after printing and closing."
+  },
+  {
+   "address": 27188,
+   "type": "line",
+   "text": "Sends the bytes at X:Y to CHROUT until a zero terminator is reached."
+  },
+  {
+   "address": 27205,
+   "type": "line",
+   "text": "Reads the player's skill from $A5F9,X, selects a ten-character field and sends it to the printer."
+  },
+  {
+   "address": 27238,
+   "type": "line",
+   "text": "Formats the value from A:X in three columns with repeated subtraction. The zero tens digit can print as a space after a hundreds digit. The high-byte path does not account for the full 16-bit value."
+  },
+  {
+   "address": 27323,
+   "type": "line",
+   "text": "Sends the character in Y to CHROUT X times."
+  },
+  {
+   "address": 27331,
+   "type": "line",
+   "text": "Converts name value 10 to space and adds $43 to other values, converting 30\u201355 to printer letters."
+  },
+  {
+   "address": 27342,
+   "type": "line",
+   "text": "Prints a 79-character dash rule followed by carriage return."
+  },
+  {
+   "address": 27355,
+   "type": "line",
+   "text": "Prints 25 spaces ahead of the accumulated-round fields."
+  },
+  {
+   "address": 27363,
+   "type": "line",
+   "text": "Forms the score-table index from eight times A plus the player index, then prints the total from the low and high score tables."
+  },
+  {
+   "address": 27382,
+   "type": "line",
+   "text": "Prints hole par values from $9E43, adds the front and back nines separately and prints the combined par."
+  },
+  {
+   "address": 27501,
+   "type": "line",
+   "text": "Scratch byte for the front-nine par subtotal or the current player's 18-byte stroke-table base."
+  },
+  {
+   "address": 27502,
+   "type": "line",
+   "text": "Running back-nine par subtotal, cleared between the front and back loops."
+  },
+  {
+   "address": 27503,
+   "type": "line",
+   "text": "Fixed-width printer fields for Kids, Amateur and Professional."
+  },
+  {
+   "address": 27543,
+   "type": "line",
+   "text": "Player being printed, incremented after a card until it matches the zero-based configured last player."
+  },
+  {
+   "address": 27544,
+   "type": "line",
+   "text": "Zero-terminated WORLD CLASS LEADER BOARD SCORECARD heading followed by carriage return."
+  },
+  {
+   "address": 27584,
+   "type": "line",
+   "text": "Zero-terminated publisher line followed by carriage return."
+  },
+  {
+   "address": 27618,
+   "type": "line",
+   "text": "Text placed before the printed round number."
+  },
+  {
+   "address": 27629,
+   "type": "line",
+   "text": "Date label and dotted write-in field."
+  },
+  {
+   "address": 27653,
+   "type": "line",
+   "text": "Column headings for holes 1\u201318 and front, back and total scores."
+  },
+  {
+   "address": 27738,
+   "type": "line",
+   "text": "Par row label."
+  },
+  {
+   "address": 27748,
+   "type": "line",
+   "text": "Score row label."
+  },
+  {
+   "address": 27758,
+   "type": "line",
+   "text": "Four zero-terminated round total labels, used as rounds become available."
+  },
+  {
+   "address": 27814,
+   "type": "line",
+   "text": "Label before the eight-character player name."
+  },
+  {
+   "address": 27825,
+   "type": "line",
+   "text": "Signature label with a dotted write-in field."
+  },
+  {
+   "address": 27864,
+   "type": "line",
+   "text": "Attest label with a dotted write-in field."
+  },
+  {
+   "address": 27900,
+   "type": "line",
+   "text": "Caddy label with a dotted write-in field."
+  }
+ ]
+}

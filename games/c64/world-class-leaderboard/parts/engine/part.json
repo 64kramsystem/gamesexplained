@@ -1,0 +1,48 @@
+{
+  "title": "Golf engine",
+  "order": 1,
+  "video": {
+    "screen": "$6000",
+    "charset": ""
+  },
+  "coverage": {
+    "exclude": [
+      [
+        "$DC00",
+        "$DFFF",
+        "Source pages copied byte for byte into the scorecard printer part"
+      ],
+      [
+        "$FB00",
+        "$FCFF",
+        "Source pages copied byte for byte into the scorecard printer part"
+      ],
+      [
+        "$C000",
+        "$C553",
+        "Unchanged staging twin of $D000\u2013$D553 at the tee, copied by $BF50 before the hole load"
+      ],
+      [
+        "$FD30",
+        "$FD4F",
+        "Byte-for-byte copy of the KERNAL vector table at the same addresses"
+      ]
+    ],
+    "extra": [],
+    "include": [
+      [
+        "$D000",
+        "$DBFF",
+        "Terrain data copied under I/O by $BF50"
+      ]
+    ]
+  },
+  "io": [],
+  "regions": [],
+  "ranges": [
+    [
+      "$6800",
+      "$6DFF"
+    ]
+  ]
+}
