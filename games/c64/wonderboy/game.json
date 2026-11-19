@@ -9,7 +9,7 @@
   "title_image": "reference/title.png",
   "build": "Remember +10, April 2005",
   "tier": "bronze",
-  "coverage_percent": 92.7,
+  "coverage_percent": 100.0,
   "copy": "agent-draft",
   "steward": "",
   "credits": [],
@@ -21,9 +21,36 @@
   "step_models": {
     "50-coverage": [
       "gpt-6.2-sol"
+    ],
+    "60-verify": [
+      "gpt-6.2-sol"
     ]
   },
-  "accuracy": [],
+  "accuracy": [
+    {
+      "step": "research",
+      "web": true,
+      "models": [
+        "gpt-6.2-sol"
+      ]
+    },
+    {
+      "step": "annotate",
+      "models": [
+        "gpt-6.2-sol"
+      ]
+    },
+    {
+      "step": "sample",
+      "size": 65,
+      "wrong": 15,
+      "fixed": 15,
+      "seed": 20261119,
+      "models": [
+        "gpt-6.2-sol"
+      ]
+    }
+  ],
   "kit_version": "0.0.360",
   "created": "2026-11-19",
   "video": {
@@ -36,6 +63,16 @@
         "$7818",
         "$7FFF",
         "Runtime character buffer expanded from the four counted source streams at $AB1F\u2013$BBD1."
+      ],
+      [
+        "$4009",
+        "$404E",
+        "Generated screen cells. A startup store watch at $0889\u2013$0896 confirmed the old contents are cleared before drawing."
+      ],
+      [
+        "$40FF",
+        "$4253",
+        "Generated screen cells. The startup loop at $0889\u2013$0896 clears all four screen pages to $20 before drawing."
       ]
     ],
     "extra": [

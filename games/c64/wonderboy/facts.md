@@ -40,8 +40,8 @@ this handoff.
   color from `$BF8C`. The register reload code at `$1149–$1270`
   can reuse the hardware sprite slots in the same frame.
 - `$23F2` initializes the seven main boss types `$77–$7D`.
-  The area selects the shot interval at `$24E2` and a hit target
-  produced in steps of three. `$393A` runs the boss phase machine,
+  The first set area bit selects the shot interval at `$24E2` and
+  a hit target of seven plus three per area after the first. `$393A` runs the boss phase machine,
   including the countdown and the hit threshold. These branches
   were traced from the dispatch table.
 
@@ -88,9 +88,75 @@ The copy at `$F244` clears bit 7 before display and uses the same bit as
 the terminator. For example the `$A1` in the press prompt renders
 `$21`. The glyph render is kept locally in `work/glyphs-7000.png`.
 
-## Open evidence
+## Coverage probes
 
-The remaining queue includes individual actor branches, sound and score
-state fields, and loaded bytes with uncertain ownership. The spot traces
-above establish the named behaviors. A full listing sample and formal
-feature verification depend on completing the coverage pass.
+| Claim | Evidence |
+|---|---|
+| Startup overwrites the flagged contents in screen RAM. | A VICE store watch on $4009–$4253 stopped in the clear loop at $088F. The execute checkpoint at $0898 found $20 in the cleared cells. See `work/resume-probe.txt`. |
+| Round setup briefly rewrites the actor release entry. | At $3E40 on the round-start path, single steps showed $30A8 change from $A0 (LDY) to $60 (RTS) and back to $A0. See `work/resume-round.txt`. |
+| The final packed glyph stream ends at $BBD1. | The instruction and memory trace for $F3D0 ran all four round indices. The last stream read $B7D1–$BBD1. Each index wrote all bytes from $7818 through $7FFF. See `work/resume-cpu.txt`. |
+| The signed clamp at $2DB9 branches on the incoming N flag. | The instruction trace tested both signs, the two in-range limits, and the adjacent out-of-range values. Its limits are $C1 (−63) and $3F (+63). See `work/resume-cpu.txt`. |
+| Sound selector $19 reads its score through $EFE0. | The score parser resolved the phrase branches and a 3,000-call CPU trace of $EF30 reached a maximum score read of $EFE0. See `work/sound.py` and `work/resume-cpu.txt`. |
+
+## Checkpoints, pickups and bonuses
+
+- Round advancement at `$0C80` wraps the round index after four
+  rounds and shifts the area mask. An instruction trace of the final
+  transition took the branch at `$0C8D` when the mask became `$80`.
+  That branch leads to the end-of-game path. The ending presentation
+  remains open.
+- The restart routine at `$0BDC` tests the four entries in the current
+  round's world-X table at `$0C2D` in descending order. It writes the
+  first entry at or behind the player's X to `$47/$48`. Instruction
+  traces selected the third entry in each round at `$07E0`, `$07E0`,
+  `$0800` and `$0800`, respectively. See `work/verify-features.txt`.
+- Player contact at `$30C8` sets the axe flag. The pickup at `$334F` fills vitality to `$60F8`, and `$3367` adds a life and redraws
+  the life icons. The routine at `$337B` sets the contact protection
+  byte to `$FF`. These paths share the overlap test and release the
+  collected actor slot.
+- The egg handler at `$2F61` can dispatch the contents on projectile
+  contact. A player overlap at `$2F74` assigns type `$3A` and starts
+  the falling path. The contents initializer at `$2FBB` substitutes
+  type `$3D` for `$72` or `$6B` when the player lacks the axe.
+- The round bonus at `$F4FF` spends `$19` vitality subunits per
+  iteration and adds to the packed-BCD amount at `$064B–$064D`.
+  `$F550–$F5B9` pays the amount once, then pays it again when
+  the item flag `$0660` is set. The second payout also includes
+  a separate increment in Area 7, Round 4.
+- Boss setup at `$23F2` clears `$066A` before using the area mask. CPU
+  traces through `$2415` obtained hit targets 7, 10 and 25 and shot
+  intervals 255, 208 and 64 in Areas 1, 2 and 7.
+- A VICE store watch on sprite 0 coordinate registers stopped after
+  `$1164` and `$116A`, confirming that `$04BD` supplies X and
+  `$04CD` supplies Y in the first reload. The same invocation
+  copied the shape pointer from `$04AD` to `$43F8`.
+  See `work/verify-vic.txt`.
+
+## Retained payload
+
+The listing counts 54,703 bytes and has no uncounted stretches.
+Boot store watches from `work/title.vsf` in `work/depack-watch.txt`
+caught writes to the gaps later retained in the game image. They
+include the small values beside the boss part handlers, the
+tail after the four packed character streams, the sequence after the
+boss badges, monitor material after the object list, and the bytes
+after the last traced score. Their individual bounds and open
+consumers are recorded beside the data in the listing.
+
+The CPU trace in `work/range-consumers.txt` read six boss-badge bytes
+per area from `$C2CB–$C2F4`. With the cursor at each object list's
+`$FFFF` sentinel, the reader at `$1F96` fetched two bytes and
+returned without advancing. The fourth sentinel is `$CE00–$CE01`.
+The bytes after the sentinel include the depacked register heading
+and command material, then an `$AA` run through `$CFFF`.
+
+## The listing's error rate
+
+An independent gpt-6.2-sol checker reviewed 65 of 938 comments with
+seed 20261119. Fifteen contained errors and all fifteen were corrected.
+They included swapped sprite arrays, reload masks, the terrain cursor
+pointer, and inaccuracies in actor state and score comments. The
+observed error rate was 23.1%, with a 95% Wilson interval of 14.5% to
+34.6%. Weighting by the two sampled groups estimates 22.7%. The sample
+does not measure the corrected listing and the checker may have missed
+errors.

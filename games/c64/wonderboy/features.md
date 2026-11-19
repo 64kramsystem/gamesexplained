@@ -9,21 +9,21 @@ Sources read on 19 November 2026.
 
 | Feature | Status | Evidence or question |
 |---|---|---|
-| Rescue Tina across seven territories | open | Find the ending and territory limits. |
-| Four rounds per territory, four signposts per round | open | Locate the round data and retry checkpoint. |
+| Rescue Tina across seven territories | traced, ending open | The area mask wraps to $80 after Area 7 at $0C8B. The instruction trace reaches the exit branch at $0C8F. The display path it enters has not been traced through the ending presentation. |
+| Four rounds per territory, four signposts per round | traced | The round counter wraps at $0C85. Four world-X entries per round begin at $0C2D. The restart scan at $0BDC selects the greatest entry at or below the player X, checked by instruction tracing in all four rounds. |
 | Woods, waterfront, caves, and mixed terrain | traced | Row pointers at `$1EC1` and character streams at `$AB17`. Opening forest observed live. |
-| One or two players, music toggle, pause | traced | F1 starts play live. Title choice at `$F737`, music toggle at `$09DE` and pause handler at `$3D00`. |
+| One or two players, music toggle, pause | live and traced | F1 starts play live. The title at $F737 stores mode 0 for one player or 1 for two. Music toggle at $09DE and pause at $3D00 are traced. |
 | Walk, run, jump and throw | traced | Matrix and port-2 joystick at `$24F3`, movement at `$29B6`, axe at `$2D2C`. Jump and fire edges confirmed by instruction checkpoints. |
-| Vitality drains with time, food replenishes it | traced | Drain and exhaustion confirmed live at `$F38D`. Meter at `$F33C`. Food effects remain open. |
-| Rocks, fire, pits and moving platforms | open | Distinguish terrain and object collisions. |
-| Snail, snake, wasp, blue runner, spider, frogs, bat and squid | open | Identify movement and hit states. |
-| Break eggs by kicking or shooting | open | Identify contents selection and axe prerequisites. |
-| Axe, skateboard, mushroom, guardian and Death | open | Locate timers, transformation and collision rules. |
-| Potion, extra life, spring, doll and clover | open | Locate pick-up and score effects. |
-| Boss shots, scaling, defeated head and collectible | traced | Boss initialization at `$23F2`, phase handling and shot spawning at `$393A`. Full progression remains open. |
-| HUD shows lives, axe, boss items, scores and vitality | open | Identify draw path and score encoding. |
-| Round-end vitality bonus and doll multiplier | traced | Bonus at `$F473` and BCD transfer to score at `$F5BA`. Doll modifier remains open. |
-| Death, retry and game over | open | Compare vitality exhaustion with collision and fall outcomes. |
+| Vitality drains with time, food replenishes it | live and traced | Drain and exhaustion confirmed live at $F38D. The meter is at $F33C. The overlap path at $334F fills the meter. The food variant at $309B changes actor state. Individual food values remain open. |
+| Rocks, fire, pits and moving platforms | open | The terrain probes at $254D–$2662 classify tile codes and the actor table at $35EA selects separate contact handlers. The mapping from individual screen shapes to these outcomes remains open. |
+| Snail, snake, wasp, blue runner, spider, frogs, bat and squid | open | The dispatch table at $35EA groups enemies by type and the renderer reads shapes from $BCB2. Matching each named enemy to its types and variants remains open. |
+| Break eggs by kicking or shooting | traced | The handler at $2F61 checks axe contact and player overlap. The initializer at $2FBB reads the contents type and substitutes type $3D for $72 or $6B without the axe. The full contents-to-shape mapping remains open. |
+| Axe, skateboard, mushroom, guardian and Death | traced, identities open | Axe pickup at $30C8 enables the launcher at $2D2C. The skateboard state paths include $28D8. The timer at $310B tests the guardian state before following or departing. The actor type and shape tables still need to be matched to every named variant. |
+| Potion, extra life, spring, doll and clover | traced, identities open | Overlap paths at $333C, $334F, $3367 and $337B set the round item flag, refill vitality, add a life and enable protection. The item shapes and spring motion still need to be matched to their handlers. |
+| Boss shots, scaling, defeated head and collectible | traced | Boss setup at $23F2 selects shot intervals and hit targets. CPU traces checked Areas 1, 2 and 7. The phase machine and shot paths run through $393A. The head and collectible artwork associations remain open. |
+| HUD shows lives, axe, boss items, scores and vitality | traced | Lives at $F685, axe test at $F801, badges at $F7B6, score digits at $F2E9 and vitality at $F33C. The badge trace covered all seven area masks. |
+| Round-end vitality bonus and doll multiplier | traced | The first payout at $F569 uses the bonus accrued at $F4FF. The item flag at $0660 controls whether the restored amount is paid again at $F5AB. Area 7, Round 4 adds a separate increment at $F58E. |
+| Death, retry and game over | live and traced | The vitality-exhaustion watch observed outcome $0B. Actor contact can write $0C at $2EFC. The loss path decrements lives at $0A74 and branches to retry or the title path. The restart scan at $0BDC chooses the checkpoint. |
 | Background music and effects | traced | Selector requests at `$E000`, tick at `$E003`, music interpreter at `$E870`. |
 
 The bundled C64 documents also describe quitting while paused, an extra life at area completion, and score-based extra lives. The pause quit path is traced at `$3D71` and score carry at `$F661`.
