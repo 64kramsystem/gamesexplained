@@ -1,0 +1,135 @@
+{
+  "schema": 1,
+  "platform": "c64",
+  "slug": "bone-cruncher",
+  "title": "Bone Cruncher",
+  "year": 1987,
+  "publisher": "Superior Software",
+  "developer": "Andreas Kemnitz",
+  "title_image": "",
+  "build": "New Imports disk, trainer off",
+  "tier": "bronze",
+  "coverage_percent": null,
+  "copy": "agent-draft",
+  "steward": "",
+  "credits": [],
+  "tools": {
+    "emulator": "VICE v3.14.0 macOS arm64 headless",
+    "disassembler": "Regenerator2000"
+  },
+  "model": "gpt-6.2-sol",
+  "step_models": {
+    "10-orient": [
+      "gpt-6.2-sol"
+    ],
+    "12-media": [
+      "gpt-6.2-sol"
+    ],
+    "20-features": [
+      "gpt-6.2-sol"
+    ],
+    "30-text": [
+      "gpt-6.2-sol"
+    ],
+    "40-sweep": [
+      "gpt-6.2-sol"
+    ],
+    "50-coverage": [
+      "gpt-6.2-sol"
+    ],
+    "60-verify": [
+      "gpt-6.2-sol"
+    ]
+  },
+  "accuracy": [
+    {
+      "step": "research",
+      "web": true,
+      "models": [
+        "gpt-6.2-sol"
+      ]
+    },
+    {
+      "step": "annotate",
+      "models": [
+        "gpt-6.2-sol"
+      ]
+    },
+    {
+      "step": "sample",
+      "size": 65,
+      "wrong": 8,
+      "fixed": 8,
+      "seed": 3617,
+      "models": [
+        "gpt-6.2-sol"
+      ]
+    }
+  ],
+  "kit_version": "0.0.360",
+  "created": "2026-11-19",
+  "video": {
+    "screen": "$8400",
+    "charset": "$8800"
+  },
+  "coverage": {
+    "exclude": [
+      [
+        "$0400",
+        "$07E7",
+        "New Imports loader credit screen. Rows eight and ten hold New Imports 1987 and the crack date, before the game selects screen RAM $8400."
+      ],
+      [
+        "$07E8",
+        "$07FF",
+        "Unwritten tail of the loader screen page. All 24 bytes match VICE hard-reset RAM."
+      ]
+    ],
+    "extra": [
+      [
+        "$5A06",
+        "$5A7A",
+        "Loaded with the bitmap frame bank. No reader established for this interval."
+      ],
+      [
+        "$5ED0",
+        "$5FFF",
+        "Loaded with the bitmap frame bank. The interval includes a partial repeated frame but the complete consumer is unresolved."
+      ],
+      [
+        "$68F2",
+        "$68FF",
+        "Byte $CF and thirteen $EA bytes between the first music instrument tables and driver state."
+      ],
+      [
+        "$7C47",
+        "$7C55",
+        "Loaded sequence of multiples of sixteen from $10 through $F0. Reader unresolved."
+      ]
+    ],
+    "include": [
+      [
+        "$D000",
+        "$DFFF",
+        "The hand-over snapshot holds a byte-for-byte twin of the $E000\u2013$EFFF packed screens and map data. Keep it counted until any independent consumer is settled."
+      ],
+      [
+        "$8400",
+        "$87FF",
+        "The hand-over contains a preloaded title picture, status panel and initial sprite slots."
+      ]
+    ]
+  },
+  "io": [],
+  "regions": [],
+  "links": {
+    "wiki": {
+      "title": "BoneCruncher \u2013 C64-Wiki",
+      "url": "https://www.c64-wiki.com/wiki/Bone_Cruncher"
+    },
+    "manual": {
+      "title": "",
+      "url": ""
+    }
+  }
+}
