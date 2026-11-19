@@ -1,0 +1,73 @@
+{
+  "title": "Terramex expedition",
+  "order": 2,
+  "video": {
+    "screen": "$4000",
+    "charset": "$4800"
+  },
+  "coverage": {
+    "exclude": [
+      [
+        "$4400",
+        "$47E7",
+        "Alternate live playfield screen matrix."
+      ],
+      [
+        "$EF00",
+        "$F035",
+        "Unchanged across the MAIN depack, outside its upper output boundary and outside the selected sprite block."
+      ],
+      [
+        "$FFF6",
+        "$FFFF",
+        "Unchanged across MAIN depack. The game replaces the vector locations as part of interrupt setup."
+      ],
+      [
+        "$0400",
+        "$07FF",
+        "Old BASIC screen and final depacker pull-through stub before the game switches to VIC bank $4000."
+      ]
+    ],
+    "extra": [
+      [
+        "$0800",
+        "$18FF",
+        "Tile glyph layouts and cell colours."
+      ],
+      [
+        "$3500",
+        "$3DFF",
+        "Map strip tile indices."
+      ],
+      [
+        "$7800",
+        "$7FF7",
+        "HUD and title glyphs."
+      ],
+      [
+        "$8000",
+        "$EEFF",
+        "Expedition engine and embedded data."
+      ]
+    ],
+    "include": [
+      [
+        "$D000",
+        "$DFFF",
+        "The expedition executes RAM routines under I/O."
+      ],
+      [
+        "$F036",
+        "$FFF5",
+        "Selected explorer sprite frames are read with KERNAL ROM banked out."
+      ],
+      [
+        "$4280",
+        "$43E7",
+        "HUD character template is authored at hand-over."
+      ]
+    ]
+  },
+  "io": [],
+  "regions": []
+}

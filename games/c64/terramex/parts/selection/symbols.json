@@ -1,0 +1,1150 @@
+{
+ "schema": 1,
+ "platform": "c64",
+ "game": "terramex",
+ "part": "selection",
+ "build": "",
+ "source": "regenerator2000 live",
+ "regions": {
+  "exclude": [
+   [
+    256,
+    511,
+    "stack"
+   ],
+   [
+    53248,
+    57343,
+    "I/O and colour RAM"
+   ],
+   [
+    53248,
+    57343,
+    "Byte-identical copy of $19C1-$29C0 at selector entry. The selector code addresses the I/O chips here and its sprite-copy sources end at $B6FF."
+   ]
+  ],
+  "extra": [],
+  "edges": [
+   0,
+   256,
+   512,
+   1024,
+   2048,
+   4096,
+   16384,
+   32768,
+   40960,
+   49152,
+   53248,
+   57344
+  ]
+ },
+ "blocks": [
+  {
+   "start": 0,
+   "end": 0,
+   "type": "Undefined"
+  },
+  {
+   "start": 1,
+   "end": 1,
+   "type": "Byte"
+  },
+  {
+   "start": 2,
+   "end": 8,
+   "type": "Undefined"
+  },
+  {
+   "start": 9,
+   "end": 10,
+   "type": "Byte"
+  },
+  {
+   "start": 11,
+   "end": 109,
+   "type": "Undefined"
+  },
+  {
+   "start": 110,
+   "end": 111,
+   "type": "Byte"
+  },
+  {
+   "start": 112,
+   "end": 129,
+   "type": "Undefined"
+  },
+  {
+   "start": 130,
+   "end": 130,
+   "type": "Byte"
+  },
+  {
+   "start": 131,
+   "end": 195,
+   "type": "Undefined"
+  },
+  {
+   "start": 196,
+   "end": 196,
+   "type": "Byte"
+  },
+  {
+   "start": 197,
+   "end": 251,
+   "type": "Undefined"
+  },
+  {
+   "start": 252,
+   "end": 255,
+   "type": "Byte"
+  },
+  {
+   "start": 256,
+   "end": 767,
+   "type": "Undefined"
+  },
+  {
+   "start": 768,
+   "end": 768,
+   "type": "Byte"
+  },
+  {
+   "start": 769,
+   "end": 18431,
+   "type": "Undefined"
+  },
+  {
+   "start": 18432,
+   "end": 22503,
+   "type": "Byte"
+  },
+  {
+   "start": 22504,
+   "end": 22519,
+   "type": "Undefined"
+  },
+  {
+   "start": 22520,
+   "end": 22527,
+   "type": "Byte"
+  },
+  {
+   "start": 22528,
+   "end": 22530,
+   "type": "Undefined"
+  },
+  {
+   "start": 22531,
+   "end": 22594,
+   "type": "Byte"
+  },
+  {
+   "start": 22595,
+   "end": 22953,
+   "type": "Undefined"
+  },
+  {
+   "start": 22954,
+   "end": 23295,
+   "type": "Code"
+  },
+  {
+   "start": 23296,
+   "end": 23297,
+   "type": "Byte"
+  },
+  {
+   "start": 23298,
+   "end": 23307,
+   "type": "Word"
+  },
+  {
+   "start": 23308,
+   "end": 23469,
+   "type": "Code"
+  },
+  {
+   "start": 23470,
+   "end": 23553,
+   "type": "Byte"
+  },
+  {
+   "start": 23554,
+   "end": 23906,
+   "type": "Code"
+  },
+  {
+   "start": 23907,
+   "end": 26687,
+   "type": "Undefined"
+  },
+  {
+   "start": 26688,
+   "end": 46847,
+   "type": "Byte"
+  },
+  {
+   "start": 46848,
+   "end": 65529,
+   "type": "Undefined"
+  },
+  {
+   "start": 65530,
+   "end": 65535,
+   "type": "Word"
+  }
+ ],
+ "symbols": [
+  {
+   "address": 1,
+   "name": "selector_memory_port",
+   "type": "ZeroPageAbsoluteAddress",
+   "kind": "user"
+  },
+  {
+   "address": 9,
+   "name": "explorer_sprite_source_lo",
+   "type": "ZeroPageAbsoluteAddress",
+   "kind": "user"
+  },
+  {
+   "address": 10,
+   "name": "explorer_sprite_source_hi",
+   "type": "ZeroPageAbsoluteAddress",
+   "kind": "user"
+  },
+  {
+   "address": 110,
+   "name": "portrait_irq_phase",
+   "type": "ZeroPageAbsoluteAddress",
+   "kind": "user"
+  },
+  {
+   "address": 111,
+   "name": "tested_portrait_id",
+   "type": "ZeroPageAbsoluteAddress",
+   "kind": "user"
+  },
+  {
+   "address": 130,
+   "name": "portrait_input_tick",
+   "type": "ZeroPageAbsoluteAddress",
+   "kind": "user"
+  },
+  {
+   "address": 196,
+   "name": "portrait_input_bits",
+   "type": "ZeroPageAbsoluteAddress",
+   "kind": "user"
+  },
+  {
+   "address": 252,
+   "name": "explorer_payload_size",
+   "type": "ZeroPageAbsoluteAddress",
+   "kind": "user"
+  },
+  {
+   "address": 253,
+   "name": "explorer_payload_size_hi",
+   "type": "ZeroPageAbsoluteAddress",
+   "kind": "user"
+  },
+  {
+   "address": 254,
+   "name": "explorer_destination_lo",
+   "type": "ZeroPageAbsoluteAddress",
+   "kind": "user"
+  },
+  {
+   "address": 255,
+   "name": "explorer_destination_hi",
+   "type": "ZeroPageAbsoluteAddress",
+   "kind": "user"
+  },
+  {
+   "address": 768,
+   "name": "portrait_hit_id",
+   "type": "AbsoluteAddress",
+   "kind": "user"
+  },
+  {
+   "address": 18432,
+   "name": "portrait_charset_top",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 19456,
+   "name": "portrait_top_charset_80",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 20416,
+   "name": "hand_sprite_slot",
+   "type": "Field",
+   "kind": "user"
+  },
+  {
+   "address": 20480,
+   "name": "portrait_charset_lower",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 21504,
+   "name": "portrait_screen_cells",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 22520,
+   "name": "hand_sprite_pointer",
+   "type": "AbsoluteAddress",
+   "kind": "user"
+  },
+  {
+   "address": 22531,
+   "name": "hand_sprite_source",
+   "type": "Field",
+   "kind": "user"
+  },
+  {
+   "address": 22954,
+   "name": "selection_entry",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 22959,
+   "name": "b_59AF",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 22981,
+   "name": "selection_loop",
+   "type": "Jump",
+   "kind": "user"
+  },
+  {
+   "address": 23003,
+   "name": "b_59DB",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 23006,
+   "name": "b_59DE",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 23017,
+   "name": "prepare_explorer_handoff",
+   "type": "Jump",
+   "kind": "user"
+  },
+  {
+   "address": 23039,
+   "name": "selection_hook",
+   "type": "Return",
+   "kind": "user"
+  },
+  {
+   "address": 23040,
+   "name": "move_and_test_hand",
+   "type": "Subroutine",
+   "kind": "user"
+  },
+  {
+   "address": 23061,
+   "name": "b_5A15",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 23077,
+   "name": "b_5A25",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 23095,
+   "name": "b_5A37",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 23111,
+   "name": "b_5A47",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 23136,
+   "name": "b_5A60",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 23159,
+   "name": "b_5A77",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 23186,
+   "name": "b_5A92",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 23209,
+   "name": "b_5AA9",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 23232,
+   "name": "b_5AC0",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 23257,
+   "name": "b_5AD9",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 23259,
+   "name": "j_5ADB",
+   "type": "Jump",
+   "kind": "auto"
+  },
+  {
+   "address": 23265,
+   "name": "init_portrait_colours",
+   "type": "Subroutine",
+   "kind": "user"
+  },
+  {
+   "address": 23276,
+   "name": "b_5AEC",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 23296,
+   "name": "hand_x",
+   "type": "AbsoluteAddress",
+   "kind": "user"
+  },
+  {
+   "address": 23297,
+   "name": "hand_y",
+   "type": "AbsoluteAddress",
+   "kind": "user"
+  },
+  {
+   "address": 23298,
+   "name": "explorer_data_pointers",
+   "type": "Field",
+   "kind": "user"
+  },
+  {
+   "address": 23299,
+   "name": "explorer_data_pointer_high",
+   "type": "Field",
+   "kind": "user"
+  },
+  {
+   "address": 23308,
+   "name": "copy_explorer_data",
+   "type": "Jump",
+   "kind": "user"
+  },
+  {
+   "address": 23328,
+   "name": "b_5B20",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 23344,
+   "name": "b_5B30",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 23356,
+   "name": "read_portrait_controls",
+   "type": "Subroutine",
+   "kind": "user"
+  },
+  {
+   "address": 23384,
+   "name": "b_5B58",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 23402,
+   "name": "b_5B6A",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 23425,
+   "name": "b_5B81",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 23436,
+   "name": "b_5B8C",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 23447,
+   "name": "b_5B97",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 23455,
+   "name": "b_5B9F",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 23466,
+   "name": "b_5BAA",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 23470,
+   "name": "joystick_to_menu_bits",
+   "type": "Field",
+   "kind": "user"
+  },
+  {
+   "address": 23502,
+   "name": "menu_port_b_strobes",
+   "type": "Field",
+   "kind": "user"
+  },
+  {
+   "address": 23515,
+   "name": "menu_port_a_sense",
+   "type": "Field",
+   "kind": "user"
+  },
+  {
+   "address": 23528,
+   "name": "menu_port_a_strobes",
+   "type": "Field",
+   "kind": "user"
+  },
+  {
+   "address": 23541,
+   "name": "menu_port_b_sense",
+   "type": "Field",
+   "kind": "user"
+  },
+  {
+   "address": 23554,
+   "name": "read_menu_key",
+   "type": "Subroutine",
+   "kind": "user"
+  },
+  {
+   "address": 23573,
+   "name": "b_5C15",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 23589,
+   "name": "b_5C25",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 23607,
+   "name": "b_5C37",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 23621,
+   "name": "selection_raster_irq",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 23655,
+   "name": "b_5C67",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 23662,
+   "name": "selection_phase_offset",
+   "type": "AbsoluteAddress",
+   "kind": "user"
+  },
+  {
+   "address": 23663,
+   "name": "b_5C6F",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 23669,
+   "name": "b_5C75",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 23678,
+   "name": "draw_hand_phase",
+   "type": "Jump",
+   "kind": "user"
+  },
+  {
+   "address": 23790,
+   "name": "switch_portrait_charset",
+   "type": "Jump",
+   "kind": "user"
+  },
+  {
+   "address": 23812,
+   "name": "install_selection_irq",
+   "type": "Subroutine",
+   "kind": "user"
+  },
+  {
+   "address": 23895,
+   "name": "schedule_selection_raster",
+   "type": "Jump",
+   "kind": "user"
+  },
+  {
+   "address": 23898,
+   "name": "j_5D5A",
+   "type": "Jump",
+   "kind": "auto"
+  },
+  {
+   "address": 26688,
+   "name": "fortisque_payload",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 27696,
+   "name": "fortisque_payload_10",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 28704,
+   "name": "fortisque_payload_20",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 29712,
+   "name": "fortisque_payload_30",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 30720,
+   "name": "krusche_payload",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 31728,
+   "name": "krusche_payload_10",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 32736,
+   "name": "krusche_payload_20",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 32768,
+   "name": "krusche_frame_20_tail",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 33744,
+   "name": "krusche_payload_30",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 34752,
+   "name": "beaucomp_payload",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 35760,
+   "name": "beaucomp_payload_10",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 36768,
+   "name": "beaucomp_payload_20",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 37776,
+   "name": "beaucomp_payload_30",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 38784,
+   "name": "caine_payload",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 39792,
+   "name": "caine_payload_10",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 40800,
+   "name": "caine_payload_20",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 40960,
+   "name": "caine_frame_22_tail",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 41808,
+   "name": "caine_payload_30",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 42816,
+   "name": "pong_payload",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 43824,
+   "name": "pong_payload_10",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 44832,
+   "name": "pong_payload_20",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 45840,
+   "name": "pong_payload_30",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 55296,
+   "name": "f_D800",
+   "type": "Field",
+   "kind": "auto"
+  },
+  {
+   "address": 55552,
+   "name": "f_D900",
+   "type": "Field",
+   "kind": "auto"
+  },
+  {
+   "address": 55808,
+   "name": "f_DA00",
+   "type": "Field",
+   "kind": "auto"
+  },
+  {
+   "address": 56064,
+   "name": "f_DB00",
+   "type": "Field",
+   "kind": "auto"
+  },
+  {
+   "address": 65530,
+   "name": "selection_nmi_vector",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 65534,
+   "name": "selection_irq_vector",
+   "type": "UserDefined",
+   "kind": "user"
+  }
+ ],
+ "comments": [
+  {
+   "address": 1,
+   "type": "line",
+   "text": "The cursor input and IRQ temporarily select the I/O registers through this processor port, then return to the selector banking."
+  },
+  {
+   "address": 9,
+   "type": "line",
+   "text": "Low byte of the current source pointer copied from the selected explorer table."
+  },
+  {
+   "address": 10,
+   "type": "line",
+   "text": "High byte of the source pointer. The transfer loop increments it once per full page."
+  },
+  {
+   "address": 110,
+   "type": "line",
+   "text": "Modulo-two selector for the two phases of the portrait raster interrupt."
+  },
+  {
+   "address": 111,
+   "type": "line",
+   "text": "Accumulator for the current cursor hit-test. The final ID is copied to $0300."
+  },
+  {
+   "address": 130,
+   "type": "line",
+   "text": "Input loop flag set by the sprite-render phase and cleared by the cursor loop."
+  },
+  {
+   "address": 196,
+   "type": "line",
+   "text": "Last logical direction and fire bits read by the portrait input routine."
+  },
+  {
+   "address": 252,
+   "type": "line",
+   "text": "Little-endian transfer size prepared at $59E9."
+  },
+  {
+   "address": 253,
+   "type": "line",
+   "text": "High byte $0F written when an explorer is chosen. The copy uses its own page count."
+  },
+  {
+   "address": 254,
+   "type": "line",
+   "text": "Low byte of the expedition sprite handoff destination."
+  },
+  {
+   "address": 255,
+   "type": "line",
+   "text": "High byte of the expedition sprite handoff destination. The copy loop advances it by one per page."
+  },
+  {
+   "address": 768,
+   "type": "line",
+   "text": "The current cursor hit result. Fire checks $FE and $FF before accepting the explorer index."
+  },
+  {
+   "address": 18432,
+   "type": "line",
+   "text": "Multicolour glyph bytes for the raster phase that selects $D018=$52. Screen cells at $5400 index these glyphs."
+  },
+  {
+   "address": 19456,
+   "type": "line",
+   "text": "Upper 120 glyph slots for the upper portrait rows. The final eight slots of the same VIC character address space are also the hand sprite buffer."
+  },
+  {
+   "address": 20416,
+   "type": "line",
+   "text": "A 64-byte sprite slot filled from $5803 during selection initialization. The raster handler sets sprite 0 to this slot with pointer $3F."
+  },
+  {
+   "address": 20480,
+   "type": "line",
+   "text": "Multicolour glyphs starting at $5000, selected by the second $D018 write. The screen matrix remains at $5400."
+  },
+  {
+   "address": 21504,
+   "type": "line",
+   "text": "Character indices for the five names and portraits, read by the VIC with either charset base."
+  },
+  {
+   "address": 22520,
+   "type": "line",
+   "text": "VIC sprite zero pointer in the portrait screen matrix, written to $3F in the first raster phase."
+  },
+  {
+   "address": 22531,
+   "type": "line",
+   "text": "Source of the pointing hand's 64-byte sprite slot at $4FC0."
+  },
+  {
+   "address": 22954,
+   "type": "line",
+   "text": "Initialize the portrait screen and its raster handler, copy the hand sprite from $5803 to $4FC0, then put the pointer at logical coordinates ($64,$50)."
+  },
+  {
+   "address": 22981,
+   "type": "line",
+   "text": "Poll the hand controls and test fire against the current hit ID at $0300. IDs $FE and $FF stay in the menu. Other IDs enter the explorer-data handoff. Between polls, wait for and clear the raster flag at $82."
+  },
+  {
+   "address": 23017,
+   "type": "line",
+   "text": "Set the destination at $F036 and the allocation length at $0FC0. Read the hit ID to choose the source block for the expedition."
+  },
+  {
+   "address": 23039,
+   "type": "line",
+   "text": "Return immediately in this disk build. The selection initializer calls this one-byte hook before setting the cursor position."
+  },
+  {
+   "address": 23040,
+   "type": "line",
+   "text": "Read logical directions and fire. Move the hand by two units per pressed axis, bound X to $00-$E8 and Y to $00-$A8, and return the input bits in X. The hit test stores the portrait ID in $0300."
+  },
+  {
+   "address": 23265,
+   "type": "line",
+   "text": "Install the selection interrupt and fill the four colour RAM pages with $09. Return with RAM selected beneath I/O so the main loop can use the full address space."
+  },
+  {
+   "address": 23296,
+   "type": "line",
+   "text": "Horizontal cursor position before the raster handler adds $38 and writes the sprite X registers."
+  },
+  {
+   "address": 23297,
+   "type": "line",
+   "text": "Vertical cursor position before the raster handler adds $38 and writes sprite Y."
+  },
+  {
+   "address": 23298,
+   "type": "line",
+   "text": "Five little-endian explorer block pointers. The copy routine doubles the portrait ID before reading the two pointer bytes."
+  },
+  {
+   "address": 23299,
+   "type": "line",
+   "text": "High byte of the first source pointer. The indexed instruction reads the high bytes at offsets 1, 3, 5, 7 and 9."
+  },
+  {
+   "address": 23308,
+   "type": "line",
+   "text": "Double the portrait ID to index the source pointers at $5B02. Copy 15 full pages and $C0 more bytes to the handoff buffer at $F036. Entry pointers use $FE-$FF for the destination and $09-$0A for the selected source."
+  },
+  {
+   "address": 23356,
+   "type": "line",
+   "text": "Read active-low joystick bits on CIA1, port 1 first and then port 2. Translate the first active port to the hand's logical direction and fire bits. With neither stick active, scan five logical keyboard actions. Write the result to $C4 and return it in A."
+  },
+  {
+   "address": 23470,
+   "type": "line",
+   "text": "Map each five-bit active-high joystick combination to the hand's logical right, left, down, up and fire bits. Opposing directions on an axis cancel."
+  },
+  {
+   "address": 23502,
+   "type": "line",
+   "text": "Port B values sent while scanning key indices through port A."
+  },
+  {
+   "address": 23515,
+   "type": "line",
+   "text": "Masks for the port A sense bits after the port B strobe."
+  },
+  {
+   "address": 23528,
+   "type": "line",
+   "text": "Port A values for the reverse-direction scan after a zero result on the first masked test."
+  },
+  {
+   "address": 23541,
+   "type": "line",
+   "text": "Masks for the port B sense bits in the reverse-direction scan."
+  },
+  {
+   "address": 23554,
+   "type": "line",
+   "text": "Use A as a key-table index. Configure CIA1 to drive one matrix axis and wait for two agreeing reads on the other. If the first masked result is zero, check with the axes reversed. Zero is the result treated as pressed by the callers."
+  },
+  {
+   "address": 23621,
+   "type": "line",
+   "text": "Save A, X, Y and banking. Acknowledge VIC raster IRQs and alternate two phases, using a patched branch displacement to choose the phase's jump. The other interrupt path reads CIA1 ICR and increments the border register."
+  },
+  {
+   "address": 23662,
+   "type": "line",
+   "text": "Branch displacement patched by $5C6A to three times the current raster phase. A zero value dispatches the first JMP and three dispatches the second."
+  },
+  {
+   "address": 23678,
+   "type": "line",
+   "text": "Configure multicolour sprite 0 and the first portrait character set, translate the hand coordinates into sprite position, set its pointer and signal the input loop through $82. Schedule the next IRQ for raster $B5."
+  },
+  {
+   "address": 23790,
+   "type": "line",
+   "text": "Delay before switching $D018 to the second portrait character set at $5000 and schedule the next phase for raster 1."
+  },
+  {
+   "address": 23812,
+   "type": "line",
+   "text": "Bank in the chips, install the hardware IRQ and NMI vectors, stop both CIA timers on both chips and enable the VIC raster IRQ. Seed the phase counter with $FF and the first raster compare with $FD."
+  },
+  {
+   "address": 23895,
+   "type": "line",
+   "text": "Set the raster compare to A, then restore Y, the processor port, X and A before RTI."
+  },
+  {
+   "address": 26688,
+   "type": "line",
+   "text": "Fortisque sprite frames $00-$0F. The first three frames can seed the main HUD portrait slots."
+  },
+  {
+   "address": 27696,
+   "type": "line",
+   "text": "Fortisque sprite frames $10-$1F. The expedition decoder addresses these frames with its 63-byte frame stride."
+  },
+  {
+   "address": 28704,
+   "type": "line",
+   "text": "Fortisque sprite frames $20-$2F. These frame numbers can be generated in either orientation from their three column streams."
+  },
+  {
+   "address": 29712,
+   "type": "line",
+   "text": "Fortisque sprite frames $30-$3F. The initialiser explicitly generates the last twelve frames of this group."
+  },
+  {
+   "address": 30720,
+   "type": "line",
+   "text": "Krusche sprite frames $00-$0F. The first three frames can seed the main HUD portrait slots."
+  },
+  {
+   "address": 31728,
+   "type": "line",
+   "text": "Krusche sprite frames $10-$1F. The expedition decoder addresses these frames with its 63-byte frame stride."
+  },
+  {
+   "address": 32736,
+   "type": "line",
+   "text": "Krusche sprite frames $20-$2F. These frame numbers can be generated in either orientation from their three column streams."
+  },
+  {
+   "address": 32768,
+   "type": "line",
+   "text": "Continues frame $20 of Krusche's selected sprite data, 32 bytes into its 63-byte frame. Frames continue at the same stride in this memory page."
+  },
+  {
+   "address": 33744,
+   "type": "line",
+   "text": "Krusche sprite frames $30-$3F. The initialiser explicitly generates the last twelve frames of this group."
+  },
+  {
+   "address": 34752,
+   "type": "line",
+   "text": "Beaucomp sprite frames $00-$0F. The first three frames can seed the main HUD portrait slots."
+  },
+  {
+   "address": 35760,
+   "type": "line",
+   "text": "Beaucomp sprite frames $10-$1F. The expedition decoder addresses these frames with its 63-byte frame stride."
+  },
+  {
+   "address": 36768,
+   "type": "line",
+   "text": "Beaucomp sprite frames $20-$2F. These frame numbers can be generated in either orientation from their three column streams."
+  },
+  {
+   "address": 37776,
+   "type": "line",
+   "text": "Beaucomp sprite frames $30-$3F. The initialiser explicitly generates the last twelve frames of this group."
+  },
+  {
+   "address": 38784,
+   "type": "line",
+   "text": "Caine sprite frames $00-$0F. The first three frames can seed the main HUD portrait slots."
+  },
+  {
+   "address": 39792,
+   "type": "line",
+   "text": "Caine sprite frames $10-$1F. The expedition decoder addresses these frames with its 63-byte frame stride."
+  },
+  {
+   "address": 40800,
+   "type": "line",
+   "text": "Caine sprite frames $20-$2F. These frame numbers can be generated in either orientation from their three column streams."
+  },
+  {
+   "address": 40960,
+   "type": "line",
+   "text": "Continues frame $22 of Caine's selected sprite data, 34 bytes into its three-column record. The data continues into the rest of Caine's sprite frames."
+  },
+  {
+   "address": 41808,
+   "type": "line",
+   "text": "Caine sprite frames $30-$3F. The initialiser explicitly generates the last twelve frames of this group."
+  },
+  {
+   "address": 42816,
+   "type": "line",
+   "text": "Pong sprite frames $00-$0F. The first three frames can seed the main HUD portrait slots."
+  },
+  {
+   "address": 43824,
+   "type": "line",
+   "text": "Pong sprite frames $10-$1F. The expedition decoder addresses these frames with its 63-byte frame stride."
+  },
+  {
+   "address": 44832,
+   "type": "line",
+   "text": "Pong sprite frames $20-$2F. These frame numbers can be generated in either orientation from their three column streams."
+  },
+  {
+   "address": 45840,
+   "type": "line",
+   "text": "Pong sprite frames $30-$3F. The initialiser explicitly generates the last twelve frames of this group."
+  },
+  {
+   "address": 65530,
+   "type": "line",
+   "text": "RAM hardware NMI vector to the RTI instruction at $5D62."
+  },
+  {
+   "address": 65534,
+   "type": "line",
+   "text": "RAM hardware IRQ vector to the alternating portrait raster handler at $5C45."
+  }
+ ]
+}

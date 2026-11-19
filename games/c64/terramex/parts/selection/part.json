@@ -1,0 +1,47 @@
+{
+  "title": "Explorer selection",
+  "order": 1,
+  "video": {
+    "screen": "",
+    "charset": ""
+  },
+  "coverage": {
+    "exclude": [
+      [
+        "$D000",
+        "$DFFF",
+        "Byte-identical copy of $19C1-$29C0 at selector entry. The selector code addresses the I/O chips here and its sprite-copy sources end at $B6FF."
+      ],
+      [
+        "$0400",
+        "$47FF",
+        "Surviving RCS/HCC depacker input and unpacking workspace. Packed-file windows and their high-RAM twins match here. The selector reads its portrait cells from $5400, glyphs from $4800 and $5000, and sprite blocks from $6840 onward."
+      ],
+      [
+        "$58E0",
+        "$593F",
+        "Cracker message outside the cursor/portrait code."
+      ],
+      [
+        "$B700",
+        "$CFFF",
+        "Relocated packed-file and workspace bytes beyond the last selector sprite block. The selector data pointers end at $B6FF."
+      ],
+      [
+        "$E000",
+        "$FFF8",
+        "Relocated packed input runs match low RAM and disk bytes. The selector hardware vectors are written apart from this range. The selected sprite transfer happens after the selector listing snapshot."
+      ]
+    ],
+    "extra": [],
+    "include": [
+      [
+        "$FFFA",
+        "$FFFF",
+        "Hardware vectors set by the selector IRQ initialiser."
+      ]
+    ]
+  },
+  "io": [],
+  "regions": []
+}
