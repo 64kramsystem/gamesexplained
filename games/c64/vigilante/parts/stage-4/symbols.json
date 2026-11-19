@@ -1,0 +1,1202 @@
+{
+ "schema": 1,
+ "platform": "c64",
+ "game": "vigilante",
+ "part": "stage-4",
+ "build": "Data East USA G64",
+ "source": "regenerator2000 live",
+ "regions": {
+  "exclude": [
+   [
+    256,
+    511,
+    "stack"
+   ],
+   [
+    53248,
+    57343,
+    "I/O and colour RAM"
+   ],
+   [
+    65216,
+    65279,
+    "Trailing whole sprite slots match the mapped C64 KERNAL ROM at the same addresses; retained on disk in file T."
+   ],
+   [
+    0,
+    16383,
+    "Resident engine"
+   ],
+   [
+    18432,
+    21503,
+    "Resident engine"
+   ],
+   [
+    31434,
+    51967,
+    "Resident engine"
+   ],
+   [
+    53247,
+    57343,
+    "Resident engine"
+   ],
+   [
+    65280,
+    65535,
+    "Resident engine"
+   ]
+  ],
+  "extra": [
+   [
+    16384,
+    18431,
+    "Stage file payload"
+   ],
+   [
+    21504,
+    31231,
+    "Stage file payload"
+   ],
+   [
+    31232,
+    31433,
+    "Stage file payload"
+   ],
+   [
+    51968,
+    53246,
+    "Stage file payload"
+   ],
+   [
+    57344,
+    65279,
+    "Stage file payload"
+   ]
+  ],
+  "edges": [
+   0,
+   256,
+   512,
+   1024,
+   2048,
+   4096,
+   16384,
+   32768,
+   40960,
+   49152,
+   53248,
+   57344
+  ],
+  "elsewhere": [
+   [
+    0,
+    16383,
+    "Resident engine"
+   ],
+   [
+    18432,
+    21503,
+    "Resident engine"
+   ],
+   [
+    31434,
+    51967,
+    "Resident engine"
+   ],
+   [
+    53247,
+    57343,
+    "Resident engine"
+   ],
+   [
+    65280,
+    65535,
+    "Resident engine"
+   ]
+  ]
+ },
+ "blocks": [
+  {
+   "start": 16384,
+   "end": 18431,
+   "type": "Byte"
+  },
+  {
+   "start": 21504,
+   "end": 31433,
+   "type": "Byte"
+  },
+  {
+   "start": 51968,
+   "end": 51983,
+   "type": "Address"
+  },
+  {
+   "start": 51984,
+   "end": 53246,
+   "type": "Byte"
+  },
+  {
+   "start": 57344,
+   "end": 65215,
+   "type": "Byte"
+  },
+  {
+   "start": 65216,
+   "end": 65279,
+   "type": "Undefined"
+  }
+ ],
+ "symbols": [
+  {
+   "address": 16384,
+   "name": "tiles_00",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 17408,
+   "name": "tiles_80",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 21504,
+   "name": "map_characters_0",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 22528,
+   "name": "map_characters_4",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 23552,
+   "name": "map_characters_8",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 24576,
+   "name": "map_characters_12",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 25600,
+   "name": "map_characters_16",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 26368,
+   "name": "map_colors_0",
+   "type": "Field",
+   "kind": "user"
+  },
+  {
+   "address": 27392,
+   "name": "map_colors_4",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 28416,
+   "name": "map_colors_8",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 29440,
+   "name": "map_colors_12",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 30464,
+   "name": "map_colors_16",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 31232,
+   "name": "stage_settings",
+   "type": "AbsoluteAddress",
+   "kind": "user"
+  },
+  {
+   "address": 31233,
+   "name": "screen_change_hi",
+   "type": "AbsoluteAddress",
+   "kind": "user"
+  },
+  {
+   "address": 31234,
+   "name": "map_change_lo",
+   "type": "AbsoluteAddress",
+   "kind": "user"
+  },
+  {
+   "address": 31235,
+   "name": "map_change_hi",
+   "type": "AbsoluteAddress",
+   "kind": "user"
+  },
+  {
+   "address": 31236,
+   "name": "active_multicolor_1",
+   "type": "AbsoluteAddress",
+   "kind": "user"
+  },
+  {
+   "address": 31237,
+   "name": "active_multicolor_2",
+   "type": "AbsoluteAddress",
+   "kind": "user"
+  },
+  {
+   "address": 31238,
+   "name": "initial_multicolor_1",
+   "type": "AbsoluteAddress",
+   "kind": "user"
+  },
+  {
+   "address": 31239,
+   "name": "initial_multicolor_2",
+   "type": "AbsoluteAddress",
+   "kind": "user"
+  },
+  {
+   "address": 31240,
+   "name": "actor_spawn_y",
+   "type": "AbsoluteAddress",
+   "kind": "user"
+  },
+  {
+   "address": 31241,
+   "name": "initial_screen_tile_1",
+   "type": "AbsoluteAddress",
+   "kind": "user"
+  },
+  {
+   "address": 31242,
+   "name": "initial_screen_tile_2",
+   "type": "AbsoluteAddress",
+   "kind": "user"
+  },
+  {
+   "address": 31243,
+   "name": "replacement_screen_tile_1",
+   "type": "AbsoluteAddress",
+   "kind": "user"
+  },
+  {
+   "address": 31244,
+   "name": "replacement_screen_tile_2",
+   "type": "AbsoluteAddress",
+   "kind": "user"
+  },
+  {
+   "address": 31245,
+   "name": "replacement_scroll_column",
+   "type": "AbsoluteAddress",
+   "kind": "user"
+  },
+  {
+   "address": 31246,
+   "name": "right_scroll_limit",
+   "type": "AbsoluteAddress",
+   "kind": "user"
+  },
+  {
+   "address": 31247,
+   "name": "first_event_column",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 31248,
+   "name": "actor_spawn_delay",
+   "type": "AbsoluteAddress",
+   "kind": "user"
+  },
+  {
+   "address": 31249,
+   "name": "second_event_column",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 31250,
+   "name": "opponent_sprite_color",
+   "type": "AbsoluteAddress",
+   "kind": "user"
+  },
+  {
+   "address": 31251,
+   "name": "repeated_sprite_fragments",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 31332,
+   "name": "stage_message",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 51968,
+   "name": "stage_actor_headers",
+   "type": "AbsoluteAddress",
+   "kind": "user"
+  },
+  {
+   "address": 51969,
+   "name": "actor_directory_hi_0",
+   "type": "AbsoluteAddress",
+   "kind": "user"
+  },
+  {
+   "address": 51970,
+   "name": "actor_directory_1",
+   "type": "Field",
+   "kind": "user"
+  },
+  {
+   "address": 51972,
+   "name": "actor_directory_2",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 51974,
+   "name": "actor_directory_3",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 51976,
+   "name": "actor_directory_4",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 51978,
+   "name": "actor_directory_5",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 51980,
+   "name": "actor_directory_6",
+   "type": "AbsoluteAddress",
+   "kind": "user"
+  },
+  {
+   "address": 51981,
+   "name": "actor_directory_hi_6",
+   "type": "AbsoluteAddress",
+   "kind": "user"
+  },
+  {
+   "address": 51982,
+   "name": "actor_directory_7",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 51984,
+   "name": "actor_header_10",
+   "type": "AbsoluteAddress",
+   "kind": "user"
+  },
+  {
+   "address": 51989,
+   "name": "actor_header_15",
+   "type": "AbsoluteAddress",
+   "kind": "user"
+  },
+  {
+   "address": 51994,
+   "name": "actor_header_1a",
+   "type": "AbsoluteAddress",
+   "kind": "user"
+  },
+  {
+   "address": 51999,
+   "name": "actor_header_1f",
+   "type": "AbsoluteAddress",
+   "kind": "user"
+  },
+  {
+   "address": 52004,
+   "name": "actor_header_24",
+   "type": "AbsoluteAddress",
+   "kind": "user"
+  },
+  {
+   "address": 52009,
+   "name": "actor_header_29",
+   "type": "AbsoluteAddress",
+   "kind": "user"
+  },
+  {
+   "address": 52014,
+   "name": "actor_header_2e",
+   "type": "AbsoluteAddress",
+   "kind": "user"
+  },
+  {
+   "address": 52019,
+   "name": "actor_header_33",
+   "type": "AbsoluteAddress",
+   "kind": "user"
+  },
+  {
+   "address": 52024,
+   "name": "actor_frame_b38",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 52043,
+   "name": "actor_frame_b4b",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 52062,
+   "name": "actor_frame_b5e",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 52081,
+   "name": "actor_frame_b71",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 52100,
+   "name": "actor_frame_b84",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 52119,
+   "name": "actor_frame_b97",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 52138,
+   "name": "actor_frame_baa",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 52157,
+   "name": "actor_frame_bbd",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 52176,
+   "name": "actor_frame_bd0",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 52195,
+   "name": "actor_frame_be3",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 52214,
+   "name": "actor_frame_bf6",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 52233,
+   "name": "actor_frame_c09",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 52252,
+   "name": "actor_frame_c1c",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 52271,
+   "name": "actor_frame_c2f",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 52290,
+   "name": "actor_frame_c42",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 52309,
+   "name": "actor_frame_c55",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 52328,
+   "name": "actor_frame_c68",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 52347,
+   "name": "actor_frame_c7b",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 52366,
+   "name": "actor_frame_c8e",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 52385,
+   "name": "actor_frame_ca1",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 52404,
+   "name": "actor_frame_cb4",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 52423,
+   "name": "actor_frame_cc7",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 52442,
+   "name": "actor_frame_cda",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 52480,
+   "name": "actor_frame_d00",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 52499,
+   "name": "actor_frame_d13",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 52518,
+   "name": "actor_frame_d26",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 52537,
+   "name": "actor_stream_d39",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 52554,
+   "name": "actor_stream_d4a",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 52576,
+   "name": "actor_stream_d60",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 52598,
+   "name": "actor_stream_d76",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 52610,
+   "name": "actor_stream_d82",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 52627,
+   "name": "actor_stream_d93",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 52644,
+   "name": "actor_stream_da4",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 52666,
+   "name": "actor_stream_dba",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 52683,
+   "name": "previous_sprite_bytes",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 57344,
+   "name": "stage_sprites_00",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 58368,
+   "name": "stage_sprites_10",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 59392,
+   "name": "stage_sprites_20",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 60416,
+   "name": "stage_sprites_30",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 60893,
+   "name": "KERNAL_CIOUTj",
+   "type": "Predefined",
+   "kind": "system"
+  },
+  {
+   "address": 60926,
+   "name": "KERNAL_UNLSNj",
+   "type": "Predefined",
+   "kind": "system"
+  },
+  {
+   "address": 61440,
+   "name": "stage_sprites_40",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 62464,
+   "name": "stage_sprites_50",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 63488,
+   "name": "stage_sprites_60",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 64512,
+   "name": "stage_sprites_70",
+   "type": "UserDefined",
+   "kind": "user"
+  }
+ ],
+ "comments": [
+  {
+   "address": 16384,
+   "type": "line",
+   "text": "Stage 4 character pixels from file P. VIC character codes $00\u2013$7F select these eight-byte patterns when the raster handler leaves the character base at $4000."
+  },
+  {
+   "address": 17408,
+   "type": "line",
+   "text": "Stage 4 character pixels from file P. VIC character codes $80\u2013$FF select these eight-byte patterns when the raster handler leaves the character base at $4000."
+  },
+  {
+   "address": 21504,
+   "type": "line",
+   "text": "Stage 4 map characters, rows 1\u20134 of 19, file Q. Row stride is 256 bytes. $C147 copies the visible 40 columns into the rows starting at $50F0."
+  },
+  {
+   "address": 22528,
+   "type": "line",
+   "text": "Stage 4 map characters, rows 5\u20138 of 19, file Q. Row stride is 256 bytes. $C147 copies the visible 40 columns into the rows starting at $50F0."
+  },
+  {
+   "address": 23552,
+   "type": "line",
+   "text": "Stage 4 map characters, rows 9\u201312 of 19, file Q. Row stride is 256 bytes. $C147 copies the visible 40 columns into the rows starting at $50F0."
+  },
+  {
+   "address": 24576,
+   "type": "line",
+   "text": "Stage 4 map characters, rows 13\u201316 of 19, file Q. Row stride is 256 bytes. $C147 copies the visible 40 columns into the rows starting at $50F0."
+  },
+  {
+   "address": 25600,
+   "type": "line",
+   "text": "Stage 4 map characters, rows 17\u201319 of 19, file Q. Row stride is 256 bytes. $C147 copies the visible 40 columns into the rows starting at $50F0."
+  },
+  {
+   "address": 26368,
+   "type": "line",
+   "text": "Stage 4 map colors, rows 1\u20134 of 19, file Q. Row stride is 256 bytes. $C147 copies the visible 40 columns into the rows starting at $D8F0."
+  },
+  {
+   "address": 27392,
+   "type": "line",
+   "text": "Stage 4 map colors, rows 5\u20138 of 19, file Q. Row stride is 256 bytes. $C147 copies the visible 40 columns into the rows starting at $D8F0."
+  },
+  {
+   "address": 28416,
+   "type": "line",
+   "text": "Stage 4 map colors, rows 9\u201312 of 19, file Q. Row stride is 256 bytes. $C147 copies the visible 40 columns into the rows starting at $D8F0."
+  },
+  {
+   "address": 29440,
+   "type": "line",
+   "text": "Stage 4 map colors, rows 13\u201316 of 19, file Q. Row stride is 256 bytes. $C147 copies the visible 40 columns into the rows starting at $D8F0."
+  },
+  {
+   "address": 30464,
+   "type": "line",
+   "text": "Stage 4 map colors, rows 17\u201319 of 19, file Q. Row stride is 256 bytes. $C147 copies the visible 40 columns into the rows starting at $D8F0."
+  },
+  {
+   "address": 31232,
+   "type": "line",
+   "text": "Stage 4 settings from file R. The first two words are screen and map addresses used by $1A73\u2013$1A92. Bytes +4 to +7 hold the active and source VIC multicolours, +14 holds the right scroll limit, and +15 and +17 select stage events by scroll column."
+  },
+  {
+   "address": 31233,
+   "type": "line",
+   "text": "High byte of the screen address loaded into $EE by $1068."
+  },
+  {
+   "address": 31234,
+   "type": "line",
+   "text": "Low byte of the map address loaded into $ED by $1A8A."
+  },
+  {
+   "address": 31235,
+   "type": "line",
+   "text": "High byte of the map address loaded into $EE by $1A8F."
+  },
+  {
+   "address": 31236,
+   "type": "line",
+   "text": "Active playfield multicolour loaded by $0F6B into $D022."
+  },
+  {
+   "address": 31237,
+   "type": "line",
+   "text": "Active playfield multicolour loaded by $0F71 into $D023."
+  },
+  {
+   "address": 31238,
+   "type": "line",
+   "text": "$3A28 restores this stage colour to $7A04 when the message closes."
+  },
+  {
+   "address": 31239,
+   "type": "line",
+   "text": "$3A2E restores this stage colour to $7A05 when the message closes."
+  },
+  {
+   "address": 31240,
+   "type": "line",
+   "text": "Stage opponent base Y, copied into actor offset $0D at $2B56."
+  },
+  {
+   "address": 31241,
+   "type": "line",
+   "text": "$1072 writes this code to the first screen cell at the address in $7A00."
+  },
+  {
+   "address": 31242,
+   "type": "line",
+   "text": "$1078 writes this code to the next screen cell."
+  },
+  {
+   "address": 31243,
+   "type": "line",
+   "text": "$1A82 replaces the first screen cell with this tile and $1A9E uses it in the map."
+  },
+  {
+   "address": 31244,
+   "type": "line",
+   "text": "$1A88 replaces the second screen cell with this tile and $1AA4 uses it in the map."
+  },
+  {
+   "address": 31245,
+   "type": "line",
+   "text": "$1A4B compares the coarse scroll column with this byte before changing those two tiles."
+  },
+  {
+   "address": 31246,
+   "type": "line",
+   "text": "$C02C compares this value with the coarse column at the rightward tile boundary. $2E81 can extend the limit by 20 columns."
+  },
+  {
+   "address": 31247,
+   "type": "line",
+   "text": "$3B58 checks this column before setting the next stage event."
+  },
+  {
+   "address": 31248,
+   "type": "line",
+   "text": "$19FC seeds the counters at $17DE/$17DF with this value. $1846 reloads the countdown during play."
+  },
+  {
+   "address": 31249,
+   "type": "line",
+   "text": "$3B7B checks this column before switching the actor flags for the next stage event."
+  },
+  {
+   "address": 31250,
+   "type": "line",
+   "text": "$2B82 loads this sprite colour into field $22 of the stage actor. $264E\u2013$265E copies it to VIC sprite colour registers."
+  },
+  {
+   "address": 31251,
+   "type": "line",
+   "text": "Bytes between the stage settings and message are identical in all five files. Two runs match stage 1 sprite source bytes: $7A18\u2013$7A30 matches $E77F and $7A39\u2013$7A54 matches $EA1F. Their consumer at this address remains open."
+  },
+  {
+   "address": 31332,
+   "type": "line",
+   "text": "Stage 4 introduction text in the panel character code, preceded by a display mode and row count. The engine passes this address to $39AA."
+  },
+  {
+   "address": 51968,
+   "type": "line",
+   "text": "Eight little-endian header pointers for stage 4 in file S. $34AD and $34B6 fetch the first pointer to initialise an actor."
+  },
+  {
+   "address": 51969,
+   "type": "line",
+   "text": "High byte of actor header pointer $CB10 in stage 4."
+  },
+  {
+   "address": 51970,
+   "type": "line",
+   "text": "Stage 4 actor directory entry 1. Its 16-bit value selects the stage actor header at $CB2E."
+  },
+  {
+   "address": 51972,
+   "type": "line",
+   "text": "Stage 4 actor directory entry 2. Its 16-bit value selects the stage actor header at $CB24."
+  },
+  {
+   "address": 51974,
+   "type": "line",
+   "text": "Stage 4 actor directory entry 3. Its 16-bit value selects the stage actor header at $CB15."
+  },
+  {
+   "address": 51976,
+   "type": "line",
+   "text": "Stage 4 actor directory entry 4. Its 16-bit value selects the stage actor header at $CB1F."
+  },
+  {
+   "address": 51978,
+   "type": "line",
+   "text": "Stage 4 actor directory entry 5. Its 16-bit value selects the stage actor header at $CB33."
+  },
+  {
+   "address": 51980,
+   "type": "line",
+   "text": "Stage 4 actor directory entry 6. Its 16-bit value selects the stage actor header at $CB1A."
+  },
+  {
+   "address": 51981,
+   "type": "line",
+   "text": "High byte of actor header pointer $CB1A in stage 4."
+  },
+  {
+   "address": 51982,
+   "type": "line",
+   "text": "Stage 4 actor directory entry 7. Its 16-bit value selects the stage actor header at $CB29."
+  },
+  {
+   "address": 51984,
+   "type": "line",
+   "text": "Stage 4 actor header. Its first two bytes point to $CD4A. The actor setup follows this pointer when this header is selected and copies the first animation step duration from offset +4."
+  },
+  {
+   "address": 51989,
+   "type": "line",
+   "text": "Stage 4 actor header. Its first two bytes point to $CD39. The actor setup follows this pointer when this header is selected and copies the first animation step duration from offset +4."
+  },
+  {
+   "address": 51994,
+   "type": "line",
+   "text": "Stage 4 actor header. Its first two bytes point to $CDBA. The actor setup follows this pointer when this header is selected and copies the first animation step duration from offset +4."
+  },
+  {
+   "address": 51999,
+   "type": "line",
+   "text": "Stage 4 actor header. Its first two bytes point to $CD93. The actor setup follows this pointer when this header is selected and copies the first animation step duration from offset +4."
+  },
+  {
+   "address": 52004,
+   "type": "line",
+   "text": "Stage 4 actor header. Its first two bytes point to $CD76. The actor setup follows this pointer when this header is selected and copies the first animation step duration from offset +4."
+  },
+  {
+   "address": 52009,
+   "type": "line",
+   "text": "Stage 4 actor header. Its first two bytes point to $CD82. The actor setup follows this pointer when this header is selected and copies the first animation step duration from offset +4."
+  },
+  {
+   "address": 52014,
+   "type": "line",
+   "text": "Stage 4 actor header. Its first two bytes point to $CD60. The actor setup follows this pointer when this header is selected and copies the first animation step duration from offset +4."
+  },
+  {
+   "address": 52019,
+   "type": "line",
+   "text": "Stage 4 actor header. Its first two bytes point to $CDA4. The actor setup follows this pointer when this header is selected and copies the first animation step duration from offset +4."
+  },
+  {
+   "address": 52024,
+   "type": "line",
+   "text": "Stage 4 frame descriptor for 4 hardware sprite(s). The sprite indices, relative positions and other descriptor values are read by $1371. One animation step referencing this frame is at $CD39."
+  },
+  {
+   "address": 52043,
+   "type": "line",
+   "text": "Stage 4 frame descriptor for 4 hardware sprite(s). The sprite indices, relative positions and other descriptor values are read by $1371. One animation step referencing this frame is at $CD3E."
+  },
+  {
+   "address": 52062,
+   "type": "line",
+   "text": "Stage 4 frame descriptor for 4 hardware sprite(s). The sprite indices, relative positions and other descriptor values are read by $1371. One animation step referencing this frame is at $CD43."
+  },
+  {
+   "address": 52081,
+   "type": "line",
+   "text": "Stage 4 frame descriptor for 4 hardware sprite(s). The sprite indices, relative positions and other descriptor values are read by $1371. One animation step referencing this frame is at $CD4A."
+  },
+  {
+   "address": 52100,
+   "type": "line",
+   "text": "Stage 4 frame descriptor for 4 hardware sprite(s). The sprite indices, relative positions and other descriptor values are read by $1371. One animation step referencing this frame is at $CD4F."
+  },
+  {
+   "address": 52119,
+   "type": "line",
+   "text": "Stage 4 frame descriptor for 4 hardware sprite(s). The sprite indices, relative positions and other descriptor values are read by $1371. One animation step referencing this frame is at $CD54."
+  },
+  {
+   "address": 52138,
+   "type": "line",
+   "text": "Stage 4 frame descriptor for 4 hardware sprite(s). The sprite indices, relative positions and other descriptor values are read by $1371. One animation step referencing this frame is at $CD59."
+  },
+  {
+   "address": 52157,
+   "type": "line",
+   "text": "Stage 4 frame descriptor for 4 hardware sprite(s). The sprite indices, relative positions and other descriptor values are read by $1371. One animation step referencing this frame is at $CD60."
+  },
+  {
+   "address": 52176,
+   "type": "line",
+   "text": "Stage 4 frame descriptor for 4 hardware sprite(s). The sprite indices, relative positions and other descriptor values are read by $1371. One animation step referencing this frame is at $CD65."
+  },
+  {
+   "address": 52195,
+   "type": "line",
+   "text": "Stage 4 frame descriptor for 4 hardware sprite(s). The sprite indices, relative positions and other descriptor values are read by $1371. One animation step referencing this frame is at $CD6A."
+  },
+  {
+   "address": 52214,
+   "type": "line",
+   "text": "Stage 4 frame descriptor for 4 hardware sprite(s). The sprite indices, relative positions and other descriptor values are read by $1371. One animation step referencing this frame is at $CD6F."
+  },
+  {
+   "address": 52233,
+   "type": "line",
+   "text": "Stage 4 frame descriptor for 4 hardware sprite(s). The sprite indices, relative positions and other descriptor values are read by $1371. One animation step referencing this frame is at $CD76."
+  },
+  {
+   "address": 52252,
+   "type": "line",
+   "text": "Stage 4 frame descriptor for 4 hardware sprite(s). The sprite indices, relative positions and other descriptor values are read by $1371. One animation step referencing this frame is at $CD7B."
+  },
+  {
+   "address": 52271,
+   "type": "line",
+   "text": "Stage 4 frame descriptor for 4 hardware sprite(s). The sprite indices, relative positions and other descriptor values are read by $1371. One animation step referencing this frame is at $CD82."
+  },
+  {
+   "address": 52290,
+   "type": "line",
+   "text": "Stage 4 frame descriptor for 4 hardware sprite(s). The sprite indices, relative positions and other descriptor values are read by $1371. One animation step referencing this frame is at $CD87."
+  },
+  {
+   "address": 52309,
+   "type": "line",
+   "text": "Stage 4 frame descriptor for 4 hardware sprite(s). The sprite indices, relative positions and other descriptor values are read by $1371. One animation step referencing this frame is at $CD8C."
+  },
+  {
+   "address": 52328,
+   "type": "line",
+   "text": "Stage 4 frame descriptor for 4 hardware sprite(s). The sprite indices, relative positions and other descriptor values are read by $1371. One animation step referencing this frame is at $CD93."
+  },
+  {
+   "address": 52347,
+   "type": "line",
+   "text": "Stage 4 frame descriptor for 4 hardware sprite(s). The sprite indices, relative positions and other descriptor values are read by $1371. One animation step referencing this frame is at $CD98."
+  },
+  {
+   "address": 52366,
+   "type": "line",
+   "text": "Stage 4 frame descriptor for 4 hardware sprite(s). The sprite indices, relative positions and other descriptor values are read by $1371. One animation step referencing this frame is at $CD9D."
+  },
+  {
+   "address": 52385,
+   "type": "line",
+   "text": "Stage 4 frame descriptor for 4 hardware sprite(s). The sprite indices, relative positions and other descriptor values are read by $1371. One animation step referencing this frame is at $CDA4."
+  },
+  {
+   "address": 52404,
+   "type": "line",
+   "text": "Stage 4 frame descriptor for 4 hardware sprite(s). The sprite indices, relative positions and other descriptor values are read by $1371. One animation step referencing this frame is at $CDA9."
+  },
+  {
+   "address": 52423,
+   "type": "line",
+   "text": "Stage 4 frame descriptor for 4 hardware sprite(s). The sprite indices, relative positions and other descriptor values are read by $1371. One animation step referencing this frame is at $CDAE."
+  },
+  {
+   "address": 52442,
+   "type": "line",
+   "text": "Stage 4 frame descriptor for 4 hardware sprite(s). The sprite indices, relative positions and other descriptor values are read by $1371. One animation step referencing this frame is at $CDB3."
+  },
+  {
+   "address": 52480,
+   "type": "line",
+   "text": "Stage 4 frame descriptor for 4 hardware sprite(s). The sprite indices, relative positions and other descriptor values are read by $1371. One animation step referencing this frame is at $CDBA."
+  },
+  {
+   "address": 52499,
+   "type": "line",
+   "text": "Stage 4 frame descriptor for 4 hardware sprite(s). The sprite indices, relative positions and other descriptor values are read by $1371. One animation step referencing this frame is at $CDBF."
+  },
+  {
+   "address": 52518,
+   "type": "line",
+   "text": "Stage 4 frame descriptor for 4 hardware sprite(s). The sprite indices, relative positions and other descriptor values are read by $1371. One animation step referencing this frame is at $CDC4."
+  },
+  {
+   "address": 52537,
+   "type": "line",
+   "text": "Stage 4 animation sequence with 3 five-byte steps and a null pointer at $CD48. Each step gives a frame pointer, signed X and Y deltas, and a tick count. $15D6 advances to the next step."
+  },
+  {
+   "address": 52554,
+   "type": "line",
+   "text": "Stage 4 animation sequence with 4 five-byte steps and a null pointer at $CD5E. Each step gives a frame pointer, signed X and Y deltas, and a tick count. $15D6 advances to the next step."
+  },
+  {
+   "address": 52576,
+   "type": "line",
+   "text": "Stage 4 animation sequence with 4 five-byte steps and a null pointer at $CD74. Each step gives a frame pointer, signed X and Y deltas, and a tick count. $15D6 advances to the next step."
+  },
+  {
+   "address": 52598,
+   "type": "line",
+   "text": "Stage 4 animation sequence with 2 five-byte steps and a null pointer at $CD80. Each step gives a frame pointer, signed X and Y deltas, and a tick count. $15D6 advances to the next step."
+  },
+  {
+   "address": 52610,
+   "type": "line",
+   "text": "Stage 4 animation sequence with 3 five-byte steps and a null pointer at $CD91. Each step gives a frame pointer, signed X and Y deltas, and a tick count. $15D6 advances to the next step."
+  },
+  {
+   "address": 52627,
+   "type": "line",
+   "text": "Stage 4 animation sequence with 3 five-byte steps and a null pointer at $CDA2. Each step gives a frame pointer, signed X and Y deltas, and a tick count. $15D6 advances to the next step."
+  },
+  {
+   "address": 52644,
+   "type": "line",
+   "text": "Stage 4 animation sequence with 4 five-byte steps and a null pointer at $CDB8. Each step gives a frame pointer, signed X and Y deltas, and a tick count. $15D6 advances to the next step."
+  },
+  {
+   "address": 52666,
+   "type": "line",
+   "text": "Stage 4 animation sequence with 3 five-byte steps and a null pointer at $CDC9. Each step gives a frame pointer, signed X and Y deltas, and a tick count. $15D6 advances to the next step."
+  },
+  {
+   "address": 52683,
+   "type": "line",
+   "text": "Tailing bytes of file S match stage 4 sprite file T exactly from $E0AB onward. The preceding actor streams terminate before this copied material."
+  },
+  {
+   "address": 57344,
+   "type": "line",
+   "text": "Stage 4 sprite source slots $00\u2013$0F from file T. The branch at $271B selects this library, and $2727 adds $E0 to the indexed 64-byte source address high byte."
+  },
+  {
+   "address": 58368,
+   "type": "line",
+   "text": "Stage 4 sprite source slots $10\u2013$1F from file T. The branch at $271B selects this library, and $2727 adds $E0 to the indexed 64-byte source address high byte."
+  },
+  {
+   "address": 59392,
+   "type": "line",
+   "text": "Stage 4 sprite source slots $20\u2013$2F from file T. The branch at $271B selects this library, and $2727 adds $E0 to the indexed 64-byte source address high byte."
+  },
+  {
+   "address": 60416,
+   "type": "line",
+   "text": "Stage 4 sprite source slots $30\u2013$3F from file T. The branch at $271B selects this library, and $2727 adds $E0 to the indexed 64-byte source address high byte."
+  },
+  {
+   "address": 61440,
+   "type": "line",
+   "text": "Stage 4 sprite source slots $40\u2013$4F from file T. The branch at $271B selects this library, and $2727 adds $E0 to the indexed 64-byte source address high byte."
+  },
+  {
+   "address": 62464,
+   "type": "line",
+   "text": "Stage 4 sprite source slots $50\u2013$5F from file T. The branch at $271B selects this library, and $2727 adds $E0 to the indexed 64-byte source address high byte."
+  },
+  {
+   "address": 63488,
+   "type": "line",
+   "text": "Stage 4 sprite source slots $60\u2013$6F from file T. The branch at $271B selects this library, and $2727 adds $E0 to the indexed 64-byte source address high byte."
+  },
+  {
+   "address": 64512,
+   "type": "line",
+   "text": "Stage 4 sprite source slots $70\u2013$7A from file T. The branch at $271B selects this library, and $2727 adds $E0 to the indexed 64-byte source address high byte."
+  }
+ ]
+}

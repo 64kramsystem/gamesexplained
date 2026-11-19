@@ -1,0 +1,70 @@
+{
+  "title": "Stage 1",
+  "order": 2,
+  "over": "engine",
+  "ranges": [
+    [
+      "$4000",
+      "$47FF"
+    ],
+    [
+      "$5400",
+      "$79FF"
+    ],
+    [
+      "$7A00",
+      "$7AC9"
+    ],
+    [
+      "$CB00",
+      "$CFFE"
+    ],
+    [
+      "$E000",
+      "$FEFF"
+    ]
+  ],
+  "video": {
+    "screen": "",
+    "charset": ""
+  },
+  "coverage": {
+    "extra": [
+      [
+        "$4000",
+        "$47FF",
+        "Stage file payload"
+      ],
+      [
+        "$5400",
+        "$79FF",
+        "Stage file payload"
+      ],
+      [
+        "$7A00",
+        "$7AC9",
+        "Stage file payload"
+      ],
+      [
+        "$CB00",
+        "$CFFE",
+        "Stage file payload"
+      ],
+      [
+        "$E000",
+        "$FEFF",
+        "Stage file payload"
+      ]
+    ],
+    "exclude": [
+      [
+        "$F940",
+        "$FEFF",
+        "Trailing whole sprite slots match the mapped C64 KERNAL ROM at the same addresses; retained on disk in file E."
+      ]
+    ],
+    "include": []
+  },
+  "io": [],
+  "regions": []
+}

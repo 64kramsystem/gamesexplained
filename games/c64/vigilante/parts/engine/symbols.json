@@ -1,0 +1,8563 @@
+{
+ "schema": 1,
+ "platform": "c64",
+ "game": "vigilante",
+ "part": "engine",
+ "build": "Data East USA G64",
+ "source": "regenerator2000 live",
+ "regions": {
+  "exclude": [
+   [
+    256,
+    511,
+    "stack"
+   ],
+   [
+    53248,
+    57343,
+    "I/O and colour RAM"
+   ],
+   [
+    1024,
+    2023,
+    "Boot picture screen cells from LSTXT, attributed on the media ledger"
+   ],
+   [
+    20720,
+    21503,
+    "Runtime playfield screen cells and VIC sprite pointers, filled by the engine"
+   ],
+   [
+    32256,
+    32767,
+    "Runtime VIC sprite cache. The engine copies frame pixels here from the sprite libraries."
+   ],
+   [
+    65530,
+    65535,
+    "CPU vectors installed by the engine at $0EC2"
+   ],
+   [
+    2048,
+    2303,
+    "VIG1 boot program and filenames, before the engine handover"
+   ],
+   [
+    3327,
+    3327,
+    "Unwritten byte between LOADER ending at $0CFE and COD1 starting at $0D00"
+   ],
+   [
+    16383,
+    16383,
+    "Unwritten trailing byte after COD1, same at handover and during play"
+   ],
+   [
+    65280,
+    65529,
+    "Untouched power-on RAM under the KERNAL jump table. Same bytes as the unloaded page at $4000 before the first stage arrives."
+   ],
+   [
+    0,
+    1023,
+    "CPU port, stack, KERNAL work area and engine scratch pointers. The boot overlay here runs before COD1; the play snapshot holds working values and vectors."
+   ],
+   [
+    16384,
+    18431,
+    "5 parts: Stage 1, Stage 2, Stage 3 and others"
+   ],
+   [
+    21504,
+    31433,
+    "5 parts: Stage 1, Stage 2, Stage 3 and others"
+   ],
+   [
+    51968,
+    53246,
+    "5 parts: Stage 1, Stage 2, Stage 3 and others"
+   ],
+   [
+    57344,
+    65279,
+    "5 parts: Stage 1, Stage 2, Stage 3 and others"
+   ]
+  ],
+  "extra": [
+   [
+    2304,
+    3326,
+    "Resident loader file, including its filename and directory tables"
+   ],
+   [
+    3328,
+    16382,
+    "COD1 engine file after its in-place startup decode"
+   ],
+   [
+    18432,
+    20719,
+    "Panel character set and initial panel cell bytes"
+   ],
+   [
+    32768,
+    51966,
+    "SPRITES file: shared sprite patterns, resident routines and music data"
+   ],
+   [
+    31488,
+    31701,
+    "Resident C64 side of the fast loader. Execution checkpoint in this range counted instructions during stage 4 reload."
+   ]
+  ],
+  "edges": [
+   0,
+   256,
+   512,
+   1024,
+   2048,
+   4096,
+   16384,
+   32768,
+   40960,
+   49152,
+   53248,
+   57344
+  ],
+  "elsewhere": [
+   [
+    16384,
+    18431,
+    "5 parts: Stage 1, Stage 2, Stage 3 and others"
+   ],
+   [
+    21504,
+    31433,
+    "5 parts: Stage 1, Stage 2, Stage 3 and others"
+   ],
+   [
+    51968,
+    53246,
+    "5 parts: Stage 1, Stage 2, Stage 3 and others"
+   ],
+   [
+    57344,
+    65279,
+    "5 parts: Stage 1, Stage 2, Stage 3 and others"
+   ]
+  ]
+ },
+ "blocks": [
+  {
+   "start": 0,
+   "end": 12,
+   "type": "Undefined"
+  },
+  {
+   "start": 13,
+   "end": 14,
+   "type": "Code"
+  },
+  {
+   "start": 15,
+   "end": 2303,
+   "type": "Undefined"
+  },
+  {
+   "start": 2304,
+   "end": 2347,
+   "type": "Code"
+  },
+  {
+   "start": 2348,
+   "end": 2348,
+   "type": "Undefined"
+  },
+  {
+   "start": 2349,
+   "end": 2383,
+   "type": "Code"
+  },
+  {
+   "start": 2384,
+   "end": 2408,
+   "type": "PETSCII Text"
+  },
+  {
+   "start": 2409,
+   "end": 2422,
+   "type": "Code"
+  },
+  {
+   "start": 2423,
+   "end": 2424,
+   "type": "Undefined"
+  },
+  {
+   "start": 2425,
+   "end": 3231,
+   "type": "Byte"
+  },
+  {
+   "start": 3232,
+   "end": 3299,
+   "type": "Code"
+  },
+  {
+   "start": 3300,
+   "end": 3315,
+   "type": "Byte"
+  },
+  {
+   "start": 3316,
+   "end": 3326,
+   "type": "Code"
+  },
+  {
+   "start": 3327,
+   "end": 3434,
+   "type": "Undefined"
+  },
+  {
+   "start": 3435,
+   "end": 4263,
+   "type": "Code"
+  },
+  {
+   "start": 4264,
+   "end": 4264,
+   "type": "Undefined"
+  },
+  {
+   "start": 4265,
+   "end": 4550,
+   "type": "Code"
+  },
+  {
+   "start": 4551,
+   "end": 4553,
+   "type": "Undefined"
+  },
+  {
+   "start": 4554,
+   "end": 4832,
+   "type": "Code"
+  },
+  {
+   "start": 4833,
+   "end": 4834,
+   "type": "Undefined"
+  },
+  {
+   "start": 4835,
+   "end": 4974,
+   "type": "Code"
+  },
+  {
+   "start": 4975,
+   "end": 4976,
+   "type": "Undefined"
+  },
+  {
+   "start": 4977,
+   "end": 5665,
+   "type": "Code"
+  },
+  {
+   "start": 5666,
+   "end": 5670,
+   "type": "Byte"
+  },
+  {
+   "start": 5671,
+   "end": 5710,
+   "type": "Code"
+  },
+  {
+   "start": 5711,
+   "end": 5870,
+   "type": "Undefined"
+  },
+  {
+   "start": 5871,
+   "end": 5914,
+   "type": "Code"
+  },
+  {
+   "start": 5915,
+   "end": 5979,
+   "type": "Byte"
+  },
+  {
+   "start": 5980,
+   "end": 6012,
+   "type": "Code"
+  },
+  {
+   "start": 6013,
+   "end": 6013,
+   "type": "Byte"
+  },
+  {
+   "start": 6014,
+   "end": 6048,
+   "type": "Code"
+  },
+  {
+   "start": 6049,
+   "end": 6073,
+   "type": "PETSCII Text"
+  },
+  {
+   "start": 6074,
+   "end": 6087,
+   "type": "Code"
+  },
+  {
+   "start": 6088,
+   "end": 6089,
+   "type": "Byte"
+  },
+  {
+   "start": 6090,
+   "end": 6106,
+   "type": "Code"
+  },
+  {
+   "start": 6107,
+   "end": 6111,
+   "type": "Undefined"
+  },
+  {
+   "start": 6112,
+   "end": 6595,
+   "type": "Code"
+  },
+  {
+   "start": 6596,
+   "end": 6620,
+   "type": "Undefined"
+  },
+  {
+   "start": 6621,
+   "end": 6879,
+   "type": "Code"
+  },
+  {
+   "start": 6880,
+   "end": 6882,
+   "type": "Undefined"
+  },
+  {
+   "start": 6883,
+   "end": 9688,
+   "type": "Byte"
+  },
+  {
+   "start": 9689,
+   "end": 9786,
+   "type": "Code"
+  },
+  {
+   "start": 9787,
+   "end": 9789,
+   "type": "Undefined"
+  },
+  {
+   "start": 9790,
+   "end": 9946,
+   "type": "Code"
+  },
+  {
+   "start": 9947,
+   "end": 9961,
+   "type": "Undefined"
+  },
+  {
+   "start": 9962,
+   "end": 10083,
+   "type": "Code"
+  },
+  {
+   "start": 10084,
+   "end": 10090,
+   "type": "Undefined"
+  },
+  {
+   "start": 10091,
+   "end": 10106,
+   "type": "Address"
+  },
+  {
+   "start": 10107,
+   "end": 10123,
+   "type": "Code"
+  },
+  {
+   "start": 10124,
+   "end": 10127,
+   "type": "Undefined"
+  },
+  {
+   "start": 10128,
+   "end": 10169,
+   "type": "Code"
+  },
+  {
+   "start": 10170,
+   "end": 10233,
+   "type": "Byte"
+  },
+  {
+   "start": 10234,
+   "end": 10236,
+   "type": "Undefined"
+  },
+  {
+   "start": 10237,
+   "end": 10492,
+   "type": "Byte"
+  },
+  {
+   "start": 10493,
+   "end": 10532,
+   "type": "Code"
+  },
+  {
+   "start": 10533,
+   "end": 10602,
+   "type": "Byte"
+  },
+  {
+   "start": 10603,
+   "end": 10755,
+   "type": "Code"
+  },
+  {
+   "start": 10756,
+   "end": 10785,
+   "type": "Undefined"
+  },
+  {
+   "start": 10786,
+   "end": 10800,
+   "type": "Byte"
+  },
+  {
+   "start": 10801,
+   "end": 10865,
+   "type": "Code"
+  },
+  {
+   "start": 10866,
+   "end": 10874,
+   "type": "Undefined"
+  },
+  {
+   "start": 10875,
+   "end": 11045,
+   "type": "Code"
+  },
+  {
+   "start": 11046,
+   "end": 11060,
+   "type": "Undefined"
+  },
+  {
+   "start": 11061,
+   "end": 11401,
+   "type": "Code"
+  },
+  {
+   "start": 11402,
+   "end": 11411,
+   "type": "Address"
+  },
+  {
+   "start": 11412,
+   "end": 11412,
+   "type": "Undefined"
+  },
+  {
+   "start": 11413,
+   "end": 11888,
+   "type": "Code"
+  },
+  {
+   "start": 11889,
+   "end": 11893,
+   "type": "Undefined"
+  },
+  {
+   "start": 11894,
+   "end": 12281,
+   "type": "Code"
+  },
+  {
+   "start": 12282,
+   "end": 12283,
+   "type": "Undefined"
+  },
+  {
+   "start": 12284,
+   "end": 12491,
+   "type": "Code"
+  },
+  {
+   "start": 12492,
+   "end": 12493,
+   "type": "Undefined"
+  },
+  {
+   "start": 12494,
+   "end": 12680,
+   "type": "Code"
+  },
+  {
+   "start": 12681,
+   "end": 12689,
+   "type": "Undefined"
+  },
+  {
+   "start": 12690,
+   "end": 13053,
+   "type": "Code"
+  },
+  {
+   "start": 13054,
+   "end": 13054,
+   "type": "Undefined"
+  },
+  {
+   "start": 13055,
+   "end": 13094,
+   "type": "Code"
+  },
+  {
+   "start": 13095,
+   "end": 13095,
+   "type": "Undefined"
+  },
+  {
+   "start": 13096,
+   "end": 13549,
+   "type": "Code"
+  },
+  {
+   "start": 13550,
+   "end": 13554,
+   "type": "Undefined"
+  },
+  {
+   "start": 13555,
+   "end": 13695,
+   "type": "Code"
+  },
+  {
+   "start": 13696,
+   "end": 13707,
+   "type": "Undefined"
+  },
+  {
+   "start": 13708,
+   "end": 13771,
+   "type": "Code"
+  },
+  {
+   "start": 13772,
+   "end": 13775,
+   "type": "Undefined"
+  },
+  {
+   "start": 13776,
+   "end": 13852,
+   "type": "Code"
+  },
+  {
+   "start": 13853,
+   "end": 13853,
+   "type": "Undefined"
+  },
+  {
+   "start": 13854,
+   "end": 14014,
+   "type": "Code"
+  },
+  {
+   "start": 14015,
+   "end": 14015,
+   "type": "Undefined"
+  },
+  {
+   "start": 14016,
+   "end": 14040,
+   "type": "Code"
+  },
+  {
+   "start": 14041,
+   "end": 14041,
+   "type": "Undefined"
+  },
+  {
+   "start": 14042,
+   "end": 14345,
+   "type": "Code"
+  },
+  {
+   "start": 14346,
+   "end": 14350,
+   "type": "Undefined"
+  },
+  {
+   "start": 14351,
+   "end": 14473,
+   "type": "Code"
+  },
+  {
+   "start": 14474,
+   "end": 14474,
+   "type": "Undefined"
+  },
+  {
+   "start": 14475,
+   "end": 14537,
+   "type": "Code"
+  },
+  {
+   "start": 14538,
+   "end": 14549,
+   "type": "Undefined"
+  },
+  {
+   "start": 14550,
+   "end": 14758,
+   "type": "Code"
+  },
+  {
+   "start": 14759,
+   "end": 14761,
+   "type": "Undefined"
+  },
+  {
+   "start": 14762,
+   "end": 14963,
+   "type": "Code"
+  },
+  {
+   "start": 14964,
+   "end": 14975,
+   "type": "Undefined"
+  },
+  {
+   "start": 14976,
+   "end": 15122,
+   "type": "Code"
+  },
+  {
+   "start": 15123,
+   "end": 15126,
+   "type": "Undefined"
+  },
+  {
+   "start": 15127,
+   "end": 15147,
+   "type": "Code"
+  },
+  {
+   "start": 15148,
+   "end": 15159,
+   "type": "Address"
+  },
+  {
+   "start": 15160,
+   "end": 15473,
+   "type": "Code"
+  },
+  {
+   "start": 15474,
+   "end": 15474,
+   "type": "Undefined"
+  },
+  {
+   "start": 15475,
+   "end": 15685,
+   "type": "Code"
+  },
+  {
+   "start": 15686,
+   "end": 16382,
+   "type": "Byte"
+  },
+  {
+   "start": 16383,
+   "end": 16383,
+   "type": "Undefined"
+  },
+  {
+   "start": 18432,
+   "end": 20719,
+   "type": "Byte"
+  },
+  {
+   "start": 20720,
+   "end": 21503,
+   "type": "Undefined"
+  },
+  {
+   "start": 31434,
+   "end": 31487,
+   "type": "Undefined"
+  },
+  {
+   "start": 31488,
+   "end": 31492,
+   "type": "PETSCII Text"
+  },
+  {
+   "start": 31493,
+   "end": 31701,
+   "type": "Code"
+  },
+  {
+   "start": 31702,
+   "end": 32767,
+   "type": "Undefined"
+  },
+  {
+   "start": 32768,
+   "end": 49151,
+   "type": "Byte"
+  },
+  {
+   "start": 49152,
+   "end": 49154,
+   "type": "Undefined"
+  },
+  {
+   "start": 49155,
+   "end": 49571,
+   "type": "Code"
+  },
+  {
+   "start": 49572,
+   "end": 49620,
+   "type": "Byte"
+  },
+  {
+   "start": 49621,
+   "end": 49781,
+   "type": "Code"
+  },
+  {
+   "start": 49782,
+   "end": 49819,
+   "type": "Byte"
+  },
+  {
+   "start": 49820,
+   "end": 49839,
+   "type": "Address"
+  },
+  {
+   "start": 49840,
+   "end": 49843,
+   "type": "Undefined"
+  },
+  {
+   "start": 49844,
+   "end": 50131,
+   "type": "Code"
+  },
+  {
+   "start": 50132,
+   "end": 50142,
+   "type": "Undefined"
+  },
+  {
+   "start": 50143,
+   "end": 50292,
+   "type": "Code"
+  },
+  {
+   "start": 50293,
+   "end": 50294,
+   "type": "Undefined"
+  },
+  {
+   "start": 50295,
+   "end": 50329,
+   "type": "Code"
+  },
+  {
+   "start": 50330,
+   "end": 50334,
+   "type": "Undefined"
+  },
+  {
+   "start": 50335,
+   "end": 51966,
+   "type": "Byte"
+  },
+  {
+   "start": 51967,
+   "end": 51967,
+   "type": "Undefined"
+  },
+  {
+   "start": 53247,
+   "end": 57343,
+   "type": "Undefined"
+  },
+  {
+   "start": 65280,
+   "end": 65423,
+   "type": "Undefined"
+  },
+  {
+   "start": 65424,
+   "end": 65533,
+   "type": "Code"
+  },
+  {
+   "start": 65534,
+   "end": 65535,
+   "type": "Undefined"
+  }
+ ],
+ "symbols": [
+  {
+   "address": 1,
+   "name": "zpa_01",
+   "type": "ZeroPageAbsoluteAddress",
+   "kind": "auto"
+  },
+  {
+   "address": 11,
+   "name": "b_0B",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 13,
+   "name": "b_0D",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 35,
+   "name": "zpa_23",
+   "type": "ZeroPageAbsoluteAddress",
+   "kind": "auto"
+  },
+  {
+   "address": 144,
+   "name": "zpa_90",
+   "type": "ZeroPageAbsoluteAddress",
+   "kind": "auto"
+  },
+  {
+   "address": 148,
+   "name": "zpa_94",
+   "type": "ZeroPageAbsoluteAddress",
+   "kind": "auto"
+  },
+  {
+   "address": 165,
+   "name": "zpa_A5",
+   "type": "ZeroPageAbsoluteAddress",
+   "kind": "auto"
+  },
+  {
+   "address": 174,
+   "name": "zpa_AE",
+   "type": "ZeroPageAbsoluteAddress",
+   "kind": "auto"
+  },
+  {
+   "address": 175,
+   "name": "zpa_AF",
+   "type": "ZeroPageAbsoluteAddress",
+   "kind": "auto"
+  },
+  {
+   "address": 185,
+   "name": "zpa_B9",
+   "type": "ZeroPageAbsoluteAddress",
+   "kind": "auto"
+  },
+  {
+   "address": 186,
+   "name": "zpa_BA",
+   "type": "ZeroPageAbsoluteAddress",
+   "kind": "auto"
+  },
+  {
+   "address": 195,
+   "name": "zpa_C3",
+   "type": "ZeroPageAbsoluteAddress",
+   "kind": "auto"
+  },
+  {
+   "address": 196,
+   "name": "zpa_C4",
+   "type": "ZeroPageAbsoluteAddress",
+   "kind": "auto"
+  },
+  {
+   "address": 217,
+   "name": "zpa_D9",
+   "type": "ZeroPageAbsoluteAddress",
+   "kind": "auto"
+  },
+  {
+   "address": 218,
+   "name": "zpa_DA",
+   "type": "ZeroPageAbsoluteAddress",
+   "kind": "auto"
+  },
+  {
+   "address": 219,
+   "name": "zpa_DB",
+   "type": "ZeroPageAbsoluteAddress",
+   "kind": "auto"
+  },
+  {
+   "address": 220,
+   "name": "zpa_DC",
+   "type": "ZeroPageAbsoluteAddress",
+   "kind": "auto"
+  },
+  {
+   "address": 221,
+   "name": "zpa_DD",
+   "type": "ZeroPageAbsoluteAddress",
+   "kind": "auto"
+  },
+  {
+   "address": 222,
+   "name": "zpa_DE",
+   "type": "ZeroPageAbsoluteAddress",
+   "kind": "auto"
+  },
+  {
+   "address": 223,
+   "name": "zpa_DF",
+   "type": "ZeroPageAbsoluteAddress",
+   "kind": "auto"
+  },
+  {
+   "address": 224,
+   "name": "zpa_E0",
+   "type": "ZeroPageAbsoluteAddress",
+   "kind": "auto"
+  },
+  {
+   "address": 225,
+   "name": "zpa_E1",
+   "type": "ZeroPageAbsoluteAddress",
+   "kind": "auto"
+  },
+  {
+   "address": 226,
+   "name": "zpa_E2",
+   "type": "ZeroPageAbsoluteAddress",
+   "kind": "auto"
+  },
+  {
+   "address": 229,
+   "name": "zpa_E5",
+   "type": "ZeroPageAbsoluteAddress",
+   "kind": "auto"
+  },
+  {
+   "address": 230,
+   "name": "zpa_E6",
+   "type": "ZeroPageAbsoluteAddress",
+   "kind": "auto"
+  },
+  {
+   "address": 237,
+   "name": "zpa_ED",
+   "type": "ZeroPageAbsoluteAddress",
+   "kind": "auto"
+  },
+  {
+   "address": 238,
+   "name": "zpa_EE",
+   "type": "ZeroPageAbsoluteAddress",
+   "kind": "auto"
+  },
+  {
+   "address": 249,
+   "name": "a_00F9",
+   "type": "AbsoluteAddress",
+   "kind": "auto"
+  },
+  {
+   "address": 250,
+   "name": "a_00FA",
+   "type": "AbsoluteAddress",
+   "kind": "auto"
+  },
+  {
+   "address": 251,
+   "name": "zpa_FB",
+   "type": "ZeroPageAbsoluteAddress",
+   "kind": "auto"
+  },
+  {
+   "address": 252,
+   "name": "zpa_FC",
+   "type": "ZeroPageAbsoluteAddress",
+   "kind": "auto"
+  },
+  {
+   "address": 253,
+   "name": "zpa_FD",
+   "type": "ZeroPageAbsoluteAddress",
+   "kind": "auto"
+  },
+  {
+   "address": 254,
+   "name": "zpp_FE",
+   "type": "ZeroPagePointer",
+   "kind": "auto"
+  },
+  {
+   "address": 255,
+   "name": "zpa_FF",
+   "type": "ZeroPageAbsoluteAddress",
+   "kind": "auto"
+  },
+  {
+   "address": 788,
+   "name": "a_0314",
+   "type": "AbsoluteAddress",
+   "kind": "auto"
+  },
+  {
+   "address": 789,
+   "name": "a_0315",
+   "type": "AbsoluteAddress",
+   "kind": "auto"
+  },
+  {
+   "address": 2304,
+   "name": "stage_file_load",
+   "type": "Subroutine",
+   "kind": "user"
+  },
+  {
+   "address": 2316,
+   "name": "load_named_file",
+   "type": "Subroutine",
+   "kind": "user"
+  },
+  {
+   "address": 2336,
+   "name": "b_0920",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 2348,
+   "name": "failed_load_file_index",
+   "type": "AbsoluteAddress",
+   "kind": "user"
+  },
+  {
+   "address": 2349,
+   "name": "stage_disk_parameters",
+   "type": "Subroutine",
+   "kind": "user"
+  },
+  {
+   "address": 2358,
+   "name": "select_stage_filename",
+   "type": "Subroutine",
+   "kind": "user"
+  },
+  {
+   "address": 2378,
+   "name": "b_094A",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 2384,
+   "name": "stage_filenames",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 2409,
+   "name": "prepare_loader_video",
+   "type": "Subroutine",
+   "kind": "user"
+  },
+  {
+   "address": 2423,
+   "name": "load_requested_address",
+   "type": "AbsoluteAddress",
+   "kind": "user"
+  },
+  {
+   "address": 2424,
+   "name": "load_requested_address_hi",
+   "type": "AbsoluteAddress",
+   "kind": "user"
+  },
+  {
+   "address": 2425,
+   "name": "embedded_disk_catalog",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 2658,
+   "name": "embedded_catalog_second_group",
+   "type": "Subroutine",
+   "kind": "user"
+  },
+  {
+   "address": 2905,
+   "name": "embedded_catalog_late_rows",
+   "type": "Subroutine",
+   "kind": "user"
+  },
+  {
+   "address": 3229,
+   "name": "embedded_catalog_end",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 3232,
+   "name": "copied_serial_fragment",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 3265,
+   "name": "b_0CC1",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 3286,
+   "name": "b_0CD6",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 3297,
+   "name": "b_0CE1",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 3300,
+   "name": "serial_fragment_zero_fill",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 3316,
+   "name": "copied_bank_switch_fragment",
+   "type": "Jump",
+   "kind": "user"
+  },
+  {
+   "address": 3328,
+   "name": "sprite_x_high_set_masks",
+   "type": "Field",
+   "kind": "user"
+  },
+  {
+   "address": 3336,
+   "name": "sprite_x_high_clear_masks",
+   "type": "Field",
+   "kind": "user"
+  },
+  {
+   "address": 3344,
+   "name": "lives_remaining",
+   "type": "AbsoluteAddress",
+   "kind": "user"
+  },
+  {
+   "address": 3345,
+   "name": "score_bcd_low",
+   "type": "AbsoluteAddress",
+   "kind": "user"
+  },
+  {
+   "address": 3346,
+   "name": "score_bcd_middle",
+   "type": "AbsoluteAddress",
+   "kind": "user"
+  },
+  {
+   "address": 3347,
+   "name": "score_bcd_high",
+   "type": "AbsoluteAddress",
+   "kind": "user"
+  },
+  {
+   "address": 3348,
+   "name": "pending_score_bcd_low",
+   "type": "AbsoluteAddress",
+   "kind": "user"
+  },
+  {
+   "address": 3349,
+   "name": "pending_score_bcd_high",
+   "type": "AbsoluteAddress",
+   "kind": "user"
+  },
+  {
+   "address": 3350,
+   "name": "stage_number",
+   "type": "AbsoluteAddress",
+   "kind": "user"
+  },
+  {
+   "address": 3351,
+   "name": "stage_event_index",
+   "type": "AbsoluteAddress",
+   "kind": "user"
+  },
+  {
+   "address": 3352,
+   "name": "stage_tile_change_flag",
+   "type": "AbsoluteAddress",
+   "kind": "user"
+  },
+  {
+   "address": 3353,
+   "name": "actor_update_scratch",
+   "type": "AbsoluteAddress",
+   "kind": "user"
+  },
+  {
+   "address": 3355,
+   "name": "stage_file_index",
+   "type": "AbsoluteAddress",
+   "kind": "user"
+  },
+  {
+   "address": 3356,
+   "name": "intro_seen",
+   "type": "AbsoluteAddress",
+   "kind": "user"
+  },
+  {
+   "address": 3357,
+   "name": "map_column",
+   "type": "AbsoluteAddress",
+   "kind": "user"
+  },
+  {
+   "address": 3358,
+   "name": "map_characters_low",
+   "type": "AbsoluteAddress",
+   "kind": "user"
+  },
+  {
+   "address": 3359,
+   "name": "map_characters_high",
+   "type": "AbsoluteAddress",
+   "kind": "user"
+  },
+  {
+   "address": 3360,
+   "name": "map_colours_low",
+   "type": "AbsoluteAddress",
+   "kind": "user"
+  },
+  {
+   "address": 3361,
+   "name": "map_colours_high",
+   "type": "AbsoluteAddress",
+   "kind": "user"
+  },
+  {
+   "address": 3362,
+   "name": "scroll_phase",
+   "type": "AbsoluteAddress",
+   "kind": "user"
+  },
+  {
+   "address": 3363,
+   "name": "scroll_pause",
+   "type": "AbsoluteAddress",
+   "kind": "user"
+  },
+  {
+   "address": 3364,
+   "name": "scroll_pause_reload",
+   "type": "AbsoluteAddress",
+   "kind": "user"
+  },
+  {
+   "address": 3366,
+   "name": "scroll_allowed",
+   "type": "AbsoluteAddress",
+   "kind": "user"
+  },
+  {
+   "address": 3367,
+   "name": "requested_scroll",
+   "type": "AbsoluteAddress",
+   "kind": "user"
+  },
+  {
+   "address": 3369,
+   "name": "raster_delay_cell",
+   "type": "AbsoluteAddress",
+   "kind": "user"
+  },
+  {
+   "address": 3370,
+   "name": "actor_scroll_permission",
+   "type": "AbsoluteAddress",
+   "kind": "user"
+  },
+  {
+   "address": 3373,
+   "name": "scroll_limit_reached",
+   "type": "AbsoluteAddress",
+   "kind": "user"
+  },
+  {
+   "address": 3374,
+   "name": "mirror_actor_this_frame",
+   "type": "AbsoluteAddress",
+   "kind": "user"
+  },
+  {
+   "address": 3375,
+   "name": "animation_delta_x",
+   "type": "AbsoluteAddress",
+   "kind": "user"
+  },
+  {
+   "address": 3376,
+   "name": "animation_delta_y",
+   "type": "AbsoluteAddress",
+   "kind": "user"
+  },
+  {
+   "address": 3377,
+   "name": "animation_origin_x",
+   "type": "AbsoluteAddress",
+   "kind": "user"
+  },
+  {
+   "address": 3378,
+   "name": "animation_origin_y",
+   "type": "AbsoluteAddress",
+   "kind": "user"
+  },
+  {
+   "address": 3379,
+   "name": "component_0_x",
+   "type": "AbsoluteAddress",
+   "kind": "user"
+  },
+  {
+   "address": 3380,
+   "name": "component_0_y",
+   "type": "AbsoluteAddress",
+   "kind": "user"
+  },
+  {
+   "address": 3381,
+   "name": "component_1_x",
+   "type": "AbsoluteAddress",
+   "kind": "user"
+  },
+  {
+   "address": 3382,
+   "name": "component_1_y",
+   "type": "AbsoluteAddress",
+   "kind": "user"
+  },
+  {
+   "address": 3383,
+   "name": "component_2_x",
+   "type": "AbsoluteAddress",
+   "kind": "user"
+  },
+  {
+   "address": 3384,
+   "name": "component_2_y",
+   "type": "AbsoluteAddress",
+   "kind": "user"
+  },
+  {
+   "address": 3385,
+   "name": "component_3_x",
+   "type": "AbsoluteAddress",
+   "kind": "user"
+  },
+  {
+   "address": 3386,
+   "name": "component_3_y",
+   "type": "AbsoluteAddress",
+   "kind": "user"
+  },
+  {
+   "address": 3387,
+   "name": "component_4_x",
+   "type": "AbsoluteAddress",
+   "kind": "user"
+  },
+  {
+   "address": 3388,
+   "name": "component_4_y",
+   "type": "AbsoluteAddress",
+   "kind": "user"
+  },
+  {
+   "address": 3389,
+   "name": "sprite_component_count",
+   "type": "AbsoluteAddress",
+   "kind": "user"
+  },
+  {
+   "address": 3390,
+   "name": "first_vic_sprite_slot",
+   "type": "AbsoluteAddress",
+   "kind": "user"
+  },
+  {
+   "address": 3407,
+   "name": "player_vic_enable_masks",
+   "type": "Field",
+   "kind": "user"
+  },
+  {
+   "address": 3409,
+   "name": "first_aux_vic_enable_masks",
+   "type": "Field",
+   "kind": "user"
+  },
+  {
+   "address": 3411,
+   "name": "second_aux_vic_enable_masks",
+   "type": "Field",
+   "kind": "user"
+  },
+  {
+   "address": 3413,
+   "name": "stage_actor_vic_enable_masks",
+   "type": "Field",
+   "kind": "user"
+  },
+  {
+   "address": 3417,
+   "name": "enable_stage_event",
+   "type": "AbsoluteAddress",
+   "kind": "user"
+  },
+  {
+   "address": 3418,
+   "name": "enable_player_input",
+   "type": "AbsoluteAddress",
+   "kind": "user"
+  },
+  {
+   "address": 3419,
+   "name": "enable_aux_actor_update",
+   "type": "AbsoluteAddress",
+   "kind": "user"
+  },
+  {
+   "address": 3420,
+   "name": "enable_stage_opponent",
+   "type": "AbsoluteAddress",
+   "kind": "user"
+  },
+  {
+   "address": 3421,
+   "name": "enable_opponent_approach",
+   "type": "AbsoluteAddress",
+   "kind": "user"
+  },
+  {
+   "address": 3422,
+   "name": "enable_aux_sprite_allocation",
+   "type": "AbsoluteAddress",
+   "kind": "user"
+  },
+  {
+   "address": 3423,
+   "name": "enable_animation_update",
+   "type": "AbsoluteAddress",
+   "kind": "user"
+  },
+  {
+   "address": 3424,
+   "name": "enable_vic_actor_update",
+   "type": "AbsoluteAddress",
+   "kind": "user"
+  },
+  {
+   "address": 3425,
+   "name": "enable_hit_detection",
+   "type": "AbsoluteAddress",
+   "kind": "user"
+  },
+  {
+   "address": 3426,
+   "name": "enable_player_position_limit",
+   "type": "AbsoluteAddress",
+   "kind": "user"
+  },
+  {
+   "address": 3427,
+   "name": "enable_actor_scroll_blocking",
+   "type": "AbsoluteAddress",
+   "kind": "user"
+  },
+  {
+   "address": 3428,
+   "name": "enable_actor_bounds_test",
+   "type": "AbsoluteAddress",
+   "kind": "user"
+  },
+  {
+   "address": 3429,
+   "name": "enable_life_loss_dispatch",
+   "type": "AbsoluteAddress",
+   "kind": "user"
+  },
+  {
+   "address": 3430,
+   "name": "enable_score_update",
+   "type": "AbsoluteAddress",
+   "kind": "user"
+  },
+  {
+   "address": 3431,
+   "name": "enable_stage_map_patch",
+   "type": "AbsoluteAddress",
+   "kind": "user"
+  },
+  {
+   "address": 3432,
+   "name": "enable_music",
+   "type": "AbsoluteAddress",
+   "kind": "user"
+  },
+  {
+   "address": 3433,
+   "name": "enable_aux_actor_spawn",
+   "type": "AbsoluteAddress",
+   "kind": "user"
+  },
+  {
+   "address": 3434,
+   "name": "stage_event_state_flag",
+   "type": "AbsoluteAddress",
+   "kind": "user"
+  },
+  {
+   "address": 3435,
+   "name": "first_stage_boot",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 3440,
+   "name": "b_0D70",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 3461,
+   "name": "j_0D85",
+   "type": "Jump",
+   "kind": "auto"
+  },
+  {
+   "address": 3480,
+   "name": "initialise_stage",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 3566,
+   "name": "b_0DEE",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 3599,
+   "name": "j_0E0F",
+   "type": "Jump",
+   "kind": "auto"
+  },
+  {
+   "address": 3607,
+   "name": "b_0E17",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 3615,
+   "name": "b_0E1F",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 3623,
+   "name": "b_0E27",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 3631,
+   "name": "b_0E2F",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 3639,
+   "name": "b_0E37",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 3647,
+   "name": "b_0E3F",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 3655,
+   "name": "b_0E47",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 3663,
+   "name": "playfield_hit_dispatch",
+   "type": "Subroutine",
+   "kind": "user"
+  },
+  {
+   "address": 3671,
+   "name": "b_0E57",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 3679,
+   "name": "b_0E5F",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 3687,
+   "name": "b_0E67",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 3695,
+   "name": "b_0E6F",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 3703,
+   "name": "b_0E77",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 3711,
+   "name": "b_0E7F",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 3719,
+   "name": "b_0E87",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 3725,
+   "name": "select_game_video_bank",
+   "type": "Subroutine",
+   "kind": "user"
+  },
+  {
+   "address": 3773,
+   "name": "saved_cia2_ddr_operand",
+   "type": "AbsoluteAddress",
+   "kind": "user"
+  },
+  {
+   "address": 3778,
+   "name": "install_hardware_vectors",
+   "type": "Subroutine",
+   "kind": "user"
+  },
+  {
+   "address": 3815,
+   "name": "reset_map_origin",
+   "type": "Subroutine",
+   "kind": "user"
+  },
+  {
+   "address": 3849,
+   "name": "set_raster_irq",
+   "type": "Subroutine",
+   "kind": "user"
+  },
+  {
+   "address": 3890,
+   "name": "hardware_irq",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 3910,
+   "name": "raster_callback_low_operand",
+   "type": "AbsoluteAddress",
+   "kind": "user"
+  },
+  {
+   "address": 3911,
+   "name": "raster_callback_high_operand",
+   "type": "AbsoluteAddress",
+   "kind": "user"
+  },
+  {
+   "address": 3912,
+   "name": "b_0F48",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 3921,
+   "name": "playfield_raster",
+   "type": "Subroutine",
+   "kind": "user"
+  },
+  {
+   "address": 3975,
+   "name": "playfield_charset_store_opcode",
+   "type": "AbsoluteAddress",
+   "kind": "user"
+  },
+  {
+   "address": 3984,
+   "name": "panel_raster",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 4041,
+   "name": "animate_player_arrival",
+   "type": "Subroutine",
+   "kind": "user"
+  },
+  {
+   "address": 4126,
+   "name": "b_101E",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 4138,
+   "name": "b_102A",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 4150,
+   "name": "entrance_delay_loop",
+   "type": "Subroutine",
+   "kind": "user"
+  },
+  {
+   "address": 4152,
+   "name": "b_1038",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 4154,
+   "name": "b_103A",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 4161,
+   "name": "initialise_score_and_timer_cells",
+   "type": "Subroutine",
+   "kind": "user"
+  },
+  {
+   "address": 4165,
+   "name": "b_1045",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 4185,
+   "name": "fill_health_bar",
+   "type": "Subroutine",
+   "kind": "user"
+  },
+  {
+   "address": 4189,
+   "name": "b_105D",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 4195,
+   "name": "place_initial_stage_tiles",
+   "type": "Subroutine",
+   "kind": "user"
+  },
+  {
+   "address": 4219,
+   "name": "draw_life_icons",
+   "type": "Subroutine",
+   "kind": "user"
+  },
+  {
+   "address": 4221,
+   "name": "b_107D",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 4234,
+   "name": "b_108A",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 4247,
+   "name": "b_1097",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 4264,
+   "name": "erased_life_icons",
+   "type": "AbsoluteAddress",
+   "kind": "user"
+  },
+  {
+   "address": 4265,
+   "name": "remove_life_icon",
+   "type": "AbsoluteAddress",
+   "kind": "user"
+  },
+  {
+   "address": 4298,
+   "name": "clear_actor_slots",
+   "type": "Subroutine",
+   "kind": "user"
+  },
+  {
+   "address": 4300,
+   "name": "b_10CC",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 4314,
+   "name": "pause_on_keyboard_input",
+   "type": "Subroutine",
+   "kind": "user"
+  },
+  {
+   "address": 4331,
+   "name": "b_10EB",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 4337,
+   "name": "b_10F1",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 4358,
+   "name": "r_1106",
+   "type": "Return",
+   "kind": "auto"
+  },
+  {
+   "address": 4359,
+   "name": "initialise_two_auxiliary_actors",
+   "type": "Subroutine",
+   "kind": "user"
+  },
+  {
+   "address": 4439,
+   "name": "initialise_player_sprites",
+   "type": "Subroutine",
+   "kind": "user"
+  },
+  {
+   "address": 4551,
+   "name": "previous_special_action",
+   "type": "AbsoluteAddress",
+   "kind": "user"
+  },
+  {
+   "address": 4552,
+   "name": "action_class",
+   "type": "AbsoluteAddress",
+   "kind": "user"
+  },
+  {
+   "address": 4553,
+   "name": "last_directional_action",
+   "type": "AbsoluteAddress",
+   "kind": "user"
+  },
+  {
+   "address": 4554,
+   "name": "update_player_from_input",
+   "type": "Subroutine",
+   "kind": "user"
+  },
+  {
+   "address": 4595,
+   "name": "b_11F3",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 4600,
+   "name": "b_11F8",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 4624,
+   "name": "b_1210",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 4656,
+   "name": "b_1230",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 4664,
+   "name": "b_1238",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 4718,
+   "name": "b_126E",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 4733,
+   "name": "b_127D",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 4740,
+   "name": "b_1284",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 4745,
+   "name": "b_1289",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 4779,
+   "name": "b_12AB",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 4783,
+   "name": "b_12AF",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 4832,
+   "name": "r_12E0",
+   "type": "Return",
+   "kind": "auto"
+  },
+  {
+   "address": 4833,
+   "name": "post_input_fill",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 4835,
+   "name": "advance_actors_and_collect_enables",
+   "type": "Subroutine",
+   "kind": "user"
+  },
+  {
+   "address": 4870,
+   "name": "b_1306",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 4915,
+   "name": "b_1333",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 4947,
+   "name": "b_1353",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 4974,
+   "name": "r_136E",
+   "type": "Return",
+   "kind": "auto"
+  },
+  {
+   "address": 4975,
+   "name": "pending_animation_reverse",
+   "type": "AbsoluteAddress",
+   "kind": "user"
+  },
+  {
+   "address": 4976,
+   "name": "vic_enable_accumulator",
+   "type": "AbsoluteAddress",
+   "kind": "user"
+  },
+  {
+   "address": 4977,
+   "name": "update_actor_frame",
+   "type": "Subroutine",
+   "kind": "user"
+  },
+  {
+   "address": 4987,
+   "name": "b_137B",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 5002,
+   "name": "b_138A",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 5019,
+   "name": "b_139B",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 5125,
+   "name": "b_1405",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 5241,
+   "name": "b_1479",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 5244,
+   "name": "b_147C",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 5301,
+   "name": "j_14B5",
+   "type": "Jump",
+   "kind": "auto"
+  },
+  {
+   "address": 5358,
+   "name": "b_14EE",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 5385,
+   "name": "b_1509",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 5398,
+   "name": "j_1516",
+   "type": "Jump",
+   "kind": "auto"
+  },
+  {
+   "address": 5475,
+   "name": "b_1563",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 5565,
+   "name": "b_15BD",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 5583,
+   "name": "advance_actor_animation",
+   "type": "Branch",
+   "kind": "user"
+  },
+  {
+   "address": 5620,
+   "name": "b_15F4",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 5629,
+   "name": "j_15FD",
+   "type": "Jump",
+   "kind": "auto"
+  },
+  {
+   "address": 5651,
+   "name": "j_1613",
+   "type": "Jump",
+   "kind": "auto"
+  },
+  {
+   "address": 5666,
+   "name": "multiply_low_result_work",
+   "type": "AbsoluteAddress",
+   "kind": "user"
+  },
+  {
+   "address": 5667,
+   "name": "product_multiplier_work",
+   "type": "AbsoluteAddress",
+   "kind": "user"
+  },
+  {
+   "address": 5668,
+   "name": "product_multiplicand_work",
+   "type": "AbsoluteAddress",
+   "kind": "user"
+  },
+  {
+   "address": 5669,
+   "name": "product_result_lo",
+   "type": "AbsoluteAddress",
+   "kind": "user"
+  },
+  {
+   "address": 5670,
+   "name": "product_result_hi",
+   "type": "AbsoluteAddress",
+   "kind": "user"
+  },
+  {
+   "address": 5671,
+   "name": "multiply_x_by_y",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 5684,
+   "name": "b_1634",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 5693,
+   "name": "b_163D",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 5711,
+   "name": "player_actor",
+   "type": "Field",
+   "kind": "user"
+  },
+  {
+   "address": 5717,
+   "name": "player_actor_flags",
+   "type": "AbsoluteAddress",
+   "kind": "user"
+  },
+  {
+   "address": 5718,
+   "name": "player_animation_active",
+   "type": "AbsoluteAddress",
+   "kind": "user"
+  },
+  {
+   "address": 5720,
+   "name": "player_action_sentinel",
+   "type": "AbsoluteAddress",
+   "kind": "user"
+  },
+  {
+   "address": 5723,
+   "name": "player_x",
+   "type": "AbsoluteAddress",
+   "kind": "user"
+  },
+  {
+   "address": 5724,
+   "name": "player_y_and_sprite_positions",
+   "type": "AbsoluteAddress",
+   "kind": "user"
+  },
+  {
+   "address": 5740,
+   "name": "player_step_duration",
+   "type": "AbsoluteAddress",
+   "kind": "user"
+  },
+  {
+   "address": 5743,
+   "name": "player_health",
+   "type": "AbsoluteAddress",
+   "kind": "user"
+  },
+  {
+   "address": 5746,
+   "name": "player_header_pointer_lo",
+   "type": "AbsoluteAddress",
+   "kind": "user"
+  },
+  {
+   "address": 5747,
+   "name": "player_header_pointer_hi",
+   "type": "AbsoluteAddress",
+   "kind": "user"
+  },
+  {
+   "address": 5748,
+   "name": "player_stream_pointer_lo",
+   "type": "AbsoluteAddress",
+   "kind": "user"
+  },
+  {
+   "address": 5749,
+   "name": "player_stream_pointer_hi",
+   "type": "AbsoluteAddress",
+   "kind": "user"
+  },
+  {
+   "address": 5750,
+   "name": "first_aux_actor",
+   "type": "Field",
+   "kind": "user"
+  },
+  {
+   "address": 5755,
+   "name": "first_aux_vic_cache_pointer",
+   "type": "AbsoluteAddress",
+   "kind": "user"
+  },
+  {
+   "address": 5756,
+   "name": "first_aux_actor_flags",
+   "type": "AbsoluteAddress",
+   "kind": "user"
+  },
+  {
+   "address": 5757,
+   "name": "first_aux_active",
+   "type": "AbsoluteAddress",
+   "kind": "user"
+  },
+  {
+   "address": 5762,
+   "name": "first_aux_x",
+   "type": "AbsoluteAddress",
+   "kind": "user"
+  },
+  {
+   "address": 5763,
+   "name": "first_aux_y_and_components",
+   "type": "AbsoluteAddress",
+   "kind": "user"
+  },
+  {
+   "address": 5774,
+   "name": "first_aux_component_count",
+   "type": "AbsoluteAddress",
+   "kind": "user"
+  },
+  {
+   "address": 5775,
+   "name": "first_aux_vic_slot",
+   "type": "AbsoluteAddress",
+   "kind": "user"
+  },
+  {
+   "address": 5779,
+   "name": "first_aux_step_ticks",
+   "type": "AbsoluteAddress",
+   "kind": "user"
+  },
+  {
+   "address": 5783,
+   "name": "first_aux_header_selector",
+   "type": "AbsoluteAddress",
+   "kind": "user"
+  },
+  {
+   "address": 5785,
+   "name": "first_aux_header_lo",
+   "type": "AbsoluteAddress",
+   "kind": "user"
+  },
+  {
+   "address": 5786,
+   "name": "first_aux_header_hi",
+   "type": "AbsoluteAddress",
+   "kind": "user"
+  },
+  {
+   "address": 5787,
+   "name": "first_aux_stream_lo",
+   "type": "AbsoluteAddress",
+   "kind": "user"
+  },
+  {
+   "address": 5788,
+   "name": "first_aux_stream_hi",
+   "type": "AbsoluteAddress",
+   "kind": "user"
+  },
+  {
+   "address": 5789,
+   "name": "second_aux_actor",
+   "type": "Field",
+   "kind": "user"
+  },
+  {
+   "address": 5795,
+   "name": "second_aux_flags",
+   "type": "AbsoluteAddress",
+   "kind": "user"
+  },
+  {
+   "address": 5796,
+   "name": "second_aux_active",
+   "type": "AbsoluteAddress",
+   "kind": "user"
+  },
+  {
+   "address": 5801,
+   "name": "second_aux_x_and_actor_tail",
+   "type": "AbsoluteAddress",
+   "kind": "user"
+  },
+  {
+   "address": 5828,
+   "name": "stage_actor",
+   "type": "Field",
+   "kind": "user"
+  },
+  {
+   "address": 5834,
+   "name": "stage_actor_flags",
+   "type": "AbsoluteAddress",
+   "kind": "user"
+  },
+  {
+   "address": 5835,
+   "name": "stage_actor_active",
+   "type": "AbsoluteAddress",
+   "kind": "user"
+  },
+  {
+   "address": 5837,
+   "name": "stage_actor_current_action",
+   "type": "AbsoluteAddress",
+   "kind": "user"
+  },
+  {
+   "address": 5840,
+   "name": "stage_actor_x",
+   "type": "AbsoluteAddress",
+   "kind": "user"
+  },
+  {
+   "address": 5841,
+   "name": "stage_actor_y_and_components",
+   "type": "AbsoluteAddress",
+   "kind": "user"
+  },
+  {
+   "address": 5857,
+   "name": "stage_actor_step_duration",
+   "type": "AbsoluteAddress",
+   "kind": "user"
+  },
+  {
+   "address": 5862,
+   "name": "stage_actor_sprite_color",
+   "type": "AbsoluteAddress",
+   "kind": "user"
+  },
+  {
+   "address": 5863,
+   "name": "stage_actor_header_lo",
+   "type": "AbsoluteAddress",
+   "kind": "user"
+  },
+  {
+   "address": 5864,
+   "name": "stage_actor_header_hi",
+   "type": "AbsoluteAddress",
+   "kind": "user"
+  },
+  {
+   "address": 5865,
+   "name": "stage_actor_stream_lo",
+   "type": "AbsoluteAddress",
+   "kind": "user"
+  },
+  {
+   "address": 5866,
+   "name": "stage_actor_stream_hi",
+   "type": "AbsoluteAddress",
+   "kind": "user"
+  },
+  {
+   "address": 5867,
+   "name": "stick_sample_work",
+   "type": "AbsoluteAddress",
+   "kind": "user"
+  },
+  {
+   "address": 5868,
+   "name": "stick_flip_horizontal",
+   "type": "AbsoluteAddress",
+   "kind": "user"
+  },
+  {
+   "address": 5869,
+   "name": "stick_action_mask",
+   "type": "AbsoluteAddress",
+   "kind": "user"
+  },
+  {
+   "address": 5871,
+   "name": "sample_joystick_port_2",
+   "type": "Subroutine",
+   "kind": "user"
+  },
+  {
+   "address": 5908,
+   "name": "b_1714",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 5915,
+   "name": "idle_joystick_action",
+   "type": "Field",
+   "kind": "user"
+  },
+  {
+   "address": 5917,
+   "name": "up_joystick_action_lo",
+   "type": "AbsoluteAddress",
+   "kind": "user"
+  },
+  {
+   "address": 5918,
+   "name": "up_joystick_action_hi",
+   "type": "AbsoluteAddress",
+   "kind": "user"
+  },
+  {
+   "address": 5933,
+   "name": "action_index_09_lo",
+   "type": "AbsoluteAddress",
+   "kind": "user"
+  },
+  {
+   "address": 5934,
+   "name": "action_index_09_hi",
+   "type": "AbsoluteAddress",
+   "kind": "user"
+  },
+  {
+   "address": 5935,
+   "name": "action_index_0a_lo",
+   "type": "AbsoluteAddress",
+   "kind": "user"
+  },
+  {
+   "address": 5936,
+   "name": "action_index_0a_hi",
+   "type": "AbsoluteAddress",
+   "kind": "user"
+  },
+  {
+   "address": 5947,
+   "name": "fire_joystick_action_lo",
+   "type": "AbsoluteAddress",
+   "kind": "user"
+  },
+  {
+   "address": 5948,
+   "name": "fire_joystick_action_hi",
+   "type": "AbsoluteAddress",
+   "kind": "user"
+  },
+  {
+   "address": 5979,
+   "name": "action_table_trailer",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 5980,
+   "name": "copy_loader_return",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 5981,
+   "name": "copied_named_load",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 6001,
+   "name": "b_1771",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 6013,
+   "name": "copied_load_error_index",
+   "type": "AbsoluteAddress",
+   "kind": "user"
+  },
+  {
+   "address": 6014,
+   "name": "copied_set_lfs",
+   "type": "Subroutine",
+   "kind": "user"
+  },
+  {
+   "address": 6023,
+   "name": "copied_set_stage_name",
+   "type": "Subroutine",
+   "kind": "user"
+  },
+  {
+   "address": 6043,
+   "name": "b_179B",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 6049,
+   "name": "copied_stage_letters",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 6074,
+   "name": "copied_video_loader_setup",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 6088,
+   "name": "copied_loader_trailing_fill",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 6090,
+   "name": "reverse_actor_facing",
+   "type": "Subroutine",
+   "kind": "user"
+  },
+  {
+   "address": 6106,
+   "name": "facing_trailing_return",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 6107,
+   "name": "aux_actor_update_index",
+   "type": "AbsoluteAddress",
+   "kind": "user"
+  },
+  {
+   "address": 6108,
+   "name": "aux_actor_visible_sprite_count",
+   "type": "AbsoluteAddress",
+   "kind": "user"
+  },
+  {
+   "address": 6109,
+   "name": "aux_actor_spawn_countdown",
+   "type": "AbsoluteAddress",
+   "kind": "user"
+  },
+  {
+   "address": 6110,
+   "name": "first_aux_spawn_countdown",
+   "type": "AbsoluteAddress",
+   "kind": "user"
+  },
+  {
+   "address": 6111,
+   "name": "second_aux_spawn_countdown",
+   "type": "AbsoluteAddress",
+   "kind": "user"
+  },
+  {
+   "address": 6112,
+   "name": "update_two_auxiliary_actors",
+   "type": "Subroutine",
+   "kind": "user"
+  },
+  {
+   "address": 6169,
+   "name": "tick_auxiliary_actor",
+   "type": "Subroutine",
+   "kind": "user"
+  },
+  {
+   "address": 6192,
+   "name": "b_1830",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 6203,
+   "name": "r_183B",
+   "type": "Return",
+   "kind": "auto"
+  },
+  {
+   "address": 6204,
+   "name": "b_183C",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 6239,
+   "name": "b_185F",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 6253,
+   "name": "b_186D",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 6262,
+   "name": "b_1876",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 6281,
+   "name": "b_1889",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 6295,
+   "name": "j_1897",
+   "type": "Jump",
+   "kind": "auto"
+  },
+  {
+   "address": 6357,
+   "name": "j_18D5",
+   "type": "Jump",
+   "kind": "auto"
+  },
+  {
+   "address": 6461,
+   "name": "j_193D",
+   "type": "Jump",
+   "kind": "auto"
+  },
+  {
+   "address": 6595,
+   "name": "r_19C3",
+   "type": "Return",
+   "kind": "auto"
+  },
+  {
+   "address": 6596,
+   "name": "auxiliary_sequence_boundary",
+   "type": "AbsoluteAddress",
+   "kind": "user"
+  },
+  {
+   "address": 6597,
+   "name": "spawn_actor_seed",
+   "type": "Field",
+   "kind": "user"
+  },
+  {
+   "address": 6613,
+   "name": "aux_actor_header_pointers",
+   "type": "Field",
+   "kind": "user"
+  },
+  {
+   "address": 6621,
+   "name": "reset_stage_counters",
+   "type": "Subroutine",
+   "kind": "user"
+  },
+  {
+   "address": 6728,
+   "name": "stage_map_change",
+   "type": "Subroutine",
+   "kind": "user"
+  },
+  {
+   "address": 6747,
+   "name": "b_1A5B",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 6750,
+   "name": "b_1A5E",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 6806,
+   "name": "b_1A96",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 6875,
+   "name": "r_1ADB",
+   "type": "Return",
+   "kind": "auto"
+  },
+  {
+   "address": 6876,
+   "name": "j_1ADC",
+   "type": "Jump",
+   "kind": "auto"
+  },
+  {
+   "address": 6880,
+   "name": "descriptor_prefix_zeros",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 6883,
+   "name": "common_frames_1ae3",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 7881,
+   "name": "common_frames_1ec9",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 8403,
+   "name": "secondary_attack_offsets",
+   "type": "Field",
+   "kind": "user"
+  },
+  {
+   "address": 8431,
+   "name": "first_attack_offsets",
+   "type": "Field",
+   "kind": "user"
+  },
+  {
+   "address": 8463,
+   "name": "common_actor_headers",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 8703,
+   "name": "common_animations_21ff",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 8909,
+   "name": "common_animations_22cd",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 9072,
+   "name": "common_animations_2370",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 9213,
+   "name": "common_animations_23fd",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 9349,
+   "name": "common_animations_2485",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 9575,
+   "name": "common_animations_2567",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 9687,
+   "name": "current_sprite_pointer",
+   "type": "AbsoluteAddress",
+   "kind": "user"
+  },
+  {
+   "address": 9688,
+   "name": "sprite_source_library",
+   "type": "AbsoluteAddress",
+   "kind": "user"
+  },
+  {
+   "address": 9689,
+   "name": "refresh_all_vic_actors",
+   "type": "Subroutine",
+   "kind": "user"
+  },
+  {
+   "address": 9707,
+   "name": "b_25EB",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 9778,
+   "name": "b_2632",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 9786,
+   "name": "r_263A",
+   "type": "Return",
+   "kind": "auto"
+  },
+  {
+   "address": 9787,
+   "name": "sprite_batch_adjacent_byte",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 9788,
+   "name": "sprite_batch_count",
+   "type": "AbsoluteAddress",
+   "kind": "user"
+  },
+  {
+   "address": 9789,
+   "name": "actor_sprites_drawn",
+   "type": "AbsoluteAddress",
+   "kind": "user"
+  },
+  {
+   "address": 9790,
+   "name": "draw_one_vic_actor",
+   "type": "Subroutine",
+   "kind": "user"
+  },
+  {
+   "address": 9797,
+   "name": "b_2645",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 9822,
+   "name": "b_265E",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 9833,
+   "name": "write_actor_coordinates",
+   "type": "Subroutine",
+   "kind": "user"
+  },
+  {
+   "address": 9861,
+   "name": "b_2685",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 9884,
+   "name": "b_269C",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 9897,
+   "name": "b_26A9",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 9915,
+   "name": "r_26BB",
+   "type": "Return",
+   "kind": "auto"
+  },
+  {
+   "address": 9916,
+   "name": "set_sprite_pointers",
+   "type": "Subroutine",
+   "kind": "user"
+  },
+  {
+   "address": 9933,
+   "name": "b_26CD",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 9947,
+   "name": "current_sprite_source_low",
+   "type": "AbsoluteAddress",
+   "kind": "user"
+  },
+  {
+   "address": 9948,
+   "name": "current_sprite_source_high",
+   "type": "AbsoluteAddress",
+   "kind": "user"
+  },
+  {
+   "address": 9962,
+   "name": "copy_actor_sprite_frames",
+   "type": "Subroutine",
+   "kind": "user"
+  },
+  {
+   "address": 9986,
+   "name": "b_2702",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 9991,
+   "name": "shared_sprite_pointer",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 10011,
+   "name": "stage_sprite_pointer",
+   "type": "Branch",
+   "kind": "user"
+  },
+  {
+   "address": 10028,
+   "name": "j_272C",
+   "type": "Jump",
+   "kind": "auto"
+  },
+  {
+   "address": 10063,
+   "name": "b_274F",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 10066,
+   "name": "j_2752",
+   "type": "Jump",
+   "kind": "auto"
+  },
+  {
+   "address": 10084,
+   "name": "actor_frame_component_index",
+   "type": "AbsoluteAddress",
+   "kind": "user"
+  },
+  {
+   "address": 10085,
+   "name": "actor_frame_component_limit",
+   "type": "AbsoluteAddress",
+   "kind": "user"
+  },
+  {
+   "address": 10086,
+   "name": "current_hardware_cache_pointer",
+   "type": "AbsoluteAddress",
+   "kind": "user"
+  },
+  {
+   "address": 10087,
+   "name": "sprite_index_actor_offset",
+   "type": "AbsoluteAddress",
+   "kind": "user"
+  },
+  {
+   "address": 10091,
+   "name": "vic_sprite_cache_addresses",
+   "type": "Field",
+   "kind": "user"
+  },
+  {
+   "address": 10107,
+   "name": "sprite_index_times_64",
+   "type": "Subroutine",
+   "kind": "user"
+  },
+  {
+   "address": 10124,
+   "name": "sprite_index_helper_gap",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 10125,
+   "name": "sprite_index_shift_work",
+   "type": "AbsoluteAddress",
+   "kind": "user"
+  },
+  {
+   "address": 10126,
+   "name": "sprite_destination_low",
+   "type": "AbsoluteAddress",
+   "kind": "user"
+  },
+  {
+   "address": 10127,
+   "name": "sprite_destination_high",
+   "type": "AbsoluteAddress",
+   "kind": "user"
+  },
+  {
+   "address": 10128,
+   "name": "copy_mirrored_sprite",
+   "type": "Subroutine",
+   "kind": "user"
+  },
+  {
+   "address": 10154,
+   "name": "b_27AA",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 10155,
+   "name": "mirror_lda_low_operand",
+   "type": "AbsoluteAddress",
+   "kind": "user"
+  },
+  {
+   "address": 10156,
+   "name": "mirror_lda_high_operand",
+   "type": "AbsoluteAddress",
+   "kind": "user"
+  },
+  {
+   "address": 10164,
+   "name": "mirror_sta_low_operand",
+   "type": "AbsoluteAddress",
+   "kind": "user"
+  },
+  {
+   "address": 10165,
+   "name": "mirror_sta_high_operand",
+   "type": "AbsoluteAddress",
+   "kind": "user"
+  },
+  {
+   "address": 10170,
+   "name": "mirrored_sprite_byte_positions",
+   "type": "Field",
+   "kind": "user"
+  },
+  {
+   "address": 10234,
+   "name": "mirror_table_suffix",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 10237,
+   "name": "mirrored_multicolor_byte",
+   "type": "Field",
+   "kind": "user"
+  },
+  {
+   "address": 10493,
+   "name": "copy_unmirrored_sprite",
+   "type": "Subroutine",
+   "kind": "user"
+  },
+  {
+   "address": 10519,
+   "name": "b_2917",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 10520,
+   "name": "sprite_copy_source_lo_operand",
+   "type": "AbsoluteAddress",
+   "kind": "user"
+  },
+  {
+   "address": 10521,
+   "name": "sprite_copy_source_hi_operand",
+   "type": "AbsoluteAddress",
+   "kind": "user"
+  },
+  {
+   "address": 10527,
+   "name": "sprite_copy_destination_lo_operand",
+   "type": "AbsoluteAddress",
+   "kind": "user"
+  },
+  {
+   "address": 10528,
+   "name": "sprite_copy_destination_hi_operand",
+   "type": "AbsoluteAddress",
+   "kind": "user"
+  },
+  {
+   "address": 10533,
+   "name": "actor_action_pointer_group_a",
+   "type": "Field",
+   "kind": "user"
+  },
+  {
+   "address": 10543,
+   "name": "actor_action_pointer_group_b",
+   "type": "Field",
+   "kind": "user"
+  },
+  {
+   "address": 10551,
+   "name": "actor_action_group_data",
+   "type": "Field",
+   "kind": "user"
+  },
+  {
+   "address": 10603,
+   "name": "delay_actor_iteration",
+   "type": "Subroutine",
+   "kind": "user"
+  },
+  {
+   "address": 10605,
+   "name": "b_296D",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 10609,
+   "name": "add_score_and_redraw",
+   "type": "Subroutine",
+   "kind": "user"
+  },
+  {
+   "address": 10642,
+   "name": "b_2992",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 10684,
+   "name": "finish_and_reset_stage_sequence",
+   "type": "Jump",
+   "kind": "user"
+  },
+  {
+   "address": 10723,
+   "name": "b_29E3",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 10756,
+   "name": "next_stage_caption",
+   "type": "Field",
+   "kind": "user"
+  },
+  {
+   "address": 10771,
+   "name": "panel_backed_up_characters",
+   "type": "Field",
+   "kind": "user"
+  },
+  {
+   "address": 10786,
+   "name": "panel_backed_up_colors",
+   "type": "Field",
+   "kind": "user"
+  },
+  {
+   "address": 10801,
+   "name": "draw_next_stage_caption",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 10803,
+   "name": "b_2A33",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 10820,
+   "name": "b_2A44",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 10846,
+   "name": "write_stage_panel_cells",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 10848,
+   "name": "b_2A60",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 10866,
+   "name": "game_over_caption",
+   "type": "Field",
+   "kind": "user"
+  },
+  {
+   "address": 10875,
+   "name": "flash_game_over_panel",
+   "type": "Jump",
+   "kind": "user"
+  },
+  {
+   "address": 10877,
+   "name": "b_2A7D",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 10894,
+   "name": "b_2A8E",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 10912,
+   "name": "b_2AA0",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 10918,
+   "name": "b_2AA6",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 10994,
+   "name": "b_2AF2",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 11018,
+   "name": "b_2B0A",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 11024,
+   "name": "advance_actor_animation_and_video",
+   "type": "Subroutine",
+   "kind": "user"
+  },
+  {
+   "address": 11046,
+   "name": "opponent_callback_low",
+   "type": "AbsoluteAddress",
+   "kind": "user"
+  },
+  {
+   "address": 11047,
+   "name": "opponent_callback_high",
+   "type": "AbsoluteAddress",
+   "kind": "user"
+  },
+  {
+   "address": 11048,
+   "name": "opponent_timer_option",
+   "type": "AbsoluteAddress",
+   "kind": "user"
+  },
+  {
+   "address": 11049,
+   "name": "opponent_followup_option",
+   "type": "AbsoluteAddress",
+   "kind": "user"
+  },
+  {
+   "address": 11050,
+   "name": "player_opponent_x_distance",
+   "type": "AbsoluteAddress",
+   "kind": "user"
+  },
+  {
+   "address": 11051,
+   "name": "opponent_stage_flag_seeds",
+   "type": "Field",
+   "kind": "user"
+  },
+  {
+   "address": 11056,
+   "name": "opponent_stage_distance_limits",
+   "type": "Field",
+   "kind": "user"
+  },
+  {
+   "address": 11061,
+   "name": "initialise_stage_opponent",
+   "type": "Subroutine",
+   "kind": "user"
+  },
+  {
+   "address": 11152,
+   "name": "b_2B90",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 11161,
+   "name": "r_2B99",
+   "type": "Return",
+   "kind": "auto"
+  },
+  {
+   "address": 11162,
+   "name": "b_2B9A",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 11174,
+   "name": "b_2BA6",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 11217,
+   "name": "b_2BD1",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 11239,
+   "name": "b_2BE7",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 11291,
+   "name": "b_2C1B",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 11325,
+   "name": "b_2C3D",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 11367,
+   "name": "b_2C67",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 11388,
+   "name": "b_2C7C",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 11398,
+   "name": "b_2C86",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 11401,
+   "name": "opponent_dispatch_trailing_return",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 11402,
+   "name": "opponent_stage_dispatch",
+   "type": "Field",
+   "kind": "user"
+  },
+  {
+   "address": 11412,
+   "name": "opponent_stage_toggle",
+   "type": "AbsoluteAddress",
+   "kind": "user"
+  },
+  {
+   "address": 11413,
+   "name": "opponent_stage_1",
+   "type": "AbsoluteAddress",
+   "kind": "user"
+  },
+  {
+   "address": 11425,
+   "name": "b_2CA1",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 11428,
+   "name": "b_2CA4",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 11450,
+   "name": "b_2CBA",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 11453,
+   "name": "opponent_stage_2",
+   "type": "AbsoluteAddress",
+   "kind": "user"
+  },
+  {
+   "address": 11468,
+   "name": "b_2CCC",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 11483,
+   "name": "b_2CDB",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 11486,
+   "name": "opponent_stage_3",
+   "type": "AbsoluteAddress",
+   "kind": "user"
+  },
+  {
+   "address": 11501,
+   "name": "b_2CED",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 11523,
+   "name": "b_2D03",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 11528,
+   "name": "b_2D08",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 11531,
+   "name": "opponent_stage_4",
+   "type": "AbsoluteAddress",
+   "kind": "user"
+  },
+  {
+   "address": 11550,
+   "name": "b_2D1E",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 11557,
+   "name": "b_2D25",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 11560,
+   "name": "b_2D28",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 11586,
+   "name": "b_2D42",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 11591,
+   "name": "b_2D47",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 11594,
+   "name": "opponent_stage_5",
+   "type": "AbsoluteAddress",
+   "kind": "user"
+  },
+  {
+   "address": 11609,
+   "name": "b_2D59",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 11624,
+   "name": "b_2D68",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 11627,
+   "name": "select_opponent_action",
+   "type": "Jump",
+   "kind": "user"
+  },
+  {
+   "address": 11699,
+   "name": "r_2DB3",
+   "type": "Return",
+   "kind": "auto"
+  },
+  {
+   "address": 11700,
+   "name": "j_2DB4",
+   "type": "Jump",
+   "kind": "auto"
+  },
+  {
+   "address": 11794,
+   "name": "r_2E12",
+   "type": "Return",
+   "kind": "auto"
+  },
+  {
+   "address": 11795,
+   "name": "set_opponent_script",
+   "type": "Jump",
+   "kind": "user"
+  },
+  {
+   "address": 11863,
+   "name": "r_2E57",
+   "type": "Return",
+   "kind": "auto"
+  },
+  {
+   "address": 11864,
+   "name": "j_2E58",
+   "type": "Jump",
+   "kind": "auto"
+  },
+  {
+   "address": 11888,
+   "name": "r_2E70",
+   "type": "Return",
+   "kind": "auto"
+  },
+  {
+   "address": 11889,
+   "name": "interlude_scroll_flag",
+   "type": "AbsoluteAddress",
+   "kind": "user"
+  },
+  {
+   "address": 11890,
+   "name": "interlude_opponent_scroll_flag",
+   "type": "AbsoluteAddress",
+   "kind": "user"
+  },
+  {
+   "address": 11891,
+   "name": "interlude_setup_scratch",
+   "type": "AbsoluteAddress",
+   "kind": "user"
+  },
+  {
+   "address": 11894,
+   "name": "extend_scroll_for_interlude",
+   "type": "Subroutine",
+   "kind": "user"
+  },
+  {
+   "address": 11918,
+   "name": "b_2E8E",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 11965,
+   "name": "b_2EBD",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 11989,
+   "name": "b_2ED5",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 12031,
+   "name": "b_2EFF",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 12069,
+   "name": "b_2F25",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 12106,
+   "name": "b_2F4A",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 12251,
+   "name": "reset_interlude_opponent",
+   "type": "Subroutine",
+   "kind": "user"
+  },
+  {
+   "address": 12282,
+   "name": "first_actor_scroll_pass",
+   "type": "AbsoluteAddress",
+   "kind": "user"
+  },
+  {
+   "address": 12283,
+   "name": "opponent_near_distance",
+   "type": "AbsoluteAddress",
+   "kind": "user"
+  },
+  {
+   "address": 12284,
+   "name": "check_player_scroll_against_actors",
+   "type": "Subroutine",
+   "kind": "user"
+  },
+  {
+   "address": 12320,
+   "name": "b_3020",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 12351,
+   "name": "b_303F",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 12384,
+   "name": "r_3060",
+   "type": "Return",
+   "kind": "auto"
+  },
+  {
+   "address": 12385,
+   "name": "check_scroll_blocking_actor",
+   "type": "Subroutine",
+   "kind": "user"
+  },
+  {
+   "address": 12434,
+   "name": "b_3092",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 12456,
+   "name": "b_30A8",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 12464,
+   "name": "b_30B0",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 12470,
+   "name": "j_30B6",
+   "type": "Jump",
+   "kind": "auto"
+  },
+  {
+   "address": 12491,
+   "name": "r_30CB",
+   "type": "Return",
+   "kind": "auto"
+  },
+  {
+   "address": 12492,
+   "name": "first_aux_visible_count",
+   "type": "AbsoluteAddress",
+   "kind": "user"
+  },
+  {
+   "address": 12493,
+   "name": "second_aux_visible_count",
+   "type": "AbsoluteAddress",
+   "kind": "user"
+  },
+  {
+   "address": 12494,
+   "name": "allocate_two_auxiliary_actor_slots",
+   "type": "Subroutine",
+   "kind": "user"
+  },
+  {
+   "address": 12558,
+   "name": "b_310E",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 12565,
+   "name": "j_3115",
+   "type": "Jump",
+   "kind": "auto"
+  },
+  {
+   "address": 12581,
+   "name": "b_3125",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 12592,
+   "name": "initialise_second_aux_actor_action",
+   "type": "Subroutine",
+   "kind": "user"
+  },
+  {
+   "address": 12645,
+   "name": "count_active_aux_sprites",
+   "type": "Subroutine",
+   "kind": "user"
+  },
+  {
+   "address": 12680,
+   "name": "r_3188",
+   "type": "Return",
+   "kind": "auto"
+  },
+  {
+   "address": 12681,
+   "name": "hit_test_x",
+   "type": "AbsoluteAddress",
+   "kind": "user"
+  },
+  {
+   "address": 12682,
+   "name": "hit_test_y",
+   "type": "AbsoluteAddress",
+   "kind": "user"
+  },
+  {
+   "address": 12683,
+   "name": "collision_left",
+   "type": "AbsoluteAddress",
+   "kind": "user"
+  },
+  {
+   "address": 12684,
+   "name": "collision_top",
+   "type": "AbsoluteAddress",
+   "kind": "user"
+  },
+  {
+   "address": 12685,
+   "name": "collision_right",
+   "type": "AbsoluteAddress",
+   "kind": "user"
+  },
+  {
+   "address": 12686,
+   "name": "collision_bottom",
+   "type": "AbsoluteAddress",
+   "kind": "user"
+  },
+  {
+   "address": 12687,
+   "name": "hit_test_passes",
+   "type": "AbsoluteAddress",
+   "kind": "user"
+  },
+  {
+   "address": 12689,
+   "name": "hit_target_slot",
+   "type": "AbsoluteAddress",
+   "kind": "user"
+  },
+  {
+   "address": 12690,
+   "name": "test_player_attacks_against_actors",
+   "type": "Subroutine",
+   "kind": "user"
+  },
+  {
+   "address": 12738,
+   "name": "b_31C2",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 12754,
+   "name": "r_31D2",
+   "type": "Return",
+   "kind": "auto"
+  },
+  {
+   "address": 12755,
+   "name": "second_attack_probe",
+   "type": "Subroutine",
+   "kind": "user"
+  },
+  {
+   "address": 12803,
+   "name": "b_3203",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 12826,
+   "name": "j_321A",
+   "type": "Jump",
+   "kind": "auto"
+  },
+  {
+   "address": 12861,
+   "name": "b_323D",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 12889,
+   "name": "b_3259",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 12899,
+   "name": "b_3263",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 12907,
+   "name": "b_326B",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 12955,
+   "name": "b_329B",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 12978,
+   "name": "j_32B2",
+   "type": "Jump",
+   "kind": "auto"
+  },
+  {
+   "address": 13013,
+   "name": "b_32D5",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 13040,
+   "name": "b_32F0",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 13048,
+   "name": "b_32F8",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 13054,
+   "name": "attack_overlap",
+   "type": "AbsoluteAddress",
+   "kind": "user"
+  },
+  {
+   "address": 13055,
+   "name": "point_in_attack_box",
+   "type": "Subroutine",
+   "kind": "user"
+  },
+  {
+   "address": 13084,
+   "name": "b_331C",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 13089,
+   "name": "j_3321",
+   "type": "Jump",
+   "kind": "auto"
+  },
+  {
+   "address": 13094,
+   "name": "r_3326",
+   "type": "Return",
+   "kind": "auto"
+  },
+  {
+   "address": 13095,
+   "name": "attack_overlap_boundary",
+   "type": "AbsoluteAddress",
+   "kind": "user"
+  },
+  {
+   "address": 13096,
+   "name": "apply_player_hit",
+   "type": "Subroutine",
+   "kind": "user"
+  },
+  {
+   "address": 13112,
+   "name": "b_3338",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 13119,
+   "name": "r_333F",
+   "type": "Return",
+   "kind": "auto"
+  },
+  {
+   "address": 13120,
+   "name": "b_3340",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 13148,
+   "name": "b_335C",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 13156,
+   "name": "j_3364",
+   "type": "Jump",
+   "kind": "auto"
+  },
+  {
+   "address": 13213,
+   "name": "b_339D",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 13264,
+   "name": "b_33D0",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 13282,
+   "name": "j_33E2",
+   "type": "Jump",
+   "kind": "auto"
+  },
+  {
+   "address": 13297,
+   "name": "b_33F1",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 13353,
+   "name": "j_3429",
+   "type": "Jump",
+   "kind": "auto"
+  },
+  {
+   "address": 13357,
+   "name": "b_342D",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 13406,
+   "name": "b_345E",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 13408,
+   "name": "b_3460",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 13473,
+   "name": "read_first_stage_actor",
+   "type": "Branch",
+   "kind": "user"
+  },
+  {
+   "address": 13477,
+   "name": "b_34A5",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 13550,
+   "name": "health_scratch_boundary",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 13551,
+   "name": "damage_amount",
+   "type": "AbsoluteAddress",
+   "kind": "user"
+  },
+  {
+   "address": 13552,
+   "name": "remaining_health",
+   "type": "AbsoluteAddress",
+   "kind": "user"
+  },
+  {
+   "address": 13553,
+   "name": "full_health_cells",
+   "type": "AbsoluteAddress",
+   "kind": "user"
+  },
+  {
+   "address": 13554,
+   "name": "partial_health_cells",
+   "type": "AbsoluteAddress",
+   "kind": "user"
+  },
+  {
+   "address": 13555,
+   "name": "apply_opponent_hit",
+   "type": "Subroutine",
+   "kind": "user"
+  },
+  {
+   "address": 13564,
+   "name": "b_34FC",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 13574,
+   "name": "b_3506",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 13646,
+   "name": "b_354E",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 13661,
+   "name": "j_355D",
+   "type": "Jump",
+   "kind": "auto"
+  },
+  {
+   "address": 13683,
+   "name": "b_3573",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 13687,
+   "name": "b_3577",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 13696,
+   "name": "health_fraction_glyph",
+   "type": "Field",
+   "kind": "user"
+  },
+  {
+   "address": 13700,
+   "name": "attack_score_values",
+   "type": "Field",
+   "kind": "user"
+  },
+  {
+   "address": 13708,
+   "name": "read_attack_box_offsets",
+   "type": "Subroutine",
+   "kind": "user"
+  },
+  {
+   "address": 13739,
+   "name": "translate_attack_box",
+   "type": "Subroutine",
+   "kind": "user"
+  },
+  {
+   "address": 13772,
+   "name": "timer_tens",
+   "type": "AbsoluteAddress",
+   "kind": "user"
+  },
+  {
+   "address": 13773,
+   "name": "timer_units",
+   "type": "AbsoluteAddress",
+   "kind": "user"
+  },
+  {
+   "address": 13774,
+   "name": "timer_enabled",
+   "type": "AbsoluteAddress",
+   "kind": "user"
+  },
+  {
+   "address": 13775,
+   "name": "timer_prescaler",
+   "type": "AbsoluteAddress",
+   "kind": "user"
+  },
+  {
+   "address": 13776,
+   "name": "tick_stage_timer",
+   "type": "Subroutine",
+   "kind": "user"
+  },
+  {
+   "address": 13799,
+   "name": "b_35E7",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 13815,
+   "name": "b_35F7",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 13833,
+   "name": "r_3609",
+   "type": "Return",
+   "kind": "auto"
+  },
+  {
+   "address": 13834,
+   "name": "redraw_timer_digits",
+   "type": "Subroutine",
+   "kind": "user"
+  },
+  {
+   "address": 13853,
+   "name": "clear_playfield_row_count",
+   "type": "AbsoluteAddress",
+   "kind": "user"
+  },
+  {
+   "address": 13854,
+   "name": "clear_playfield_cells",
+   "type": "Subroutine",
+   "kind": "user"
+  },
+  {
+   "address": 13859,
+   "name": "b_3623",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 13863,
+   "name": "b_3627",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 13865,
+   "name": "clear_screen_low_operand",
+   "type": "AbsoluteAddress",
+   "kind": "user"
+  },
+  {
+   "address": 13866,
+   "name": "clear_screen_high_operand",
+   "type": "AbsoluteAddress",
+   "kind": "user"
+  },
+  {
+   "address": 13870,
+   "name": "clear_color_low_operand",
+   "type": "AbsoluteAddress",
+   "kind": "user"
+  },
+  {
+   "address": 13871,
+   "name": "clear_color_high_operand",
+   "type": "AbsoluteAddress",
+   "kind": "user"
+  },
+  {
+   "address": 13937,
+   "name": "set_death_animation",
+   "type": "Jump",
+   "kind": "user"
+  },
+  {
+   "address": 14015,
+   "name": "facing_toggle_boundary_zero",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 14016,
+   "name": "reverse_other_actor_facings",
+   "type": "Jump",
+   "kind": "user"
+  },
+  {
+   "address": 14041,
+   "name": "opponent_approach_allowed",
+   "type": "AbsoluteAddress",
+   "kind": "user"
+  },
+  {
+   "address": 14042,
+   "name": "update_approaching_opponent",
+   "type": "Subroutine",
+   "kind": "user"
+  },
+  {
+   "address": 14050,
+   "name": "b_36E2",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 14062,
+   "name": "b_36EE",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 14167,
+   "name": "b_3757",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 14196,
+   "name": "b_3774",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 14207,
+   "name": "b_377F",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 14211,
+   "name": "b_3783",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 14219,
+   "name": "b_378B",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 14229,
+   "name": "b_3795",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 14285,
+   "name": "r_37CD",
+   "type": "Return",
+   "kind": "auto"
+  },
+  {
+   "address": 14286,
+   "name": "j_37CE",
+   "type": "Jump",
+   "kind": "auto"
+  },
+  {
+   "address": 14295,
+   "name": "j_37D7",
+   "type": "Jump",
+   "kind": "auto"
+  },
+  {
+   "address": 14329,
+   "name": "r_37F9",
+   "type": "Return",
+   "kind": "auto"
+  },
+  {
+   "address": 14330,
+   "name": "set_sid_filter",
+   "type": "Subroutine",
+   "kind": "user"
+  },
+  {
+   "address": 14346,
+   "name": "music_state_gap",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 14347,
+   "name": "note_frame_countdown",
+   "type": "AbsoluteAddress",
+   "kind": "user"
+  },
+  {
+   "address": 14348,
+   "name": "current_note_index",
+   "type": "AbsoluteAddress",
+   "kind": "user"
+  },
+  {
+   "address": 14351,
+   "name": "update_music_voices",
+   "type": "Subroutine",
+   "kind": "user"
+  },
+  {
+   "address": 14364,
+   "name": "r_381C",
+   "type": "Return",
+   "kind": "auto"
+  },
+  {
+   "address": 14365,
+   "name": "b_381D",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 14394,
+   "name": "b_383A",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 14459,
+   "name": "restart_music_sequence",
+   "type": "Subroutine",
+   "kind": "user"
+  },
+  {
+   "address": 14474,
+   "name": "hit_effect_index",
+   "type": "AbsoluteAddress",
+   "kind": "user"
+  },
+  {
+   "address": 14475,
+   "name": "start_hit_sound",
+   "type": "Subroutine",
+   "kind": "user"
+  },
+  {
+   "address": 14514,
+   "name": "set_hit_sound_filter",
+   "type": "Subroutine",
+   "kind": "user"
+  },
+  {
+   "address": 14538,
+   "name": "hit_filter_table",
+   "type": "Field",
+   "kind": "user"
+  },
+  {
+   "address": 14542,
+   "name": "hit_sound_table",
+   "type": "Field",
+   "kind": "user"
+  },
+  {
+   "address": 14550,
+   "name": "restore_joystick_action_entries",
+   "type": "Subroutine",
+   "kind": "user"
+  },
+  {
+   "address": 14591,
+   "name": "test_three_actors_for_exit",
+   "type": "Subroutine",
+   "kind": "user"
+  },
+  {
+   "address": 14625,
+   "name": "remove_out_of_bounds_actor",
+   "type": "Subroutine",
+   "kind": "user"
+  },
+  {
+   "address": 14646,
+   "name": "r_3936",
+   "type": "Return",
+   "kind": "auto"
+  },
+  {
+   "address": 14647,
+   "name": "b_3937",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 14667,
+   "name": "r_394B",
+   "type": "Return",
+   "kind": "auto"
+  },
+  {
+   "address": 14668,
+   "name": "b_394C",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 14679,
+   "name": "r_3957",
+   "type": "Return",
+   "kind": "auto"
+  },
+  {
+   "address": 14680,
+   "name": "reset_exiting_actor",
+   "type": "Subroutine",
+   "kind": "user"
+  },
+  {
+   "address": 14715,
+   "name": "draw_health_bar_fraction",
+   "type": "Subroutine",
+   "kind": "user"
+  },
+  {
+   "address": 14742,
+   "name": "b_3996",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 14747,
+   "name": "b_399B",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 14759,
+   "name": "message_rows_left",
+   "type": "AbsoluteAddress",
+   "kind": "user"
+  },
+  {
+   "address": 14760,
+   "name": "message_row_width",
+   "type": "AbsoluteAddress",
+   "kind": "user"
+  },
+  {
+   "address": 14761,
+   "name": "message_reveal_mode",
+   "type": "AbsoluteAddress",
+   "kind": "user"
+  },
+  {
+   "address": 14762,
+   "name": "show_panel_message",
+   "type": "Subroutine",
+   "kind": "user"
+  },
+  {
+   "address": 14799,
+   "name": "j_39CF",
+   "type": "Jump",
+   "kind": "auto"
+  },
+  {
+   "address": 14801,
+   "name": "b_39D1",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 14805,
+   "name": "message_screen_operand_low",
+   "type": "AbsoluteAddress",
+   "kind": "user"
+  },
+  {
+   "address": 14806,
+   "name": "message_screen_operand_high",
+   "type": "AbsoluteAddress",
+   "kind": "user"
+  },
+  {
+   "address": 14810,
+   "name": "message_color_operand_low",
+   "type": "AbsoluteAddress",
+   "kind": "user"
+  },
+  {
+   "address": 14811,
+   "name": "message_color_operand_high",
+   "type": "AbsoluteAddress",
+   "kind": "user"
+  },
+  {
+   "address": 14839,
+   "name": "b_39F7",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 14850,
+   "name": "j_3A02",
+   "type": "Jump",
+   "kind": "auto"
+  },
+  {
+   "address": 14863,
+   "name": "b_3A0F",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 14901,
+   "name": "b_3A35",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 14943,
+   "name": "compare_special_hall_of_fame_name",
+   "type": "Subroutine",
+   "kind": "user"
+  },
+  {
+   "address": 14946,
+   "name": "b_3A62",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 14963,
+   "name": "r_3A73",
+   "type": "Return",
+   "kind": "auto"
+  },
+  {
+   "address": 14964,
+   "name": "special_name_pattern",
+   "type": "Field",
+   "kind": "user"
+  },
+  {
+   "address": 14970,
+   "name": "text_sound_low",
+   "type": "Field",
+   "kind": "user"
+  },
+  {
+   "address": 14972,
+   "name": "text_sound_high",
+   "type": "Field",
+   "kind": "user"
+  },
+  {
+   "address": 14974,
+   "name": "text_sound_attack_decay",
+   "type": "Field",
+   "kind": "user"
+  },
+  {
+   "address": 14976,
+   "name": "start_text_sound",
+   "type": "Subroutine",
+   "kind": "user"
+  },
+  {
+   "address": 14978,
+   "name": "b_3A82",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 15024,
+   "name": "short_text_sound_delay",
+   "type": "Subroutine",
+   "kind": "user"
+  },
+  {
+   "address": 15026,
+   "name": "b_3AB2",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 15028,
+   "name": "b_3AB4",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 15039,
+   "name": "character_reveal_delay",
+   "type": "Subroutine",
+   "kind": "user"
+  },
+  {
+   "address": 15041,
+   "name": "b_3AC1",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 15043,
+   "name": "b_3AC3",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 15054,
+   "name": "constrain_player_position",
+   "type": "Subroutine",
+   "kind": "user"
+  },
+  {
+   "address": 15060,
+   "name": "b_3AD4",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 15085,
+   "name": "b_3AED",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 15103,
+   "name": "b_3AFF",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 15108,
+   "name": "b_3B04",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 15122,
+   "name": "r_3B12",
+   "type": "Return",
+   "kind": "auto"
+  },
+  {
+   "address": 15123,
+   "name": "stage_transition_countdown",
+   "type": "AbsoluteAddress",
+   "kind": "user"
+  },
+  {
+   "address": 15124,
+   "name": "stage_file_count",
+   "type": "AbsoluteAddress",
+   "kind": "user"
+  },
+  {
+   "address": 15125,
+   "name": "stage_callback_low",
+   "type": "AbsoluteAddress",
+   "kind": "user"
+  },
+  {
+   "address": 15126,
+   "name": "stage_callback_high",
+   "type": "AbsoluteAddress",
+   "kind": "user"
+  },
+  {
+   "address": 15127,
+   "name": "dispatch_stage_event",
+   "type": "Subroutine",
+   "kind": "user"
+  },
+  {
+   "address": 15148,
+   "name": "stage_event_routines",
+   "type": "Field",
+   "kind": "user"
+  },
+  {
+   "address": 15160,
+   "name": "start_scroll_event_sequence",
+   "type": "AbsoluteAddress",
+   "kind": "user"
+  },
+  {
+   "address": 15183,
+   "name": "b_3B4F",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 15189,
+   "name": "wait_for_first_stage_marker",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 15223,
+   "name": "r_3B77",
+   "type": "Return",
+   "kind": "auto"
+  },
+  {
+   "address": 15224,
+   "name": "wait_for_second_stage_marker",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 15264,
+   "name": "r_3BA0",
+   "type": "Return",
+   "kind": "auto"
+  },
+  {
+   "address": 15265,
+   "name": "check_player_transition_position",
+   "type": "AbsoluteAddress",
+   "kind": "user"
+  },
+  {
+   "address": 15292,
+   "name": "b_3BBC",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 15318,
+   "name": "r_3BD6",
+   "type": "Return",
+   "kind": "auto"
+  },
+  {
+   "address": 15319,
+   "name": "convert_remaining_time_to_score",
+   "type": "AbsoluteAddress",
+   "kind": "user"
+  },
+  {
+   "address": 15322,
+   "name": "j_3BDA",
+   "type": "Jump",
+   "kind": "auto"
+  },
+  {
+   "address": 15344,
+   "name": "b_3BF0",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 15368,
+   "name": "b_3C08",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 15384,
+   "name": "start_transition_delay",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 15390,
+   "name": "tick_transition_delay",
+   "type": "AbsoluteAddress",
+   "kind": "user"
+  },
+  {
+   "address": 15411,
+   "name": "reload_stage_files",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 15445,
+   "name": "b_3C55",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 15473,
+   "name": "r_3C71",
+   "type": "Return",
+   "kind": "auto"
+  },
+  {
+   "address": 15474,
+   "name": "life_loss_countdown",
+   "type": "AbsoluteAddress",
+   "kind": "user"
+  },
+  {
+   "address": 15475,
+   "name": "handle_player_death",
+   "type": "Subroutine",
+   "kind": "user"
+  },
+  {
+   "address": 15516,
+   "name": "b_3C9C",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 15611,
+   "name": "r_3CFB",
+   "type": "Return",
+   "kind": "auto"
+  },
+  {
+   "address": 15612,
+   "name": "draw_transition_frame",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 15614,
+   "name": "b_3CFE",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 15616,
+   "name": "b_3D00",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 15623,
+   "name": "disable_load_interrupts",
+   "type": "Subroutine",
+   "kind": "user"
+  },
+  {
+   "address": 15649,
+   "name": "set_transition_animation",
+   "type": "Subroutine",
+   "kind": "user"
+  },
+  {
+   "address": 15686,
+   "name": "ending_message",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 15814,
+   "name": "story_message",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 15916,
+   "name": "copied_sprite_suffix",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 18432,
+   "name": "panel_glyphs_00",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 19456,
+   "name": "panel_glyphs_80",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 20480,
+   "name": "initial_panel_cells",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 20486,
+   "name": "score_digits_boundary",
+   "type": "Field",
+   "kind": "user"
+  },
+  {
+   "address": 20512,
+   "name": "high_score_digits",
+   "type": "Field",
+   "kind": "user"
+  },
+  {
+   "address": 20533,
+   "name": "panel_overlay_backup_start",
+   "type": "Field",
+   "kind": "user"
+  },
+  {
+   "address": 20536,
+   "name": "game_over_overlay_start",
+   "type": "Field",
+   "kind": "user"
+  },
+  {
+   "address": 20569,
+   "name": "player_health_cells",
+   "type": "Field",
+   "kind": "user"
+  },
+  {
+   "address": 20593,
+   "name": "life_icons_top_cells",
+   "type": "Field",
+   "kind": "user"
+  },
+  {
+   "address": 20633,
+   "name": "life_icons_middle_cell_base",
+   "type": "Field",
+   "kind": "user"
+  },
+  {
+   "address": 20634,
+   "name": "life_icons_middle_second_cell",
+   "type": "Field",
+   "kind": "user"
+  },
+  {
+   "address": 20649,
+   "name": "enemy_health_panel_edge",
+   "type": "Field",
+   "kind": "user"
+  },
+  {
+   "address": 20650,
+   "name": "stage_panel_caption_cells",
+   "type": "Field",
+   "kind": "user"
+  },
+  {
+   "address": 20656,
+   "name": "stage_number_cell",
+   "type": "AbsoluteAddress",
+   "kind": "user"
+  },
+  {
+   "address": 20669,
+   "name": "timer_tens_digit",
+   "type": "Field",
+   "kind": "user"
+  },
+  {
+   "address": 20670,
+   "name": "timer_units_digit",
+   "type": "AbsoluteAddress",
+   "kind": "user"
+  },
+  {
+   "address": 20673,
+   "name": "life_icons_bottom_base",
+   "type": "Field",
+   "kind": "user"
+  },
+  {
+   "address": 20674,
+   "name": "life_icons_bottom_second_cell",
+   "type": "Field",
+   "kind": "user"
+  },
+  {
+   "address": 20720,
+   "name": "f_50F0",
+   "type": "Field",
+   "kind": "auto"
+  },
+  {
+   "address": 20770,
+   "name": "f_5122",
+   "type": "Field",
+   "kind": "auto"
+  },
+  {
+   "address": 20774,
+   "name": "f_5126",
+   "type": "Field",
+   "kind": "auto"
+  },
+  {
+   "address": 20848,
+   "name": "f_5170",
+   "type": "Field",
+   "kind": "auto"
+  },
+  {
+   "address": 20854,
+   "name": "f_5176",
+   "type": "Field",
+   "kind": "auto"
+  },
+  {
+   "address": 20922,
+   "name": "f_51BA",
+   "type": "Field",
+   "kind": "auto"
+  },
+  {
+   "address": 20934,
+   "name": "f_51C6",
+   "type": "Field",
+   "kind": "auto"
+  },
+  {
+   "address": 21008,
+   "name": "a_5210",
+   "type": "AbsoluteAddress",
+   "kind": "auto"
+  },
+  {
+   "address": 21090,
+   "name": "a_5262",
+   "type": "AbsoluteAddress",
+   "kind": "auto"
+  },
+  {
+   "address": 21172,
+   "name": "a_52B4",
+   "type": "AbsoluteAddress",
+   "kind": "auto"
+  },
+  {
+   "address": 21254,
+   "name": "a_5306",
+   "type": "AbsoluteAddress",
+   "kind": "auto"
+  },
+  {
+   "address": 21336,
+   "name": "a_5358",
+   "type": "AbsoluteAddress",
+   "kind": "auto"
+  },
+  {
+   "address": 21454,
+   "name": "f_53CE",
+   "type": "Field",
+   "kind": "auto"
+  },
+  {
+   "address": 21480,
+   "name": "f_53E8",
+   "type": "Field",
+   "kind": "auto"
+  },
+  {
+   "address": 21496,
+   "name": "f_53F8",
+   "type": "Field",
+   "kind": "auto"
+  },
+  {
+   "address": 31488,
+   "name": "drive_memory_execute_command",
+   "type": "Field",
+   "kind": "user"
+  },
+  {
+   "address": 31493,
+   "name": "fast_loader_fallback",
+   "type": "Branch",
+   "kind": "user"
+  },
+  {
+   "address": 31496,
+   "name": "fast_iec_load",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 31514,
+   "name": "b_7B1A",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 31566,
+   "name": "b_7B4E",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 31586,
+   "name": "b_7B62",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 31592,
+   "name": "fast_iec_stream_entry",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 31595,
+   "name": "fast_iec_receive_one",
+   "type": "Subroutine",
+   "kind": "user"
+  },
+  {
+   "address": 31602,
+   "name": "b_7B72",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 31609,
+   "name": "b_7B79",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 31613,
+   "name": "serial_raster_delay_operand",
+   "type": "AbsoluteAddress",
+   "kind": "user"
+  },
+  {
+   "address": 31620,
+   "name": "b_7B84",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 31649,
+   "name": "serial_data_bit_xor_operand",
+   "type": "AbsoluteAddress",
+   "kind": "user"
+  },
+  {
+   "address": 31654,
+   "name": "serial_copy_destination_opcode",
+   "type": "AbsoluteAddress",
+   "kind": "user"
+  },
+  {
+   "address": 31664,
+   "name": "fast_iec_exit",
+   "type": "Branch",
+   "kind": "user"
+  },
+  {
+   "address": 31696,
+   "name": "r_7BD0",
+   "type": "Return",
+   "kind": "auto"
+  },
+  {
+   "address": 31697,
+   "name": "b_7BD1",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 32256,
+   "name": "a_7E00",
+   "type": "AbsoluteAddress",
+   "kind": "auto"
+  },
+  {
+   "address": 32320,
+   "name": "a_7E40",
+   "type": "AbsoluteAddress",
+   "kind": "auto"
+  },
+  {
+   "address": 32384,
+   "name": "a_7E80",
+   "type": "AbsoluteAddress",
+   "kind": "auto"
+  },
+  {
+   "address": 32448,
+   "name": "a_7EC0",
+   "type": "AbsoluteAddress",
+   "kind": "auto"
+  },
+  {
+   "address": 32512,
+   "name": "a_7F00",
+   "type": "AbsoluteAddress",
+   "kind": "auto"
+  },
+  {
+   "address": 32576,
+   "name": "a_7F40",
+   "type": "AbsoluteAddress",
+   "kind": "auto"
+  },
+  {
+   "address": 32640,
+   "name": "a_7F80",
+   "type": "AbsoluteAddress",
+   "kind": "auto"
+  },
+  {
+   "address": 32704,
+   "name": "a_7FC0",
+   "type": "AbsoluteAddress",
+   "kind": "auto"
+  },
+  {
+   "address": 32768,
+   "name": "shared_sprite_slots_00",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 32896,
+   "name": "shared_sprite_slots_02",
+   "type": "Field",
+   "kind": "user"
+  },
+  {
+   "address": 33792,
+   "name": "shared_sprite_slots_10",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 34816,
+   "name": "shared_sprite_slots_20",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 35840,
+   "name": "shared_sprite_slots_30",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 36864,
+   "name": "shared_sprite_slots_40",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 37888,
+   "name": "shared_sprite_slots_50",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 38912,
+   "name": "shared_sprite_slots_60",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 39936,
+   "name": "shared_sprite_slots_70",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 40960,
+   "name": "shared_sprite_slots_80",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 41984,
+   "name": "shared_sprite_slots_90",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 43008,
+   "name": "shared_sprite_slots_a0",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 44032,
+   "name": "shared_sprite_slots_b0",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 45056,
+   "name": "shared_sprite_slots_c0",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 46080,
+   "name": "shared_sprite_slots_d0",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 47104,
+   "name": "shared_sprite_slots_e0",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 48128,
+   "name": "shared_sprite_slots_f0",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 49152,
+   "name": "scroll_fraction_parity",
+   "type": "AbsoluteAddress",
+   "kind": "user"
+  },
+  {
+   "address": 49153,
+   "name": "scroll_action_parity",
+   "type": "AbsoluteAddress",
+   "kind": "user"
+  },
+  {
+   "address": 49154,
+   "name": "scroll_interlude_parity",
+   "type": "AbsoluteAddress",
+   "kind": "user"
+  },
+  {
+   "address": 49155,
+   "name": "update_scroll",
+   "type": "Subroutine",
+   "kind": "user"
+  },
+  {
+   "address": 49169,
+   "name": "b_C011",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 49185,
+   "name": "r_C021",
+   "type": "Return",
+   "kind": "auto"
+  },
+  {
+   "address": 49186,
+   "name": "b_C022",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 49207,
+   "name": "b_C037",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 49232,
+   "name": "b_C050",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 49237,
+   "name": "b_C055",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 49271,
+   "name": "b_C077",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 49287,
+   "name": "b_C087",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 49305,
+   "name": "b_C099",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 49308,
+   "name": "b_C09C",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 49327,
+   "name": "b_C0AF",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 49335,
+   "name": "b_C0B7",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 49338,
+   "name": "r_C0BA",
+   "type": "Return",
+   "kind": "auto"
+  },
+  {
+   "address": 49339,
+   "name": "j_C0BB",
+   "type": "Jump",
+   "kind": "auto"
+  },
+  {
+   "address": 49361,
+   "name": "b_C0D1",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 49386,
+   "name": "b_C0EA",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 49420,
+   "name": "b_C10C",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 49436,
+   "name": "b_C11C",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 49439,
+   "name": "b_C11F",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 49462,
+   "name": "b_C136",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 49475,
+   "name": "b_C143",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 49478,
+   "name": "r_C146",
+   "type": "Return",
+   "kind": "auto"
+  },
+  {
+   "address": 49479,
+   "name": "draw_map_window",
+   "type": "Subroutine",
+   "kind": "user"
+  },
+  {
+   "address": 49525,
+   "name": "b_C175",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 49527,
+   "name": "b_C177",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 49528,
+   "name": "map_character_row_low_operand",
+   "type": "AbsoluteAddress",
+   "kind": "user"
+  },
+  {
+   "address": 49529,
+   "name": "map_character_row_high_operand",
+   "type": "AbsoluteAddress",
+   "kind": "user"
+  },
+  {
+   "address": 49531,
+   "name": "map_screen_row_low_operand",
+   "type": "AbsoluteAddress",
+   "kind": "user"
+  },
+  {
+   "address": 49532,
+   "name": "map_screen_row_high_operand",
+   "type": "AbsoluteAddress",
+   "kind": "user"
+  },
+  {
+   "address": 49534,
+   "name": "map_colour_row_low_operand",
+   "type": "AbsoluteAddress",
+   "kind": "user"
+  },
+  {
+   "address": 49535,
+   "name": "map_colour_row_high_operand",
+   "type": "AbsoluteAddress",
+   "kind": "user"
+  },
+  {
+   "address": 49537,
+   "name": "map_colour_ram_low_operand",
+   "type": "AbsoluteAddress",
+   "kind": "user"
+  },
+  {
+   "address": 49538,
+   "name": "map_colour_ram_high_operand",
+   "type": "AbsoluteAddress",
+   "kind": "user"
+  },
+  {
+   "address": 49568,
+   "name": "b_C1A0",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 49572,
+   "name": "hall_of_fame_scores",
+   "type": "Field",
+   "kind": "user"
+  },
+  {
+   "address": 49587,
+   "name": "hall_of_fame_names",
+   "type": "Field",
+   "kind": "user"
+  },
+  {
+   "address": 49617,
+   "name": "hall_of_fame_shift_size",
+   "type": "AbsoluteAddress",
+   "kind": "user"
+  },
+  {
+   "address": 49618,
+   "name": "high_score_insert_rank",
+   "type": "AbsoluteAddress",
+   "kind": "user"
+  },
+  {
+   "address": 49620,
+   "name": "remaining_score_comparisons",
+   "type": "AbsoluteAddress",
+   "kind": "user"
+  },
+  {
+   "address": 49621,
+   "name": "compare_hall_of_fame_score",
+   "type": "Subroutine",
+   "kind": "user"
+  },
+  {
+   "address": 49650,
+   "name": "b_C1F2",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 49658,
+   "name": "b_C1FA",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 49682,
+   "name": "b_C212",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 49687,
+   "name": "b_C217",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 49696,
+   "name": "b_C220",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 49734,
+   "name": "b_C246",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 49767,
+   "name": "b_C267",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 49782,
+   "name": "title_heading",
+   "type": "Field",
+   "kind": "user"
+  },
+  {
+   "address": 49794,
+   "name": "hall_of_fame_heading",
+   "type": "Field",
+   "kind": "user"
+  },
+  {
+   "address": 49806,
+   "name": "press_fire_label",
+   "type": "Field",
+   "kind": "user"
+  },
+  {
+   "address": 49820,
+   "name": "high_score_screen_rows",
+   "type": "Field",
+   "kind": "user"
+  },
+  {
+   "address": 49830,
+   "name": "high_score_color_rows",
+   "type": "Field",
+   "kind": "user"
+  },
+  {
+   "address": 49840,
+   "name": "displayed_rank_digit",
+   "type": "AbsoluteAddress",
+   "kind": "user"
+  },
+  {
+   "address": 49841,
+   "name": "displayed_score_row",
+   "type": "AbsoluteAddress",
+   "kind": "user"
+  },
+  {
+   "address": 49842,
+   "name": "displayed_score_low_nibble",
+   "type": "AbsoluteAddress",
+   "kind": "user"
+  },
+  {
+   "address": 49843,
+   "name": "displayed_score_index",
+   "type": "AbsoluteAddress",
+   "kind": "user"
+  },
+  {
+   "address": 49844,
+   "name": "draw_hall_of_fame",
+   "type": "Jump",
+   "kind": "user"
+  },
+  {
+   "address": 49848,
+   "name": "b_C2B8",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 49910,
+   "name": "b_C2F6",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 49935,
+   "name": "j_C30F",
+   "type": "Jump",
+   "kind": "auto"
+  },
+  {
+   "address": 49983,
+   "name": "b_C33F",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 50006,
+   "name": "b_C356",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 50076,
+   "name": "b_C39C",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 50079,
+   "name": "b_C39F",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 50100,
+   "name": "b_C3B4",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 50132,
+   "name": "name_entry_secondary_prompt",
+   "type": "Field",
+   "kind": "user"
+  },
+  {
+   "address": 50142,
+   "name": "selected_name_glyph",
+   "type": "AbsoluteAddress",
+   "kind": "user"
+  },
+  {
+   "address": 50143,
+   "name": "enter_high_score_name",
+   "type": "Jump",
+   "kind": "user"
+  },
+  {
+   "address": 50145,
+   "name": "b_C3E1",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 50169,
+   "name": "b_C3F9",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 50189,
+   "name": "b_C40D",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 50228,
+   "name": "b_C434",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 50235,
+   "name": "b_C43B",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 50238,
+   "name": "b_C43E",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 50245,
+   "name": "b_C445",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 50248,
+   "name": "b_C448",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 50293,
+   "name": "name_entry_glyph_index",
+   "type": "AbsoluteAddress",
+   "kind": "user"
+  },
+  {
+   "address": 50294,
+   "name": "start_game_fire_flag",
+   "type": "AbsoluteAddress",
+   "kind": "user"
+  },
+  {
+   "address": 50295,
+   "name": "poll_hall_of_fame_fire",
+   "type": "Subroutine",
+   "kind": "user"
+  },
+  {
+   "address": 50312,
+   "name": "r_C488",
+   "type": "Return",
+   "kind": "auto"
+  },
+  {
+   "address": 50313,
+   "name": "hall_of_fame_input_delay",
+   "type": "Subroutine",
+   "kind": "user"
+  },
+  {
+   "address": 50319,
+   "name": "b_C48F",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 50330,
+   "name": "name_entry_prompt",
+   "type": "Field",
+   "kind": "user"
+  },
+  {
+   "address": 50335,
+   "name": "name_entry_prompt_tail",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 50349,
+   "name": "name_entry_alphabet",
+   "type": "Field",
+   "kind": "user"
+  },
+  {
+   "address": 50379,
+   "name": "copied_sprite_suffix_high",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 50944,
+   "name": "music_voice_1_low",
+   "type": "Field",
+   "kind": "user"
+  },
+  {
+   "address": 51195,
+   "name": "music_voice_1_high",
+   "type": "Field",
+   "kind": "user"
+  },
+  {
+   "address": 51446,
+   "name": "music_voice_2_low",
+   "type": "Field",
+   "kind": "user"
+  },
+  {
+   "address": 51697,
+   "name": "music_voice_2_high",
+   "type": "Field",
+   "kind": "user"
+  },
+  {
+   "address": 55328,
+   "name": "f_D820",
+   "type": "Field",
+   "kind": "auto"
+  },
+  {
+   "address": 55349,
+   "name": "f_D835",
+   "type": "Field",
+   "kind": "auto"
+  },
+  {
+   "address": 55352,
+   "name": "f_D838",
+   "type": "Field",
+   "kind": "auto"
+  },
+  {
+   "address": 55466,
+   "name": "f_D8AA",
+   "type": "Field",
+   "kind": "auto"
+  },
+  {
+   "address": 55536,
+   "name": "f_D8F0",
+   "type": "Field",
+   "kind": "auto"
+  },
+  {
+   "address": 55586,
+   "name": "f_D922",
+   "type": "Field",
+   "kind": "auto"
+  },
+  {
+   "address": 55590,
+   "name": "f_D926",
+   "type": "Field",
+   "kind": "auto"
+  },
+  {
+   "address": 55664,
+   "name": "f_D970",
+   "type": "Field",
+   "kind": "auto"
+  },
+  {
+   "address": 55670,
+   "name": "f_D976",
+   "type": "Field",
+   "kind": "auto"
+  },
+  {
+   "address": 55738,
+   "name": "f_D9BA",
+   "type": "Field",
+   "kind": "auto"
+  },
+  {
+   "address": 55750,
+   "name": "f_D9C6",
+   "type": "Field",
+   "kind": "auto"
+  },
+  {
+   "address": 55824,
+   "name": "a_DA10",
+   "type": "AbsoluteAddress",
+   "kind": "auto"
+  },
+  {
+   "address": 55906,
+   "name": "a_DA62",
+   "type": "AbsoluteAddress",
+   "kind": "auto"
+  },
+  {
+   "address": 55988,
+   "name": "a_DAB4",
+   "type": "AbsoluteAddress",
+   "kind": "auto"
+  },
+  {
+   "address": 56070,
+   "name": "a_DB06",
+   "type": "AbsoluteAddress",
+   "kind": "auto"
+  },
+  {
+   "address": 56152,
+   "name": "a_DB58",
+   "type": "AbsoluteAddress",
+   "kind": "auto"
+  },
+  {
+   "address": 56270,
+   "name": "f_DBCE",
+   "type": "Field",
+   "kind": "auto"
+  },
+  {
+   "address": 56296,
+   "name": "f_DBE8",
+   "type": "Field",
+   "kind": "auto"
+  },
+  {
+   "address": 65280,
+   "name": "f_FF00",
+   "type": "Field",
+   "kind": "auto"
+  },
+  {
+   "address": 65424,
+   "name": "KERNAL_SETMSG",
+   "type": "Predefined",
+   "kind": "system"
+  },
+  {
+   "address": 65427,
+   "name": "KERNAL_SECOND",
+   "type": "Predefined",
+   "kind": "system"
+  },
+  {
+   "address": 65448,
+   "name": "KERNAL_CIOUT",
+   "type": "Predefined",
+   "kind": "system"
+  },
+  {
+   "address": 65457,
+   "name": "KERNAL_LISTEN",
+   "type": "Predefined",
+   "kind": "system"
+  },
+  {
+   "address": 65466,
+   "name": "KERNAL_SETLFS",
+   "type": "Predefined",
+   "kind": "system"
+  },
+  {
+   "address": 65469,
+   "name": "KERNAL_SETNAM",
+   "type": "Predefined",
+   "kind": "system"
+  },
+  {
+   "address": 65493,
+   "name": "KERNAL_LOAD",
+   "type": "Predefined",
+   "kind": "system"
+  }
+ ],
+ "comments": [
+  {
+   "address": 2304,
+   "type": "line",
+   "text": "Prepares the bus and reads the single-letter disk file selected by $0D1B. The caller increments the index between the five files in a stage."
+  },
+  {
+   "address": 2316,
+   "type": "line",
+   "text": "Sets the disk parameters and filename, calls KERNAL LOAD with A clear, then returns on success. On carry set the code copies the file index to the border and stays in its error loop."
+  },
+  {
+   "address": 2348,
+   "type": "line",
+   "text": "Receives the selected file index while the load error loop changes the border."
+  },
+  {
+   "address": 2349,
+   "type": "line",
+   "text": "Sets logical file 1, device 8 and secondary address 1 for an absolute-address disk load."
+  },
+  {
+   "address": 2358,
+   "type": "line",
+   "text": "Adds the stage file index at $0D1B to the address $0950 and passes the resulting one-byte filename to SETNAM."
+  },
+  {
+   "address": 2384,
+   "type": "line",
+   "text": "The ASCII letters A through Y are the filenames in five groups of five. $0936 passes the address of one letter to the KERNAL."
+  },
+  {
+   "address": 2409,
+   "type": "line",
+   "text": "Disables sprites and maps KERNAL ROM in before the load."
+  },
+  {
+   "address": 2423,
+   "type": "line",
+   "text": "Low byte of the requested destination loaded into X before KERNAL LOAD."
+  },
+  {
+   "address": 2424,
+   "type": "line",
+   "text": "High byte of the requested destination loaded into Y before KERNAL LOAD. Secondary address 1 makes the PRG header supply the load address."
+  },
+  {
+   "address": 2425,
+   "type": "line",
+   "text": "BASIC directory-style records with next-line RAM pointers, block counts and PETSCII filenames. The stage entries list C/D/E through W/X/Y, three files per stage. The line links end at $0C9D."
+  },
+  {
+   "address": 2658,
+   "type": "line",
+   "text": "Boundary inside the stored BASIC-style directory. The fragment at $0CA2 encodes this address as a call target, and the resident snapshot holds directory data here."
+  },
+  {
+   "address": 2905,
+   "type": "line",
+   "text": "Stored filename and block-count records in the directory suffix. $0CA8 encodes a call to $0B59 inside a copied code fragment, even though those bytes lie inside the directory."
+  },
+  {
+   "address": 3229,
+   "type": "line",
+   "text": "Zero next-line pointer ends the embedded catalog. The following byte is $22."
+  },
+  {
+   "address": 3232,
+   "type": "line",
+   "text": "Code fragment after the embedded catalog. The calls to $EDDD in its second path send three address or command fields and a 32-byte buffer through the KERNAL serial routine. Runtime use of this fragment is open."
+  },
+  {
+   "address": 3300,
+   "type": "line",
+   "text": "Sixteen stored zero bytes between the copied serial fragment and the bank-switch instructions."
+  },
+  {
+   "address": 3316,
+   "type": "line",
+   "text": "Nine bytes at the end of LOADER call $0E4F, disable interrupts, write $35 to the processor port and load $AE before SEC. Runtime use of the fragment is open."
+  },
+  {
+   "address": 3328,
+   "type": "line",
+   "text": "Masks $01 through $80 set one sprite's ninth X bit in $D010."
+  },
+  {
+   "address": 3336,
+   "type": "line",
+   "text": "Eight inverse masks clear one sprite's ninth X bit."
+  },
+  {
+   "address": 3344,
+   "type": "line",
+   "text": "Set to three during startup and decremented by the life icon routine."
+  },
+  {
+   "address": 3345,
+   "type": "line",
+   "text": "Least significant pair of score digits in packed BCD."
+  },
+  {
+   "address": 3346,
+   "type": "line",
+   "text": "Middle pair of score digits, including the carry from the low byte."
+  },
+  {
+   "address": 3347,
+   "type": "line",
+   "text": "Most significant packed BCD score pair."
+  },
+  {
+   "address": 3348,
+   "type": "line",
+   "text": "Low pair of the pending score increment, added by $2971 and then cleared."
+  },
+  {
+   "address": 3349,
+   "type": "line",
+   "text": "High pair of the pending score increment."
+  },
+  {
+   "address": 3350,
+   "type": "line",
+   "text": "Zero-based stage index multiplied by five to select its file group."
+  },
+  {
+   "address": 3351,
+   "type": "line",
+   "text": "Index into the stage event pointer table at $3B2C."
+  },
+  {
+   "address": 3352,
+   "type": "line",
+   "text": "Cleared during actor and death setup and set after the screen and map changes at $1AAE. The rest of this initial data span ends at the file index."
+  },
+  {
+   "address": 3353,
+   "type": "line",
+   "text": "Clears at the start of the four-actor frame update, before the next byte and the file index field."
+  },
+  {
+   "address": 3355,
+   "type": "line",
+   "text": "Index into the A\u2013Y disk filename table."
+  },
+  {
+   "address": 3356,
+   "type": "line",
+   "text": "Gates the Hall of Fame and first story message, and is set before stage animation."
+  },
+  {
+   "address": 3357,
+   "type": "line",
+   "text": "Coarse horizontal scroll in character columns."
+  },
+  {
+   "address": 3358,
+   "type": "line",
+   "text": "Low byte of the tile map window pointer."
+  },
+  {
+   "address": 3359,
+   "type": "line",
+   "text": "High byte of the current tile map row pointer."
+  },
+  {
+   "address": 3360,
+   "type": "line",
+   "text": "Low byte of the colour map window pointer."
+  },
+  {
+   "address": 3361,
+   "type": "line",
+   "text": "High byte of the current colour map row pointer."
+  },
+  {
+   "address": 3362,
+   "type": "line",
+   "text": "Fine-scroll bits merged into $D016 by the playfield raster handler."
+  },
+  {
+   "address": 3363,
+   "type": "line",
+   "text": "Countdown before the next scroll update, reloaded from $0D24."
+  },
+  {
+   "address": 3364,
+   "type": "line",
+   "text": "Prescaler loaded into the scroll countdown by $C011."
+  },
+  {
+   "address": 3366,
+   "type": "line",
+   "text": "Flag gating the IRQ scroll routine at $C003."
+  },
+  {
+   "address": 3367,
+   "type": "line",
+   "text": "Copy of the action-header scroll request, combined with actor occupancy to gate scrolling."
+  },
+  {
+   "address": 3369,
+   "type": "line",
+   "text": "Address used by two absolute BITs to delay the playfield raster register writes."
+  },
+  {
+   "address": 3370,
+   "type": "line",
+   "text": "Set after the position check when the target does not block scrolling."
+  },
+  {
+   "address": 3373,
+   "type": "line",
+   "text": "Set at the first or last map column. The movement routine tests it before constraining player X."
+  },
+  {
+   "address": 3374,
+   "type": "line",
+   "text": "Copy of the low orientation bit used to choose positive or mirrored X offsets."
+  },
+  {
+   "address": 3375,
+   "type": "line",
+   "text": "Signed horizontal step extracted from offset 2 of the animation entry, negated when mirrored."
+  },
+  {
+   "address": 3376,
+   "type": "line",
+   "text": "Signed vertical step read from offset 3 of the animation entry."
+  },
+  {
+   "address": 3377,
+   "type": "line",
+   "text": "Updated X position used as the origin for this actor's constituent sprites."
+  },
+  {
+   "address": 3378,
+   "type": "line",
+   "text": "Updated Y position used as the base of the sprite Y offsets."
+  },
+  {
+   "address": 3379,
+   "type": "line",
+   "text": "Horizontal offset of first hardware sprite from the actor origin after mirroring."
+  },
+  {
+   "address": 3380,
+   "type": "line",
+   "text": "Vertical offset of first hardware sprite."
+  },
+  {
+   "address": 3381,
+   "type": "line",
+   "text": "Horizontal offset of second hardware sprite."
+  },
+  {
+   "address": 3382,
+   "type": "line",
+   "text": "Vertical offset of second hardware sprite."
+  },
+  {
+   "address": 3383,
+   "type": "line",
+   "text": "Horizontal offset of third hardware sprite."
+  },
+  {
+   "address": 3384,
+   "type": "line",
+   "text": "Vertical offset of third hardware sprite."
+  },
+  {
+   "address": 3385,
+   "type": "line",
+   "text": "Horizontal offset of fourth hardware sprite."
+  },
+  {
+   "address": 3386,
+   "type": "line",
+   "text": "Vertical offset of fourth hardware sprite."
+  },
+  {
+   "address": 3387,
+   "type": "line",
+   "text": "Horizontal offset of fifth hardware sprite."
+  },
+  {
+   "address": 3388,
+   "type": "line",
+   "text": "Vertical offset of fifth hardware sprite."
+  },
+  {
+   "address": 3389,
+   "type": "line",
+   "text": "Current frame sprite count, also used as a loop counter when writing hardware coordinates."
+  },
+  {
+   "address": 3390,
+   "type": "line",
+   "text": "Captures the hardware slot from the actor record at $267E. The remaining initial bytes before the mask table are zero in COD1."
+  },
+  {
+   "address": 3407,
+   "type": "line",
+   "text": "Masks added for the player's upper hardware slots after its frame update."
+  },
+  {
+   "address": 3409,
+   "type": "line",
+   "text": "Masks for the first auxiliary actor's assigned sprite slots."
+  },
+  {
+   "address": 3411,
+   "type": "line",
+   "text": "Masks for the second auxiliary actor's sprite slots."
+  },
+  {
+   "address": 3413,
+   "type": "line",
+   "text": "Masks added for the stage actor's sprite allocation."
+  },
+  {
+   "address": 3417,
+   "type": "line",
+   "text": "Gates dispatch through $3B17."
+  },
+  {
+   "address": 3418,
+   "type": "line",
+   "text": "Gates the action selection at $11CA."
+  },
+  {
+   "address": 3419,
+   "type": "line",
+   "text": "Gates updates for the two auxiliary actor records."
+  },
+  {
+   "address": 3420,
+   "type": "line",
+   "text": "Gates the stage-specific opponent and its stage sprite library selection."
+  },
+  {
+   "address": 3421,
+   "type": "line",
+   "text": "Gates the update routine at $36DA."
+  },
+  {
+   "address": 3422,
+   "type": "line",
+   "text": "Gates the shared auxiliary sprite allocation at $30CE."
+  },
+  {
+   "address": 3423,
+   "type": "line",
+   "text": "Allows calls to the common four-actor animation routine at $12E3."
+  },
+  {
+   "address": 3424,
+   "type": "line",
+   "text": "Gates the raster-synchronized sprite upload at $25D9."
+  },
+  {
+   "address": 3425,
+   "type": "line",
+   "text": "Gates the player-attack testing routine at $3192."
+  },
+  {
+   "address": 3426,
+   "type": "line",
+   "text": "Gates the player X bound routine at $3ACE."
+  },
+  {
+   "address": 3427,
+   "type": "line",
+   "text": "Gates whether $2FFC can limit scrolling when an opponent is close."
+  },
+  {
+   "address": 3428,
+   "type": "line",
+   "text": "Gates the actor boundary checks at $38FF."
+  },
+  {
+   "address": 3429,
+   "type": "line",
+   "text": "Gates the death and life-counter handler at $3C73."
+  },
+  {
+   "address": 3430,
+   "type": "line",
+   "text": "Gates the periodic addition and redraw at $2971."
+  },
+  {
+   "address": 3431,
+   "type": "line",
+   "text": "Gates the stage tile change check at $1A48."
+  },
+  {
+   "address": 3432,
+   "type": "line",
+   "text": "If clear, the music update returns before ticking the prescaler."
+  },
+  {
+   "address": 3433,
+   "type": "line",
+   "text": "Allows an inactive auxiliary slot to tick its spawn counter."
+  },
+  {
+   "address": 3434,
+   "type": "line",
+   "text": "Set in the second stage transition at $3B95 and cleared by the death setup at $36AE."
+  },
+  {
+   "address": 3435,
+   "type": "line",
+   "text": "Loads file indices 0 through 4, enables the display and seeds three lives and stage index zero before the first stage setup."
+  },
+  {
+   "address": 3480,
+   "type": "line",
+   "text": "Starts the shared stage setup after either boot or an overlay load. Clears actor slots, initialises VIC and IRQ control, restores panel display and sets map origin."
+  },
+  {
+   "address": 3663,
+   "type": "line",
+   "text": "Tests the hit-detection enable byte before calling $3192. Subsequent flags gate player bounds, actor scroll blocking, off-screen actors, death handling, score and tile writes."
+  },
+  {
+   "address": 3725,
+   "type": "line",
+   "text": "Selects VIC bank $4000 through CIA2, screen base $5000 and multicolour character mode."
+  },
+  {
+   "address": 3773,
+   "type": "line",
+   "text": "The video setup stores the old CIA2 data direction into this immediate operand, then restores it after selecting the VIC bank."
+  },
+  {
+   "address": 3778,
+   "type": "line",
+   "text": "Installs $0F32 as IRQ and $0F50 for NMI and reset in RAM, then changes the processor port to bank out KERNAL while leaving I/O visible."
+  },
+  {
+   "address": 3815,
+   "type": "line",
+   "text": "Sets the tile and colour row bases to $5400 and $6700 and clears fine horizontal scroll."
+  },
+  {
+   "address": 3849,
+   "type": "line",
+   "text": "Installs the RAM IRQ vector at $0314, enables VIC raster interrupts and schedules $0F51 for raster line $61."
+  },
+  {
+   "address": 3890,
+   "type": "line",
+   "text": "Saves A, X and Y. A VIC raster interrupt is acknowledged and passed to the JSR operand at $0F46. The routine acknowledges CIA1 and restores registers before RTI."
+  },
+  {
+   "address": 3910,
+   "type": "line",
+   "text": "Low operand of the JSR at $0F45. Each raster handler installs the other handler here."
+  },
+  {
+   "address": 3911,
+   "type": "line",
+   "text": "High operand of the interrupt callback. Following it, the handler acknowledges CIA1 and restores the saved registers."
+  },
+  {
+   "address": 3921,
+   "type": "line",
+   "text": "Queues $0F90 at line $FC, sets stage multicolours and merges the fine-scroll value into $D016 before calling the scroll update."
+  },
+  {
+   "address": 3975,
+   "type": "line",
+   "text": "Self-modified opcode. $8D writes the computed VIC character base to $D018. $AD instead reads it when the panel charset must remain selected."
+  },
+  {
+   "address": 3984,
+   "type": "line",
+   "text": "Queues $0F51 at line $61, selects the panel charset at $4800, clears fine scroll and calls the sound updates."
+  },
+  {
+   "address": 4041,
+   "type": "line",
+   "text": "Starts the entrance script and updates the player actor and sprites repeatedly until the player X coordinate reaches $57. Sets the input-enabled flag on completion."
+  },
+  {
+   "address": 4150,
+   "type": "line",
+   "text": "Busy-waits in nested counters with Y initially $0A and X reloaded to $FB."
+  },
+  {
+   "address": 4161,
+   "type": "line",
+   "text": "Writes six zero glyphs to the score and seeds the initial timer characters with 89."
+  },
+  {
+   "address": 4185,
+   "type": "line",
+   "text": "Writes seventeen full-width bar glyphs to the panel address passed in $DD/$DE."
+  },
+  {
+   "address": 4195,
+   "type": "line",
+   "text": "Writes the two character codes at $7A09 and $7A0A through the stage-specific screen pointer in $7A00."
+  },
+  {
+   "address": 4219,
+   "type": "line",
+   "text": "Draws three life silhouettes across three panel rows at two-cell spacing."
+  },
+  {
+   "address": 4264,
+   "type": "line",
+   "text": "Number of previously removed life silhouettes used to index the next set of panel cells."
+  },
+  {
+   "address": 4265,
+   "type": "line",
+   "text": "Increments the lost-life icon index, erases its cells across three rows and decrements the lives value."
+  },
+  {
+   "address": 4298,
+   "type": "line",
+   "text": "Clears both 40-byte actor records at $164F and $16C4."
+  },
+  {
+   "address": 4314,
+   "type": "line",
+   "text": "A CIA1 port B value other than $FF clears the timer and scroll enable. After seven delays, polls until another non-$FF value, runs two more delays and re-enables the timer. Live RUN/STOP checks reached both branches."
+  },
+  {
+   "address": 4359,
+   "type": "line",
+   "text": "Sets two actor records inactive, giving them different base sprite pointers and VIC slots."
+  },
+  {
+   "address": 4439,
+   "type": "line",
+   "text": "Enables multicolour sprites, establishes shared and player colours, and seeds the player actor's script, coordinates, health and hardware allocation."
+  },
+  {
+   "address": 4551,
+   "type": "line",
+   "text": "Saved comparison result from the current action header's behavior class."
+  },
+  {
+   "address": 4552,
+   "type": "line",
+   "text": "Byte 4 of the selected action header, used by opponent logic and attack response."
+  },
+  {
+   "address": 4553,
+   "type": "line",
+   "text": "Last stick mask used by $1229 to decide whether to keep or change an action."
+  },
+  {
+   "address": 4554,
+   "type": "line",
+   "text": "Reads the player actor header, updates the horizontal input transform for right or left facing, and compares the stick state with the current actor action."
+  },
+  {
+   "address": 4833,
+   "type": "line",
+   "text": "Two zero bytes between the input selector return and the four-actor update."
+  },
+  {
+   "address": 4835,
+   "type": "line",
+   "text": "Updates the four actor records and combines their hardware enable masks in $1370."
+  },
+  {
+   "address": 4975,
+   "type": "line",
+   "text": "Low-byte sentinel flag used with a page check before reversing the actor."
+  },
+  {
+   "address": 4976,
+   "type": "line",
+   "text": "Sum by OR of the actor sprite masks, sent to $D015 at the sprite update."
+  },
+  {
+   "address": 4977,
+   "type": "line",
+   "text": "Interprets the current animation step and its frame descriptor, copies sprite indices, calculates per-sprite positions with horizontal mirroring, and advances the step when its tick counter expires."
+  },
+  {
+   "address": 5583,
+   "type": "line",
+   "text": "Adds five to the actor's animation cursor. A zero high byte in the next frame pointer returns the record to its idle dispatch state, otherwise the next step supplies the frame duration."
+  },
+  {
+   "address": 5666,
+   "type": "line",
+   "text": "Shift register combining the successive low-bit products for the multiply at $1627. The nearby bytes hold inputs and returned low and high result bytes."
+  },
+  {
+   "address": 5667,
+   "type": "line",
+   "text": "The initial X argument, shifted right to expose one multiplier bit each pass."
+  },
+  {
+   "address": 5668,
+   "type": "line",
+   "text": "The Y argument, added to the accumulator on set multiplier bits."
+  },
+  {
+   "address": 5669,
+   "type": "line",
+   "text": "Copy of the product low byte returned in X."
+  },
+  {
+   "address": 5670,
+   "type": "line",
+   "text": "Copy of the product high byte returned in Y."
+  },
+  {
+   "address": 5671,
+   "type": "line",
+   "text": "Eight shift-and-add passes compute the unsigned product of X and Y, returning low in X and high in Y."
+  },
+  {
+   "address": 5711,
+   "type": "line",
+   "text": "Beginning of the player record. Its first five positions hold hardware sprite indices and byte 5 holds the first VIC cache pointer."
+  },
+  {
+   "address": 5717,
+   "type": "line",
+   "text": "Orientation in bit zero, separate hit flags in bits five and six, and death flag in bit seven."
+  },
+  {
+   "address": 5718,
+   "type": "line",
+   "text": "Player record byte 7 gates animation and rendering."
+  },
+  {
+   "address": 5720,
+   "type": "line",
+   "text": "Current action byte. $FF requests a fresh action in the entrance and interlude logic."
+  },
+  {
+   "address": 5723,
+   "type": "line",
+   "text": "Player's base X position in half-pixel coordinate units."
+  },
+  {
+   "address": 5724,
+   "type": "line",
+   "text": "Player Y origin, five pairs of computed sprite coordinates, count and first hardware slot, and the three descriptor fields copied at $13AB through $13C1."
+  },
+  {
+   "address": 5740,
+   "type": "line",
+   "text": "Remaining ticks before the player animation reads its next five-byte script entry."
+  },
+  {
+   "address": 5743,
+   "type": "line",
+   "text": "Player health at actor offset $20, seeded to $40 and reduced in hit handling."
+  },
+  {
+   "address": 5746,
+   "type": "line",
+   "text": "Low byte of the player's action header pointer."
+  },
+  {
+   "address": 5747,
+   "type": "line",
+   "text": "High byte of the player's action header pointer."
+  },
+  {
+   "address": 5748,
+   "type": "line",
+   "text": "Low byte of the currently selected animation cursor."
+  },
+  {
+   "address": 5749,
+   "type": "line",
+   "text": "High byte of the player animation cursor."
+  },
+  {
+   "address": 5750,
+   "type": "line",
+   "text": "Beginning of the first shared opponent record, with its frame indices before the VIC base pointer."
+  },
+  {
+   "address": 5755,
+   "type": "line",
+   "text": "First cache slot for the first auxiliary actor, adjusted by the sprite allocation logic."
+  },
+  {
+   "address": 5756,
+   "type": "line",
+   "text": "Faces left or right from bit zero, toggled during transition."
+  },
+  {
+   "address": 5757,
+   "type": "line",
+   "text": "Animation and draw enable for the first auxiliary actor. Subsequent bytes before the coordinate hold action and step state."
+  },
+  {
+   "address": 5762,
+   "type": "line",
+   "text": "Base X coordinate of the first auxiliary actor."
+  },
+  {
+   "address": 5763,
+   "type": "line",
+   "text": "First auxiliary actor Y followed by its computed sprite positions."
+  },
+  {
+   "address": 5774,
+   "type": "line",
+   "text": "Number of hardware sprites in the active first auxiliary actor frame."
+  },
+  {
+   "address": 5775,
+   "type": "line",
+   "text": "First VIC sprite slot for the first auxiliary actor, followed by its frame and attack attributes."
+  },
+  {
+   "address": 5779,
+   "type": "line",
+   "text": "Tick count for this auxiliary actor's current animation step, before health and type."
+  },
+  {
+   "address": 5783,
+   "type": "line",
+   "text": "State used to index the common auxiliary header table."
+  },
+  {
+   "address": 5785,
+   "type": "line",
+   "text": "Low byte of the first auxiliary action header pointer."
+  },
+  {
+   "address": 5786,
+   "type": "line",
+   "text": "High byte of the first auxiliary action header."
+  },
+  {
+   "address": 5787,
+   "type": "line",
+   "text": "Low byte of the first auxiliary animation cursor."
+  },
+  {
+   "address": 5788,
+   "type": "line",
+   "text": "High byte of the first auxiliary animation cursor."
+  },
+  {
+   "address": 5789,
+   "type": "line",
+   "text": "Start of the second shared opponent's frame indices and cache pointer."
+  },
+  {
+   "address": 5795,
+   "type": "line",
+   "text": "Facing and status flags for the second auxiliary slot."
+  },
+  {
+   "address": 5796,
+   "type": "line",
+   "text": "Animation enable for the second auxiliary actor, followed by its action progress fields."
+  },
+  {
+   "address": 5801,
+   "type": "line",
+   "text": "Base X of the second auxiliary actor. Its remaining record holds Y, sprite positions, hit fields and pointers in the same offsets as the first actor."
+  },
+  {
+   "address": 5828,
+   "type": "line",
+   "text": "Stage opponent frame indices and first sprite-cache pointer."
+  },
+  {
+   "address": 5834,
+   "type": "line",
+   "text": "Facing and hit flags for the stage opponent."
+  },
+  {
+   "address": 5835,
+   "type": "line",
+   "text": "Controls drawing and updating of the stage opponent."
+  },
+  {
+   "address": 5837,
+   "type": "line",
+   "text": "Action state, including $FF when a new stage-specific header is needed."
+  },
+  {
+   "address": 5840,
+   "type": "line",
+   "text": "Base X, also adjusted when the map scrolls."
+  },
+  {
+   "address": 5841,
+   "type": "line",
+   "text": "Base Y and sprite coordinate components for the stage opponent."
+  },
+  {
+   "address": 5857,
+   "type": "line",
+   "text": "Tick countdown until the next stage opponent script step."
+  },
+  {
+   "address": 5862,
+   "type": "line",
+   "text": "The stage actor's sprite colour at field $22. $264E\u2013$265E passes it to the VIC colour registers."
+  },
+  {
+   "address": 5863,
+   "type": "line",
+   "text": "Low byte of the stage actor's current header pointer."
+  },
+  {
+   "address": 5864,
+   "type": "line",
+   "text": "High byte of the stage actor's current header pointer."
+  },
+  {
+   "address": 5865,
+   "type": "line",
+   "text": "Low byte of the stage actor's current animation step pointer."
+  },
+  {
+   "address": 5866,
+   "type": "line",
+   "text": "High byte of the stage actor's animation step pointer."
+  },
+  {
+   "address": 5867,
+   "type": "line",
+   "text": "Low five bits of the inverted CIA1 port, with possible horizontal remapping before storage at $16ED."
+  },
+  {
+   "address": 5868,
+   "type": "line",
+   "text": "Copy of the player facing bit. Enables left and right exchange in the joystick reader."
+  },
+  {
+   "address": 5869,
+   "type": "line",
+   "text": "Normalized five-bit joystick mask used by the action lookup."
+  },
+  {
+   "address": 5871,
+   "type": "line",
+   "text": "Inverts active-low bits at $DC00, keeps the five direction and fire bits, and exchanges left and right when the facing flag at $16EC is set."
+  },
+  {
+   "address": 5915,
+   "type": "line",
+   "text": "The first of 32 pointer words indexed by the decoded stick bits at $124C. Index zero selects the idle header at $210F."
+  },
+  {
+   "address": 5917,
+   "type": "line",
+   "text": "Low byte of the header pointer for joystick mask $01. The stage and hit/death paths can replace it."
+  },
+  {
+   "address": 5918,
+   "type": "line",
+   "text": "High byte of the action header selected by joystick up."
+  },
+  {
+   "address": 5933,
+   "type": "line",
+   "text": "Low byte of the table entry for joystick mask $09, replaced along with the next byte by $38E2."
+  },
+  {
+   "address": 5934,
+   "type": "line",
+   "text": "High byte of the header pointer for mask $09."
+  },
+  {
+   "address": 5935,
+   "type": "line",
+   "text": "Low byte of the header pointer for mask $0A."
+  },
+  {
+   "address": 5936,
+   "type": "line",
+   "text": "High byte of the header pointer for mask $0A. The following words cover masks $0B through $0F."
+  },
+  {
+   "address": 5947,
+   "type": "line",
+   "text": "Low byte of the header pointer for fire alone. The reset routine sets this entry to $2146."
+  },
+  {
+   "address": 5948,
+   "type": "line",
+   "text": "High byte of the fire-alone entry. The next fifteen words cover $11 through $1F."
+  },
+  {
+   "address": 5979,
+   "type": "line",
+   "text": "The byte $17 lies after the 32 joystick action pointers and before the copied disk routine."
+  },
+  {
+   "address": 5980,
+   "type": "line",
+   "text": "Return instruction immediately before the relocated copy of the stage load helper."
+  },
+  {
+   "address": 5981,
+   "type": "line",
+   "text": "Relocated counterpart of $090C, passing filename and disk arguments before LOAD. Its filename address arithmetic still points to the resident $0950 table."
+  },
+  {
+   "address": 6013,
+   "type": "line",
+   "text": "Self-written file number used alongside the relocated border loop."
+  },
+  {
+   "address": 6014,
+   "type": "line",
+   "text": "Relocated version of the logical file and drive setup at $092D."
+  },
+  {
+   "address": 6023,
+   "type": "line",
+   "text": "Relocated filename helper corresponding to $0936."
+  },
+  {
+   "address": 6049,
+   "type": "line",
+   "text": "A\u2013Y table following the relocated loader copy. The relocated filename helper still selects the table at $0950."
+  },
+  {
+   "address": 6074,
+   "type": "line",
+   "text": "Counterpart of $0969, clears sprite enables and selects the KERNAL mapping."
+  },
+  {
+   "address": 6088,
+   "type": "line",
+   "text": "Two zero bytes following the relocated loader before the facing toggle."
+  },
+  {
+   "address": 6090,
+   "type": "line",
+   "text": "Toggles the low facing bit in the current actor flags and clears the pending reversal marker."
+  },
+  {
+   "address": 6106,
+   "type": "line",
+   "text": "An RTS byte immediately after the facing routine's tail jump."
+  },
+  {
+   "address": 6107,
+   "type": "line",
+   "text": "Selects which of the two auxiliary slots is being updated."
+  },
+  {
+   "address": 6108,
+   "type": "line",
+   "text": "Result of the active auxiliary actor sprite count used by the allocator."
+  },
+  {
+   "address": 6109,
+   "type": "line",
+   "text": "Working counter shared by the two auxiliary actor updates, with separate saved values for each."
+  },
+  {
+   "address": 6110,
+   "type": "line",
+   "text": "Saved spawn countdown for the first auxiliary opponent."
+  },
+  {
+   "address": 6111,
+   "type": "line",
+   "text": "Saved spawn countdown for the second auxiliary opponent."
+  },
+  {
+   "address": 6112,
+   "type": "line",
+   "text": "Updates records at $1676 and $169D one at a time, passing their independent counters through $17DD."
+  },
+  {
+   "address": 6169,
+   "type": "line",
+   "text": "Tests actor readiness, animation and behaviour flags before choosing a spawn or update path. Reloads the spawn delay from $7A10."
+  },
+  {
+   "address": 6596,
+   "type": "line",
+   "text": "Zero byte between the auxiliary actor update and its pointer table at $19C5."
+  },
+  {
+   "address": 6597,
+   "type": "line",
+   "text": "Sixteen consecutive source bytes for the actor initialisation code reached from $1889."
+  },
+  {
+   "address": 6613,
+   "type": "line",
+   "text": "Four actor header pointers. The two-byte index from $1697 selects one of these words in $3137."
+  },
+  {
+   "address": 6621,
+   "type": "line",
+   "text": "Restores timer digits to 99, clears the coarse scroll and stage event index, and enables the main stage update flags."
+  },
+  {
+   "address": 6728,
+   "type": "line",
+   "text": "At the stage column stored at $7A0D, tests the active script's type byte and can write replacement character bytes to the screen and its backing map."
+  },
+  {
+   "address": 6880,
+   "type": "line",
+   "text": "Three zero bytes between the preceding map patch routine and the first referenced animation descriptor at $1AE3."
+  },
+  {
+   "address": 6883,
+   "type": "line",
+   "text": "68 animation descriptors referenced by common actor streams, from $1AE3 through $1EBF. In each, the count and indices select hardware sprites, followed by per-sprite offsets and collision fields consumed by $1371."
+  },
+  {
+   "address": 7881,
+   "type": "line",
+   "text": "32 animation descriptors referenced by common actor streams, from $1ECC through $20C6. In each, the count and indices select hardware sprites, followed by per-sprite offsets and collision fields consumed by $1371."
+  },
+  {
+   "address": 8403,
+   "type": "line",
+   "text": "Reads by index during actor hit testing. The common animation descriptors before this table have frame pointers in the $21FF\u2013$25D6 scripts."
+  },
+  {
+   "address": 8431,
+   "type": "line",
+   "text": "Pairs of relative attack X and Y coordinates. $31E3 and $31EA fetch the two bytes at twice the attack index."
+  },
+  {
+   "address": 8463,
+   "type": "line",
+   "text": "48 five-byte headers. The first two bytes point to a common animation stream. Byte +2 feeds the scroll request at $12AD and byte +4 distinguishes the special action kind at $125E."
+  },
+  {
+   "address": 8703,
+   "type": "line",
+   "text": "8 common animation streams, with entry points $21FF through $228F. Each five-byte step gives a frame address, signed coordinate deltas and duration. A zero pointer stops the sequence."
+  },
+  {
+   "address": 8909,
+   "type": "line",
+   "text": "8 common animation streams, with entry points $22CD through $2369. Each five-byte step gives a frame address, signed coordinate deltas and duration. A zero pointer stops the sequence."
+  },
+  {
+   "address": 9072,
+   "type": "line",
+   "text": "8 common animation streams, with entry points $2370 through $23EC. Each five-byte step gives a frame address, signed coordinate deltas and duration. A zero pointer stops the sequence."
+  },
+  {
+   "address": 9213,
+   "type": "line",
+   "text": "8 common animation streams, with entry points $23FD through $2474. Each five-byte step gives a frame address, signed coordinate deltas and duration. A zero pointer stops the sequence."
+  },
+  {
+   "address": 9349,
+   "type": "line",
+   "text": "8 common animation streams, with entry points $2485 through $2547. Each five-byte step gives a frame address, signed coordinate deltas and duration. A zero pointer stops the sequence."
+  },
+  {
+   "address": 9575,
+   "type": "line",
+   "text": "6 common animation streams, with entry points $2567 through $25D0. Each five-byte step gives a frame address, signed coordinate deltas and duration. A zero pointer stops the sequence."
+  },
+  {
+   "address": 9687,
+   "type": "line",
+   "text": "Copied from actor offset $05 by $26C0 and incremented as each consecutive VIC sprite pointer is written."
+  },
+  {
+   "address": 9688,
+   "type": "line",
+   "text": "The source selector tested at $2702. Zero uses the $8000 library. A nonzero value uses the stage library at $E000."
+  },
+  {
+   "address": 9689,
+   "type": "line",
+   "text": "Waits for raster line $E1, updates player and enemy sprites, writes the aggregate enable mask, then spends delay loops for unused sprite slots."
+  },
+  {
+   "address": 9787,
+   "type": "line",
+   "text": "Zero initializer before the sprite batch counter in COD1."
+  },
+  {
+   "address": 9788,
+   "type": "line",
+   "text": "Total hardware sprites processed in the current raster update, then reused to count delay iterations."
+  },
+  {
+   "address": 9789,
+   "type": "line",
+   "text": "Count of components in the actor currently being written to VIC registers."
+  },
+  {
+   "address": 9790,
+   "type": "line",
+   "text": "For an active record, copies its frames, publishes coordinates and pointers and fills the actor's consecutive sprite colours."
+  },
+  {
+   "address": 9833,
+   "type": "line",
+   "text": "Writes each X and Y coordinate to its hardware slot, using per-sprite bit masks to set or clear the ninth horizontal bit in $D010."
+  },
+  {
+   "address": 9916,
+   "type": "line",
+   "text": "Reads starting VIC pointer, count and slot from the actor record and writes consecutive pointers into $53F8."
+  },
+  {
+   "address": 9947,
+   "type": "line",
+   "text": "Low byte of the selected library address used to patch the sprite copy."
+  },
+  {
+   "address": 9948,
+   "type": "line",
+   "text": "High byte of the selected source for the sprite copy. The subsequent bytes up to $26EA are zero in COD1."
+  },
+  {
+   "address": 9962,
+   "type": "line",
+   "text": "Reads sprite indices from the actor record, selects the $8000 or $E000 source library and prepares the source pointer and VIC cache destination before copying each frame."
+  },
+  {
+   "address": 9991,
+   "type": "line",
+   "text": "Multiplies the current sprite index by 64 and combines the result with source base $8000."
+  },
+  {
+   "address": 10011,
+   "type": "line",
+   "text": "Calculates the source of the current stage-specific sprite by adding $E000 to its 64-byte index offset."
+  },
+  {
+   "address": 10084,
+   "type": "line",
+   "text": "Count of frame components copied so far."
+  },
+  {
+   "address": 10085,
+   "type": "line",
+   "text": "Number of frame components to copy, taken from actor offset $18."
+  },
+  {
+   "address": 10086,
+   "type": "line",
+   "text": "VIC pointer used to index the destination address table."
+  },
+  {
+   "address": 10087,
+   "type": "line",
+   "text": "Index of the next sprite number within the actor record. Three zero bytes follow before the cache address table."
+  },
+  {
+   "address": 10091,
+   "type": "line",
+   "text": "Eight little-endian slot addresses spaced 64 bytes apart from $7E00 to $7FC0."
+  },
+  {
+   "address": 10107,
+   "type": "line",
+   "text": "Returns the low byte in A and high byte in Y of the unsigned sprite index multiplied by 64."
+  },
+  {
+   "address": 10124,
+   "type": "line",
+   "text": "The zero byte after the multiply-by-64 helper return and before its temporary index."
+  },
+  {
+   "address": 10125,
+   "type": "line",
+   "text": "Index shifted right twice to obtain the source address high part."
+  },
+  {
+   "address": 10126,
+   "type": "line",
+   "text": "Low byte of the VIC cache destination patched into the copy instruction."
+  },
+  {
+   "address": 10127,
+   "type": "line",
+   "text": "High byte of the selected cache address."
+  },
+  {
+   "address": 10128,
+   "type": "line",
+   "text": "Patches the source and destination operands, then uses byte position and pixel-bit permutations to copy a horizontally mirrored sprite."
+  },
+  {
+   "address": 10155,
+   "type": "line",
+   "text": "Low byte of the incoming sprite source operand at $27AA."
+  },
+  {
+   "address": 10156,
+   "type": "line",
+   "text": "High byte of the mirrored copy source. The code then translates the byte and indexes the destination permutation."
+  },
+  {
+   "address": 10164,
+   "type": "line",
+   "text": "Low byte of the mirrored sprite destination operand at $27B3."
+  },
+  {
+   "address": 10165,
+   "type": "line",
+   "text": "High byte of that destination. X is then decremented until the 64-byte copy finishes."
+  },
+  {
+   "address": 10170,
+   "type": "line",
+   "text": "Destination permutation for the 64-byte sprite copy at $27B0. The pixel byte order reverses within each row."
+  },
+  {
+   "address": 10234,
+   "type": "line",
+   "text": "Three stored bytes between the 64-entry row-reversal table and the 256-entry pixel reversal table."
+  },
+  {
+   "address": 10237,
+   "type": "line",
+   "text": "256-entry lookup reverses four two-bit pixels within the source byte to mirror the sprite horizontally."
+  },
+  {
+   "address": 10493,
+   "type": "line",
+   "text": "Patches the source at $2917 and destination at $291E, then copies the full 64-byte sprite slot in reverse index order."
+  },
+  {
+   "address": 10520,
+   "type": "line",
+   "text": "Self-modified low address for the unmirrored frame source."
+  },
+  {
+   "address": 10521,
+   "type": "line",
+   "text": "Self-modified high address for the unmapped source slot, followed by the four NOPs before the write."
+  },
+  {
+   "address": 10527,
+   "type": "line",
+   "text": "Patched low byte of the unmirrored sprite cache destination."
+  },
+  {
+   "address": 10528,
+   "type": "line",
+   "text": "The high byte of the unmirrored destination. The next instructions decrement X until the slot is copied."
+  },
+  {
+   "address": 10533,
+   "type": "line",
+   "text": "Five header pointers, beginning at $217D, indexed in the auxiliary actor animation logic."
+  },
+  {
+   "address": 10543,
+   "type": "line",
+   "text": "Four further header pointers starting at $23B4 and covering common actor animation actions."
+  },
+  {
+   "address": 10551,
+   "type": "line",
+   "text": "Table region with action thresholds and common animation header pointers used to set the auxiliary actor's next action."
+  },
+  {
+   "address": 10603,
+   "type": "line",
+   "text": "Burns cycles in an X countdown from $FF when the actor frame routine has no active record."
+  },
+  {
+   "address": 10609,
+   "type": "line",
+   "text": "Adds two packed-BCD score bytes into the three-byte score at $0D11\u2013$0D13 and redraws all six digits before clearing the increment."
+  },
+  {
+   "address": 10684,
+   "type": "line",
+   "text": "Shows the message at $3D46, then resets the stage index, reloads the first five files and returns to the initial three-life setup."
+  },
+  {
+   "address": 10756,
+   "type": "line",
+   "text": "The 15-cell NEXT STAGE banner in the panel character set."
+  },
+  {
+   "address": 10771,
+   "type": "line",
+   "text": "Fifteen character cells saved from the panel by $2A81 before an overlay."
+  },
+  {
+   "address": 10786,
+   "type": "line",
+   "text": "Fifteen saved colour cells corresponding to $2A13."
+  },
+  {
+   "address": 10801,
+   "type": "line",
+   "text": "Places the next-stage caption on the panel and writes the stage number as a panel glyph."
+  },
+  {
+   "address": 10846,
+   "type": "line",
+   "text": "Copies 15 character and colour bytes into the corresponding panel cells at $50AA and $D8AA."
+  },
+  {
+   "address": 10866,
+   "type": "line",
+   "text": "Nine character codes spelling GAME OVER, copied to the panel by $2A91."
+  },
+  {
+   "address": 10875,
+   "type": "line",
+   "text": "Backs up a 15-cell panel strip and its colours and overlays the nine-character GAME OVER message."
+  },
+  {
+   "address": 11024,
+   "type": "line",
+   "text": "Runs the common frame update and VIC sprite update, with a short delay."
+  },
+  {
+   "address": 11046,
+   "type": "line",
+   "text": "Low byte of the stage-specific branch target used by the indirect jump at $2C86."
+  },
+  {
+   "address": 11047,
+   "type": "line",
+   "text": "High byte of the stage-specific opponent callback."
+  },
+  {
+   "address": 11048,
+   "type": "line",
+   "text": "Gate for the first timer-dependent opponent choice in the stage callbacks."
+  },
+  {
+   "address": 11049,
+   "type": "line",
+   "text": "Gate for the second opponent choice, tested after the first branch."
+  },
+  {
+   "address": 11050,
+   "type": "line",
+   "text": "Absolute separation used to decide whether to change the opponent facing bit."
+  },
+  {
+   "address": 11051,
+   "type": "line",
+   "text": "Five bytes indexed by stage, written to offset $1F of the stage actor."
+  },
+  {
+   "address": 11056,
+   "type": "line",
+   "text": "Five values copied to stage actor offset $1E, later used when checking the player/opponent separation."
+  },
+  {
+   "address": 11061,
+   "type": "line",
+   "text": "If the second actor slot is clear, seeds flags, energy, colour and per-stage attributes, then enters the opponent update path at $2E13."
+  },
+  {
+   "address": 11401,
+   "type": "line",
+   "text": "Return instruction immediately before the lane of stage callback pointers at $2C8A."
+  },
+  {
+   "address": 11402,
+   "type": "line",
+   "text": "Five interleaved pointers for the opponent routines selected by stage number before the indirect jump through $2B26."
+  },
+  {
+   "address": 11412,
+   "type": "line",
+   "text": "Toggle used to vary stage callback choices, inverted in stage 1 and stage 4 logic."
+  },
+  {
+   "address": 11413,
+   "type": "line",
+   "text": "Uses the stage flags and CIA1 timer register bits to pick a transition into the opponent action, or leaves the timer path alone."
+  },
+  {
+   "address": 11453,
+   "type": "line",
+   "text": "Uses the CIA1 timer's low two bits to select the special branch when the stage option at $2B28 is enabled."
+  },
+  {
+   "address": 11486,
+   "type": "line",
+   "text": "Varies the special opponent branch by both the timer register and the player's current action class at $11C8."
+  },
+  {
+   "address": 11531,
+   "type": "line",
+   "text": "Uses the player action class, a toggle and timer bits to choose one of two opponent actions."
+  },
+  {
+   "address": 11594,
+   "type": "line",
+   "text": "Option bytes gate the timer-dependent branches. The first can select $2D6B from bit zero of CIA1 timer A high. The follow-up uses that bit to select an index. With both options clear, execution jumps directly to $2E13."
+  },
+  {
+   "address": 11627,
+   "type": "line",
+   "text": "Uses the stage actor directory to choose the opponent's next scripted action and reload its starting duration."
+  },
+  {
+   "address": 11795,
+   "type": "line",
+   "text": "On the $FF action sentinel, reads the actor pointer from $CB0C, follows it to the first frame step and sets the duration counter."
+  },
+  {
+   "address": 11889,
+   "type": "line",
+   "text": "When set, the scroll routine bypasses its alternating displacement branch."
+  },
+  {
+   "address": 11890,
+   "type": "line",
+   "text": "Allows $C087 to adjust the player X during interlude scrolling."
+  },
+  {
+   "address": 11891,
+   "type": "line",
+   "text": "Updated by the interlude sequence at $2F22. Two bytes separate it from the interlude entry."
+  },
+  {
+   "address": 11894,
+   "type": "line",
+   "text": "Enables the flag at $2E71, increases the stage scroll limit by 20 columns and selects the zero-delay scroll path."
+  },
+  {
+   "address": 12251,
+   "type": "line",
+   "text": "Sets the opponent's action sentinel, starting coordinates, enable bytes and stage-specific flag field."
+  },
+  {
+   "address": 12282,
+   "type": "line",
+   "text": "Saves the first auxiliary actor's scroll permission for combination with the second."
+  },
+  {
+   "address": 12283,
+   "type": "line",
+   "text": "Proximity offset taken from the actor and applied on either side of the player."
+  },
+  {
+   "address": 12284,
+   "type": "line",
+   "text": "Tests each eligible actor against the player and combines their flags with the scroll request to decide whether scrolling can continue."
+  },
+  {
+   "address": 12385,
+   "type": "line",
+   "text": "Tests the opponent occupancy flags and a seven-unit horizontal band around the player, then sets actor proximity and scroll permission."
+  },
+  {
+   "address": 12492,
+   "type": "line",
+   "text": "Number of displayed components in the first auxiliary actor, used to place both spritesets in the cache."
+  },
+  {
+   "address": 12493,
+   "type": "line",
+   "text": "Second auxiliary actor count used with the first to detect the six-component case."
+  },
+  {
+   "address": 12494,
+   "type": "line",
+   "text": "Computes the visible sprite counts of both auxiliary actors and redistributes VIC cache slots when they total six."
+  },
+  {
+   "address": 12592,
+   "type": "line",
+   "text": "Loads the second auxiliary actor's header from $19D5, follows it to the first step, and sets the actor to its stage colour."
+  },
+  {
+   "address": 12645,
+   "type": "line",
+   "text": "Reads active actor state and records the hardware sprite count used by the allocation routine."
+  },
+  {
+   "address": 12681,
+   "type": "line",
+   "text": "Attack point horizontal position, combining actor and attack offset."
+  },
+  {
+   "address": 12682,
+   "type": "line",
+   "text": "Attack point vertical position, combining actor and attack offset."
+  },
+  {
+   "address": 12683,
+   "type": "line",
+   "text": "One horizontal attack-box bound before wrapping checks."
+  },
+  {
+   "address": 12684,
+   "type": "line",
+   "text": "Inclusive upper vertical interval bound."
+  },
+  {
+   "address": 12685,
+   "type": "line",
+   "text": "Other horizontal attack-box bound."
+  },
+  {
+   "address": 12686,
+   "type": "line",
+   "text": "Exclusive lower vertical interval bound."
+  },
+  {
+   "address": 12687,
+   "type": "line",
+   "text": "Counter initialised to two for the attack-testing loop."
+  },
+  {
+   "address": 12689,
+   "type": "line",
+   "text": "Selects which repeated-hit flag is tested on the player."
+  },
+  {
+   "address": 12690,
+   "type": "line",
+   "text": "Passes each selected target record to $31D3 with the player as the source actor."
+  },
+  {
+   "address": 12755,
+   "type": "line",
+   "text": "Initializes a two-pass hit-testing path and computes attack coordinates from the attack index and the actor's base position and facing."
+  },
+  {
+   "address": 13054,
+   "type": "line",
+   "text": "Set by a successful point-in-box test."
+  },
+  {
+   "address": 13055,
+   "type": "line",
+   "text": "Tests the point against the vertical interval and handles both ordinary and wrapping horizontal intervals. Sets $32FE on overlap."
+  },
+  {
+   "address": 13095,
+   "type": "line",
+   "text": "Zero initializer after the box test and before the player-hit routine."
+  },
+  {
+   "address": 13096,
+   "type": "line",
+   "text": "Rejects a repeated hit using separate player flag bits and requires both actor enable flags. Sets the corresponding flag, starts a SID effect and reads the current actor header."
+  },
+  {
+   "address": 13473,
+   "type": "line",
+   "text": "Clears panel text, fetches the first stage actor's header pointer from $CB00 and follows it to an animation or state record."
+  },
+  {
+   "address": 13550,
+   "type": "line",
+   "text": "Zero initializer preceding the damage and health bar temporaries."
+  },
+  {
+   "address": 13551,
+   "type": "line",
+   "text": "Low five bits from attacker field $1F, subtracted from the target health."
+  },
+  {
+   "address": 13552,
+   "type": "line",
+   "text": "Result of the subtraction, used by the death check and the health display."
+  },
+  {
+   "address": 13553,
+   "type": "line",
+   "text": "Quotient of the health value divided by four."
+  },
+  {
+   "address": 13554,
+   "type": "line",
+   "text": "Remainder modulo four, selecting a partial bar glyph."
+  },
+  {
+   "address": 13555,
+   "type": "line",
+   "text": "Debounces the hit flag, subtracts the attacker damage field from health, redraws the health bar and chooses a reaction or the death animation."
+  },
+  {
+   "address": 13696,
+   "type": "line",
+   "text": "Four glyph codes for the partially filled health cell, selected by the remainder after division by four."
+  },
+  {
+   "address": 13700,
+   "type": "line",
+   "text": "Four packed-BCD words copied by $3385 and $338C into the score increment, indexed by the action header's score class."
+  },
+  {
+   "address": 13708,
+   "type": "line",
+   "text": "Reads the four offsets in the indexed table at $20D3 into the bounding box workspace."
+  },
+  {
+   "address": 13739,
+   "type": "line",
+   "text": "Adds Y to both vertical sides and X to both horizontal sides of the attack box."
+  },
+  {
+   "address": 13772,
+   "type": "line",
+   "text": "Decimal tens of the countdown shown in the TIME panel."
+  },
+  {
+   "address": 13773,
+   "type": "line",
+   "text": "Decimal units, decremented before borrowing from the tens place."
+  },
+  {
+   "address": 13774,
+   "type": "line",
+   "text": "Gates interrupt updates of the time countdown."
+  },
+  {
+   "address": 13775,
+   "type": "line",
+   "text": "Decrements each active timer update before a timer digit changes."
+  },
+  {
+   "address": 13776,
+   "type": "line",
+   "text": "Decrements the timer prescaler while enabled, subtracts decimal digits with borrow and redraws the panel. On expiration it reloads 99 and jumps to $3671."
+  },
+  {
+   "address": 13834,
+   "type": "line",
+   "text": "Adds the panel digit offset $05 to the two decimal timer bytes and writes screen cells $50BD and $50BE."
+  },
+  {
+   "address": 13853,
+   "type": "line",
+   "text": "Temporary countdown of remaining playfield rows to clear."
+  },
+  {
+   "address": 13854,
+   "type": "line",
+   "text": "Fills 19 screen rows starting at $50F0 with $20 and clears their colour RAM. Restores the self-modified destination addresses for the next call."
+  },
+  {
+   "address": 13865,
+   "type": "line",
+   "text": "Patched low part of the current screen row destination."
+  },
+  {
+   "address": 13866,
+   "type": "line",
+   "text": "Patched screen destination high byte at $3628, followed by the colour store's setup."
+  },
+  {
+   "address": 13870,
+   "type": "line",
+   "text": "Patched low byte of the colour RAM row destination."
+  },
+  {
+   "address": 13871,
+   "type": "line",
+   "text": "Patched high byte of the clear-to-colour-RAM store. The routine advances both destinations by 40 per row and restores them at exit."
+  },
+  {
+   "address": 13937,
+   "type": "line",
+   "text": "Assigns the death animation, disables input-related flags and resets the timer digits and prescaler."
+  },
+  {
+   "address": 14015,
+   "type": "line",
+   "text": "Single zero byte skipped by the JMP from death setup to the facing routine."
+  },
+  {
+   "address": 14016,
+   "type": "line",
+   "text": "Toggles the low orientation bit in each of the three non-player actor records."
+  },
+  {
+   "address": 14041,
+   "type": "line",
+   "text": "Gates part of the opponent approach after the coarse scroll position reaches $1E."
+  },
+  {
+   "address": 14042,
+   "type": "line",
+   "text": "Gates the second actor slot and enables its approach path. Once a scroll threshold is reached, seeds the actor's animation and status fields."
+  },
+  {
+   "address": 14330,
+   "type": "line",
+   "text": "Writes filter routing $F4, cutoff high byte $27 and mode/volume $3F to the SID."
+  },
+  {
+   "address": 14346,
+   "type": "line",
+   "text": "Zero initial byte before the song frame and note counters."
+  },
+  {
+   "address": 14347,
+   "type": "line",
+   "text": "Timer between successive notes in the two-voice music routine."
+  },
+  {
+   "address": 14348,
+   "type": "line",
+   "text": "Index across the four frequency byte planes."
+  },
+  {
+   "address": 14351,
+   "type": "line",
+   "text": "Counts down between notes, turns off the gates for voices 1 and 2, then loads the next pair of frequency words from four byte planes. Resets at the $FF marker and gates the pulse waves back on."
+  },
+  {
+   "address": 14459,
+   "type": "line",
+   "text": "Resets the note index and prescaler for the music player."
+  },
+  {
+   "address": 14474,
+   "type": "line",
+   "text": "One-bit effect index, toggled on player hits."
+  },
+  {
+   "address": 14475,
+   "type": "line",
+   "text": "Selects one four-byte effect record and writes voice 3 attack/decay, frequency and control."
+  },
+  {
+   "address": 14514,
+   "type": "line",
+   "text": "Chooses effect-dependent SID cutoff and mode/volume bytes."
+  },
+  {
+   "address": 14538,
+   "type": "line",
+   "text": "Two pairs containing SID cutoff high and mode/volume used by $38BC."
+  },
+  {
+   "address": 14542,
+   "type": "line",
+   "text": "Two voice 3 records in envelope, frequency low, frequency high and control order."
+  },
+  {
+   "address": 14550,
+   "type": "line",
+   "text": "Restores four mutable words in the action dispatch table to their default common headers."
+  },
+  {
+   "address": 14591,
+   "type": "line",
+   "text": "Passes the player and both auxiliary actor records to the visibility and animation reset routine."
+  },
+  {
+   "address": 14625,
+   "type": "line",
+   "text": "Resets an active actor when its Y position falls past its stage-dependent limit, or its X position reaches a facing-dependent edge."
+  },
+  {
+   "address": 14680,
+   "type": "line",
+   "text": "Marks the actor available, clears its live animation and proximity flags, and sets the high bit of the main status byte."
+  },
+  {
+   "address": 14715,
+   "type": "line",
+   "text": "Divides health by four, writes that many full blocks and uses the remainder to select the final fractional glyph."
+  },
+  {
+   "address": 14759,
+   "type": "line",
+   "text": "Temporary countdown loaded from byte one of the panel message header."
+  },
+  {
+   "address": 14760,
+   "type": "line",
+   "text": "Character count per display row, set to 25 before advancing the destination pointers."
+  },
+  {
+   "address": 14761,
+   "type": "line",
+   "text": "The first message byte. A value of one skips the per-character sound and delay."
+  },
+  {
+   "address": 14762,
+   "type": "line",
+   "text": "Reads a two-byte header from the record at ($F9), then copies the custom character codes to the playfield. Waits for the fire bit read by $16EF."
+  },
+  {
+   "address": 14805,
+   "type": "line",
+   "text": "Patched low portion of the text row screen address."
+  },
+  {
+   "address": 14806,
+   "type": "line",
+   "text": "High portion of the same row destination, then loads colour $0B."
+  },
+  {
+   "address": 14810,
+   "type": "line",
+   "text": "Patched low byte of the text row colour RAM address."
+  },
+  {
+   "address": 14811,
+   "type": "line",
+   "text": "Patched high byte of the colour destination. After writes, the routine handles reveal delay, row advances and the final fire wait."
+  },
+  {
+   "address": 14943,
+   "type": "line",
+   "text": "Compares six entered characters against the pattern at $3A74, setting the first byte of the life-decrement routine when they match."
+  },
+  {
+   "address": 14964,
+   "type": "line",
+   "text": "Six panel character codes matched against the entered high-score name."
+  },
+  {
+   "address": 14970,
+   "type": "line",
+   "text": "Two candidate low frequency bytes for SID voice 3."
+  },
+  {
+   "address": 14972,
+   "type": "line",
+   "text": "High frequency bytes paired by index with the values at $3A7A."
+  },
+  {
+   "address": 14974,
+   "type": "line",
+   "text": "Attack and decay settings indexed with the text sound frequency."
+  },
+  {
+   "address": 14976,
+   "type": "line",
+   "text": "Clears voice 3 control, loads frequency and envelope from three two-entry tables and starts the voice with a noise waveform."
+  },
+  {
+   "address": 15024,
+   "type": "line",
+   "text": "Counts down ten outer iterations with 30 inner decrements per iteration."
+  },
+  {
+   "address": 15039,
+   "type": "line",
+   "text": "Counts down $78 outer iterations with $82 inner decrements per character."
+  },
+  {
+   "address": 15054,
+   "type": "line",
+   "text": "When the stage scroll limit flag is set, compares the player's horizontal position against the anchor and keeps X at least $17."
+  },
+  {
+   "address": 15123,
+   "type": "line",
+   "text": "Counts down from $64 between clearing a stage and dispatching to either the next file reload or the final message."
+  },
+  {
+   "address": 15124,
+   "type": "line",
+   "text": "Number of completed file loads within the current five-file stage group."
+  },
+  {
+   "address": 15125,
+   "type": "line",
+   "text": "Scratch low byte of the stage event indirect pointer."
+  },
+  {
+   "address": 15126,
+   "type": "line",
+   "text": "Scratch high byte of the stage event indirect pointer."
+  },
+  {
+   "address": 15127,
+   "type": "line",
+   "text": "Uses twice the event state at $0D17 to read a pointer at $3B2C and jumps via $3B15."
+  },
+  {
+   "address": 15148,
+   "type": "line",
+   "text": "Six interleaved pointers indexed by twice the stage event field at $0D17."
+  },
+  {
+   "address": 15160,
+   "type": "line",
+   "text": "First event callback reads the stage index and changes which opponent update is enabled in stage index 2. Advances the event index to 1."
+  },
+  {
+   "address": 15189,
+   "type": "line",
+   "text": "Waits for the scroll column in $7A0F, then updates both actor flags and advances the stage event state to 2."
+  },
+  {
+   "address": 15224,
+   "type": "line",
+   "text": "Waits for the scroll column in $7A11, clears actor state and advances the stage event state to 3."
+  },
+  {
+   "address": 15265,
+   "type": "line",
+   "text": "At player X $A0 waits for opponent state, then clears two auxiliary actors, stops the timer and selects event 4."
+  },
+  {
+   "address": 15319,
+   "type": "line",
+   "text": "Subtracts each remaining timer count, awards 30 points per count and redraws. Increments the stage index and selects the last transition event."
+  },
+  {
+   "address": 15384,
+   "type": "line",
+   "text": "Sets the transition countdown to $64 before the stage reload."
+  },
+  {
+   "address": 15390,
+   "type": "line",
+   "text": "Decrements the transition counter, then selects a final message or a file reload depending on the stage index."
+  },
+  {
+   "address": 15411,
+   "type": "line",
+   "text": "Blanks the playfield, computes five times the stage number, disables interrupts and loads that five-file group through $0900. Returns to stage initialisation by jumping to $0D98."
+  },
+  {
+   "address": 15474,
+   "type": "line",
+   "text": "Frame update counter that must reach zero before the loss-of-life path runs."
+  },
+  {
+   "address": 15475,
+   "type": "line",
+   "text": "Tests the death flag and waits for the countdown at $3C72 before deducting a life. With no lives left it enters the game-over panel code."
+  },
+  {
+   "address": 15612,
+   "type": "line",
+   "text": "Runs the common frame and hardware sprite updates during the transition."
+  },
+  {
+   "address": 15623,
+   "type": "line",
+   "text": "Masks CIA1 and VIC interrupt sources, acknowledges the raster flag and sets the two VIC multicolour registers."
+  },
+  {
+   "address": 15649,
+   "type": "line",
+   "text": "Sets the player script pointers and colours for the transition and enables the zero-delay scroll path at $0D24."
+  },
+  {
+   "address": 15686,
+   "type": "line",
+   "text": "Five rows of 25 panel characters, preceded by mode 0 and the row count. $29BC displays these cells before it reloads the first stage."
+  },
+  {
+   "address": 15814,
+   "type": "line",
+   "text": "Four rows of 25 custom panel characters. $0DEB displays this mode-1 message about the street gangs before the stage introduction."
+  },
+  {
+   "address": 15916,
+   "type": "line",
+   "text": "This entire suffix of the COD1 file equals 467 bytes in the stage 4 and stage 5 sprite libraries starting at $FB2A. A consumer at this address remains open."
+  },
+  {
+   "address": 18432,
+   "type": "line",
+   "text": "First 128 panel glyphs, with eight byte rows per glyph. Includes the main labels, numbers, plain and filled cells and health-bar shapes."
+  },
+  {
+   "address": 19456,
+   "type": "line",
+   "text": "High half of the panel character table. Most entries are solid, with alternatives in the final ten slots."
+  },
+  {
+   "address": 20480,
+   "type": "line",
+   "text": "Six 40-cell rows of authored screen codes loaded below the VIC sprite pointer page. The engine updates cells for player state during play."
+  },
+  {
+   "address": 20486,
+   "type": "line",
+   "text": "Score drawing uses this base and an index of 1 through 6. The next label is the separate high score display."
+  },
+  {
+   "address": 20512,
+   "type": "line",
+   "text": "Drawn from the high-score table by $C2C5 and $C2D4, followed by the next panel row's border cells."
+  },
+  {
+   "address": 20533,
+   "type": "line",
+   "text": "First character cell saved by $2A7E for later restoration around the game-over overlay."
+  },
+  {
+   "address": 20536,
+   "type": "line",
+   "text": "First cell overwritten by $2A91 with the nine-character game-over text. The rest of this span reaches the player health panel."
+  },
+  {
+   "address": 20569,
+   "type": "line",
+   "text": "Player health begins in these cells. The other cells before the icon position include bar edges and the TIME label."
+  },
+  {
+   "address": 20593,
+   "type": "line",
+   "text": "First of the three alternate cells set by $107F for the top of the life icons. The span also contains the next health-bar border row."
+  },
+  {
+   "address": 20633,
+   "type": "line",
+   "text": "First life silhouette block in the middle row. The alternate cells are updated by $108C."
+  },
+  {
+   "address": 20634,
+   "type": "line",
+   "text": "Second cell of the first life icon's middle row. The remainder of the span leads into the enemy health label."
+  },
+  {
+   "address": 20649,
+   "type": "line",
+   "text": "Initial enemy bar cells begin here, cleared at $34A5 before the new opponent is assigned."
+  },
+  {
+   "address": 20650,
+   "type": "line",
+   "text": "Destination cells for the stage caption at $2A63, followed by the timer panel border."
+  },
+  {
+   "address": 20656,
+   "type": "line",
+   "text": "Panel cell receiving the stage index plus its digit code offset. The cells through $50BC are also panel bar and timer border cells."
+  },
+  {
+   "address": 20669,
+   "type": "line",
+   "text": "The tens digit written by $3610."
+  },
+  {
+   "address": 20670,
+   "type": "line",
+   "text": "The units digit written by $3619, followed by two panel border cells."
+  },
+  {
+   "address": 20673,
+   "type": "line",
+   "text": "First cell of the bottom life icon row, paired with $50C2 below."
+  },
+  {
+   "address": 20674,
+   "type": "line",
+   "text": "Second column of the first life icon's bottom row. The span continues through the other icons and the last panel border row."
+  },
+  {
+   "address": 31488,
+   "type": "line",
+   "text": "Five bytes passed through CIOUT to the drive command channel at $7B1D. The prefix spells M-E and the final two bytes select drive address $0145."
+  },
+  {
+   "address": 31493,
+   "type": "line",
+   "text": "Restores the KERNAL load path when the fast receiver starts with a negative status."
+  },
+  {
+   "address": 31496,
+   "type": "line",
+   "text": "Sends the drive command, saves and disables sprites, then receives a two-byte destination and the serial payload into the selected RAM buffer."
+  },
+  {
+   "address": 31592,
+   "type": "line",
+   "text": "Selects STA ($AE),Y at $7BA6 before the bulk receive. Y advances across bytes and destination page $AF advances when Y wraps."
+  },
+  {
+   "address": 31595,
+   "type": "line",
+   "text": "Selects RTS at $7BA6, returning one decoded CIA2 byte in A. The caller uses this entry twice for the incoming destination address."
+  },
+  {
+   "address": 31613,
+   "type": "line",
+   "text": "Raster-line amount patched according to the low vertical scroll bits before the serial routine waits past a bad line."
+  },
+  {
+   "address": 31649,
+   "type": "line",
+   "text": "Serial input correction by the CIA2 line mask computed in the transfer setup."
+  },
+  {
+   "address": 31654,
+   "type": "line",
+   "text": "Patched to perform the ordinary buffer write or a single-byte receive return."
+  },
+  {
+   "address": 31664,
+   "type": "line",
+   "text": "Waits on the CIA2 handshake, restores sprite enables and returns the destination end in X and Y to the KERNAL load path."
+  },
+  {
+   "address": 32768,
+   "type": "line",
+   "text": "Shared sprite source slots $00\u2013$0F. Within this library, $2707 calculates the address as $8000 plus 64 times the frame index."
+  },
+  {
+   "address": 32896,
+   "type": "line",
+   "text": "Shared source slots $02 through $0F. This capture shows $8080 in the address operand at $2917. The disk file encodes $FFFF, and $2900\u2013$2906 patches it from the selected frame before each copy."
+  },
+  {
+   "address": 33792,
+   "type": "line",
+   "text": "Shared sprite source slots $10\u2013$1F. Within this library, $2707 calculates the address as $8000 plus 64 times the frame index."
+  },
+  {
+   "address": 34816,
+   "type": "line",
+   "text": "Shared sprite source slots $20\u2013$2F. Within this library, $2707 calculates the address as $8000 plus 64 times the frame index."
+  },
+  {
+   "address": 35840,
+   "type": "line",
+   "text": "Shared sprite source slots $30\u2013$3F. Within this library, $2707 calculates the address as $8000 plus 64 times the frame index."
+  },
+  {
+   "address": 36864,
+   "type": "line",
+   "text": "Shared sprite source slots $40\u2013$4F. Within this library, $2707 calculates the address as $8000 plus 64 times the frame index."
+  },
+  {
+   "address": 37888,
+   "type": "line",
+   "text": "Shared sprite source slots $50\u2013$5F. Within this library, $2707 calculates the address as $8000 plus 64 times the frame index."
+  },
+  {
+   "address": 38912,
+   "type": "line",
+   "text": "Shared sprite source slots $60\u2013$6F. Within this library, $2707 calculates the address as $8000 plus 64 times the frame index."
+  },
+  {
+   "address": 39936,
+   "type": "line",
+   "text": "Shared sprite source slots $70\u2013$7F. Within this library, $2707 calculates the address as $8000 plus 64 times the frame index."
+  },
+  {
+   "address": 40960,
+   "type": "line",
+   "text": "Shared sprite source slots $80\u2013$8F. Within this library, $2707 calculates the address as $8000 plus 64 times the frame index."
+  },
+  {
+   "address": 41984,
+   "type": "line",
+   "text": "Shared sprite source slots $90\u2013$9F. Within this library, $2707 calculates the address as $8000 plus 64 times the frame index."
+  },
+  {
+   "address": 43008,
+   "type": "line",
+   "text": "Shared sprite source slots $A0\u2013$AF. Within this library, $2707 calculates the address as $8000 plus 64 times the frame index."
+  },
+  {
+   "address": 44032,
+   "type": "line",
+   "text": "Shared sprite source slots $B0\u2013$BF. Within this library, $2707 calculates the address as $8000 plus 64 times the frame index."
+  },
+  {
+   "address": 45056,
+   "type": "line",
+   "text": "Shared sprite source slots $C0\u2013$CF. Within this library, $2707 calculates the address as $8000 plus 64 times the frame index."
+  },
+  {
+   "address": 46080,
+   "type": "line",
+   "text": "Shared sprite source slots $D0\u2013$DF. Within this library, $2707 calculates the address as $8000 plus 64 times the frame index."
+  },
+  {
+   "address": 47104,
+   "type": "line",
+   "text": "Shared sprite source slots $E0\u2013$EF. Within this library, $2707 calculates the address as $8000 plus 64 times the frame index."
+  },
+  {
+   "address": 48128,
+   "type": "line",
+   "text": "Shared sprite source slots $F0\u2013$FF. Within this library, $2707 calculates the address as $8000 plus 64 times the frame index."
+  },
+  {
+   "address": 49152,
+   "type": "line",
+   "text": "Toggle used when the fine-scroll update alternates player position adjustment."
+  },
+  {
+   "address": 49153,
+   "type": "line",
+   "text": "Toggle for displacement while the stage opponent action byte is $10."
+  },
+  {
+   "address": 49154,
+   "type": "line",
+   "text": "Alternates the player X adjustment in the interlude branch."
+  },
+  {
+   "address": 49155,
+   "type": "line",
+   "text": "Counts down the scroll pause at $0D23 and selects scroll direction from $1655. Fine scroll changes within a tile, then the map column and pointers change at a tile boundary."
+  },
+  {
+   "address": 49479,
+   "type": "line",
+   "text": "Copies 40 visible columns of 19 tile and colour rows to the playfield. The source advances by $100 per row and the two destination addresses advance by 40."
+  },
+  {
+   "address": 49528,
+   "type": "line",
+   "text": "Patched low source byte for the tile row copy."
+  },
+  {
+   "address": 49529,
+   "type": "line",
+   "text": "Patched high tile map row address, incremented after copying each 40-cell row."
+  },
+  {
+   "address": 49531,
+   "type": "line",
+   "text": "Patched low byte of the current screen row."
+  },
+  {
+   "address": 49532,
+   "type": "line",
+   "text": "Patched high byte of the current screen row address."
+  },
+  {
+   "address": 49534,
+   "type": "line",
+   "text": "Low source byte for the stage colour row."
+  },
+  {
+   "address": 49535,
+   "type": "line",
+   "text": "Patched high source byte for the stage colour row."
+  },
+  {
+   "address": 49537,
+   "type": "line",
+   "text": "Low destination byte in VIC colour RAM, advanced 40 per row."
+  },
+  {
+   "address": 49538,
+   "type": "line",
+   "text": "High destination byte, followed by the row advance and 19-row loop."
+  },
+  {
+   "address": 49572,
+   "type": "line",
+   "text": "Five scores in three-byte packed BCD, compared and inserted by $C1D5. $C2B4 unpacks these values into panel digits."
+  },
+  {
+   "address": 49587,
+   "type": "line",
+   "text": "Five six-character names in the custom panel alphabet."
+  },
+  {
+   "address": 49617,
+   "type": "line",
+   "text": "Byte count used when shifting the scores and names to make room."
+  },
+  {
+   "address": 49618,
+   "type": "line",
+   "text": "Working placement and shift counter for the new Hall of Fame entry."
+  },
+  {
+   "address": 49620,
+   "type": "line",
+   "text": "Score comparison count also used in calculating three-byte entry offsets."
+  },
+  {
+   "address": 49621,
+   "type": "line",
+   "text": "Compares the score bytes at $0D11 against the Hall of Fame table starting at $C1A4 and makes space when the player earns an entry."
+  },
+  {
+   "address": 49782,
+   "type": "line",
+   "text": "Twelve screen codes for the Vigilante heading, copied by $C2FC."
+  },
+  {
+   "address": 49794,
+   "type": "line",
+   "text": "The twelve panel character codes for the Hall of Fame label, copied by $C2F6."
+  },
+  {
+   "address": 49806,
+   "type": "line",
+   "text": "Fourteen panel character codes for the fire prompt, copied by $C39F."
+  },
+  {
+   "address": 49820,
+   "type": "line",
+   "text": "Five display pointers to the starting character cell of each Hall of Fame entry."
+  },
+  {
+   "address": 49830,
+   "type": "line",
+   "text": "Five pointers to the corresponding colour cells for the five entries."
+  },
+  {
+   "address": 49840,
+   "type": "line",
+   "text": "Rank number before the panel's digit offset is added."
+  },
+  {
+   "address": 49841,
+   "type": "line",
+   "text": "Selects the current row of screen and colour pointers."
+  },
+  {
+   "address": 49842,
+   "type": "line",
+   "text": "Temporary low digit with the panel character offset added."
+  },
+  {
+   "address": 49843,
+   "type": "line",
+   "text": "Starting score byte index for the current Hall of Fame row."
+  },
+  {
+   "address": 49844,
+   "type": "line",
+   "text": "Draws the high score and five ranked names and scores, then waits for an input flag before clearing the playfield."
+  },
+  {
+   "address": 50132,
+   "type": "line",
+   "text": "Ten panel character codes drawn at $51BA by the initials editor."
+  },
+  {
+   "address": 50142,
+   "type": "line",
+   "text": "Temporary panel code accepted by fire before storage in the Hall of Fame name array."
+  },
+  {
+   "address": 50143,
+   "type": "line",
+   "text": "Uses up and down to cycle 30 glyph choices, fire to accept the current choice and loops until six positions are written to the score table."
+  },
+  {
+   "address": 50293,
+   "type": "line",
+   "text": "Current index into the 30 selectable panel glyphs."
+  },
+  {
+   "address": 50294,
+   "type": "line",
+   "text": "Set when the title wait detects joystick fire."
+  },
+  {
+   "address": 50295,
+   "type": "line",
+   "text": "Delays, samples port 2 fire and sets $C476 when fire is pressed."
+  },
+  {
+   "address": 50313,
+   "type": "line",
+   "text": "Preserves Y and uses it as an outer loop counter around repeated X countdowns."
+  },
+  {
+   "address": 50330,
+   "type": "line",
+   "text": "Nineteen panel character codes forming the name-entry instruction. The last fourteen characters begin at $C49F."
+  },
+  {
+   "address": 50335,
+   "type": "line",
+   "text": "The panel-code sequence ending in TO GO DUDE followed by three stops."
+  },
+  {
+   "address": 50349,
+   "type": "line",
+   "text": "A\u2013Z lookup for the name editor, then plus, two stops and space. The printed glyphs come from the panel charset at $4800."
+  },
+  {
+   "address": 50379,
+   "type": "line",
+   "text": "This suffix of the shared sprite file matches 565 bytes at $F6AD in stage 3's sprite library."
+  },
+  {
+   "address": 50944,
+   "type": "line",
+   "text": "The low frequency bytes for SID voice 1. The note counter at $380C indexes the plane in $380F."
+  },
+  {
+   "address": 51195,
+   "type": "line",
+   "text": "The high frequency bytes for SID voice 1. The note counter at $380C indexes the plane in $380F."
+  },
+  {
+   "address": 51446,
+   "type": "line",
+   "text": "The low frequency bytes for SID voice 2. The note counter at $380C indexes the plane in $380F."
+  },
+  {
+   "address": 51697,
+   "type": "line",
+   "text": "The high frequency bytes for SID voice 2. The note counter at $380C indexes the plane in $380F."
+  }
+ ]
+}
