@@ -1,0 +1,126 @@
+{
+  "schema": 1,
+  "platform": "c64",
+  "slug": "cybernoid",
+  "title": "Cybernoid: The Fighting Machine",
+  "year": 1988,
+  "publisher": "Hewson Consultants",
+  "developer": "Nick Jones",
+  "title_image": "reference/menu.png",
+  "build": "Beastie Boys disk release",
+  "tier": "bronze",
+  "coverage_percent": 100.0,
+  "copy": "agent-draft",
+  "steward": "",
+  "credits": [],
+  "tools": {
+    "emulator": "vice-mcp v3.14.0 macOS arm64 headless, dummy audio",
+    "disassembler": "regenerator2000 0.9.18"
+  },
+  "model": "gpt-6.2-sol",
+  "step_models": {
+    "10-orient": [
+      "gpt-6.2-sol"
+    ],
+    "12-media": [
+      "gpt-6.2-sol"
+    ],
+    "20-features": [
+      "gpt-6.2-sol"
+    ],
+    "30-text": [
+      "gpt-6.2-sol"
+    ],
+    "40-sweep": [
+      "gpt-6.2-sol"
+    ],
+    "50-coverage": [
+      "gpt-6.2-sol"
+    ],
+    "60-verify": [
+      "gpt-6.2-sol"
+    ]
+  },
+  "accuracy": [
+    {
+      "step": "research",
+      "web": true,
+      "models": [
+        "gpt-6.2-sol"
+      ]
+    },
+    {
+      "step": "annotate",
+      "models": [
+        "gpt-6.2-sol"
+      ]
+    },
+    {
+      "step": "sample",
+      "size": 60,
+      "wrong": 6,
+      "fixed": 6,
+      "seed": 1848,
+      "models": [
+        "gpt-6.2-sol"
+      ]
+    }
+  ],
+  "kit_version": "0.0.360",
+  "created": "2026-11-19",
+  "video": {
+    "screen": "",
+    "charset": ""
+  },
+  "coverage": {
+    "include": [],
+    "extra": [
+      [
+        "$0800",
+        "$CFFF",
+        "Contiguous output of the second depacker. Its destination pointer begins at $0800 and equals $D000 at the handover to $0824."
+      ]
+    ],
+    "exclude": [
+      [
+        "$0000",
+        "$00FF",
+        "Processor port, game workspace and residual loader state. The second depacker starts its authored output at $0800."
+      ],
+      [
+        "$0200",
+        "$07FF",
+        "KERNAL and intro workspace at handover. In the game this covers the title stars, sprite descriptors and room collision matrix populated from the unpacked image."
+      ],
+      [
+        "$D000",
+        "$DFFF",
+        "Relocated packed stream at handover, byte-identical to the intro-entry image at address minus $15F7. Startup generates the sprite and colour data used here from sources in the unpacked image."
+      ],
+      [
+        "$E000",
+        "$FFFF",
+        "Relocated packed stream at handover, byte-identical to the intro-entry image at address minus $15F7. The game uses this range for runtime graphics and copies the interrupt state and upper sprite seed from the unpacked image."
+      ]
+    ]
+  },
+  "io": [
+    [
+      "$A1C5",
+      "$A237",
+      "ram",
+      "Startup saves the processor port, sets $01 to $34, and copies graphics before restoring the port."
+    ]
+  ],
+  "regions": [],
+  "links": {
+    "wiki": {
+      "title": "Cybernoid: The Fighting Machine",
+      "url": "https://www.c64-wiki.com/wiki/Cybernoid:_The_Fighting_Machine"
+    },
+    "manual": {
+      "title": "",
+      "url": ""
+    }
+  }
+}
