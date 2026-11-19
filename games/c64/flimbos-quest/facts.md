@@ -43,10 +43,28 @@ The font at `$3000` has 8-byte glyphs, and the banner routine at `$136A` masks s
 
 ## Audio
 
+The resident stage-tune entry at `$29EB` uses the low bit of the overlay's stage index at `$998C`. Stepping to `$5500` for indices 0–6 gave entries 3, 2, 3, 2, 3, 2, 3.
+
 The F1 and F3 title key matrix reads at `$7AF0` select separate bits in the audio flag `$6B`. Matrix tests stepped through the toggles, changing `$00` to `$80` for F1 and `$00` to `$01` for F3. Music reaches `$5506`, and the effects path goes through `$5104`. The resident music and effect paths write the SID at `$D400–$D418`. Logical SID writes were analyzed with dummy audio.
 
 Test scripts and their raw outputs are in ignored `work/`, including `verify.txt`, `under-io.txt`, `mechanics.txt`, `display-checks.txt`, and the per-payload write maps.
 
 ## The listing's error rate
 
-An independent same-model checker sampled 75 of 581 comments with seed 6502. Five had wrong details (6.7%, Wilson 95% interval 2.9%–14.7%). The five findings were confirmed and corrected across the affected comment families. The sample predates those corrections and measures the full original draw. A later audit remains in TODO.md.
+An independent gpt-6.2-sol checker sampled 75 of 581 comments with seed 6502. Five had wrong details (6.7%, Wilson 95% interval 2.9%–14.7%, and a 4.3% estimate weighted by stratum size). The five findings were confirmed and corrected across the affected comment families. The estimate applies to the listing before those corrections and the resident follow-up, and the checker may have missed errors.
+
+## Stage room and actor data
+
+The special-room setup at `$1CB6` exchanges two 192-byte character strips, then decodes `$9098–$91FF` into 18 rows of 40 screen cells. Each source byte holds two indices. The low nibble goes first. The code at `$1CF8` looks up the character at `$4FDD` and the colour at `$C6E0`. A VICE load watchpoint on `$9098` stopped after `$1CF8` with A equal to `$CB` on stage one. Stepping the next stores put tile `$7C` in `$C000` and colour 8 in `$D800`.
+
+The actor code at `$4185` and `$418A` builds a pointer from `$4DF3/$4E09`. The first eight directory entries point to 188-byte allocations beginning at `$9328`. The next four entries point into the 33-byte allocations beginning at `$9908`. Later entries can point inside those allocations. A load watchpoint across the first stage's record area stopped at `$4191`, just after the indirect read from `$418F`. The state reads at `$427D–$428C` use a separately selected index.
+
+The stage setup instruction `CMP $988E,Y` at `$14B3` uses Y equal to `$FE`. It reads the stage index at `$998C`. Single-stepping this instruction and its branch with each of the seven hand-over snapshots confirmed values 0 through 6 and a fall-through on equality.
+
+## Resident graphics and sound
+
+The sprite copier at `$275D` splits the frame number into a page index and a 64-byte offset into the `$8800–$907F` sheet. It transfers the 63 visible bytes to the slot whose low address is passed in X. A read watchpoint during the title-to-play transition caught the transfer with source base `$8F80` and Y equal to `$3E`.
+
+The boot copy at `$5490` moves ten 256-byte blocks from `$9080–$9A7F` to `$C000–$C9FF` before the first stage load. The source and destination page operands increment after every 256 bytes. A store watchpoint at `$C843` stopped at `$549A` with X equal to `$43`. The patched source at `$5494` read byte `$03` from `$98C3`. The resident listing uses a snapshot taken after this copy.
+
+The music setup at `$59E4` selects an eight-byte record containing two tick values and three voice sequence pointers. The voice sequences select note patterns through the split pointer table at `$5A79/$5AD3`. On the title snapshot, stepping from `$55B5` through `$55C5` resolved pattern 43 and fetched `$36` from `$62C5` with Y equal to 12. The separate effects driver uses the setup records at `$5294` and stream descriptors at `$52C4`.
