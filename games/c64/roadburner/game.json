@@ -1,0 +1,137 @@
+{
+  "schema": 1,
+  "platform": "c64",
+  "slug": "roadburner",
+  "title": "Roadburner",
+  "year": 1989,
+  "publisher": "Players Premier",
+  "developer": "Gordon Hall",
+  "title_image": "reference/title.png",
+  "build": "Fusion Roadburner PRG, all three trainer options disabled",
+  "tier": "bronze",
+  "coverage_percent": 88.7,
+  "copy": "agent-draft",
+  "steward": "",
+  "credits": [
+    {
+      "by": "Gordon Hall",
+      "role": "Coding and graphics, credited on the title screen"
+    },
+    {
+      "by": "Sonic Graffiti",
+      "role": "Music, credited on the title screen"
+    },
+    {
+      "by": "Peter Austin",
+      "role": "Artwork, credited on the title screen"
+    },
+    {
+      "by": "Simon Daniels",
+      "role": "Software coordination, credited on the title screen"
+    },
+    {
+      "by": "N.H.",
+      "role": "SFX Kit, credited in RAM at $9246"
+    }
+  ],
+  "tools": {
+    "emulator": "vice-mcp v3.14.0 macOS arm64 headless, VICE dummy audio",
+    "disassembler": "regenerator2000 0.9.18",
+    "host": "macOS 26.6.2 arm64"
+  },
+  "model": "gpt-6.2-sol",
+  "step_models": {
+    "10-orient": [
+      "gpt-6.2-sol"
+    ],
+    "12-media": [
+      "gpt-6.2-sol"
+    ],
+    "20-features": [
+      "gpt-6.2-sol"
+    ],
+    "30-text": [
+      "gpt-6.2-sol"
+    ],
+    "40-sweep": [
+      "gpt-6.2-sol"
+    ],
+    "50-coverage": [
+      "gpt-6.2-sol"
+    ],
+    "60-verify": [
+      "gpt-6.2-sol"
+    ]
+  },
+  "accuracy": [
+    {
+      "step": "research",
+      "web": true,
+      "models": [
+        "gpt-6.2-sol"
+      ]
+    },
+    {
+      "step": "annotate",
+      "models": [
+        "gpt-6.2-sol"
+      ]
+    },
+    {
+      "step": "sample",
+      "size": 65,
+      "wrong": 9,
+      "fixed": 9,
+      "seed": 1119062,
+      "models": [
+        "gpt-6.2-sol"
+      ]
+    }
+  ],
+  "kit_version": "0.0.360",
+  "created": "2026-11-19",
+  "video": {
+    "screen": "$0400",
+    "charset": "$3800"
+  },
+  "coverage": {
+    "exclude": [
+      [
+        "$0000",
+        "$03FF",
+        "System workspace, stack, vectors, and the game's zero-page and per-voice scratch registers. Loader executes in stack and low memory before hand-over."
+      ],
+      [
+        "$0400",
+        "$07FF",
+        "The trainer's screen and code, repurposed by the game as live screen and sprite pointers."
+      ],
+      [
+        "$3800",
+        "$3FFF",
+        "VIC character workspace. Hand-over contains an identical copy of $5D00–$64FF. Runtime title and road copies are made by $8602."
+      ],
+      [
+        "$D000",
+        "$FFFF",
+        "Final depacker input that lies above its highest output $CFFF. The running game sees I/O and KERNAL there with CPU port $36."
+      ]
+    ],
+    "extra": [
+      [
+        "$0801",
+        "$CFFF",
+        "Complete final-depack output above screen RAM. This scope includes unresolved stretches."
+      ]
+    ],
+    "include": []
+  },
+  "io": [],
+  "regions": [],
+  "links": {
+    "wiki": {
+      "title": "Edicola 8 Bit's Speedy and Roadburner releases",
+      "url": "https://www.edicola8bit.com/gioco?id=1060"
+    }
+  }
+}

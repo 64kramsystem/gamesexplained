@@ -1,0 +1,16 @@
+# Roadburner orientation
+
+The input is the Fusion Roadburner release linked under “original” on [Edicola 8 Bit's Speedy page](https://www.edicola8bit.com/gioco?id=1060). The PRG begins `01 08` for load address `$0801`, followed by a BASIC line with `SYS 2067` and the Fusion name. SHA-256 is `f7d6692ccf2e2618197c50f4286caa0b48c2ed2ae0d2c8f1b846967036f36f96`. The local copy is `work/roadburner.prg`.
+
+1. Power-cycle VICE and autostart the PRG. Leave it running through the load and initial depack. Warp shortens the wait. Wait for the Fusion intro.
+2. Hold port 1 fire until the intro exits. Wait for the next depack and the three trainer prompts. Press and release **N** for each of unlimited lives, bullets and gas. Five frames held and ten frames released worked through the keyboard matrix client.
+3. For the hand-over, arm an execution breakpoint at `$11C0` before the third N. The trainer jumps here from `$075C`. Save without ROMs as `work/entry.vsf`. This is the listing and disassembler input. Play repurposes its entry bytes as the high bytes of the eight object script pointers.
+4. For play, leave the title running long enough for it to accept fire. Port 2 fire reaches the start latch at `$7E4E`. Release fire, wait through GET READY and past the intermediate road setup until `$19D7` becomes one. Save as `work/running-road.vsf`. The road and HUD are visible together in `reference/road.png`.
+
+The running trainer has an initial Fusion intro and two depack stages. In the final stage, the instruction at `$0193` fetches packed bytes from the moving source operand and XORs them with `$AD`. The decoder treats `$C5` as a marker for a repeat, escaped literal, relocation or end. In the snapshot at the first execute of `$01B9`, the source starts at `$4DF3` and it reaches the end marker at `$0192` after wrapping past `$FFFF` to `$0100`. The write ranges reproduced from that stream were `$0400–$075F` and `$0801–$CFFF` and all 52,063 bytes matched the hand-over. Eight unique 16-byte windows from the PRG also match the hand-over at a common offset, typical of a packed file whose raw payload has little in common with the expanded game. The trainer's three Y branches replace the opcodes at `$0F60`, `$1B87`, and `$1C40` with `$AD`. With N, those opcodes are ordinary decrements.
+
+The PRG is the single media item. The four route descriptors refer to resident tables in the same RAM image, so the routes share this listing and symbol map.
+
+During play the CPU port is `$36`, leaving the KERNAL and I/O visible and BASIC banked out. The title uses `$8305` and `$8332` through the KERNAL RAM IRQ vector `$0314/$0315`. The road IRQ chain executes handlers at `$0DC4`, `$0E30` and `$0E9F`, confirmed by execution checkpoints. The KERNAL hardware IRQ vector reads `$FF48`. The game uses VIC bank zero, screen RAM at `$0400` and a live character set at `$3800`.
+
+Headless vice-mcp v3.14.0 with VICE's dummy audio passed 56 emulator checks. Host keys failed, and the quirks phase stopped on a missing `checkpoints` field. Keyboard matrix presses and joystick input worked. The frame recorder crashed the emulator while stepping a write. The targeted tracing workflow recovered by loading `running-road.vsf` and using narrow execution checkpoints.
