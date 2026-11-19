@@ -22,3 +22,10 @@ holds the resident driving engine, later driving parts own their
 observed replacements and each distinct interstitial owns its picture
 planes. The game-wide technical notes and the per-part facts stay with
 the analysis for handoff.
+
+
+The coverage continuation used the saved load snapshots and prior
+annotations. It measured the resulting 24-part image with the kit
+ledger, then checked a fixed-seed listing sample with a fresh agent
+on the same model. Live verification traces and the sample verdicts
+stay in ignored work files beside the private snapshots.

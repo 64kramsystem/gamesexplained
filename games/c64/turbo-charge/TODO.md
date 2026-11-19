@@ -1,22 +1,20 @@
 # Turbo Charge — analysis handoff
 
-The kit ledger explains **433,312 of 604,453 bytes** across
-24 parts. The 171,141 remaining bytes are tracked and
-bare. The rebuilt listings report no uncounted stretches. The media
-ledger answers all 29 distinct disk items.
+The exported kit ledger explains **604,457 of 604,457 bytes**
+across 24 parts. Each part meets its exact tracked count and the
+rebuilt listings have zero uncounted stretches. The media ledger
+answers the 29 distinct disk items.
 
-- Finish step 50 for the driving engine, round-specific routines and
-  tune streams, the title, both opening scenes and the ending. The
-  largest remaining runs per part are in `work/coverage.txt` inside
-  its folder. Re-run `python3 kit/scripts/coverage.py` with the part's
-  folder for an updated work queue.
-- After the exact coverage gate passes, complete step 60 and re-export
-  anything verification changes. Step 65 applies when a later step
-  needs to prove reachability with an input recording. The debugger
-  capture routes used so far are documented in [orientation.md](orientation.md).
-- The local-only scope stops before the minisite, reader review and
-  retrospective. A proven-model listing check remains required for
-  Silver.
+- The independent listing sample found 9 wrong comments out of 95.
+  The sampled findings and matching comments were corrected. A full
+  listing audit is recommended. A proven-model listing check remains
+  required for Silver. See the error-rate section in [facts.md](facts.md).
+- The local analysis scope stops after verification. Its checks
+  isolated code paths with debugger checkpoints and did not require a
+  replayable input route. The existing capture routes are documented
+  in [orientation.md](orientation.md).
+- The next tier also needs the minisite, reader review and retrospective.
+  Score persistence through a disk write remains an open observation.
 
 Use `work/entry.vsf` inside each part to rebuild its listing. For
 `round-01`, supply that snapshot as the listing image and also pass

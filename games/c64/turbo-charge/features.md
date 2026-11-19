@@ -2,18 +2,19 @@
 
 | Feature | Status | Evidence or question |
 |---|---|---|
-| Start a single-player chase | live | Port 2 fire at the title loads the first driving scene. |
-| Recover the stolen weapons | open | The manual sets the pursuit in Operation Underdog. |
+| Start a single-player chase | live | Port 2 fire at the title loads the first driving scene on the captured release route. The title option and opening sequence are described in [the technical facts](facts.md). |
+| Recover the stolen weapons | traced | The opening satellite and garage scenes set up the pursuit. The sequence of cards ends with [Game complete](parts/picture-18/facts.md). |
 | Steering, braking and acceleration | confirmed | Checkpoints at `$6E9A/$6ED5` distinguish left and right. `$6F73` and `$6F80` are the accelerate and brake calls. |
 | Handgun and missiles | confirmed | A hold hits the initial press branch once, changes the sight, then spends one missile on release. See [driving facts](facts.md). |
 | Turbo boost | confirmed | Space hits the countdown setup at `$6FAB`. The active path spends fuel and advances speed. |
-| Pause and abort | open | The manual lists RUN/STOP and tentatively lists RESTORE. |
-| Damage, fuel and pickups | open | The panel displays damage and fuel. The documentation describes fuel canisters and failure when fuel runs out or damage is excessive. |
-| Traffic, hills, bends and forks | open | The documented routes include climbs and forks. The first-round view also has trackside scenery and a central sight. |
-| Border countdown and scoring | live | The first-round panel displays score and distance to the border. Deadline and score rules remain open. |
+| Pause | confirmed | RUN/STOP reaches the three waits at `$6B38`, `$6B42` and `$6B4C`. A second press and release returns at `$6B56`. |
+| Abort | live | Pressing RESTORE in round one reached the external NMI at `$937F`. The store wrote return reason one to `$A7BB`. |
+| Damage, fuel and pickups | live | The crash-status store at `$6C5D` reported the final car. The fuel-contact path at `$9D0F` added three whole units. Turbo and normal acceleration draw on the fractional fuel reserve at `$A73B`. |
+| Traffic, hills, bends and forks | traced | The driving script dispatches the road profiles at `$7A1F`. The fork handlers at `$7A4B/$7A7E` carry an inline destination. VICE probes confirmed the pitch table stores and the round-two traffic sprite composition. |
+| Border countdown and scoring | live | Round-one countdown underflow at `$6992` wrote reason three and copied the expiry message. The score path at `$78A1` carried between two packed decimal bytes. |
 | Multi-load stages and transitions | confirmed | Ten driving images form five chapters. The finish cards alternate border-smash and villain-capture scenes. The last capture card says Game complete. |
-| Music and effects | open | Sean Connolly reports six tunes shared with Marc François, plus sound effects. Locate the player and selectors. |
-| Title and high scores | live | The title cycles through a scores display. The score-entry and disk-saving paths remain open. |
+| Music and effects | traced | The title runs a three-voice driver. Five driving cue images supply two-voice order and pattern streams. The common effect player at `$BC4C` selects from 16 scripts, exercised in the kit CPU simulator. |
+| Title and high scores | live | The title cycles through a scores display. The insertion probe reached the initials editor with the new score in the table. The save path at `$0F44` was traced to the drive wrapper, and disk persistence remains open. |
 
 ## Sources
 

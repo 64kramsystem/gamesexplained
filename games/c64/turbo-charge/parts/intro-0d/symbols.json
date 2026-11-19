@@ -127,7 +127,7 @@
   {
    "start": 12642,
    "end": 12644,
-   "type": "Undefined"
+   "type": "Byte"
   },
   {
    "start": 12645,
@@ -147,7 +147,7 @@
   {
    "start": 12837,
    "end": 12838,
-   "type": "Undefined"
+   "type": "Word"
   },
   {
    "start": 12839,
@@ -177,20 +177,15 @@
   {
    "start": 13493,
    "end": 13567,
-   "type": "Undefined"
+   "type": "Byte"
   },
   {
    "start": 13568,
-   "end": 13586,
+   "end": 13602,
    "type": "Code"
   },
   {
-   "start": 13587,
-   "end": 16383,
-   "type": "Undefined"
-  },
-  {
-   "start": 16384,
+   "start": 13603,
    "end": 20231,
    "type": "Byte"
   },
@@ -246,16 +241,6 @@
   },
   {
    "start": 48790,
-   "end": 52965,
-   "type": "Byte"
-  },
-  {
-   "start": 52966,
-   "end": 54271,
-   "type": "Undefined"
-  },
-  {
-   "start": 54272,
    "end": 56319,
    "type": "Byte"
   }
@@ -269,9 +254,9 @@
   },
   {
    "address": 2067,
-   "name": "s_0813",
+   "name": "initialize_embedded_picture_unpacker",
    "type": "Subroutine",
-   "kind": "auto"
+   "kind": "user"
   },
   {
    "address": 2073,
@@ -281,9 +266,9 @@
   },
   {
    "address": 2090,
-   "name": "f_082A",
+   "name": "retained_unpacker_source_preceding_byte",
    "type": "Field",
-   "kind": "auto"
+   "kind": "user"
   },
   {
    "address": 2091,
@@ -293,19 +278,25 @@
   },
   {
    "address": 2256,
-   "name": "f_08D0",
+   "name": "initial_picture_unpacker_and_stream",
    "type": "Field",
-   "kind": "auto"
+   "kind": "user"
   },
   {
    "address": 3072,
-   "name": "f_0C00",
+   "name": "first_picture_packed_source_at_0c00",
    "type": "Field",
-   "kind": "auto"
+   "kind": "user"
   },
   {
    "address": 3115,
    "name": "picture_0_packed_bytes_0419",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 4096,
+   "name": "first_picture_packed_source_at_1000",
    "type": "UserDefined",
    "kind": "user"
   },
@@ -359,15 +350,15 @@
   },
   {
    "address": 12356,
-   "name": "a_3044",
+   "name": "blit_satellite_colour_read_page",
    "type": "AbsoluteAddress",
-   "kind": "auto"
+   "kind": "user"
   },
   {
    "address": 12365,
-   "name": "a_304D",
+   "name": "blit_satellite_colour_target_page",
    "type": "AbsoluteAddress",
-   "kind": "auto"
+   "kind": "user"
   },
   {
    "address": 12376,
@@ -380,6 +371,12 @@
    "name": "b_305E",
    "type": "Branch",
    "kind": "auto"
+  },
+  {
+   "address": 12403,
+   "name": "fade_to_sector_disturbance",
+   "type": "UserDefined",
+   "kind": "user"
   },
   {
    "address": 12413,
@@ -418,6 +415,12 @@
    "kind": "auto"
   },
   {
+   "address": 12521,
+   "name": "show_military_stockpile_sequence",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
    "address": 12531,
    "name": "b_30F3",
    "type": "Branch",
@@ -428,6 +431,12 @@
    "name": "b_3103",
    "type": "Branch",
    "kind": "auto"
+  },
+  {
+   "address": 12560,
+   "name": "show_missile_convoy_sequence",
+   "type": "UserDefined",
+   "kind": "user"
   },
   {
    "address": 12570,
@@ -448,10 +457,16 @@
    "kind": "user"
   },
   {
+   "address": 12642,
+   "name": "satellite_loader_to_picture_copy_gap",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
    "address": 12645,
-   "name": "s_3165",
+   "name": "copy_satellite_picture_to_low_bank",
    "type": "Subroutine",
-   "kind": "auto"
+   "kind": "user"
   },
   {
    "address": 12714,
@@ -473,9 +488,9 @@
   },
   {
    "address": 12826,
-   "name": "a_321A",
+   "name": "scene_picture_index",
    "type": "AbsoluteAddress",
-   "kind": "auto"
+   "kind": "user"
   },
   {
    "address": 12827,
@@ -485,13 +500,19 @@
   },
   {
    "address": 12828,
-   "name": "f_321C",
+   "name": "packed_scene_pointer_high_lane",
    "type": "Field",
-   "kind": "auto"
+   "kind": "user"
+  },
+  {
+   "address": 12837,
+   "name": "packed_scene_table_terminal_word",
+   "type": "UserDefined",
+   "kind": "user"
   },
   {
    "address": 12839,
-   "name": "select_packed_satellite_picture",
+   "name": "copy_packed_picture_to_bootstrap",
    "type": "Subroutine",
    "kind": "user"
   },
@@ -503,33 +524,33 @@
   },
   {
    "address": 12866,
-   "name": "a_3242",
+   "name": "scene_package_copy_source_low",
    "type": "AbsoluteAddress",
-   "kind": "auto"
+   "kind": "user"
   },
   {
    "address": 12867,
-   "name": "a_3243",
+   "name": "scene_package_copy_source_high",
    "type": "AbsoluteAddress",
-   "kind": "auto"
+   "kind": "user"
   },
   {
    "address": 12870,
-   "name": "a_3246",
+   "name": "scene_package_copy_destination_high",
    "type": "AbsoluteAddress",
-   "kind": "auto"
+   "kind": "user"
   },
   {
    "address": 12884,
-   "name": "s_3254",
+   "name": "expand_selected_picture",
    "type": "Subroutine",
-   "kind": "auto"
+   "kind": "user"
   },
   {
    "address": 12892,
-   "name": "s_325C",
+   "name": "transfer_picture_pages",
    "type": "Subroutine",
-   "kind": "auto"
+   "kind": "user"
   },
   {
    "address": 12894,
@@ -539,27 +560,27 @@
   },
   {
    "address": 12896,
-   "name": "a_3260",
+   "name": "display_plane_copy_source_page",
    "type": "AbsoluteAddress",
-   "kind": "auto"
+   "kind": "user"
   },
   {
    "address": 12899,
-   "name": "a_3263",
+   "name": "display_plane_copy_target_page",
    "type": "AbsoluteAddress",
-   "kind": "auto"
+   "kind": "user"
   },
   {
    "address": 12913,
-   "name": "s_3271",
+   "name": "start_satellite_skippable_wait",
    "type": "Subroutine",
-   "kind": "auto"
+   "kind": "user"
   },
   {
    "address": 12915,
-   "name": "s_3273",
+   "name": "wait_or_skip_satellite_delay",
    "type": "Subroutine",
-   "kind": "auto"
+   "kind": "user"
   },
   {
    "address": 12934,
@@ -575,15 +596,15 @@
   },
   {
    "address": 12943,
-   "name": "a_328F",
+   "name": "satellite_fire_edge_latch",
    "type": "AbsoluteAddress",
-   "kind": "auto"
+   "kind": "user"
   },
   {
    "address": 12944,
-   "name": "s_3290",
+   "name": "wait_for_raster_zero_pass",
    "type": "Subroutine",
-   "kind": "auto"
+   "kind": "user"
   },
   {
    "address": 12949,
@@ -593,9 +614,9 @@
   },
   {
    "address": 12955,
-   "name": "s_329B",
+   "name": "clear_device_and_zero_page",
    "type": "Subroutine",
-   "kind": "auto"
+   "kind": "user"
   },
   {
    "address": 12957,
@@ -605,9 +626,9 @@
   },
   {
    "address": 12961,
-   "name": "a_32A1",
+   "name": "io_clear_page_operand",
    "type": "AbsoluteAddress",
-   "kind": "auto"
+   "kind": "user"
   },
   {
    "address": 12979,
@@ -617,9 +638,9 @@
   },
   {
    "address": 12985,
-   "name": "s_32B9",
+   "name": "play_satellite_sprite_sequence",
    "type": "Subroutine",
-   "kind": "auto"
+   "kind": "user"
   },
   {
    "address": 13038,
@@ -671,9 +692,9 @@
   },
   {
    "address": 13111,
-   "name": "s_3337",
+   "name": "delay_sprite_frame",
    "type": "Subroutine",
-   "kind": "auto"
+   "kind": "user"
   },
   {
    "address": 13115,
@@ -689,15 +710,15 @@
   },
   {
    "address": 13134,
-   "name": "s_334E",
+   "name": "locate_sprite_frame_record",
    "type": "Subroutine",
-   "kind": "auto"
+   "kind": "user"
   },
   {
    "address": 13194,
-   "name": "a_338A",
+   "name": "restore_sprite_frame_lookup_x",
    "type": "AbsoluteAddress",
-   "kind": "auto"
+   "kind": "user"
   },
   {
    "address": 13196,
@@ -719,15 +740,15 @@
   },
   {
    "address": 13259,
-   "name": "a_33CB",
+   "name": "animation_sprite_index_bias",
    "type": "AbsoluteAddress",
-   "kind": "auto"
+   "kind": "user"
   },
   {
    "address": 13262,
-   "name": "a_33CE",
+   "name": "animation_screen_sprite_pointers",
    "type": "AbsoluteAddress",
-   "kind": "auto"
+   "kind": "user"
   },
   {
    "address": 13288,
@@ -761,111 +782,153 @@
   },
   {
    "address": 13341,
-   "name": "s_341D",
+   "name": "multiply_sprite_pointer_by_64",
    "type": "Subroutine",
-   "kind": "auto"
+   "kind": "user"
   },
   {
    "address": 13354,
-   "name": "a_342A",
+   "name": "animation_shape_bank_bias",
    "type": "AbsoluteAddress",
-   "kind": "auto"
+   "kind": "user"
   },
   {
    "address": 13358,
-   "name": "f_342E",
+   "name": "animation_slot_bit_masks",
    "type": "Field",
-   "kind": "auto"
+   "kind": "user"
   },
   {
    "address": 13366,
-   "name": "f_3436",
+   "name": "scene_frame_base_low",
    "type": "Field",
-   "kind": "auto"
+   "kind": "user"
   },
   {
    "address": 13370,
-   "name": "f_343A",
+   "name": "scene_frame_base_high",
    "type": "Field",
-   "kind": "auto"
+   "kind": "user"
   },
   {
    "address": 13374,
-   "name": "f_343E",
+   "name": "scene_frame_wait",
    "type": "Field",
-   "kind": "auto"
+   "kind": "user"
   },
   {
    "address": 13378,
-   "name": "f_3442",
+   "name": "scene_last_frame",
    "type": "Field",
-   "kind": "auto"
+   "kind": "user"
   },
   {
    "address": 13382,
-   "name": "f_3446",
+   "name": "scene_pointer_screen_page",
    "type": "Field",
-   "kind": "auto"
+   "kind": "user"
   },
   {
    "address": 13386,
-   "name": "f_344A",
+   "name": "scene_shape_index_bias",
    "type": "Field",
-   "kind": "auto"
+   "kind": "user"
   },
   {
    "address": 13390,
-   "name": "f_344E",
+   "name": "scene_lead_in_wait",
    "type": "Field",
-   "kind": "auto"
+   "kind": "user"
   },
   {
    "address": 13394,
-   "name": "f_3452",
+   "name": "scene_lead_out_wait",
    "type": "Field",
-   "kind": "auto"
+   "kind": "user"
   },
   {
    "address": 13398,
-   "name": "f_3456",
+   "name": "scene_shape_bank_page",
    "type": "Field",
-   "kind": "auto"
+   "kind": "user"
   },
   {
    "address": 13402,
-   "name": "f_345A",
+   "name": "scene_multicolour_0",
    "type": "Field",
-   "kind": "auto"
+   "kind": "user"
   },
   {
    "address": 13406,
-   "name": "f_345E",
+   "name": "scene_multicolour_1",
    "type": "Field",
-   "kind": "auto"
+   "kind": "user"
   },
   {
    "address": 13410,
-   "name": "s_3462",
+   "name": "mask_satellite_interrupts",
    "type": "Subroutine",
-   "kind": "auto"
+   "kind": "user"
   },
   {
    "address": 13449,
-   "name": "s_3489",
+   "name": "install_satellite_music_vectors",
    "type": "Subroutine",
-   "kind": "auto"
+   "kind": "user"
+  },
+  {
+   "address": 13493,
+   "name": "satellite_irq_to_wrapper_gap",
+   "type": "UserDefined",
+   "kind": "user"
   },
   {
    "address": 13568,
-   "name": "s_3500",
+   "name": "select_scene_music_rate",
    "type": "Subroutine",
-   "kind": "auto"
+   "kind": "user"
   },
   {
    "address": 13583,
    "name": "b_350F",
    "type": "Branch",
    "kind": "auto"
+  },
+  {
+   "address": 13587,
+   "name": "intro_0d_divided_music_tick",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 13588,
+   "name": "scene_music_countdown_operand",
+   "type": "AbsoluteAddress",
+   "kind": "user"
+  },
+  {
+   "address": 13597,
+   "name": "b_351D",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 13603,
+   "name": "load_fill_3523",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 14627,
+   "name": "load_fill_3923",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 15651,
+   "name": "load_fill_3d23",
+   "type": "UserDefined",
+   "kind": "user"
   },
   {
    "address": 16384,
@@ -894,6 +957,12 @@
   {
    "address": 19481,
    "name": "picture_1_packed_bytes_0c19",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 20232,
+   "name": "picture_package_tail_4f08",
    "type": "UserDefined",
    "kind": "user"
   },
@@ -1157,9 +1226,9 @@
   },
   {
    "address": 30712,
-   "name": "f_77F8",
+   "name": "packed_picture_over_live_sprite_pointers",
    "type": "Field",
-   "kind": "auto"
+   "kind": "user"
   },
   {
    "address": 30937,
@@ -1170,6 +1239,12 @@
   {
    "address": 31961,
    "name": "picture_2_packed_bytes_1019",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 32329,
+   "name": "picture_package_tail_7e49",
    "type": "UserDefined",
    "kind": "user"
   },
@@ -1210,6 +1285,12 @@
    "kind": "user"
   },
   {
+   "address": 36315,
+   "name": "picture_package_tail_8ddb",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
    "address": 36316,
    "name": "picture_4_stored_bootstrap",
    "type": "AbsoluteAddress",
@@ -1246,6 +1327,12 @@
    "kind": "user"
   },
   {
+   "address": 40876,
+   "name": "picture_package_tail_9fac",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
    "address": 40877,
    "name": "scene_4_frame_records_0000",
    "type": "UserDefined",
@@ -1277,15 +1364,15 @@
   },
   {
    "address": 48763,
-   "name": "a_BE7B",
+   "name": "scene_irq_music_call_low",
    "type": "AbsoluteAddress",
-   "kind": "auto"
+   "kind": "user"
   },
   {
    "address": 48764,
-   "name": "a_BE7C",
+   "name": "scene_irq_music_call_high",
    "type": "AbsoluteAddress",
-   "kind": "auto"
+   "kind": "user"
   },
   {
    "address": 48767,
@@ -1295,27 +1382,27 @@
   },
   {
    "address": 48780,
-   "name": "a_BE8C",
+   "name": "scene_irq_restore_x_operand",
    "type": "AbsoluteAddress",
-   "kind": "auto"
+   "kind": "user"
   },
   {
    "address": 48782,
-   "name": "a_BE8E",
+   "name": "scene_irq_restore_y_operand",
    "type": "AbsoluteAddress",
-   "kind": "auto"
+   "kind": "user"
   },
   {
    "address": 48784,
-   "name": "a_BE90",
+   "name": "scene_irq_restore_a_operand",
    "type": "AbsoluteAddress",
-   "kind": "auto"
+   "kind": "user"
   },
   {
    "address": 48786,
-   "name": "f_BE92",
+   "name": "satellite_saved_music_zero_page",
    "type": "Field",
-   "kind": "auto"
+   "kind": "user"
   },
   {
    "address": 48790,
@@ -1356,6 +1443,18 @@
   {
    "address": 52862,
    "name": "scene_3_frame_records_0400",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 52966,
+   "name": "satellite_high_bank_fill",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 53248,
+   "name": "satellite_under_io_fill",
    "type": "UserDefined",
    "kind": "user"
   },
@@ -1601,14 +1700,39 @@
    "text": "Relocates the picture unpacker to the stack page and low RAM, changes the CPU port and jumps to the unpacker at $0100. The picture paths enter it at $0813."
   },
   {
+   "address": 2067,
+   "type": "line",
+   "text": "Banks out I/O and ROMs. Relocates two 166-byte source windows into low memory, then jumps to the unpacker at $0100."
+  },
+  {
+   "address": 2090,
+   "type": "line",
+   "text": "The first copy reads $082A plus Y. The loop stops before Y equals zero, so its first actual source byte is $082B."
+  },
+  {
    "address": 2091,
    "type": "line",
-   "text": "Packed satellite over Earth data at package offsets $0019\u2013$0418. The picture unpacker reads these bytes while populating the colour, screen-attribute and bitmap planes."
+   "text": "Satellite over earth package offsets $0019\u2013$0418. This span starts with bytes relocated into low RAM by the bootstrap and continues into the packed picture stream."
+  },
+  {
+   "address": 2256,
+   "type": "line",
+   "text": "The bootstrap at $081F copies $08D1\u2013$0976 to $0334\u2013$03D9 for the unpacker. These bytes are in the packed satellite over Earth package. The rest of this span supplies the picture decoder until the next boundary at $0C00."
+  },
+  {
+   "address": 3072,
+   "type": "line",
+   "text": "On entry this holds the packed first picture. After the depacker runs, $0C00 is the expanded VIC screen-attribute source."
   },
   {
    "address": 3115,
    "type": "line",
    "text": "Packed satellite over Earth data at package offsets $0419\u2013$0818. The picture unpacker reads these bytes while populating the colour, screen-attribute and bitmap planes."
+  },
+  {
+   "address": 4096,
+   "type": "line",
+   "text": "On entry these bytes still belong to the packed first picture. Expanded bitmap output occupies $1000 after the depacker runs."
   },
   {
    "address": 4139,
@@ -1631,9 +1755,44 @@
    "text": "Sets up the display and music, resets SP and makes its first bitmap display call."
   },
   {
+   "address": 12356,
+   "type": "line",
+   "text": "Low operand of the colour-source read. Increments by forty when the fill moves to the following row."
+  },
+  {
+   "address": 12365,
+   "type": "line",
+   "text": "Low operand for the first scene\u2019s highlight writes in colour RAM. The routine shades the area and uses fire to skip the intervening delay."
+  },
+  {
+   "address": 12403,
+   "type": "line",
+   "text": "Switches to the low-bank picture, masks and restores the bottom screen rows, plays the first overlay, then changes banks for the next overlays."
+  },
+  {
+   "address": 12521,
+   "type": "line",
+   "text": "Copies the next picture into the low VIC bank, clears the screen and colour strip and runs the third sprite sequence."
+  },
+  {
+   "address": 12560,
+   "type": "line",
+   "text": "Switches to the high VIC bank, updates screen colours with the banking controlled around the stores, runs the fourth sprite sequence and requests the fade."
+  },
+  {
    "address": 12629,
    "type": "line",
    "text": "Pushes the synthetic return $2FFF, selects file $0E with two blocks and jumps to $0433. The loader returns to $3000 in the new image."
+  },
+  {
+   "address": 12642,
+   "type": "line",
+   "text": "Three zero bytes after the jump into the loader and before the next display helper."
+  },
+  {
+   "address": 12645,
+   "type": "line",
+   "text": "Prepares the VIC and copies the expanded attributes, bitmap and colours to $6000, $4000 and $D800. Selects VIC bank $4000 and D018=$80."
   },
   {
    "address": 12714,
@@ -1641,19 +1800,244 @@
    "text": "Selects a packed picture, copies its screen attributes to RAM under $DC00 and the bitmap to $E000, fills colour RAM at $D800 and selects VIC bank $C000."
   },
   {
+   "address": 12826,
+   "type": "line",
+   "text": "Selects the two-byte address from the scene table. The next-picture path increments the index."
+  },
+  {
    "address": 12827,
    "type": "line",
    "text": "Little-endian source addresses for the 5 packed picture programs. The selector indexes with twice the scene number and copies the selected source beginning at $0812."
   },
   {
+   "address": 12828,
+   "type": "line",
+   "text": "This base reads the high byte of the picture address at twice the selected scene index. The corresponding low byte is read one address earlier."
+  },
+  {
+   "address": 12837,
+   "type": "line",
+   "text": "Stored $FFFF immediately after the 5 valid picture addresses."
+  },
+  {
    "address": 12839,
    "type": "line",
-   "text": "Uses the current picture index at $321A to select a little-endian source. The page copier stages 23 pages starting at $0812, where $0813 runs the picture depacker."
+   "text": "Uses the scene number to select a two-byte source pointer and copies 23 pages into the staging area beginning at $0812."
+  },
+  {
+   "address": 12866,
+   "type": "line",
+   "text": "Low byte of the packed-picture copy\u2019s source operand, set from the selected scene pointer."
+  },
+  {
+   "address": 12867,
+   "type": "line",
+   "text": "High byte of the packed-picture source. The copy increments this after each 256-byte page."
+  },
+  {
+   "address": 12870,
+   "type": "line",
+   "text": "Page byte of the destination operand. Resets to $08 for each picture and advances after each copied page."
+  },
+  {
+   "address": 12884,
+   "type": "line",
+   "text": "Calls the picture depacker at $0813 and restores $35 in the CPU port so the display routines can access I/O."
+  },
+  {
+   "address": 12892,
+   "type": "line",
+   "text": "Copies X plus one full pages to the selected display plane. Increments the source and destination pages as each page completes."
+  },
+  {
+   "address": 12896,
+   "type": "line",
+   "text": "High source operand for the display copy. The caller selects $08, $0C or $10 according to the plane."
+  },
+  {
+   "address": 12899,
+   "type": "line",
+   "text": "High destination operand for the page copier, selected by expected display plane and VIC bank."
+  },
+  {
+   "address": 12913,
+   "type": "line",
+   "text": "Initializes the raster-count loop at $3273. A fresh active-low fire press can exit early."
+  },
+  {
+   "address": 12915,
+   "type": "line",
+   "text": "Waits for each raster pass and tests CIA fire. A new press can end the current delay and the latch prevents another skip until release."
+  },
+  {
+   "address": 12943,
+   "type": "line",
+   "text": "Tracks whether this wait routine has already consumed the held fire press."
+  },
+  {
+   "address": 12944,
+   "type": "line",
+   "text": "Waits for raster low byte zero and then for it to become nonzero."
+  },
+  {
+   "address": 12955,
+   "type": "line",
+   "text": "Clears the I/O address range $D400\u2013$D7FF, then zeros $02\u2013$FF. Preserves the processor port bytes $00 and $01."
+  },
+  {
+   "address": 12961,
+   "type": "line",
+   "text": "High-byte operand that the I/O clear loop increments up to $D8."
+  },
+  {
+   "address": 12985,
+   "type": "line",
+   "text": "Selects frame table, length, sprite bias and palette by sequence. Displays the first frame, waits the initial delay, advances through the frame limit and waits the final delay."
+  },
+  {
+   "address": 13111,
+   "type": "line",
+   "text": "Copies the frame delay into $0E and counts transitions out of raster line low byte $F1 until the delay expires."
+  },
+  {
+   "address": 13134,
+   "type": "line",
+   "text": "Computes 24 times the 16-bit frame index as eight times plus sixteen times, then adds the sequence table address."
+  },
+  {
+   "address": 13194,
+   "type": "line",
+   "text": "Immediate operand holding the incoming X during frame-record address calculation."
   },
   {
    "address": 13196,
    "type": "line",
    "text": "Each 24-byte record names eight Y values, eight X values and eight shape indices. Skips slots with Y=$FF. A shape's last byte controls both expansion flags, multicolour and palette index."
+  },
+  {
+   "address": 13259,
+   "type": "line",
+   "text": "Operand of the addition that translates the per-slot shape index into a VIC pointer, patched for the sequence."
+  },
+  {
+   "address": 13262,
+   "type": "line",
+   "text": "High byte of the indexed sprite-pointer store. The sequence chooses the low or high VIC bank\u2019s screen pointer page."
+  },
+  {
+   "address": 13341,
+   "type": "line",
+   "text": "Converts the 8-bit VIC sprite pointer in A into a 16-bit byte offset in $0B/$0C using two right shifts and rotations."
+  },
+  {
+   "address": 13354,
+   "type": "line",
+   "text": "High operand patched for reading a sprite shape\u2019s expansion and palette flags in the selected VIC bank."
+  },
+  {
+   "address": 13358,
+   "type": "line",
+   "text": "Eight powers of two used to update the VIC enable, expansion and multicolour flags for each sprite slot."
+  },
+  {
+   "address": 13366,
+   "type": "line",
+   "text": "Low byte of the sprite frame-table address. Stored sequence values are $96, $DE, $7E, $AD."
+  },
+  {
+   "address": 13370,
+   "type": "line",
+   "text": "High byte of the sprite frame-table address. Stored sequence values are $BE, $C4, $CA, $9F."
+  },
+  {
+   "address": 13374,
+   "type": "line",
+   "text": "Number of raster waits per animation step, copied to $0D. Stored sequence values are $02, $06, $04, $06."
+  },
+  {
+   "address": 13378,
+   "type": "line",
+   "text": "Highest frame index the playback loop selects. Stored sequence values are $42, $3B, $2E, $2E."
+  },
+  {
+   "address": 13382,
+   "type": "line",
+   "text": "Patched high byte of the VIC screen\u2019s sprite-pointer store. Stored sequence values are $63, $DF, $63, $DF."
+  },
+  {
+   "address": 13386,
+   "type": "line",
+   "text": "Value added to each raw shape index before programming the display pointer. Stored sequence values are $B0, $50, $90, $50."
+  },
+  {
+   "address": 13390,
+   "type": "line",
+   "text": "Number of frame delays used to hold the first frame before advancing. Stored sequence values are $01, $01, $01, $01."
+  },
+  {
+   "address": 13394,
+   "type": "line",
+   "text": "Number of frame delays used to hold the final frame before returning. Stored sequence values are $01, $01, $01, $01."
+  },
+  {
+   "address": 13398,
+   "type": "line",
+   "text": "Page bias for reading a sprite\u2019s flag byte from the selected VIC bank. Stored sequence values are $40, $C0, $40, $C0."
+  },
+  {
+   "address": 13402,
+   "type": "line",
+   "text": "Value programmed into $D025 when this sequence begins. Stored sequence values are $00, $01, $0F, $01."
+  },
+  {
+   "address": 13406,
+   "type": "line",
+   "text": "Value programmed into $D026 when this sequence begins. Stored sequence values are $00, $0B, $00, $00."
+  },
+  {
+   "address": 13410,
+   "type": "line",
+   "text": "Selects RAM vectors and I/O access, masks both CIA interrupt sources, clears SID volume and disables VIC interrupts."
+  },
+  {
+   "address": 13449,
+   "type": "line",
+   "text": "Installs IRQ $BE59 and NMI $BE91, enables VIC raster triggers and selects line 200."
+  },
+  {
+   "address": 13493,
+   "type": "line",
+   "text": "Zero bytes separating the end of the IRQ vector setup from the video rate wrapper at $3500."
+  },
+  {
+   "address": 13568,
+   "type": "line",
+   "text": "Tests $02A6 and can redirect the raster\u2019s music call to the scene divider. Then quiets the machine for the scene."
+  },
+  {
+   "address": 13587,
+   "type": "line",
+   "text": "The wrapper at $3500 installs this target when $02A6 is zero. Decrements the countdown operand at $3514 and calls $B003. When it expires, reloads six and returns."
+  },
+  {
+   "address": 13588,
+   "type": "line",
+   "text": "Immediate byte used as the divider countdown. It is decremented until the update is skipped and the counter is reloaded."
+  },
+  {
+   "address": 13603,
+   "type": "line",
+   "text": "The satellite interrupt wrapper ends at $3522. The loaded zero gap runs up to the next packed scene at $4000. The depacker explicitly writes zero at $3523\u2013$3922."
+  },
+  {
+   "address": 14627,
+   "type": "line",
+   "text": "The satellite interrupt wrapper ends at $3522. The loaded zero gap runs up to the next packed scene at $4000. The depacker explicitly writes zero at $3923\u2013$3D22."
+  },
+  {
+   "address": 15651,
+   "type": "line",
+   "text": "The satellite interrupt wrapper ends at $3522. The loaded zero gap runs up to the next packed scene at $4000. The depacker explicitly writes zero at $3D23\u2013$3FFF."
   },
   {
    "address": 16384,
@@ -1663,7 +2047,7 @@
   {
    "address": 16409,
    "type": "line",
-   "text": "Packed sector disturbance data at package offsets $0019\u2013$0418. The picture unpacker reads these bytes while populating the colour, screen-attribute and bitmap planes."
+   "text": "Sector disturbance package offsets $0019\u2013$0418. This span starts with bytes relocated into low RAM by the bootstrap and continues into the packed picture stream."
   },
   {
    "address": 17433,
@@ -1681,179 +2065,184 @@
    "text": "Packed sector disturbance data at package offsets $0C19\u2013$0F07. The picture unpacker reads these bytes while populating the colour, screen-attribute and bitmap planes."
   },
   {
+   "address": 20232,
+   "type": "line",
+   "text": "Stored byte $FF between the last source byte reached by the embedded decoder and the following scene or animation table."
+  },
+  {
    "address": 25600,
    "type": "line",
-   "text": "Sprite shape used by animation 3. After 21 rows of three bytes, the flag byte $B4 specifies multicolour and VIC colour index 11."
+   "text": "Sprite pointer $90 in VIC bank $4000. The shape has 39 nonzero bytes across 21 rows of three bytes. Its final byte $B4 gives colour 11, multicolour mode and expansion flags."
   },
   {
    "address": 25664,
    "type": "line",
-   "text": "Sprite shape used by animation 3. After 21 rows of three bytes, the flag byte $B4 specifies multicolour and VIC colour index 11."
+   "text": "Sprite pointer $91 in VIC bank $4000. The shape has 39 nonzero bytes across 21 rows of three bytes. Its final byte $B4 gives colour 11, multicolour mode and expansion flags."
   },
   {
    "address": 25728,
    "type": "line",
-   "text": "Sprite shape used by animation 3. After 21 rows of three bytes, the flag byte $B4 specifies multicolour and VIC colour index 11."
+   "text": "Sprite pointer $92 in VIC bank $4000. The shape has 39 nonzero bytes across 21 rows of three bytes. Its final byte $B4 gives colour 11, multicolour mode and expansion flags."
   },
   {
    "address": 25792,
    "type": "line",
-   "text": "Sprite shape used by animation 3. After 21 rows of three bytes, the flag byte $B4 specifies multicolour and VIC colour index 11."
+   "text": "Sprite pointer $93 in VIC bank $4000. The shape has 39 nonzero bytes across 21 rows of three bytes. Its final byte $B4 gives colour 11, multicolour mode and expansion flags."
   },
   {
    "address": 25856,
    "type": "line",
-   "text": "Sprite shape used by animation 3. After 21 rows of three bytes, the flag byte $B4 specifies multicolour and VIC colour index 11."
+   "text": "Sprite pointer $94 in VIC bank $4000. The shape has 37 nonzero bytes across 21 rows of three bytes. Its final byte $B4 gives colour 11, multicolour mode and expansion flags."
   },
   {
    "address": 25920,
    "type": "line",
-   "text": "Sprite shape used by animation 3. After 21 rows of three bytes, the flag byte $B4 specifies multicolour and VIC colour index 11."
+   "text": "Sprite pointer $95 in VIC bank $4000. The shape has 37 nonzero bytes across 21 rows of three bytes. Its final byte $B4 gives colour 11, multicolour mode and expansion flags."
   },
   {
    "address": 25984,
    "type": "line",
-   "text": "Sprite shape used by animation 3. After 21 rows of three bytes, the flag byte $B4 specifies multicolour and VIC colour index 11."
+   "text": "Sprite pointer $96 in VIC bank $4000. The shape has 37 nonzero bytes across 21 rows of three bytes. Its final byte $B4 gives colour 11, multicolour mode and expansion flags."
   },
   {
    "address": 26048,
    "type": "line",
-   "text": "Sprite shape used by animation 3. After 21 rows of three bytes, the flag byte $B4 specifies multicolour and VIC colour index 11."
+   "text": "Sprite pointer $97 in VIC bank $4000. The shape has 37 nonzero bytes across 21 rows of three bytes. Its final byte $B4 gives colour 11, multicolour mode and expansion flags."
   },
   {
    "address": 26112,
    "type": "line",
-   "text": "Sprite shape used by animation 3. After 21 rows of three bytes, the flag byte $B4 specifies multicolour and VIC colour index 11."
+   "text": "Sprite pointer $98 in VIC bank $4000. The shape has 40 nonzero bytes across 21 rows of three bytes. Its final byte $B4 gives colour 11, multicolour mode and expansion flags."
   },
   {
    "address": 26176,
    "type": "line",
-   "text": "Sprite shape used by animation 3. After 21 rows of three bytes, the flag byte $B4 specifies multicolour and VIC colour index 11."
+   "text": "Sprite pointer $99 in VIC bank $4000. The shape has 40 nonzero bytes across 21 rows of three bytes. Its final byte $B4 gives colour 11, multicolour mode and expansion flags."
   },
   {
    "address": 26240,
    "type": "line",
-   "text": "Sprite shape used by animation 3. After 21 rows of three bytes, the flag byte $B4 specifies multicolour and VIC colour index 11."
+   "text": "Sprite pointer $9A in VIC bank $4000. The shape has 40 nonzero bytes across 21 rows of three bytes. Its final byte $B4 gives colour 11, multicolour mode and expansion flags."
   },
   {
    "address": 26304,
    "type": "line",
-   "text": "Sprite shape used by animation 3. After 21 rows of three bytes, the flag byte $B4 specifies multicolour and VIC colour index 11."
+   "text": "Sprite pointer $9B in VIC bank $4000. The shape has 40 nonzero bytes across 21 rows of three bytes. Its final byte $B4 gives colour 11, multicolour mode and expansion flags."
   },
   {
    "address": 26368,
    "type": "line",
-   "text": "Sprite shape used by animation 3. After 21 rows of three bytes, the flag byte $B4 specifies multicolour and VIC colour index 11."
+   "text": "Sprite pointer $9C in VIC bank $4000. The shape has 27 nonzero bytes across 21 rows of three bytes. Its final byte $B4 gives colour 11, multicolour mode and expansion flags."
   },
   {
    "address": 26432,
    "type": "line",
-   "text": "Sprite shape used by animation 3. After 21 rows of three bytes, the flag byte $B4 specifies multicolour and VIC colour index 11."
+   "text": "Sprite pointer $9D in VIC bank $4000. The shape has 27 nonzero bytes across 21 rows of three bytes. Its final byte $B4 gives colour 11, multicolour mode and expansion flags."
   },
   {
    "address": 26496,
    "type": "line",
-   "text": "Sprite shape used by animation 3. After 21 rows of three bytes, the flag byte $B4 specifies multicolour and VIC colour index 11."
+   "text": "Sprite pointer $9E in VIC bank $4000. The shape has 27 nonzero bytes across 21 rows of three bytes. Its final byte $B4 gives colour 11, multicolour mode and expansion flags."
   },
   {
    "address": 26560,
    "type": "line",
-   "text": "Sprite shape used by animation 3. After 21 rows of three bytes, the flag byte $B4 specifies multicolour and VIC colour index 11."
+   "text": "Sprite pointer $9F in VIC bank $4000. The shape has 27 nonzero bytes across 21 rows of three bytes. Its final byte $B4 gives colour 11, multicolour mode and expansion flags."
   },
   {
    "address": 26624,
    "type": "line",
-   "text": "Sprite shape used by animation 3. After 21 rows of three bytes, the flag byte $B4 specifies multicolour and VIC colour index 11."
+   "text": "Sprite pointer $A0 in VIC bank $4000. The shape has 24 nonzero bytes across 21 rows of three bytes. Its final byte $B4 gives colour 11, multicolour mode and expansion flags."
   },
   {
    "address": 26688,
    "type": "line",
-   "text": "Sprite shape used by animation 3. After 21 rows of three bytes, the flag byte $B4 specifies multicolour and VIC colour index 11."
+   "text": "Sprite pointer $A1 in VIC bank $4000. The shape has 27 nonzero bytes across 21 rows of three bytes. Its final byte $B4 gives colour 11, multicolour mode and expansion flags."
   },
   {
    "address": 26752,
    "type": "line",
-   "text": "Sprite shape used by animation 3. After 21 rows of three bytes, the flag byte $B4 specifies multicolour and VIC colour index 11."
+   "text": "Sprite pointer $A2 in VIC bank $4000. The shape has 23 nonzero bytes across 21 rows of three bytes. Its final byte $B4 gives colour 11, multicolour mode and expansion flags."
   },
   {
    "address": 26816,
    "type": "line",
-   "text": "Sprite shape used by animation 3. After 21 rows of three bytes, the flag byte $B4 specifies multicolour and VIC colour index 11."
+   "text": "Sprite pointer $A3 in VIC bank $4000. The shape has 25 nonzero bytes across 21 rows of three bytes. Its final byte $B4 gives colour 11, multicolour mode and expansion flags."
   },
   {
    "address": 26880,
    "type": "line",
-   "text": "Sprite shape used by animation 3. After 21 rows of three bytes, the flag byte $B4 specifies multicolour and VIC colour index 11."
+   "text": "Sprite pointer $A4 in VIC bank $4000. The shape has 10 nonzero bytes across 21 rows of three bytes. Its final byte $B4 gives colour 11, multicolour mode and expansion flags."
   },
   {
    "address": 26944,
    "type": "line",
-   "text": "Sprite shape used by animation 3. After 21 rows of three bytes, the flag byte $B4 specifies multicolour and VIC colour index 11."
+   "text": "Sprite pointer $A5 in VIC bank $4000. The shape has 10 nonzero bytes across 21 rows of three bytes. Its final byte $B4 gives colour 11, multicolour mode and expansion flags."
   },
   {
    "address": 27008,
    "type": "line",
-   "text": "Sprite shape used by animation 3. After 21 rows of three bytes, the flag byte $B4 specifies multicolour and VIC colour index 11."
+   "text": "Sprite pointer $A6 in VIC bank $4000. The shape has 10 nonzero bytes across 21 rows of three bytes. Its final byte $B4 gives colour 11, multicolour mode and expansion flags."
   },
   {
    "address": 27072,
    "type": "line",
-   "text": "Sprite shape used by animation 3. After 21 rows of three bytes, the flag byte $B4 specifies multicolour and VIC colour index 11."
+   "text": "Sprite pointer $A7 in VIC bank $4000. The shape has 10 nonzero bytes across 21 rows of three bytes. Its final byte $B4 gives colour 11, multicolour mode and expansion flags."
   },
   {
    "address": 27136,
    "type": "line",
-   "text": "Sprite shape used by animation 3. After 21 rows of three bytes, the flag byte $B4 specifies multicolour and VIC colour index 11."
+   "text": "Sprite pointer $A8 in VIC bank $4000. The shape has 5 nonzero bytes across 21 rows of three bytes. Its final byte $B4 gives colour 11, multicolour mode and expansion flags."
   },
   {
    "address": 27200,
    "type": "line",
-   "text": "Sprite shape used by animation 3. After 21 rows of three bytes, the flag byte $B4 specifies multicolour and VIC colour index 11."
+   "text": "Sprite pointer $A9 in VIC bank $4000. The shape has 6 nonzero bytes across 21 rows of three bytes. Its final byte $B4 gives colour 11, multicolour mode and expansion flags."
   },
   {
    "address": 27264,
    "type": "line",
-   "text": "Sprite shape used by animation 3. After 21 rows of three bytes, the flag byte $B4 specifies multicolour and VIC colour index 11."
+   "text": "Sprite pointer $AA in VIC bank $4000. The shape has 7 nonzero bytes across 21 rows of three bytes. Its final byte $B4 gives colour 11, multicolour mode and expansion flags."
   },
   {
    "address": 27328,
    "type": "line",
-   "text": "Sprite shape used by animation 3. After 21 rows of three bytes, the flag byte $B4 specifies multicolour and VIC colour index 11."
+   "text": "Sprite pointer $AB in VIC bank $4000. The shape has 6 nonzero bytes across 21 rows of three bytes. Its final byte $B4 gives colour 11, multicolour mode and expansion flags."
   },
   {
    "address": 27392,
    "type": "line",
-   "text": "Sprite shape used by animation 3. After 21 rows of three bytes, the flag byte $B4 specifies multicolour and VIC colour index 11."
+   "text": "Sprite pointer $AC in VIC bank $4000. The shape has 5 nonzero bytes across 21 rows of three bytes. Its final byte $B4 gives colour 11, multicolour mode and expansion flags."
   },
   {
    "address": 27456,
    "type": "line",
-   "text": "Sprite shape used by animation 3. After 21 rows of three bytes, the flag byte $B4 specifies multicolour and VIC colour index 11."
+   "text": "Sprite pointer $AD in VIC bank $4000. The shape has 7 nonzero bytes across 21 rows of three bytes. Its final byte $B4 gives colour 11, multicolour mode and expansion flags."
   },
   {
    "address": 27520,
    "type": "line",
-   "text": "Sprite shape used by animation 3. After 21 rows of three bytes, the flag byte $B4 specifies multicolour and VIC colour index 11."
+   "text": "Sprite pointer $AE in VIC bank $4000. The shape has 5 nonzero bytes across 21 rows of three bytes. Its final byte $B4 gives colour 11, multicolour mode and expansion flags."
   },
   {
    "address": 27584,
    "type": "line",
-   "text": "Sprite shape used by animation 3. After 21 rows of three bytes, the flag byte $B4 specifies multicolour and VIC colour index 11."
+   "text": "Sprite pointer $AF in VIC bank $4000. The shape has 7 nonzero bytes across 21 rows of three bytes. Its final byte $B4 gives colour 11, multicolour mode and expansion flags."
   },
   {
    "address": 27648,
    "type": "line",
-   "text": "Sprite shape used by animation 1. After 21 rows of three bytes, the flag byte $C0 specifies single colour and VIC colour index 12."
+   "text": "Sprite pointer $B0 in VIC bank $4000. The shape has 38 nonzero bytes across 21 rows of three bytes. Its final byte $C0 gives colour 12, single colour mode and expansion flags."
   },
   {
    "address": 27712,
    "type": "line",
-   "text": "Sprite shape used by animation 1. After 21 rows of three bytes, the flag byte $F0 specifies single colour and VIC colour index 15."
+   "text": "Sprite pointer $B1 in VIC bank $4000. The shape has 38 nonzero bytes across 21 rows of three bytes. Its final byte $F0 gives colour 15, single colour mode and expansion flags."
   },
   {
    "address": 27776,
    "type": "line",
-   "text": "Sprite shape used by animation 1. After 21 rows of three bytes, the flag byte $10 specifies single colour and VIC colour index 1."
+   "text": "Sprite pointer $B2 in VIC bank $4000. The shape has 38 nonzero bytes across 21 rows of three bytes. Its final byte $10 gives colour 1, single colour mode and expansion flags."
   },
   {
    "address": 27840,
@@ -1863,7 +2252,7 @@
   {
    "address": 27865,
    "type": "line",
-   "text": "Packed military stockpile data at package offsets $0019\u2013$0418. The picture unpacker reads these bytes while populating the colour, screen-attribute and bitmap planes."
+   "text": "Military stockpile package offsets $0019\u2013$0418. This span starts with bytes relocated into low RAM by the bootstrap and continues into the packed picture stream."
   },
   {
    "address": 28889,
@@ -1876,6 +2265,11 @@
    "text": "Packed military stockpile data at package offsets $0819\u2013$0C18. The picture unpacker reads these bytes while populating the colour, screen-attribute and bitmap planes."
   },
   {
+   "address": 30712,
+   "type": "line",
+   "text": "The stored picture stream continues across $77F8. The runtime sprite-pointer writer uses the same address after unpacking. The loaded bytes here match the picture package through $7BF7."
+  },
+  {
    "address": 30937,
    "type": "line",
    "text": "Packed military stockpile data at package offsets $0C19\u2013$1018. The picture unpacker reads these bytes while populating the colour, screen-attribute and bitmap planes."
@@ -1886,6 +2280,11 @@
    "text": "Packed military stockpile data at package offsets $1019\u2013$1188. The picture unpacker reads these bytes while populating the colour, screen-attribute and bitmap planes."
   },
   {
+   "address": 32329,
+   "type": "line",
+   "text": "Stored byte $DA between the last source byte reached by the embedded decoder and the following scene or animation table."
+  },
+  {
    "address": 32330,
    "type": "line",
    "text": "First 25 bytes of the escaping missile convoy picture package. After the source is copied to $0812, the relocated unpacker is set up by these instructions."
@@ -1893,7 +2292,7 @@
   {
    "address": 32355,
    "type": "line",
-   "text": "Packed escaping missile convoy data at package offsets $0019\u2013$01B5. The picture unpacker reads these bytes while populating the colour, screen-attribute and bitmap planes."
+   "text": "Escaping missile convoy package offsets $0019\u2013$01B5. This span starts with bytes relocated into low RAM by the bootstrap and continues into the packed picture stream."
   },
   {
    "address": 32768,
@@ -1916,6 +2315,11 @@
    "text": "Packed escaping missile convoy data at package offsets $0C19\u2013$0F90. The picture unpacker reads these bytes while populating the colour, screen-attribute and bitmap planes."
   },
   {
+   "address": 36315,
+   "type": "line",
+   "text": "Stored byte $00 between the last source byte reached by the embedded decoder and the following scene or animation table."
+  },
+  {
    "address": 36316,
    "type": "line",
    "text": "First 25 bytes of the interception alert picture package. After the source is copied to $0812, the relocated unpacker is set up by these instructions."
@@ -1923,7 +2327,7 @@
   {
    "address": 36341,
    "type": "line",
-   "text": "Packed interception alert data at package offsets $0019\u2013$0418. The picture unpacker reads these bytes while populating the colour, screen-attribute and bitmap planes."
+   "text": "Interception alert package offsets $0019\u2013$0418. This span starts with bytes relocated into low RAM by the bootstrap and continues into the packed picture stream."
   },
   {
    "address": 37365,
@@ -1946,6 +2350,11 @@
    "text": "Packed interception alert data at package offsets $1019\u2013$11CF. The picture unpacker reads these bytes while populating the colour, screen-attribute and bitmap planes."
   },
   {
+   "address": 40876,
+   "type": "line",
+   "text": "Loaded zero after the final interception-alert picture source and immediately before the fourth sprite-placement table at $9FAD."
+  },
+  {
    "address": 40877,
    "type": "line",
    "text": "Sprite placement data for animation 4, byte offset $0000 in its frame table. Each 24-byte record contains eight Y coordinates, eight X coordinates and eight shape indices. Y=$FF skips that slot."
@@ -1964,6 +2373,36 @@
    "address": 48729,
    "type": "line",
    "text": "Saves the live registers, banks in the I/O chips, acknowledges the VIC raster condition and calls the inherited music tick at $B003."
+  },
+  {
+   "address": 48763,
+   "type": "line",
+   "text": "The lower operand of the raster\u2019s music call that the video-rate wrapper can replace."
+  },
+  {
+   "address": 48764,
+   "type": "line",
+   "text": "High operand of the music JSR at $BE7A. The remaining IRQ instructions restore the saved zero page, CPU port and registers."
+  },
+  {
+   "address": 48780,
+   "type": "line",
+   "text": "Saved X, written to this immediate operand by the interrupt entry and restored before RTI."
+  },
+  {
+   "address": 48782,
+   "type": "line",
+   "text": "Saved Y byte, patched by the interrupt entry into the restore instruction."
+  },
+  {
+   "address": 48784,
+   "type": "line",
+   "text": "Saved accumulator byte for the final load before RTI."
+  },
+  {
+   "address": 48786,
+   "type": "line",
+   "text": "Saves four zero-page bytes $F8\u2013$FB around the music update."
   },
   {
    "address": 48790,
@@ -2001,164 +2440,174 @@
    "text": "Sprite placement data for animation 3, byte offset $0400 in its frame table. Each 24-byte record contains eight Y coordinates, eight X coordinates and eight shape indices. Y=$FF skips that slot."
   },
   {
+   "address": 52966,
+   "type": "line",
+   "text": "The high-bank scene data ends at $CEE5. This loaded zero fill continues up to the $D000 boundary."
+  },
+  {
+   "address": 53248,
+   "type": "line",
+   "text": "The decoded RAM under I/O is zero from $D000 to the start of the stored sprite art at $D400."
+  },
+  {
    "address": 54272,
    "type": "line",
-   "text": "Sprite shape used by animation 2. After 21 rows of three bytes, the flag byte $F4 specifies multicolour and VIC colour index 15."
+   "text": "Sprite pointer $50 in VIC bank $C000. The shape has 8 nonzero bytes across 21 rows of three bytes. Its final byte $F4 gives colour 15, multicolour mode and expansion flags."
   },
   {
    "address": 54336,
    "type": "line",
-   "text": "Sprite shape used by animation 2. After 21 rows of three bytes, the flag byte $F4 specifies multicolour and VIC colour index 15."
+   "text": "Sprite pointer $51 in VIC bank $C000. The shape has 18 nonzero bytes across 21 rows of three bytes. Its final byte $F4 gives colour 15, multicolour mode and expansion flags."
   },
   {
    "address": 54400,
    "type": "line",
-   "text": "Sprite shape used by animation 2. After 21 rows of three bytes, the flag byte $F4 specifies multicolour and VIC colour index 15."
+   "text": "Sprite pointer $52 in VIC bank $C000. The shape has 31 nonzero bytes across 21 rows of three bytes. Its final byte $F4 gives colour 15, multicolour mode and expansion flags."
   },
   {
    "address": 54464,
    "type": "line",
-   "text": "Sprite shape used by animation 2. After 21 rows of three bytes, the flag byte $F4 specifies multicolour and VIC colour index 15."
+   "text": "Sprite pointer $53 in VIC bank $C000. The shape has 28 nonzero bytes across 21 rows of three bytes. Its final byte $F4 gives colour 15, multicolour mode and expansion flags."
   },
   {
    "address": 54528,
    "type": "line",
-   "text": "Sprite shape used by animation 2. After 21 rows of three bytes, the flag byte $F4 specifies multicolour and VIC colour index 15."
+   "text": "Sprite pointer $54 in VIC bank $C000. The shape has 20 nonzero bytes across 21 rows of three bytes. Its final byte $F4 gives colour 15, multicolour mode and expansion flags."
   },
   {
    "address": 54592,
    "type": "line",
-   "text": "Sprite shape used by animation 2. After 21 rows of three bytes, the flag byte $F4 specifies multicolour and VIC colour index 15."
+   "text": "Sprite pointer $55 in VIC bank $C000. The shape has 15 nonzero bytes across 21 rows of three bytes. Its final byte $F4 gives colour 15, multicolour mode and expansion flags."
   },
   {
    "address": 54656,
    "type": "line",
-   "text": "Sprite shape used by animation 2. After 21 rows of three bytes, the flag byte $F4 specifies multicolour and VIC colour index 15."
+   "text": "Sprite pointer $56 in VIC bank $C000. The shape has 13 nonzero bytes across 21 rows of three bytes. Its final byte $F4 gives colour 15, multicolour mode and expansion flags."
   },
   {
    "address": 54720,
    "type": "line",
-   "text": "Sprite shape used by animation 2. After 21 rows of three bytes, the flag byte $F4 specifies multicolour and VIC colour index 15."
+   "text": "Sprite pointer $57 in VIC bank $C000. The shape has 11 nonzero bytes across 21 rows of three bytes. Its final byte $F4 gives colour 15, multicolour mode and expansion flags."
   },
   {
    "address": 54784,
    "type": "line",
-   "text": "Sprite shape used by animation 2. After 21 rows of three bytes, the flag byte $F4 specifies multicolour and VIC colour index 15."
+   "text": "Sprite pointer $58 in VIC bank $C000. The shape has 14 nonzero bytes across 21 rows of three bytes. Its final byte $F4 gives colour 15, multicolour mode and expansion flags."
   },
   {
    "address": 54848,
    "type": "line",
-   "text": "Sprite shape used by animation 2. After 21 rows of three bytes, the flag byte $04 specifies multicolour and VIC colour index 0."
+   "text": "Sprite pointer $59 in VIC bank $C000. The shape has 2 nonzero bytes across 21 rows of three bytes. Its final byte $04 gives colour 0, multicolour mode and expansion flags."
   },
   {
    "address": 54912,
    "type": "line",
-   "text": "Sprite shape used by animation 2. After 21 rows of three bytes, the flag byte $04 specifies multicolour and VIC colour index 0."
+   "text": "Sprite pointer $5A in VIC bank $C000. The shape has 4 nonzero bytes across 21 rows of three bytes. Its final byte $04 gives colour 0, multicolour mode and expansion flags."
   },
   {
    "address": 54976,
    "type": "line",
-   "text": "Sprite shape used by animation 2. After 21 rows of three bytes, the flag byte $04 specifies multicolour and VIC colour index 0."
+   "text": "Sprite pointer $5B in VIC bank $C000. The shape has 4 nonzero bytes across 21 rows of three bytes. Its final byte $04 gives colour 0, multicolour mode and expansion flags."
   },
   {
    "address": 55040,
    "type": "line",
-   "text": "Sprite shape used by animation 2. After 21 rows of three bytes, the flag byte $04 specifies multicolour and VIC colour index 0."
+   "text": "Sprite pointer $5C in VIC bank $C000. The shape has 6 nonzero bytes across 21 rows of three bytes. Its final byte $04 gives colour 0, multicolour mode and expansion flags."
   },
   {
    "address": 55104,
    "type": "line",
-   "text": "Sprite shape used by animation 2. After 21 rows of three bytes, the flag byte $04 specifies multicolour and VIC colour index 0."
+   "text": "Sprite pointer $5D in VIC bank $C000. The shape has 8 nonzero bytes across 21 rows of three bytes. Its final byte $04 gives colour 0, multicolour mode and expansion flags."
   },
   {
    "address": 55168,
    "type": "line",
-   "text": "Sprite shape used by animation 2. After 21 rows of three bytes, the flag byte $04 specifies multicolour and VIC colour index 0."
+   "text": "Sprite pointer $5E in VIC bank $C000. The shape has 12 nonzero bytes across 21 rows of three bytes. Its final byte $04 gives colour 0, multicolour mode and expansion flags."
   },
   {
    "address": 55232,
    "type": "line",
-   "text": "Sprite shape used by animation 2. After 21 rows of three bytes, the flag byte $F4 specifies multicolour and VIC colour index 15."
+   "text": "Sprite pointer $5F in VIC bank $C000. The shape has 9 nonzero bytes across 21 rows of three bytes. Its final byte $F4 gives colour 15, multicolour mode and expansion flags."
   },
   {
    "address": 55296,
    "type": "line",
-   "text": "Sprite shape used by animation 2. After 21 rows of three bytes, the flag byte $F4 specifies multicolour and VIC colour index 15."
+   "text": "Sprite pointer $60 in VIC bank $C000. The shape has 25 nonzero bytes across 21 rows of three bytes. Its final byte $F4 gives colour 15, multicolour mode and expansion flags."
   },
   {
    "address": 55360,
    "type": "line",
-   "text": "Sprite shape used by animation 2. After 21 rows of three bytes, the flag byte $F4 specifies multicolour and VIC colour index 15."
+   "text": "Sprite pointer $61 in VIC bank $C000. The shape has 40 nonzero bytes across 21 rows of three bytes. Its final byte $F4 gives colour 15, multicolour mode and expansion flags."
   },
   {
    "address": 55424,
    "type": "line",
-   "text": "Sprite shape used by animation 2. After 21 rows of three bytes, the flag byte $F4 specifies multicolour and VIC colour index 15."
+   "text": "Sprite pointer $62 in VIC bank $C000. The shape has 40 nonzero bytes across 21 rows of three bytes. Its final byte $F4 gives colour 15, multicolour mode and expansion flags."
   },
   {
    "address": 55488,
    "type": "line",
-   "text": "Sprite shape used by animation 2. After 21 rows of three bytes, the flag byte $F4 specifies multicolour and VIC colour index 15."
+   "text": "Sprite pointer $63 in VIC bank $C000. The shape has 40 nonzero bytes across 21 rows of three bytes. Its final byte $F4 gives colour 15, multicolour mode and expansion flags."
   },
   {
    "address": 55552,
    "type": "line",
-   "text": "Sprite shape used by animation 2. After 21 rows of three bytes, the flag byte $F4 specifies multicolour and VIC colour index 15."
+   "text": "Sprite pointer $64 in VIC bank $C000. The shape has 26 nonzero bytes across 21 rows of three bytes. Its final byte $F4 gives colour 15, multicolour mode and expansion flags."
   },
   {
    "address": 55616,
    "type": "line",
-   "text": "Sprite shape used by animation 2. After 21 rows of three bytes, the flag byte $F4 specifies multicolour and VIC colour index 15."
+   "text": "Sprite pointer $65 in VIC bank $C000. The shape has 24 nonzero bytes across 21 rows of three bytes. Its final byte $F4 gives colour 15, multicolour mode and expansion flags."
   },
   {
    "address": 55680,
    "type": "line",
-   "text": "Sprite shape used by animation 2. After 21 rows of three bytes, the flag byte $F4 specifies multicolour and VIC colour index 15."
+   "text": "Sprite pointer $66 in VIC bank $C000. The shape has 23 nonzero bytes across 21 rows of three bytes. Its final byte $F4 gives colour 15, multicolour mode and expansion flags."
   },
   {
    "address": 55744,
    "type": "line",
-   "text": "Sprite shape used by animation 2. After 21 rows of three bytes, the flag byte $F4 specifies multicolour and VIC colour index 15."
+   "text": "Sprite pointer $67 in VIC bank $C000. The shape has 23 nonzero bytes across 21 rows of three bytes. Its final byte $F4 gives colour 15, multicolour mode and expansion flags."
   },
   {
    "address": 55808,
    "type": "line",
-   "text": "Sprite shape used by animation 4. After 21 rows of three bytes, the flag byte $F4 specifies multicolour and VIC colour index 15."
+   "text": "Sprite pointer $68 in VIC bank $C000. The shape has 12 nonzero bytes across 21 rows of three bytes. Its final byte $F4 gives colour 15, multicolour mode and expansion flags."
   },
   {
    "address": 55872,
    "type": "line",
-   "text": "Sprite shape used by animation 4. After 21 rows of three bytes, the flag byte $F4 specifies multicolour and VIC colour index 15."
+   "text": "Sprite pointer $69 in VIC bank $C000. The shape has 24 nonzero bytes across 21 rows of three bytes. Its final byte $F4 gives colour 15, multicolour mode and expansion flags."
   },
   {
    "address": 55936,
    "type": "line",
-   "text": "Sprite shape used by animation 4. After 21 rows of three bytes, the flag byte $F4 specifies multicolour and VIC colour index 15."
+   "text": "Sprite pointer $6A in VIC bank $C000. The shape has 29 nonzero bytes across 21 rows of three bytes. Its final byte $F4 gives colour 15, multicolour mode and expansion flags."
   },
   {
    "address": 56000,
    "type": "line",
-   "text": "Sprite shape used by animation 4. After 21 rows of three bytes, the flag byte $F4 specifies multicolour and VIC colour index 15."
+   "text": "Sprite pointer $6B in VIC bank $C000. The shape has 29 nonzero bytes across 21 rows of three bytes. Its final byte $F4 gives colour 15, multicolour mode and expansion flags."
   },
   {
    "address": 56064,
    "type": "line",
-   "text": "Sprite shape used by animation 4. After 21 rows of three bytes, the flag byte $F4 specifies multicolour and VIC colour index 15."
+   "text": "Sprite pointer $6C in VIC bank $C000. The shape has 22 nonzero bytes across 21 rows of three bytes. Its final byte $F4 gives colour 15, multicolour mode and expansion flags."
   },
   {
    "address": 56128,
    "type": "line",
-   "text": "Sprite shape used by animation 4. After 21 rows of three bytes, the flag byte $B4 specifies multicolour and VIC colour index 11."
+   "text": "Sprite pointer $6D in VIC bank $C000. The shape has 9 nonzero bytes across 21 rows of three bytes. Its final byte $B4 gives colour 11, multicolour mode and expansion flags."
   },
   {
    "address": 56192,
    "type": "line",
-   "text": "Sprite shape used by animation 4. After 21 rows of three bytes, the flag byte $F4 specifies multicolour and VIC colour index 15."
+   "text": "Sprite pointer $6E in VIC bank $C000. The shape has 7 nonzero bytes across 21 rows of three bytes. Its final byte $F4 gives colour 15, multicolour mode and expansion flags."
   },
   {
    "address": 56256,
    "type": "line",
-   "text": "Sprite shape used by animation 2, 4. After 21 rows of three bytes, the flag byte $F4 specifies multicolour and VIC colour index 15."
+   "text": "Sprite pointer $6F in VIC bank $C000. The shape has 3 nonzero bytes across 21 rows of three bytes. Its final byte $F4 gives colour 15, multicolour mode and expansion flags."
   }
  ]
 }

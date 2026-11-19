@@ -147,15 +147,15 @@
   {
    "start": 12396,
    "end": 12403,
-   "type": "Undefined"
+   "type": "Byte"
   },
   {
    "start": 12404,
-   "end": 12599,
+   "end": 12605,
    "type": "Code"
   },
   {
-   "start": 12600,
+   "start": 12606,
    "end": 12606,
    "type": "Undefined"
   },
@@ -167,7 +167,7 @@
   {
    "start": 12615,
    "end": 12616,
-   "type": "Undefined"
+   "type": "Word"
   },
   {
    "start": 12617,
@@ -197,30 +197,25 @@
   {
    "start": 13240,
    "end": 13311,
-   "type": "Undefined"
+   "type": "Byte"
   },
   {
    "start": 13312,
-   "end": 13330,
+   "end": 13346,
    "type": "Code"
   },
   {
-   "start": 13331,
-   "end": 16383,
-   "type": "Undefined"
-  },
-  {
-   "start": 16384,
+   "start": 13347,
    "end": 18110,
    "type": "Byte"
   },
   {
    "start": 18111,
-   "end": 27839,
+   "end": 25599,
    "type": "Undefined"
   },
   {
-   "start": 27840,
+   "start": 25600,
    "end": 33024,
    "type": "Byte"
   },
@@ -241,13 +236,8 @@
   },
   {
    "start": 38734,
-   "end": 38853,
-   "type": "Byte"
-  },
-  {
-   "start": 38854,
    "end": 39017,
-   "type": "Undefined"
+   "type": "Byte"
   },
   {
    "start": 48729,
@@ -256,38 +246,8 @@
   },
   {
    "start": 48786,
-   "end": 54271,
-   "type": "Undefined"
-  },
-  {
-   "start": 54272,
-   "end": 54655,
-   "type": "Byte"
-  },
-  {
-   "start": 54656,
-   "end": 54719,
-   "type": "Undefined"
-  },
-  {
-   "start": 54720,
-   "end": 55039,
-   "type": "Byte"
-  },
-  {
-   "start": 55040,
-   "end": 55103,
-   "type": "Undefined"
-  },
-  {
-   "start": 55104,
-   "end": 55167,
-   "type": "Byte"
-  },
-  {
-   "start": 55168,
    "end": 55679,
-   "type": "Undefined"
+   "type": "Byte"
   }
  ],
  "symbols": [
@@ -299,9 +259,9 @@
   },
   {
    "address": 2067,
-   "name": "s_0813",
+   "name": "initialize_embedded_picture_unpacker",
    "type": "Subroutine",
-   "kind": "auto"
+   "kind": "user"
   },
   {
    "address": 2073,
@@ -311,9 +271,9 @@
   },
   {
    "address": 2090,
-   "name": "f_082A",
+   "name": "retained_unpacker_source_preceding_byte",
    "type": "Field",
-   "kind": "auto"
+   "kind": "user"
   },
   {
    "address": 2091,
@@ -323,19 +283,25 @@
   },
   {
    "address": 2256,
-   "name": "f_08D0",
+   "name": "initial_picture_unpacker_and_stream",
    "type": "Field",
-   "kind": "auto"
+   "kind": "user"
   },
   {
    "address": 3072,
-   "name": "f_0C00",
+   "name": "first_picture_packed_source_at_0c00",
    "type": "Field",
-   "kind": "auto"
+   "kind": "user"
   },
   {
    "address": 3115,
    "name": "picture_0_packed_bytes_0419",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 4096,
+   "name": "first_picture_packed_source_at_1000",
    "type": "UserDefined",
    "kind": "user"
   },
@@ -388,16 +354,22 @@
    "kind": "user"
   },
   {
+   "address": 12396,
+   "name": "garage_loader_to_picture_copy_gap",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
    "address": 12404,
-   "name": "s_3074",
+   "name": "unpack_garage_picture_to_low_bank",
    "type": "Subroutine",
-   "kind": "auto"
+   "kind": "user"
   },
   {
    "address": 12455,
-   "name": "s_30A7",
+   "name": "refresh_garage_colour_ram",
    "type": "Subroutine",
-   "kind": "auto"
+   "kind": "user"
   },
   {
    "address": 12488,
@@ -418,10 +390,16 @@
    "kind": "auto"
   },
   {
+   "address": 12600,
+   "name": "repeat_garage_border_probe",
+   "type": "Jump",
+   "kind": "user"
+  },
+  {
    "address": 12606,
-   "name": "a_313E",
+   "name": "scene_picture_index",
    "type": "AbsoluteAddress",
-   "kind": "auto"
+   "kind": "user"
   },
   {
    "address": 12607,
@@ -431,13 +409,19 @@
   },
   {
    "address": 12608,
-   "name": "f_3140",
+   "name": "packed_scene_pointer_high_lane",
    "type": "Field",
-   "kind": "auto"
+   "kind": "user"
+  },
+  {
+   "address": 12615,
+   "name": "packed_scene_table_terminal_word",
+   "type": "UserDefined",
+   "kind": "user"
   },
   {
    "address": 12617,
-   "name": "select_packed_garage_picture",
+   "name": "copy_packed_picture_to_bootstrap",
    "type": "Subroutine",
    "kind": "user"
   },
@@ -449,33 +433,33 @@
   },
   {
    "address": 12644,
-   "name": "a_3164",
+   "name": "scene_package_copy_source_low",
    "type": "AbsoluteAddress",
-   "kind": "auto"
+   "kind": "user"
   },
   {
    "address": 12645,
-   "name": "a_3165",
+   "name": "scene_package_copy_source_high",
    "type": "AbsoluteAddress",
-   "kind": "auto"
+   "kind": "user"
   },
   {
    "address": 12648,
-   "name": "a_3168",
+   "name": "scene_package_copy_destination_high",
    "type": "AbsoluteAddress",
-   "kind": "auto"
+   "kind": "user"
   },
   {
    "address": 12662,
-   "name": "s_3176",
+   "name": "expand_selected_picture",
    "type": "Subroutine",
-   "kind": "auto"
+   "kind": "user"
   },
   {
    "address": 12670,
-   "name": "s_317E",
+   "name": "transfer_picture_pages",
    "type": "Subroutine",
-   "kind": "auto"
+   "kind": "user"
   },
   {
    "address": 12672,
@@ -485,21 +469,21 @@
   },
   {
    "address": 12674,
-   "name": "a_3182",
+   "name": "display_plane_copy_source_page",
    "type": "AbsoluteAddress",
-   "kind": "auto"
+   "kind": "user"
   },
   {
    "address": 12677,
-   "name": "a_3185",
+   "name": "display_plane_copy_target_page",
    "type": "AbsoluteAddress",
-   "kind": "auto"
+   "kind": "user"
   },
   {
    "address": 12691,
-   "name": "s_3193",
+   "name": "wait_or_skip_garage_delay",
    "type": "Subroutine",
-   "kind": "auto"
+   "kind": "user"
   },
   {
    "address": 12693,
@@ -521,15 +505,15 @@
   },
   {
    "address": 12721,
-   "name": "a_31B1",
+   "name": "garage_fire_edge_latch",
    "type": "AbsoluteAddress",
-   "kind": "auto"
+   "kind": "user"
   },
   {
    "address": 12722,
-   "name": "s_31B2",
+   "name": "wait_for_raster_zero_pass",
    "type": "Subroutine",
-   "kind": "auto"
+   "kind": "user"
   },
   {
    "address": 12727,
@@ -539,9 +523,9 @@
   },
   {
    "address": 12733,
-   "name": "s_31BD",
+   "name": "clear_device_and_zero_page",
    "type": "Subroutine",
-   "kind": "auto"
+   "kind": "user"
   },
   {
    "address": 12735,
@@ -551,9 +535,9 @@
   },
   {
    "address": 12739,
-   "name": "a_31C3",
+   "name": "io_clear_page_operand",
    "type": "AbsoluteAddress",
-   "kind": "auto"
+   "kind": "user"
   },
   {
    "address": 12757,
@@ -563,9 +547,9 @@
   },
   {
    "address": 12763,
-   "name": "s_31DB",
+   "name": "play_garage_sprite_sequence",
    "type": "Subroutine",
-   "kind": "auto"
+   "kind": "user"
   },
   {
    "address": 12816,
@@ -623,9 +607,9 @@
   },
   {
    "address": 12891,
-   "name": "s_325B",
+   "name": "delay_sprite_frame",
    "type": "Subroutine",
-   "kind": "auto"
+   "kind": "user"
   },
   {
    "address": 12895,
@@ -641,15 +625,15 @@
   },
   {
    "address": 12914,
-   "name": "s_3272",
+   "name": "locate_sprite_frame_record",
    "type": "Subroutine",
-   "kind": "auto"
+   "kind": "user"
   },
   {
    "address": 12974,
-   "name": "a_32AE",
+   "name": "restore_sprite_frame_lookup_x",
    "type": "AbsoluteAddress",
-   "kind": "auto"
+   "kind": "user"
   },
   {
    "address": 12976,
@@ -671,15 +655,15 @@
   },
   {
    "address": 13039,
-   "name": "a_32EF",
+   "name": "animation_sprite_index_bias",
    "type": "AbsoluteAddress",
-   "kind": "auto"
+   "kind": "user"
   },
   {
    "address": 13042,
-   "name": "a_32F2",
+   "name": "animation_screen_sprite_pointers",
    "type": "AbsoluteAddress",
-   "kind": "auto"
+   "kind": "user"
   },
   {
    "address": 13068,
@@ -713,111 +697,153 @@
   },
   {
    "address": 13121,
-   "name": "s_3341",
+   "name": "multiply_sprite_pointer_by_64",
    "type": "Subroutine",
-   "kind": "auto"
+   "kind": "user"
   },
   {
    "address": 13134,
-   "name": "a_334E",
+   "name": "animation_shape_bank_bias",
    "type": "AbsoluteAddress",
-   "kind": "auto"
+   "kind": "user"
   },
   {
    "address": 13138,
-   "name": "f_3352",
+   "name": "animation_slot_bit_masks",
    "type": "Field",
-   "kind": "auto"
+   "kind": "user"
   },
   {
    "address": 13146,
-   "name": "f_335A",
+   "name": "scene_frame_base_low",
    "type": "Field",
-   "kind": "auto"
+   "kind": "user"
   },
   {
    "address": 13147,
-   "name": "f_335B",
+   "name": "scene_frame_base_high",
    "type": "Field",
-   "kind": "auto"
+   "kind": "user"
   },
   {
    "address": 13148,
-   "name": "f_335C",
+   "name": "scene_frame_wait",
    "type": "Field",
-   "kind": "auto"
+   "kind": "user"
   },
   {
    "address": 13149,
-   "name": "f_335D",
+   "name": "scene_last_frame",
    "type": "Field",
-   "kind": "auto"
+   "kind": "user"
   },
   {
    "address": 13150,
-   "name": "f_335E",
+   "name": "scene_pointer_screen_page",
    "type": "Field",
-   "kind": "auto"
+   "kind": "user"
   },
   {
    "address": 13151,
-   "name": "f_335F",
+   "name": "scene_shape_index_bias",
    "type": "Field",
-   "kind": "auto"
+   "kind": "user"
   },
   {
    "address": 13152,
-   "name": "f_3360",
+   "name": "scene_lead_in_wait",
    "type": "Field",
-   "kind": "auto"
+   "kind": "user"
   },
   {
    "address": 13153,
-   "name": "f_3361",
+   "name": "scene_lead_out_wait",
    "type": "Field",
-   "kind": "auto"
+   "kind": "user"
   },
   {
    "address": 13154,
-   "name": "f_3362",
+   "name": "scene_shape_bank_page",
    "type": "Field",
-   "kind": "auto"
+   "kind": "user"
   },
   {
    "address": 13155,
-   "name": "f_3363",
+   "name": "scene_multicolour_0",
    "type": "Field",
-   "kind": "auto"
+   "kind": "user"
   },
   {
    "address": 13156,
-   "name": "f_3364",
+   "name": "scene_multicolour_1",
    "type": "Field",
-   "kind": "auto"
+   "kind": "user"
   },
   {
    "address": 13157,
-   "name": "s_3365",
+   "name": "mask_garage_interrupts",
    "type": "Subroutine",
-   "kind": "auto"
+   "kind": "user"
   },
   {
    "address": 13196,
-   "name": "s_338C",
+   "name": "install_garage_music_interrupt",
    "type": "Subroutine",
-   "kind": "auto"
+   "kind": "user"
+  },
+  {
+   "address": 13240,
+   "name": "garage_irq_setup_to_rate_wrapper",
+   "type": "UserDefined",
+   "kind": "user"
   },
   {
    "address": 13312,
-   "name": "s_3400",
+   "name": "select_scene_music_rate",
    "type": "Subroutine",
-   "kind": "auto"
+   "kind": "user"
   },
   {
    "address": 13327,
    "name": "b_340F",
    "type": "Branch",
    "kind": "auto"
+  },
+  {
+   "address": 13331,
+   "name": "intro_0e_divided_music_tick",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 13332,
+   "name": "scene_music_countdown_operand",
+   "type": "AbsoluteAddress",
+   "kind": "user"
+  },
+  {
+   "address": 13341,
+   "name": "b_341D",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 13347,
+   "name": "load_fill_3423",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 14371,
+   "name": "load_fill_3823",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 15395,
+   "name": "load_fill_3c23",
+   "type": "UserDefined",
+   "kind": "user"
   },
   {
    "address": 16384,
@@ -842,6 +868,24 @@
    "name": "f_6000",
    "type": "Field",
    "kind": "auto"
+  },
+  {
+   "address": 25600,
+   "name": "garage_low_bank_zero_slots_90_9f",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 26624,
+   "name": "garage_low_bank_zero_slots_a0_af",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 27648,
+   "name": "garage_low_bank_zero_slots_b0_b2",
+   "type": "UserDefined",
+   "kind": "user"
   },
   {
    "address": 27840,
@@ -869,9 +913,9 @@
   },
   {
    "address": 30712,
-   "name": "f_77F8",
+   "name": "packed_picture_over_live_sprite_pointers",
    "type": "Field",
-   "kind": "auto"
+   "kind": "user"
   },
   {
    "address": 30937,
@@ -894,6 +938,12 @@
   {
    "address": 32985,
    "name": "picture_2_packed_bytes_1419",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 33025,
+   "name": "picture_package_tail_8101",
    "type": "UserDefined",
    "kind": "user"
   },
@@ -940,8 +990,26 @@
    "kind": "user"
   },
   {
+   "address": 38733,
+   "name": "picture_package_tail_974d",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
    "address": 38734,
    "name": "scene_1_frame_records_0000",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 38854,
+   "name": "garage_sprite_frames_05_08",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 38950,
+   "name": "garage_retained_sprite_frames_09_11",
    "type": "UserDefined",
    "kind": "user"
   },
@@ -959,15 +1027,15 @@
   },
   {
    "address": 48763,
-   "name": "a_BE7B",
+   "name": "scene_irq_music_call_low",
    "type": "AbsoluteAddress",
-   "kind": "auto"
+   "kind": "user"
   },
   {
    "address": 48764,
-   "name": "a_BE7C",
+   "name": "scene_irq_music_call_high",
    "type": "AbsoluteAddress",
-   "kind": "auto"
+   "kind": "user"
   },
   {
    "address": 48767,
@@ -977,27 +1045,63 @@
   },
   {
    "address": 48780,
-   "name": "a_BE8C",
+   "name": "scene_irq_restore_x_operand",
    "type": "AbsoluteAddress",
-   "kind": "auto"
+   "kind": "user"
   },
   {
    "address": 48782,
-   "name": "a_BE8E",
+   "name": "scene_irq_restore_y_operand",
    "type": "AbsoluteAddress",
-   "kind": "auto"
+   "kind": "user"
   },
   {
    "address": 48784,
-   "name": "a_BE90",
+   "name": "scene_irq_restore_a_operand",
    "type": "AbsoluteAddress",
-   "kind": "auto"
+   "kind": "user"
   },
   {
    "address": 48786,
-   "name": "f_BE92",
+   "name": "saved_music_zero_page",
    "type": "Field",
-   "kind": "auto"
+   "kind": "user"
+  },
+  {
+   "address": 48790,
+   "name": "load_fill_be96",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 49152,
+   "name": "load_fill_c000",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 50176,
+   "name": "load_fill_c400",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 51200,
+   "name": "load_fill_c800",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 52224,
+   "name": "load_fill_cc00",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 53248,
+   "name": "load_fill_d000",
+   "type": "UserDefined",
+   "kind": "user"
   },
   {
    "address": 54272,
@@ -1036,6 +1140,12 @@
    "kind": "user"
   },
   {
+   "address": 54656,
+   "name": "garage_sprite_slot_56",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
    "address": 54720,
    "name": "scene_sprite_shape_d5c0",
    "type": "UserDefined",
@@ -1066,8 +1176,62 @@
    "kind": "user"
   },
   {
+   "address": 55040,
+   "name": "garage_sprite_slot_5c",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
    "address": 55104,
    "name": "scene_sprite_shape_d740",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 55168,
+   "name": "garage_sprite_shape_d780",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 55232,
+   "name": "garage_sprite_shape_d7c0",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 55296,
+   "name": "garage_sprite_shape_d800",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 55360,
+   "name": "garage_sprite_shape_d840",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 55424,
+   "name": "garage_sprite_shape_d880",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 55488,
+   "name": "garage_sprite_shape_d8c0",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 55552,
+   "name": "garage_sprite_shape_d900",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 55616,
+   "name": "garage_sprite_shape_d940",
    "type": "UserDefined",
    "kind": "user"
   }
@@ -1079,14 +1243,39 @@
    "text": "Relocates the picture unpacker to the stack page and low RAM, changes the CPU port and jumps to the unpacker at $0100. The picture paths enter it at $0813."
   },
   {
+   "address": 2067,
+   "type": "line",
+   "text": "Banks out I/O and ROMs. Relocates two 166-byte source windows into low memory, then jumps to the unpacker at $0100."
+  },
+  {
+   "address": 2090,
+   "type": "line",
+   "text": "The first copy reads $082A plus Y. The loop stops before Y equals zero, so its first actual source byte is $082B."
+  },
+  {
    "address": 2091,
    "type": "line",
-   "text": "Packed garage briefing data at package offsets $0019\u2013$0418. The picture unpacker reads these bytes while populating the colour, screen-attribute and bitmap planes."
+   "text": "Garage briefing package offsets $0019\u2013$0418. This span starts with bytes relocated into low RAM by the bootstrap and continues into the packed picture stream."
+  },
+  {
+   "address": 2256,
+   "type": "line",
+   "text": "The bootstrap at $081F copies $08D1\u2013$0976 to $0334\u2013$03D9 for the unpacker. These bytes are in the packed garage briefing package. The rest of this span supplies the picture decoder until the next boundary at $0C00."
+  },
+  {
+   "address": 3072,
+   "type": "line",
+   "text": "On entry this holds the packed first picture. After the depacker runs, $0C00 is the expanded VIC screen-attribute source."
   },
   {
    "address": 3115,
    "type": "line",
    "text": "Packed garage briefing data at package offsets $0419\u2013$0818. The picture unpacker reads these bytes while populating the colour, screen-attribute and bitmap planes."
+  },
+  {
+   "address": 4096,
+   "type": "line",
+   "text": "On entry these bytes still belong to the packed first picture. Expanded bitmap output occupies $1000 after the depacker runs."
   },
   {
    "address": 4139,
@@ -1124,9 +1313,34 @@
    "text": "Pushes $68FF as the loader return address, selects two blocks of driving file one and jumps to $0433."
   },
   {
+   "address": 12396,
+   "type": "line",
+   "text": "Eight zero-filled bytes after the first-stage loader jump and before the low-bank picture-copy helper."
+  },
+  {
+   "address": 12404,
+   "type": "line",
+   "text": "Copies packed data to $0812, depacks it and selects the low VIC bank after transferring the attributes, bitmap and colour RAM planes."
+  },
+  {
+   "address": 12455,
+   "type": "line",
+   "text": "Sets the source and destination operands to copy four pages of colour values to $D800 before selecting the display bank."
+  },
+  {
    "address": 12488,
    "type": "line",
    "text": "Stages and decompresses a picture, then builds a multicolour bitmap using screen RAM under $DC00 and bitmap RAM at $E000."
+  },
+  {
+   "address": 12600,
+   "type": "line",
+   "text": "Increments the VIC border colour and jumps to its own entry, forming a visible diagnostic loop."
+  },
+  {
+   "address": 12606,
+   "type": "line",
+   "text": "Selects the two-byte address from the scene table. The next-picture path increments the index."
   },
   {
    "address": 12607,
@@ -1134,14 +1348,229 @@
    "text": "Little-endian source addresses for the 4 packed picture programs. The selector indexes with twice the scene number and copies the selected source beginning at $0812."
   },
   {
+   "address": 12608,
+   "type": "line",
+   "text": "This base reads the high byte of the picture address at twice the selected scene index. The corresponding low byte is read one address earlier."
+  },
+  {
+   "address": 12615,
+   "type": "line",
+   "text": "Stored $FFFF immediately after the 4 valid picture addresses."
+  },
+  {
    "address": 12617,
    "type": "line",
-   "text": "Reads a source pointer from the picture table and stages 23 pages at $0812 before the decompressor runs at $0813."
+   "text": "Uses the scene number to select a two-byte source pointer and copies 23 pages into the staging area beginning at $0812."
+  },
+  {
+   "address": 12644,
+   "type": "line",
+   "text": "Low byte of the packed-picture copy\u2019s source operand, set from the selected scene pointer."
+  },
+  {
+   "address": 12645,
+   "type": "line",
+   "text": "High byte of the packed-picture source. The copy increments this after each 256-byte page."
+  },
+  {
+   "address": 12648,
+   "type": "line",
+   "text": "Page byte of the destination operand. Resets to $08 for each picture and advances after each copied page."
+  },
+  {
+   "address": 12662,
+   "type": "line",
+   "text": "Calls the picture depacker at $0813 and restores $35 in the CPU port so the display routines can access I/O."
+  },
+  {
+   "address": 12670,
+   "type": "line",
+   "text": "Copies X plus one full pages to the selected display plane. Increments the source and destination pages as each page completes."
+  },
+  {
+   "address": 12674,
+   "type": "line",
+   "text": "High source operand for the display copy. The caller selects $08, $0C or $10 according to the plane."
+  },
+  {
+   "address": 12677,
+   "type": "line",
+   "text": "High destination operand for the page copier, selected by expected display plane and VIC bank."
+  },
+  {
+   "address": 12691,
+   "type": "line",
+   "text": "Advances through a raster wait loop. Checks the joystick fire line and uses $31B1 to skip only on a fresh press."
+  },
+  {
+   "address": 12721,
+   "type": "line",
+   "text": "Lets a new fire press skip the active delay once. The wait routine clears the latch after release."
+  },
+  {
+   "address": 12722,
+   "type": "line",
+   "text": "Waits for raster low byte zero and then for it to become nonzero."
+  },
+  {
+   "address": 12733,
+   "type": "line",
+   "text": "Clears the I/O address range $D400\u2013$D7FF, then zeros $02\u2013$FF. Preserves the processor port bytes $00 and $01."
+  },
+  {
+   "address": 12739,
+   "type": "line",
+   "text": "High-byte operand that the I/O clear loop increments up to $D8."
+  },
+  {
+   "address": 12763,
+   "type": "line",
+   "text": "Loads the bank, sprite pointer bias, multicolour palette and frame limit and displays the records in order, with a delay before advances."
+  },
+  {
+   "address": 12891,
+   "type": "line",
+   "text": "Copies the frame delay into $0E and counts transitions out of raster line low byte $F1 until the delay expires."
+  },
+  {
+   "address": 12914,
+   "type": "line",
+   "text": "Computes 24 times the 16-bit frame index as eight times plus sixteen times, then adds the sequence table address."
+  },
+  {
+   "address": 12974,
+   "type": "line",
+   "text": "Immediate operand holding the incoming X during frame-record address calculation."
   },
   {
    "address": 12976,
    "type": "line",
    "text": "Programs each of eight sprite slots from its three parallel arrays for the selected frame. Tests Y=$FF to leave a slot disabled and reads the shape flags after 63 bytes of pixels."
+  },
+  {
+   "address": 13039,
+   "type": "line",
+   "text": "Operand of the addition that translates the per-slot shape index into a VIC pointer, patched for the sequence."
+  },
+  {
+   "address": 13042,
+   "type": "line",
+   "text": "High byte of the indexed sprite-pointer store. The sequence chooses the low or high VIC bank\u2019s screen pointer page."
+  },
+  {
+   "address": 13121,
+   "type": "line",
+   "text": "Converts the 8-bit VIC sprite pointer in A into a 16-bit byte offset in $0B/$0C using two right shifts and rotations."
+  },
+  {
+   "address": 13134,
+   "type": "line",
+   "text": "High operand patched for reading a sprite shape\u2019s expansion and palette flags in the selected VIC bank."
+  },
+  {
+   "address": 13138,
+   "type": "line",
+   "text": "Eight powers of two used to update the VIC enable, expansion and multicolour flags for each sprite slot."
+  },
+  {
+   "address": 13146,
+   "type": "line",
+   "text": "Low byte of the sprite frame-table address. Stored sequence values are $4E."
+  },
+  {
+   "address": 13147,
+   "type": "line",
+   "text": "High byte of the sprite frame-table address. Stored sequence values are $97."
+  },
+  {
+   "address": 13148,
+   "type": "line",
+   "text": "Number of raster waits per animation step, copied to $0D. Stored sequence values are $04."
+  },
+  {
+   "address": 13149,
+   "type": "line",
+   "text": "Highest frame index the playback loop selects. Stored sequence values are $08."
+  },
+  {
+   "address": 13150,
+   "type": "line",
+   "text": "Patched high byte of the VIC screen\u2019s sprite-pointer store. Stored sequence values are $DF."
+  },
+  {
+   "address": 13151,
+   "type": "line",
+   "text": "Value added to each raw shape index before programming the display pointer. Stored sequence values are $50."
+  },
+  {
+   "address": 13152,
+   "type": "line",
+   "text": "Number of frame delays used to hold the first frame before advancing. Stored sequence values are $14."
+  },
+  {
+   "address": 13153,
+   "type": "line",
+   "text": "Number of frame delays used to hold the final frame before returning. Stored sequence values are $00."
+  },
+  {
+   "address": 13154,
+   "type": "line",
+   "text": "Page bias for reading a sprite\u2019s flag byte from the selected VIC bank. Stored sequence values are $C0."
+  },
+  {
+   "address": 13155,
+   "type": "line",
+   "text": "Value programmed into $D025 when this sequence begins. Stored sequence values are $02."
+  },
+  {
+   "address": 13156,
+   "type": "line",
+   "text": "Value programmed into $D026 when this sequence begins. Stored sequence values are $0F."
+  },
+  {
+   "address": 13157,
+   "type": "line",
+   "text": "Configures the CPU port, masks both CIAs, disables VIC IRQs and silences SID master volume while changing the image."
+  },
+  {
+   "address": 13196,
+   "type": "line",
+   "text": "Points the IRQ at $BE59 and the NMI at $BE91. Acknowledges VIC raster status and enables the IRQ at line 200."
+  },
+  {
+   "address": 13240,
+   "type": "line",
+   "text": "Loader-written zero bytes between the IRQ setup routine and the video-rate wrapper at $3400."
+  },
+  {
+   "address": 13312,
+   "type": "line",
+   "text": "Tests $02A6 and can redirect the raster\u2019s music call to the scene divider. Then quiets the machine for the scene."
+  },
+  {
+   "address": 13331,
+   "type": "line",
+   "text": "The wrapper at $3400 installs this target when $02A6 is zero. Decrements the countdown operand at $3414 and calls $B003. When it expires, reloads six and returns."
+  },
+  {
+   "address": 13332,
+   "type": "line",
+   "text": "Immediate byte used as the divider countdown. It is decremented until the update is skipped and the counter is reloaded."
+  },
+  {
+   "address": 13347,
+   "type": "line",
+   "text": "The garage interrupt wrapper ends at $3422. The loaded zero gap runs up to the next packed scene at $4000. The depacker explicitly writes zero at $3423\u2013$3822."
+  },
+  {
+   "address": 14371,
+   "type": "line",
+   "text": "The garage interrupt wrapper ends at $3422. The loaded zero gap runs up to the next packed scene at $4000. The depacker explicitly writes zero at $3823\u2013$3C22."
+  },
+  {
+   "address": 15395,
+   "type": "line",
+   "text": "The garage interrupt wrapper ends at $3422. The loaded zero gap runs up to the next packed scene at $4000. The depacker explicitly writes zero at $3C23\u2013$3FFF."
   },
   {
    "address": 16384,
@@ -1151,12 +1580,27 @@
   {
    "address": 16409,
    "type": "line",
-   "text": "Packed consulate message data at package offsets $0019\u2013$0418. The picture unpacker reads these bytes while populating the colour, screen-attribute and bitmap planes."
+   "text": "Consulate message package offsets $0019\u2013$0418. This span starts with bytes relocated into low RAM by the bootstrap and continues into the packed picture stream."
   },
   {
    "address": 17433,
    "type": "line",
    "text": "Packed consulate message data at package offsets $0419\u2013$06BE. The picture unpacker reads these bytes while populating the colour, screen-attribute and bitmap planes."
+  },
+  {
+   "address": 25600,
+   "type": "line",
+   "text": "The loaded low-bank sprite allocation begins with sixteen zero 64-byte slots, before the stored garage image at $6CC0."
+  },
+  {
+   "address": 26624,
+   "type": "line",
+   "text": "The middle sixteen 64-byte slots in the low-bank allocation contain zeros. The loaded animation selects nonzero shapes in the high bank."
+  },
+  {
+   "address": 27648,
+   "type": "line",
+   "text": "Three further blank 64-byte slots immediately precede the garage picture package at $6CC0."
   },
   {
    "address": 27840,
@@ -1166,7 +1610,7 @@
   {
    "address": 27865,
    "type": "line",
-   "text": "Packed garage without the agents data at package offsets $0019\u2013$0418. The picture unpacker reads these bytes while populating the colour, screen-attribute and bitmap planes."
+   "text": "Garage without the agents package offsets $0019\u2013$0418. This span starts with bytes relocated into low RAM by the bootstrap and continues into the packed picture stream."
   },
   {
    "address": 28889,
@@ -1177,6 +1621,11 @@
    "address": 29913,
    "type": "line",
    "text": "Packed garage without the agents data at package offsets $0819\u2013$0C18. The picture unpacker reads these bytes while populating the colour, screen-attribute and bitmap planes."
+  },
+  {
+   "address": 30712,
+   "type": "line",
+   "text": "The stored picture stream continues across $77F8. The runtime sprite-pointer writer uses the same address after unpacking. The loaded bytes here match the picture package through $7BF7."
   },
   {
    "address": 30937,
@@ -1199,6 +1648,11 @@
    "text": "Packed garage without the agents data at package offsets $1419\u2013$1440. The picture unpacker reads these bytes while populating the colour, screen-attribute and bitmap planes."
   },
   {
+   "address": 33025,
+   "type": "line",
+   "text": "Stored byte $04 between the last source byte reached by the embedded decoder and the following scene or animation table."
+  },
+  {
    "address": 33026,
    "type": "line",
    "text": "First 25 bytes of the garage with headlights on picture package. After the source is copied to $0812, the relocated unpacker is set up by these instructions."
@@ -1206,7 +1660,7 @@
   {
    "address": 33051,
    "type": "line",
-   "text": "Packed garage with headlights on data at package offsets $0019\u2013$0418. The picture unpacker reads these bytes while populating the colour, screen-attribute and bitmap planes."
+   "text": "Garage with headlights on package offsets $0019\u2013$0418. This span starts with bytes relocated into low RAM by the bootstrap and continues into the packed picture stream."
   },
   {
    "address": 34075,
@@ -1234,9 +1688,24 @@
    "text": "Packed garage with headlights on data at package offsets $1419\u2013$164A. The picture unpacker reads these bytes while populating the colour, screen-attribute and bitmap planes."
   },
   {
+   "address": 38733,
+   "type": "line",
+   "text": "Stored byte $00 between the last source byte reached by the embedded decoder and the following scene or animation table."
+  },
+  {
    "address": 38734,
    "type": "line",
    "text": "Sprite placement data for animation 1, byte offset $0000 in its frame table. Each 24-byte record contains eight Y coordinates, eight X coordinates and eight shape indices. Y=$FF skips that slot."
+  },
+  {
+   "address": 38854,
+   "type": "line",
+   "text": "Four remaining frames selected by the garage animation. The 24-byte records contain eight Y positions, eight X positions and eight shape pointers. The selector stops at frame index eight."
+  },
+  {
+   "address": 38950,
+   "type": "line",
+   "text": "Two complete 24-byte placement records and the first twenty bytes of a third follow the selected garage animation. The loop at $3235 reaches its frame limit before these records."
   },
   {
    "address": 48729,
@@ -1244,64 +1713,174 @@
    "text": "Saves the live registers, banks in the I/O chips, acknowledges the VIC raster condition and calls the inherited music tick at $B003."
   },
   {
+   "address": 48763,
+   "type": "line",
+   "text": "The lower operand of the raster\u2019s music call that the video-rate wrapper can replace."
+  },
+  {
+   "address": 48764,
+   "type": "line",
+   "text": "High operand of the music JSR at $BE7A. The remaining IRQ instructions restore the saved zero page, CPU port and registers."
+  },
+  {
+   "address": 48780,
+   "type": "line",
+   "text": "Saved X, written to this immediate operand by the interrupt entry and restored before RTI."
+  },
+  {
+   "address": 48782,
+   "type": "line",
+   "text": "Saved Y byte, patched by the interrupt entry into the restore instruction."
+  },
+  {
+   "address": 48784,
+   "type": "line",
+   "text": "Saved accumulator byte for the final load before RTI."
+  },
+  {
+   "address": 48786,
+   "type": "line",
+   "text": "The interrupt at $BE59 saves $F8 through $FB here before calling the music tick and restores them before RTI."
+  },
+  {
+   "address": 48790,
+   "type": "line",
+   "text": "The music interrupt and its four-byte save area are followed by zero fill up to the bank boundary. The depacker explicitly writes zero at $BE96\u2013$BFFF."
+  },
+  {
+   "address": 49152,
+   "type": "line",
+   "text": "The garage load puts the high-bank sprite art at $D400. Zero fill precedes the first shape in VIC bank $C000. The depacker explicitly writes zero at $C000\u2013$C3FF."
+  },
+  {
+   "address": 50176,
+   "type": "line",
+   "text": "The garage load puts the high-bank sprite art at $D400. Zero fill precedes the first shape in VIC bank $C000. The depacker explicitly writes zero at $C400\u2013$C7FF."
+  },
+  {
+   "address": 51200,
+   "type": "line",
+   "text": "The garage load puts the high-bank sprite art at $D400. Zero fill precedes the first shape in VIC bank $C000. The depacker explicitly writes zero at $C800\u2013$CBFF."
+  },
+  {
+   "address": 52224,
+   "type": "line",
+   "text": "The garage load puts the high-bank sprite art at $D400. Zero fill precedes the first shape in VIC bank $C000. The depacker explicitly writes zero at $CC00\u2013$CFFF."
+  },
+  {
+   "address": 53248,
+   "type": "line",
+   "text": "The garage load puts the high-bank sprite art at $D400. Zero fill precedes the first shape in VIC bank $C000. The depacker explicitly writes zero at $D000\u2013$D3FF."
+  },
+  {
    "address": 54272,
    "type": "line",
-   "text": "Sprite shape used by animation 1. After 21 rows of three bytes, the flag byte $04 specifies multicolour and VIC colour index 0."
+   "text": "Sprite pointer $50 in VIC bank $C000. The shape has 24 nonzero bytes across 21 rows of three bytes. Its final byte $04 gives colour 0, multicolour mode and expansion flags."
   },
   {
    "address": 54336,
    "type": "line",
-   "text": "Sprite shape used by animation 1. After 21 rows of three bytes, the flag byte $A4 specifies multicolour and VIC colour index 10."
+   "text": "Sprite pointer $51 in VIC bank $C000. The shape has 22 nonzero bytes across 21 rows of three bytes. Its final byte $A4 gives colour 10, multicolour mode and expansion flags."
   },
   {
    "address": 54400,
    "type": "line",
-   "text": "Sprite shape used by animation 1. After 21 rows of three bytes, the flag byte $A4 specifies multicolour and VIC colour index 10."
+   "text": "Sprite pointer $52 in VIC bank $C000. The shape has 20 nonzero bytes across 21 rows of three bytes. Its final byte $A4 gives colour 10, multicolour mode and expansion flags."
   },
   {
    "address": 54464,
    "type": "line",
-   "text": "Sprite shape used by animation 1. After 21 rows of three bytes, the flag byte $A4 specifies multicolour and VIC colour index 10."
+   "text": "Sprite pointer $53 in VIC bank $C000. The shape has 20 nonzero bytes across 21 rows of three bytes. Its final byte $A4 gives colour 10, multicolour mode and expansion flags."
   },
   {
    "address": 54528,
    "type": "line",
-   "text": "Sprite shape used by animation 1. After 21 rows of three bytes, the flag byte $A4 specifies multicolour and VIC colour index 10."
+   "text": "Sprite pointer $54 in VIC bank $C000. The shape has 20 nonzero bytes across 21 rows of three bytes. Its final byte $A4 gives colour 10, multicolour mode and expansion flags."
   },
   {
    "address": 54592,
    "type": "line",
-   "text": "Sprite shape used by animation 1. After 21 rows of three bytes, the flag byte $A4 specifies multicolour and VIC colour index 10."
+   "text": "Sprite pointer $55 in VIC bank $C000. The shape has 20 nonzero bytes across 21 rows of three bytes. Its final byte $A4 gives colour 10, multicolour mode and expansion flags."
+  },
+  {
+   "address": 54656,
+   "type": "line",
+   "text": "VIC sprite slot $56 with the garage\u2019s high bank selected. The frame record supplies shape offset six before adding the $50 pointer bias."
   },
   {
    "address": 54720,
    "type": "line",
-   "text": "Sprite shape used by animation 1. After 21 rows of three bytes, the flag byte $A4 specifies multicolour and VIC colour index 10."
+   "text": "Sprite pointer $57 in VIC bank $C000. The shape has 22 nonzero bytes across 21 rows of three bytes. Its final byte $A4 gives colour 10, multicolour mode and expansion flags."
   },
   {
    "address": 54784,
    "type": "line",
-   "text": "Sprite shape used by animation 1. After 21 rows of three bytes, the flag byte $A4 specifies multicolour and VIC colour index 10."
+   "text": "Sprite pointer $58 in VIC bank $C000. The shape has 20 nonzero bytes across 21 rows of three bytes. Its final byte $A4 gives colour 10, multicolour mode and expansion flags."
   },
   {
    "address": 54848,
    "type": "line",
-   "text": "Sprite shape used by animation 1. After 21 rows of three bytes, the flag byte $A4 specifies multicolour and VIC colour index 10."
+   "text": "Sprite pointer $59 in VIC bank $C000. The shape has 20 nonzero bytes across 21 rows of three bytes. Its final byte $A4 gives colour 10, multicolour mode and expansion flags."
   },
   {
    "address": 54912,
    "type": "line",
-   "text": "Sprite shape used by animation 1. After 21 rows of three bytes, the flag byte $A4 specifies multicolour and VIC colour index 10."
+   "text": "Sprite pointer $5A in VIC bank $C000. The shape has 20 nonzero bytes across 21 rows of three bytes. Its final byte $A4 gives colour 10, multicolour mode and expansion flags."
   },
   {
    "address": 54976,
    "type": "line",
-   "text": "Sprite shape used by animation 1. After 21 rows of three bytes, the flag byte $A4 specifies multicolour and VIC colour index 10."
+   "text": "Sprite pointer $5B in VIC bank $C000. The shape has 20 nonzero bytes across 21 rows of three bytes. Its final byte $A4 gives colour 10, multicolour mode and expansion flags."
+  },
+  {
+   "address": 55040,
+   "type": "line",
+   "text": "Garage sprite slot $5C. Frame four selects shape offset twelve for the right-hand overlay after it adds the $50 pointer bias."
   },
   {
    "address": 55104,
    "type": "line",
-   "text": "Sprite shape used by animation 1. After 21 rows of three bytes, the flag byte $14 specifies multicolour and VIC colour index 1."
+   "text": "Sprite pointer $5D in VIC bank $C000. The shape has 2 nonzero bytes across 21 rows of three bytes. Its final byte $14 gives colour 1, multicolour mode and expansion flags."
+  },
+  {
+   "address": 55168,
+   "type": "line",
+   "text": "Garage table frame indices 5 contain shape offset $0E. With pointer bias $50 and VIC bank $C000 this selects these 63 pixel bytes and shape flags $14."
+  },
+  {
+   "address": 55232,
+   "type": "line",
+   "text": "Garage table frame indices 6, 11 contain shape offset $0F. With pointer bias $50 and VIC bank $C000 this selects these 63 pixel bytes and shape flags $14."
+  },
+  {
+   "address": 55296,
+   "type": "line",
+   "text": "Garage table frame indices 7, 10 contain shape offset $10. With pointer bias $50 and VIC bank $C000 this selects these 63 pixel bytes and shape flags $14."
+  },
+  {
+   "address": 55360,
+   "type": "line",
+   "text": "Garage table frame indices 7, 10 contain shape offset $11. With pointer bias $50 and VIC bank $C000 this selects these 63 pixel bytes and shape flags $14."
+  },
+  {
+   "address": 55424,
+   "type": "line",
+   "text": "Garage table frame indices 9 contain shape offset $12. With pointer bias $50 and VIC bank $C000 this selects these 63 pixel bytes and shape flags $14."
+  },
+  {
+   "address": 55488,
+   "type": "line",
+   "text": "Garage table frame indices 9 contain shape offset $13. With pointer bias $50 and VIC bank $C000 this selects these 63 pixel bytes and shape flags $14."
+  },
+  {
+   "address": 55552,
+   "type": "line",
+   "text": "Garage table frame indices 8 contain shape offset $14. With pointer bias $50 and VIC bank $C000 this selects these 63 pixel bytes and shape flags $14."
+  },
+  {
+   "address": 55616,
+   "type": "line",
+   "text": "Garage table frame indices 8 contain shape offset $15. With pointer bias $50 and VIC bank $C000 this selects these 63 pixel bytes and shape flags $14."
   }
  ]
 }

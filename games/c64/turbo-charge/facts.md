@@ -2,9 +2,7 @@
 
 These notes describe the Nostalgia disk release on PAL C64. Evidence
 comes from instruction disassembly, targeted VICE execution and store
-checkpoints, snapshot comparisons, and a captured raster frame. The
-formal step-60 verification pass depends on completing the coverage
-ledger in step 50.
+checkpoints, snapshot comparisons, and a captured raster frame.
 
 ## Stage dispatch and media
 
@@ -43,6 +41,11 @@ The high-score data in `1A-N0S` is nine five-byte records loaded at
 `$0405`. The first three bytes select sprite glyphs for initials.
 The last two contain four packed decimal digits. The raster handler
 at `$0DCF` reads the table and `$0BB4` inserts a qualifying score.
+A VICE store watch from the title comparison at `$0BBA` caught
+five writes to the leading record with an injected score of 9999.
+The record held three `$24` initial glyphs and the packed score
+`$99,$99` before the editor call at `$0BFC`. The path at `$0F44`
+attempts a save unless `$02B3` is set. Disk persistence is open.
 
 ## Driving and controls
 
@@ -52,6 +55,29 @@ at `$0DCF` reads the table and `$0BB4` inserts a qualifying score.
   through the resulting pointer. `$7A33` consumes the next word
   as a scenery-stream address. `$8DE3` consumes scenery record
   triplets and recognizes markers `$FE` and `$FF`.
+- The fork handlers at `$7A4B` and `$7A7E` use the following
+  script word as a destination when the test at `$7B0E` takes the
+  branch. The engine subtracts the script base from the destination's
+  low byte and halves the result to recover the script index.
+- Road pitch commands install three profiles together. In a targeted
+  VICE run of `$7DC8` with `$13=$0A`, five store checkpoints fired
+  once each. The routine installed the width, traffic Y and scenery
+  height profiles at `$9FAF`, `$A1B4` and `$A064`, respectively.
+  It also wrote the horizon and road-band positions at `$A740` and
+  `$A746`.
+- Traffic uses a stage-local table to map object type to a composition
+  table. A composition begins with a sprite pointer, followed by
+  relative X, relative Y and sprite-pointer triplets. An X value of
+  `$FF` ends it. At round 2's `$1333`, an isolated VICE probe with
+  record `$0A36` wrote four sprite pointers and three pairs of
+  coordinates before reaching `$136C`.
+- The shared bank exchange at `$9B76` swaps thirteen pages at
+  `$3B00–$47FF` with `$C000–$CCFF` for selector 1. VICE counted
+  3,328 stores in each range and the two saved byte sequences swapped
+  places. The separate round-2 script overlay at `$234A` exchanged
+  320 bytes between `$2386` and `$E080`, confirmed by a store
+  checkpoint on each side. The trace is in
+  `work/traces/resume-probes.jsonl`.
 - The fire routine tests active-low CIA1 port A bit 4 at `$6D51`.
   A 100-frame hold followed by four released frames hit the initial
   press branch `$6D8B` once and the missile-spend instruction
@@ -78,8 +104,52 @@ at `$0DCF` reads the table and `$0BB4` inserts a qualifying score.
   compared with two at `$6F54` in the normal acceleration branch.
   Both subtract from `$A73B` and decrement `$A73A` on borrow.
   Local trace: `work/traces/driving.jsonl`.
-- Pause and damage still need coverage work. The manual supplies
-  the control names in [the checklist](features.md).
+- RUN/STOP enters the wait at `$6B38`. A VICE matrix-key probe
+  reached `$6B42` on the first release, `$6B4C` on the second press
+  and the return at `$6B56` after the second release.
+- RESTORE triggers the round-one NMI. The handler at `$9365`
+  tests the CIA2 interrupt flag at `$936A`. A VICE RESTORE trial
+  reached the external NMI store at `$937F`, and stepping it
+  wrote reason one to `$A7BB`. The neutral trial reached the NMI
+  entry 24 times and the raster IRQ 72 times without reaching
+  the external store.
+- The crash recovery path tests the remaining-car glyph at
+  `$F35D`. With glyph `$9D` and the override byte at `$0402`
+  clear, stepping the store at `$6C5D` wrote return reason one to
+  `$A7BB`. The controller takes the car-destroyed picture path
+  for that reason. This probe isolated the final-car test.
+- Round-one fuel vehicle processing at `$9D0F` checks the
+  collision flag at `$A77E`. An injected contact produced
+  three stores to `$A73A`, taking fuel from 8 to 11, and
+  cleared the slot at `$A766`. At depth `$40` without contact
+  the slot remained active. At `$3E` without contact it cleared
+  without a fuel write.
+- The border countdown at `$694A` subtracts one in decimal mode
+  from `$A7D2/$A7D3`. The VICE probe starting from zero
+  counted one store of reason three at `$A7BB` and 14 stores
+  to the lower message row at `$F3DA`. The probe starting from
+  one produced neither store and left the countdown at zero.
+  The score deposit at `$78A1` carried 1298 + 9 to 1307, with
+  one store to each score byte. The RESTORE, fuel, countdown
+  and score traces are in `work/traces/verify-resume.jsonl`.
+
+## Music data
+
+The stage driver plays a two-voice tune from separate order streams.
+`$B39F` reads an order event, `$B3F5` and `$B3FA` load the
+selected pattern address and `$B402` reads the pattern. A pattern
+ends with `$FF` after a note or hold. An order list instead uses
+`$FF` followed by a byte offset to loop. The title driver uses
+the same division between orders and patterns with three voices and
+different table addresses. Instruction-read traces in
+`work/traces/resume-tune.jsonl` and
+`work/traces/resume-title-tune.jsonl` identify the observed extents.
+
+The effect player has its own script and lifetime directories at
+`$BE42` and `$BE62`. Calling `$BC4C` with each effect number
+in the first lane exercised every byte of the 16 indexed scripts
+in the kit CPU simulator. The trace is in
+`work/traces/resume-effects.jsonl`.
 
 ## Display and text
 
@@ -100,3 +170,17 @@ encoding for **BORDER** and **MILES** templates such as `$09CE` and
 for short road warnings near `$79B2`. The rest of the dashboard
 and road glyphs are graphics. Renderings are in ignored work images
 `font-e800.png` and `font-f800.png`.
+
+## The listing's error rate
+
+A fresh `gpt-6.2-sol` checker examined 95 of 6,047 comments. The
+draw used seed 221910 and included 35 comments across seven
+generated comment families.
+Nine comments were wrong and all nine were corrected, along with
+matching claims in other parts. They described the relocation bytes
+in a packed picture, the pitch sequence selector and two SID voice
+details, and the traffic and scenery projection and sprite fields.
+The estimated error rate was 9.5% with a 95% Wilson interval from
+5.1% to 17.0%. Weighting by stratum gives 9.1%. The checker may
+have missed errors. The draw and verdicts are in
+`work/reports/sample-221910/`.
