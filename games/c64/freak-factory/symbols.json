@@ -22,14 +22,54 @@
     "screen RAM"
    ],
    [
-    51168,
-    53247,
-    "DCS introduction and exit wrapper. The game enters at $4000."
+    1024,
+    2047,
+    "Live VIC screen output and sprite pointers. Title backdrop and records are counted at their sources."
+   ],
+   [
+    4096,
+    8191,
+    "Relocation residue. Matches the $C000\u2013$CFFF image in 4015 of 4096 bytes. The live vectors and direct references select the $C000 copy, and the VIC sees character ROM in this window in bank 0."
    ],
    [
     14336,
     16383,
-    "Live VIC character window. The hand-over still holds the DCS font from $7000. The authored factory set at $7800 is tracked separately."
+    "Live character window populated from the title set at $7000 or the factory set at $7800. Both sources and the gameplay glyph update tables are counted."
+   ],
+   [
+    25779,
+    28671,
+    "Memory-image residue after the factory energy routine ends at $64B2. Repeated page structures have no identified game reader, vector or VIC pointer."
+   ],
+   [
+    40879,
+    40959,
+    "Unpacked residue between the final lab copy routine and the title sprite records. Execution returns at $9FAE."
+   ],
+   [
+    43182,
+    49132,
+    "Unpacked residue after the completion text. Includes an old tape reader at $A900 and repeating page patterns. The title text and sprite pointer chains stay below it. The game state and vectors begin at $BFED."
+   ],
+   [
+    49823,
+    50175,
+    "Residue between the factory SID code and title SID code. The factory returns to $C029 at $C29C and uses no data here."
+   ],
+   [
+    51051,
+    51167,
+    "Residue after the title SID initialiser jumps back to $C723 and before the title restart entry."
+   ],
+   [
+    53081,
+    53247,
+    "Residue after the title scroll handler exits through $FEBC."
+   ],
+   [
+    53248,
+    57343,
+    "Underlying RAM is a byte-for-byte copy of $E000\u2013$EFFF. Resident code keeps I/O visible, including during the sprite swaps. The VIC remains in bank 0."
    ]
   ],
   "extra": [
@@ -57,6 +97,16 @@
  "blocks": [
   {
    "start": 0,
+   "end": 2047,
+   "type": "Undefined"
+  },
+  {
+   "start": 2048,
+   "end": 4095,
+   "type": "Byte"
+  },
+  {
+   "start": 4096,
    "end": 8191,
    "type": "Undefined"
   },
@@ -78,7 +128,7 @@
   {
    "start": 16579,
    "end": 16582,
-   "type": "Undefined"
+   "type": "Byte"
   },
   {
    "start": 16583,
@@ -123,7 +173,7 @@
   {
    "start": 17466,
    "end": 17475,
-   "type": "Undefined"
+   "type": "Byte"
   },
   {
    "start": 17476,
@@ -133,7 +183,7 @@
   {
    "start": 17696,
    "end": 17722,
-   "type": "Undefined"
+   "type": "Byte"
   },
   {
    "start": 17723,
@@ -143,7 +193,7 @@
   {
    "start": 17841,
    "end": 17867,
-   "type": "Undefined"
+   "type": "Byte"
   },
   {
    "start": 17868,
@@ -153,7 +203,7 @@
   {
    "start": 17986,
    "end": 18060,
-   "type": "Undefined"
+   "type": "Byte"
   },
   {
    "start": 18061,
@@ -163,7 +213,7 @@
   {
    "start": 18152,
    "end": 18226,
-   "type": "Undefined"
+   "type": "Byte"
   },
   {
    "start": 18227,
@@ -173,7 +223,7 @@
   {
    "start": 18318,
    "end": 18318,
-   "type": "Undefined"
+   "type": "Byte"
   },
   {
    "start": 18319,
@@ -183,7 +233,7 @@
   {
    "start": 18653,
    "end": 18687,
-   "type": "Undefined"
+   "type": "Byte"
   },
   {
    "start": 18688,
@@ -193,7 +243,7 @@
   {
    "start": 18757,
    "end": 18807,
-   "type": "Undefined"
+   "type": "Byte"
   },
   {
    "start": 18808,
@@ -203,7 +253,7 @@
   {
    "start": 18880,
    "end": 18930,
-   "type": "Undefined"
+   "type": "Byte"
   },
   {
    "start": 18931,
@@ -213,7 +263,7 @@
   {
    "start": 19003,
    "end": 19013,
-   "type": "Undefined"
+   "type": "Byte"
   },
   {
    "start": 19014,
@@ -223,7 +273,7 @@
   {
    "start": 19075,
    "end": 19085,
-   "type": "Undefined"
+   "type": "Byte"
   },
   {
    "start": 19086,
@@ -232,6 +282,11 @@
   },
   {
    "start": 19147,
+   "end": 19164,
+   "type": "Byte"
+  },
+  {
+   "start": 19165,
    "end": 19166,
    "type": "Undefined"
   },
@@ -268,7 +323,7 @@
   {
    "start": 19678,
    "end": 19696,
-   "type": "Undefined"
+   "type": "Byte"
   },
   {
    "start": 19697,
@@ -277,8 +332,13 @@
   },
   {
    "start": 19749,
-   "end": 19758,
+   "end": 19754,
    "type": "Undefined"
+  },
+  {
+   "start": 19755,
+   "end": 19758,
+   "type": "Byte"
   },
   {
    "start": 19759,
@@ -297,8 +357,13 @@
   },
   {
    "start": 22509,
-   "end": 22545,
+   "end": 22510,
    "type": "Undefined"
+  },
+  {
+   "start": 22511,
+   "end": 22545,
+   "type": "Byte"
   },
   {
    "start": 22546,
@@ -307,6 +372,11 @@
   },
   {
    "start": 22594,
+   "end": 22604,
+   "type": "Byte"
+  },
+  {
+   "start": 22605,
    "end": 22606,
    "type": "Undefined"
   },
@@ -317,6 +387,11 @@
   },
   {
    "start": 22686,
+   "end": 22687,
+   "type": "Byte"
+  },
+  {
+   "start": 22688,
    "end": 22688,
    "type": "Undefined"
   },
@@ -328,7 +403,7 @@
   {
    "start": 22740,
    "end": 22807,
-   "type": "Undefined"
+   "type": "Byte"
   },
   {
    "start": 22808,
@@ -338,7 +413,7 @@
   {
    "start": 22877,
    "end": 22878,
-   "type": "Undefined"
+   "type": "Byte"
   },
   {
    "start": 22879,
@@ -348,7 +423,7 @@
   {
    "start": 22896,
    "end": 22897,
-   "type": "Undefined"
+   "type": "Byte"
   },
   {
    "start": 22898,
@@ -358,7 +433,7 @@
   {
    "start": 22941,
    "end": 22941,
-   "type": "Undefined"
+   "type": "Byte"
   },
   {
    "start": 22942,
@@ -368,7 +443,7 @@
   {
    "start": 23003,
    "end": 23008,
-   "type": "Undefined"
+   "type": "Byte"
   },
   {
    "start": 23009,
@@ -378,7 +453,7 @@
   {
    "start": 23174,
    "end": 23178,
-   "type": "Undefined"
+   "type": "Byte"
   },
   {
    "start": 23179,
@@ -388,7 +463,7 @@
   {
    "start": 23369,
    "end": 23373,
-   "type": "Undefined"
+   "type": "Byte"
   },
   {
    "start": 23374,
@@ -398,7 +473,7 @@
   {
    "start": 23524,
    "end": 23529,
-   "type": "Undefined"
+   "type": "Byte"
   },
   {
    "start": 23530,
@@ -408,7 +483,7 @@
   {
    "start": 23710,
    "end": 23710,
-   "type": "Undefined"
+   "type": "Byte"
   },
   {
    "start": 23711,
@@ -428,7 +503,7 @@
   {
    "start": 23898,
    "end": 23930,
-   "type": "Undefined"
+   "type": "Byte"
   },
   {
    "start": 23931,
@@ -437,21 +512,16 @@
   },
   {
    "start": 23986,
+   "end": 23998,
+   "type": "Byte"
+  },
+  {
+   "start": 23999,
    "end": 24000,
    "type": "Undefined"
   },
   {
    "start": 24001,
-   "end": 24350,
-   "type": "Code"
-  },
-  {
-   "start": 24351,
-   "end": 24359,
-   "type": "Undefined"
-  },
-  {
-   "start": 24360,
    "end": 24595,
    "type": "Code"
   },
@@ -468,7 +538,7 @@
   {
    "start": 24804,
    "end": 24816,
-   "type": "Undefined"
+   "type": "Byte"
   },
   {
    "start": 24817,
@@ -478,7 +548,7 @@
   {
    "start": 25176,
    "end": 25177,
-   "type": "Undefined"
+   "type": "Byte"
   },
   {
    "start": 25178,
@@ -498,7 +568,7 @@
   {
    "start": 25669,
    "end": 25670,
-   "type": "Undefined"
+   "type": "Byte"
   },
   {
    "start": 25671,
@@ -507,11 +577,11 @@
   },
   {
    "start": 25779,
-   "end": 30719,
+   "end": 28671,
    "type": "Undefined"
   },
   {
-   "start": 30720,
+   "start": 28672,
    "end": 32767,
    "type": "Byte"
   },
@@ -548,7 +618,7 @@
   {
    "start": 33442,
    "end": 33478,
-   "type": "Undefined"
+   "type": "Byte"
   },
   {
    "start": 33479,
@@ -558,7 +628,7 @@
   {
    "start": 33560,
    "end": 33632,
-   "type": "Undefined"
+   "type": "Byte"
   },
   {
    "start": 33633,
@@ -568,7 +638,7 @@
   {
    "start": 33948,
    "end": 33962,
-   "type": "Undefined"
+   "type": "Byte"
   },
   {
    "start": 33963,
@@ -588,7 +658,7 @@
   {
    "start": 34238,
    "end": 34270,
-   "type": "Undefined"
+   "type": "Byte"
   },
   {
    "start": 34271,
@@ -597,8 +667,13 @@
   },
   {
    "start": 34389,
-   "end": 34403,
+   "end": 34391,
    "type": "Undefined"
+  },
+  {
+   "start": 34392,
+   "end": 34403,
+   "type": "Byte"
   },
   {
    "start": 34404,
@@ -607,6 +682,11 @@
   },
   {
    "start": 34621,
+   "end": 34621,
+   "type": "Byte"
+  },
+  {
+   "start": 34622,
    "end": 34622,
    "type": "Undefined"
   },
@@ -618,7 +698,7 @@
   {
    "start": 34641,
    "end": 34655,
-   "type": "Undefined"
+   "type": "Byte"
   },
   {
    "start": 34656,
@@ -628,17 +708,17 @@
   {
    "start": 34747,
    "end": 34761,
-   "type": "Undefined"
+   "type": "Byte"
   },
   {
    "start": 34762,
-   "end": 34909,
+   "end": 34912,
    "type": "Code"
   },
   {
-   "start": 34910,
+   "start": 34913,
    "end": 34947,
-   "type": "Undefined"
+   "type": "Byte"
   },
   {
    "start": 34948,
@@ -648,7 +728,7 @@
   {
    "start": 35011,
    "end": 35045,
-   "type": "Undefined"
+   "type": "Byte"
   },
   {
    "start": 35046,
@@ -657,6 +737,11 @@
   },
   {
    "start": 35109,
+   "end": 35113,
+   "type": "Byte"
+  },
+  {
+   "start": 35114,
    "end": 35115,
    "type": "Undefined"
   },
@@ -667,6 +752,11 @@
   },
   {
    "start": 35166,
+   "end": 35170,
+   "type": "Byte"
+  },
+  {
+   "start": 35171,
    "end": 35172,
    "type": "Undefined"
   },
@@ -678,7 +768,7 @@
   {
    "start": 35223,
    "end": 35257,
-   "type": "Undefined"
+   "type": "Byte"
   },
   {
    "start": 35258,
@@ -688,7 +778,7 @@
   {
    "start": 35316,
    "end": 35350,
-   "type": "Undefined"
+   "type": "Byte"
   },
   {
    "start": 35351,
@@ -698,7 +788,7 @@
   {
    "start": 35409,
    "end": 35409,
-   "type": "Undefined"
+   "type": "Byte"
   },
   {
    "start": 35410,
@@ -708,7 +798,7 @@
   {
    "start": 35614,
    "end": 35615,
-   "type": "Undefined"
+   "type": "Byte"
   },
   {
    "start": 35616,
@@ -718,7 +808,7 @@
   {
    "start": 35652,
    "end": 35881,
-   "type": "Undefined"
+   "type": "Byte"
   },
   {
    "start": 35882,
@@ -728,7 +818,7 @@
   {
    "start": 36059,
    "end": 36060,
-   "type": "Undefined"
+   "type": "Byte"
   },
   {
    "start": 36061,
@@ -738,7 +828,7 @@
   {
    "start": 36090,
    "end": 36091,
-   "type": "Undefined"
+   "type": "Byte"
   },
   {
    "start": 36092,
@@ -748,7 +838,7 @@
   {
    "start": 36121,
    "end": 36122,
-   "type": "Undefined"
+   "type": "Byte"
   },
   {
    "start": 36123,
@@ -757,6 +847,11 @@
   },
   {
    "start": 36168,
+   "end": 36213,
+   "type": "Byte"
+  },
+  {
+   "start": 36214,
    "end": 36216,
    "type": "Undefined"
   },
@@ -767,6 +862,11 @@
   },
   {
    "start": 36387,
+   "end": 36388,
+   "type": "Byte"
+  },
+  {
+   "start": 36389,
    "end": 36389,
    "type": "Undefined"
   },
@@ -777,6 +877,11 @@
   },
   {
    "start": 36481,
+   "end": 36482,
+   "type": "Byte"
+  },
+  {
+   "start": 36483,
    "end": 36483,
    "type": "Undefined"
   },
@@ -787,6 +892,11 @@
   },
   {
    "start": 36586,
+   "end": 36587,
+   "type": "Byte"
+  },
+  {
+   "start": 36588,
    "end": 36588,
    "type": "Undefined"
   },
@@ -797,6 +907,11 @@
   },
   {
    "start": 36669,
+   "end": 36670,
+   "type": "Byte"
+  },
+  {
+   "start": 36671,
    "end": 36671,
    "type": "Undefined"
   },
@@ -808,7 +923,7 @@
   {
    "start": 36752,
    "end": 36754,
-   "type": "Undefined"
+   "type": "Byte"
   },
   {
    "start": 36755,
@@ -818,7 +933,7 @@
   {
    "start": 36811,
    "end": 36813,
-   "type": "Undefined"
+   "type": "Byte"
   },
   {
    "start": 36814,
@@ -828,7 +943,7 @@
   {
    "start": 36865,
    "end": 36867,
-   "type": "Undefined"
+   "type": "Byte"
   },
   {
    "start": 36868,
@@ -838,7 +953,7 @@
   {
    "start": 36919,
    "end": 36921,
-   "type": "Undefined"
+   "type": "Byte"
   },
   {
    "start": 36922,
@@ -848,7 +963,7 @@
   {
    "start": 36973,
    "end": 36975,
-   "type": "Undefined"
+   "type": "Byte"
   },
   {
    "start": 36976,
@@ -858,7 +973,7 @@
   {
    "start": 37027,
    "end": 37030,
-   "type": "Undefined"
+   "type": "Byte"
   },
   {
    "start": 37031,
@@ -868,7 +983,7 @@
   {
    "start": 37171,
    "end": 37174,
-   "type": "Undefined"
+   "type": "Byte"
   },
   {
    "start": 37175,
@@ -878,7 +993,7 @@
   {
    "start": 37333,
    "end": 37336,
-   "type": "Undefined"
+   "type": "Byte"
   },
   {
    "start": 37337,
@@ -887,6 +1002,11 @@
   },
   {
    "start": 37477,
+   "end": 37478,
+   "type": "Byte"
+  },
+  {
+   "start": 37479,
    "end": 37480,
    "type": "Undefined"
   },
@@ -898,7 +1018,7 @@
   {
    "start": 37620,
    "end": 37624,
-   "type": "Undefined"
+   "type": "Byte"
   },
   {
    "start": 37625,
@@ -907,6 +1027,11 @@
   },
   {
    "start": 37821,
+   "end": 37838,
+   "type": "Byte"
+  },
+  {
+   "start": 37839,
    "end": 37839,
    "type": "Undefined"
   },
@@ -917,6 +1042,11 @@
   },
   {
    "start": 37883,
+   "end": 37894,
+   "type": "Byte"
+  },
+  {
+   "start": 37895,
    "end": 37895,
    "type": "Undefined"
   },
@@ -928,7 +1058,7 @@
   {
    "start": 37931,
    "end": 37935,
-   "type": "Undefined"
+   "type": "Byte"
   },
   {
    "start": 37936,
@@ -937,6 +1067,11 @@
   },
   {
    "start": 38132,
+   "end": 38149,
+   "type": "Byte"
+  },
+  {
+   "start": 38150,
    "end": 38150,
    "type": "Undefined"
   },
@@ -948,7 +1083,7 @@
   {
    "start": 38194,
    "end": 38194,
-   "type": "Undefined"
+   "type": "Byte"
   },
   {
    "start": 38195,
@@ -958,7 +1093,7 @@
   {
    "start": 38230,
    "end": 38234,
-   "type": "Undefined"
+   "type": "Byte"
   },
   {
    "start": 38235,
@@ -967,6 +1102,11 @@
   },
   {
    "start": 38431,
+   "end": 38448,
+   "type": "Byte"
+  },
+  {
+   "start": 38449,
    "end": 38449,
    "type": "Undefined"
   },
@@ -978,7 +1118,7 @@
   {
    "start": 38493,
    "end": 38493,
-   "type": "Undefined"
+   "type": "Byte"
   },
   {
    "start": 38494,
@@ -988,7 +1128,7 @@
   {
    "start": 38529,
    "end": 38533,
-   "type": "Undefined"
+   "type": "Byte"
   },
   {
    "start": 38534,
@@ -997,6 +1137,11 @@
   },
   {
    "start": 38730,
+   "end": 38747,
+   "type": "Byte"
+  },
+  {
+   "start": 38748,
    "end": 38748,
    "type": "Undefined"
   },
@@ -1008,7 +1153,7 @@
   {
    "start": 38792,
    "end": 38792,
-   "type": "Undefined"
+   "type": "Byte"
   },
   {
    "start": 38793,
@@ -1018,7 +1163,7 @@
   {
    "start": 38828,
    "end": 38829,
-   "type": "Undefined"
+   "type": "Byte"
   },
   {
    "start": 38830,
@@ -1028,7 +1173,7 @@
   {
    "start": 39309,
    "end": 39310,
-   "type": "Undefined"
+   "type": "Byte"
   },
   {
    "start": 39311,
@@ -1038,7 +1183,7 @@
   {
    "start": 39475,
    "end": 39492,
-   "type": "Undefined"
+   "type": "Byte"
   },
   {
    "start": 39493,
@@ -1048,7 +1193,7 @@
   {
    "start": 40124,
    "end": 40125,
-   "type": "Undefined"
+   "type": "Byte"
   },
   {
    "start": 40126,
@@ -1058,7 +1203,7 @@
   {
    "start": 40259,
    "end": 40260,
-   "type": "Undefined"
+   "type": "Byte"
   },
   {
    "start": 40261,
@@ -1067,6 +1212,11 @@
   },
   {
    "start": 40369,
+   "end": 40369,
+   "type": "Byte"
+  },
+  {
+   "start": 40370,
    "end": 40371,
    "type": "Undefined"
   },
@@ -1092,6 +1242,86 @@
   },
   {
    "start": 40879,
+   "end": 40959,
+   "type": "Undefined"
+  },
+  {
+   "start": 40960,
+   "end": 41047,
+   "type": "Byte"
+  },
+  {
+   "start": 41048,
+   "end": 41087,
+   "type": "Undefined"
+  },
+  {
+   "start": 41088,
+   "end": 41119,
+   "type": "Byte"
+  },
+  {
+   "start": 41120,
+   "end": 41215,
+   "type": "Undefined"
+  },
+  {
+   "start": 41216,
+   "end": 41263,
+   "type": "Byte"
+  },
+  {
+   "start": 41264,
+   "end": 41343,
+   "type": "Undefined"
+  },
+  {
+   "start": 41344,
+   "end": 41439,
+   "type": "Byte"
+  },
+  {
+   "start": 41440,
+   "end": 41471,
+   "type": "Undefined"
+  },
+  {
+   "start": 41472,
+   "end": 41567,
+   "type": "Byte"
+  },
+  {
+   "start": 41568,
+   "end": 41599,
+   "type": "Undefined"
+  },
+  {
+   "start": 41600,
+   "end": 41615,
+   "type": "Byte"
+  },
+  {
+   "start": 41616,
+   "end": 41727,
+   "type": "Undefined"
+  },
+  {
+   "start": 41728,
+   "end": 43181,
+   "type": "Byte"
+  },
+  {
+   "start": 43182,
+   "end": 49151,
+   "type": "Undefined"
+  },
+  {
+   "start": 49152,
+   "end": 49176,
+   "type": "Byte"
+  },
+  {
+   "start": 49177,
    "end": 49179,
    "type": "Undefined"
   },
@@ -1102,6 +1332,11 @@
   },
   {
    "start": 49344,
+   "end": 49344,
+   "type": "Byte"
+  },
+  {
+   "start": 49345,
    "end": 49347,
    "type": "Undefined"
   },
@@ -1113,7 +1348,7 @@
   {
    "start": 49442,
    "end": 49443,
-   "type": "Undefined"
+   "type": "Byte"
   },
   {
    "start": 49444,
@@ -1123,7 +1358,7 @@
   {
    "start": 49631,
    "end": 49632,
-   "type": "Undefined"
+   "type": "Byte"
   },
   {
    "start": 49633,
@@ -1133,7 +1368,7 @@
   {
    "start": 49735,
    "end": 49736,
-   "type": "Undefined"
+   "type": "Byte"
   },
   {
    "start": 49737,
@@ -1142,6 +1377,136 @@
   },
   {
    "start": 49822,
+   "end": 50175,
+   "type": "Undefined"
+  },
+  {
+   "start": 50176,
+   "end": 50178,
+   "type": "Code"
+  },
+  {
+   "start": 50179,
+   "end": 50188,
+   "type": "Byte"
+  },
+  {
+   "start": 50189,
+   "end": 50403,
+   "type": "Code"
+  },
+  {
+   "start": 50404,
+   "end": 50893,
+   "type": "Byte"
+  },
+  {
+   "start": 50894,
+   "end": 51050,
+   "type": "Code"
+  },
+  {
+   "start": 51051,
+   "end": 51167,
+   "type": "Undefined"
+  },
+  {
+   "start": 51168,
+   "end": 51194,
+   "type": "Code"
+  },
+  {
+   "start": 51195,
+   "end": 51199,
+   "type": "Byte"
+  },
+  {
+   "start": 51200,
+   "end": 51588,
+   "type": "Code"
+  },
+  {
+   "start": 51589,
+   "end": 51589,
+   "type": "Byte"
+  },
+  {
+   "start": 51590,
+   "end": 51730,
+   "type": "Code"
+  },
+  {
+   "start": 51731,
+   "end": 51731,
+   "type": "Undefined"
+  },
+  {
+   "start": 51732,
+   "end": 51767,
+   "type": "Byte"
+  },
+  {
+   "start": 51768,
+   "end": 51937,
+   "type": "Code"
+  },
+  {
+   "start": 51938,
+   "end": 51940,
+   "type": "Byte"
+  },
+  {
+   "start": 51941,
+   "end": 52318,
+   "type": "Code"
+  },
+  {
+   "start": 52319,
+   "end": 52362,
+   "type": "Byte"
+  },
+  {
+   "start": 52363,
+   "end": 52368,
+   "type": "Undefined"
+  },
+  {
+   "start": 52369,
+   "end": 52528,
+   "type": "Code"
+  },
+  {
+   "start": 52529,
+   "end": 52530,
+   "type": "Byte"
+  },
+  {
+   "start": 52531,
+   "end": 52622,
+   "type": "Code"
+  },
+  {
+   "start": 52623,
+   "end": 52672,
+   "type": "Byte"
+  },
+  {
+   "start": 52673,
+   "end": 52832,
+   "type": "Code"
+  },
+  {
+   "start": 52833,
+   "end": 52836,
+   "type": "Byte"
+  },
+  {
+   "start": 52837,
+   "end": 53080,
+   "type": "Code"
+  },
+  {
+   "start": 53081,
    "end": 57343,
    "type": "Undefined"
   },
@@ -1152,6 +1517,42 @@
   }
  ],
  "symbols": [
+  {
+   "address": 2048,
+   "name": "AuxiliarySwapPrefix",
+   "type": "AbsoluteAddress",
+   "kind": "user"
+  },
+  {
+   "address": 2176,
+   "name": "TitleAuxiliaryShapes",
+   "type": "AbsoluteAddress",
+   "kind": "user"
+  },
+  {
+   "address": 2560,
+   "name": "TitleAuxiliaryShapesHigh",
+   "type": "AbsoluteAddress",
+   "kind": "user"
+  },
+  {
+   "address": 2944,
+   "name": "TitleAgentAndLiftShapes",
+   "type": "AbsoluteAddress",
+   "kind": "user"
+  },
+  {
+   "address": 3328,
+   "name": "AuxiliarySwapWindowFourth",
+   "type": "AbsoluteAddress",
+   "kind": "user"
+  },
+  {
+   "address": 3712,
+   "name": "AuxiliarySwapWindowFifth",
+   "type": "AbsoluteAddress",
+   "kind": "user"
+  },
   {
    "address": 8192,
    "name": "FactorySpriteWindow",
@@ -1216,6 +1617,30 @@
    "address": 16570,
    "name": "ResumeFactory",
    "type": "Subroutine",
+   "kind": "user"
+  },
+  {
+   "address": 16579,
+   "name": "State40C3",
+   "type": "AbsoluteAddress",
+   "kind": "user"
+  },
+  {
+   "address": 16580,
+   "name": "State40C4",
+   "type": "AbsoluteAddress",
+   "kind": "user"
+  },
+  {
+   "address": 16581,
+   "name": "State40C5",
+   "type": "AbsoluteAddress",
+   "kind": "user"
+  },
+  {
+   "address": 16582,
+   "name": "State40C6",
+   "type": "AbsoluteAddress",
    "kind": "user"
   },
   {
@@ -1333,9 +1758,21 @@
    "kind": "user"
   },
   {
+   "address": 17466,
+   "name": "FactoryDownFrames",
+   "type": "AbsoluteAddress",
+   "kind": "user"
+  },
+  {
    "address": 17476,
    "name": "FactoryDown",
    "type": "Subroutine",
+   "kind": "user"
+  },
+  {
+   "address": 17696,
+   "name": "FactoryLeftWalkTables",
+   "type": "AbsoluteAddress",
    "kind": "user"
   },
   {
@@ -1345,9 +1782,21 @@
    "kind": "user"
   },
   {
+   "address": 17841,
+   "name": "FactoryRightWalkTables",
+   "type": "AbsoluteAddress",
+   "kind": "user"
+  },
+  {
    "address": 17868,
    "name": "FactoryRight",
    "type": "Subroutine",
+   "kind": "user"
+  },
+  {
+   "address": 17986,
+   "name": "FactoryRightVerticalFrames",
+   "type": "AbsoluteAddress",
    "kind": "user"
   },
   {
@@ -1357,9 +1806,21 @@
    "kind": "user"
   },
   {
+   "address": 18152,
+   "name": "FactoryLeftVerticalFrames",
+   "type": "AbsoluteAddress",
+   "kind": "user"
+  },
+  {
    "address": 18227,
    "name": "ContinueLeftVerticalMove",
    "type": "Subroutine",
+   "kind": "user"
+  },
+  {
+   "address": 18318,
+   "name": "FactoryHorizontalStep",
+   "type": "AbsoluteAddress",
    "kind": "user"
   },
   {
@@ -1375,9 +1836,21 @@
    "kind": "user"
   },
   {
+   "address": 18653,
+   "name": "FactoryPickupAnimation",
+   "type": "AbsoluteAddress",
+   "kind": "user"
+  },
+  {
    "address": 18688,
    "name": "AnimatePickupSprites",
    "type": "Subroutine",
+   "kind": "user"
+  },
+  {
+   "address": 18757,
+   "name": "FactoryRightActionFrames",
+   "type": "AbsoluteAddress",
    "kind": "user"
   },
   {
@@ -1387,9 +1860,21 @@
    "kind": "user"
   },
   {
+   "address": 18880,
+   "name": "FactoryLeftActionFrames",
+   "type": "AbsoluteAddress",
+   "kind": "user"
+  },
+  {
    "address": 18931,
    "name": "ContinueLeftHorizontalAction",
    "type": "Subroutine",
+   "kind": "user"
+  },
+  {
+   "address": 19003,
+   "name": "FactoryCrawlLeftFrames",
+   "type": "AbsoluteAddress",
    "kind": "user"
   },
   {
@@ -1399,9 +1884,21 @@
    "kind": "user"
   },
   {
+   "address": 19075,
+   "name": "FactoryCrawlRightFrames",
+   "type": "AbsoluteAddress",
+   "kind": "user"
+  },
+  {
    "address": 19086,
    "name": "CrawlRight",
    "type": "Subroutine",
+   "kind": "user"
+  },
+  {
+   "address": 19147,
+   "name": "FactoryTileStrip",
+   "type": "AbsoluteAddress",
    "kind": "user"
   },
   {
@@ -1477,6 +1974,18 @@
    "kind": "user"
   },
   {
+   "address": 19678,
+   "name": "FactoryAlternatingTileStrip",
+   "type": "AbsoluteAddress",
+   "kind": "user"
+  },
+  {
+   "address": 19696,
+   "name": "FactoryTileStripRows",
+   "type": "AbsoluteAddress",
+   "kind": "user"
+  },
+  {
    "address": 19697,
    "name": "DrawFactoryNineColumnDetail",
    "type": "Subroutine",
@@ -1497,6 +2006,12 @@
   {
    "address": 19757,
    "name": "FactoryRoomVector",
+   "type": "AbsoluteAddress",
+   "kind": "user"
+  },
+  {
+   "address": 19758,
+   "name": "State4D2E",
    "type": "AbsoluteAddress",
    "kind": "user"
   },
@@ -1669,9 +2184,21 @@
    "kind": "user"
   },
   {
+   "address": 22511,
+   "name": "FactoryGlyphEcFrames",
+   "type": "AbsoluteAddress",
+   "kind": "user"
+  },
+  {
    "address": 22546,
    "name": "AnimateFactoryGlyphEC",
    "type": "Subroutine",
+   "kind": "user"
+  },
+  {
+   "address": 22594,
+   "name": "FactoryIndicatorTiles",
+   "type": "AbsoluteAddress",
    "kind": "user"
   },
   {
@@ -1681,9 +2208,33 @@
    "kind": "user"
   },
   {
+   "address": 22686,
+   "name": "State589E",
+   "type": "AbsoluteAddress",
+   "kind": "user"
+  },
+  {
+   "address": 22687,
+   "name": "State589F",
+   "type": "AbsoluteAddress",
+   "kind": "user"
+  },
+  {
    "address": 22689,
    "name": "UpdateFactoryHorizontalForce",
    "type": "Subroutine",
+   "kind": "user"
+  },
+  {
+   "address": 22740,
+   "name": "FactoryPairedGlyphFrames",
+   "type": "AbsoluteAddress",
+   "kind": "user"
+  },
+  {
+   "address": 22804,
+   "name": "FactoryGlyph27State",
+   "type": "AbsoluteAddress",
    "kind": "user"
   },
   {
@@ -1693,9 +2244,33 @@
    "kind": "user"
   },
   {
+   "address": 22877,
+   "name": "State595D",
+   "type": "AbsoluteAddress",
+   "kind": "user"
+  },
+  {
+   "address": 22878,
+   "name": "State595E",
+   "type": "AbsoluteAddress",
+   "kind": "user"
+  },
+  {
    "address": 22879,
    "name": "HideRoomSprites",
    "type": "Subroutine",
+   "kind": "user"
+  },
+  {
+   "address": 22896,
+   "name": "State5970",
+   "type": "AbsoluteAddress",
+   "kind": "user"
+  },
+  {
+   "address": 22897,
+   "name": "State5971",
+   "type": "AbsoluteAddress",
    "kind": "user"
   },
   {
@@ -1705,9 +2280,51 @@
    "kind": "user"
   },
   {
+   "address": 22941,
+   "name": "State599D",
+   "type": "AbsoluteAddress",
+   "kind": "user"
+  },
+  {
    "address": 22942,
    "name": "CheckFactorySpriteContact",
    "type": "Subroutine",
+   "kind": "user"
+  },
+  {
+   "address": 23003,
+   "name": "State59DB",
+   "type": "AbsoluteAddress",
+   "kind": "user"
+  },
+  {
+   "address": 23004,
+   "name": "State59DC",
+   "type": "AbsoluteAddress",
+   "kind": "user"
+  },
+  {
+   "address": 23005,
+   "name": "State59DD",
+   "type": "AbsoluteAddress",
+   "kind": "user"
+  },
+  {
+   "address": 23006,
+   "name": "State59DE",
+   "type": "AbsoluteAddress",
+   "kind": "user"
+  },
+  {
+   "address": 23007,
+   "name": "State59DF",
+   "type": "AbsoluteAddress",
+   "kind": "user"
+  },
+  {
+   "address": 23008,
+   "name": "State59E0",
+   "type": "AbsoluteAddress",
    "kind": "user"
   },
   {
@@ -1735,6 +2352,36 @@
    "kind": "user"
   },
   {
+   "address": 23174,
+   "name": "State5A86",
+   "type": "AbsoluteAddress",
+   "kind": "user"
+  },
+  {
+   "address": 23175,
+   "name": "State5A87",
+   "type": "AbsoluteAddress",
+   "kind": "user"
+  },
+  {
+   "address": 23176,
+   "name": "State5A88",
+   "type": "AbsoluteAddress",
+   "kind": "user"
+  },
+  {
+   "address": 23177,
+   "name": "State5A89",
+   "type": "AbsoluteAddress",
+   "kind": "user"
+  },
+  {
+   "address": 23178,
+   "name": "State5A8A",
+   "type": "AbsoluteAddress",
+   "kind": "user"
+  },
+  {
    "address": 23179,
    "name": "ForwardDamageRequest",
    "type": "Subroutine",
@@ -1753,6 +2400,36 @@
    "kind": "user"
   },
   {
+   "address": 23369,
+   "name": "State5B49",
+   "type": "AbsoluteAddress",
+   "kind": "user"
+  },
+  {
+   "address": 23370,
+   "name": "State5B4A",
+   "type": "AbsoluteAddress",
+   "kind": "user"
+  },
+  {
+   "address": 23371,
+   "name": "State5B4B",
+   "type": "AbsoluteAddress",
+   "kind": "user"
+  },
+  {
+   "address": 23372,
+   "name": "State5B4C",
+   "type": "AbsoluteAddress",
+   "kind": "user"
+  },
+  {
+   "address": 23373,
+   "name": "State5B4D",
+   "type": "AbsoluteAddress",
+   "kind": "user"
+  },
+  {
    "address": 23374,
    "name": "ForwardTimedDamageRequest",
    "type": "Subroutine",
@@ -1765,6 +2442,42 @@
    "kind": "user"
   },
   {
+   "address": 23524,
+   "name": "State5BE4",
+   "type": "AbsoluteAddress",
+   "kind": "user"
+  },
+  {
+   "address": 23525,
+   "name": "State5BE5",
+   "type": "AbsoluteAddress",
+   "kind": "user"
+  },
+  {
+   "address": 23526,
+   "name": "State5BE6",
+   "type": "AbsoluteAddress",
+   "kind": "user"
+  },
+  {
+   "address": 23527,
+   "name": "State5BE7",
+   "type": "AbsoluteAddress",
+   "kind": "user"
+  },
+  {
+   "address": 23528,
+   "name": "State5BE8",
+   "type": "AbsoluteAddress",
+   "kind": "user"
+  },
+  {
+   "address": 23529,
+   "name": "State5BE9",
+   "type": "AbsoluteAddress",
+   "kind": "user"
+  },
+  {
    "address": 23530,
    "name": "RequestLiftTransition",
    "type": "Subroutine",
@@ -1774,6 +2487,12 @@
    "address": 23534,
    "name": "CheckFactoryLiftEntrance",
    "type": "Subroutine",
+   "kind": "user"
+  },
+  {
+   "address": 23710,
+   "name": "State5C9E",
+   "type": "AbsoluteAddress",
    "kind": "user"
   },
   {
@@ -1795,14 +2514,104 @@
    "kind": "user"
   },
   {
+   "address": 23898,
+   "name": "FactoryGaugeRowTail",
+   "type": "AbsoluteAddress",
+   "kind": "user"
+  },
+  {
    "address": 23931,
    "name": "DrawFactoryEnergyCaption",
    "type": "Subroutine",
    "kind": "user"
   },
   {
+   "address": 23986,
+   "name": "State5DB2",
+   "type": "AbsoluteAddress",
+   "kind": "user"
+  },
+  {
+   "address": 23987,
+   "name": "State5DB3",
+   "type": "AbsoluteAddress",
+   "kind": "user"
+  },
+  {
+   "address": 23988,
+   "name": "State5DB4",
+   "type": "AbsoluteAddress",
+   "kind": "user"
+  },
+  {
+   "address": 23989,
+   "name": "State5DB5",
+   "type": "AbsoluteAddress",
+   "kind": "user"
+  },
+  {
+   "address": 23990,
+   "name": "State5DB6",
+   "type": "AbsoluteAddress",
+   "kind": "user"
+  },
+  {
+   "address": 23991,
+   "name": "LiftRecordSeparator",
+   "type": "AbsoluteAddress",
+   "kind": "user"
+  },
+  {
+   "address": 23992,
+   "name": "State5DB8",
+   "type": "AbsoluteAddress",
+   "kind": "user"
+  },
+  {
+   "address": 23993,
+   "name": "State5DB9",
+   "type": "AbsoluteAddress",
+   "kind": "user"
+  },
+  {
+   "address": 23994,
+   "name": "State5DBA",
+   "type": "AbsoluteAddress",
+   "kind": "user"
+  },
+  {
+   "address": 23995,
+   "name": "State5DBB",
+   "type": "AbsoluteAddress",
+   "kind": "user"
+  },
+  {
+   "address": 23996,
+   "name": "State5DBC",
+   "type": "AbsoluteAddress",
+   "kind": "user"
+  },
+  {
+   "address": 23997,
+   "name": "State5DBD",
+   "type": "AbsoluteAddress",
+   "kind": "user"
+  },
+  {
+   "address": 23998,
+   "name": "State5DBE",
+   "type": "AbsoluteAddress",
+   "kind": "user"
+  },
+  {
    "address": 24001,
    "name": "RunLift",
+   "type": "Subroutine",
+   "kind": "user"
+  },
+  {
+   "address": 24351,
+   "name": "UnusedLiftDelay",
    "type": "Subroutine",
    "kind": "user"
   },
@@ -1849,6 +2658,84 @@
    "kind": "user"
   },
   {
+   "address": 24804,
+   "name": "State60E4",
+   "type": "AbsoluteAddress",
+   "kind": "user"
+  },
+  {
+   "address": 24805,
+   "name": "FactoryEntityStateSeparator",
+   "type": "AbsoluteAddress",
+   "kind": "user"
+  },
+  {
+   "address": 24806,
+   "name": "State60E6",
+   "type": "AbsoluteAddress",
+   "kind": "user"
+  },
+  {
+   "address": 24807,
+   "name": "State60E7",
+   "type": "AbsoluteAddress",
+   "kind": "user"
+  },
+  {
+   "address": 24808,
+   "name": "FactoryRasterRoomOffset",
+   "type": "AbsoluteAddress",
+   "kind": "user"
+  },
+  {
+   "address": 24809,
+   "name": "State60E9",
+   "type": "AbsoluteAddress",
+   "kind": "user"
+  },
+  {
+   "address": 24810,
+   "name": "FactoryRasterTransition",
+   "type": "AbsoluteAddress",
+   "kind": "user"
+  },
+  {
+   "address": 24811,
+   "name": "State60EB",
+   "type": "AbsoluteAddress",
+   "kind": "user"
+  },
+  {
+   "address": 24812,
+   "name": "State60EC",
+   "type": "AbsoluteAddress",
+   "kind": "user"
+  },
+  {
+   "address": 24813,
+   "name": "State60ED",
+   "type": "AbsoluteAddress",
+   "kind": "user"
+  },
+  {
+   "address": 24814,
+   "name": "State60EE",
+   "type": "AbsoluteAddress",
+   "kind": "user"
+  },
+  {
+   "address": 24815,
+   "name": "State60EF",
+   "type": "AbsoluteAddress",
+   "kind": "user"
+  },
+  {
+   "address": 24816,
+   "name": "State60F0",
+   "type": "AbsoluteAddress",
+   "kind": "user"
+  },
+  {
    "address": 24817,
    "name": "ArmRoomRasterIrq",
    "type": "Subroutine",
@@ -1858,6 +2745,18 @@
    "address": 24858,
    "name": "RoomRasterIrq",
    "type": "Subroutine",
+   "kind": "user"
+  },
+  {
+   "address": 25176,
+   "name": "State6258",
+   "type": "AbsoluteAddress",
+   "kind": "user"
+  },
+  {
+   "address": 25177,
+   "name": "State6259",
+   "type": "AbsoluteAddress",
    "kind": "user"
   },
   {
@@ -1879,6 +2778,18 @@
    "kind": "user"
   },
   {
+   "address": 25669,
+   "name": "State6445",
+   "type": "AbsoluteAddress",
+   "kind": "user"
+  },
+  {
+   "address": 25670,
+   "name": "State6446",
+   "type": "AbsoluteAddress",
+   "kind": "user"
+  },
+  {
    "address": 25671,
    "name": "AddFactoryEnergy",
    "type": "Subroutine",
@@ -1894,6 +2805,18 @@
    "address": 25688,
    "name": "DrawFactoryEnergy",
    "type": "Subroutine",
+   "kind": "user"
+  },
+  {
+   "address": 28672,
+   "name": "TitleCharsetSource",
+   "type": "AbsoluteAddress",
+   "kind": "user"
+  },
+  {
+   "address": 29696,
+   "name": "TitleCharsetSourceHigh",
+   "type": "AbsoluteAddress",
    "kind": "user"
   },
   {
@@ -1981,15 +2904,51 @@
    "kind": "user"
   },
   {
+   "address": 33442,
+   "name": "LabEquipmentTiles",
+   "type": "AbsoluteAddress",
+   "kind": "user"
+  },
+  {
+   "address": 33477,
+   "name": "LabEquipmentTilePointer",
+   "type": "AbsoluteAddress",
+   "kind": "user"
+  },
+  {
    "address": 33479,
    "name": "PlaceTwoLabTileBlocks",
    "type": "Subroutine",
    "kind": "user"
   },
   {
+   "address": 33560,
+   "name": "LabSmallTileBlocks",
+   "type": "AbsoluteAddress",
+   "kind": "user"
+  },
+  {
+   "address": 33623,
+   "name": "LabSmallTilePointers",
+   "type": "AbsoluteAddress",
+   "kind": "user"
+  },
+  {
    "address": 33633,
    "name": "DrawLabTileSquare",
    "type": "Subroutine",
+   "kind": "user"
+  },
+  {
+   "address": 33948,
+   "name": "LabVerticalDetailTiles",
+   "type": "AbsoluteAddress",
+   "kind": "user"
+  },
+  {
+   "address": 33953,
+   "name": "LabTwoColumnDetailTiles",
+   "type": "AbsoluteAddress",
    "kind": "user"
   },
   {
@@ -2011,9 +2970,87 @@
    "kind": "user"
   },
   {
+   "address": 34238,
+   "name": "LabGaugeRowTail",
+   "type": "AbsoluteAddress",
+   "kind": "user"
+  },
+  {
    "address": 34271,
    "name": "DrawLabEnergyCaption",
    "type": "Subroutine",
+   "kind": "user"
+  },
+  {
+   "address": 34392,
+   "name": "State8658",
+   "type": "AbsoluteAddress",
+   "kind": "user"
+  },
+  {
+   "address": 34393,
+   "name": "State8659",
+   "type": "AbsoluteAddress",
+   "kind": "user"
+  },
+  {
+   "address": 34394,
+   "name": "State865A",
+   "type": "AbsoluteAddress",
+   "kind": "user"
+  },
+  {
+   "address": 34395,
+   "name": "State865B",
+   "type": "AbsoluteAddress",
+   "kind": "user"
+  },
+  {
+   "address": 34396,
+   "name": "State865C",
+   "type": "AbsoluteAddress",
+   "kind": "user"
+  },
+  {
+   "address": 34397,
+   "name": "State865D",
+   "type": "AbsoluteAddress",
+   "kind": "user"
+  },
+  {
+   "address": 34398,
+   "name": "State865E",
+   "type": "AbsoluteAddress",
+   "kind": "user"
+  },
+  {
+   "address": 34399,
+   "name": "State865F",
+   "type": "AbsoluteAddress",
+   "kind": "user"
+  },
+  {
+   "address": 34400,
+   "name": "State8660",
+   "type": "AbsoluteAddress",
+   "kind": "user"
+  },
+  {
+   "address": 34401,
+   "name": "State8661",
+   "type": "AbsoluteAddress",
+   "kind": "user"
+  },
+  {
+   "address": 34402,
+   "name": "State8662",
+   "type": "AbsoluteAddress",
+   "kind": "user"
+  },
+  {
+   "address": 34403,
+   "name": "State8663",
+   "type": "AbsoluteAddress",
    "kind": "user"
   },
   {
@@ -2035,9 +3072,21 @@
    "kind": "user"
   },
   {
+   "address": 34621,
+   "name": "State873D",
+   "type": "AbsoluteAddress",
+   "kind": "user"
+  },
+  {
    "address": 34623,
    "name": "SkipClearedLabUpdates",
    "type": "Subroutine",
+   "kind": "user"
+  },
+  {
+   "address": 34641,
+   "name": "LabLeftWalkFrames",
+   "type": "AbsoluteAddress",
    "kind": "user"
   },
   {
@@ -2047,9 +3096,27 @@
    "kind": "user"
   },
   {
+   "address": 34747,
+   "name": "LabRightWalkFrames",
+   "type": "AbsoluteAddress",
+   "kind": "user"
+  },
+  {
    "address": 34762,
    "name": "MoveLabRight",
    "type": "Subroutine",
+   "kind": "user"
+  },
+  {
+   "address": 34910,
+   "name": "FinishLabRightAction",
+   "type": "Subroutine",
+   "kind": "user"
+  },
+  {
+   "address": 34913,
+   "name": "LabLeftVerticalFrames",
+   "type": "AbsoluteAddress",
    "kind": "user"
   },
   {
@@ -2059,9 +3126,33 @@
    "kind": "user"
   },
   {
+   "address": 35011,
+   "name": "LabRightVerticalFrames",
+   "type": "AbsoluteAddress",
+   "kind": "user"
+  },
+  {
    "address": 35046,
    "name": "AdvanceRightLabVerticalPose",
    "type": "Subroutine",
+   "kind": "user"
+  },
+  {
+   "address": 35109,
+   "name": "State8925",
+   "type": "AbsoluteAddress",
+   "kind": "user"
+  },
+  {
+   "address": 35110,
+   "name": "LabLeftActionFrameTail",
+   "type": "AbsoluteAddress",
+   "kind": "user"
+  },
+  {
+   "address": 35113,
+   "name": "State8929",
+   "type": "AbsoluteAddress",
    "kind": "user"
   },
   {
@@ -2071,9 +3162,33 @@
    "kind": "user"
   },
   {
+   "address": 35166,
+   "name": "State895E",
+   "type": "AbsoluteAddress",
+   "kind": "user"
+  },
+  {
+   "address": 35167,
+   "name": "LabRightActionFrameTail",
+   "type": "AbsoluteAddress",
+   "kind": "user"
+  },
+  {
+   "address": 35170,
+   "name": "State8962",
+   "type": "AbsoluteAddress",
+   "kind": "user"
+  },
+  {
    "address": 35173,
    "name": "AdvanceLabRightAction",
    "type": "Subroutine",
+   "kind": "user"
+  },
+  {
+   "address": 35223,
+   "name": "LabLeftStationaryFrames",
+   "type": "AbsoluteAddress",
    "kind": "user"
   },
   {
@@ -2083,9 +3198,21 @@
    "kind": "user"
   },
   {
+   "address": 35316,
+   "name": "LabRightStationaryFrames",
+   "type": "AbsoluteAddress",
+   "kind": "user"
+  },
+  {
    "address": 35351,
    "name": "AdvanceRightStationaryLabAction",
    "type": "Subroutine",
+   "kind": "user"
+  },
+  {
+   "address": 35409,
+   "name": "State8A51",
+   "type": "AbsoluteAddress",
    "kind": "user"
   },
   {
@@ -2095,9 +3222,51 @@
    "kind": "user"
   },
   {
+   "address": 35614,
+   "name": "State8B1E",
+   "type": "AbsoluteAddress",
+   "kind": "user"
+  },
+  {
+   "address": 35615,
+   "name": "State8B1F",
+   "type": "AbsoluteAddress",
+   "kind": "user"
+  },
+  {
    "address": 35616,
    "name": "ArmLabRasterMultiplexer",
    "type": "Subroutine",
+   "kind": "user"
+  },
+  {
+   "address": 35652,
+   "name": "LabRasterFloorRecords",
+   "type": "AbsoluteAddress",
+   "kind": "user"
+  },
+  {
+   "address": 35660,
+   "name": "LabFirstRasterFloor",
+   "type": "AbsoluteAddress",
+   "kind": "user"
+  },
+  {
+   "address": 35715,
+   "name": "LabSecondRasterFloor",
+   "type": "AbsoluteAddress",
+   "kind": "user"
+  },
+  {
+   "address": 35770,
+   "name": "LabThirdRasterFloor",
+   "type": "AbsoluteAddress",
+   "kind": "user"
+  },
+  {
+   "address": 35825,
+   "name": "LabFourthRasterFloor",
+   "type": "AbsoluteAddress",
    "kind": "user"
   },
   {
@@ -2113,15 +3282,33 @@
    "kind": "user"
   },
   {
+   "address": 36059,
+   "name": "LabSecondBandPointer",
+   "type": "AbsoluteAddress",
+   "kind": "user"
+  },
+  {
    "address": 36061,
    "name": "LoadSecondLabRasterBand",
    "type": "Subroutine",
    "kind": "user"
   },
   {
+   "address": 36090,
+   "name": "LabThirdBandPointer",
+   "type": "AbsoluteAddress",
+   "kind": "user"
+  },
+  {
    "address": 36092,
    "name": "LoadThirdLabRasterBand",
    "type": "Subroutine",
+   "kind": "user"
+  },
+  {
+   "address": 36121,
+   "name": "LabFrameEndPointer",
+   "type": "AbsoluteAddress",
    "kind": "user"
   },
   {
@@ -2137,9 +3324,27 @@
    "kind": "user"
   },
   {
+   "address": 36168,
+   "name": "LabMachineAnimation",
+   "type": "AbsoluteAddress",
+   "kind": "user"
+  },
+  {
    "address": 36217,
    "name": "ServiceLabMachineryAndRespawns",
    "type": "Subroutine",
+   "kind": "user"
+  },
+  {
+   "address": 36387,
+   "name": "State8E23",
+   "type": "AbsoluteAddress",
+   "kind": "user"
+  },
+  {
+   "address": 36388,
+   "name": "State8E24",
+   "type": "AbsoluteAddress",
    "kind": "user"
   },
   {
@@ -2149,9 +3354,33 @@
    "kind": "user"
   },
   {
+   "address": 36481,
+   "name": "State8E81",
+   "type": "AbsoluteAddress",
+   "kind": "user"
+  },
+  {
+   "address": 36482,
+   "name": "State8E82",
+   "type": "AbsoluteAddress",
+   "kind": "user"
+  },
+  {
    "address": 36484,
    "name": "UpdateSecondLabEntityEntrance",
    "type": "Subroutine",
+   "kind": "user"
+  },
+  {
+   "address": 36586,
+   "name": "State8EEA",
+   "type": "AbsoluteAddress",
+   "kind": "user"
+  },
+  {
+   "address": 36587,
+   "name": "State8EEB",
+   "type": "AbsoluteAddress",
    "kind": "user"
   },
   {
@@ -2161,9 +3390,39 @@
    "kind": "user"
   },
   {
+   "address": 36669,
+   "name": "State8F3D",
+   "type": "AbsoluteAddress",
+   "kind": "user"
+  },
+  {
+   "address": 36670,
+   "name": "State8F3E",
+   "type": "AbsoluteAddress",
+   "kind": "user"
+  },
+  {
    "address": 36672,
    "name": "UpdateFourthLabEntityEntrance",
    "type": "Subroutine",
+   "kind": "user"
+  },
+  {
+   "address": 36752,
+   "name": "State8F90",
+   "type": "AbsoluteAddress",
+   "kind": "user"
+  },
+  {
+   "address": 36753,
+   "name": "State8F91",
+   "type": "AbsoluteAddress",
+   "kind": "user"
+  },
+  {
+   "address": 36754,
+   "name": "State8F92",
+   "type": "AbsoluteAddress",
    "kind": "user"
   },
   {
@@ -2173,9 +3432,45 @@
    "kind": "user"
   },
   {
+   "address": 36811,
+   "name": "State8FCB",
+   "type": "AbsoluteAddress",
+   "kind": "user"
+  },
+  {
+   "address": 36812,
+   "name": "State8FCC",
+   "type": "AbsoluteAddress",
+   "kind": "user"
+  },
+  {
+   "address": 36813,
+   "name": "State8FCD",
+   "type": "AbsoluteAddress",
+   "kind": "user"
+  },
+  {
    "address": 36814,
    "name": "AnimateLabTile6F",
    "type": "Subroutine",
+   "kind": "user"
+  },
+  {
+   "address": 36865,
+   "name": "State9001",
+   "type": "AbsoluteAddress",
+   "kind": "user"
+  },
+  {
+   "address": 36866,
+   "name": "State9002",
+   "type": "AbsoluteAddress",
+   "kind": "user"
+  },
+  {
+   "address": 36867,
+   "name": "State9003",
+   "type": "AbsoluteAddress",
    "kind": "user"
   },
   {
@@ -2185,9 +3480,45 @@
    "kind": "user"
   },
   {
+   "address": 36919,
+   "name": "State9037",
+   "type": "AbsoluteAddress",
+   "kind": "user"
+  },
+  {
+   "address": 36920,
+   "name": "State9038",
+   "type": "AbsoluteAddress",
+   "kind": "user"
+  },
+  {
+   "address": 36921,
+   "name": "State9039",
+   "type": "AbsoluteAddress",
+   "kind": "user"
+  },
+  {
    "address": 36922,
    "name": "AnimateLabTile42",
    "type": "Subroutine",
+   "kind": "user"
+  },
+  {
+   "address": 36973,
+   "name": "State906D",
+   "type": "AbsoluteAddress",
+   "kind": "user"
+  },
+  {
+   "address": 36974,
+   "name": "State906E",
+   "type": "AbsoluteAddress",
+   "kind": "user"
+  },
+  {
+   "address": 36975,
+   "name": "State906F",
+   "type": "AbsoluteAddress",
    "kind": "user"
   },
   {
@@ -2197,9 +3528,57 @@
    "kind": "user"
   },
   {
+   "address": 37027,
+   "name": "State90A3",
+   "type": "AbsoluteAddress",
+   "kind": "user"
+  },
+  {
+   "address": 37028,
+   "name": "State90A4",
+   "type": "AbsoluteAddress",
+   "kind": "user"
+  },
+  {
+   "address": 37029,
+   "name": "SecondEntityStateSeparator",
+   "type": "AbsoluteAddress",
+   "kind": "user"
+  },
+  {
+   "address": 37030,
+   "name": "State90A6",
+   "type": "AbsoluteAddress",
+   "kind": "user"
+  },
+  {
    "address": 37031,
    "name": "UpdateLabEntityOneFrames",
    "type": "Subroutine",
+   "kind": "user"
+  },
+  {
+   "address": 37171,
+   "name": "State9133",
+   "type": "AbsoluteAddress",
+   "kind": "user"
+  },
+  {
+   "address": 37172,
+   "name": "State9134",
+   "type": "AbsoluteAddress",
+   "kind": "user"
+  },
+  {
+   "address": 37173,
+   "name": "State9135",
+   "type": "AbsoluteAddress",
+   "kind": "user"
+  },
+  {
+   "address": 37174,
+   "name": "State9136",
+   "type": "AbsoluteAddress",
    "kind": "user"
   },
   {
@@ -2209,9 +3588,45 @@
    "kind": "user"
   },
   {
+   "address": 37333,
+   "name": "State91D5",
+   "type": "AbsoluteAddress",
+   "kind": "user"
+  },
+  {
+   "address": 37334,
+   "name": "State91D6",
+   "type": "AbsoluteAddress",
+   "kind": "user"
+  },
+  {
+   "address": 37335,
+   "name": "FourthEntityStateSeparator",
+   "type": "AbsoluteAddress",
+   "kind": "user"
+  },
+  {
+   "address": 37336,
+   "name": "State91D8",
+   "type": "AbsoluteAddress",
+   "kind": "user"
+  },
+  {
    "address": 37337,
    "name": "UpdateLabEntityThreeFrames",
    "type": "Subroutine",
+   "kind": "user"
+  },
+  {
+   "address": 37477,
+   "name": "State9265",
+   "type": "AbsoluteAddress",
+   "kind": "user"
+  },
+  {
+   "address": 37478,
+   "name": "State9266",
+   "type": "AbsoluteAddress",
    "kind": "user"
   },
   {
@@ -2221,9 +3636,45 @@
    "kind": "user"
   },
   {
+   "address": 37620,
+   "name": "State92F4",
+   "type": "AbsoluteAddress",
+   "kind": "user"
+  },
+  {
+   "address": 37621,
+   "name": "State92F5",
+   "type": "AbsoluteAddress",
+   "kind": "user"
+  },
+  {
+   "address": 37622,
+   "name": "State92F6",
+   "type": "AbsoluteAddress",
+   "kind": "user"
+  },
+  {
+   "address": 37623,
+   "name": "State92F7",
+   "type": "AbsoluteAddress",
+   "kind": "user"
+  },
+  {
+   "address": 37624,
+   "name": "State92F8",
+   "type": "AbsoluteAddress",
+   "kind": "user"
+  },
+  {
    "address": 37625,
    "name": "MoveFirstLabAssistant",
    "type": "Subroutine",
+   "kind": "user"
+  },
+  {
+   "address": 37821,
+   "name": "FirstAssistantPivotFrames",
+   "type": "AbsoluteAddress",
    "kind": "user"
   },
   {
@@ -2233,9 +3684,45 @@
    "kind": "user"
   },
   {
+   "address": 37883,
+   "name": "AssistantTurnFrames",
+   "type": "AbsoluteAddress",
+   "kind": "user"
+  },
+  {
    "address": 37896,
    "name": "AdvanceFirstAssistantRasterPose",
    "type": "Subroutine",
+   "kind": "user"
+  },
+  {
+   "address": 37931,
+   "name": "State942B",
+   "type": "AbsoluteAddress",
+   "kind": "user"
+  },
+  {
+   "address": 37932,
+   "name": "State942C",
+   "type": "AbsoluteAddress",
+   "kind": "user"
+  },
+  {
+   "address": 37933,
+   "name": "State942D",
+   "type": "AbsoluteAddress",
+   "kind": "user"
+  },
+  {
+   "address": 37934,
+   "name": "State942E",
+   "type": "AbsoluteAddress",
+   "kind": "user"
+  },
+  {
+   "address": 37935,
+   "name": "State942F",
+   "type": "AbsoluteAddress",
    "kind": "user"
   },
   {
@@ -2245,9 +3732,21 @@
    "kind": "user"
   },
   {
+   "address": 38132,
+   "name": "SecondAssistantPivotFrames",
+   "type": "AbsoluteAddress",
+   "kind": "user"
+  },
+  {
    "address": 38151,
    "name": "AdvanceSecondAssistantTurn",
    "type": "Subroutine",
+   "kind": "user"
+  },
+  {
+   "address": 38194,
+   "name": "State9532",
+   "type": "AbsoluteAddress",
    "kind": "user"
   },
   {
@@ -2257,9 +3756,45 @@
    "kind": "user"
   },
   {
+   "address": 38230,
+   "name": "State9556",
+   "type": "AbsoluteAddress",
+   "kind": "user"
+  },
+  {
+   "address": 38231,
+   "name": "State9557",
+   "type": "AbsoluteAddress",
+   "kind": "user"
+  },
+  {
+   "address": 38232,
+   "name": "State9558",
+   "type": "AbsoluteAddress",
+   "kind": "user"
+  },
+  {
+   "address": 38233,
+   "name": "State9559",
+   "type": "AbsoluteAddress",
+   "kind": "user"
+  },
+  {
+   "address": 38234,
+   "name": "State955A",
+   "type": "AbsoluteAddress",
+   "kind": "user"
+  },
+  {
    "address": 38235,
    "name": "MoveThirdLabAssistant",
    "type": "Subroutine",
+   "kind": "user"
+  },
+  {
+   "address": 38431,
+   "name": "ThirdAssistantPivotFrames",
+   "type": "AbsoluteAddress",
    "kind": "user"
   },
   {
@@ -2269,9 +3804,45 @@
    "kind": "user"
   },
   {
+   "address": 38493,
+   "name": "State965D",
+   "type": "AbsoluteAddress",
+   "kind": "user"
+  },
+  {
    "address": 38494,
    "name": "AdvanceThirdAssistantRasterPose",
    "type": "Subroutine",
+   "kind": "user"
+  },
+  {
+   "address": 38529,
+   "name": "FourthAssistantDirection",
+   "type": "AbsoluteAddress",
+   "kind": "user"
+  },
+  {
+   "address": 38530,
+   "name": "State9682",
+   "type": "AbsoluteAddress",
+   "kind": "user"
+  },
+  {
+   "address": 38531,
+   "name": "State9683",
+   "type": "AbsoluteAddress",
+   "kind": "user"
+  },
+  {
+   "address": 38532,
+   "name": "State9684",
+   "type": "AbsoluteAddress",
+   "kind": "user"
+  },
+  {
+   "address": 38533,
+   "name": "State9685",
+   "type": "AbsoluteAddress",
    "kind": "user"
   },
   {
@@ -2281,9 +3852,21 @@
    "kind": "user"
   },
   {
+   "address": 38730,
+   "name": "FourthAssistantPivotFrames",
+   "type": "AbsoluteAddress",
+   "kind": "user"
+  },
+  {
    "address": 38749,
    "name": "AdvanceFourthAssistantTurn",
    "type": "Subroutine",
+   "kind": "user"
+  },
+  {
+   "address": 38792,
+   "name": "State9788",
+   "type": "AbsoluteAddress",
    "kind": "user"
   },
   {
@@ -2293,9 +3876,33 @@
    "kind": "user"
   },
   {
+   "address": 38828,
+   "name": "State97AC",
+   "type": "AbsoluteAddress",
+   "kind": "user"
+  },
+  {
+   "address": 38829,
+   "name": "State97AD",
+   "type": "AbsoluteAddress",
+   "kind": "user"
+  },
+  {
    "address": 38830,
    "name": "CheckLabFloorTransitions",
    "type": "Subroutine",
+   "kind": "user"
+  },
+  {
+   "address": 39309,
+   "name": "State998D",
+   "type": "AbsoluteAddress",
+   "kind": "user"
+  },
+  {
+   "address": 39310,
+   "name": "State998E",
+   "type": "AbsoluteAddress",
    "kind": "user"
   },
   {
@@ -2308,6 +3915,18 @@
    "address": 39400,
    "name": "AnimateLeftLabRecoil",
    "type": "Subroutine",
+   "kind": "user"
+  },
+  {
+   "address": 39475,
+   "name": "LabEncounterState",
+   "type": "AbsoluteAddress",
+   "kind": "user"
+  },
+  {
+   "address": 39487,
+   "name": "LabEncounterFloorDurations",
+   "type": "AbsoluteAddress",
    "kind": "user"
   },
   {
@@ -2341,6 +3960,18 @@
    "kind": "user"
   },
   {
+   "address": 40124,
+   "name": "State9CBC",
+   "type": "AbsoluteAddress",
+   "kind": "user"
+  },
+  {
+   "address": 40125,
+   "name": "LabFallSteps",
+   "type": "AbsoluteAddress",
+   "kind": "user"
+  },
+  {
    "address": 40126,
    "name": "FallBetweenLabFloors",
    "type": "Subroutine",
@@ -2353,6 +3984,18 @@
    "kind": "user"
   },
   {
+   "address": 40259,
+   "name": "State9D43",
+   "type": "AbsoluteAddress",
+   "kind": "user"
+  },
+  {
+   "address": 40260,
+   "name": "State9D44",
+   "type": "AbsoluteAddress",
+   "kind": "user"
+  },
+  {
    "address": 40261,
    "name": "AddLabEnergy",
    "type": "Subroutine",
@@ -2362,6 +4005,12 @@
    "address": 40275,
    "name": "SubtractLabEnergy",
    "type": "Subroutine",
+   "kind": "user"
+  },
+  {
+   "address": 40369,
+   "name": "State9DB1",
+   "type": "AbsoluteAddress",
    "kind": "user"
   },
   {
@@ -2401,6 +4050,90 @@
    "kind": "user"
   },
   {
+   "address": 40960,
+   "name": "TitleLowerSpriteTracks",
+   "type": "AbsoluteAddress",
+   "kind": "user"
+  },
+  {
+   "address": 41088,
+   "name": "TitleLiftSpriteTracks",
+   "type": "AbsoluteAddress",
+   "kind": "user"
+  },
+  {
+   "address": 41216,
+   "name": "TitleWalkingSpriteTracks",
+   "type": "AbsoluteAddress",
+   "kind": "user"
+  },
+  {
+   "address": 41344,
+   "name": "TitleUpperPlatformTrack",
+   "type": "AbsoluteAddress",
+   "kind": "user"
+  },
+  {
+   "address": 41472,
+   "name": "TitleLowerPlatformTrack",
+   "type": "AbsoluteAddress",
+   "kind": "user"
+  },
+  {
+   "address": 41600,
+   "name": "TitlePlatformTrackStarts",
+   "type": "AbsoluteAddress",
+   "kind": "user"
+  },
+  {
+   "address": 41728,
+   "name": "TitleBackdropTiles",
+   "type": "AbsoluteAddress",
+   "kind": "user"
+  },
+  {
+   "address": 42208,
+   "name": "TitleScrollBackingTiles",
+   "type": "AbsoluteAddress",
+   "kind": "user"
+  },
+  {
+   "address": 42244,
+   "name": "TitleLowerWallTiles",
+   "type": "AbsoluteAddress",
+   "kind": "user"
+  },
+  {
+   "address": 42300,
+   "name": "OpeningScrollText",
+   "type": "AbsoluteAddress",
+   "kind": "user"
+  },
+  {
+   "address": 42674,
+   "name": "InstructionsScrollText",
+   "type": "AbsoluteAddress",
+   "kind": "user"
+  },
+  {
+   "address": 42905,
+   "name": "EntranceScrollText",
+   "type": "AbsoluteAddress",
+   "kind": "user"
+  },
+  {
+   "address": 43006,
+   "name": "LiftScrollText",
+   "type": "AbsoluteAddress",
+   "kind": "user"
+  },
+  {
+   "address": 43037,
+   "name": "CongratulationsScrollText",
+   "type": "AbsoluteAddress",
+   "kind": "user"
+  },
+  {
    "address": 49136,
    "name": "LabReturnFlag",
    "type": "AbsoluteAddress",
@@ -2431,6 +4164,18 @@
    "kind": "user"
   },
   {
+   "address": 49152,
+   "name": "FactoryMovementSoundRequest",
+   "type": "AbsoluteAddress",
+   "kind": "user"
+  },
+  {
+   "address": 49153,
+   "name": "FactoryEffectRequests",
+   "type": "AbsoluteAddress",
+   "kind": "user"
+  },
+  {
    "address": 49180,
    "name": "SoundIrq",
    "type": "Subroutine",
@@ -2443,6 +4188,12 @@
    "kind": "user"
   },
   {
+   "address": 49344,
+   "name": "StateC0C0",
+   "type": "AbsoluteAddress",
+   "kind": "user"
+  },
+  {
    "address": 49348,
    "name": "UpdateShortSound",
    "type": "Subroutine",
@@ -2452,6 +4203,18 @@
    "address": 49385,
    "name": "StartShortSound",
    "type": "Subroutine",
+   "kind": "user"
+  },
+  {
+   "address": 49442,
+   "name": "StateC122",
+   "type": "AbsoluteAddress",
+   "kind": "user"
+  },
+  {
+   "address": 49443,
+   "name": "StateC123",
+   "type": "AbsoluteAddress",
    "kind": "user"
   },
   {
@@ -2479,6 +4242,18 @@
    "kind": "user"
   },
   {
+   "address": 49631,
+   "name": "StateC1DF",
+   "type": "AbsoluteAddress",
+   "kind": "user"
+  },
+  {
+   "address": 49632,
+   "name": "StateC1E0",
+   "type": "AbsoluteAddress",
+   "kind": "user"
+  },
+  {
    "address": 49633,
    "name": "UpdateFilteredTap",
    "type": "Subroutine",
@@ -2491,6 +4266,18 @@
    "kind": "user"
   },
   {
+   "address": 49735,
+   "name": "StateC247",
+   "type": "AbsoluteAddress",
+   "kind": "user"
+  },
+  {
+   "address": 49736,
+   "name": "StateC248",
+   "type": "AbsoluteAddress",
+   "kind": "user"
+  },
+  {
    "address": 49737,
    "name": "UpdateLiftEffect",
    "type": "Subroutine",
@@ -2499,6 +4286,318 @@
   {
    "address": 49769,
    "name": "StartLiftEffect",
+   "type": "Subroutine",
+   "kind": "user"
+  },
+  {
+   "address": 50176,
+   "name": "TitleMusicIrq",
+   "type": "Subroutine",
+   "kind": "user"
+  },
+  {
+   "address": 50179,
+   "name": "TitleMusicState",
+   "type": "AbsoluteAddress",
+   "kind": "user"
+  },
+  {
+   "address": 50189,
+   "name": "ExitTitleMusicIrq",
+   "type": "Subroutine",
+   "kind": "user"
+  },
+  {
+   "address": 50192,
+   "name": "UpdateTitleMusic",
+   "type": "Subroutine",
+   "kind": "user"
+  },
+  {
+   "address": 50259,
+   "name": "PlayTitleMusicRow",
+   "type": "Subroutine",
+   "kind": "user"
+  },
+  {
+   "address": 50404,
+   "name": "TitleFrequencyTable",
+   "type": "AbsoluteAddress",
+   "kind": "user"
+  },
+  {
+   "address": 50438,
+   "name": "TitleVoiceOneNotes",
+   "type": "AbsoluteAddress",
+   "kind": "user"
+  },
+  {
+   "address": 50590,
+   "name": "TitleVoiceTwoNotes",
+   "type": "AbsoluteAddress",
+   "kind": "user"
+  },
+  {
+   "address": 50742,
+   "name": "TitleVoiceThreeNotes",
+   "type": "AbsoluteAddress",
+   "kind": "user"
+  },
+  {
+   "address": 50894,
+   "name": "InitTitleMusicVoices",
+   "type": "Subroutine",
+   "kind": "user"
+  },
+  {
+   "address": 51168,
+   "name": "ResetTitleAfterDeath",
+   "type": "Subroutine",
+   "kind": "user"
+  },
+  {
+   "address": 51176,
+   "name": "EnterTitleWithResult",
+   "type": "Subroutine",
+   "kind": "user"
+  },
+  {
+   "address": 51195,
+   "name": "TitleEntrySeparator",
+   "type": "AbsoluteAddress",
+   "kind": "user"
+  },
+  {
+   "address": 51200,
+   "name": "DrawTitleScene",
+   "type": "Subroutine",
+   "kind": "user"
+  },
+  {
+   "address": 51267,
+   "name": "CopyTitleBackdrop",
+   "type": "Subroutine",
+   "kind": "user"
+  },
+  {
+   "address": 51355,
+   "name": "DrawTitleScrollBacking",
+   "type": "Subroutine",
+   "kind": "user"
+  },
+  {
+   "address": 51548,
+   "name": "PollTitleControls",
+   "type": "Subroutine",
+   "kind": "user"
+  },
+  {
+   "address": 51589,
+   "name": "StateC985",
+   "type": "AbsoluteAddress",
+   "kind": "user"
+  },
+  {
+   "address": 51590,
+   "name": "HandleTitleKeyboardInput",
+   "type": "Subroutine",
+   "kind": "user"
+  },
+  {
+   "address": 51732,
+   "name": "TitleTrackSelections",
+   "type": "AbsoluteAddress",
+   "kind": "user"
+  },
+  {
+   "address": 51765,
+   "name": "TitleInputState",
+   "type": "AbsoluteAddress",
+   "kind": "user"
+  },
+  {
+   "address": 51768,
+   "name": "MoveTitleAgentLeft",
+   "type": "Subroutine",
+   "kind": "user"
+  },
+  {
+   "address": 51842,
+   "name": "EnterFactoryFromTitle",
+   "type": "Subroutine",
+   "kind": "user"
+  },
+  {
+   "address": 51853,
+   "name": "MoveTitleAgentRight",
+   "type": "Subroutine",
+   "kind": "user"
+  },
+  {
+   "address": 51905,
+   "name": "AdvanceTitleAgentX",
+   "type": "Subroutine",
+   "kind": "user"
+  },
+  {
+   "address": 51938,
+   "name": "TitleLiftState",
+   "type": "AbsoluteAddress",
+   "kind": "user"
+  },
+  {
+   "address": 51941,
+   "name": "TitleLiftEntryPadding",
+   "type": "Subroutine",
+   "kind": "user"
+  },
+  {
+   "address": 51942,
+   "name": "AdvanceTitleLift",
+   "type": "Subroutine",
+   "kind": "user"
+  },
+  {
+   "address": 52132,
+   "name": "TitleDelay",
+   "type": "Subroutine",
+   "kind": "user"
+  },
+  {
+   "address": 52143,
+   "name": "ClearTitleSpritePositions",
+   "type": "Subroutine",
+   "kind": "user"
+  },
+  {
+   "address": 52156,
+   "name": "InstallTitleCharset",
+   "type": "Subroutine",
+   "kind": "user"
+  },
+  {
+   "address": 52190,
+   "name": "WaitOnCongratulations",
+   "type": "Subroutine",
+   "kind": "user"
+  },
+  {
+   "address": 52229,
+   "name": "ArmFirstTitleRaster",
+   "type": "Subroutine",
+   "kind": "user"
+  },
+  {
+   "address": 52263,
+   "name": "ConfigureUpperTitleSprites",
+   "type": "Subroutine",
+   "kind": "user"
+  },
+  {
+   "address": 52319,
+   "name": "TitleUpperRasterState",
+   "type": "AbsoluteAddress",
+   "kind": "user"
+  },
+  {
+   "address": 52369,
+   "name": "FirstTitleRaster",
+   "type": "Subroutine",
+   "kind": "user"
+  },
+  {
+   "address": 52415,
+   "name": "ReadUpperTitleSpriteRecord",
+   "type": "Subroutine",
+   "kind": "user"
+  },
+  {
+   "address": 52487,
+   "name": "WriteUpperTitleSprites",
+   "type": "Subroutine",
+   "kind": "user"
+  },
+  {
+   "address": 52529,
+   "name": "TitleLowerRasterMode",
+   "type": "AbsoluteAddress",
+   "kind": "user"
+  },
+  {
+   "address": 52531,
+   "name": "ArmSecondTitleRaster",
+   "type": "Subroutine",
+   "kind": "user"
+  },
+  {
+   "address": 52565,
+   "name": "ConfigureLowerTitleSprites",
+   "type": "Subroutine",
+   "kind": "user"
+  },
+  {
+   "address": 52623,
+   "name": "TitleLowerRasterState",
+   "type": "AbsoluteAddress",
+   "kind": "user"
+  },
+  {
+   "address": 52673,
+   "name": "SecondTitleRaster",
+   "type": "Subroutine",
+   "kind": "user"
+  },
+  {
+   "address": 52719,
+   "name": "ReadLowerTitleSpriteRecord",
+   "type": "Subroutine",
+   "kind": "user"
+  },
+  {
+   "address": 52791,
+   "name": "WriteLowerTitleSprites",
+   "type": "Subroutine",
+   "kind": "user"
+  },
+  {
+   "address": 52833,
+   "name": "TitleScrollState",
+   "type": "AbsoluteAddress",
+   "kind": "user"
+  },
+  {
+   "address": 52837,
+   "name": "ScrollTitleCell",
+   "type": "Subroutine",
+   "kind": "user"
+  },
+  {
+   "address": 52918,
+   "name": "ReadOpeningScroll",
+   "type": "Subroutine",
+   "kind": "user"
+  },
+  {
+   "address": 52957,
+   "name": "ReadEntranceScroll",
+   "type": "Subroutine",
+   "kind": "user"
+  },
+  {
+   "address": 52996,
+   "name": "ReadLiftScroll",
+   "type": "Subroutine",
+   "kind": "user"
+  },
+  {
+   "address": 53040,
+   "name": "WriteTitleScrollCode",
+   "type": "Subroutine",
+   "kind": "user"
+  },
+  {
+   "address": 53047,
+   "name": "ReadCongratulationsScroll",
    "type": "Subroutine",
    "kind": "user"
   },
@@ -2553,6 +4652,36 @@
  ],
  "comments": [
   {
+   "address": 2048,
+   "type": "line",
+   "text": "Start of the low auxiliary window swapped with $F800 by $80BB. The first laboratory sprite bank begins 128 bytes into that window."
+  },
+  {
+   "address": 2176,
+   "type": "line",
+   "text": "Title sprites including indices $22\u2013$27 at $0880\u2013$09FF. In laboratory play this address holds the lab 1 source copied down from $F880 by $80BB."
+  },
+  {
+   "address": 2560,
+   "type": "line",
+   "text": "Title sprite slots $28\u2013$2D. The laboratory swaps lab 2 graphics down from $FA00 before $9F44 can select this window."
+  },
+  {
+   "address": 2944,
+   "type": "line",
+   "text": "Title sprite slots $2E\u2013$33 referenced by motion records at $A080, $A090 and $A280. Laboratory 3 uses the same addresses after $80BB brings down the shapes stored at $FB80."
+  },
+  {
+   "address": 3328,
+   "type": "line",
+   "text": "The swap copies lab 4\u2019s six shapes from $FD00 into this window. The listing shows its pre-swap bytes from the factory hand-over."
+  },
+  {
+   "address": 3712,
+   "type": "line",
+   "text": "The swap copies lab 5\u2019s six shapes from $FE80 into this window. The listing shows its pre-swap bytes from the factory hand-over."
+  },
+  {
    "address": 8192,
    "type": "line",
    "text": "96 consecutive 64-byte VIC sprite slots in the factory arrangement. The laboratory transition swaps this whole window with $E000\u2013$F7FF."
@@ -2606,6 +4735,26 @@
    "address": 16570,
    "type": "line",
    "text": "Reinitialise agent sprites and restore the saved factory room, floor, horizontal position and energy before dispatching the room."
+  },
+  {
+   "address": 16579,
+   "type": "line",
+   "text": "Initial working byte referenced by $402E (LDA)."
+  },
+  {
+   "address": 16580,
+   "type": "line",
+   "text": "Initial working byte referenced by $4034 (LDA)."
+  },
+  {
+   "address": 16581,
+   "type": "line",
+   "text": "Initial working byte referenced by $4009 (LDA), $5F3C (LDA), $5FB0 (JMP), $6121 (JMP)."
+  },
+  {
+   "address": 16582,
+   "type": "line",
+   "text": "Initial working byte referenced by $400F (LDA), $5F42 (LDA)."
   },
   {
    "address": 16583,
@@ -2703,9 +4852,19 @@
    "text": "Reverse the low pose when crawling. Otherwise advance a timed upward sprite sequence with paired shape pointers and a sound request."
   },
   {
+   "address": 17466,
+   "type": "line",
+   "text": "Two four-byte tables of paired sprite pointers for the downward pose, followed by the $4442 throttle and its animation index."
+  },
+  {
    "address": 17476,
    "type": "line",
    "text": "Throttle the down action with $4442. With fire held while upright, set the crawl state and move the player sprite down $15 pixels."
+  },
+  {
+   "address": 17696,
+   "type": "line",
+   "text": "Two twelve-byte tables of left-facing walk sprite pointers indexed by $40D8. $4538 is the movement divider."
   },
   {
    "address": 17723,
@@ -2713,9 +4872,19 @@
    "text": "Select left-facing pointers and dispatch the low-pose branch when crawling. Use $4538 as a movement and animation divider."
   },
   {
+   "address": 17841,
+   "type": "line",
+   "text": "Two twelve-byte tables of right-facing walk sprite pointers indexed by $40D8. $45C9 is the movement divider."
+  },
+  {
    "address": 17868,
    "type": "line",
    "text": "Right-facing movement and sprite animation. Its frame tables supply both halves of the agent sprite."
+  },
+  {
+   "address": 17986,
+   "type": "line",
+   "text": "Two eighteen-byte pointer tables and two movement tables for the right-facing vertical action. The trailing bytes hold its progress and pacing."
   },
   {
    "address": 18061,
@@ -2723,9 +4892,19 @@
    "text": "Count down the divider bytes at $468A and $468B before setting positive vertical movement state. The update uses pose and Y-delta tables."
   },
   {
+   "address": 18152,
+   "type": "line",
+   "text": "Two eighteen-byte pointer tables and two movement tables for the left-facing vertical action. The trailing bytes hold its progress and pacing."
+  },
+  {
    "address": 18227,
    "type": "line",
    "text": "Use the left-facing vertical movement path from the signed state at $40DB. Advance the player layers using the paired animation tables in this section."
+  },
+  {
+   "address": 18318,
+   "type": "line",
+   "text": "Horizontal step in pixels loaded into Y by $4797 and $47D2. Movement and room force handlers set this byte before calling the shared position routines."
   },
   {
    "address": 18319,
@@ -2738,9 +4917,19 @@
    "text": "Copy the primary player sprite's position to the second layer so the two sprite shapes move together."
   },
   {
+   "address": 18653,
+   "type": "line",
+   "text": "Four eight-byte groups of glyph data with seven bytes copied per update to $3800. The three trailing bytes are the countdowns and source offset used by $4900."
+  },
+  {
    "address": 18688,
    "type": "line",
    "text": "Use two countdowns to pace the pickup animation. Update the sprite pointer fields after the inner phase reaches zero."
+  },
+  {
+   "address": 18757,
+   "type": "line",
+   "text": "Paired sixteen-frame sprite pointers at $4945 and $4955 and the vertical delta table at $4965. The trailing bytes pace the action and hold its progress."
   },
   {
    "address": 18808,
@@ -2748,9 +4937,19 @@
    "text": "Count down $4975 before advancing the positive $40DC action state. The animation applies a Y offset, aligns the other player sprite and reads paired shape tables."
   },
   {
+   "address": 18880,
+   "type": "line",
+   "text": "Paired sixteen-frame sprite pointers at $49C0 and $49D0 and the vertical delta table at $49E0. The trailing bytes pace the action and hold its progress."
+  },
+  {
    "address": 18931,
    "type": "line",
    "text": "Count down $49F0 before advancing the negative $40DC action. The left-facing tables advance together and the last frame clears the action."
+  },
+  {
+   "address": 19003,
+   "type": "line",
+   "text": "Two four-byte tables of sprite pointers and the movement counters for left crawl."
   },
   {
    "address": 19014,
@@ -2758,9 +4957,19 @@
    "text": "Choose left-facing crawl pointers and use the shared horizontal movement engine. This path changes current facing without replacing the recorded crawl-facing byte."
   },
   {
+   "address": 19075,
+   "type": "line",
+   "text": "Two four-byte tables of sprite pointers and the movement counters for right crawl."
+  },
+  {
    "address": 19086,
    "type": "line",
    "text": "Choose right-facing crawl pointers and use the shared horizontal movement engine. Entry-facing information remains in $40DD."
+  },
+  {
+   "address": 19147,
+   "type": "line",
+   "text": "Eighteen screen codes drawn in two nine-cell runs by $4ADF."
   },
   {
    "address": 19167,
@@ -2823,6 +5032,16 @@
    "text": "Set up factory room with dispatch offset $2A. The setup first calls $50D7. It passes coordinates to the pickup sprite routine at $639C."
   },
   {
+   "address": 19678,
+   "type": "line",
+   "text": "Two nine-cell rows of alternating glyphs $1C and $1D, drawn by $4CF1."
+  },
+  {
+   "address": 19696,
+   "type": "line",
+   "text": "Working row countdown for the $4CDE strip. $4CF1 seeds it to two."
+  },
+  {
    "address": 19697,
    "type": "line",
    "text": "Copy two rows of nine cells from $4CDE to the screen pointer in $57. Leave cells with zero source codes intact."
@@ -2841,6 +5060,11 @@
    "address": 19757,
    "type": "line",
    "text": "Two-byte working destination loaded from the room dispatch table immediately before the indirect jump."
+  },
+  {
+   "address": 19758,
+   "type": "line",
+   "text": "Initial working byte referenced by $4D59 (STA)."
   },
   {
    "address": 19759,
@@ -2983,9 +5207,19 @@
    "text": "Set up factory room with dispatch offset $26. The setup first calls $56A3. Its code selects lift record offset $55. It passes coordinates to the pickup sprite routine at $639C."
   },
   {
+   "address": 22511,
+   "type": "line",
+   "text": "Four eight-byte source slots for the two animation halves that $5812 copies to glyph $EC at $3F60. $580F\u2013$5811 hold timing and source offset."
+  },
+  {
    "address": 22546,
    "type": "line",
    "text": "Advance the two dividers and copy the next group of 16 bytes from $57EF into the live glyph set at $3F60."
+  },
+  {
+   "address": 22594,
+   "type": "line",
+   "text": "Eleven screen codes read by $5858 for the indicator strip."
   },
   {
    "address": 22607,
@@ -2993,9 +5227,29 @@
    "text": "Copy three rows of four codes from $5842 onward. Zero leaves the destination unchanged."
   },
   {
+   "address": 22686,
+   "type": "line",
+   "text": "Initial working byte referenced by $442E (STA), $4436 (STA), $4514 (STA), $451C (STA), $47C6 (LDA)."
+  },
+  {
+   "address": 22687,
+   "type": "line",
+   "text": "Initial working byte referenced by $58A1 (DEC), $58A8 (STA)."
+  },
+  {
    "address": 22689,
    "type": "line",
    "text": "Use $589F as a divider, set a two-pixel move and select the direction from the active floor's configuration."
+  },
+  {
+   "address": 22740,
+   "type": "line",
+   "text": "Four sixteen-byte frames. Each update copies one entire frame to $3938\u2013$3947, replacing glyphs $27 and $28."
+  },
+  {
+   "address": 22804,
+   "type": "line",
+   "text": "Primary and secondary countdowns, saved source index and the end-of-cycle flag for the glyph update at $5918."
   },
   {
    "address": 22808,
@@ -3003,9 +5257,29 @@
    "text": "After both timers expire, copy 16 bytes of the next animation phase from $58D4 into character data at $3938. Set $5917 on the last phase."
   },
   {
+   "address": 22877,
+   "type": "line",
+   "text": "Initial working byte referenced by $5969 (STA)."
+  },
+  {
+   "address": 22878,
+   "type": "line",
+   "text": "Initial working byte referenced by $4C58 (STA), $596C (STA)."
+  },
+  {
    "address": 22879,
    "type": "line",
    "text": "Preserve the player sprite layers while clearing the room-specific visibility bits."
+  },
+  {
+   "address": 22896,
+   "type": "line",
+   "text": "Initial working byte referenced by $438F (STA), $441F (INC), $4422 (INC), $4505 (DEC), $4508 (DEC)."
+  },
+  {
+   "address": 22897,
+   "type": "line",
+   "text": "Initial working byte referenced by $5977 (STA), $59E1 (LDA), $5A8E (LDA)."
   },
   {
    "address": 22898,
@@ -3013,9 +5287,44 @@
    "text": "Read the VIC background collision latch for sprites 1 and 2. Select a minimum player Y by floor before invoking the position-dependent checks."
   },
   {
+   "address": 22941,
+   "type": "line",
+   "text": "Initial working byte referenced by $59B1 (DEC), $59B8 (STA)."
+  },
+  {
    "address": 22942,
    "type": "line",
    "text": "Read the sprite collision latch. Contact including the player group and sprite 5 enters the pickup path, adds up to eight energy units and clears the room-floor pickup flag. Another contact branch decrements energy if $60E4 is set."
+  },
+  {
+   "address": 23003,
+   "type": "line",
+   "text": "Initial working byte referenced by $4ED5 (STA), $5127 (STA), $568B (STA), $57DF (STA), $5A0C (LDA)."
+  },
+  {
+   "address": 23004,
+   "type": "line",
+   "text": "Initial working byte referenced by $512A (STA), $534B (STA), $546D (STA), $5A35 (LDA)."
+  },
+  {
+   "address": 23005,
+   "type": "line",
+   "text": "Initial working byte referenced by $5056 (STA), $512D (STA), $59ED (LDA), $5A5B (LDA)."
+  },
+  {
+   "address": 23006,
+   "type": "line",
+   "text": "Initial working byte referenced by $4FE7 (STA), $5130 (STA), $559F (STA), $561D (STA), $5A2D (LDA)."
+  },
+  {
+   "address": 23007,
+   "type": "line",
+   "text": "Initial working byte referenced by $4FEA (STA), $50C9 (STA), $5133 (STA), $5359 (STA), $5620 (STA)."
+  },
+  {
+   "address": 23008,
+   "type": "line",
+   "text": "Initial working byte referenced by $5A76 (DEC), $5A7D (STA)."
   },
   {
    "address": 23009,
@@ -3038,6 +5347,31 @@
    "text": "Set $40DF to $FF for the energy update later in the main loop."
   },
   {
+   "address": 23174,
+   "type": "line",
+   "text": "Initial working byte referenced by $4CAB (STA), $50F1 (STA), $534E (STA), $53AD (STA), $546A (STA)."
+  },
+  {
+   "address": 23175,
+   "type": "line",
+   "text": "Initial working byte referenced by $4CAE (STA), $50F4 (STA), $53B0 (STA), $54D1 (STA), $5596 (STA)."
+  },
+  {
+   "address": 23176,
+   "type": "line",
+   "text": "Initial working byte referenced by $4CB1 (STA), $4FDA (STA), $50BC (STA), $50F7 (STA), $5A97 (LDA)."
+  },
+  {
+   "address": 23177,
+   "type": "line",
+   "text": "Initial working byte referenced by $50FA (STA), $517E (STA), $55A2 (STA), $5728 (STA), $5AC6 (LDA)."
+  },
+  {
+   "address": 23178,
+   "type": "line",
+   "text": "Initial working byte referenced by $50FD (STA), $5181 (STA), $57E7 (STA), $5AF5 (LDA)."
+  },
+  {
    "address": 23179,
    "type": "line",
    "text": "Jump to the routine that stores the pending factory energy decrement."
@@ -3053,6 +5387,31 @@
    "text": "Restore the shared X adjustment used by the collision intervals and foreground priority logic."
   },
   {
+   "address": 23369,
+   "type": "line",
+   "text": "Initial working byte referenced by $4E63 (STA), $5116 (STA), $51F6 (STA), $527F (STA), $5B74 (LDA)."
+  },
+  {
+   "address": 23370,
+   "type": "line",
+   "text": "Initial working byte referenced by $4E66 (STA), $5119 (STA), $51F9 (STA), $5282 (STA), $52E4 (STA)."
+  },
+  {
+   "address": 23371,
+   "type": "line",
+   "text": "Initial working byte referenced by $4E69 (STA), $511C (STA), $517B (STA), $51FC (STA), $5285 (STA)."
+  },
+  {
+   "address": 23372,
+   "type": "line",
+   "text": "Initial working byte referenced by $4CB4 (STA), $4E6C (STA), $511F (STA), $51FF (STA), $5288 (STA)."
+  },
+  {
+   "address": 23373,
+   "type": "line",
+   "text": "Initial working byte referenced by $5122 (STA), $5202 (STA), $528B (STA)."
+  },
+  {
    "address": 23374,
    "type": "line",
    "text": "Divert the upper floor contact handler to the paced damage path at $5A76."
@@ -3063,6 +5422,36 @@
    "text": "When the room and floor permit it, test the player X range against four room feature flags. A qualifying contact can route to the timed damage request at $5A76."
   },
   {
+   "address": 23524,
+   "type": "line",
+   "text": "Initial working byte referenced by $4C22 (STA), $4F2B (STA), $4FEF (STA), $5050 (STA), $50CE (STA)."
+  },
+  {
+   "address": 23525,
+   "type": "line",
+   "text": "Initial working byte referenced by $5105 (STA), $540E (STA), $5C21 (LDA)."
+  },
+  {
+   "address": 23526,
+   "type": "line",
+   "text": "Initial working byte referenced by $4ED8 (STA), $5108 (STA), $5656 (STA), $571E (STA), $5783 (STA)."
+  },
+  {
+   "address": 23527,
+   "type": "line",
+   "text": "Initial working byte referenced by $4C25 (STA), $4F2E (STA), $4FF2 (STA), $5053 (STA), $50D1 (STA)."
+  },
+  {
+   "address": 23528,
+   "type": "line",
+   "text": "Initial working byte referenced by $510E (STA), $5205 (STA), $5356 (STA), $53B3 (STA), $5534 (STA)."
+  },
+  {
+   "address": 23529,
+   "type": "line",
+   "text": "Initial working byte referenced by $4EDB (STA), $5111 (STA), $569D (STA), $5786 (STA), $5C7C (LDA)."
+  },
+  {
    "address": 23530,
    "type": "line",
    "text": "Enter the handler that sets the lift request flag at $40E1."
@@ -3071,6 +5460,11 @@
    "address": 23534,
    "type": "line",
    "text": "Test room-specific flags for the active floor and compare the player sprite X against the lift entrance interval. A matching position can request the transition."
+  },
+  {
+   "address": 23710,
+   "type": "line",
+   "text": "Initial working byte referenced by $5CE1 (DEC), $5CE8 (STA), $5D10 (DEC)."
   },
   {
    "address": 23711,
@@ -3088,14 +5482,89 @@
    "text": "Seven screen codes copied to the first screen row by $5D7B."
   },
   {
+   "address": 23898,
+   "type": "line",
+   "text": "Thirty-two full-bar screen codes and a final blank adjoining the caption. The live gauge computes and writes the row separately at $6458."
+  },
+  {
    "address": 23931,
    "type": "line",
    "text": "Set top-row colours, copy seven caption cells into $0400 and refresh the energy gauge with a decrement followed by an increment."
   },
   {
+   "address": 23986,
+   "type": "line",
+   "text": "Initial working byte referenced by $5FBB (LDA), $607D (STA)."
+  },
+  {
+   "address": 23987,
+   "type": "line",
+   "text": "Initial working byte referenced by $5FD9 (DEC)."
+  },
+  {
+   "address": 23988,
+   "type": "line",
+   "text": "Initial working byte referenced by $5F68 (LDA), $5F9E (LDA), $6092 (STA), $60AF (LDA)."
+  },
+  {
+   "address": 23989,
+   "type": "line",
+   "text": "Initial working byte referenced by $5F6E (LDA), $6098 (STA), $60B5 (LDA)."
+  },
+  {
+   "address": 23990,
+   "type": "line",
+   "text": "Initial working byte referenced by $5F74 (LDA), $609E (STA), $60BB (LDA)."
+  },
+  {
+   "address": 23991,
+   "type": "line",
+   "text": "Zero byte between the five-byte working record at $5DB2 and the upper-floor enable byte at $5DB8."
+  },
+  {
+   "address": 23992,
+   "type": "line",
+   "text": "Initial working byte referenced by $504B (STA), $5DCE (LDA), $6088 (STA)."
+  },
+  {
+   "address": 23993,
+   "type": "line",
+   "text": "Initial working byte referenced by $5F17 (LDA), $5F2D (STA), $5FE0 (STA)."
+  },
+  {
+   "address": 23994,
+   "type": "line",
+   "text": "Initial working byte referenced by $4C1D (STA), $4F26 (STA), $53A5 (STA), $5602 (STA), $5DC6 (LDA)."
+  },
+  {
+   "address": 23995,
+   "type": "line",
+   "text": "Initial working byte referenced by $5EFD (LDA)."
+  },
+  {
+   "address": 23996,
+   "type": "line",
+   "text": "Initial working byte referenced by $5F03 (LDA)."
+  },
+  {
+   "address": 23997,
+   "type": "line",
+   "text": "Initial working byte referenced by $5DEB (STA), $5E00 (LDA), $5E09 (INC)."
+  },
+  {
+   "address": 23998,
+   "type": "line",
+   "text": "Initial working byte referenced by $5DE8 (LDA)."
+  },
+  {
    "address": 24001,
    "type": "line",
    "text": "Select lift state from the current floor. Where enabled, clear the display, initialise lift sprites and use the phase data starting at $5DB2."
+  },
+  {
+   "address": 24351,
+   "type": "line",
+   "text": "An isolated delay between two unconditional jumps. Its branch goes back to the LDX #$00, so entry here would restart the counter on each pass."
   },
   {
    "address": 24360,
@@ -3133,6 +5602,71 @@
    "text": "If the lab return flag is set, restore room offset, floor, X and shared energy. Choose Y=$6B or $CB for the saved floor and clear the return flag."
   },
   {
+   "address": 24804,
+   "type": "line",
+   "text": "Initial working byte referenced by $59D2 (LDA), $6116 (STA), $6127 (LDA), $618A (STA), $631D (STA)."
+  },
+  {
+   "address": 24805,
+   "type": "line",
+   "text": "Zero byte between the factory entity enable at $60E4 and the IRQ vector at $60E6."
+  },
+  {
+   "address": 24806,
+   "type": "line",
+   "text": "Initial working byte referenced by $60F2 (LDA)."
+  },
+  {
+   "address": 24807,
+   "type": "line",
+   "text": "Initial working byte referenced by $60F8 (LDA)."
+  },
+  {
+   "address": 24808,
+   "type": "line",
+   "text": "Room dispatch byte offset for the moving raster entity. $628F compares it with $4D2B. The motion code steps it twice on a room transition."
+  },
+  {
+   "address": 24809,
+   "type": "line",
+   "text": "Initial working byte referenced by $6205 (DEC), $6208 (DEC), $6230 (INC), $6233 (INC), $6297 (LDA)."
+  },
+  {
+   "address": 24810,
+   "type": "line",
+   "text": "Movement-phase transition flag for the room raster entity. The threshold branches set it and $61A8 tests it before dispatching to $6309."
+  },
+  {
+   "address": 24811,
+   "type": "line",
+   "text": "Initial working byte referenced by $612F (LDA), $61C3 (LDA), $621B (LDA), $6309 (LDA), $6310 (STA)."
+  },
+  {
+   "address": 24812,
+   "type": "line",
+   "text": "Initial working byte referenced by $6269 (LDX), $626D (STX), $627C (LDX), $6280 (STX), $62F9 (LDA)."
+  },
+  {
+   "address": 24813,
+   "type": "line",
+   "text": "Initial working byte referenced by $61BB (LDA), $61CF (LDA), $61DE (INC), $61EB (LDA), $61FA (DEC)."
+  },
+  {
+   "address": 24814,
+   "type": "line",
+   "text": "Initial working byte referenced by $6215 (STA), $6220 (INC), $6223 (LDA), $6245 (STA), $624B (DEC)."
+  },
+  {
+   "address": 24815,
+   "type": "line",
+   "text": "Initial working byte referenced by $61B3 (LDA), $6341 (DEC), $6366 (STA)."
+  },
+  {
+   "address": 24816,
+   "type": "line",
+   "text": "Initial working byte referenced by $6326 (LDA), $633E (STA), $6359 (STA)."
+  },
+  {
    "address": 24817,
    "type": "line",
    "text": "Point the KERNAL IRQ hook at $611A, select raster line 257 and enable the VIC raster interrupt. Clear $60E4 before returning."
@@ -3141,6 +5675,16 @@
    "address": 24858,
    "type": "line",
    "text": "Handle the room's raster event, starting with VIC acknowledgement and the $60E4 state test. Non-raster interrupts chain to the factory sound IRQ vector."
+  },
+  {
+   "address": 25176,
+   "type": "line",
+   "text": "Initial working byte referenced by $625A (DEC), $6261 (STA)."
+  },
+  {
+   "address": 25177,
+   "type": "line",
+   "text": "Initial working byte referenced by $6264 (LDA), $6276 (STA), $6289 (STA)."
   },
   {
    "address": 25178,
@@ -3158,6 +5702,16 @@
    "text": "Use two coordinate pairs in $57\u2013$5A and the per-floor flags to place and enable pickup sprite slots 0 and 5. Their order is swapped on the lower floor."
   },
   {
+   "address": 25669,
+   "type": "line",
+   "text": "Initial working byte referenced by $6460 (STA), $6478 (LDA), $647E (STA), $6487 (DEC)."
+  },
+  {
+   "address": 25670,
+   "type": "line",
+   "text": "Initial working byte referenced by $6469 (STA), $646E (CPY)."
+  },
+  {
    "address": 25671,
    "type": "line",
    "text": "Increment energy and redraw unless energy is already $FF."
@@ -3171,6 +5725,16 @@
    "address": 25688,
    "type": "line",
    "text": "Set the sound request, copy energy to the shared byte and render complete eight-unit cells followed by any partial cell. Raise $40E0 if no cells were filled and clear the pending damage flag."
+  },
+  {
+   "address": 28672,
+   "type": "line",
+   "text": "First four pages of the title character set. $CBBC copies them to $3800\u2013$3BFF."
+  },
+  {
+   "address": 29696,
+   "type": "line",
+   "text": "Last four pages of the title character set. $CBBC copies them to $3C00\u2013$3FFF."
   },
   {
    "address": 30720,
@@ -3243,14 +5807,44 @@
    "text": "Copy four 40-cell floor strips from $81AF, $81D7, $81FF and $8227 to their fixed screen rows."
   },
   {
+   "address": 33442,
+   "type": "line",
+   "text": "The 7-by-5 tile block drawn twice by $82E0."
+  },
+  {
+   "address": 33477,
+   "type": "line",
+   "text": "Little-endian pointer to the 7-by-5 equipment block at $82A2."
+  },
+  {
    "address": 33479,
    "type": "line",
    "text": "Draw two seven by five rectangles at screen addresses $0449 and $0629. Then continue with the four by four decoration."
   },
   {
+   "address": 33560,
+   "type": "line",
+   "text": "Four 3-by-5 blocks and a 3-by-2 block read by the equipment drawing code beginning at $8361."
+  },
+  {
+   "address": 33623,
+   "type": "line",
+   "text": "Five little-endian pointers to the small blocks at $8318."
+  },
+  {
    "address": 33633,
    "type": "line",
    "text": "Copy four rows of four tiles from the pointer at $8357 to screen RAM beginning at $0431, then continue with the next decoration."
+  },
+  {
+   "address": 33948,
+   "type": "line",
+   "text": "Five tiles set one per screen row by $84B7."
+  },
+  {
+   "address": 33953,
+   "type": "line",
+   "text": "Five pairs of tiles drawn by $84E5 at two different screen positions."
   },
   {
    "address": 33963,
@@ -3268,9 +5862,74 @@
    "text": "Seven screen codes copied to the first screen row by $8605."
   },
   {
+   "address": 34238,
+   "type": "line",
+   "text": "Thirty-two full-bar screen codes and a final blank adjoining the lab caption. The live gauge computes its cells from energy."
+  },
+  {
    "address": 34271,
    "type": "line",
    "text": "Set the seven label cells' colour to 5, the remaining row to colour 2 and copy the caption to screen RAM before calling the lab gauge update."
+  },
+  {
+   "address": 34392,
+   "type": "line",
+   "text": "Initial working byte referenced by $86B4 (STA), $86EC (LDA), $878E (LDA), $87F8 (LDA), $8838 (LDA)."
+  },
+  {
+   "address": 34393,
+   "type": "line",
+   "text": "Initial working byte referenced by $86D2 (STA), $8795 (STA), $879B (LDX), $87AA (STA), $87B0 (INC)."
+  },
+  {
+   "address": 34394,
+   "type": "line",
+   "text": "Initial working byte referenced by $86DA (LDA), $86F1 (LDA), $877C (LDA), $8783 (STA), $87E6 (LDA)."
+  },
+  {
+   "address": 34395,
+   "type": "line",
+   "text": "Initial working byte referenced by $8762 (STA), $87CC (STA)."
+  },
+  {
+   "address": 34396,
+   "type": "line",
+   "text": "Initial working byte referenced by $8689 (LDA), $8893 (STA), $88B2 (STA), $88F5 (STA), $8914 (STA)."
+  },
+  {
+   "address": 34397,
+   "type": "line",
+   "text": "Initial working byte referenced by $8696 (LDA), $89C9 (STA), $89E8 (STA), $8A26 (STA), $8A45 (STA)."
+  },
+  {
+   "address": 34398,
+   "type": "line",
+   "text": "Initial working byte referenced by $86D5 (LDA), $873F (LDA), $8765 (LDA), $87CF (LDA), $8826 (LDA)."
+  },
+  {
+   "address": 34399,
+   "type": "line",
+   "text": "Initial working byte referenced by $867C (LDA), $8A65 (LDA), $8AA7 (LDA), $988A (STA), $98C9 (STA)."
+  },
+  {
+   "address": 34400,
+   "type": "line",
+   "text": "Initial working byte referenced by $86A3 (LDA), $997F (STA), $9989 (STA), $9DAD (STA)."
+  },
+  {
+   "address": 34401,
+   "type": "line",
+   "text": "Initial working byte referenced by $8674 (LDA), $9928 (STA), $9932 (STA), $9CA7 (STA), $9DC1 (LDA)."
+  },
+  {
+   "address": 34402,
+   "type": "line",
+   "text": "Initial working byte referenced by $866C (LDA), $97E7 (STA), $97FF (STA), $9817 (STA), $9CDD (STA)."
+  },
+  {
+   "address": 34403,
+   "type": "line",
+   "text": "Initial working byte referenced by $8664 (LDA), $9D9B (STA), $9DDA (STA)."
   },
   {
    "address": 34404,
@@ -3288,9 +5947,19 @@
    "text": "Continue the laboratory update with the active laboratory number from $BFF6."
   },
   {
+   "address": 34621,
+   "type": "line",
+   "text": "Initial working byte referenced by $8744 (DEC), $874B (STA)."
+  },
+  {
    "address": 34623,
    "type": "line",
    "text": "For a cleared laboratory, skip the entity update sequence. Wait on $873D when the movement flag at $865E is clear."
+  },
+  {
+   "address": 34641,
+   "type": "line",
+   "text": "Twelve walking sprite pointers followed by the left-movement countdown and frame state."
   },
   {
    "address": 34656,
@@ -3298,9 +5967,24 @@
    "text": "Handle left joystick input with the lab movement divider, facing and animation state before updating the current sprite and position."
   },
   {
+   "address": 34747,
+   "type": "line",
+   "text": "Twelve walking sprite pointers followed by the right-movement countdown and frame state."
+  },
+  {
    "address": 34762,
    "type": "line",
    "text": "Handle right joystick input. Its own sprite pointer table and timing state select the corresponding walking poses."
+  },
+  {
+   "address": 34910,
+   "type": "line",
+   "text": "Jump to the common laboratory iteration at $86FC. The preceding path exits through its own unconditional jump."
+  },
+  {
+   "address": 34913,
+   "type": "line",
+   "text": "Sixteen sprite pointers, sixteen signed Y deltas and three bytes of action state for $8884."
   },
   {
    "address": 34948,
@@ -3308,9 +5992,29 @@
    "text": "Wait for $8881, then advance the negative $865C movement and its sprite-Y and shape sequences. Continue through the horizontal limit handler while the sequence is active."
   },
   {
+   "address": 35011,
+   "type": "line",
+   "text": "Sixteen sprite pointers, sixteen signed Y deltas and three bytes of action state for $88E6."
+  },
+  {
    "address": 35046,
    "type": "line",
    "text": "Time the positive $865C move with $88E3. Its sequence writes sprite 1 Y and pointer, then either resets the movement state or applies the boundary test."
+  },
+  {
+   "address": 35109,
+   "type": "line",
+   "text": "Initial working byte referenced by $8941 (LDA)."
+  },
+  {
+   "address": 35110,
+   "type": "line",
+   "text": "Last three entries of the four-frame sprite pointer table read at $8941."
+  },
+  {
+   "address": 35113,
+   "type": "line",
+   "text": "Initial working byte referenced by $892C (DEC), $8936 (STA)."
   },
   {
    "address": 35116,
@@ -3318,9 +6022,29 @@
    "text": "Rate-limit the directional action with $8929 and advance the frame at $8659. Nonterminal frames route to the horizontal limits with the action step size."
   },
   {
+   "address": 35166,
+   "type": "line",
+   "text": "Initial working byte referenced by $897A (LDA)."
+  },
+  {
+   "address": 35167,
+   "type": "line",
+   "text": "Last three entries of the four-frame sprite pointer table read at $897A."
+  },
+  {
+   "address": 35170,
+   "type": "line",
+   "text": "Initial working byte referenced by $8965 (DEC), $896F (STA)."
+  },
+  {
    "address": 35173,
    "type": "line",
    "text": "Time this action with $8962 and enter the horizontal limit check using the matching sprite sequence."
+  },
+  {
+   "address": 35223,
+   "type": "line",
+   "text": "Sixteen sprite pointers, sixteen signed Y deltas and three bytes of action state for $89BA."
   },
   {
    "address": 35258,
@@ -3328,9 +6052,19 @@
    "text": "Use $89B7 to time the negative $865D animation. Update the player's Y and shape and clear $865D when the sequence ends."
   },
   {
+   "address": 35316,
+   "type": "line",
+   "text": "Sixteen sprite pointers, sixteen signed Y deltas and three bytes of action state for $8A17."
+  },
+  {
    "address": 35351,
    "type": "line",
    "text": "Time the positive $865D sequence with $8A14. Advance the sprite position and pose without the horizontal limit handler."
+  },
+  {
+   "address": 35409,
+   "type": "line",
+   "text": "Initial working byte referenced by $87B5 (STA), $881F (STA), $88BD (STA), $891F (STA), $8958 (STA)."
   },
   {
    "address": 35410,
@@ -3338,9 +6072,44 @@
    "text": "Select limits from player facing, the ninth X bit, floor and movement flags before choosing the next position and motion state."
   },
   {
+   "address": 35614,
+   "type": "line",
+   "text": "Initial working byte referenced by $8B21 (LDA)."
+  },
+  {
+   "address": 35615,
+   "type": "line",
+   "text": "Initial working byte referenced by $8B27 (LDA)."
+  },
+  {
    "address": 35616,
    "type": "line",
    "text": "Install lab raster vector $8C2A using $8B1E, choose line $32 and enable raster interrupts."
+  },
+  {
+   "address": 35652,
+   "type": "line",
+   "text": "Four little-endian pointers loaded in succession by the raster interrupt to set the four floors\u2019 sprite registers."
+  },
+  {
+   "address": 35660,
+   "type": "line",
+   "text": "First 55-byte sprite register and pointer record. The lab entity routines update its working positions and shapes."
+  },
+  {
+   "address": 35715,
+   "type": "line",
+   "text": "Second 55-byte sprite register and pointer record used by the raster multiplexer."
+  },
+  {
+   "address": 35770,
+   "type": "line",
+   "text": "Third 55-byte sprite register and pointer record used by the raster multiplexer."
+  },
+  {
+   "address": 35825,
+   "type": "line",
+   "text": "Fourth sprite register and pointer record through $8C27, followed by two bytes before the lab IRQ entry."
   },
   {
    "address": 35882,
@@ -3353,14 +6122,29 @@
    "text": "Write the active floor record through a pointer in $FB. Preserve the player position fields and ninth X bit while updating other sprite coordinates, attributes, colours and shape pointers."
   },
   {
+   "address": 36059,
+   "type": "line",
+   "text": "Little-endian word $8CFC immediately before the second band routine. The raster dispatcher branches to $8CFC directly."
+  },
+  {
    "address": 36061,
    "type": "line",
    "text": "Load the record pointer at $8B46, apply it to the sprite registers and set the next raster interrupt to line $90."
   },
   {
+   "address": 36090,
+   "type": "line",
+   "text": "Little-endian word $8D1B between the second and third band routines. The raster dispatcher also names $8D1B directly."
+  },
+  {
    "address": 36092,
    "type": "line",
    "text": "Apply the record selected by $8B48 and schedule line $C0 for the next band."
+  },
+  {
+   "address": 36121,
+   "type": "line",
+   "text": "Little-endian word $8D38 between raster routines. $8C3E jumps to that frame handler directly."
   },
   {
    "address": 36123,
@@ -3373,9 +6157,24 @@
    "text": "At the frame wrap, schedule line $32 for the first floor record of the next frame."
   },
   {
+   "address": 36168,
+   "type": "line",
+   "text": "Paired machine sprite pointers read by $8DE1 and $8DEB, followed by animation countdowns and state."
+  },
+  {
    "address": 36217,
    "type": "line",
    "text": "Advance the periodic machine animation. When its secondary counter expires outside the blocked state, set any of the four inactive assistant flags back to its active value."
+  },
+  {
+   "address": 36387,
+   "type": "line",
+   "text": "Initial working byte referenced by $8E26 (LDA), $8E78 (STA), $9105 (STA), $9D22 (STA), $9F17 (STA)."
+  },
+  {
+   "address": 36388,
+   "type": "line",
+   "text": "Initial working byte referenced by $8E2B (DEC), $8E32 (STA)."
   },
   {
    "address": 36390,
@@ -3383,9 +6182,29 @@
    "text": "Use $8E23 to enable the first entrance sequence and $8E24 to pace it. Write coordinates at $8B56\u2013$8B57 and enable the next movement phase through $90A3."
   },
   {
+   "address": 36481,
+   "type": "line",
+   "text": "Initial working byte referenced by $8E84 (LDA), $8EE1 (STA), $91A2 (STA), $9D25 (STA), $9F1A (STA)."
+  },
+  {
+   "address": 36482,
+   "type": "line",
+   "text": "Initial working byte referenced by $8E89 (DEC), $8E90 (STA)."
+  },
+  {
    "address": 36484,
    "type": "line",
-   "text": "Pace the second entrance with $8E82. Advance the coordinates at $8B8D\u2013$8B8E through its horizontal limits and hand off to $9133."
+   "text": "Pace the second entrance with $8E82. Raise Y to $74, move left until X drops below $1A, then advance Y to $80 and hand off to $9133."
+  },
+  {
+   "address": 36586,
+   "type": "line",
+   "text": "Initial working byte referenced by $8EED (LDA), $8F34 (STA), $9237 (STA), $9D28 (STA), $9F1D (STA)."
+  },
+  {
+   "address": 36587,
+   "type": "line",
+   "text": "Initial working byte referenced by $8EF2 (DEC), $8EF9 (STA)."
   },
   {
    "address": 36589,
@@ -3393,9 +6212,34 @@
    "text": "When the $8EEA entrance flag is set, step the third entity's coordinates toward Y=$B3 and hand off to $91D5."
   },
   {
+   "address": 36669,
+   "type": "line",
+   "text": "Initial working byte referenced by $8F40 (LDA), $8F87 (STA), $92C4 (STA), $9D2B (STA), $9F20 (STA)."
+  },
+  {
+   "address": 36670,
+   "type": "line",
+   "text": "Initial working byte referenced by $8F45 (DEC), $8F4C (STA)."
+  },
+  {
    "address": 36672,
    "type": "line",
    "text": "When $8F3D enables this sequence, use the divider at $8F3E to step the fourth entity toward Y=$D8 and hand off to $9265."
+  },
+  {
+   "address": 36752,
+   "type": "line",
+   "text": "Initial working byte referenced by $8F93 (DEC)."
+  },
+  {
+   "address": 36753,
+   "type": "line",
+   "text": "Initial working byte referenced by $8F98 (DEC), $8F9F (STA)."
+  },
+  {
+   "address": 36754,
+   "type": "line",
+   "text": "Initial working byte referenced by $8FA7 (LDY), $8FB8 (LDA), $8FBE (STA), $8FC7 (STA)."
   },
   {
    "address": 36755,
@@ -3403,9 +6247,39 @@
    "text": "Advance the two countdowns and issue the $C014 sound request when the animation reaches its update path."
   },
   {
+   "address": 36811,
+   "type": "line",
+   "text": "Initial working byte referenced by $8FCE (DEC)."
+  },
+  {
+   "address": 36812,
+   "type": "line",
+   "text": "Initial working byte referenced by $8FD3 (DEC), $8FDA (STA)."
+  },
+  {
+   "address": 36813,
+   "type": "line",
+   "text": "Initial working byte referenced by $8FDD (LDY), $8FEE (LDA), $8FF4 (STA), $8FFD (STA)."
+  },
+  {
    "address": 36814,
    "type": "line",
    "text": "Copy the current frame from the graphics source at $3D50 to glyph storage at $3B78 after both dividers expire."
+  },
+  {
+   "address": 36865,
+   "type": "line",
+   "text": "Initial working byte referenced by $9004 (DEC)."
+  },
+  {
+   "address": 36866,
+   "type": "line",
+   "text": "Initial working byte referenced by $9009 (DEC), $9010 (STA)."
+  },
+  {
+   "address": 36867,
+   "type": "line",
+   "text": "Initial working byte referenced by $9013 (LDY), $9024 (LDA), $902A (STA), $9033 (STA)."
   },
   {
    "address": 36868,
@@ -3413,9 +6287,39 @@
    "text": "Use the phase at $9003 to copy a frame from $3D08 to glyph storage at $3A50."
   },
   {
+   "address": 36919,
+   "type": "line",
+   "text": "Initial working byte referenced by $903A (DEC)."
+  },
+  {
+   "address": 36920,
+   "type": "line",
+   "text": "Initial working byte referenced by $903F (DEC), $9046 (STA)."
+  },
+  {
+   "address": 36921,
+   "type": "line",
+   "text": "Initial working byte referenced by $9049 (LDY), $905A (LDA), $9060 (STA), $9069 (STA)."
+  },
+  {
    "address": 36922,
    "type": "line",
    "text": "Use the phase at $9039 to copy a frame from $3D20 to glyph storage at $3A10."
+  },
+  {
+   "address": 36973,
+   "type": "line",
+   "text": "Initial working byte referenced by $9070 (DEC)."
+  },
+  {
+   "address": 36974,
+   "type": "line",
+   "text": "Initial working byte referenced by $9075 (DEC), $907C (STA)."
+  },
+  {
+   "address": 36975,
+   "type": "line",
+   "text": "Initial working byte referenced by $907F (LDY), $9090 (LDA), $9096 (STA), $909F (STA)."
   },
   {
    "address": 36976,
@@ -3423,9 +6327,49 @@
    "text": "Use the phase at $906F to copy a frame from $3D38 to glyph storage at $3B70."
   },
   {
+   "address": 37027,
+   "type": "line",
+   "text": "Initial working byte referenced by $8E7D (STA), $90A7 (LDA), $912C (STA), $9D1A (STA), $9F25 (STA)."
+  },
+  {
+   "address": 37028,
+   "type": "line",
+   "text": "Initial working byte referenced by $90AC (DEC), $90B3 (STA)."
+  },
+  {
+   "address": 37029,
+   "type": "line",
+   "text": "Zero byte between the update countdown at $90A4 and its adjacent state byte $90A6."
+  },
+  {
+   "address": 37030,
+   "type": "line",
+   "text": "Initial working byte referenced by $90F2 (LDA), $9111 (STA), $912F (STA)."
+  },
+  {
    "address": 37031,
    "type": "line",
    "text": "Pace changes to the first entity record with $90A4 and cycle the shape at $8B7F up to the boundary value $C3."
+  },
+  {
+   "address": 37171,
+   "type": "line",
+   "text": "Initial working byte referenced by $8EE6 (STA), $9137 (LDA), $91CE (STA), $9D0C (STA), $9F2D (STA)."
+  },
+  {
+   "address": 37172,
+   "type": "line",
+   "text": "Initial working byte referenced by $913C (DEC), $9143 (STA)."
+  },
+  {
+   "address": 37173,
+   "type": "line",
+   "text": "Initial working byte referenced by $9189 (LDA), $9197 (STA), $919B (DEC)."
+  },
+  {
+   "address": 37174,
+   "type": "line",
+   "text": "Initial working byte referenced by $91D1 (STA)."
   },
   {
    "address": 37175,
@@ -3433,9 +6377,39 @@
    "text": "When $9133 is set and $9134 expires, cycle the second record's shape at $8BB6 using $C6 as the upper check."
   },
   {
+   "address": 37333,
+   "type": "line",
+   "text": "Initial working byte referenced by $8F39 (STA), $91D9 (LDA), $925E (STA), $9D1D (STA), $9F28 (STA)."
+  },
+  {
+   "address": 37334,
+   "type": "line",
+   "text": "Initial working byte referenced by $91DE (DEC), $91E5 (STA)."
+  },
+  {
+   "address": 37335,
+   "type": "line",
+   "text": "Zero byte between the update countdown at $91D6 and its adjacent state byte $91D8."
+  },
+  {
+   "address": 37336,
+   "type": "line",
+   "text": "Initial working byte referenced by $9224 (LDA), $9243 (STA), $9261 (STA)."
+  },
+  {
    "address": 37337,
    "type": "line",
    "text": "When $91D5 is set, use the divider at $91D6 before testing the third entity's pointer at $8BED against $C9."
+  },
+  {
+   "address": 37477,
+   "type": "line",
+   "text": "Initial working byte referenced by $8F8C (STA), $9269 (LDA), $92F0 (STA), $9D0F (STA), $9F30 (STA)."
+  },
+  {
+   "address": 37478,
+   "type": "line",
+   "text": "Initial working byte referenced by $926E (DEC), $9275 (STA)."
   },
   {
    "address": 37481,
@@ -3443,9 +6417,39 @@
    "text": "Use $9265 to gate the update and $9266 to pace the animation. Compare $8C24 with $CC before changing the last record's pointer."
   },
   {
+   "address": 37620,
+   "type": "line",
+   "text": "Initial working byte referenced by $8D8D (LDA), $8E05 (STA), $92F9 (LDA), $9318 (LDA), $93EA (LDA)."
+  },
+  {
+   "address": 37621,
+   "type": "line",
+   "text": "Initial working byte referenced by $92FE (DEC), $9305 (STA)."
+  },
+  {
+   "address": 37622,
+   "type": "line",
+   "text": "Initial working byte referenced by $931D (DEC), $9324 (STA), $9378 (DEC), $937F (STA)."
+  },
+  {
+   "address": 37623,
+   "type": "line",
+   "text": "Initial working byte referenced by $9308 (LDA), $9374 (STA), $93E7 (STA)."
+  },
+  {
+   "address": 37624,
+   "type": "line",
+   "text": "Initial working byte referenced by $9310 (LDA), $936B (STA), $9425 (STY)."
+  },
+  {
    "address": 37625,
    "type": "line",
    "text": "When $92F4 is nonzero, pace updates with $92F5. Its sign chooses the movement direction and $92F7\u2013$92F8 select the special motion branches."
+  },
+  {
+   "address": 37821,
+   "type": "line",
+   "text": "Eighteen turn-animation pointers read at $93D3. On completion, the routine clears the turn flag and reverses direction."
   },
   {
    "address": 37840,
@@ -3453,9 +6457,39 @@
    "text": "Use $93CF to step through the first assistant's turn sequence at $93BD. Store each new pointer at $8B7D, then clear the turn flag and reverse its direction."
   },
   {
+   "address": 37883,
+   "type": "line",
+   "text": "Twelve turn sprite pointers shared by the four lab assistant routines."
+  },
+  {
    "address": 37896,
    "type": "line",
    "text": "Update the first assistant's shape pointer through the $9407 index. Clear its pose flag on reaching the final frame."
+  },
+  {
+   "address": 37931,
+   "type": "line",
+   "text": "Initial working byte referenced by $8D92 (LDA), $8E0D (STA), $9430 (LDA), $944F (LDA), $9521 (LDA)."
+  },
+  {
+   "address": 37932,
+   "type": "line",
+   "text": "Initial working byte referenced by $9435 (DEC), $943C (STA)."
+  },
+  {
+   "address": 37933,
+   "type": "line",
+   "text": "Initial working byte referenced by $9454 (DEC), $945B (STA), $94AF (DEC), $94B6 (STA)."
+  },
+  {
+   "address": 37934,
+   "type": "line",
+   "text": "Initial working byte referenced by $943F (LDA), $94AB (STA), $951E (STA)."
+  },
+  {
+   "address": 37935,
+   "type": "line",
+   "text": "Initial working byte referenced by $9447 (LDA), $94A2 (STA), $9550 (STY)."
   },
   {
    "address": 37936,
@@ -3463,9 +6497,19 @@
    "text": "Use the second assistant's active direction and timing flags at $942B\u2013$942F for its corresponding movement sequence."
   },
   {
+   "address": 38132,
+   "type": "line",
+   "text": "Eighteen turn-animation pointers read at $950A. On completion, the routine clears the turn flag and reverses direction."
+  },
+  {
    "address": 38151,
    "type": "line",
    "text": "Step the second assistant's turn frame through $9506 and write $8BB4. Finish by clearing the turn flag and changing the signed direction field."
+  },
+  {
+   "address": 38194,
+   "type": "line",
+   "text": "Initial working byte referenced by $9539 (STY), $953C (LDY), $954A (STY)."
   },
   {
    "address": 38195,
@@ -3473,9 +6517,39 @@
    "text": "Update the second assistant's shape through $9532, then clear its pose flag at $942F."
   },
   {
+   "address": 38230,
+   "type": "line",
+   "text": "Initial working byte referenced by $8D97 (LDA), $8E15 (STA), $955B (LDA), $957A (LDA), $964C (LDA)."
+  },
+  {
+   "address": 38231,
+   "type": "line",
+   "text": "Initial working byte referenced by $9560 (DEC), $9567 (STA)."
+  },
+  {
+   "address": 38232,
+   "type": "line",
+   "text": "Initial working byte referenced by $957F (DEC), $9586 (STA), $95DA (DEC), $95E1 (STA)."
+  },
+  {
+   "address": 38233,
+   "type": "line",
+   "text": "Initial working byte referenced by $956A (LDA), $95D6 (STA), $9649 (STA)."
+  },
+  {
+   "address": 38234,
+   "type": "line",
+   "text": "Initial working byte referenced by $9572 (LDA), $95CD (STA), $967B (STY)."
+  },
+  {
    "address": 38235,
    "type": "line",
    "text": "Run the third assistant's timed movement using $9556\u2013$955A. That group includes the flag checked when the lab tests completion."
+  },
+  {
+   "address": 38431,
+   "type": "line",
+   "text": "Eighteen turn-animation pointers read at $9635. On completion, the routine clears the turn flag and reverses direction."
   },
   {
    "address": 38450,
@@ -3483,14 +6557,49 @@
    "text": "Step through the third assistant's turn sequence using $9631. Update shape $8BEB and resolve the turn flag and direction at the end."
   },
   {
+   "address": 38493,
+   "type": "line",
+   "text": "Initial working byte referenced by $9664 (STY), $9667 (LDY), $9675 (STY)."
+  },
+  {
    "address": 38494,
    "type": "line",
    "text": "Use $965D to advance the third assistant's shape and clear $955A when the pose sequence finishes."
   },
   {
+   "address": 38529,
+   "type": "line",
+   "text": "Fourth assistant active direction. Zero skips movement and passes its completion test at $9CF2. The movement routine checks the sign to choose a direction."
+  },
+  {
+   "address": 38530,
+   "type": "line",
+   "text": "Initial working byte referenced by $968B (DEC), $9692 (STA)."
+  },
+  {
+   "address": 38531,
+   "type": "line",
+   "text": "Initial working byte referenced by $96AA (DEC), $96B1 (STA), $9705 (DEC), $970C (STA)."
+  },
+  {
+   "address": 38532,
+   "type": "line",
+   "text": "Initial working byte referenced by $9695 (LDA), $9701 (STA), $9774 (STA)."
+  },
+  {
+   "address": 38533,
+   "type": "line",
+   "text": "Initial working byte referenced by $969D (LDA), $96F8 (STA), $97A6 (STY)."
+  },
+  {
    "address": 38534,
    "type": "line",
-   "text": "Advance the bottom floor assistant with flags at $9681\u2013$9685. A cleared first flag also counts as an inactive assistant at $9CE3."
+   "text": "Update the bottom-floor assistant using the direction at $9681, the timers at $9682\u2013$9683 and pose flags at $9684\u2013$9685. The completion check reads the same direction byte as an active flag."
+  },
+  {
+   "address": 38730,
+   "type": "line",
+   "text": "Eighteen turn-animation pointers read at $9760. On completion, the routine clears the turn flag and reverses direction."
   },
   {
    "address": 38749,
@@ -3498,14 +6607,39 @@
    "text": "Update the bottom assistant's shape at $8C22 through sequence index $975C, then clear the turn flag and update the direction."
   },
   {
+   "address": 38792,
+   "type": "line",
+   "text": "Initial working byte referenced by $978F (STY), $9792 (LDY), $97A0 (STY)."
+  },
+  {
    "address": 38793,
    "type": "line",
    "text": "Write the bottom assistant shape through the $9788 index and clear $9685 at the end of the sequence."
   },
   {
+   "address": 38828,
+   "type": "line",
+   "text": "Initial working byte referenced by $981E (STA), $9826 (LDA), $9830 (LDA), $983A (LDA)."
+  },
+  {
+   "address": 38829,
+   "type": "line",
+   "text": "Initial working byte referenced by $807D (STA), $8651 (STA), $8A6A (LDA), $8AB3 (LDA), $97AE (LDA)."
+  },
+  {
    "address": 38830,
    "type": "line",
    "text": "Select a coordinate test using the current floor number and the player's ninth X bit. A qualifying gap can set $8662 to trigger a fall. The bottom-left exit test can lead to $9CE3."
+  },
+  {
+   "address": 39309,
+   "type": "line",
+   "text": "Initial working byte referenced by $998F (DEC), $9996 (STA), $99E8 (DEC), $99EF (STA)."
+  },
+  {
+   "address": 39310,
+   "type": "line",
+   "text": "Initial working byte referenced by $9999 (DEC), $99A0 (STA), $99F2 (DEC), $99F9 (STA)."
   },
   {
    "address": 39311,
@@ -3516,6 +6650,16 @@
    "address": 39400,
    "type": "line",
    "text": "Select $8F and $90 sprite pointers and test the left-side thresholds before moving again or clearing the recoil state and consuming energy."
+  },
+  {
+   "address": 39475,
+   "type": "line",
+   "text": "Working encounter duration, last joystick sample, input-change count, encounter flags and pacing counters."
+  },
+  {
+   "address": 39487,
+   "type": "line",
+   "text": "Six duration entries read by $9A59, indexed by laboratory on the qualifying floor."
   },
   {
    "address": 39493,
@@ -3543,6 +6687,16 @@
    "text": "When both countdown gates expire, clear bit 6 of all four assistant records and clear the shared encounter and respawn-blocking state."
   },
   {
+   "address": 40124,
+   "type": "line",
+   "text": "Initial working byte referenced by $9CBE (DEC), $9CC5 (STA)."
+  },
+  {
+   "address": 40125,
+   "type": "line",
+   "text": "Remaining downward steps for the between-floor fall. $9CC8 increments sprite Y and $9CCB advances this countdown. When it expires $9CD8 advances the floor."
+  },
+  {
    "address": 40126,
    "type": "line",
    "text": "Every $20 inner ticks, increment player Y. After the fall counter expires, increment floor number and clear the falling flag."
@@ -3553,6 +6707,16 @@
    "text": "Test four assistant flags. Only four zero values reach the store that marks this lab complete. Reset movement and assistant state before returning to the factory."
   },
   {
+   "address": 40259,
+   "type": "line",
+   "text": "Initial working byte referenced by $9D5E (STA), $9D76 (LDA), $9D7C (STA), $9D85 (DEC)."
+  },
+  {
+   "address": 40260,
+   "type": "line",
+   "text": "Initial working byte referenced by $9D67 (STA), $9D6C (CPY)."
+  },
+  {
    "address": 40261,
    "type": "line",
    "text": "Increase lab energy unless it is already at the maximum. Continue to the gauge renderer after incrementing."
@@ -3561,6 +6725,11 @@
    "address": 40275,
    "type": "line",
    "text": "Subtract one from lab energy before updating the gauge and shared energy."
+  },
+  {
+   "address": 40369,
+   "type": "line",
+   "text": "Initial working byte referenced by $9DB4 (DEC), $9DBE (STA)."
   },
   {
    "address": 40372,
@@ -3585,12 +6754,82 @@
   {
    "address": 40772,
    "type": "line",
-   "text": "Select one of five six-sprite sources by lab number. Values outside 1\u20135 return without copying through this routine."
+   "text": "Select one of five six-sprite sources in the swapped low-memory window by lab number. The source bytes entered from the corresponding high-memory window via $80BB."
   },
   {
    "address": 40828,
    "type": "line",
    "text": "Copy six consecutive 64-byte shapes to $31C0\u2013$333F from the pointer supplied in A:Y."
+  },
+  {
+   "address": 40960,
+   "type": "line",
+   "text": "Eight-byte title sprite records. The raster record reader takes X, Y, a high/low successor pointer, sprite index and delay, leaving the last two bytes untouched. A zero successor high byte terminates the track."
+  },
+  {
+   "address": 41088,
+   "type": "line",
+   "text": "Four eight-byte records in the title lift tracks. $C9C7 supplies $A080 to the upper raster record reader."
+  },
+  {
+   "address": 41216,
+   "type": "line",
+   "text": "Eight-byte title sprite records for the two agent layers. $C9B5 seeds the chains at $A100 and $A108; the direction tables at $CA15 and $CA1D also select records here."
+  },
+  {
+   "address": 41344,
+   "type": "line",
+   "text": "Twelve walking and turning records used by the title agent\u2019s upper sprite layer. Each eight-byte record carries the successor pointer and its own sprite index and delay."
+  },
+  {
+   "address": 41472,
+   "type": "line",
+   "text": "Twelve records for the title agent\u2019s other sprite layer. The sequence at $A200 uses sprite indices $82\u2013$8D and is selected along with the $A180 sequence."
+  },
+  {
+   "address": 41600,
+   "type": "line",
+   "text": "Two eight-byte position and shape records selected by the title track tables."
+  },
+  {
+   "address": 41728,
+   "type": "line",
+   "text": "480 title room screen codes copied by $C843 to $0428\u2013$0607."
+  },
+  {
+   "address": 42208,
+   "type": "line",
+   "text": "36 screen codes copied to $0632 under the scroller."
+  },
+  {
+   "address": 42244,
+   "type": "line",
+   "text": "The $A506, $A518 and $A52A strips each supply 18 screen codes. $C8B2 lays them into the lower title background."
+  },
+  {
+   "address": 42300,
+   "type": "line",
+   "text": "Opening title message. $CEB7 starts at $A53C on wrap. $CF30 subtracts $40 from the source byte before displaying it."
+  },
+  {
+   "address": 42674,
+   "type": "line",
+   "text": "Title scroll continuation containing the factory challenge and release credit. The opening-message pointer continues through this range until its terminator."
+  },
+  {
+   "address": 42905,
+   "type": "line",
+   "text": "Entrance prompt read by $CEDD. The $FF terminator resets that message pointer and clears its flag."
+  },
+  {
+   "address": 43006,
+   "type": "line",
+   "text": "Lift prompt read by $CF04. On its $FF terminator the scroller sets the lift-related flag at $CAE4."
+  },
+  {
+   "address": 43037,
+   "type": "line",
+   "text": "Completion scroll read by $CF37 when $BFF9 is set. The terminator causes it to repeat."
   },
   {
    "address": 49136,
@@ -3618,6 +6857,16 @@
    "text": "Set during lab return when the five completion bytes all pass their nonzero tests."
   },
   {
+   "address": 49152,
+   "type": "line",
+   "text": "Movement code writes the request here. The factory IRQ tests it at $C049 and clears it when the effect finishes."
+  },
+  {
+   "address": 49153,
+   "type": "line",
+   "text": "Factory and lab IRQ effect state. $C004, $C00C, $C010, $C014 and $C018 select or latch effects. Intervening bytes hold the effect countdowns and state."
+  },
+  {
    "address": 49180,
    "type": "line",
    "text": "Restore the VIC memory setup and test the sound requests in priority order. The individual effects set SID registers and chain to KERNAL IRQ service."
@@ -3628,6 +6877,11 @@
    "text": "Clear the seven voice 1 registers, set envelope and master volume, choose one of two frequency pairs and enable noise with gate."
   },
   {
+   "address": 49344,
+   "type": "line",
+   "text": "Initial working byte referenced by $C094 (LDA), $C09B (LDA)."
+  },
+  {
    "address": 49348,
    "type": "line",
    "text": "Service the $C004 request. Start it through $C0E9 or count down $C005 before clearing its request and active flag."
@@ -3636,6 +6890,16 @@
    "address": 49385,
    "type": "line",
    "text": "Clear the voice 2 and 3 registers and configure the two voices, including the voice 3 envelope and frequency."
+  },
+  {
+   "address": 49442,
+   "type": "line",
+   "text": "Initial working byte referenced by $C104 (LDA)."
+  },
+  {
+   "address": 49443,
+   "type": "line",
+   "text": "Initial working byte referenced by $C10A (LDA)."
   },
   {
    "address": 49444,
@@ -3658,6 +6922,16 @@
    "text": "Initialise SID voice 2 with its envelope and preset frequency from $C1DF, then enable noise and gate."
   },
   {
+   "address": 49631,
+   "type": "line",
+   "text": "Initial working byte referenced by $C1C6 (LDA)."
+  },
+  {
+   "address": 49632,
+   "type": "line",
+   "text": "Initial working byte referenced by $C1CC (LDA)."
+  },
+  {
    "address": 49633,
    "type": "line",
    "text": "Enter the $C014 sound handler. On expiry clear its request and active flag and write $10 to the voice 1 control register."
@@ -3668,6 +6942,16 @@
    "text": "Clear voice 1, set its envelope and frequency, set filter routing to $F1 and start the gate."
   },
   {
+   "address": 49735,
+   "type": "line",
+   "text": "Initial working byte referenced by $C22E (LDA)."
+  },
+  {
+   "address": 49736,
+   "type": "line",
+   "text": "Initial working byte referenced by $C234 (LDA)."
+  },
+  {
    "address": 49737,
    "type": "line",
    "text": "Check the lift-effect active flag and stop the voice when its timer reaches zero. Continue into the remaining sound priority tests."
@@ -3676,6 +6960,266 @@
    "address": 49769,
    "type": "line",
    "text": "Reset voices 2 and 3, initialise voice 2 and write the gate and effect state before resuming other sound tests."
+  },
+  {
+   "address": 50176,
+   "type": "line",
+   "text": "Run the title-screen SID sequencer and exit through the KERNAL interrupt epilogue at $FEBC. The first invocation after a reset initialises the SID."
+  },
+  {
+   "address": 50179,
+   "type": "line",
+   "text": "Title voice initialisation flag, divider, row index, arrangement index, three gate bytes and three cached frequency selectors."
+  },
+  {
+   "address": 50189,
+   "type": "line",
+   "text": "Jump to the KERNAL IRQ epilogue after updating or gating the title voices."
+  },
+  {
+   "address": 50192,
+   "type": "line",
+   "text": "Set the VIC character pointer and count down to the next note. Clear the gate five ticks before the next note for a voice with a nonzero frequency low byte."
+  },
+  {
+   "address": 50259,
+   "type": "line",
+   "text": "Every eight IRQ ticks, read the three notes at the shared index and write their SID frequencies. A zero frequency low byte suppresses the corresponding gate-on write. Wrap after 152 entries and cycle through four instrument settings."
+  },
+  {
+   "address": 50404,
+   "type": "line",
+   "text": "Seventeen little-endian SID frequency pairs indexed by the even selectors in the three score streams."
+  },
+  {
+   "address": 50438,
+   "type": "line",
+   "text": "152 selectors for the title melody. Each indexes the SID frequency table at $C4E4."
+  },
+  {
+   "address": 50590,
+   "type": "line",
+   "text": "152 selectors for title voice 2. A zero occupies a silent row."
+  },
+  {
+   "address": 50742,
+   "type": "line",
+   "text": "152 selectors for title voice 3, using the same frequency table and row counter."
+  },
+  {
+   "address": 50894,
+   "type": "line",
+   "text": "Set volume and envelopes. Clear the SID on arrangement zero and choose voice 1 waveform and envelope by the arrangement counter; arrangement two also writes pulse width $0848."
+  },
+  {
+   "address": 51168,
+   "type": "line",
+   "text": "Clear the lab-return and all-labs-complete flags after death or a title restart. Fall into the title entry that resets the music."
+  },
+  {
+   "address": 51176,
+   "type": "line",
+   "text": "Reset music state and enter the title screen while preserving the result flags. The completed-game lift jumps here."
+  },
+  {
+   "address": 51195,
+   "type": "line",
+   "text": "Five residual bytes between the unconditional jump at $C7F8 and its target at $C800. Neither title entry executes through this separator."
+  },
+  {
+   "address": 51200,
+   "type": "line",
+   "text": "Clear the screen, install title glyphs, copy the backdrop and detail blocks from $A300 and $A4E0, and colour the scene. Choose the title interaction or the congratulations path using $BFF9."
+  },
+  {
+   "address": 51267,
+   "type": "line",
+   "text": "Copy 256 screen codes to $0428, then 224 to $0528. Fill the corresponding colour cells with $0F."
+  },
+  {
+   "address": 51355,
+   "type": "line",
+   "text": "Copy a 36-cell strip to $0632 with colour 1, then add the lower details and the lift signs."
+  },
+  {
+   "address": 51548,
+   "type": "line",
+   "text": "Scan the keyboard and run the title scene input and movement until the agent reaches the factory entrance."
+  },
+  {
+   "address": 51589,
+   "type": "line",
+   "text": "Initial working byte referenced by $C986 (DEC), $C98D (STA)."
+  },
+  {
+   "address": 51590,
+   "type": "line",
+   "text": "Pace the entrance hint when GETIN yields a key. When the hint flag is clear, initialise the directional title sprite tracks and proceed to joystick input."
+  },
+  {
+   "address": 51732,
+   "type": "line",
+   "text": "High/low sprite-track pointers for direction and completion poses. $C9EB, $CA00, $CA3F, $CA96 and $CBE0 copy the applicable lists to the working tracks."
+  },
+  {
+   "address": 51765,
+   "type": "line",
+   "text": "Facing and movement pacing bytes for the title agent."
+  },
+  {
+   "address": 51768,
+   "type": "line",
+   "text": "Select the left movement tracks and pace both agent sprite layers. When their X-high bits are clear and the low X byte is below $34, transfer to the factory before applying another step."
+  },
+  {
+   "address": 51842,
+   "type": "line",
+   "text": "Clear the result flags and jump to the resident factory at $4000."
+  },
+  {
+   "address": 51853,
+   "type": "line",
+   "text": "Select right movement records, throttle movement, then advance both X positions and set their high bits on wrap."
+  },
+  {
+   "address": 51905,
+   "type": "line",
+   "text": "Increment both title agent X bytes and set their X-high bits together on wrap."
+  },
+  {
+   "address": 51938,
+   "type": "line",
+   "text": "Delay byte and lift progression flags for the entrance scene."
+  },
+  {
+   "address": 51941,
+   "type": "line",
+   "text": "One NOP at the jump target from $C96B. Execution continues at the lift update on the next byte."
+  },
+  {
+   "address": 51942,
+   "type": "line",
+   "text": "Pace the lift and update its sprite coordinates. Test the approach constraints before allowing the agent to continue left."
+  },
+  {
+   "address": 52132,
+   "type": "line",
+   "text": "Decrement the byte at $CAE2 until zero and return. Starting from zero delays for 256 passes."
+  },
+  {
+   "address": 52143,
+   "type": "line",
+   "text": "Zero the sixteen coordinate bytes for the first title raster pass."
+  },
+  {
+   "address": 52156,
+   "type": "line",
+   "text": "Copy eight pages from $7000 to the VIC character window at $3800."
+  },
+  {
+   "address": 52190,
+   "type": "line",
+   "text": "Select the title sprite tracks for the finished game, arm raster IRQs and wait for fire. Fire returns through $C7E0 and clears the result flags."
+  },
+  {
+   "address": 52229,
+   "type": "line",
+   "text": "Install $CC91 in the KERNAL IRQ vector and enable VIC raster interrupts on line 1."
+  },
+  {
+   "address": 52263,
+   "type": "line",
+   "text": "Enable slots 0 through 4 and write the upper raster section\u2019s sprite mode and colour settings."
+  },
+  {
+   "address": 52319,
+   "type": "line",
+   "text": "Sixteen coordinates, eight shapes, eight delays, X-high mask, index and high/low track pointers used by $CC91."
+  },
+  {
+   "address": 52369,
+   "type": "line",
+   "text": "Acknowledge the VIC interrupt, update the upper sprite tracks and install the lower raster handler. Then tick the title music before returning."
+  },
+  {
+   "address": 52415,
+   "type": "line",
+   "text": "Follow the current high/low pointer for sprite X. A nonzero pointer names a record with positions, the next pointer, a shape and a delay. Preserve nonzero working coordinates."
+  },
+  {
+   "address": 52487,
+   "type": "line",
+   "text": "Write nonzero upper-strip sprite positions and shape pointers to the VIC and screen pointer table. Set the X-high bits, arm the lower raster interrupt and tick the music."
+  },
+  {
+   "address": 52529,
+   "type": "line",
+   "text": "Lower-section extra background colour and sprite priority bytes written by the title setup."
+  },
+  {
+   "address": 52531,
+   "type": "line",
+   "text": "Install $CDC1 on raster line $A0 for the lower sprite strip."
+  },
+  {
+   "address": 52565,
+   "type": "line",
+   "text": "Set the lower raster section\u2019s sprite enable, priority and shared colours."
+  },
+  {
+   "address": 52623,
+   "type": "line",
+   "text": "Sixteen coordinates, eight shapes, eight delays, X-high mask, index and high/low track pointers used by $CDC1."
+  },
+  {
+   "address": 52673,
+   "type": "line",
+   "text": "Acknowledge the VIC interrupt and run the lower sprite tracks. Write lower positions and pointers, rearm line 1 and advance the scroll."
+  },
+  {
+   "address": 52719,
+   "type": "line",
+   "text": "Follow the lower-strip high/low pointer for the selected sprite, advancing positions, successor pointer, shape and delay for a nonzero high byte."
+  },
+  {
+   "address": 52791,
+   "type": "line",
+   "text": "Write lower-strip positions and sprite pointers, return the IRQ vector to the first strip and advance the scroller."
+  },
+  {
+   "address": 52833,
+   "type": "line",
+   "text": "Scroll divider and the opening, entrance and lift message flags tested by $CE65."
+  },
+  {
+   "address": 52837,
+   "type": "line",
+   "text": "Every eight calls, shift the scroll strip by one cell, choose the active message and emit its next code."
+  },
+  {
+   "address": 52918,
+   "type": "line",
+   "text": "Read the opening text via a self-modified operand. At $FF reset the operand to $A53C and clear the opening-message flag. At hand-over the operand has advanced to $A6B2."
+  },
+  {
+   "address": 52957,
+   "type": "line",
+   "text": "Read the entrance prompt from $A799 onward. At $FF reset that pointer and clear its message flag."
+  },
+  {
+   "address": 52996,
+   "type": "line",
+   "text": "Read the lift prompt from $A7FE onward. At $FF reset the pointer, clear its flag and set $CAE4."
+  },
+  {
+   "address": 53040,
+   "type": "line",
+   "text": "Subtract $40 from the next source byte and write the result to the right-hand scroll cell at $0654."
+  },
+  {
+   "address": 53047,
+   "type": "line",
+   "text": "Read the completion message through a self-modified operand. At $FF reset the operand to $A81D so the message repeats."
   },
   {
    "address": 57344,
@@ -3710,12 +7254,12 @@
   {
    "address": 63488,
    "type": "line",
-   "text": "Two kilobytes of laboratory data held under the KERNAL and exchanged with $0800\u2013$0FFF at the transition. Sprite copies for the five lab IDs read from this window after the swap."
+   "text": "First half of the laboratory swap backing store. $80BB exchanges the full two-kilobyte window at $F800\u2013$FFFF with $0800\u2013$0FFF. Lab 1 starts at $F880, lab 2 at $FA00 and lab 3 at $FB80."
   },
   {
    "address": 64512,
    "type": "line",
-   "text": "Backing bytes for the laboratory's $0C00\u2013$0FFF after the swap. Includes the six-shape sources for lab IDs 4 and 5 at active addresses $0D00 and $0E80."
+   "text": "Second half of the laboratory swap backing store. Includes the end of lab 3\u2019s source, followed by lab 4 at $FD00 and lab 5 at $FE80."
   }
  ]
 }

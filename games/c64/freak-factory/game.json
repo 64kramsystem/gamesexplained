@@ -65,6 +65,16 @@
       "models": [
         "gpt-6.2-sol"
       ]
+    },
+    {
+      "step": "sample",
+      "seed": 61925,
+      "size": 65,
+      "wrong": 13,
+      "fixed": 13,
+      "models": [
+        "gpt-6.2-sol"
+      ]
     }
   ],
   "kit_version": "0.0.360",
@@ -76,14 +86,54 @@
   "coverage": {
     "exclude": [
       [
-        "$C7E0",
-        "$CFFF",
-        "DCS introduction and exit wrapper. The game enters at $4000."
+        "$0400",
+        "$07FF",
+        "Live VIC screen output and sprite pointers. Title backdrop and records are counted at their sources."
+      ],
+      [
+        "$1000",
+        "$1FFF",
+        "Relocation residue. Matches the $C000\u2013$CFFF image in 4015 of 4096 bytes. The live vectors and direct references select the $C000 copy, and the VIC sees character ROM in this window in bank 0."
       ],
       [
         "$3800",
         "$3FFF",
-        "Live VIC character window. The hand-over still holds the DCS font from $7000. The authored factory set at $7800 is tracked separately."
+        "Live character window populated from the title set at $7000 or the factory set at $7800. Both sources and the gameplay glyph update tables are counted."
+      ],
+      [
+        "$64B3",
+        "$6FFF",
+        "Memory-image residue after the factory energy routine ends at $64B2. Repeated page structures have no identified game reader, vector or VIC pointer."
+      ],
+      [
+        "$9FAF",
+        "$9FFF",
+        "Unpacked residue between the final lab copy routine and the title sprite records. Execution returns at $9FAE."
+      ],
+      [
+        "$A8AE",
+        "$BFEC",
+        "Unpacked residue after the completion text. Includes an old tape reader at $A900 and repeating page patterns. The title text and sprite pointer chains stay below it. The game state and vectors begin at $BFED."
+      ],
+      [
+        "$C29F",
+        "$C3FF",
+        "Residue between the factory SID code and title SID code. The factory returns to $C029 at $C29C and uses no data here."
+      ],
+      [
+        "$C76B",
+        "$C7DF",
+        "Residue after the title SID initialiser jumps back to $C723 and before the title restart entry."
+      ],
+      [
+        "$CF59",
+        "$CFFF",
+        "Residue after the title scroll handler exits through $FEBC."
+      ],
+      [
+        "$D000",
+        "$DFFF",
+        "Underlying RAM is a byte-for-byte copy of $E000\u2013$EFFF. Resident code keeps I/O visible, including during the sprite swaps. The VIC remains in bank 0."
       ]
     ],
     "extra": [],
