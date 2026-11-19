@@ -9,7 +9,7 @@
   "title_image": "reference/copyright.png",
   "build": "C64.COM Popeye 86 compilation, POPEYE 86 PRG",
   "tier": "bronze",
-  "coverage_percent": 90.5,
+  "coverage_percent": 100.0,
   "copy": "agent-draft",
   "steward": "",
   "credits": [],
@@ -76,9 +76,34 @@
   "coverage": {
     "exclude": [
       [
+        "$0400",
+        "$07FF",
+        "VIC bitmap color cells cleared at startup by $4C6A before the controls menu, then painted by $835A and $4F2A"
+      ],
+      [
+        "$2000",
+        "$3FFF",
+        "$4C6A clears all bitmap pages before the menu. $8362 and $4F69 paint the bitmap from source glyph and tile data"
+      ],
+      [
+        "$85E0",
+        "$8FFF",
+        "Fill and retained memory from packing. POPEYE 1986 clears the entire range, with zero CPU reads through the first room draw and matching bitmap samples including the apparent copies from this range"
+      ],
+      [
+        "$92F0",
+        "$94FF",
+        "Repeating fill between the effect and music banks. POPEYE 1986 replaces it with zeroes, with both banks intact and zero reads from the range through the first room draw"
+      ],
+      [
         "$FBC0",
         "$FD1F",
         "Exact copy of BASIC ROM 901226-01 offsets $0000–$015F in both the entry and play snapshots"
+      ],
+      [
+        "$FFE4",
+        "$FFF5",
+        "Physical RAM beneath the KERNAL GETIN entry contains a power-on pattern in the selected load and zeroes in the G-FORCE copy. The menu invokes GETIN with KERNAL ROM visible"
       ]
     ],
     "extra": [],
