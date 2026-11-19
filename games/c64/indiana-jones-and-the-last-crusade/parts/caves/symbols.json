@@ -1,0 +1,305 @@
+{
+ "schema": 1,
+ "platform": "c64",
+ "game": "indiana-jones-and-the-last-crusade",
+ "part": "caves",
+ "build": "",
+ "source": "regenerator2000 live",
+ "regions": {
+  "exclude": [
+   [
+    256,
+    511,
+    "stack"
+   ],
+   [
+    53248,
+    57343,
+    "I/O and colour RAM"
+   ],
+   [
+    0,
+    10239,
+    "Resident engine"
+   ],
+   [
+    12288,
+    13823,
+    "Resident engine"
+   ],
+   [
+    30208,
+    65535,
+    "Resident engine"
+   ]
+  ],
+  "extra": [
+   [
+    10240,
+    12287,
+    "Loaded VIC character patterns"
+   ],
+   [
+    13824,
+    30207,
+    "Loaded map and adjacent bytes"
+   ]
+  ],
+  "edges": [
+   0,
+   256,
+   512,
+   1024,
+   2048,
+   4096,
+   16384,
+   32768,
+   40960,
+   49152,
+   53248,
+   57344
+  ],
+  "elsewhere": [
+   [
+    0,
+    10239,
+    "Resident engine"
+   ],
+   [
+    12288,
+    13823,
+    "Resident engine"
+   ],
+   [
+    30208,
+    65535,
+    "Resident engine"
+   ]
+  ]
+ },
+ "blocks": [
+  {
+   "start": 10240,
+   "end": 12287,
+   "type": "Byte"
+  },
+  {
+   "start": 13824,
+   "end": 30207,
+   "type": "Byte"
+  }
+ ],
+ "symbols": [
+  {
+   "address": 10240,
+   "name": "caves_glyphs_lo",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 11264,
+   "name": "caves_glyphs_hi",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 13824,
+   "name": "caves_map_0_0",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 14848,
+   "name": "caves_map_4_0",
+   "type": "Field",
+   "kind": "user"
+  },
+  {
+   "address": 15872,
+   "name": "caves_map_8_0",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 16384,
+   "name": "caves_map_10_0",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 17408,
+   "name": "caves_map_14_0",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 18432,
+   "name": "caves_map_18_0",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 19456,
+   "name": "caves_map_22_0",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 20480,
+   "name": "caves_map_26_0",
+   "type": "Field",
+   "kind": "user"
+  },
+  {
+   "address": 21504,
+   "name": "caves_map_30_0",
+   "type": "Field",
+   "kind": "user"
+  },
+  {
+   "address": 22528,
+   "name": "caves_map_34_0",
+   "type": "Field",
+   "kind": "user"
+  },
+  {
+   "address": 23552,
+   "name": "caves_map_38_0",
+   "type": "Field",
+   "kind": "user"
+  },
+  {
+   "address": 24576,
+   "name": "caves_map_42_0",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 25600,
+   "name": "caves_map_46_0",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 26624,
+   "name": "caves_map_50_0",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 27648,
+   "name": "caves_map_54_0",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 28672,
+   "name": "caves_map_58_0",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 29696,
+   "name": "caves_map_62_0",
+   "type": "UserDefined",
+   "kind": "user"
+  }
+ ],
+ "comments": [
+  {
+   "address": 10240,
+   "type": "line",
+   "text": "VIC patterns $00-$7F, eight scanline bytes per character. The caves field uses these for cave rock, ledges and climbable ropes. The VIC sees bank 0 and charset offset $2800 on the playfield."
+  },
+  {
+   "address": 11264,
+   "type": "line",
+   "text": "Patterns $80-$FF for the caves charset at $2800. The high-index patterns are selected by map bytes in the same way as the lower 128."
+  },
+  {
+   "address": 13824,
+   "type": "line",
+   "text": "Caves tile IDs from row 0, column 0 through row 3, column 255 (zero-based, 256 bytes per row). The viewport renderer at $883C reads these through the row pointers at $3400/$3500."
+  },
+  {
+   "address": 14848,
+   "type": "line",
+   "text": "Caves tile IDs from row 4, column 0 through row 7, column 255 (zero-based, 256 bytes per row). The viewport renderer at $883C reads these through the row pointers at $3400/$3500."
+  },
+  {
+   "address": 15872,
+   "type": "line",
+   "text": "Caves tile IDs from row 8, column 0 through row 9, column 255 (zero-based, 256 bytes per row). The viewport renderer at $883C reads these through the row pointers at $3400/$3500."
+  },
+  {
+   "address": 16384,
+   "type": "line",
+   "text": "Caves tile IDs from row 10, column 0 through row 13, column 255 (zero-based, 256 bytes per row). The viewport renderer at $883C reads these through the row pointers at $3400/$3500."
+  },
+  {
+   "address": 17408,
+   "type": "line",
+   "text": "Caves tile IDs from row 14, column 0 through row 17, column 255 (zero-based, 256 bytes per row). The viewport renderer at $883C reads these through the row pointers at $3400/$3500."
+  },
+  {
+   "address": 18432,
+   "type": "line",
+   "text": "Caves tile IDs from row 18, column 0 through row 21, column 255 (zero-based, 256 bytes per row). The viewport renderer at $883C reads these through the row pointers at $3400/$3500."
+  },
+  {
+   "address": 19456,
+   "type": "line",
+   "text": "Caves tile IDs from row 22, column 0 through row 25, column 255 (zero-based, 256 bytes per row). The viewport renderer at $883C reads these through the row pointers at $3400/$3500."
+  },
+  {
+   "address": 20480,
+   "type": "line",
+   "text": "Caves tile IDs from row 26, column 0 through row 29, column 255 (zero-based, 256 bytes per row). The viewport renderer at $883C reads these through the row pointers at $3400/$3500."
+  },
+  {
+   "address": 21504,
+   "type": "line",
+   "text": "Caves tile IDs from row 30, column 0 through row 33, column 255 (zero-based, 256 bytes per row). The viewport renderer at $883C reads these through the row pointers at $3400/$3500."
+  },
+  {
+   "address": 22528,
+   "type": "line",
+   "text": "Caves tile IDs from row 34, column 0 through row 37, column 255 (zero-based, 256 bytes per row). The viewport renderer at $883C reads these through the row pointers at $3400/$3500."
+  },
+  {
+   "address": 23552,
+   "type": "line",
+   "text": "Caves tile IDs from row 38, column 0 through row 41, column 255 (zero-based, 256 bytes per row). The viewport renderer at $883C reads these through the row pointers at $3400/$3500."
+  },
+  {
+   "address": 24576,
+   "type": "line",
+   "text": "Caves tile IDs from row 42, column 0 through row 45, column 255 (zero-based, 256 bytes per row). The viewport renderer at $883C reads these through the row pointers at $3400/$3500."
+  },
+  {
+   "address": 25600,
+   "type": "line",
+   "text": "Caves tile IDs from row 46, column 0 through row 49, column 255 (zero-based, 256 bytes per row). The viewport renderer at $883C reads these through the row pointers at $3400/$3500."
+  },
+  {
+   "address": 26624,
+   "type": "line",
+   "text": "Caves tile IDs from row 50, column 0 through row 53, column 255 (zero-based, 256 bytes per row). The viewport renderer at $883C reads these through the row pointers at $3400/$3500."
+  },
+  {
+   "address": 27648,
+   "type": "line",
+   "text": "Caves tile IDs from row 54, column 0 through row 57, column 255 (zero-based, 256 bytes per row). The viewport renderer at $883C reads these through the row pointers at $3400/$3500."
+  },
+  {
+   "address": 28672,
+   "type": "line",
+   "text": "Caves tile IDs from row 58, column 0 through row 61, column 255 (zero-based, 256 bytes per row). The viewport renderer at $883C reads these through the row pointers at $3400/$3500."
+  },
+  {
+   "address": 29696,
+   "type": "line",
+   "text": "Caves tile IDs from row 62, column 0 through row 63, column 255 (zero-based, 256 bytes per row). The viewport renderer at $883C reads these through the row pointers at $3400/$3500."
+  }
+ ]
+}

@@ -1,0 +1,195 @@
+{
+ "schema": 1,
+ "platform": "c64",
+ "game": "indiana-jones-and-the-last-crusade",
+ "part": "train",
+ "build": "",
+ "source": "regenerator2000 live",
+ "regions": {
+  "exclude": [
+   [
+    256,
+    511,
+    "stack"
+   ],
+   [
+    53248,
+    57343,
+    "I/O and colour RAM"
+   ],
+   [
+    0,
+    10239,
+    "Resident engine"
+   ],
+   [
+    12288,
+    13823,
+    "Resident engine"
+   ],
+   [
+    20480,
+    65535,
+    "Resident engine"
+   ]
+  ],
+  "extra": [
+   [
+    10240,
+    12287,
+    "Loaded VIC character patterns"
+   ],
+   [
+    13824,
+    20479,
+    "Loaded map and adjacent bytes"
+   ]
+  ],
+  "edges": [
+   0,
+   256,
+   512,
+   1024,
+   2048,
+   4096,
+   16384,
+   32768,
+   40960,
+   49152,
+   53248,
+   57344
+  ],
+  "elsewhere": [
+   [
+    0,
+    10239,
+    "Resident engine"
+   ],
+   [
+    12288,
+    13823,
+    "Resident engine"
+   ],
+   [
+    20480,
+    65535,
+    "Resident engine"
+   ]
+  ]
+ },
+ "blocks": [
+  {
+   "start": 10240,
+   "end": 12287,
+   "type": "Byte"
+  },
+  {
+   "start": 13824,
+   "end": 20479,
+   "type": "Byte"
+  }
+ ],
+ "symbols": [
+  {
+   "address": 10240,
+   "name": "train_glyphs_lo",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 11264,
+   "name": "train_glyphs_hi",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 13824,
+   "name": "train_map_0_0",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 14848,
+   "name": "train_map_4_0",
+   "type": "Field",
+   "kind": "user"
+  },
+  {
+   "address": 15872,
+   "name": "train_map_8_0",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 16384,
+   "name": "train_map_10_0",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 17408,
+   "name": "train_map_14_0",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 18432,
+   "name": "train_map_18_0",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 19456,
+   "name": "train_map_22_0",
+   "type": "UserDefined",
+   "kind": "user"
+  }
+ ],
+ "comments": [
+  {
+   "address": 10240,
+   "type": "line",
+   "text": "VIC patterns $00-$7F, eight scanline bytes per character. The train field uses these for train roofs, doors, clouds and trackside scenery. The VIC sees bank 0 and charset offset $2800 on the playfield."
+  },
+  {
+   "address": 11264,
+   "type": "line",
+   "text": "Patterns $80-$FF for the train charset at $2800. The high-index patterns are selected by map bytes in the same way as the lower 128."
+  },
+  {
+   "address": 13824,
+   "type": "line",
+   "text": "Train tile IDs from row 0, column 0 through row 3, column 255 (zero-based, 256 bytes per row). The viewport renderer at $883C reads these through the row pointers at $3400/$3500."
+  },
+  {
+   "address": 14848,
+   "type": "line",
+   "text": "Train tile IDs from row 4, column 0 through row 7, column 255 (zero-based, 256 bytes per row). The viewport renderer at $883C reads these through the row pointers at $3400/$3500."
+  },
+  {
+   "address": 15872,
+   "type": "line",
+   "text": "Train tile IDs from row 8, column 0 through row 9, column 255 (zero-based, 256 bytes per row). The viewport renderer at $883C reads these through the row pointers at $3400/$3500."
+  },
+  {
+   "address": 16384,
+   "type": "line",
+   "text": "Train tile IDs from row 10, column 0 through row 13, column 255 (zero-based, 256 bytes per row). The viewport renderer at $883C reads these through the row pointers at $3400/$3500."
+  },
+  {
+   "address": 17408,
+   "type": "line",
+   "text": "Train tile IDs from row 14, column 0 through row 17, column 255 (zero-based, 256 bytes per row). The viewport renderer at $883C reads these through the row pointers at $3400/$3500."
+  },
+  {
+   "address": 18432,
+   "type": "line",
+   "text": "Train tile IDs from row 18, column 0 through row 21, column 255 (zero-based, 256 bytes per row). The viewport renderer at $883C reads these through the row pointers at $3400/$3500."
+  },
+  {
+   "address": 19456,
+   "type": "line",
+   "text": "Train tile IDs from row 22, column 0 through row 25, column 255 (zero-based, 256 bytes per row). The viewport renderer at $883C reads these through the row pointers at $3400/$3500."
+  }
+ ]
+}

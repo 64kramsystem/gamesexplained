@@ -1,0 +1,332 @@
+{
+ "schema": 1,
+ "platform": "c64",
+ "game": "indiana-jones-and-the-last-crusade",
+ "part": "catacombs",
+ "build": "",
+ "source": "regenerator2000 live",
+ "regions": {
+  "exclude": [
+   [
+    256,
+    511,
+    "stack"
+   ],
+   [
+    53248,
+    57343,
+    "I/O and colour RAM"
+   ],
+   [
+    0,
+    10239,
+    "Resident engine"
+   ],
+   [
+    12288,
+    13823,
+    "Resident engine"
+   ],
+   [
+    30209,
+    65535,
+    "Resident engine"
+   ]
+  ],
+  "extra": [
+   [
+    10240,
+    12287,
+    "Loaded VIC character patterns"
+   ],
+   [
+    13824,
+    30208,
+    "Loaded map and adjacent bytes"
+   ]
+  ],
+  "edges": [
+   0,
+   256,
+   512,
+   1024,
+   2048,
+   4096,
+   16384,
+   32768,
+   40960,
+   49152,
+   53248,
+   57344
+  ],
+  "elsewhere": [
+   [
+    0,
+    10239,
+    "Resident engine"
+   ],
+   [
+    12288,
+    13823,
+    "Resident engine"
+   ],
+   [
+    30209,
+    65535,
+    "Resident engine"
+   ]
+  ]
+ },
+ "blocks": [
+  {
+   "start": 10240,
+   "end": 12287,
+   "type": "Byte"
+  },
+  {
+   "start": 13824,
+   "end": 30173,
+   "type": "Byte"
+  },
+  {
+   "start": 30174,
+   "end": 30208,
+   "type": "Undefined"
+  }
+ ],
+ "symbols": [
+  {
+   "address": 10240,
+   "name": "catacombs_glyphs_lo",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 11264,
+   "name": "catacombs_glyphs_hi",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 13824,
+   "name": "catacombs_map_0_0",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 14724,
+   "name": "catacombs_map_6_0",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 15624,
+   "name": "catacombs_map_12_0",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 16384,
+   "name": "catacombs_map_17_10",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 17274,
+   "name": "catacombs_map_23_0",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 18174,
+   "name": "catacombs_map_29_0",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 19074,
+   "name": "catacombs_map_35_0",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 19974,
+   "name": "catacombs_map_41_0",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 20874,
+   "name": "catacombs_map_47_0",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 21774,
+   "name": "catacombs_map_53_0",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 22674,
+   "name": "catacombs_map_59_0",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 23574,
+   "name": "catacombs_map_65_0",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 24474,
+   "name": "catacombs_map_71_0",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 25374,
+   "name": "catacombs_map_77_0",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 26274,
+   "name": "catacombs_map_83_0",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 27174,
+   "name": "catacombs_map_89_0",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 28074,
+   "name": "catacombs_map_95_0",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 28974,
+   "name": "catacombs_map_101_0",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 29874,
+   "name": "catacombs_map_107_0",
+   "type": "UserDefined",
+   "kind": "user"
+  }
+ ],
+ "comments": [
+  {
+   "address": 10240,
+   "type": "line",
+   "text": "VIC patterns $00-$7F, eight scanline bytes per character. The catacombs field uses these for columns, masonry and catacomb symbols. The VIC sees bank 0 and charset offset $2800 on the playfield."
+  },
+  {
+   "address": 11264,
+   "type": "line",
+   "text": "Patterns $80-$FF for the catacombs charset at $2800. The high-index patterns are selected by map bytes in the same way as the lower 128."
+  },
+  {
+   "address": 13824,
+   "type": "line",
+   "text": "Catacombs tile IDs from row 0, column 0 through row 5, column 149 (zero-based, 150 bytes per row). The viewport renderer at $883C reads these through the row pointers at $3400/$3500."
+  },
+  {
+   "address": 14724,
+   "type": "line",
+   "text": "Catacombs tile IDs from row 6, column 0 through row 11, column 149 (zero-based, 150 bytes per row). The viewport renderer at $883C reads these through the row pointers at $3400/$3500."
+  },
+  {
+   "address": 15624,
+   "type": "line",
+   "text": "Catacombs tile IDs from row 12, column 0 through row 17, column 9 (zero-based, 150 bytes per row). The viewport renderer at $883C reads these through the row pointers at $3400/$3500."
+  },
+  {
+   "address": 16384,
+   "type": "line",
+   "text": "Catacombs tile IDs from row 17, column 10 through row 22, column 149 (zero-based, 150 bytes per row). The viewport renderer at $883C reads these through the row pointers at $3400/$3500."
+  },
+  {
+   "address": 17274,
+   "type": "line",
+   "text": "Catacombs tile IDs from row 23, column 0 through row 28, column 149 (zero-based, 150 bytes per row). The viewport renderer at $883C reads these through the row pointers at $3400/$3500."
+  },
+  {
+   "address": 18174,
+   "type": "line",
+   "text": "Catacombs tile IDs from row 29, column 0 through row 34, column 149 (zero-based, 150 bytes per row). The viewport renderer at $883C reads these through the row pointers at $3400/$3500."
+  },
+  {
+   "address": 19074,
+   "type": "line",
+   "text": "Catacombs tile IDs from row 35, column 0 through row 40, column 149 (zero-based, 150 bytes per row). The viewport renderer at $883C reads these through the row pointers at $3400/$3500."
+  },
+  {
+   "address": 19974,
+   "type": "line",
+   "text": "Catacombs tile IDs from row 41, column 0 through row 46, column 149 (zero-based, 150 bytes per row). The viewport renderer at $883C reads these through the row pointers at $3400/$3500."
+  },
+  {
+   "address": 20874,
+   "type": "line",
+   "text": "Catacombs tile IDs from row 47, column 0 through row 52, column 149 (zero-based, 150 bytes per row). The viewport renderer at $883C reads these through the row pointers at $3400/$3500."
+  },
+  {
+   "address": 21774,
+   "type": "line",
+   "text": "Catacombs tile IDs from row 53, column 0 through row 58, column 149 (zero-based, 150 bytes per row). The viewport renderer at $883C reads these through the row pointers at $3400/$3500."
+  },
+  {
+   "address": 22674,
+   "type": "line",
+   "text": "Catacombs tile IDs from row 59, column 0 through row 64, column 149 (zero-based, 150 bytes per row). The viewport renderer at $883C reads these through the row pointers at $3400/$3500."
+  },
+  {
+   "address": 23574,
+   "type": "line",
+   "text": "Catacombs tile IDs from row 65, column 0 through row 70, column 149 (zero-based, 150 bytes per row). The viewport renderer at $883C reads these through the row pointers at $3400/$3500."
+  },
+  {
+   "address": 24474,
+   "type": "line",
+   "text": "Catacombs tile IDs from row 71, column 0 through row 76, column 149 (zero-based, 150 bytes per row). The viewport renderer at $883C reads these through the row pointers at $3400/$3500."
+  },
+  {
+   "address": 25374,
+   "type": "line",
+   "text": "Catacombs tile IDs from row 77, column 0 through row 82, column 149 (zero-based, 150 bytes per row). The viewport renderer at $883C reads these through the row pointers at $3400/$3500."
+  },
+  {
+   "address": 26274,
+   "type": "line",
+   "text": "Catacombs tile IDs from row 83, column 0 through row 88, column 149 (zero-based, 150 bytes per row). The viewport renderer at $883C reads these through the row pointers at $3400/$3500."
+  },
+  {
+   "address": 27174,
+   "type": "line",
+   "text": "Catacombs tile IDs from row 89, column 0 through row 94, column 149 (zero-based, 150 bytes per row). The viewport renderer at $883C reads these through the row pointers at $3400/$3500."
+  },
+  {
+   "address": 28074,
+   "type": "line",
+   "text": "Catacombs tile IDs from row 95, column 0 through row 100, column 149 (zero-based, 150 bytes per row). The viewport renderer at $883C reads these through the row pointers at $3400/$3500."
+  },
+  {
+   "address": 28974,
+   "type": "line",
+   "text": "Catacombs tile IDs from row 101, column 0 through row 106, column 149 (zero-based, 150 bytes per row). The viewport renderer at $883C reads these through the row pointers at $3400/$3500."
+  },
+  {
+   "address": 29874,
+   "type": "line",
+   "text": "Catacombs tile IDs from row 107, column 0 through row 108, column 149 (zero-based, 150 bytes per row). The viewport renderer at $883C reads these through the row pointers at $3400/$3500."
+  }
+ ]
+}

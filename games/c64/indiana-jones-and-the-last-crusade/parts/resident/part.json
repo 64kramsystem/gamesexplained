@@ -1,0 +1,181 @@
+{
+  "title": "Resident engine",
+  "order": 1,
+  "video": {
+    "screen": "",
+    "charset": ""
+  },
+  "coverage": {
+    "exclude": [
+      [
+        "$0400",
+        "$07E7",
+        "Runtime screen cells drawn by title printer and viewport renderer."
+      ],
+      [
+        "$07F8",
+        "$07FF",
+        "Runtime sprite pointer slots used with screen at $0400."
+      ],
+      [
+        "$0800",
+        "$0BFF",
+        "Working copy of title glyphs at $97EF and player sprite layers at $9CD5."
+      ],
+      [
+        "$0C00",
+        "$0FE7",
+        "Runtime second screen buffer. The renderer at $895A writes its cells."
+      ],
+      [
+        "$0FF8",
+        "$0FFF",
+        "Runtime sprite pointer slots used with screen at $0C00."
+      ],
+      [
+        "$2700",
+        "$27FF",
+        "Runtime room descriptor copy written by $AC9D."
+      ],
+      [
+        "$3000",
+        "$30FF",
+        "Runtime character colour table built by $B7C0 and modified by stage logic."
+      ],
+      [
+        "$3400",
+        "$35FF",
+        "Runtime map row pointers built by $AD05 and $AD0A."
+      ]
+    ],
+    "extra": [
+      [
+        "$C400",
+        "$C5FF",
+        "Eight lightning sprite patterns"
+      ],
+      [
+        "$C800",
+        "$CFFF",
+        "Status panel character set used with DD00 low bits zero and D018=$03"
+      ],
+      [
+        "$D000",
+        "$FC3F",
+        "Resident 64-byte sprite patterns"
+      ],
+      [
+        "$BB48",
+        "$C147",
+        "Title character source copied at $97EF"
+      ],
+      [
+        "$7600",
+        "$76FF",
+        "Caves colour lookup copied by $B7C0"
+      ],
+      [
+        "$7700",
+        "$77FF",
+        "Catacombs colour lookup copied by $B7C0"
+      ],
+      [
+        "$7800",
+        "$78FF",
+        "Airship colour lookup copied by $B7C0"
+      ],
+      [
+        "$0FE8",
+        "$0FF7",
+        "Stable between the boot hand-over and play. Included pending classification."
+      ],
+      [
+        "$1436",
+        "$146C",
+        "Stable between the boot hand-over and play. Included pending classification."
+      ],
+      [
+        "$2200",
+        "$22CB",
+        "Stable between the boot hand-over and play. Included pending classification."
+      ],
+      [
+        "$2501",
+        "$26FF",
+        "Stable between the boot hand-over and play. Included pending classification."
+      ],
+      [
+        "$7AEF",
+        "$7B2F",
+        "Stable between the boot hand-over and play. Included pending classification."
+      ],
+      [
+        "$7C7A",
+        "$7C88",
+        "Stable between the boot hand-over and play. Included pending classification."
+      ],
+      [
+        "$7CCA",
+        "$7CD8",
+        "Stable between the boot hand-over and play. Included pending classification."
+      ],
+      [
+        "$BA00",
+        "$BA0F",
+        "Stable between the boot hand-over and play. Included pending classification."
+      ],
+      [
+        "$BB00",
+        "$BB47",
+        "Stable between the boot hand-over and play. Included pending classification."
+      ],
+      [
+        "$C148",
+        "$C1FB",
+        "Stable between the boot hand-over and play. Included pending classification."
+      ],
+      [
+        "$C612",
+        "$C74F",
+        "Stable between the boot hand-over and play. Included pending classification."
+      ],
+      [
+        "$FC7F",
+        "$FE7F",
+        "Stable between the boot hand-over and play. Included pending classification."
+      ],
+      [
+        "$FEFF",
+        "$FFB9",
+        "Stable between the boot hand-over and play. Included pending classification."
+      ],
+      [
+        "$FFC0",
+        "$FFFD",
+        "Stable between the boot hand-over and play. Included pending classification."
+      ]
+    ],
+    "include": [
+      [
+        "$D000",
+        "$DFFF",
+        "Resident sprite sheet under the I/O registers. Instruction $9CD5 read $D23F with $01=$34."
+      ]
+    ]
+  },
+  "io": [
+    [
+      "$1000",
+      "$22FF",
+      "registers",
+      "The raster drivers run with I/O visible and write the SID voice and filter registers."
+    ]
+  ],
+  "regions": [],
+  "ranges": [
+    [
+      "$7600",
+      "$7600"
+    ]
+  ]
+}
