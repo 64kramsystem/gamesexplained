@@ -1,0 +1,104 @@
+{
+  "schema": 1,
+  "platform": "c64",
+  "slug": "freak-factory",
+  "title": "Freak Factory",
+  "year": 1986,
+  "publisher": "Firebird",
+  "developer": "Simon W. Sorsbie",
+  "title_image": "reference/dcs-title.png",
+  "build": "Doughnut Cracking Service T64",
+  "tier": "bronze",
+  "coverage_percent": 100,
+  "copy": "agent-draft",
+  "steward": "",
+  "credits": [],
+  "tools": {
+    "emulator": "VICE MCP v3.14.0 macOS arm64 headless (dummy audio)",
+    "disassembler": "regenerator2000",
+    "host": "macOS arm64"
+  },
+  "model": "gpt-6.2-sol",
+  "step_models": {
+    "10-orient": [
+      "gpt-6.2-sol"
+    ],
+    "12-media": [
+      "gpt-6.2-sol"
+    ],
+    "20-features": [
+      "gpt-6.2-sol"
+    ],
+    "30-text": [
+      "gpt-6.2-sol"
+    ],
+    "40-sweep": [
+      "gpt-6.2-sol"
+    ],
+    "50-coverage": [
+      "gpt-6.2-sol"
+    ],
+    "60-verify": [
+      "gpt-6.2-sol"
+    ]
+  },
+  "accuracy": [
+    {
+      "step": "research",
+      "models": [
+        "gpt-6.2-sol"
+      ],
+      "web": true
+    },
+    {
+      "step": "annotate",
+      "models": [
+        "gpt-6.2-sol"
+      ]
+    },
+    {
+      "step": "sample",
+      "seed": 61924,
+      "size": 60,
+      "wrong": 4,
+      "fixed": 4,
+      "models": [
+        "gpt-6.2-sol"
+      ]
+    }
+  ],
+  "kit_version": "0.0.360",
+  "created": "2026-11-19",
+  "video": {
+    "screen": "$0400",
+    "charset": "$3800"
+  },
+  "coverage": {
+    "exclude": [
+      [
+        "$C7E0",
+        "$CFFF",
+        "DCS introduction and exit wrapper. The game enters at $4000."
+      ],
+      [
+        "$3800",
+        "$3FFF",
+        "Live VIC character window. The hand-over still holds the DCS font from $7000. The authored factory set at $7800 is tracked separately."
+      ]
+    ],
+    "extra": [],
+    "include": []
+  },
+  "io": [],
+  "regions": [],
+  "links": {
+    "wiki": {
+      "title": "",
+      "url": ""
+    },
+    "manual": {
+      "title": "Firebird manual (Lemon64 transcription)",
+      "url": "https://www.lemon64.com/doc/freak-factory/1432"
+    }
+  }
+}
