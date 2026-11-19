@@ -1,0 +1,83 @@
+{
+  "schema": 1,
+  "platform": "c64",
+  "slug": "the-trapdoor",
+  "title": "The Trapdoor",
+  "year": 1986,
+  "publisher": "Piranha (Macmillan)",
+  "developer": "Five Ways Software",
+  "title_image": "",
+  "build": "Cleveland Cracking Service disk, cracked by Ian",
+  "tier": "bronze",
+  "coverage_percent": null,
+  "copy": "agent-draft",
+  "steward": "",
+  "credits": [],
+  "tools": {
+    "emulator": "VICE MCP v3.14.0 macOS arm64 headless, dummy audio",
+    "disassembler": "regenerator2000 0.9.18"
+  },
+  "model": "gpt-6.2-sol",
+  "step_models": {
+    "orient": "gpt-6.2-sol",
+    "media": "gpt-6.2-sol",
+    "features": "gpt-6.2-sol",
+    "text": "gpt-6.2-sol",
+    "sweep": "gpt-6.2-sol",
+    "coverage": "gpt-6.2-sol"
+  },
+  "accuracy": [],
+  "kit_version": "0.0.360",
+  "created": "2026-11-19",
+  "video": {
+    "screen": "$C800",
+    "charset": ""
+  },
+  "coverage": {
+    "exclude": [
+      [
+        "$05DD",
+        "$05FF",
+        "Blank crack-intro screen cells, all $20 from the SYS stop through early play."
+      ],
+      [
+        "$E000",
+        "$FF3F",
+        "VIC bitmap output. A store watch at $FD30 stopped in the startup clear loop at $6272. The apparent copy of KERNAL vectors there predates unpacking."
+      ]
+    ],
+    "extra": [
+      [
+        "$0820",
+        "$CFFF",
+        "Exact expanded payload reproduced from the packed PRG. Loaded bytes remain in scope pending classification."
+      ]
+    ],
+    "include": []
+  },
+  "io": [
+    [
+      "$57B6",
+      "$57F9",
+      "ram",
+      "Both clearing loops run with the CPU port set to $30 by their callers."
+    ],
+    [
+      "$5944",
+      "$5971",
+      "ram",
+      "The glyph printer uses $31 to read character ROM when selected and writes the bitmap and style state in RAM."
+    ]
+  ],
+  "regions": [],
+  "links": {
+    "wiki": {
+      "title": "The Trap Door",
+      "url": "https://www.c64-wiki.com/wiki/The_Trap_Door"
+    },
+    "manual": {
+      "title": "",
+      "url": ""
+    }
+  }
+}
