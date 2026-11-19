@@ -430,6 +430,12 @@
    "name": "scorecard_caddy_field",
    "type": "UserDefined",
    "kind": "user"
+  },
+  {
+   "address": 27936,
+   "name": "printer_page_copy_tail",
+   "type": "UserDefined",
+   "kind": "user"
   }
  ],
  "comments": [
@@ -567,6 +573,11 @@
    "address": 27900,
    "type": "line",
    "text": "Caddy label with a dotted write-in field."
+  },
+  {
+   "address": 27936,
+   "type": "line",
+   "text": "The loader copies these 224 bytes from $FC20\u2013$FCFF because it copies the entire page. The scorecard strings end with a zero at $6D1A. The printer has no reads or branches into this tail, and the bytes retain the source RAM contents."
   }
  ]
 }

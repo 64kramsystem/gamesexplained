@@ -4,14 +4,14 @@
 |---|---|---|
 | Title artwork and course list | live | Globe title and A–P list captured in reference. |
 | Course selection | confirmed | Shift+Return enters the course picker. The BCT load trace changed the course descriptor to Doral Country Club. |
-| One to four golfers with names and individual skill levels | live | Setup displays player count, name field, and Professional, Amateur and Kids choices. Skill effects are open. |
-| 18, 36, 54 or 72 holes | live | F1, F3, F5 or F7 at setup. F1 reached hole 1 of the first round. Round progression is open. |
+| One to four golfers with names and individual skill levels | live | Setup displays the player count, name and skill choices. Stepping $3807 showed Kids clearing the lateral meter contribution for the tested club and meter index. $A89F also gates the timer-based wind input on Professional. |
+| 18, 36, 54 or 72 holes | live | F1, F3, F5 or F7 at setup. F1 reached hole 1 of the first round. $19C9 advances the hole index, and at 18 the round path compares the current and selected round indices before continuing. |
 | Perspective course view and golfer | live | Cypress Creek hole 1 shows trees, fairway, the tee and golfer beside the status panel. |
 | Status panel | live | Shows hole, par, round, player and relative score, wind, club, yards, power and snap. |
 | Club selection | traced | $15C5 cycles the club index on up and down. |
 | Aiming and power release | confirmed | Port 2 left and fire release reached the watched stores in the aim and swing handlers. |
 | Snap | traced | $160F latches the later fire press and derives the snap value from the timing byte. |
-| Ball flight, terrain, hazards, wind and putting | open | Manual describes carry, hazards and putting. |
+| Ball flight, terrain, hazards, wind and putting | traced | $3863 builds launch components, $3B18 integrates ball motion and $B03D tests ball and shadow against course objects. $A89F gates a wind input and $37C0 starts putt motion. The full hazard and terrain outcome table remains open. |
 | Scorecard and honours | traced | The engine score routines total the strokes and calculate turn order. |
 | Scorecard printer | traced | PRNT load reached the printer entry at $6800 after a debugger transfer to the confirmation branch. Paper output remains open. |
 | Driving range and practice putting | traced | R and G branch from the player-count prompt. |

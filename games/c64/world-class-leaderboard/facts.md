@@ -21,4 +21,10 @@ The boot material and the bundled documentation program are listed separately in
 
 ## Analysis status
 
-The [handoff](TODO.md) records the measured ledger coverage and the outstanding attribution and verification work. Local traces, disk images and snapshots are under the ignored `work/` directories. The [orientation](orientation.md) gives the routes and the debugger intervention used for the printer capture.
+The exported analysis accounts for 51,482 of 51,482 tracked bytes across the engine and printer. The [handoff](TODO.md) records the remaining feature questions. The [orientation](orientation.md) gives the routes and the debugger intervention used for the printer capture. The analysis used targeted debugger probes. No result added here depends on an input recording.
+
+## The listing's error rate
+
+The first independent sample used seed 20261119 and drew 60 of 363 comments. The checker, gpt-6.2-sol, found incorrect details in eight comments. The estimated rate before correction was 13.3%, with a 95% Wilson interval of 6.9%–24.2%. All eight comments were corrected. The findings included sprite decoding, coordinate and distance arithmetic, course selection and printer formatting.
+
+The expanded listing sample used seed 20261120 and drew 60 of 1,241 comments. All 60 came from the engine. The checker, gpt-6.2-sol, found incorrect or incomplete details in 12 comments. The estimated rate before correction was 20.0%, with a 95% Wilson interval of 11.8%–31.8%. All 12 comments were corrected. The findings included scale selectors, ball and shadow sampling, clipped endpoint output, caption length, sprite pixel storage, saved distance words, incoming carry and disk setup. The samples estimate the error rate and the checker may have missed errors.
