@@ -1,0 +1,219 @@
+{
+ "schema": 1,
+ "platform": "c64",
+ "game": "turbo-charge",
+ "part": "picture-0f",
+ "build": "",
+ "source": "regenerator2000 live",
+ "regions": {
+  "exclude": [
+   [
+    256,
+    511,
+    "stack"
+   ],
+   [
+    53248,
+    57343,
+    "I/O and colour RAM"
+   ],
+   [
+    0,
+    2047,
+    "Round 1 and shared driving engine"
+   ],
+   [
+    12096,
+    65535,
+    "Round 1 and shared driving engine"
+   ]
+  ],
+  "extra": [
+   [
+    2048,
+    12095,
+    "Loaded bitmap and its two colour planes"
+   ]
+  ],
+  "edges": [
+   0,
+   256,
+   512,
+   1024,
+   2048,
+   4096,
+   16384,
+   32768,
+   40960,
+   49152,
+   53248,
+   57344
+  ],
+  "elsewhere": [
+   [
+    0,
+    2047,
+    "Round 1 and shared driving engine"
+   ],
+   [
+    12096,
+    65535,
+    "Round 1 and shared driving engine"
+   ]
+  ]
+ },
+ "blocks": [
+  {
+   "start": 2048,
+   "end": 12095,
+   "type": "Byte"
+  }
+ ],
+ "symbols": [
+  {
+   "address": 2048,
+   "name": "picture_colour_ram",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 3048,
+   "name": "colour_page_tail",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 3072,
+   "name": "picture_screen_colours",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 4072,
+   "name": "screen_page_tail",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 4096,
+   "name": "bitmap_character_row_01",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 5056,
+   "name": "bitmap_character_row_04",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 6016,
+   "name": "bitmap_character_row_07",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 6976,
+   "name": "bitmap_character_row_10",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 7936,
+   "name": "bitmap_character_row_13",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 8896,
+   "name": "bitmap_character_row_16",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 9856,
+   "name": "bitmap_character_row_19",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 10816,
+   "name": "bitmap_character_row_22",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 11776,
+   "name": "bitmap_character_row_25",
+   "type": "UserDefined",
+   "kind": "user"
+  }
+ ],
+ "comments": [
+  {
+   "address": 2048,
+   "type": "line",
+   "text": "Low-nibble colour plane for the border smashed, desert picture. The first 1000 bytes carry one colour RAM value per 8-by-8 cell. $A6F9 copies the page-aligned plane to $D800."
+  },
+  {
+   "address": 3048,
+   "type": "line",
+   "text": "Last 24 bytes of the loaded colour plane. The page copy still writes them, past the last visible colour cell."
+  },
+  {
+   "address": 3072,
+   "type": "line",
+   "text": "Screen attribute plane copied to $6000. Its high and low nybbles select two colours for each of the 1000 multicolour bitmap cells."
+  },
+  {
+   "address": 4072,
+   "type": "line",
+   "text": "Final 24 bytes of the screen-attribute pages. They follow the 40-by-25 cells and the page copier transfers them too."
+  },
+  {
+   "address": 4096,
+   "type": "line",
+   "text": "Bitmap data for character rows 1 through 3, counted from the top. Each row uses forty consecutive eight-byte cells and each pixel pair indexes this cell\u2019s four colours."
+  },
+  {
+   "address": 5056,
+   "type": "line",
+   "text": "Bitmap data for character rows 4 through 6, counted from the top. Each row uses forty consecutive eight-byte cells and each pixel pair indexes this cell\u2019s four colours."
+  },
+  {
+   "address": 6016,
+   "type": "line",
+   "text": "Bitmap data for character rows 7 through 9, counted from the top. Each row uses forty consecutive eight-byte cells and each pixel pair indexes this cell\u2019s four colours."
+  },
+  {
+   "address": 6976,
+   "type": "line",
+   "text": "Bitmap data for character rows 10 through 12, counted from the top. Each row uses forty consecutive eight-byte cells and each pixel pair indexes this cell\u2019s four colours."
+  },
+  {
+   "address": 7936,
+   "type": "line",
+   "text": "Bitmap data for character rows 13 through 15, counted from the top. Each row uses forty consecutive eight-byte cells and each pixel pair indexes this cell\u2019s four colours."
+  },
+  {
+   "address": 8896,
+   "type": "line",
+   "text": "Bitmap data for character rows 16 through 18, counted from the top. Each row uses forty consecutive eight-byte cells and each pixel pair indexes this cell\u2019s four colours."
+  },
+  {
+   "address": 9856,
+   "type": "line",
+   "text": "Bitmap data for character rows 19 through 21, counted from the top. Each row uses forty consecutive eight-byte cells and each pixel pair indexes this cell\u2019s four colours."
+  },
+  {
+   "address": 10816,
+   "type": "line",
+   "text": "Bitmap data for character rows 22 through 24, counted from the top. Each row uses forty consecutive eight-byte cells and each pixel pair indexes this cell\u2019s four colours."
+  },
+  {
+   "address": 11776,
+   "type": "line",
+   "text": "Bitmap data for character rows 25 through 25, counted from the top. Each row uses forty consecutive eight-byte cells and each pixel pair indexes this cell\u2019s four colours."
+  }
+ ]
+}

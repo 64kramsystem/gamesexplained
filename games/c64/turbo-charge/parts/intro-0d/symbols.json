@@ -1,0 +1,2164 @@
+{
+ "schema": 1,
+ "platform": "c64",
+ "game": "turbo-charge",
+ "part": "intro-0d",
+ "build": "Nostalgia release 277, PAL disk build",
+ "source": "regenerator2000 live",
+ "regions": {
+  "exclude": [
+   [
+    256,
+    511,
+    "stack"
+   ],
+   [
+    56320,
+    57343,
+    "I/O and colour RAM"
+   ],
+   [
+    5513,
+    12095,
+    "Output bitmap storage below $3000. The initial packed picture ends at $1588 and the $0813 unpacker overwrites this zero-filled tail."
+   ],
+   [
+    20233,
+    24575,
+    "Zero-filled bitmap output area above the stored second picture. $3165 copies the expanded plane here."
+   ],
+   [
+    24576,
+    25599,
+    "Zero-filled screen-attribute workspace for the low bitmap bank. $3177 overwrites it from $0C00."
+   ],
+   [
+    0,
+    2065,
+    "Round 1 and shared driving engine"
+   ],
+   [
+    42001,
+    48728,
+    "Title and high scores"
+   ],
+   [
+    56320,
+    65535,
+    "Round 1 and shared driving engine"
+   ]
+  ],
+  "extra": [
+   [
+    2066,
+    42000,
+    "First live decompressor output block"
+   ],
+   [
+    48729,
+    56319,
+    "Second live decompressor output block"
+   ]
+  ],
+  "edges": [
+   0,
+   256,
+   512,
+   1024,
+   2048,
+   4096,
+   16384,
+   32768,
+   40960,
+   49152,
+   53248,
+   57344
+  ],
+  "beneath": [
+   [
+    53248,
+    56319
+   ]
+  ],
+  "elsewhere": [
+   [
+    0,
+    2065,
+    "Round 1 and shared driving engine"
+   ],
+   [
+    42001,
+    48728,
+    "Title and high scores"
+   ],
+   [
+    56320,
+    65535,
+    "Round 1 and shared driving engine"
+   ]
+  ]
+ },
+ "blocks": [
+  {
+   "start": 2066,
+   "end": 2090,
+   "type": "Code"
+  },
+  {
+   "start": 2091,
+   "end": 5512,
+   "type": "Byte"
+  },
+  {
+   "start": 5513,
+   "end": 12095,
+   "type": "Undefined"
+  },
+  {
+   "start": 12096,
+   "end": 12287,
+   "type": "Byte"
+  },
+  {
+   "start": 12288,
+   "end": 12641,
+   "type": "Code"
+  },
+  {
+   "start": 12642,
+   "end": 12644,
+   "type": "Undefined"
+  },
+  {
+   "start": 12645,
+   "end": 12825,
+   "type": "Code"
+  },
+  {
+   "start": 12826,
+   "end": 12826,
+   "type": "Undefined"
+  },
+  {
+   "start": 12827,
+   "end": 12836,
+   "type": "Address"
+  },
+  {
+   "start": 12837,
+   "end": 12838,
+   "type": "Undefined"
+  },
+  {
+   "start": 12839,
+   "end": 12942,
+   "type": "Code"
+  },
+  {
+   "start": 12943,
+   "end": 12943,
+   "type": "Undefined"
+  },
+  {
+   "start": 12944,
+   "end": 13357,
+   "type": "Code"
+  },
+  {
+   "start": 13358,
+   "end": 13409,
+   "type": "Undefined"
+  },
+  {
+   "start": 13410,
+   "end": 13492,
+   "type": "Code"
+  },
+  {
+   "start": 13493,
+   "end": 13567,
+   "type": "Undefined"
+  },
+  {
+   "start": 13568,
+   "end": 13586,
+   "type": "Code"
+  },
+  {
+   "start": 13587,
+   "end": 16383,
+   "type": "Undefined"
+  },
+  {
+   "start": 16384,
+   "end": 20231,
+   "type": "Byte"
+  },
+  {
+   "start": 20232,
+   "end": 25599,
+   "type": "Undefined"
+  },
+  {
+   "start": 25600,
+   "end": 32328,
+   "type": "Byte"
+  },
+  {
+   "start": 32329,
+   "end": 32329,
+   "type": "Undefined"
+  },
+  {
+   "start": 32330,
+   "end": 36314,
+   "type": "Byte"
+  },
+  {
+   "start": 36315,
+   "end": 36315,
+   "type": "Undefined"
+  },
+  {
+   "start": 36316,
+   "end": 40875,
+   "type": "Byte"
+  },
+  {
+   "start": 40876,
+   "end": 40876,
+   "type": "Undefined"
+  },
+  {
+   "start": 40877,
+   "end": 42000,
+   "type": "Byte"
+  },
+  {
+   "start": 48729,
+   "end": 48785,
+   "type": "Code"
+  },
+  {
+   "start": 48786,
+   "end": 48789,
+   "type": "Undefined"
+  },
+  {
+   "start": 48790,
+   "end": 52965,
+   "type": "Byte"
+  },
+  {
+   "start": 52966,
+   "end": 54271,
+   "type": "Undefined"
+  },
+  {
+   "start": 54272,
+   "end": 56319,
+   "type": "Byte"
+  }
+ ],
+ "symbols": [
+  {
+   "address": 2066,
+   "name": "picture_bootstrap",
+   "type": "AbsoluteAddress",
+   "kind": "user"
+  },
+  {
+   "address": 2067,
+   "name": "s_0813",
+   "type": "Subroutine",
+   "kind": "auto"
+  },
+  {
+   "address": 2073,
+   "name": "b_0819",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 2090,
+   "name": "f_082A",
+   "type": "Field",
+   "kind": "auto"
+  },
+  {
+   "address": 2091,
+   "name": "picture_0_packed_bytes_0019",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 2256,
+   "name": "f_08D0",
+   "type": "Field",
+   "kind": "auto"
+  },
+  {
+   "address": 3072,
+   "name": "f_0C00",
+   "type": "Field",
+   "kind": "auto"
+  },
+  {
+   "address": 3115,
+   "name": "picture_0_packed_bytes_0419",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 4139,
+   "name": "picture_0_packed_bytes_0819",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 5163,
+   "name": "picture_0_packed_bytes_0c19",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 12031,
+   "name": "f_2EFF",
+   "type": "Field",
+   "kind": "auto"
+  },
+  {
+   "address": 12096,
+   "name": "bitmap_plane_page_tail",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 12288,
+   "name": "opening_entry",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 12309,
+   "name": "b_3015",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 12347,
+   "name": "b_303B",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 12349,
+   "name": "b_303D",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 12356,
+   "name": "a_3044",
+   "type": "AbsoluteAddress",
+   "kind": "auto"
+  },
+  {
+   "address": 12365,
+   "name": "a_304D",
+   "type": "AbsoluteAddress",
+   "kind": "auto"
+  },
+  {
+   "address": 12376,
+   "name": "b_3058",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 12382,
+   "name": "b_305E",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 12413,
+   "name": "b_307D",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 12429,
+   "name": "b_308D",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 12439,
+   "name": "b_3097",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 12455,
+   "name": "b_30A7",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 12476,
+   "name": "b_30BC",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 12500,
+   "name": "b_30D4",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 12531,
+   "name": "b_30F3",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 12547,
+   "name": "b_3103",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 12570,
+   "name": "b_311A",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 12594,
+   "name": "b_3132",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 12629,
+   "name": "dispatch_garage_opening",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 12645,
+   "name": "s_3165",
+   "type": "Subroutine",
+   "kind": "auto"
+  },
+  {
+   "address": 12714,
+   "name": "show_satellite_segment_in_high_bank",
+   "type": "Subroutine",
+   "kind": "user"
+  },
+  {
+   "address": 12760,
+   "name": "b_31D8",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 12799,
+   "name": "j_31FF",
+   "type": "Jump",
+   "kind": "auto"
+  },
+  {
+   "address": 12826,
+   "name": "a_321A",
+   "type": "AbsoluteAddress",
+   "kind": "auto"
+  },
+  {
+   "address": 12827,
+   "name": "packed_scene_addresses",
+   "type": "Field",
+   "kind": "user"
+  },
+  {
+   "address": 12828,
+   "name": "f_321C",
+   "type": "Field",
+   "kind": "auto"
+  },
+  {
+   "address": 12839,
+   "name": "select_packed_satellite_picture",
+   "type": "Subroutine",
+   "kind": "user"
+  },
+  {
+   "address": 12865,
+   "name": "b_3241",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 12866,
+   "name": "a_3242",
+   "type": "AbsoluteAddress",
+   "kind": "auto"
+  },
+  {
+   "address": 12867,
+   "name": "a_3243",
+   "type": "AbsoluteAddress",
+   "kind": "auto"
+  },
+  {
+   "address": 12870,
+   "name": "a_3246",
+   "type": "AbsoluteAddress",
+   "kind": "auto"
+  },
+  {
+   "address": 12884,
+   "name": "s_3254",
+   "type": "Subroutine",
+   "kind": "auto"
+  },
+  {
+   "address": 12892,
+   "name": "s_325C",
+   "type": "Subroutine",
+   "kind": "auto"
+  },
+  {
+   "address": 12894,
+   "name": "b_325E",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 12896,
+   "name": "a_3260",
+   "type": "AbsoluteAddress",
+   "kind": "auto"
+  },
+  {
+   "address": 12899,
+   "name": "a_3263",
+   "type": "AbsoluteAddress",
+   "kind": "auto"
+  },
+  {
+   "address": 12913,
+   "name": "s_3271",
+   "type": "Subroutine",
+   "kind": "auto"
+  },
+  {
+   "address": 12915,
+   "name": "s_3273",
+   "type": "Subroutine",
+   "kind": "auto"
+  },
+  {
+   "address": 12934,
+   "name": "b_3286",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 12939,
+   "name": "b_328B",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 12943,
+   "name": "a_328F",
+   "type": "AbsoluteAddress",
+   "kind": "auto"
+  },
+  {
+   "address": 12944,
+   "name": "s_3290",
+   "type": "Subroutine",
+   "kind": "auto"
+  },
+  {
+   "address": 12949,
+   "name": "b_3295",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 12955,
+   "name": "s_329B",
+   "type": "Subroutine",
+   "kind": "auto"
+  },
+  {
+   "address": 12957,
+   "name": "b_329D",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 12961,
+   "name": "a_32A1",
+   "type": "AbsoluteAddress",
+   "kind": "auto"
+  },
+  {
+   "address": 12979,
+   "name": "b_32B3",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 12985,
+   "name": "s_32B9",
+   "type": "Subroutine",
+   "kind": "auto"
+  },
+  {
+   "address": 13038,
+   "name": "j_32EE",
+   "type": "Jump",
+   "kind": "auto"
+  },
+  {
+   "address": 13060,
+   "name": "b_3304",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 13069,
+   "name": "j_330D",
+   "type": "Jump",
+   "kind": "auto"
+  },
+  {
+   "address": 13075,
+   "name": "j_3313",
+   "type": "Jump",
+   "kind": "auto"
+  },
+  {
+   "address": 13087,
+   "name": "b_331F",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 13093,
+   "name": "b_3325",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 13099,
+   "name": "b_332B",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 13104,
+   "name": "b_3330",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 13111,
+   "name": "s_3337",
+   "type": "Subroutine",
+   "kind": "auto"
+  },
+  {
+   "address": 13115,
+   "name": "b_333B",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 13122,
+   "name": "b_3342",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 13134,
+   "name": "s_334E",
+   "type": "Subroutine",
+   "kind": "auto"
+  },
+  {
+   "address": 13194,
+   "name": "a_338A",
+   "type": "AbsoluteAddress",
+   "kind": "auto"
+  },
+  {
+   "address": 13196,
+   "name": "display_satellite_frame_sprites",
+   "type": "Subroutine",
+   "kind": "user"
+  },
+  {
+   "address": 13212,
+   "name": "j_339C",
+   "type": "Jump",
+   "kind": "auto"
+  },
+  {
+   "address": 13223,
+   "name": "b_33A7",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 13259,
+   "name": "a_33CB",
+   "type": "AbsoluteAddress",
+   "kind": "auto"
+  },
+  {
+   "address": 13262,
+   "name": "a_33CE",
+   "type": "AbsoluteAddress",
+   "kind": "auto"
+  },
+  {
+   "address": 13288,
+   "name": "b_33E8",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 13301,
+   "name": "b_33F5",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 13314,
+   "name": "b_3402",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 13329,
+   "name": "j_3411",
+   "type": "Jump",
+   "kind": "auto"
+  },
+  {
+   "address": 13340,
+   "name": "r_341C",
+   "type": "Return",
+   "kind": "auto"
+  },
+  {
+   "address": 13341,
+   "name": "s_341D",
+   "type": "Subroutine",
+   "kind": "auto"
+  },
+  {
+   "address": 13354,
+   "name": "a_342A",
+   "type": "AbsoluteAddress",
+   "kind": "auto"
+  },
+  {
+   "address": 13358,
+   "name": "f_342E",
+   "type": "Field",
+   "kind": "auto"
+  },
+  {
+   "address": 13366,
+   "name": "f_3436",
+   "type": "Field",
+   "kind": "auto"
+  },
+  {
+   "address": 13370,
+   "name": "f_343A",
+   "type": "Field",
+   "kind": "auto"
+  },
+  {
+   "address": 13374,
+   "name": "f_343E",
+   "type": "Field",
+   "kind": "auto"
+  },
+  {
+   "address": 13378,
+   "name": "f_3442",
+   "type": "Field",
+   "kind": "auto"
+  },
+  {
+   "address": 13382,
+   "name": "f_3446",
+   "type": "Field",
+   "kind": "auto"
+  },
+  {
+   "address": 13386,
+   "name": "f_344A",
+   "type": "Field",
+   "kind": "auto"
+  },
+  {
+   "address": 13390,
+   "name": "f_344E",
+   "type": "Field",
+   "kind": "auto"
+  },
+  {
+   "address": 13394,
+   "name": "f_3452",
+   "type": "Field",
+   "kind": "auto"
+  },
+  {
+   "address": 13398,
+   "name": "f_3456",
+   "type": "Field",
+   "kind": "auto"
+  },
+  {
+   "address": 13402,
+   "name": "f_345A",
+   "type": "Field",
+   "kind": "auto"
+  },
+  {
+   "address": 13406,
+   "name": "f_345E",
+   "type": "Field",
+   "kind": "auto"
+  },
+  {
+   "address": 13410,
+   "name": "s_3462",
+   "type": "Subroutine",
+   "kind": "auto"
+  },
+  {
+   "address": 13449,
+   "name": "s_3489",
+   "type": "Subroutine",
+   "kind": "auto"
+  },
+  {
+   "address": 13568,
+   "name": "s_3500",
+   "type": "Subroutine",
+   "kind": "auto"
+  },
+  {
+   "address": 13583,
+   "name": "b_350F",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 16384,
+   "name": "picture_1_stored_bootstrap",
+   "type": "AbsoluteAddress",
+   "kind": "user"
+  },
+  {
+   "address": 16409,
+   "name": "picture_1_packed_bytes_0019",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 17433,
+   "name": "picture_1_packed_bytes_0419",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 18457,
+   "name": "picture_1_packed_bytes_0819",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 19481,
+   "name": "picture_1_packed_bytes_0c19",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 24576,
+   "name": "f_6000",
+   "type": "Field",
+   "kind": "auto"
+  },
+  {
+   "address": 25376,
+   "name": "f_6320",
+   "type": "Field",
+   "kind": "auto"
+  },
+  {
+   "address": 25479,
+   "name": "f_6387",
+   "type": "Field",
+   "kind": "auto"
+  },
+  {
+   "address": 25519,
+   "name": "f_63AF",
+   "type": "Field",
+   "kind": "auto"
+  },
+  {
+   "address": 25600,
+   "name": "scene_sprite_shape_6400",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 25664,
+   "name": "scene_sprite_shape_6440",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 25728,
+   "name": "scene_sprite_shape_6480",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 25792,
+   "name": "scene_sprite_shape_64c0",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 25856,
+   "name": "scene_sprite_shape_6500",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 25920,
+   "name": "scene_sprite_shape_6540",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 25984,
+   "name": "scene_sprite_shape_6580",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 26048,
+   "name": "scene_sprite_shape_65c0",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 26112,
+   "name": "scene_sprite_shape_6600",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 26176,
+   "name": "scene_sprite_shape_6640",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 26240,
+   "name": "scene_sprite_shape_6680",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 26304,
+   "name": "scene_sprite_shape_66c0",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 26368,
+   "name": "scene_sprite_shape_6700",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 26432,
+   "name": "scene_sprite_shape_6740",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 26496,
+   "name": "scene_sprite_shape_6780",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 26560,
+   "name": "scene_sprite_shape_67c0",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 26624,
+   "name": "scene_sprite_shape_6800",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 26688,
+   "name": "scene_sprite_shape_6840",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 26752,
+   "name": "scene_sprite_shape_6880",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 26816,
+   "name": "scene_sprite_shape_68c0",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 26880,
+   "name": "scene_sprite_shape_6900",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 26944,
+   "name": "scene_sprite_shape_6940",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 27008,
+   "name": "scene_sprite_shape_6980",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 27072,
+   "name": "scene_sprite_shape_69c0",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 27136,
+   "name": "scene_sprite_shape_6a00",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 27200,
+   "name": "scene_sprite_shape_6a40",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 27264,
+   "name": "scene_sprite_shape_6a80",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 27328,
+   "name": "scene_sprite_shape_6ac0",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 27392,
+   "name": "scene_sprite_shape_6b00",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 27456,
+   "name": "scene_sprite_shape_6b40",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 27520,
+   "name": "scene_sprite_shape_6b80",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 27584,
+   "name": "scene_sprite_shape_6bc0",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 27648,
+   "name": "scene_sprite_shape_6c00",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 27712,
+   "name": "scene_sprite_shape_6c40",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 27776,
+   "name": "scene_sprite_shape_6c80",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 27840,
+   "name": "picture_2_stored_bootstrap",
+   "type": "AbsoluteAddress",
+   "kind": "user"
+  },
+  {
+   "address": 27865,
+   "name": "picture_2_packed_bytes_0019",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 28889,
+   "name": "picture_2_packed_bytes_0419",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 29913,
+   "name": "picture_2_packed_bytes_0819",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 30712,
+   "name": "f_77F8",
+   "type": "Field",
+   "kind": "auto"
+  },
+  {
+   "address": 30937,
+   "name": "picture_2_packed_bytes_0c19",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 31961,
+   "name": "picture_2_packed_bytes_1019",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 32330,
+   "name": "picture_3_stored_bootstrap",
+   "type": "AbsoluteAddress",
+   "kind": "user"
+  },
+  {
+   "address": 32355,
+   "name": "picture_3_packed_bytes_0019",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 32768,
+   "name": "picture_3_packed_bytes_01b6",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 33379,
+   "name": "picture_3_packed_bytes_0419",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 34403,
+   "name": "picture_3_packed_bytes_0819",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 35427,
+   "name": "picture_3_packed_bytes_0c19",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 36316,
+   "name": "picture_4_stored_bootstrap",
+   "type": "AbsoluteAddress",
+   "kind": "user"
+  },
+  {
+   "address": 36341,
+   "name": "picture_4_packed_bytes_0019",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 37365,
+   "name": "picture_4_packed_bytes_0419",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 38389,
+   "name": "picture_4_packed_bytes_0819",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 39413,
+   "name": "picture_4_packed_bytes_0c19",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 40437,
+   "name": "picture_4_packed_bytes_1019",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 40877,
+   "name": "scene_4_frame_records_0000",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 40960,
+   "name": "scene_4_frame_records_0053",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 41984,
+   "name": "scene_4_frame_records_0453",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 48729,
+   "name": "opening_secondary_irq",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 48753,
+   "name": "b_BE71",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 48763,
+   "name": "a_BE7B",
+   "type": "AbsoluteAddress",
+   "kind": "auto"
+  },
+  {
+   "address": 48764,
+   "name": "a_BE7C",
+   "type": "AbsoluteAddress",
+   "kind": "auto"
+  },
+  {
+   "address": 48767,
+   "name": "b_BE7F",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 48780,
+   "name": "a_BE8C",
+   "type": "AbsoluteAddress",
+   "kind": "auto"
+  },
+  {
+   "address": 48782,
+   "name": "a_BE8E",
+   "type": "AbsoluteAddress",
+   "kind": "auto"
+  },
+  {
+   "address": 48784,
+   "name": "a_BE90",
+   "type": "AbsoluteAddress",
+   "kind": "auto"
+  },
+  {
+   "address": 48786,
+   "name": "f_BE92",
+   "type": "Field",
+   "kind": "auto"
+  },
+  {
+   "address": 48790,
+   "name": "scene_1_frame_records_0000",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 49152,
+   "name": "scene_1_frame_records_016a",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 50176,
+   "name": "scene_1_frame_records_056a",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 50398,
+   "name": "scene_2_frame_records_0000",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 51422,
+   "name": "scene_2_frame_records_0400",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 51838,
+   "name": "scene_3_frame_records_0000",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 52862,
+   "name": "scene_3_frame_records_0400",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 54272,
+   "name": "scene_sprite_shape_d400",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 54336,
+   "name": "scene_sprite_shape_d440",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 54400,
+   "name": "scene_sprite_shape_d480",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 54464,
+   "name": "scene_sprite_shape_d4c0",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 54528,
+   "name": "scene_sprite_shape_d500",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 54592,
+   "name": "scene_sprite_shape_d540",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 54656,
+   "name": "scene_sprite_shape_d580",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 54720,
+   "name": "scene_sprite_shape_d5c0",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 54784,
+   "name": "scene_sprite_shape_d600",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 54848,
+   "name": "scene_sprite_shape_d640",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 54912,
+   "name": "scene_sprite_shape_d680",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 54976,
+   "name": "scene_sprite_shape_d6c0",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 55040,
+   "name": "scene_sprite_shape_d700",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 55104,
+   "name": "scene_sprite_shape_d740",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 55168,
+   "name": "scene_sprite_shape_d780",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 55232,
+   "name": "scene_sprite_shape_d7c0",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 55296,
+   "name": "scene_sprite_shape_d800",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 55360,
+   "name": "scene_sprite_shape_d840",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 55399,
+   "name": "f_D867",
+   "type": "Field",
+   "kind": "auto"
+  },
+  {
+   "address": 55424,
+   "name": "scene_sprite_shape_d880",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 55439,
+   "name": "f_D88F",
+   "type": "Field",
+   "kind": "auto"
+  },
+  {
+   "address": 55479,
+   "name": "f_D8B7",
+   "type": "Field",
+   "kind": "auto"
+  },
+  {
+   "address": 55488,
+   "name": "scene_sprite_shape_d8c0",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 55552,
+   "name": "scene_sprite_shape_d900",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 55616,
+   "name": "scene_sprite_shape_d940",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 55680,
+   "name": "scene_sprite_shape_d980",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 55744,
+   "name": "scene_sprite_shape_d9c0",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 55808,
+   "name": "scene_sprite_shape_da00",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 55872,
+   "name": "scene_sprite_shape_da40",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 55936,
+   "name": "scene_sprite_shape_da80",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 56000,
+   "name": "scene_sprite_shape_dac0",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 56064,
+   "name": "scene_sprite_shape_db00",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 56096,
+   "name": "f_DB20",
+   "type": "Field",
+   "kind": "auto"
+  },
+  {
+   "address": 56128,
+   "name": "scene_sprite_shape_db40",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 56175,
+   "name": "f_DB6F",
+   "type": "Field",
+   "kind": "auto"
+  },
+  {
+   "address": 56192,
+   "name": "scene_sprite_shape_db80",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 56196,
+   "name": "f_DB84",
+   "type": "Field",
+   "kind": "auto"
+  },
+  {
+   "address": 56236,
+   "name": "f_DBAC",
+   "type": "Field",
+   "kind": "auto"
+  },
+  {
+   "address": 56256,
+   "name": "scene_sprite_shape_dbc0",
+   "type": "UserDefined",
+   "kind": "user"
+  }
+ ],
+ "comments": [
+  {
+   "address": 2066,
+   "type": "line",
+   "text": "Relocates the picture unpacker to the stack page and low RAM, changes the CPU port and jumps to the unpacker at $0100. The picture paths enter it at $0813."
+  },
+  {
+   "address": 2091,
+   "type": "line",
+   "text": "Packed satellite over Earth data at package offsets $0019\u2013$0418. The picture unpacker reads these bytes while populating the colour, screen-attribute and bitmap planes."
+  },
+  {
+   "address": 3115,
+   "type": "line",
+   "text": "Packed satellite over Earth data at package offsets $0419\u2013$0818. The picture unpacker reads these bytes while populating the colour, screen-attribute and bitmap planes."
+  },
+  {
+   "address": 4139,
+   "type": "line",
+   "text": "Packed satellite over Earth data at package offsets $0819\u2013$0C18. The picture unpacker reads these bytes while populating the colour, screen-attribute and bitmap planes."
+  },
+  {
+   "address": 5163,
+   "type": "line",
+   "text": "Packed satellite over Earth data at package offsets $0C19\u2013$0D76. The picture unpacker reads these bytes while populating the colour, screen-attribute and bitmap planes."
+  },
+  {
+   "address": 12096,
+   "type": "line",
+   "text": "The last 192 bytes in the page-aligned bitmap staging region. The 8,000-byte rendered plane ends at $2F3F. The full-page display copies may transfer part of this zero tail beyond the visible cells."
+  },
+  {
+   "address": 12288,
+   "type": "line",
+   "text": "Sets up the display and music, resets SP and makes its first bitmap display call."
+  },
+  {
+   "address": 12629,
+   "type": "line",
+   "text": "Pushes the synthetic return $2FFF, selects file $0E with two blocks and jumps to $0433. The loader returns to $3000 in the new image."
+  },
+  {
+   "address": 12714,
+   "type": "line",
+   "text": "Selects a packed picture, copies its screen attributes to RAM under $DC00 and the bitmap to $E000, fills colour RAM at $D800 and selects VIC bank $C000."
+  },
+  {
+   "address": 12827,
+   "type": "line",
+   "text": "Little-endian source addresses for the 5 packed picture programs. The selector indexes with twice the scene number and copies the selected source beginning at $0812."
+  },
+  {
+   "address": 12839,
+   "type": "line",
+   "text": "Uses the current picture index at $321A to select a little-endian source. The page copier stages 23 pages starting at $0812, where $0813 runs the picture depacker."
+  },
+  {
+   "address": 13196,
+   "type": "line",
+   "text": "Each 24-byte record names eight Y values, eight X values and eight shape indices. Skips slots with Y=$FF. A shape's last byte controls both expansion flags, multicolour and palette index."
+  },
+  {
+   "address": 16384,
+   "type": "line",
+   "text": "First 25 bytes of the sector disturbance picture package. After the source is copied to $0812, the relocated unpacker is set up by these instructions."
+  },
+  {
+   "address": 16409,
+   "type": "line",
+   "text": "Packed sector disturbance data at package offsets $0019\u2013$0418. The picture unpacker reads these bytes while populating the colour, screen-attribute and bitmap planes."
+  },
+  {
+   "address": 17433,
+   "type": "line",
+   "text": "Packed sector disturbance data at package offsets $0419\u2013$0818. The picture unpacker reads these bytes while populating the colour, screen-attribute and bitmap planes."
+  },
+  {
+   "address": 18457,
+   "type": "line",
+   "text": "Packed sector disturbance data at package offsets $0819\u2013$0C18. The picture unpacker reads these bytes while populating the colour, screen-attribute and bitmap planes."
+  },
+  {
+   "address": 19481,
+   "type": "line",
+   "text": "Packed sector disturbance data at package offsets $0C19\u2013$0F07. The picture unpacker reads these bytes while populating the colour, screen-attribute and bitmap planes."
+  },
+  {
+   "address": 25600,
+   "type": "line",
+   "text": "Sprite shape used by animation 3. After 21 rows of three bytes, the flag byte $B4 specifies multicolour and VIC colour index 11."
+  },
+  {
+   "address": 25664,
+   "type": "line",
+   "text": "Sprite shape used by animation 3. After 21 rows of three bytes, the flag byte $B4 specifies multicolour and VIC colour index 11."
+  },
+  {
+   "address": 25728,
+   "type": "line",
+   "text": "Sprite shape used by animation 3. After 21 rows of three bytes, the flag byte $B4 specifies multicolour and VIC colour index 11."
+  },
+  {
+   "address": 25792,
+   "type": "line",
+   "text": "Sprite shape used by animation 3. After 21 rows of three bytes, the flag byte $B4 specifies multicolour and VIC colour index 11."
+  },
+  {
+   "address": 25856,
+   "type": "line",
+   "text": "Sprite shape used by animation 3. After 21 rows of three bytes, the flag byte $B4 specifies multicolour and VIC colour index 11."
+  },
+  {
+   "address": 25920,
+   "type": "line",
+   "text": "Sprite shape used by animation 3. After 21 rows of three bytes, the flag byte $B4 specifies multicolour and VIC colour index 11."
+  },
+  {
+   "address": 25984,
+   "type": "line",
+   "text": "Sprite shape used by animation 3. After 21 rows of three bytes, the flag byte $B4 specifies multicolour and VIC colour index 11."
+  },
+  {
+   "address": 26048,
+   "type": "line",
+   "text": "Sprite shape used by animation 3. After 21 rows of three bytes, the flag byte $B4 specifies multicolour and VIC colour index 11."
+  },
+  {
+   "address": 26112,
+   "type": "line",
+   "text": "Sprite shape used by animation 3. After 21 rows of three bytes, the flag byte $B4 specifies multicolour and VIC colour index 11."
+  },
+  {
+   "address": 26176,
+   "type": "line",
+   "text": "Sprite shape used by animation 3. After 21 rows of three bytes, the flag byte $B4 specifies multicolour and VIC colour index 11."
+  },
+  {
+   "address": 26240,
+   "type": "line",
+   "text": "Sprite shape used by animation 3. After 21 rows of three bytes, the flag byte $B4 specifies multicolour and VIC colour index 11."
+  },
+  {
+   "address": 26304,
+   "type": "line",
+   "text": "Sprite shape used by animation 3. After 21 rows of three bytes, the flag byte $B4 specifies multicolour and VIC colour index 11."
+  },
+  {
+   "address": 26368,
+   "type": "line",
+   "text": "Sprite shape used by animation 3. After 21 rows of three bytes, the flag byte $B4 specifies multicolour and VIC colour index 11."
+  },
+  {
+   "address": 26432,
+   "type": "line",
+   "text": "Sprite shape used by animation 3. After 21 rows of three bytes, the flag byte $B4 specifies multicolour and VIC colour index 11."
+  },
+  {
+   "address": 26496,
+   "type": "line",
+   "text": "Sprite shape used by animation 3. After 21 rows of three bytes, the flag byte $B4 specifies multicolour and VIC colour index 11."
+  },
+  {
+   "address": 26560,
+   "type": "line",
+   "text": "Sprite shape used by animation 3. After 21 rows of three bytes, the flag byte $B4 specifies multicolour and VIC colour index 11."
+  },
+  {
+   "address": 26624,
+   "type": "line",
+   "text": "Sprite shape used by animation 3. After 21 rows of three bytes, the flag byte $B4 specifies multicolour and VIC colour index 11."
+  },
+  {
+   "address": 26688,
+   "type": "line",
+   "text": "Sprite shape used by animation 3. After 21 rows of three bytes, the flag byte $B4 specifies multicolour and VIC colour index 11."
+  },
+  {
+   "address": 26752,
+   "type": "line",
+   "text": "Sprite shape used by animation 3. After 21 rows of three bytes, the flag byte $B4 specifies multicolour and VIC colour index 11."
+  },
+  {
+   "address": 26816,
+   "type": "line",
+   "text": "Sprite shape used by animation 3. After 21 rows of three bytes, the flag byte $B4 specifies multicolour and VIC colour index 11."
+  },
+  {
+   "address": 26880,
+   "type": "line",
+   "text": "Sprite shape used by animation 3. After 21 rows of three bytes, the flag byte $B4 specifies multicolour and VIC colour index 11."
+  },
+  {
+   "address": 26944,
+   "type": "line",
+   "text": "Sprite shape used by animation 3. After 21 rows of three bytes, the flag byte $B4 specifies multicolour and VIC colour index 11."
+  },
+  {
+   "address": 27008,
+   "type": "line",
+   "text": "Sprite shape used by animation 3. After 21 rows of three bytes, the flag byte $B4 specifies multicolour and VIC colour index 11."
+  },
+  {
+   "address": 27072,
+   "type": "line",
+   "text": "Sprite shape used by animation 3. After 21 rows of three bytes, the flag byte $B4 specifies multicolour and VIC colour index 11."
+  },
+  {
+   "address": 27136,
+   "type": "line",
+   "text": "Sprite shape used by animation 3. After 21 rows of three bytes, the flag byte $B4 specifies multicolour and VIC colour index 11."
+  },
+  {
+   "address": 27200,
+   "type": "line",
+   "text": "Sprite shape used by animation 3. After 21 rows of three bytes, the flag byte $B4 specifies multicolour and VIC colour index 11."
+  },
+  {
+   "address": 27264,
+   "type": "line",
+   "text": "Sprite shape used by animation 3. After 21 rows of three bytes, the flag byte $B4 specifies multicolour and VIC colour index 11."
+  },
+  {
+   "address": 27328,
+   "type": "line",
+   "text": "Sprite shape used by animation 3. After 21 rows of three bytes, the flag byte $B4 specifies multicolour and VIC colour index 11."
+  },
+  {
+   "address": 27392,
+   "type": "line",
+   "text": "Sprite shape used by animation 3. After 21 rows of three bytes, the flag byte $B4 specifies multicolour and VIC colour index 11."
+  },
+  {
+   "address": 27456,
+   "type": "line",
+   "text": "Sprite shape used by animation 3. After 21 rows of three bytes, the flag byte $B4 specifies multicolour and VIC colour index 11."
+  },
+  {
+   "address": 27520,
+   "type": "line",
+   "text": "Sprite shape used by animation 3. After 21 rows of three bytes, the flag byte $B4 specifies multicolour and VIC colour index 11."
+  },
+  {
+   "address": 27584,
+   "type": "line",
+   "text": "Sprite shape used by animation 3. After 21 rows of three bytes, the flag byte $B4 specifies multicolour and VIC colour index 11."
+  },
+  {
+   "address": 27648,
+   "type": "line",
+   "text": "Sprite shape used by animation 1. After 21 rows of three bytes, the flag byte $C0 specifies single colour and VIC colour index 12."
+  },
+  {
+   "address": 27712,
+   "type": "line",
+   "text": "Sprite shape used by animation 1. After 21 rows of three bytes, the flag byte $F0 specifies single colour and VIC colour index 15."
+  },
+  {
+   "address": 27776,
+   "type": "line",
+   "text": "Sprite shape used by animation 1. After 21 rows of three bytes, the flag byte $10 specifies single colour and VIC colour index 1."
+  },
+  {
+   "address": 27840,
+   "type": "line",
+   "text": "First 25 bytes of the military stockpile picture package. After the source is copied to $0812, the relocated unpacker is set up by these instructions."
+  },
+  {
+   "address": 27865,
+   "type": "line",
+   "text": "Packed military stockpile data at package offsets $0019\u2013$0418. The picture unpacker reads these bytes while populating the colour, screen-attribute and bitmap planes."
+  },
+  {
+   "address": 28889,
+   "type": "line",
+   "text": "Packed military stockpile data at package offsets $0419\u2013$0818. The picture unpacker reads these bytes while populating the colour, screen-attribute and bitmap planes."
+  },
+  {
+   "address": 29913,
+   "type": "line",
+   "text": "Packed military stockpile data at package offsets $0819\u2013$0C18. The picture unpacker reads these bytes while populating the colour, screen-attribute and bitmap planes."
+  },
+  {
+   "address": 30937,
+   "type": "line",
+   "text": "Packed military stockpile data at package offsets $0C19\u2013$1018. The picture unpacker reads these bytes while populating the colour, screen-attribute and bitmap planes."
+  },
+  {
+   "address": 31961,
+   "type": "line",
+   "text": "Packed military stockpile data at package offsets $1019\u2013$1188. The picture unpacker reads these bytes while populating the colour, screen-attribute and bitmap planes."
+  },
+  {
+   "address": 32330,
+   "type": "line",
+   "text": "First 25 bytes of the escaping missile convoy picture package. After the source is copied to $0812, the relocated unpacker is set up by these instructions."
+  },
+  {
+   "address": 32355,
+   "type": "line",
+   "text": "Packed escaping missile convoy data at package offsets $0019\u2013$01B5. The picture unpacker reads these bytes while populating the colour, screen-attribute and bitmap planes."
+  },
+  {
+   "address": 32768,
+   "type": "line",
+   "text": "Packed escaping missile convoy data at package offsets $01B6\u2013$0418. The picture unpacker reads these bytes while populating the colour, screen-attribute and bitmap planes."
+  },
+  {
+   "address": 33379,
+   "type": "line",
+   "text": "Packed escaping missile convoy data at package offsets $0419\u2013$0818. The picture unpacker reads these bytes while populating the colour, screen-attribute and bitmap planes."
+  },
+  {
+   "address": 34403,
+   "type": "line",
+   "text": "Packed escaping missile convoy data at package offsets $0819\u2013$0C18. The picture unpacker reads these bytes while populating the colour, screen-attribute and bitmap planes."
+  },
+  {
+   "address": 35427,
+   "type": "line",
+   "text": "Packed escaping missile convoy data at package offsets $0C19\u2013$0F90. The picture unpacker reads these bytes while populating the colour, screen-attribute and bitmap planes."
+  },
+  {
+   "address": 36316,
+   "type": "line",
+   "text": "First 25 bytes of the interception alert picture package. After the source is copied to $0812, the relocated unpacker is set up by these instructions."
+  },
+  {
+   "address": 36341,
+   "type": "line",
+   "text": "Packed interception alert data at package offsets $0019\u2013$0418. The picture unpacker reads these bytes while populating the colour, screen-attribute and bitmap planes."
+  },
+  {
+   "address": 37365,
+   "type": "line",
+   "text": "Packed interception alert data at package offsets $0419\u2013$0818. The picture unpacker reads these bytes while populating the colour, screen-attribute and bitmap planes."
+  },
+  {
+   "address": 38389,
+   "type": "line",
+   "text": "Packed interception alert data at package offsets $0819\u2013$0C18. The picture unpacker reads these bytes while populating the colour, screen-attribute and bitmap planes."
+  },
+  {
+   "address": 39413,
+   "type": "line",
+   "text": "Packed interception alert data at package offsets $0C19\u2013$1018. The picture unpacker reads these bytes while populating the colour, screen-attribute and bitmap planes."
+  },
+  {
+   "address": 40437,
+   "type": "line",
+   "text": "Packed interception alert data at package offsets $1019\u2013$11CF. The picture unpacker reads these bytes while populating the colour, screen-attribute and bitmap planes."
+  },
+  {
+   "address": 40877,
+   "type": "line",
+   "text": "Sprite placement data for animation 4, byte offset $0000 in its frame table. Each 24-byte record contains eight Y coordinates, eight X coordinates and eight shape indices. Y=$FF skips that slot."
+  },
+  {
+   "address": 40960,
+   "type": "line",
+   "text": "Sprite placement data for animation 4, byte offset $0053 in its frame table. Each 24-byte record contains eight Y coordinates, eight X coordinates and eight shape indices. Y=$FF skips that slot."
+  },
+  {
+   "address": 41984,
+   "type": "line",
+   "text": "Sprite placement data for animation 4, byte offset $0453 in its frame table. Each 24-byte record contains eight Y coordinates, eight X coordinates and eight shape indices. Y=$FF skips that slot."
+  },
+  {
+   "address": 48729,
+   "type": "line",
+   "text": "Saves the live registers, banks in the I/O chips, acknowledges the VIC raster condition and calls the inherited music tick at $B003."
+  },
+  {
+   "address": 48790,
+   "type": "line",
+   "text": "Sprite placement data for animation 1, byte offset $0000 in its frame table. Each 24-byte record contains eight Y coordinates, eight X coordinates and eight shape indices. Y=$FF skips that slot."
+  },
+  {
+   "address": 49152,
+   "type": "line",
+   "text": "Sprite placement data for animation 1, byte offset $016A in its frame table. Each 24-byte record contains eight Y coordinates, eight X coordinates and eight shape indices. Y=$FF skips that slot."
+  },
+  {
+   "address": 50176,
+   "type": "line",
+   "text": "Sprite placement data for animation 1, byte offset $056A in its frame table. Each 24-byte record contains eight Y coordinates, eight X coordinates and eight shape indices. Y=$FF skips that slot."
+  },
+  {
+   "address": 50398,
+   "type": "line",
+   "text": "Sprite placement data for animation 2, byte offset $0000 in its frame table. Each 24-byte record contains eight Y coordinates, eight X coordinates and eight shape indices. Y=$FF skips that slot."
+  },
+  {
+   "address": 51422,
+   "type": "line",
+   "text": "Sprite placement data for animation 2, byte offset $0400 in its frame table. Each 24-byte record contains eight Y coordinates, eight X coordinates and eight shape indices. Y=$FF skips that slot."
+  },
+  {
+   "address": 51838,
+   "type": "line",
+   "text": "Sprite placement data for animation 3, byte offset $0000 in its frame table. Each 24-byte record contains eight Y coordinates, eight X coordinates and eight shape indices. Y=$FF skips that slot."
+  },
+  {
+   "address": 52862,
+   "type": "line",
+   "text": "Sprite placement data for animation 3, byte offset $0400 in its frame table. Each 24-byte record contains eight Y coordinates, eight X coordinates and eight shape indices. Y=$FF skips that slot."
+  },
+  {
+   "address": 54272,
+   "type": "line",
+   "text": "Sprite shape used by animation 2. After 21 rows of three bytes, the flag byte $F4 specifies multicolour and VIC colour index 15."
+  },
+  {
+   "address": 54336,
+   "type": "line",
+   "text": "Sprite shape used by animation 2. After 21 rows of three bytes, the flag byte $F4 specifies multicolour and VIC colour index 15."
+  },
+  {
+   "address": 54400,
+   "type": "line",
+   "text": "Sprite shape used by animation 2. After 21 rows of three bytes, the flag byte $F4 specifies multicolour and VIC colour index 15."
+  },
+  {
+   "address": 54464,
+   "type": "line",
+   "text": "Sprite shape used by animation 2. After 21 rows of three bytes, the flag byte $F4 specifies multicolour and VIC colour index 15."
+  },
+  {
+   "address": 54528,
+   "type": "line",
+   "text": "Sprite shape used by animation 2. After 21 rows of three bytes, the flag byte $F4 specifies multicolour and VIC colour index 15."
+  },
+  {
+   "address": 54592,
+   "type": "line",
+   "text": "Sprite shape used by animation 2. After 21 rows of three bytes, the flag byte $F4 specifies multicolour and VIC colour index 15."
+  },
+  {
+   "address": 54656,
+   "type": "line",
+   "text": "Sprite shape used by animation 2. After 21 rows of three bytes, the flag byte $F4 specifies multicolour and VIC colour index 15."
+  },
+  {
+   "address": 54720,
+   "type": "line",
+   "text": "Sprite shape used by animation 2. After 21 rows of three bytes, the flag byte $F4 specifies multicolour and VIC colour index 15."
+  },
+  {
+   "address": 54784,
+   "type": "line",
+   "text": "Sprite shape used by animation 2. After 21 rows of three bytes, the flag byte $F4 specifies multicolour and VIC colour index 15."
+  },
+  {
+   "address": 54848,
+   "type": "line",
+   "text": "Sprite shape used by animation 2. After 21 rows of three bytes, the flag byte $04 specifies multicolour and VIC colour index 0."
+  },
+  {
+   "address": 54912,
+   "type": "line",
+   "text": "Sprite shape used by animation 2. After 21 rows of three bytes, the flag byte $04 specifies multicolour and VIC colour index 0."
+  },
+  {
+   "address": 54976,
+   "type": "line",
+   "text": "Sprite shape used by animation 2. After 21 rows of three bytes, the flag byte $04 specifies multicolour and VIC colour index 0."
+  },
+  {
+   "address": 55040,
+   "type": "line",
+   "text": "Sprite shape used by animation 2. After 21 rows of three bytes, the flag byte $04 specifies multicolour and VIC colour index 0."
+  },
+  {
+   "address": 55104,
+   "type": "line",
+   "text": "Sprite shape used by animation 2. After 21 rows of three bytes, the flag byte $04 specifies multicolour and VIC colour index 0."
+  },
+  {
+   "address": 55168,
+   "type": "line",
+   "text": "Sprite shape used by animation 2. After 21 rows of three bytes, the flag byte $04 specifies multicolour and VIC colour index 0."
+  },
+  {
+   "address": 55232,
+   "type": "line",
+   "text": "Sprite shape used by animation 2. After 21 rows of three bytes, the flag byte $F4 specifies multicolour and VIC colour index 15."
+  },
+  {
+   "address": 55296,
+   "type": "line",
+   "text": "Sprite shape used by animation 2. After 21 rows of three bytes, the flag byte $F4 specifies multicolour and VIC colour index 15."
+  },
+  {
+   "address": 55360,
+   "type": "line",
+   "text": "Sprite shape used by animation 2. After 21 rows of three bytes, the flag byte $F4 specifies multicolour and VIC colour index 15."
+  },
+  {
+   "address": 55424,
+   "type": "line",
+   "text": "Sprite shape used by animation 2. After 21 rows of three bytes, the flag byte $F4 specifies multicolour and VIC colour index 15."
+  },
+  {
+   "address": 55488,
+   "type": "line",
+   "text": "Sprite shape used by animation 2. After 21 rows of three bytes, the flag byte $F4 specifies multicolour and VIC colour index 15."
+  },
+  {
+   "address": 55552,
+   "type": "line",
+   "text": "Sprite shape used by animation 2. After 21 rows of three bytes, the flag byte $F4 specifies multicolour and VIC colour index 15."
+  },
+  {
+   "address": 55616,
+   "type": "line",
+   "text": "Sprite shape used by animation 2. After 21 rows of three bytes, the flag byte $F4 specifies multicolour and VIC colour index 15."
+  },
+  {
+   "address": 55680,
+   "type": "line",
+   "text": "Sprite shape used by animation 2. After 21 rows of three bytes, the flag byte $F4 specifies multicolour and VIC colour index 15."
+  },
+  {
+   "address": 55744,
+   "type": "line",
+   "text": "Sprite shape used by animation 2. After 21 rows of three bytes, the flag byte $F4 specifies multicolour and VIC colour index 15."
+  },
+  {
+   "address": 55808,
+   "type": "line",
+   "text": "Sprite shape used by animation 4. After 21 rows of three bytes, the flag byte $F4 specifies multicolour and VIC colour index 15."
+  },
+  {
+   "address": 55872,
+   "type": "line",
+   "text": "Sprite shape used by animation 4. After 21 rows of three bytes, the flag byte $F4 specifies multicolour and VIC colour index 15."
+  },
+  {
+   "address": 55936,
+   "type": "line",
+   "text": "Sprite shape used by animation 4. After 21 rows of three bytes, the flag byte $F4 specifies multicolour and VIC colour index 15."
+  },
+  {
+   "address": 56000,
+   "type": "line",
+   "text": "Sprite shape used by animation 4. After 21 rows of three bytes, the flag byte $F4 specifies multicolour and VIC colour index 15."
+  },
+  {
+   "address": 56064,
+   "type": "line",
+   "text": "Sprite shape used by animation 4. After 21 rows of three bytes, the flag byte $F4 specifies multicolour and VIC colour index 15."
+  },
+  {
+   "address": 56128,
+   "type": "line",
+   "text": "Sprite shape used by animation 4. After 21 rows of three bytes, the flag byte $B4 specifies multicolour and VIC colour index 11."
+  },
+  {
+   "address": 56192,
+   "type": "line",
+   "text": "Sprite shape used by animation 4. After 21 rows of three bytes, the flag byte $F4 specifies multicolour and VIC colour index 15."
+  },
+  {
+   "address": 56256,
+   "type": "line",
+   "text": "Sprite shape used by animation 2, 4. After 21 rows of three bytes, the flag byte $F4 specifies multicolour and VIC colour index 15."
+  }
+ ]
+}

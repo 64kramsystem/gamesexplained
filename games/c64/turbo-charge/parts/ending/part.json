@@ -1,0 +1,44 @@
+{
+  "title": "Ending sequence",
+  "order": 22,
+  "over": "round-01",
+  "ranges": [
+    [
+      "$0812",
+      "$BBF3"
+    ]
+  ],
+  "video": {
+    "screen": "",
+    "charset": ""
+  },
+  "coverage": {
+    "exclude": [
+      [
+        "$17C9",
+        "$2F3F",
+        "Output bitmap storage below $3000. The initial newspaper source ends at $17C8 and the $0813 unpacker overwrites this zero-filled tail."
+      ],
+      [
+        "$429A",
+        "$5FFF",
+        "Zero-filled output area above the packed switch-panel picture. The $3113 low-bank bitmap copy overwrites it."
+      ],
+      [
+        "$6000",
+        "$63FF",
+        "Zero-filled screen-attribute workspace for the low bitmap bank. $3104 overwrites it from $0C00."
+      ]
+    ],
+    "extra": [
+      [
+        2066,
+        48115,
+        "Payload written by the ending load before entry at $3000"
+      ]
+    ],
+    "include": []
+  },
+  "io": [],
+  "regions": []
+}

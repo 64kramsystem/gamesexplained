@@ -1,0 +1,1978 @@
+{
+ "schema": 1,
+ "platform": "c64",
+ "game": "turbo-charge",
+ "part": "round-10",
+ "build": "Nostalgia release 277, PAL disk build",
+ "source": "regenerator2000 live",
+ "regions": {
+  "exclude": [
+   [
+    256,
+    511,
+    "stack"
+   ],
+   [
+    53248,
+    57343,
+    "I/O and colour RAM"
+   ],
+   [
+    0,
+    2048,
+    "Round 1 and shared driving engine"
+   ],
+   [
+    26880,
+    45055,
+    "Round 1 and shared driving engine"
+   ],
+   [
+    45056,
+    47023,
+    "Round 9"
+   ],
+   [
+    47025,
+    49151,
+    "Round 9"
+   ],
+   [
+    52480,
+    57855,
+    "Round 1 and shared driving engine"
+   ],
+   [
+    60416,
+    63943,
+    "Round 1 and shared driving engine"
+   ],
+   [
+    65529,
+    65535,
+    "Round 1 and shared driving engine"
+   ]
+  ],
+  "extra": [
+   [
+    2049,
+    26879,
+    "Driving-stage payload written by the backwards depacker"
+   ],
+   [
+    49152,
+    52479,
+    "Stage-specific VIC sprite shapes"
+   ],
+   [
+    57856,
+    60415,
+    "Stage-specific VIC asset range"
+   ],
+   [
+    63944,
+    65528,
+    "Stage-specific tail of the $F800 road character set"
+   ],
+   [
+    47024,
+    47024,
+    "One-byte patch to the preceding odd round\u2019s music image"
+   ]
+  ],
+  "edges": [
+   0,
+   256,
+   512,
+   1024,
+   2048,
+   4096,
+   16384,
+   32768,
+   40960,
+   49152,
+   53248,
+   57344
+  ],
+  "elsewhere": [
+   [
+    0,
+    2048,
+    "Round 1 and shared driving engine"
+   ],
+   [
+    26880,
+    45055,
+    "Round 1 and shared driving engine"
+   ],
+   [
+    45056,
+    47023,
+    "Round 9"
+   ],
+   [
+    47025,
+    49151,
+    "Round 9"
+   ],
+   [
+    52480,
+    57855,
+    "Round 1 and shared driving engine"
+   ],
+   [
+    60416,
+    63943,
+    "Round 1 and shared driving engine"
+   ],
+   [
+    65529,
+    65535,
+    "Round 1 and shared driving engine"
+   ]
+  ]
+ },
+ "blocks": [
+  {
+   "start": 2049,
+   "end": 2302,
+   "type": "Code"
+  },
+  {
+   "start": 2303,
+   "end": 4252,
+   "type": "Undefined"
+  },
+  {
+   "start": 4253,
+   "end": 5265,
+   "type": "Code"
+  },
+  {
+   "start": 5266,
+   "end": 5750,
+   "type": "Undefined"
+  },
+  {
+   "start": 5751,
+   "end": 5916,
+   "type": "Address"
+  },
+  {
+   "start": 5917,
+   "end": 5953,
+   "type": "Undefined"
+  },
+  {
+   "start": 5954,
+   "end": 5985,
+   "type": "Address"
+  },
+  {
+   "start": 5986,
+   "end": 10942,
+   "type": "Byte"
+  },
+  {
+   "start": 10943,
+   "end": 10964,
+   "type": "Undefined"
+  },
+  {
+   "start": 10965,
+   "end": 11015,
+   "type": "Code"
+  },
+  {
+   "start": 11016,
+   "end": 11354,
+   "type": "Undefined"
+  },
+  {
+   "start": 11355,
+   "end": 11504,
+   "type": "Code"
+  },
+  {
+   "start": 11505,
+   "end": 11510,
+   "type": "Address"
+  },
+  {
+   "start": 11511,
+   "end": 13574,
+   "type": "Byte"
+  },
+  {
+   "start": 13575,
+   "end": 13654,
+   "type": "Undefined"
+  },
+  {
+   "start": 13655,
+   "end": 13910,
+   "type": "Byte"
+  },
+  {
+   "start": 13911,
+   "end": 15103,
+   "type": "Undefined"
+  },
+  {
+   "start": 15104,
+   "end": 26879,
+   "type": "Byte"
+  },
+  {
+   "start": 47024,
+   "end": 47024,
+   "type": "Byte"
+  },
+  {
+   "start": 49152,
+   "end": 52479,
+   "type": "Byte"
+  },
+  {
+   "start": 57856,
+   "end": 60415,
+   "type": "Byte"
+  },
+  {
+   "start": 63944,
+   "end": 65528,
+   "type": "Byte"
+  }
+ ],
+ "symbols": [
+  {
+   "address": 2049,
+   "name": "init_round_10",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 2106,
+   "name": "b_083A",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 2117,
+   "name": "b_0845",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 2160,
+   "name": "b_0870",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 2214,
+   "name": "b_08A6",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 2216,
+   "name": "b_08A8",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 2279,
+   "name": "b_08E7",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 2293,
+   "name": "r_08F5",
+   "type": "Return",
+   "kind": "auto"
+  },
+  {
+   "address": 2294,
+   "name": "b_08F6",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 2302,
+   "name": "r_08FE",
+   "type": "Return",
+   "kind": "auto"
+  },
+  {
+   "address": 2303,
+   "name": "f_08FF",
+   "type": "Field",
+   "kind": "auto"
+  },
+  {
+   "address": 2317,
+   "name": "f_090D",
+   "type": "Field",
+   "kind": "auto"
+  },
+  {
+   "address": 2385,
+   "name": "f_0951",
+   "type": "Field",
+   "kind": "auto"
+  },
+  {
+   "address": 2453,
+   "name": "f_0995",
+   "type": "Field",
+   "kind": "auto"
+  },
+  {
+   "address": 2454,
+   "name": "f_0996",
+   "type": "Field",
+   "kind": "auto"
+  },
+  {
+   "address": 2493,
+   "name": "f_09BD",
+   "type": "Field",
+   "kind": "auto"
+  },
+  {
+   "address": 2494,
+   "name": "f_09BE",
+   "type": "Field",
+   "kind": "auto"
+  },
+  {
+   "address": 2533,
+   "name": "f_09E5",
+   "type": "Field",
+   "kind": "auto"
+  },
+  {
+   "address": 2553,
+   "name": "f_09F9",
+   "type": "Field",
+   "kind": "auto"
+  },
+  {
+   "address": 2574,
+   "name": "f_0A0E",
+   "type": "Field",
+   "kind": "auto"
+  },
+  {
+   "address": 4253,
+   "name": "s_109D",
+   "type": "Subroutine",
+   "kind": "auto"
+  },
+  {
+   "address": 4297,
+   "name": "r_10C9",
+   "type": "Return",
+   "kind": "auto"
+  },
+  {
+   "address": 4298,
+   "name": "b_10CA",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 4306,
+   "name": "b_10D2",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 4332,
+   "name": "s_10EC",
+   "type": "Subroutine",
+   "kind": "auto"
+  },
+  {
+   "address": 4343,
+   "name": "b_10F7",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 4375,
+   "name": "b_1117",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 4405,
+   "name": "b_1135",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 4424,
+   "name": "b_1148",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 4427,
+   "name": "b_114B",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 4464,
+   "name": "b_1170",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 4467,
+   "name": "b_1173",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 4469,
+   "name": "b_1175",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 4520,
+   "name": "b_11A8",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 4523,
+   "name": "b_11AB",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 4553,
+   "name": "b_11C9",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 4556,
+   "name": "b_11CC",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 4561,
+   "name": "b_11D1",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 4565,
+   "name": "b_11D5",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 4606,
+   "name": "b_11FE",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 4620,
+   "name": "b_120C",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 4652,
+   "name": "j_122C",
+   "type": "Jump",
+   "kind": "auto"
+  },
+  {
+   "address": 4664,
+   "name": "b_1238",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 4678,
+   "name": "r_1246",
+   "type": "Return",
+   "kind": "auto"
+  },
+  {
+   "address": 4679,
+   "name": "s_1247",
+   "type": "Subroutine",
+   "kind": "auto"
+  },
+  {
+   "address": 4702,
+   "name": "b_125E",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 4718,
+   "name": "b_126E",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 4723,
+   "name": "r_1273",
+   "type": "Return",
+   "kind": "auto"
+  },
+  {
+   "address": 4724,
+   "name": "s_1274",
+   "type": "Subroutine",
+   "kind": "auto"
+  },
+  {
+   "address": 4742,
+   "name": "b_1286",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 4770,
+   "name": "b_12A2",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 4776,
+   "name": "b_12A8",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 4793,
+   "name": "b_12B9",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 4798,
+   "name": "b_12BE",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 4829,
+   "name": "b_12DD",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 4837,
+   "name": "b_12E5",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 4851,
+   "name": "b_12F3",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 4872,
+   "name": "b_1308",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 4912,
+   "name": "b_1330",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 4945,
+   "name": "b_1351",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 4958,
+   "name": "b_135E",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 4998,
+   "name": "b_1386",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 5025,
+   "name": "j_13A1",
+   "type": "Jump",
+   "kind": "auto"
+  },
+  {
+   "address": 5033,
+   "name": "r_13A9",
+   "type": "Return",
+   "kind": "auto"
+  },
+  {
+   "address": 5034,
+   "name": "b_13AA",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 5041,
+   "name": "b_13B1",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 5085,
+   "name": "b_13DD",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 5088,
+   "name": "b_13E0",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 5090,
+   "name": "b_13E2",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 5106,
+   "name": "j_13F2",
+   "type": "Jump",
+   "kind": "auto"
+  },
+  {
+   "address": 5156,
+   "name": "b_1424",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 5206,
+   "name": "b_1456",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 5242,
+   "name": "b_147A",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 5247,
+   "name": "b_147F",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 5265,
+   "name": "r_1491",
+   "type": "Return",
+   "kind": "auto"
+  },
+  {
+   "address": 5751,
+   "name": "round_10_script_dispatch",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 5797,
+   "name": "a_16A5",
+   "type": "AbsoluteAddress",
+   "kind": "auto"
+  },
+  {
+   "address": 5899,
+   "name": "a_170B",
+   "type": "AbsoluteAddress",
+   "kind": "auto"
+  },
+  {
+   "address": 5917,
+   "name": "a_171D",
+   "type": "AbsoluteAddress",
+   "kind": "auto"
+  },
+  {
+   "address": 5924,
+   "name": "a_1724",
+   "type": "AbsoluteAddress",
+   "kind": "auto"
+  },
+  {
+   "address": 5937,
+   "name": "a_1731",
+   "type": "AbsoluteAddress",
+   "kind": "auto"
+  },
+  {
+   "address": 5941,
+   "name": "a_1735",
+   "type": "AbsoluteAddress",
+   "kind": "auto"
+  },
+  {
+   "address": 5954,
+   "name": "round_10_scenery_table",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 5986,
+   "name": "scenery_12_depth_descriptors",
+   "type": "AbsoluteAddress",
+   "kind": "user"
+  },
+  {
+   "address": 6050,
+   "name": "scenery_screen_cells_17a2",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 6374,
+   "name": "scenery_screen_cells_18e6",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 6630,
+   "name": "scenery_screen_cells_19e6",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 6826,
+   "name": "scenery_screen_cells_1aaa",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 6970,
+   "name": "scenery_screen_cells_1b3a",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 7070,
+   "name": "scenery_screen_cells_1b9e",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 7134,
+   "name": "scenery_screen_cells_1bde",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 7170,
+   "name": "scenery_screen_cells_1c02",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 7186,
+   "name": "scenery_screen_cells_1c12",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 7190,
+   "name": "scenery_09_depth_descriptors",
+   "type": "AbsoluteAddress",
+   "kind": "user"
+  },
+  {
+   "address": 7254,
+   "name": "scenery_screen_cells_1c56",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 7335,
+   "name": "scenery_screen_cells_1ca7",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 7399,
+   "name": "scenery_screen_cells_1ce7",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 7448,
+   "name": "scenery_screen_cells_1d18",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 7484,
+   "name": "scenery_screen_cells_1d3c",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 7509,
+   "name": "scenery_screen_cells_1d55",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 7525,
+   "name": "scenery_screen_cells_1d65",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 7534,
+   "name": "scenery_screen_cells_1d6e",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 7538,
+   "name": "scenery_screen_cells_1d72",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 7539,
+   "name": "scenery_10_depth_descriptors",
+   "type": "AbsoluteAddress",
+   "kind": "user"
+  },
+  {
+   "address": 7603,
+   "name": "scenery_screen_cells_1db3",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 7679,
+   "name": "scenery_screen_cells_1dff",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 7724,
+   "name": "scenery_screen_cells_1e2c",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 7744,
+   "name": "scenery_screen_cells_1e40",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 7749,
+   "name": "scenery_11_depth_descriptors",
+   "type": "AbsoluteAddress",
+   "kind": "user"
+  },
+  {
+   "address": 7813,
+   "name": "scenery_screen_cells_1e85",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 7849,
+   "name": "scenery_screen_cells_1ea9",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 7913,
+   "name": "scenery_screen_cells_1ee9",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 7997,
+   "name": "scenery_screen_cells_1f3d",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 8069,
+   "name": "scenery_screen_cells_1f85",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 8109,
+   "name": "scenery_screen_cells_1fad",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 8141,
+   "name": "scenery_screen_cells_1fcd",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 8169,
+   "name": "scenery_screen_cells_1fe9",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 8181,
+   "name": "scenery_screen_cells_1ff5",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 8191,
+   "name": "scenery_screen_cells_1fff",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 8199,
+   "name": "scenery_screen_cells_2007",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 8205,
+   "name": "scenery_13_depth_descriptors",
+   "type": "AbsoluteAddress",
+   "kind": "user"
+  },
+  {
+   "address": 8269,
+   "name": "scenery_screen_cells_204d",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 8440,
+   "name": "scenery_screen_cells_20f8",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 8576,
+   "name": "scenery_screen_cells_2180",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 8681,
+   "name": "scenery_screen_cells_21e9",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 8759,
+   "name": "scenery_screen_cells_2237",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 8814,
+   "name": "scenery_screen_cells_226e",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 8850,
+   "name": "scenery_screen_cells_2292",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 8871,
+   "name": "scenery_screen_cells_22a7",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 8881,
+   "name": "scenery_screen_cells_22b1",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 8883,
+   "name": "scenery_14_depth_descriptors",
+   "type": "AbsoluteAddress",
+   "kind": "user"
+  },
+  {
+   "address": 8947,
+   "name": "scenery_screen_cells_22f3",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 9271,
+   "name": "scenery_screen_cells_2437",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 9527,
+   "name": "scenery_screen_cells_2537",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 9723,
+   "name": "scenery_screen_cells_25fb",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 9867,
+   "name": "scenery_screen_cells_268b",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 9957,
+   "name": "scenery_screen_cells_26e5",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 10013,
+   "name": "scenery_screen_cells_271d",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 10049,
+   "name": "scenery_screen_cells_2741",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 10065,
+   "name": "scenery_screen_cells_2751",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 10069,
+   "name": "scenery_15_depth_descriptors",
+   "type": "AbsoluteAddress",
+   "kind": "user"
+  },
+  {
+   "address": 10133,
+   "name": "scenery_screen_cells_2795",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 10385,
+   "name": "scenery_screen_cells_2891",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 10577,
+   "name": "scenery_screen_cells_2951",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 10703,
+   "name": "scenery_screen_cells_29cf",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 10799,
+   "name": "scenery_screen_cells_2a2f",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 10869,
+   "name": "scenery_screen_cells_2a75",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 10909,
+   "name": "scenery_screen_cells_2a9d",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 10933,
+   "name": "scenery_screen_cells_2ab5",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 10941,
+   "name": "scenery_screen_cells_2abd",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 10944,
+   "name": "a_2AC0",
+   "type": "AbsoluteAddress",
+   "kind": "auto"
+  },
+  {
+   "address": 10965,
+   "name": "s_2AD5",
+   "type": "Subroutine",
+   "kind": "auto"
+  },
+  {
+   "address": 10975,
+   "name": "b_2ADF",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 10996,
+   "name": "b_2AF4",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 11016,
+   "name": "a_2B08",
+   "type": "AbsoluteAddress",
+   "kind": "auto"
+  },
+  {
+   "address": 11035,
+   "name": "f_2B1B",
+   "type": "Field",
+   "kind": "auto"
+  },
+  {
+   "address": 11291,
+   "name": "f_2C1B",
+   "type": "Field",
+   "kind": "auto"
+  },
+  {
+   "address": 11355,
+   "name": "swap_road_surface",
+   "type": "AbsoluteAddress",
+   "kind": "user"
+  },
+  {
+   "address": 11468,
+   "name": "b_2CCC",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 11491,
+   "name": "b_2CE3",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 11505,
+   "name": "alternate_road_tables",
+   "type": "AbsoluteAddress",
+   "kind": "user"
+  },
+  {
+   "address": 11506,
+   "name": "a_2CF2",
+   "type": "AbsoluteAddress",
+   "kind": "auto"
+  },
+  {
+   "address": 11507,
+   "name": "a_2CF3",
+   "type": "AbsoluteAddress",
+   "kind": "auto"
+  },
+  {
+   "address": 11508,
+   "name": "a_2CF4",
+   "type": "AbsoluteAddress",
+   "kind": "auto"
+  },
+  {
+   "address": 11509,
+   "name": "a_2CF5",
+   "type": "AbsoluteAddress",
+   "kind": "auto"
+  },
+  {
+   "address": 11510,
+   "name": "a_2CF6",
+   "type": "AbsoluteAddress",
+   "kind": "auto"
+  },
+  {
+   "address": 11511,
+   "name": "alternate_road_glyph_bytes_0000",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 12535,
+   "name": "alternate_road_glyph_bytes_0400",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 13095,
+   "name": "upper_road_band_glyph_rows",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 13415,
+   "name": "lower_road_band_glyph_rows",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 13655,
+   "name": "road_glyph_colour_lookup",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 13911,
+   "name": "a_3657",
+   "type": "AbsoluteAddress",
+   "kind": "auto"
+  },
+  {
+   "address": 14231,
+   "name": "a_3797",
+   "type": "AbsoluteAddress",
+   "kind": "auto"
+  },
+  {
+   "address": 14471,
+   "name": "a_3887",
+   "type": "AbsoluteAddress",
+   "kind": "auto"
+  },
+  {
+   "address": 15104,
+   "name": "swap_1_sprite_slots_00_0f",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 15105,
+   "name": "a_3B01",
+   "type": "AbsoluteAddress",
+   "kind": "auto"
+  },
+  {
+   "address": 16128,
+   "name": "swap_1_sprite_slots_10_1f",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 16384,
+   "name": "sprite_swap_1_map_boundary",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 17152,
+   "name": "swap_1_sprite_slots_20_2f",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 18176,
+   "name": "swap_1_sprite_slots_30_33",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 18432,
+   "name": "swap_2_sprite_slots_00_0f",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 18433,
+   "name": "a_4801",
+   "type": "AbsoluteAddress",
+   "kind": "auto"
+  },
+  {
+   "address": 19456,
+   "name": "swap_2_sprite_slots_10_1f",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 20480,
+   "name": "swap_2_sprite_slots_20_2f",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 21504,
+   "name": "swap_2_sprite_slots_30_33",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 21760,
+   "name": "swap_3_sprite_slots_88_97",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 22784,
+   "name": "swap_3_sprite_slots_98_a7",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 23808,
+   "name": "swap_3_sprite_slots_a8_af",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 24320,
+   "name": "swap_4_sprite_slots_88_97",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 25344,
+   "name": "swap_4_sprite_slots_98_a7",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 26368,
+   "name": "swap_4_sprite_slots_a8_af",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 47024,
+   "name": "partner_tune_patch",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 49152,
+   "name": "stage_vehicle_sprite_slots_00_0f",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 49153,
+   "name": "active_sprite_signature",
+   "type": "AbsoluteAddress",
+   "kind": "user"
+  },
+  {
+   "address": 50176,
+   "name": "stage_vehicle_sprite_slots_10_1f",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 51200,
+   "name": "stage_vehicle_sprite_slots_20_2f",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 52224,
+   "name": "stage_vehicle_sprite_slots_30_33",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 57856,
+   "name": "stage_sprite_slots_88_97",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 58880,
+   "name": "stage_sprite_slots_98_a7",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 59904,
+   "name": "stage_sprite_slots_a8_af",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 63944,
+   "name": "round_10_road_glyph_tail",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 64512,
+   "name": "road_glyphs_80_ff",
+   "type": "UserDefined",
+   "kind": "user"
+  }
+ ],
+ "comments": [
+  {
+   "address": 2049,
+   "type": "line",
+   "text": "Installs the road table pointers $3327 and $3467, patches the colour source $3557 and sets the script and scenery table pointers to $1677 and $1742."
+  },
+  {
+   "address": 5751,
+   "type": "line",
+   "text": "The 83 little-endian dispatch and operand words for round 10. $7A1F jumps through the word indexed by twice $12. The opening $7A33 takes the next word, $1724, as the initial scenery stream pointer."
+  },
+  {
+   "address": 5954,
+   "type": "line",
+   "text": "Round 10 scenery descriptor pointer table with 16 entries. Indices 0\u20138 point into the engine. Indices 9\u201315 point into this stage. $8EBC reads a pointer after scaling the object type by two."
+  },
+  {
+   "address": 5986,
+   "type": "line",
+   "text": "Type 12 uses sixteen four-byte records selected by the low depth slot at $A742+X. Each record holds width, height, and a little-endian address of glyph cells. $8ECC reads these fields before the clipping pass."
+  },
+  {
+   "address": 6050,
+   "type": "line",
+   "text": "First cells for type 12, depth 0, 18 columns by 18 rows. $9100 reads the cells as glyph indices in row-major order. Glyph zero leaves the existing screen cell unchanged."
+  },
+  {
+   "address": 6374,
+   "type": "line",
+   "text": "First cells for type 12, depth 1, 16 columns by 16 rows. $9100 reads the cells as glyph indices in row-major order. Glyph zero leaves the existing screen cell unchanged."
+  },
+  {
+   "address": 6630,
+   "type": "line",
+   "text": "First cells for type 12, depth 2, 14 columns by 14 rows. $9100 reads the cells as glyph indices in row-major order. Glyph zero leaves the existing screen cell unchanged."
+  },
+  {
+   "address": 6826,
+   "type": "line",
+   "text": "First cells for type 12, depth 3, 12 columns by 12 rows. $9100 reads the cells as glyph indices in row-major order. Glyph zero leaves the existing screen cell unchanged."
+  },
+  {
+   "address": 6970,
+   "type": "line",
+   "text": "First cells for type 12, depth 4, 10 columns by 10 rows. $9100 reads the cells as glyph indices in row-major order. Glyph zero leaves the existing screen cell unchanged."
+  },
+  {
+   "address": 7070,
+   "type": "line",
+   "text": "First cells for type 12, depth 5, 8 columns by 8 rows; type 12, depth 6, 8 columns by 8 rows. $9100 reads the cells as glyph indices in row-major order. Glyph zero leaves the existing screen cell unchanged."
+  },
+  {
+   "address": 7134,
+   "type": "line",
+   "text": "First cells for type 12, depth 7, 6 columns by 6 rows; type 12, depth 8, 6 columns by 6 rows. $9100 reads the cells as glyph indices in row-major order. Glyph zero leaves the existing screen cell unchanged."
+  },
+  {
+   "address": 7170,
+   "type": "line",
+   "text": "First cells for type 12, depth 9, 4 columns by 4 rows; type 12, depth 10, 4 columns by 4 rows; type 12, depth 11, 4 columns by 4 rows; type 12, depth 12, 4 columns by 4 rows. $9100 reads the cells as glyph indices in row-major order. Glyph zero leaves the existing screen cell unchanged."
+  },
+  {
+   "address": 7186,
+   "type": "line",
+   "text": "First cells for type 12, depth 13, 2 columns by 2 rows; type 12, depth 14, 2 columns by 2 rows; type 12, depth 15, 2 columns by 2 rows. $9100 reads the cells as glyph indices in row-major order. Glyph zero leaves the existing screen cell unchanged."
+  },
+  {
+   "address": 7190,
+   "type": "line",
+   "text": "Type 9 uses sixteen four-byte records selected by the low depth slot at $A742+X. Each record holds width, height, and a little-endian address of glyph cells. $8ECC reads these fields before the clipping pass."
+  },
+  {
+   "address": 7254,
+   "type": "line",
+   "text": "First cells for type 9, depth 0, 9 columns by 9 rows. $9100 reads the cells as glyph indices in row-major order. Glyph zero leaves the existing screen cell unchanged."
+  },
+  {
+   "address": 7335,
+   "type": "line",
+   "text": "First cells for type 9, depth 1, 8 columns by 8 rows. $9100 reads the cells as glyph indices in row-major order. Glyph zero leaves the existing screen cell unchanged."
+  },
+  {
+   "address": 7399,
+   "type": "line",
+   "text": "First cells for type 9, depth 2, 7 columns by 7 rows. $9100 reads the cells as glyph indices in row-major order. Glyph zero leaves the existing screen cell unchanged."
+  },
+  {
+   "address": 7448,
+   "type": "line",
+   "text": "First cells for type 9, depth 3, 6 columns by 6 rows. $9100 reads the cells as glyph indices in row-major order. Glyph zero leaves the existing screen cell unchanged."
+  },
+  {
+   "address": 7484,
+   "type": "line",
+   "text": "First cells for type 9, depth 4, 5 columns by 5 rows. $9100 reads the cells as glyph indices in row-major order. Glyph zero leaves the existing screen cell unchanged."
+  },
+  {
+   "address": 7509,
+   "type": "line",
+   "text": "First cells for type 9, depth 5, 4 columns by 4 rows; type 9, depth 6, 4 columns by 4 rows. $9100 reads the cells as glyph indices in row-major order. Glyph zero leaves the existing screen cell unchanged."
+  },
+  {
+   "address": 7525,
+   "type": "line",
+   "text": "First cells for type 9, depth 7, 3 columns by 3 rows; type 9, depth 8, 3 columns by 3 rows. $9100 reads the cells as glyph indices in row-major order. Glyph zero leaves the existing screen cell unchanged."
+  },
+  {
+   "address": 7534,
+   "type": "line",
+   "text": "First cells for type 9, depth 9, 2 columns by 2 rows; type 9, depth 10, 2 columns by 2 rows; type 9, depth 11, 2 columns by 2 rows; type 9, depth 12, 2 columns by 2 rows. $9100 reads the cells as glyph indices in row-major order. Glyph zero leaves the existing screen cell unchanged."
+  },
+  {
+   "address": 7538,
+   "type": "line",
+   "text": "First cells for type 9, depth 13, 1 columns by 1 rows; type 9, depth 14, 1 columns by 1 rows; type 9, depth 15, 1 columns by 1 rows. $9100 reads the cells as glyph indices in row-major order. Glyph zero leaves the existing screen cell unchanged."
+  },
+  {
+   "address": 7539,
+   "type": "line",
+   "text": "Type 10 uses sixteen four-byte records selected by the low depth slot at $A742+X. Each record holds width, height, and a little-endian address of glyph cells. $8ECC reads these fields before the clipping pass."
+  },
+  {
+   "address": 7603,
+   "type": "line",
+   "text": "First cells for type 10, depth 0, 4 columns by 19 rows; type 10, depth 1, 4 columns by 19 rows; type 10, depth 2, 4 columns by 18 rows. $9100 reads the cells as glyph indices in row-major order. Glyph zero leaves the existing screen cell unchanged."
+  },
+  {
+   "address": 7679,
+   "type": "line",
+   "text": "First cells for type 10, depth 3, 3 columns by 15 rows; type 10, depth 4, 3 columns by 12 rows. $9100 reads the cells as glyph indices in row-major order. Glyph zero leaves the existing screen cell unchanged."
+  },
+  {
+   "address": 7724,
+   "type": "line",
+   "text": "First cells for type 10, depth 5, 2 columns by 10 rows; type 10, depth 6, 2 columns by 9 rows; type 10, depth 7, 2 columns by 7 rows; type 10, depth 8, 2 columns by 6 rows. $9100 reads the cells as glyph indices in row-major order. Glyph zero leaves the existing screen cell unchanged."
+  },
+  {
+   "address": 7744,
+   "type": "line",
+   "text": "First cells for type 10, depth 9, 1 columns by 5 rows; type 10, depth 10, 1 columns by 5 rows; type 10, depth 11, 1 columns by 4 rows; type 10, depth 12, 1 columns by 4 rows; type 10, depth 13, 1 columns by 3 rows; type 10, depth 14, 1 columns by 3 rows; type 10, depth 15, 1 columns by 3 rows. $9100 reads the cells as glyph indices in row-major order. Glyph zero leaves the existing screen cell unchanged."
+  },
+  {
+   "address": 7749,
+   "type": "line",
+   "text": "Type 11 uses sixteen four-byte records selected by the low depth slot at $A742+X. Each record holds width, height, and a little-endian address of glyph cells. $8ECC reads these fields before the clipping pass."
+  },
+  {
+   "address": 7813,
+   "type": "line",
+   "text": "First cells for type 11, depth 0, 36 columns by 1 rows. $9100 reads the cells as glyph indices in row-major order. Glyph zero leaves the existing screen cell unchanged."
+  },
+  {
+   "address": 7849,
+   "type": "line",
+   "text": "First cells for type 11, depth 1, 32 columns by 2 rows. $9100 reads the cells as glyph indices in row-major order. Glyph zero leaves the existing screen cell unchanged."
+  },
+  {
+   "address": 7913,
+   "type": "line",
+   "text": "First cells for type 11, depth 2, 28 columns by 3 rows. $9100 reads the cells as glyph indices in row-major order. Glyph zero leaves the existing screen cell unchanged."
+  },
+  {
+   "address": 7997,
+   "type": "line",
+   "text": "First cells for type 11, depth 3, 24 columns by 3 rows. $9100 reads the cells as glyph indices in row-major order. Glyph zero leaves the existing screen cell unchanged."
+  },
+  {
+   "address": 8069,
+   "type": "line",
+   "text": "First cells for type 11, depth 4, 20 columns by 2 rows. $9100 reads the cells as glyph indices in row-major order. Glyph zero leaves the existing screen cell unchanged."
+  },
+  {
+   "address": 8109,
+   "type": "line",
+   "text": "First cells for type 11, depth 5, 16 columns by 2 rows. $9100 reads the cells as glyph indices in row-major order. Glyph zero leaves the existing screen cell unchanged."
+  },
+  {
+   "address": 8141,
+   "type": "line",
+   "text": "First cells for type 11, depth 6, 14 columns by 2 rows. $9100 reads the cells as glyph indices in row-major order. Glyph zero leaves the existing screen cell unchanged."
+  },
+  {
+   "address": 8169,
+   "type": "line",
+   "text": "First cells for type 11, depth 7, 12 columns by 1 rows. $9100 reads the cells as glyph indices in row-major order. Glyph zero leaves the existing screen cell unchanged."
+  },
+  {
+   "address": 8181,
+   "type": "line",
+   "text": "First cells for type 11, depth 8, 10 columns by 1 rows; type 11, depth 9, 9 columns by 1 rows. $9100 reads the cells as glyph indices in row-major order. Glyph zero leaves the existing screen cell unchanged."
+  },
+  {
+   "address": 8191,
+   "type": "line",
+   "text": "First cells for type 11, depth 10, 8 columns by 1 rows; type 11, depth 11, 7 columns by 1 rows. $9100 reads the cells as glyph indices in row-major order. Glyph zero leaves the existing screen cell unchanged."
+  },
+  {
+   "address": 8199,
+   "type": "line",
+   "text": "First cells for type 11, depth 12, 6 columns by 1 rows; type 11, depth 13, 5 columns by 1 rows; type 11, depth 14, 4 columns by 1 rows; type 11, depth 15, 4 columns by 1 rows. $9100 reads the cells as glyph indices in row-major order. Glyph zero leaves the existing screen cell unchanged."
+  },
+  {
+   "address": 8205,
+   "type": "line",
+   "text": "Type 13 uses sixteen four-byte records selected by the low depth slot at $A742+X. Each record holds width, height, and a little-endian address of glyph cells. $8ECC reads these fields before the clipping pass."
+  },
+  {
+   "address": 8269,
+   "type": "line",
+   "text": "First cells for type 13, depth 0, 19 columns by 9 rows. $9100 reads the cells as glyph indices in row-major order. Glyph zero leaves the existing screen cell unchanged."
+  },
+  {
+   "address": 8440,
+   "type": "line",
+   "text": "First cells for type 13, depth 1, 17 columns by 8 rows. $9100 reads the cells as glyph indices in row-major order. Glyph zero leaves the existing screen cell unchanged."
+  },
+  {
+   "address": 8576,
+   "type": "line",
+   "text": "First cells for type 13, depth 2, 15 columns by 7 rows. $9100 reads the cells as glyph indices in row-major order. Glyph zero leaves the existing screen cell unchanged."
+  },
+  {
+   "address": 8681,
+   "type": "line",
+   "text": "First cells for type 13, depth 3, 13 columns by 6 rows. $9100 reads the cells as glyph indices in row-major order. Glyph zero leaves the existing screen cell unchanged."
+  },
+  {
+   "address": 8759,
+   "type": "line",
+   "text": "First cells for type 13, depth 4, 11 columns by 5 rows. $9100 reads the cells as glyph indices in row-major order. Glyph zero leaves the existing screen cell unchanged."
+  },
+  {
+   "address": 8814,
+   "type": "line",
+   "text": "First cells for type 13, depth 5, 9 columns by 4 rows; type 13, depth 6, 9 columns by 4 rows. $9100 reads the cells as glyph indices in row-major order. Glyph zero leaves the existing screen cell unchanged."
+  },
+  {
+   "address": 8850,
+   "type": "line",
+   "text": "First cells for type 13, depth 7, 7 columns by 3 rows; type 13, depth 8, 7 columns by 3 rows. $9100 reads the cells as glyph indices in row-major order. Glyph zero leaves the existing screen cell unchanged."
+  },
+  {
+   "address": 8871,
+   "type": "line",
+   "text": "First cells for type 13, depth 9, 5 columns by 2 rows; type 13, depth 10, 5 columns by 2 rows; type 13, depth 11, 5 columns by 2 rows; type 13, depth 12, 5 columns by 2 rows. $9100 reads the cells as glyph indices in row-major order. Glyph zero leaves the existing screen cell unchanged."
+  },
+  {
+   "address": 8881,
+   "type": "line",
+   "text": "First cells for type 13, depth 13, 2 columns by 1 rows; type 13, depth 14, 2 columns by 1 rows; type 13, depth 15, 2 columns by 1 rows. $9100 reads the cells as glyph indices in row-major order. Glyph zero leaves the existing screen cell unchanged."
+  },
+  {
+   "address": 8883,
+   "type": "line",
+   "text": "Type 14 uses sixteen four-byte records selected by the low depth slot at $A742+X. Each record holds width, height, and a little-endian address of glyph cells. $8ECC reads these fields before the clipping pass."
+  },
+  {
+   "address": 8947,
+   "type": "line",
+   "text": "First cells for type 14, depth 0, 18 columns by 18 rows. $9100 reads the cells as glyph indices in row-major order. Glyph zero leaves the existing screen cell unchanged."
+  },
+  {
+   "address": 9271,
+   "type": "line",
+   "text": "First cells for type 14, depth 1, 16 columns by 16 rows. $9100 reads the cells as glyph indices in row-major order. Glyph zero leaves the existing screen cell unchanged."
+  },
+  {
+   "address": 9527,
+   "type": "line",
+   "text": "First cells for type 14, depth 2, 14 columns by 14 rows. $9100 reads the cells as glyph indices in row-major order. Glyph zero leaves the existing screen cell unchanged."
+  },
+  {
+   "address": 9723,
+   "type": "line",
+   "text": "First cells for type 14, depth 3, 12 columns by 12 rows. $9100 reads the cells as glyph indices in row-major order. Glyph zero leaves the existing screen cell unchanged."
+  },
+  {
+   "address": 9867,
+   "type": "line",
+   "text": "First cells for type 14, depth 4, 9 columns by 10 rows. $9100 reads the cells as glyph indices in row-major order. Glyph zero leaves the existing screen cell unchanged."
+  },
+  {
+   "address": 9957,
+   "type": "line",
+   "text": "First cells for type 14, depth 5, 7 columns by 8 rows; type 14, depth 6, 7 columns by 8 rows. $9100 reads the cells as glyph indices in row-major order. Glyph zero leaves the existing screen cell unchanged."
+  },
+  {
+   "address": 10013,
+   "type": "line",
+   "text": "First cells for type 14, depth 7, 6 columns by 6 rows; type 14, depth 8, 6 columns by 6 rows. $9100 reads the cells as glyph indices in row-major order. Glyph zero leaves the existing screen cell unchanged."
+  },
+  {
+   "address": 10049,
+   "type": "line",
+   "text": "First cells for type 14, depth 9, 4 columns by 4 rows; type 14, depth 10, 4 columns by 4 rows; type 14, depth 11, 4 columns by 4 rows; type 14, depth 12, 4 columns by 4 rows. $9100 reads the cells as glyph indices in row-major order. Glyph zero leaves the existing screen cell unchanged."
+  },
+  {
+   "address": 10065,
+   "type": "line",
+   "text": "First cells for type 14, depth 13, 2 columns by 2 rows; type 14, depth 14, 2 columns by 2 rows; type 14, depth 15, 2 columns by 2 rows. $9100 reads the cells as glyph indices in row-major order. Glyph zero leaves the existing screen cell unchanged."
+  },
+  {
+   "address": 10069,
+   "type": "line",
+   "text": "Type 15 uses sixteen four-byte records selected by the low depth slot at $A742+X. Each record holds width, height, and a little-endian address of glyph cells. $8ECC reads these fields before the clipping pass."
+  },
+  {
+   "address": 10133,
+   "type": "line",
+   "text": "First cells for type 15, depth 0, 14 columns by 18 rows. $9100 reads the cells as glyph indices in row-major order. Glyph zero leaves the existing screen cell unchanged."
+  },
+  {
+   "address": 10385,
+   "type": "line",
+   "text": "First cells for type 15, depth 1, 12 columns by 16 rows. $9100 reads the cells as glyph indices in row-major order. Glyph zero leaves the existing screen cell unchanged."
+  },
+  {
+   "address": 10577,
+   "type": "line",
+   "text": "First cells for type 15, depth 2, 9 columns by 14 rows. $9100 reads the cells as glyph indices in row-major order. Glyph zero leaves the existing screen cell unchanged."
+  },
+  {
+   "address": 10703,
+   "type": "line",
+   "text": "First cells for type 15, depth 3, 8 columns by 12 rows. $9100 reads the cells as glyph indices in row-major order. Glyph zero leaves the existing screen cell unchanged."
+  },
+  {
+   "address": 10799,
+   "type": "line",
+   "text": "First cells for type 15, depth 4, 7 columns by 10 rows. $9100 reads the cells as glyph indices in row-major order. Glyph zero leaves the existing screen cell unchanged."
+  },
+  {
+   "address": 10869,
+   "type": "line",
+   "text": "First cells for type 15, depth 5, 5 columns by 8 rows; type 15, depth 6, 5 columns by 8 rows. $9100 reads the cells as glyph indices in row-major order. Glyph zero leaves the existing screen cell unchanged."
+  },
+  {
+   "address": 10909,
+   "type": "line",
+   "text": "First cells for type 15, depth 7, 4 columns by 6 rows; type 15, depth 8, 4 columns by 6 rows. $9100 reads the cells as glyph indices in row-major order. Glyph zero leaves the existing screen cell unchanged."
+  },
+  {
+   "address": 10933,
+   "type": "line",
+   "text": "First cells for type 15, depth 9, 2 columns by 4 rows; type 15, depth 10, 2 columns by 4 rows; type 15, depth 11, 2 columns by 4 rows; type 15, depth 12, 2 columns by 4 rows. $9100 reads the cells as glyph indices in row-major order. Glyph zero leaves the existing screen cell unchanged."
+  },
+  {
+   "address": 10941,
+   "type": "line",
+   "text": "First cells for type 15, depth 13, 1 columns by 2 rows; type 15, depth 14, 1 columns by 2 rows; type 15, depth 15, 1 columns by 2 rows. $9100 reads the cells as glyph indices in row-major order. Glyph zero leaves the existing screen cell unchanged."
+  },
+  {
+   "address": 11355,
+   "type": "line",
+   "text": "Toggles $A7D0 and advances the road script. Exchanges the glyph colour and both road-band pointer pairs with the three stored alternatives, then swaps 1,584 glyph bytes with VIC RAM from $F9C8."
+  },
+  {
+   "address": 11505,
+   "type": "line",
+   "text": "Three addresses saved by the exchange. They are the glyph colour lookup and the two road band tables for the active surface after the next swap."
+  },
+  {
+   "address": 11511,
+   "type": "line",
+   "text": "Road surface glyph bytes exchanged with $F9C8\u2013$FDC7. After the exchange this region keeps the glyph bytes of the alternate surface for the next call."
+  },
+  {
+   "address": 12535,
+   "type": "line",
+   "text": "Road surface glyph bytes exchanged with $FDC8\u2013$FFF7. After the exchange this region keeps the glyph bytes of the alternate surface for the next call."
+  },
+  {
+   "address": 13095,
+   "type": "line",
+   "text": "Eight forty-byte rows of glyph values. $8C86 uses this base when selecting the alternate height band and advances the source by 80 bytes per displayed row. The glyph values index the colour table at $3557."
+  },
+  {
+   "address": 13415,
+   "type": "line",
+   "text": "First four raw rows from the second band source patched into $8D34/$8D35. $8C0E selects a clipped phase and $8CF9 turns the glyph values into both screen and colour bytes."
+  },
+  {
+   "address": 13655,
+   "type": "line",
+   "text": "Round 10 maps each road glyph index to its colour RAM value here. The stage prologue patches this base into $8D03/$8D04 and $9109/$910A for the road-band and scenery blitters."
+  },
+  {
+   "address": 15104,
+   "type": "line",
+   "text": "Alternate sprite bank 1, shape indices $00\u2013$0F. Index 1 at $9B76 exchanges these 64-byte slots with $C000\u2013$C3FF for VIC use. The old shape bytes return to this range."
+  },
+  {
+   "address": 16128,
+   "type": "line",
+   "text": "Alternate sprite bank 1, shape indices $10\u2013$1F. Index 1 at $9B76 exchanges these 64-byte slots with $C400\u2013$C7FF for VIC use. The old shape bytes return to this range."
+  },
+  {
+   "address": 16384,
+   "type": "line",
+   "text": "Continues the first alternate lower sprite bank, from shape index $14 through $1F. This subrange is exchanged with $C500\u2013$C7FF by $9B76."
+  },
+  {
+   "address": 17152,
+   "type": "line",
+   "text": "Alternate sprite bank 1, shape indices $20\u2013$2F. Index 1 at $9B76 exchanges these 64-byte slots with $C800\u2013$CBFF for VIC use. The old shape bytes return to this range."
+  },
+  {
+   "address": 18176,
+   "type": "line",
+   "text": "Alternate sprite bank 1, shape indices $30\u2013$33. Index 1 at $9B76 exchanges these 64-byte slots with $CC00\u2013$CCFF for VIC use. The old shape bytes return to this range."
+  },
+  {
+   "address": 18432,
+   "type": "line",
+   "text": "Alternate sprite bank 2, shape indices $00\u2013$0F. Index 2 at $9B76 exchanges these 64-byte slots with $C000\u2013$C3FF for VIC use. The old shape bytes return to this range."
+  },
+  {
+   "address": 19456,
+   "type": "line",
+   "text": "Alternate sprite bank 2, shape indices $10\u2013$1F. Index 2 at $9B76 exchanges these 64-byte slots with $C400\u2013$C7FF for VIC use. The old shape bytes return to this range."
+  },
+  {
+   "address": 20480,
+   "type": "line",
+   "text": "Alternate sprite bank 2, shape indices $20\u2013$2F. Index 2 at $9B76 exchanges these 64-byte slots with $C800\u2013$CBFF for VIC use. The old shape bytes return to this range."
+  },
+  {
+   "address": 21504,
+   "type": "line",
+   "text": "Alternate sprite bank 2, shape indices $30\u2013$33. Index 2 at $9B76 exchanges these 64-byte slots with $CC00\u2013$CCFF for VIC use. The old shape bytes return to this range."
+  },
+  {
+   "address": 21760,
+   "type": "line",
+   "text": "Alternate sprite bank 3, shape indices $88\u2013$97. Index 3 at $9B76 exchanges these 64-byte slots with $E200\u2013$E5FF for VIC use. The old shape bytes return to this range."
+  },
+  {
+   "address": 22784,
+   "type": "line",
+   "text": "Alternate sprite bank 3, shape indices $98\u2013$A7. Index 3 at $9B76 exchanges these 64-byte slots with $E600\u2013$E9FF for VIC use. The old shape bytes return to this range."
+  },
+  {
+   "address": 23808,
+   "type": "line",
+   "text": "Alternate sprite bank 3, shape indices $A8\u2013$AF. Index 3 at $9B76 exchanges these 64-byte slots with $EA00\u2013$EBFF for VIC use. The old shape bytes return to this range."
+  },
+  {
+   "address": 24320,
+   "type": "line",
+   "text": "Alternate sprite bank 4, shape indices $88\u2013$97. Index 4 at $9B76 exchanges these 64-byte slots with $E200\u2013$E5FF for VIC use. The old shape bytes return to this range."
+  },
+  {
+   "address": 25344,
+   "type": "line",
+   "text": "Alternate sprite bank 4, shape indices $98\u2013$A7. Index 4 at $9B76 exchanges these 64-byte slots with $E600\u2013$E9FF for VIC use. The old shape bytes return to this range."
+  },
+  {
+   "address": 26368,
+   "type": "line",
+   "text": "Alternate sprite bank 4, shape indices $A8\u2013$AF. Index 4 at $9B76 exchanges these 64-byte slots with $EA00\u2013$EBFF for VIC use. The old shape bytes return to this range."
+  },
+  {
+   "address": 47024,
+   "type": "line",
+   "text": "The round 10 load writes one byte here in the inherited music image. Other bytes in the music image carry over from its preceding round."
+  },
+  {
+   "address": 49152,
+   "type": "line",
+   "text": "Sixteen 64-byte sprite slots with shape indices $00\u2013$0F in VIC bank $C000. Each shape starts with 21 rows of three bytes and leaves the 64th byte outside the displayed shape."
+  },
+  {
+   "address": 49153,
+   "type": "line",
+   "text": "Second byte of sprite slot zero in the currently installed low sprite set. The displayed shape includes this byte and the asset selector can test it before exchanging sets."
+  },
+  {
+   "address": 50176,
+   "type": "line",
+   "text": "Sixteen shape slots $10\u2013$1F in the loaded sprite set. The bank-relative pointer is the slot number and the VIC multiplies it by 64."
+  },
+  {
+   "address": 51200,
+   "type": "line",
+   "text": "Shape slots $20\u2013$2F use RAM $C800\u2013$CBFF. The stage\u2019s object placement code passes shape indices to the raster sprite allocator."
+  },
+  {
+   "address": 52224,
+   "type": "line",
+   "text": "Four final shape slots in the stage\u2019s low-bank sprite block, from $30 at $CC00 to $33 at $CCC0."
+  },
+  {
+   "address": 57856,
+   "type": "line",
+   "text": "Sprite area for VIC indices $88\u2013$97, sixteen 64-byte slots. The raster multiplexer writes the shape indices of scheduled objects to both pointer tables."
+  },
+  {
+   "address": 58880,
+   "type": "line",
+   "text": "Shape slots $98\u2013$A7 continue the second stage sprite block. Slots $A0\u2013$A7 also occupy the first half of the character memory selected by the dashboard split."
+  },
+  {
+   "address": 59904,
+   "type": "line",
+   "text": "Eight sprite slots $A8\u2013$AF in the last two pages of the replacement upper sprite block."
+  },
+  {
+   "address": 63944,
+   "type": "line",
+   "text": "Stage 10 replaces the road character set starting at glyph $39. This segment reaches the penultimate complete glyph slot and the opening byte of slot $FF."
+  },
+  {
+   "address": 64512,
+   "type": "line",
+   "text": "Upper half of the road character set. Groups of eight bytes give the timed road display its cell rows. The load\u2019s final byte is at $FFF8 and the CPU uses the final hardware vector bytes separately."
+  }
+ ]
+}

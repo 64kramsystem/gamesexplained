@@ -1,0 +1,89 @@
+{
+  "title": "Round 4",
+  "order": 10,
+  "over": "round-03",
+  "ranges": [
+    [
+      "$0801",
+      "$68FF"
+    ],
+    [
+      "$C000",
+      "$CCFF"
+    ],
+    [
+      "$E200",
+      "$EBFF"
+    ],
+    [
+      "$F9C8",
+      "$FFF8"
+    ],
+    [
+      "$B7B0",
+      "$B7B0"
+    ]
+  ],
+  "video": {
+    "screen": "",
+    "charset": ""
+  },
+  "coverage": {
+    "exclude": [],
+    "extra": [
+      [
+        2049,
+        26879,
+        "Driving-stage payload written by the backwards depacker"
+      ],
+      [
+        49152,
+        52479,
+        "Stage-specific VIC sprite shapes"
+      ],
+      [
+        57856,
+        60415,
+        "Stage-specific VIC asset range"
+      ],
+      [
+        63944,
+        65528,
+        "Stage-specific tail of the $F800 road character set"
+      ],
+      [
+        47024,
+        47024,
+        "One-byte patch to the preceding odd round\u2019s music image"
+      ]
+    ],
+    "include": []
+  },
+  "io": [],
+  "regions": [
+    [
+      "$3B00",
+      "$68FF",
+      "graphics",
+      "Four alternate sprite banks exchanged by $9B76"
+    ],
+    [
+      "$C000",
+      "$CCFF",
+      "graphics",
+      "Lower replaceable sprite bank"
+    ],
+    [
+      "$E200",
+      "$EBFF",
+      "graphics",
+      "Upper replaceable sprite bank"
+    ],
+    [
+      "$F9C8",
+      "$FFF8",
+      "graphics",
+      "Replaceable portion of the road character set"
+    ]
+  ]
+}

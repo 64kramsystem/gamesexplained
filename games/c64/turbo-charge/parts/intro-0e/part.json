@@ -1,0 +1,59 @@
+{
+  "title": "Opening, garage briefing",
+  "order": 3,
+  "over": "intro-0d",
+  "ranges": [
+    [
+      "$0812",
+      "$9869"
+    ],
+    [
+      "$BE59",
+      "$D97F"
+    ]
+  ],
+  "video": {
+    "screen": "",
+    "charset": ""
+  },
+  "coverage": {
+    "exclude": [
+      [
+        "$1E34",
+        "$2F3F",
+        "Output bitmap storage below $3000. The first packed picture ends at $1E33 and the $0813 unpacker overwrites this zero-filled tail."
+      ],
+      [
+        "$46BF",
+        "$5FFF",
+        "Zero-filled bitmap output area above the packed second picture. $3095 overwrites it from $1000."
+      ],
+      [
+        "$6000",
+        "$63FF",
+        "Zero-filled screen-attribute workspace for the low bitmap bank. $3086 overwrites it from $0C00."
+      ]
+    ],
+    "extra": [
+      [
+        2066,
+        39017,
+        "First live decompressor output block"
+      ],
+      [
+        48729,
+        55679,
+        "Second live decompressor output block"
+      ]
+    ],
+    "include": [
+      [
+        53248,
+        55679,
+        "Physical RAM under I/O contains the loaded intro art; bitmap copies bank I/O out."
+      ]
+    ]
+  },
+  "io": [],
+  "regions": []
+}

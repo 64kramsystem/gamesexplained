@@ -1,0 +1,106 @@
+{
+  "title": "Round 1 and shared driving engine",
+  "order": 4,
+  "video": {
+    "screen": "",
+    "charset": ""
+  },
+  "coverage": {
+    "exclude": [
+      [
+        "$F000",
+        "$F31F",
+        "Runtime upper twenty rows of the first road screen, cleared at $927E. The loader uses $F002\u2013$F0FF as input scratch before these rows are drawn."
+      ],
+      [
+        "$F400",
+        "$F71F",
+        "Runtime upper twenty rows of the second road screen, cleared at $92C6."
+      ],
+      [
+        "$FFF8",
+        "$FFF9",
+        "The first driving output ends at $FFF7. The watched title-to-drive stores do not include these two addresses."
+      ],
+      [
+        "$FFFC",
+        "$FFFD",
+        "RAM below the reset vector, outside the two driving payload blocks and the installed IRQ and NMI vectors."
+      ]
+    ],
+    "extra": [
+      [
+        "$0801",
+        "$EFFF",
+        "First output block from the driving depacker"
+      ],
+      [
+        "$F300",
+        "$FFF7",
+        "Second output block from the driving depacker"
+      ],
+      [
+        "$FFFA",
+        "$FFFB",
+        "RAM NMI vector"
+      ],
+      [
+        "$FFFE",
+        "$FFFF",
+        "RAM IRQ vector"
+      ]
+    ],
+    "include": [
+      [
+        53248,
+        57343,
+        "VIC bank $C000 uses sprite images in the RAM below the chip registers"
+      ]
+    ]
+  },
+  "io": [],
+  "regions": [
+    [
+      "$3B00",
+      "$68FF",
+      "graphics",
+      "Four alternate sprite banks exchanged by $9B76"
+    ],
+    [
+      "$C000",
+      "$EBFF",
+      "graphics",
+      "Sprite slots in VIC bank $C000"
+    ],
+    [
+      "$EC00",
+      "$ED2F",
+      "text",
+      "Dashboard letter and digit glyphs"
+    ],
+    [
+      "$F800",
+      "$FFF7",
+      "graphics",
+      "Road character patterns"
+    ]
+  ],
+  "ranges": [
+    [
+      "$0432",
+      "$0432"
+    ],
+    [
+      "$0801",
+      "$FFF7"
+    ],
+    [
+      "$FFFA",
+      "$FFFB"
+    ],
+    [
+      "$FFFE",
+      "$FFFF"
+    ]
+  ]
+}
