@@ -1,0 +1,134 @@
+{
+  "schema": 1,
+  "platform": "c64",
+  "slug": "the-great-giana-sisters",
+  "title": "The Great Giana Sisters",
+  "year": 1987,
+  "publisher": "Rainbow Arts",
+  "developer": "Time Warp Productions",
+  "title_image": "reference/title.png",
+  "build": "Zibri D64 with reset high scores",
+  "tier": "bronze",
+  "coverage_percent": null,
+  "copy": "agent-draft",
+  "steward": "",
+  "credits": [],
+  "tools": {
+    "emulator": "VICE-MCP v3.14.0 macOS arm64 headless, dummy sound",
+    "disassembler": "regenerator2000 0.9.18"
+  },
+  "model": "gpt-6.2-sol",
+  "step_models": {
+    "10-orient": [
+      "gpt-6.2-sol"
+    ],
+    "12-media": [
+      "gpt-6.2-sol"
+    ],
+    "20-features": [
+      "gpt-6.2-sol"
+    ],
+    "30-text": [
+      "gpt-6.2-sol"
+    ],
+    "40-sweep": [
+      "gpt-6.2-sol"
+    ],
+    "50-coverage": [
+      "gpt-6.2-sol"
+    ],
+    "60-verify": [
+      "gpt-6.2-sol"
+    ]
+  },
+  "accuracy": [
+    {
+      "step": "research",
+      "web": true,
+      "models": [
+        "gpt-6.2-sol"
+      ]
+    },
+    {
+      "step": "annotate",
+      "models": [
+        "gpt-6.2-sol"
+      ]
+    },
+    {
+      "step": "sample",
+      "size": 60,
+      "wrong": 4,
+      "fixed": 4,
+      "seed": 141987,
+      "models": [
+        "gpt-6.2-sol"
+      ]
+    }
+  ],
+  "kit_version": "0.0.360",
+  "created": "2026-11-19",
+  "video": {
+    "screen": "$C800",
+    "charset": "$C000"
+  },
+  "coverage": {
+    "exclude": [
+      [
+        "$AC00",
+        "$BFFF",
+        "Generated tile map buffer cleared by $9943 then built from stage recipes. All 5120 bytes in entry and Stage 1 agree with expansion of recipe 1. The attract snapshot agrees with expansion 39."
+      ],
+      [
+        "$0801",
+        "$081F",
+        "BASIC SYS wrapper from file 2, left before the start of the loaded main file at $0820."
+      ],
+      [
+        "$0000",
+        "$03FF",
+        "Runtime zero page, stack and system work area below the main image."
+      ],
+      [
+        "$0400",
+        "$07EB",
+        "Mutable engine workspace below the main image. Startup clears it at $9F64 before initialising game state."
+      ],
+      [
+        "$C800",
+        "$CBFF",
+        "Screen RAM. The attract setup clears 1000 cells before drawing. A controlled run from $084F had no CPU loads or instruction fetches in this range before its first clear store at $9F48."
+      ],
+      [
+        "$9B02",
+        "$9B9F",
+        "Mutable tile-animation slots. $0D1F clears the active columns before stage setup and the animation routines read the saved positions only when a slot is active."
+      ],
+      [
+        "$FFF1",
+        "$FFFF",
+        "Loading presentation bitmap tail copied from $3FF1\u2013$3FFF by the loader store at $0AEE, observed with a store watch and matched byte for byte. The main file ends at $FFF0. The engine subsequently writes its RAM vectors here."
+      ]
+    ],
+    "extra": [],
+    "include": [
+      [
+        "$D000",
+        "$DFFF",
+        "VIC sprite bitmap slots $40\u2013$7F in underlying RAM"
+      ]
+    ]
+  },
+  "io": [],
+  "regions": [],
+  "links": {
+    "wiki": {
+      "title": "",
+      "url": ""
+    },
+    "manual": {
+      "title": "The Great Giana Sisters: Original Commodore 64 manual",
+      "url": "https://c64online.com/wp-content/uploads/2021/03/The-Great-Giana-Sisters.pdf"
+    }
+  }
+}

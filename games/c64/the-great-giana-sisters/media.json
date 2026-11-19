@@ -1,0 +1,11 @@
+{"schema": 1,
+ "images": [
+  {"name": "disk", "file": "giana.d64", "what": "disk side", "sha256": "5383164abc583db3b6f56822b22792f51cd7cd8c4a80ad90df317733f8984adb"}
+ ],
+ "items": [
+  {"image": "disk", "label": "LADER", "place": {"file": "LADER", "type": "PRG", "track": 23, "sector": 3}, "load": "$02A2", "bytes": 98, "sha256": "5d2e466238618be61a6f86bc19ff607eca1ccc29083d126ebf345390bfa5168b", "answer": "loader", "why": "Alternate first-file bootstrap at $02A2. The analysed route autostarts file 2 and bypasses it."},
+  {"image": "disk", "label": "1", "place": {"file": "1", "type": "PRG", "track": 17, "sector": 0}, "load": "$0820", "bytes": 63441, "sha256": "59d974892aefc0146324dc33804f191233dfade0c8d9d684c806fce7886efbe9", "answer": "part", "at": "$0820", "why": "All 63441 payload bytes match the engine hand-over snapshot at $0820–$FFF0. It includes the initial image of the generated map buffer."},
+  {"image": "disk", "label": "2", "place": {"file": "2", "type": "PRG", "track": 19, "sector": 0}, "load": "$0801", "bytes": 20086, "sha256": "389ec667bab8bf119facad9706191d0ac79103950f3fa45dd3fe74e20c2676e0", "answer": "data", "why": "Packed Time Warp loading presentation and boot program, seen before file 1 arrives. The BASIC wrapper enters the depacker at $0810."},
+  {"image": "disk", "label": "ATG", "place": {"file": "ATG", "type": "PRG", "track": 23, "sector": 2}, "load": "$36F7", "bytes": 120, "sha256": "448163184e81f88b5e0d6bd906c70a5c1b4908119aed14de88f17fbb53ccb4e3", "answer": "saved", "why": "Persistent all-time score table read into $36F7 at engine startup. The execute checkpoint at $FFD5 reported ATG on device 8, secondary 1, with caller $084C."},
+  {"image": "disk", "label": "F", "place": {"file": "F", "type": "PRG", "track": 23, "sector": 4}, "load": "$CC00", "bytes": 992, "sha256": "f6e28e64d68e9bd1c4dcc9e853adafa7782f93888da64d7b97f88aa597f2e6b4", "answer": "loader", "why": "The first instructions install the LOAD handler at $CC19 via $0330/$0331. This is a disk-loader helper."}
+ ]}
