@@ -8,7 +8,7 @@
 | Climb or move vertically | Main `$CCDF` and `$CCFC` examine down and up and consult terrain before accepting a move. The opening desert position provides the movement control snapshot. A climbable location was outside the measured cases. | traced |
 | Leap | The title lists Space. Port-2 fire reached the action entry at main `$CC53` and ran the leap handler at `$DB0D`. | confirmed |
 | Think | The title lists T. Main `$DE47` requests action `$0A` and the action handler at `$D842` selects the scene-dependent response. | traced |
-| Swap and scroll items | The title lists S and 1/2. Main `$BCDD`/ `$BD2D` drive the exchange and inventory navigation. `$9505` draws the scrolled window and held item. | traced |
+| Swap and scroll items | The title lists S and 1/2. Main `$BCDD`/ `$BD2D` drive the exchange and inventory navigation. `$9505` draws the scrolled window and held item. A gameplay probe observed 33 palette reads through `$9526` and 33 corresponding VIC colour stores at `$9529`. | traced |
 | Collect objects by walking onto them | The instructions describe proximity pickup. The main proximity handler at `$BEA9` finds a free inventory slot and processes the pickup's ID. | traced |
 | Item puzzles | The instructions say items found or supplied by an explorer solve obstacles and help the professor. Scene-specific tests begin at main `$BB1B` and compare held IDs. Exact item names and puzzle outcomes remain open for many IDs. | traced |
 | Status panel | The expedition screenshot shows score, high score, day and time, and portraits. Main `$86D2` wrote the minute byte six times in an 11-pass probe. Main `$E43B` and `$E456` update score fields in the HUD. | confirmed |

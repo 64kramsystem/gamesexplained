@@ -22,7 +22,7 @@ The fallback corner rectangle can return `$FE`. A miss returns `$FF`. Fire with 
 
 Selector `$5B02` contains the five source addresses `$6840`, `$7800`, `$87C0`, `$9780` and `$A740`. The selection transfer at `$5B0C` copies 15 pages plus 192 bytes from the selected source. Each block has 64 frames of 63 bytes. The expedition's decoder shows the frame format consists of three 21-byte columns of four packed multicolour pixels per byte.
 
-Selector `$D000–$DFFF` at handoff matches `$19C1–$29C0` byte for byte. The relocated packed windows in high RAM also match low RAM and the disk file with a shift of `$B63F` between the two RAM locations. The selector's I/O accesses and explorer-source pointers are accounted for separately. The remaining 79 bytes at `$5843–$5891` have no identified consumer in the selector's decoded flow.
+Selector `$D000–$DFFF` at handoff matches `$19C1–$29C0` byte for byte. The relocated packed windows in high RAM also match low RAM and the disk file with a shift of `$B63F` between the two RAM locations. The selector's I/O accesses and explorer-source pointers are accounted for separately. The handoff wrapper occupies `$5843–$5891`. Its helper at `$5879` calls selector entry `$59AA`. A successful sprite copy ends at `$5B3B` with return word `$587B` on the stack, so execution resumes at `$587C`. That path maps in the KERNAL and restores its IRQ vector. The wrapper sets device and secondary address 8, names the file `MAIN` using `$5875–$5878`, and pushes `$080F` before jumping to KERNAL LOAD. Execution stops at `$FFBA`'s call site `$585E` and at `$FFD5` showed A/X/Y equal to 8/8/8 and 0/$75/$58 respectively.
 
 ## Live instruction and store checks
 

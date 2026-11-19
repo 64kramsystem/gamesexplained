@@ -1,17 +1,13 @@
 # Analysis handoff
 
-The game has two exported symbol maps and source listings. The kit gives each load its own listing and rejects a third copy at the game root. The branch covers the requested analysis stages and contains no site work.
+| Part | Explained | Tracked | Uncounted |
+|---|---:|---:|---:|
+| Explorer selection | 25,359 | 25,359 | 0 |
+| Expedition | 54,430 | 54,430 | 0 |
+| Total | 79,789 | 79,789 | 0 |
 
-| Part | Explained | Tracked | Coverage | Bytes outside the ledger |
-|---|---:|---:|---:|---:|
-| Explorer selection | 25,275 | 25,275 | 100.0% | 79 |
-| Expedition | 43,973 | 54,577 | 80.6% | 364 |
-| Total | 69,248 | 79,852 | 86.7% | 443 |
-
-- The largest expedition gap is the 2,531-byte run beginning at `$E51D`. The decompressed image contains instruction-like bytes and calls within this region, but the direct roots and the scene, actor and player-action target tables do not resolve its incoming entry. The bytes stay tracked and unexplained. Establish how it can be entered, or prove the block's role in the disk build before excluding it.
-- The large remaining main queue entries include the action data and paths around `$D4CC`, the screen builder around `$9959`, sound command paths around `$A681`, and scene and actor continuations. Full event and object names, all actor dispatch effects, and the end-state conditions remain unresolved.
-- The selector's `$5843–$5891` and main's `$3FFE–$4169` are the uncounted ranges flagged by the listings. Verify their consumers and origins before treating the ledgers as complete.
-- The installed build terminated when capturing the selector's full raster frame during checkpoint deletion. A clean restart supported individual instruction checkpoints and store watchpoints. The selector facts give the measured input and IRQ counts, and the expedition frame trace is retained locally.
-- `work/` contains the disk images, unpacked snapshots, command transcripts and the sample. Each part's `work/coverage.txt` has its largest remaining runs. `orientation.md` gives the route and input image hash.
-- The step-60 sample found errors in 10 of 60 comments before corrections. A later full audit would measure the remaining listing. `gpt-6.2-sol` was used for the analysis and sample, and the kit requires a proven-model check to award Silver.
-- Step 65 did not require a gameplay recording here. The two loads have a written boot route and exact transition checkpoints in `orientation.md`. The live checks are short controlled instruction and watchpoint probes from the saved snapshots.
+- The game has two exported symbol maps and source listings. The kit expects the listing and symbol map in each part folder.
+- The unresolved gameplay questions are the final route and conditions for the ending, the reachable conditions for the retained disk-side prompt, and some item and actor identifications. The two prefix bytes at expedition `$3FFE–$3FFF` remain in the ledger, with their purpose open.
+- `work/` holds the disk images and CPU probes. Each part's `work/` holds its snapshots, annotation log and ledger. [Orientation](orientation.md) gives the boot route and input image hash.
+- Step 65 did not require an input recording. The short probes use the saved snapshots and verify instruction paths and memory accesses directly.
+- The earlier independent sample found 10 errors in 60 comments before corrections. It measures that earlier listing. A full audit remains for a later run. The kit requires a proven-model check and the remaining site stages for Silver.

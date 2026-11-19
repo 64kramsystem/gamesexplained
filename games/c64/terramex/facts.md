@@ -13,7 +13,9 @@ The two answers in [media.json](media.json) refer to the RCS/HCC disk used for t
 
 ## Listing coverage
 
-The final coverage queue and missing byte ranges are in [TODO.md](TODO.md). The analysis retains open code and data where address evidence did not establish a role. In particular the expedition image contains a large instruction-like block after `$E51C`. Direct flow from the initializer, hardware vectors, and three decoded word dispatch tables does not resolve its entry. It stays in the main ledger without an attributed purpose.
+The exported maps and rebuilt listings account for 25,359 selector bytes and 54,430 expedition bytes. All 79,789 tracked bytes have descriptions. Both listings report zero uncounted loaded ranges.
+
+The disk transition in the selector jumps to KERNAL LOAD from selector `$5872`. The stack supplies a synthetic return address that lands at expedition `$0810` after the PRG is read. The expedition snapshot also holds a cassette bootstrap image at main `$4000–$4169` and a second set of terrain and display routines at main `$E51D–$EB4A`. The listings count these as authored bytes. See the [selector](parts/selection/facts.md) and [expedition](parts/main/facts.md) facts for their boundaries and trace evidence.
 
 ## The listing's error rate
 

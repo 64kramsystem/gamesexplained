@@ -26,6 +26,31 @@
         "$0400",
         "$07FF",
         "Old BASIC screen and final depacker pull-through stub before the game switches to VIC bank $4000."
+      ],
+      [
+        "$0000",
+        "$00D2",
+        "Processor port, sound voice arrays cleared by $A57C, and zero-page runtime pointers and scratch."
+      ],
+      [
+        "$00FE",
+        "$00FF",
+        "Zero-page loader and interrupt decoder address scratch."
+      ],
+      [
+        "$0301",
+        "$035D",
+        "Runtime explorer colour, scores, inventory and text formatter scratch. Remaining bytes in the entry image are KERNAL or depacker workspace."
+      ],
+      [
+        "$035E",
+        "$03E7",
+        "Expedition working state cleared byte by byte by $8278. The store to $03A5 was observed from the entry snapshot."
+      ],
+      [
+        "$03E8",
+        "$03FF",
+        "Terrain mode written at $8050 and unused tail of the depacker workspace above it."
       ]
     ],
     "extra": [
@@ -65,6 +90,11 @@
         "$4280",
         "$43E7",
         "HUD character template is authored at hand-over."
+      ],
+      [
+        "$4000",
+        "$4169",
+        "Cassette bootstrap image preserved in the disk hand-over. The title screen overwrites it."
       ]
     ]
   },

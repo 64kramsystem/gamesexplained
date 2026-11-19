@@ -3,7 +3,7 @@
  "platform": "c64",
  "game": "terramex",
  "part": "selection",
- "build": "",
+ "build": "RCS/HCC disk release",
  "source": "regenerator2000 live",
  "regions": {
   "exclude": [
@@ -21,6 +21,26 @@
     53248,
     57343,
     "Byte-identical copy of $19C1-$29C0 at selector entry. The selector code addresses the I/O chips here and its sprite-copy sources end at $B6FF."
+   ],
+   [
+    1024,
+    18431,
+    "Surviving RCS/HCC depacker input and unpacking workspace. Packed-file windows and their high-RAM twins match here. The selector reads its portrait cells from $5400, glyphs from $4800 and $5000, and sprite blocks from $6840 onward."
+   ],
+   [
+    22752,
+    22847,
+    "Cracker message outside the cursor/portrait code."
+   ],
+   [
+    46848,
+    53247,
+    "Relocated packed-file and workspace bytes beyond the last selector sprite block. The selector data pointers end at $B6FF."
+   ],
+   [
+    57344,
+    65528,
+    "Relocated packed input runs match low RAM and disk bytes. The selector hardware vectors are written apart from this range. The selected sprite transfer happens after the selector listing snapshot."
    ]
   ],
   "extra": [],
@@ -112,6 +132,16 @@
   },
   {
    "start": 769,
+   "end": 787,
+   "type": "Undefined"
+  },
+  {
+   "start": 788,
+   "end": 789,
+   "type": "Word"
+  },
+  {
+   "start": 790,
    "end": 18431,
    "type": "Undefined"
   },
@@ -133,7 +163,7 @@
   {
    "start": 22528,
    "end": 22530,
-   "type": "Undefined"
+   "type": "Code"
   },
   {
    "start": 22531,
@@ -142,6 +172,21 @@
   },
   {
    "start": 22595,
+   "end": 22644,
+   "type": "Code"
+  },
+  {
+   "start": 22645,
+   "end": 22648,
+   "type": "PETSCII Text"
+  },
+  {
+   "start": 22649,
+   "end": 22673,
+   "type": "Code"
+  },
+  {
+   "start": 22674,
    "end": 22953,
    "type": "Undefined"
   },
@@ -270,6 +315,18 @@
    "kind": "user"
   },
   {
+   "address": 788,
+   "name": "kernal_irq_vector",
+   "type": "AbsoluteAddress",
+   "kind": "user"
+  },
+  {
+   "address": 789,
+   "name": "kernal_irq_vector_hi",
+   "type": "AbsoluteAddress",
+   "kind": "user"
+  },
+  {
    "address": 18432,
    "name": "portrait_charset_top",
    "type": "UserDefined",
@@ -306,9 +363,39 @@
    "kind": "user"
   },
   {
+   "address": 22528,
+   "name": "selection_loader_jump",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
    "address": 22531,
    "name": "hand_sprite_source",
    "type": "Field",
+   "kind": "user"
+  },
+  {
+   "address": 22595,
+   "name": "load_expedition_disk_prg",
+   "type": "Jump",
+   "kind": "user"
+  },
+  {
+   "address": 22645,
+   "name": "expedition_disk_filename",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 22649,
+   "name": "call_selector",
+   "type": "Subroutine",
+   "kind": "user"
+  },
+  {
+   "address": 22652,
+   "name": "restore_kernal_disk_environment",
+   "type": "UserDefined",
    "kind": "user"
   },
   {
@@ -798,6 +885,42 @@
    "kind": "auto"
   },
   {
+   "address": 57088,
+   "name": "a_DF00",
+   "type": "AbsoluteAddress",
+   "kind": "auto"
+  },
+  {
+   "address": 58784,
+   "name": "j_E5A0",
+   "type": "Jump",
+   "kind": "auto"
+  },
+  {
+   "address": 64931,
+   "name": "KERNAL_IOINITj",
+   "type": "Predefined",
+   "kind": "system"
+  },
+  {
+   "address": 65466,
+   "name": "KERNAL_SETLFS",
+   "type": "Predefined",
+   "kind": "system"
+  },
+  {
+   "address": 65469,
+   "name": "KERNAL_SETNAM",
+   "type": "Predefined",
+   "kind": "system"
+  },
+  {
+   "address": 65493,
+   "name": "KERNAL_LOAD",
+   "type": "Predefined",
+   "kind": "system"
+  },
+  {
    "address": 65530,
    "name": "selection_nmi_vector",
    "type": "UserDefined",
@@ -872,6 +995,16 @@
    "text": "The current cursor hit result. Fire checks $FE and $FF before accepting the explorer index."
   },
   {
+   "address": 788,
+   "type": "line",
+   "text": "Software IRQ vector whose low byte is set to $31 by the disk-load transition."
+  },
+  {
+   "address": 789,
+   "type": "line",
+   "text": "High byte of the software IRQ vector, set to $EA by the disk-load transition."
+  },
+  {
    "address": 18432,
    "type": "line",
    "text": "Multicolour glyph bytes for the raster phase that selects $D018=$52. Screen cells at $5400 index these glyphs."
@@ -902,9 +1035,34 @@
    "text": "VIC sprite zero pointer in the portrait screen matrix, written to $3F in the first raster phase."
   },
   {
+   "address": 22528,
+   "type": "line",
+   "text": "Jump to the disk-load transition at $5843. The following 64 bytes provide the pointing hand sprite."
+  },
+  {
    "address": 22531,
    "type": "line",
    "text": "Source of the pointing hand's 64-byte sprite slot at $4FC0."
+  },
+  {
+   "address": 22595,
+   "type": "line",
+   "text": "Disable interrupts and call the selector at $59AA via $5879. After selection, blank the display and configure device 8 with secondary address 8. Name MAIN with the four bytes at $5875, push $080F as a return address and jump to the KERNAL LOAD entry so it returns at $0810 in the downloaded PRG."
+  },
+  {
+   "address": 22645,
+   "type": "line",
+   "text": "Four-character KERNAL filename MAIN."
+  },
+  {
+   "address": 22649,
+   "type": "line",
+   "text": "Call the portrait loop at $59AA. The selected sprite copy returns to the next instruction at $587C with the accepted explorer ID available at $0300."
+  },
+  {
+   "address": 22652,
+   "type": "line",
+   "text": "Map the KERNAL ROM, set the software IRQ vector to $EA31, enable interrupts and call the ROM's I/O initialization at $FDA3. Tail-call the ROM routine at $E5A0."
   },
   {
    "address": 22954,

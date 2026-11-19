@@ -9,7 +9,7 @@
   "title_image": "reference/title.png",
   "build": "RCS/HCC disk release",
   "tier": "bronze",
-  "coverage_percent": 86.7,
+  "coverage_percent": 100.0,
   "copy": "agent-draft",
   "steward": "",
   "credits": [],
@@ -26,7 +26,13 @@
     "text": "gpt-6.2-sol",
     "sweep": "gpt-6.2-sol",
     "annotate": "gpt-6.2-sol",
-    "verify": "gpt-6.2-sol"
+    "verify": "gpt-6.2-sol",
+    "50-coverage": [
+      "gpt-6.2-sol"
+    ],
+    "60-verify": [
+      "gpt-6.2-sol"
+    ]
   },
   "accuracy": [
     {
@@ -51,6 +57,13 @@
       "models": [
         "gpt-6.2-sol"
       ]
+    },
+    {
+      "step": "annotate",
+      "models": [
+        "gpt-6.2-sol"
+      ],
+      "note": "Completed both byte ledgers and checked the changed load and HUD claims with CPU and memory checkpoints."
     }
   ],
   "kit_version": "0.0.360",
