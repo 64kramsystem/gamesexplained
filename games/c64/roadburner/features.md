@@ -12,4 +12,4 @@
 | Scoring and high score | confirmed | `$0FBC` requests a score update. `$1DB8/$1DDC` carry through the live digit fields, and `$1E55` updates the high score. The small-increment path was observed at `$1DB8/$1E15`. |
 | Terrain and sprite contacts | traced | `$4D1E/$1CC4` sample and classify terrain. `$0ECD/$4C6B` combine the sprite latch and coordinates. |
 | Remaining cars, interlude and ending | traced | `$0F60` tests remaining cars, `$0FBD` advances the descriptor, and `$1F06`, `$1EB6` and `$1EDE` draw the relevant title-font messages. |
-| Title music and driving effects | traced | SID driver at `$5000` for title music and `$9028` for road effects. Register writes are traceable with dummy audio. Audible output and oscillator-dependent effects remain open. |
+| Title music and driving effects | traced | SID driver at `$5000` for title music and `$9028` for road effects. Instruction stops verified the mode-four oscillator read and its high frequency store for effect 1. Audible output and oscillator variation remain open with dummy audio. |
