@@ -1,0 +1,135 @@
+{
+  "schema": 1,
+  "platform": "c64",
+  "slug": "hunchback",
+  "title": "Hunchback",
+  "year": 1983,
+  "publisher": "Ocean Software",
+  "developer": "J. Steele",
+  "title_image": "reference/title.png",
+  "build": "Ocean PAL cassette, HCODE",
+  "tier": "bronze",
+  "coverage_percent": 100.0,
+  "copy": "agent-draft",
+  "steward": "",
+  "credits": [],
+  "tools": {
+    "emulator": "VICE-MCP v3.14.0 macOS arm64 headless, dummy audio",
+    "disassembler": "regenerator2000 0.9.18"
+  },
+  "model": "gpt-6.2-sol",
+  "step_models": {
+    "50-coverage": [
+      "gpt-6.2-sol"
+    ],
+    "60-verify": [
+      "gpt-6.2-sol"
+    ]
+  },
+  "accuracy": [
+    {
+      "step": "research",
+      "web": true,
+      "models": [
+        "gpt-6.2-sol"
+      ]
+    },
+    {
+      "step": "annotate",
+      "models": [
+        "gpt-6.2-sol"
+      ]
+    },
+    {
+      "step": "sample",
+      "size": 60,
+      "wrong": 8,
+      "fixed": 8,
+      "seed": 1319,
+      "models": [
+        "gpt-6.2-sol"
+      ]
+    }
+  ],
+  "kit_version": "0.0.360",
+  "created": "2026-11-19",
+  "video": {
+    "screen": "$7400",
+    "charset": ""
+  },
+  "coverage": {
+    "exclude": [
+      [
+        "$8400",
+        "$8BFF",
+        "Runtime wall screen and colour buffers cleared at $4219-$423A"
+      ],
+      [
+        "$8100",
+        "$8131",
+        "Mutable score league copied from $7180 by $402B-$4034"
+      ],
+      [
+        "$0000",
+        "$00FF",
+        "CPU port, KERNAL keyboard state, and gameplay zero-page scratch pointers and counters"
+      ],
+      [
+        "$0200",
+        "$03FF",
+        "System or game runtime variables, RAM vectors, keyboard samples and temporary screen backups"
+      ],
+      [
+        "$0400",
+        "$07FF",
+        "KERNAL screen used to show the BASIC loading message prior to the game"
+      ],
+      [
+        "$0801",
+        "$0887",
+        "BASIC loader and its runtime workspace outside the loaded HCODE payload"
+      ],
+      [
+        "$7400",
+        "$77FE",
+        "Visible screen and sprite pointers. Clear at $4039 precedes the game drawing into this screen, with pointers supplied by the sprite renderers"
+      ],
+      [
+        "$A474",
+        "$A4B3",
+        "BASIC ROM is visible here. BIT $A474 in the layout dispatcher has no gameplay data in the RAM underneath."
+      ],
+      [
+        "$FD30",
+        "$FD4F",
+        "Bytes match the KERNAL 901227-03 default vector table and are outside the loaded tape payload"
+      ]
+    ],
+    "extra": [
+      [
+        "$3C00",
+        "$8000",
+        "HCODE payload, identical at entry to the two-copy KERNAL tape program"
+      ]
+    ],
+    "include": [
+      [
+        "$77FF",
+        "$77FF",
+        "Authored seed bit read by the first help-sprite animation at $5297"
+      ]
+    ]
+  },
+  "io": [],
+  "regions": [],
+  "links": {
+    "wiki": {
+      "title": "Hunchback – C64-Wiki",
+      "url": "https://www.c64-wiki.de/wiki/Hunchback"
+    },
+    "manual": {
+      "title": "",
+      "url": ""
+    }
+  }
+}
