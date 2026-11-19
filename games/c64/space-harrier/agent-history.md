@@ -25,3 +25,19 @@ source pointer and final destination. The listing sample and verdicts
 are under `work/reports/sample-20261119/`.
 
 The original emulator ports for this worktree were kept throughout.
+
+The resumed coverage pass matched the entire JCT depacker output to
+the saved handover snapshot. Execute and destination-store checkpoints
+isolated the title's eight-page character copy and the depacker's
+final zero run. The local `work/resume-watch.py` and
+`work/rle-provenance.py` retain the probes. The work queue shrank by
+2,112 bytes through those two classifications.
+
+The follow-up compared the Elite Novaload tape and Remember Elite disk
+at the same $0850 handover. `work/elite-copy.txt` records the store
+that ties the upper-RAM tail to the tape's relocation. The Remember
+trainer occupied part of the large lower gap and left the rest clear.
+`work/resume-ranges.txt` records the last effect's load and cleanup
+execute stops. `work/verify-resident-ranges.txt` records the VIC
+selector stores, the KERNAL ROM stop while it was banked in, and the
+post-banking watches with read and store controls.

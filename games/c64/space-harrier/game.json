@@ -9,7 +9,7 @@
   "title_image": "reference/title.png",
   "build": "Elite PAL, Jazzcat Cracking Team D64",
   "tier": "bronze",
-  "coverage_percent": 80.4,
+  "coverage_percent": 100.0,
   "copy": "agent-draft",
   "steward": "",
   "credits": [],
@@ -118,73 +118,36 @@
         "$FF4B",
         "$FFF9",
         "Identical packed bytes at the second JCT depacker's entry and at game handover. The final destination cursor stopped at $FF4B."
-      ]
-    ],
-    "extra": [
+      ],
+      [
+        "$C000",
+        "$C7FF",
+        "Generated playfield character bank. The title initializer copies all eight pages from $C800 before the first visible character row."
+      ],
+      [
+        "$FF00",
+        "$FF4A",
+        "The last zero run in the JCT depacker. The same zeros occur in the Elite tape loader's bulk sprite-copy tail."
+      ],
       [
         "$4EEB",
         "$6FFF",
-        "Bytes shared by both disk builds. No consumer or data format assigned."
+        "Bytes retained by the Elite tape's contiguous load and repacked by JCT. The Remember Elite build clears the gap or overlays it with trainer code and text. Resident pointer tracing and JCT load and execute watches corroborate the unused gap."
       ],
       [
-        "$BFB3",
-        "$C7FF",
-        "Unclassified bytes following the last effect stream and initial contents of the live character-bank destination."
+        "$BFB4",
+        "$BFFF",
+        "Tail of the Elite tape's contiguous load after the final sound-effect terminator and following $FF. The Remember Elite build clears this tail. A CPU load watch caught the interpreter branching to cleanup on $BFB2."
       ],
       [
-        "$EE8D",
-        "$EEFF",
-        "Unclassified loaded bytes beyond the mapped sprite slots or screen workspace."
+        "$EE00",
+        "$F7FE",
+        "Copied tail after the last VIC sprite at $EDFF. Matches the Elite tape's $4000-to-$D000 relocation byte for byte. VIC selectors and the sprite frame directories bound game fetches outside this range."
       ],
       [
-        "$EF8D",
-        "$F005",
-        "Unclassified loaded bytes beyond the mapped sprite slots or screen workspace."
-      ],
-      [
-        "$F19F",
-        "$F1F0",
-        "Unclassified loaded bytes beyond the mapped sprite slots or screen workspace."
-      ],
-      [
-        "$F28D",
-        "$F2F4",
-        "Unclassified loaded bytes beyond the mapped sprite slots or screen workspace."
-      ],
-      [
-        "$F49F",
-        "$F4F0",
-        "Unclassified loaded bytes beyond the mapped sprite slots or screen workspace."
-      ],
-      [
-        "$F58D",
-        "$F5F4",
-        "Unclassified loaded bytes beyond the mapped sprite slots or screen workspace."
-      ],
-      [
-        "$F69F",
-        "$F6F0",
-        "Unclassified loaded bytes beyond the mapped sprite slots or screen workspace."
-      ],
-      [
-        "$F78D",
-        "$F7F4",
-        "Unclassified loaded bytes beyond the mapped sprite slots or screen workspace."
-      ],
-      [
-        "$FC9F",
-        "$FCF4",
-        "Unclassified loaded bytes beyond the mapped sprite slots or screen workspace."
-      ],
-      [
-        "$FD9F",
-        "$FDF0",
-        "Unclassified loaded bytes beyond the mapped sprite slots or screen workspace."
-      ],
-      [
-        "$FE9F",
-        "$FEF4",
-        "Unclassified loaded bytes beyond the mapped sprite slots or screen workspace."
+        "$FC00",
+        "$FEFF",
+        "Copied tail beyond the $F800 screen and its sprite pointers. Matches the Elite tape's $4000-to-$D000 relocation byte for byte. The VIC keeps the screen at $F800 and sprite IDs end at $B7."
       ]
     ],
     "include": [

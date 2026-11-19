@@ -60,75 +60,39 @@
     65355,
     65529,
     "Identical packed bytes at the second JCT depacker's entry and at game handover. The final destination cursor stopped at $FF4B."
-   ]
-  ],
-  "extra": [
+   ],
+   [
+    49152,
+    51199,
+    "Generated playfield character bank. The title initializer copies all eight pages from $C800 before the first visible character row."
+   ],
+   [
+    65280,
+    65354,
+    "The last zero run in the JCT depacker. The same zeros occur in the Elite tape loader's bulk sprite-copy tail."
+   ],
    [
     20203,
     28671,
-    "Bytes shared by both disk builds. No consumer or data format assigned."
+    "Bytes retained by the Elite tape's contiguous load and repacked by JCT. The Remember Elite build clears the gap or overlays it with trainer code and text. Resident pointer tracing and JCT load and execute watches corroborate the unused gap."
    ],
    [
-    49075,
-    51199,
-    "Unclassified bytes following the last effect stream and initial contents of the live character-bank destination."
+    49076,
+    49151,
+    "Tail of the Elite tape's contiguous load after the final sound-effect terminator and following $FF. The Remember Elite build clears this tail. A CPU load watch caught the interpreter branching to cleanup on $BFB2."
    ],
    [
-    61069,
-    61183,
-    "Unclassified loaded bytes beyond the mapped sprite slots or screen workspace."
+    60928,
+    63486,
+    "Copied tail after the last VIC sprite at $EDFF. Matches the Elite tape's $4000-to-$D000 relocation byte for byte. VIC selectors and the sprite frame directories bound game fetches outside this range."
    ],
    [
-    61325,
-    61445,
-    "Unclassified loaded bytes beyond the mapped sprite slots or screen workspace."
-   ],
-   [
-    61855,
-    61936,
-    "Unclassified loaded bytes beyond the mapped sprite slots or screen workspace."
-   ],
-   [
-    62093,
-    62196,
-    "Unclassified loaded bytes beyond the mapped sprite slots or screen workspace."
-   ],
-   [
-    62623,
-    62704,
-    "Unclassified loaded bytes beyond the mapped sprite slots or screen workspace."
-   ],
-   [
-    62861,
-    62964,
-    "Unclassified loaded bytes beyond the mapped sprite slots or screen workspace."
-   ],
-   [
-    63135,
-    63216,
-    "Unclassified loaded bytes beyond the mapped sprite slots or screen workspace."
-   ],
-   [
-    63373,
-    63476,
-    "Unclassified loaded bytes beyond the mapped sprite slots or screen workspace."
-   ],
-   [
-    64671,
-    64756,
-    "Unclassified loaded bytes beyond the mapped sprite slots or screen workspace."
-   ],
-   [
-    64927,
-    65008,
-    "Unclassified loaded bytes beyond the mapped sprite slots or screen workspace."
-   ],
-   [
-    65183,
-    65268,
-    "Unclassified loaded bytes beyond the mapped sprite slots or screen workspace."
+    64512,
+    65279,
+    "Copied tail beyond the $F800 screen and its sprite pointers. Matches the Elite tape's $4000-to-$D000 relocation byte for byte. The VIC keeps the screen at $F800 and sprite IDs end at $B7."
    ]
   ],
+  "extra": [],
   "edges": [
    0,
    256,
@@ -898,11 +862,11 @@
   },
   {
    "start": 48216,
-   "end": 49074,
+   "end": 49075,
    "type": "Byte"
   },
   {
-   "start": 49075,
+   "start": 49076,
    "end": 51199,
    "type": "Undefined"
   },
@@ -8328,6 +8292,12 @@
    "kind": "user"
   },
   {
+   "address": 49075,
+   "name": "effect_trailing_ff",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
    "address": 51200,
    "name": "title_charset",
    "type": "UserDefined",
@@ -9176,7 +9146,7 @@
   {
    "address": 7700,
    "type": "line",
-   "text": "Copy eight pages beginning at the source pointer $0D/$0E into $C000\u2013$C7FF, the active playfield character bank."
+   "text": "Copy eight pages from the source pointer $0D/$0E to the live character bank at $C000\u2013$C7FF. Advance both pointer high bytes by eight. Title startup supplies $C800 as the source."
   },
   {
    "address": 7733,
@@ -11887,6 +11857,11 @@
    "address": 48941,
    "type": "line",
    "text": "Player-hit effect 11 uses a single voice, with divider 2 and successive waveform and frequency triplets. Control byte $FF ends the stream."
+  },
+  {
+   "address": 49075,
+   "type": "line",
+   "text": "Second $FF after the final effect. The player-hit stream ends at $BFB2, where the interpreter branches to cleanup. This byte also follows that stream in the Remember Elite build."
   },
   {
    "address": 51200,
