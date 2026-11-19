@@ -1,0 +1,9 @@
+{"schema": 1,
+ "images": [
+  {"name": "disk", "file": "Mermaid Madness.d64", "what": "disk side", "sha256": "853e549ae947ab90b37206b9ae23f32992dcf6a2be2f173d69e1495f4b93e753"}
+ ],
+ "items": [
+  {"image": "disk", "label": "----------------", "place": {"file": "----------------", "type": "DEL", "track": 18, "sector": 0}, "bytes": 508, "sha256": "634675d0a537a0acdfb4c17b48e7dc70b3ec2ca03d43f152ecbf41afd7e16867", "also": ["disk: ---------------- (2)", "disk: ---------------- (3)"], "answer": "unused", "why": "DEL entries with zero blocks point into track 18 directory/BAM sectors. They have no separately allocated program."},
+  {"image": "disk", "label": "MERMAID M.+3/REM", "place": {"file": "MERMAID M.+3/REM", "type": "PRG", "track": 19, "sector": 0}, "load": "$0801", "bytes": 27539, "sha256": "a9044dc8ed5eccafb0faa63f672d3fbcdf286a8a474f4b6424154ed7367544ea", "answer": "unused", "why": "A separate PRG directory entry with its own BASIC load address. The boot recipe explicitly selects MERMAID MADNESS. No KERNAL LOAD target was found in the decoded engine, and the selected release does not consume this entry in the traced gameplay."},
+  {"image": "disk", "label": "MERMAID MADNESS", "place": {"file": "MERMAID MADNESS", "type": "PRG", "track": 17, "sector": 0}, "load": "$0801", "bytes": 43715, "sha256": "d261366324c12306e56286805ebff3c6d75005b75844d38264142d1bfca026d9", "answer": "part", "at": "$4000", "packed": true, "why": "Selected standalone release. Its two startup packers and intro lead to the engine at $4000 with the map and assets already loaded."}
+ ]}

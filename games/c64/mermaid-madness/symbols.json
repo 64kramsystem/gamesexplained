@@ -1,0 +1,8361 @@
+{
+ "schema": 1,
+ "platform": "c64",
+ "game": "mermaid-madness",
+ "build": "Kurt crack, MERMAID MADNESS from C64.com D64",
+ "source": "regenerator2000 live",
+ "regions": {
+  "exclude": [
+   [
+    256,
+    511,
+    "stack"
+   ],
+   [
+    53248,
+    57343,
+    "I/O and colour RAM"
+   ],
+   [
+    1024,
+    2047,
+    "screen RAM"
+   ],
+   [
+    53248,
+    61439,
+    "Physical RAM outside VIC bank zero. The second unpacker writes both mirrored copies before $4000. Play leaves I/O and KERNAL visible and the alternate release does not share these bytes."
+   ],
+   [
+    61440,
+    65535,
+    "Kurt packing residue beneath KERNAL. Startup stores hit here with $01 = $34, and game entry keeps KERNAL visible."
+   ],
+   [
+    1024,
+    2047,
+    "Generated screen bytes and VIC sprite pointers. The hand-over screen is spaces, and the game clears and rebuilds the screen from $418E, $450F and the HUD routines."
+   ],
+   [
+    0,
+    255,
+    "6510 port, KERNAL workspace and zero-page runtime state. Game variables and pointers are initialized or overwritten by their respective routines."
+   ],
+   [
+    512,
+    1023,
+    "KERNAL workspace and RAM vectors set at start-up. The remaining setup bytes are outside the game engine called at $4000."
+   ],
+   [
+    17366,
+    17490,
+    "Runtime actor, object, gauge, movement and redraw state. $407D clears its working fields and initializes the attempt. $4450 is the separately recorded retained high-score field."
+   ],
+   [
+    36895,
+    36899,
+    "Music sequencer counters and work bytes written by $9024, $90DE and $91C5."
+   ],
+   [
+    39313,
+    39332,
+    "Mutable SID driver state for effect pitches, counters and current track. It is updated by SID routines as they run."
+   ],
+   [
+    10464,
+    10719,
+    "Room bitmap output, character row 7, columns 4\u201335. The tile renderer writes this row on redraw."
+   ],
+   [
+    10784,
+    11039,
+    "Room bitmap output, character row 8, columns 4\u201335. The tile renderer writes this row on redraw."
+   ],
+   [
+    11104,
+    11359,
+    "Room bitmap output, character row 9, columns 4\u201335. The tile renderer writes this row on redraw."
+   ],
+   [
+    11424,
+    11679,
+    "Room bitmap output, character row 10, columns 4\u201335. The tile renderer writes this row on redraw."
+   ],
+   [
+    11744,
+    11999,
+    "Room bitmap output, character row 11, columns 4\u201335. The tile renderer writes this row on redraw."
+   ],
+   [
+    12064,
+    12319,
+    "Room bitmap output, character row 12, columns 4\u201335. The tile renderer writes this row on redraw."
+   ],
+   [
+    12384,
+    12639,
+    "Room bitmap output, character row 13, columns 4\u201335. The tile renderer writes this row on redraw."
+   ],
+   [
+    12704,
+    12959,
+    "Room bitmap output, character row 14, columns 4\u201335. The tile renderer writes this row on redraw."
+   ],
+   [
+    13024,
+    13279,
+    "Room bitmap output, character row 15, columns 4\u201335. The tile renderer writes this row on redraw."
+   ],
+   [
+    13344,
+    13599,
+    "Room bitmap output, character row 16, columns 4\u201335. The tile renderer writes this row on redraw."
+   ],
+   [
+    13664,
+    13919,
+    "Room bitmap output, character row 17, columns 4\u201335. The tile renderer writes this row on redraw."
+   ],
+   [
+    13984,
+    14239,
+    "Room bitmap output, character row 18, columns 4\u201335. The tile renderer writes this row on redraw."
+   ],
+   [
+    14304,
+    14559,
+    "Room bitmap output, character row 19, columns 4\u201335. The tile renderer writes this row on redraw."
+   ],
+   [
+    14624,
+    14879,
+    "Room bitmap output, character row 20, columns 4\u201335. The tile renderer writes this row on redraw."
+   ],
+   [
+    14944,
+    15199,
+    "Room bitmap output, character row 21, columns 4\u201335. The tile renderer writes this row on redraw."
+   ],
+   [
+    15264,
+    15519,
+    "Room bitmap output, character row 22, columns 4\u201335. The tile renderer writes this row on redraw."
+   ],
+   [
+    34816,
+    36863,
+    "Loaded bytes beyond the eight metatile attribute pages. The byte-indexed attributes end at $87FF and the engine\u2019s indirect graphics sources address the bitmap, item texts, paths and sprite banks elsewhere. A redraw watch observed 1,024 attribute reads and zero reads in this range."
+   ],
+   [
+    39333,
+    39423,
+    "Bytes after the SID driver state, including a fragment with KERNAL I/O calls. The game\u2019s indexed SID reads here are bounded to X=0 or 2 for the pitch pair and X=0\u20133 for effect envelopes."
+   ],
+   [
+    52352,
+    53247,
+    "Variant-specific Kurt loader code and data. Startup stores hit $CC80 before $4000 in the second depack. No engine call or decoded data reference reaches this region, and the Remember entry uses different bytes."
+   ]
+  ],
+  "extra": [],
+  "edges": [
+   0,
+   256,
+   512,
+   1024,
+   2048,
+   4096,
+   16384,
+   32768,
+   40960,
+   49152,
+   53248,
+   57344
+  ]
+ },
+ "blocks": [
+  {
+   "start": 0,
+   "end": 2047,
+   "type": "Undefined"
+  },
+  {
+   "start": 2048,
+   "end": 8783,
+   "type": "Byte"
+  },
+  {
+   "start": 8784,
+   "end": 8959,
+   "type": "Undefined"
+  },
+  {
+   "start": 8960,
+   "end": 16383,
+   "type": "Byte"
+  },
+  {
+   "start": 16384,
+   "end": 16920,
+   "type": "Code"
+  },
+  {
+   "start": 16921,
+   "end": 16926,
+   "type": "Address"
+  },
+  {
+   "start": 16927,
+   "end": 17365,
+   "type": "Code"
+  },
+  {
+   "start": 17366,
+   "end": 17555,
+   "type": "Undefined"
+  },
+  {
+   "start": 17556,
+   "end": 17572,
+   "type": "Byte"
+  },
+  {
+   "start": 17573,
+   "end": 17662,
+   "type": "Undefined"
+  },
+  {
+   "start": 17663,
+   "end": 18139,
+   "type": "Code"
+  },
+  {
+   "start": 18140,
+   "end": 18149,
+   "type": "Undefined"
+  },
+  {
+   "start": 18150,
+   "end": 18970,
+   "type": "Code"
+  },
+  {
+   "start": 18971,
+   "end": 19006,
+   "type": "Undefined"
+  },
+  {
+   "start": 19007,
+   "end": 19567,
+   "type": "Code"
+  },
+  {
+   "start": 19568,
+   "end": 19613,
+   "type": "Undefined"
+  },
+  {
+   "start": 19614,
+   "end": 19657,
+   "type": "Code"
+  },
+  {
+   "start": 19658,
+   "end": 19686,
+   "type": "Undefined"
+  },
+  {
+   "start": 19687,
+   "end": 20128,
+   "type": "Code"
+  },
+  {
+   "start": 20129,
+   "end": 20132,
+   "type": "Undefined"
+  },
+  {
+   "start": 20133,
+   "end": 20204,
+   "type": "Code"
+  },
+  {
+   "start": 20205,
+   "end": 20208,
+   "type": "Undefined"
+  },
+  {
+   "start": 20209,
+   "end": 20280,
+   "type": "Code"
+  },
+  {
+   "start": 20281,
+   "end": 20289,
+   "type": "Undefined"
+  },
+  {
+   "start": 20290,
+   "end": 20366,
+   "type": "Code"
+  },
+  {
+   "start": 20367,
+   "end": 20370,
+   "type": "Undefined"
+  },
+  {
+   "start": 20371,
+   "end": 20480,
+   "type": "Code"
+  },
+  {
+   "start": 20481,
+   "end": 20481,
+   "type": "Undefined"
+  },
+  {
+   "start": 20482,
+   "end": 20931,
+   "type": "Code"
+  },
+  {
+   "start": 20932,
+   "end": 20938,
+   "type": "Undefined"
+  },
+  {
+   "start": 20939,
+   "end": 20942,
+   "type": "Byte"
+  },
+  {
+   "start": 20943,
+   "end": 21014,
+   "type": "Undefined"
+  },
+  {
+   "start": 21015,
+   "end": 23239,
+   "type": "Code"
+  },
+  {
+   "start": 23240,
+   "end": 23242,
+   "type": "Undefined"
+  },
+  {
+   "start": 23243,
+   "end": 23429,
+   "type": "Code"
+  },
+  {
+   "start": 23430,
+   "end": 23433,
+   "type": "Undefined"
+  },
+  {
+   "start": 23434,
+   "end": 23436,
+   "type": "Byte"
+  },
+  {
+   "start": 23437,
+   "end": 23442,
+   "type": "Address"
+  },
+  {
+   "start": 23443,
+   "end": 23607,
+   "type": "Undefined"
+  },
+  {
+   "start": 23608,
+   "end": 23649,
+   "type": "Byte"
+  },
+  {
+   "start": 23650,
+   "end": 23652,
+   "type": "Undefined"
+  },
+  {
+   "start": 23653,
+   "end": 23674,
+   "type": "Address"
+  },
+  {
+   "start": 23675,
+   "end": 23735,
+   "type": "PETSCII Text"
+  },
+  {
+   "start": 23736,
+   "end": 23906,
+   "type": "Undefined"
+  },
+  {
+   "start": 23907,
+   "end": 24252,
+   "type": "Byte"
+  },
+  {
+   "start": 24253,
+   "end": 24254,
+   "type": "Undefined"
+  },
+  {
+   "start": 24255,
+   "end": 24575,
+   "type": "Code"
+  },
+  {
+   "start": 24576,
+   "end": 34815,
+   "type": "Byte"
+  },
+  {
+   "start": 34816,
+   "end": 36868,
+   "type": "Undefined"
+  },
+  {
+   "start": 36869,
+   "end": 36894,
+   "type": "Code"
+  },
+  {
+   "start": 36895,
+   "end": 36899,
+   "type": "Undefined"
+  },
+  {
+   "start": 36900,
+   "end": 37049,
+   "type": "Code"
+  },
+  {
+   "start": 37050,
+   "end": 37085,
+   "type": "Undefined"
+  },
+  {
+   "start": 37086,
+   "end": 37105,
+   "type": "Code"
+  },
+  {
+   "start": 37106,
+   "end": 37169,
+   "type": "Undefined"
+  },
+  {
+   "start": 37170,
+   "end": 37299,
+   "type": "Byte"
+  },
+  {
+   "start": 37300,
+   "end": 37378,
+   "type": "Code"
+  },
+  {
+   "start": 37379,
+   "end": 37380,
+   "type": "Byte"
+  },
+  {
+   "start": 37381,
+   "end": 37592,
+   "type": "Code"
+  },
+  {
+   "start": 37593,
+   "end": 37594,
+   "type": "Undefined"
+  },
+  {
+   "start": 37595,
+   "end": 37646,
+   "type": "Code"
+  },
+  {
+   "start": 37647,
+   "end": 37694,
+   "type": "Byte"
+  },
+  {
+   "start": 37695,
+   "end": 37758,
+   "type": "Code"
+  },
+  {
+   "start": 37759,
+   "end": 37826,
+   "type": "Byte"
+  },
+  {
+   "start": 37827,
+   "end": 37887,
+   "type": "Code"
+  },
+  {
+   "start": 37888,
+   "end": 38079,
+   "type": "Byte"
+  },
+  {
+   "start": 38080,
+   "end": 38166,
+   "type": "Code"
+  },
+  {
+   "start": 38167,
+   "end": 38167,
+   "type": "Undefined"
+  },
+  {
+   "start": 38168,
+   "end": 38551,
+   "type": "Byte"
+  },
+  {
+   "start": 38552,
+   "end": 38609,
+   "type": "Code"
+  },
+  {
+   "start": 38610,
+   "end": 38641,
+   "type": "Byte"
+  },
+  {
+   "start": 38642,
+   "end": 38706,
+   "type": "Code"
+  },
+  {
+   "start": 38707,
+   "end": 38770,
+   "type": "Byte"
+  },
+  {
+   "start": 38771,
+   "end": 38819,
+   "type": "Code"
+  },
+  {
+   "start": 38820,
+   "end": 39059,
+   "type": "Byte"
+  },
+  {
+   "start": 39060,
+   "end": 39308,
+   "type": "Code"
+  },
+  {
+   "start": 39309,
+   "end": 39423,
+   "type": "Undefined"
+  },
+  {
+   "start": 39424,
+   "end": 49151,
+   "type": "Byte"
+  },
+  {
+   "start": 49152,
+   "end": 49222,
+   "type": "PETSCII Text"
+  },
+  {
+   "start": 49223,
+   "end": 49451,
+   "type": "Code"
+  },
+  {
+   "start": 49452,
+   "end": 49452,
+   "type": "Undefined"
+  },
+  {
+   "start": 49453,
+   "end": 49614,
+   "type": "Byte"
+  },
+  {
+   "start": 49615,
+   "end": 49628,
+   "type": "Undefined"
+  },
+  {
+   "start": 49629,
+   "end": 49694,
+   "type": "Code"
+  },
+  {
+   "start": 49695,
+   "end": 65535,
+   "type": "Undefined"
+  }
+ ],
+ "symbols": [
+  {
+   "address": 0,
+   "name": "f_0000",
+   "type": "Field",
+   "kind": "auto"
+  },
+  {
+   "address": 1,
+   "name": "zpa_01",
+   "type": "ZeroPageAbsoluteAddress",
+   "kind": "auto"
+  },
+  {
+   "address": 2,
+   "name": "raster_phase_index",
+   "type": "ZeroPageAbsoluteAddress",
+   "kind": "user"
+  },
+  {
+   "address": 35,
+   "name": "f_0023",
+   "type": "Field",
+   "kind": "auto"
+  },
+  {
+   "address": 36,
+   "name": "energy_remaining",
+   "type": "ZeroPageAbsoluteAddress",
+   "kind": "user"
+  },
+  {
+   "address": 37,
+   "name": "end_pending",
+   "type": "ZeroPageAbsoluteAddress",
+   "kind": "user"
+  },
+  {
+   "address": 38,
+   "name": "zpa_26",
+   "type": "ZeroPageAbsoluteAddress",
+   "kind": "auto"
+  },
+  {
+   "address": 39,
+   "name": "zpa_27",
+   "type": "ZeroPageAbsoluteAddress",
+   "kind": "auto"
+  },
+  {
+   "address": 40,
+   "name": "zpa_28",
+   "type": "ZeroPageAbsoluteAddress",
+   "kind": "auto"
+  },
+  {
+   "address": 41,
+   "name": "zpa_29",
+   "type": "ZeroPageAbsoluteAddress",
+   "kind": "auto"
+  },
+  {
+   "address": 42,
+   "name": "zpa_2A",
+   "type": "ZeroPageAbsoluteAddress",
+   "kind": "auto"
+  },
+  {
+   "address": 43,
+   "name": "zpa_2B",
+   "type": "ZeroPageAbsoluteAddress",
+   "kind": "auto"
+  },
+  {
+   "address": 44,
+   "name": "zpa_2C",
+   "type": "ZeroPageAbsoluteAddress",
+   "kind": "auto"
+  },
+  {
+   "address": 45,
+   "name": "zpa_2D",
+   "type": "ZeroPageAbsoluteAddress",
+   "kind": "auto"
+  },
+  {
+   "address": 46,
+   "name": "zpa_2E",
+   "type": "ZeroPageAbsoluteAddress",
+   "kind": "auto"
+  },
+  {
+   "address": 47,
+   "name": "zpa_2F",
+   "type": "ZeroPageAbsoluteAddress",
+   "kind": "auto"
+  },
+  {
+   "address": 48,
+   "name": "zpa_30",
+   "type": "ZeroPageAbsoluteAddress",
+   "kind": "auto"
+  },
+  {
+   "address": 49,
+   "name": "zpa_31",
+   "type": "ZeroPageAbsoluteAddress",
+   "kind": "auto"
+  },
+  {
+   "address": 50,
+   "name": "current_room",
+   "type": "ZeroPageAbsoluteAddress",
+   "kind": "user"
+  },
+  {
+   "address": 51,
+   "name": "zpa_33",
+   "type": "ZeroPageAbsoluteAddress",
+   "kind": "auto"
+  },
+  {
+   "address": 52,
+   "name": "zpa_34",
+   "type": "ZeroPageAbsoluteAddress",
+   "kind": "auto"
+  },
+  {
+   "address": 53,
+   "name": "zpa_35",
+   "type": "ZeroPageAbsoluteAddress",
+   "kind": "auto"
+  },
+  {
+   "address": 54,
+   "name": "sprite_contact_mask",
+   "type": "ZeroPageAbsoluteAddress",
+   "kind": "user"
+  },
+  {
+   "address": 55,
+   "name": "fire_latch",
+   "type": "ZeroPageAbsoluteAddress",
+   "kind": "user"
+  },
+  {
+   "address": 56,
+   "name": "zpa_38",
+   "type": "ZeroPageAbsoluteAddress",
+   "kind": "auto"
+  },
+  {
+   "address": 57,
+   "name": "zpa_39",
+   "type": "ZeroPageAbsoluteAddress",
+   "kind": "auto"
+  },
+  {
+   "address": 58,
+   "name": "zpa_3A",
+   "type": "ZeroPageAbsoluteAddress",
+   "kind": "auto"
+  },
+  {
+   "address": 59,
+   "name": "zpa_3B",
+   "type": "ZeroPageAbsoluteAddress",
+   "kind": "auto"
+  },
+  {
+   "address": 60,
+   "name": "zpa_3C",
+   "type": "ZeroPageAbsoluteAddress",
+   "kind": "auto"
+  },
+  {
+   "address": 61,
+   "name": "zpa_3D",
+   "type": "ZeroPageAbsoluteAddress",
+   "kind": "auto"
+  },
+  {
+   "address": 62,
+   "name": "zpa_3E",
+   "type": "ZeroPageAbsoluteAddress",
+   "kind": "auto"
+  },
+  {
+   "address": 63,
+   "name": "playfield_sprite_mc1",
+   "type": "ZeroPageAbsoluteAddress",
+   "kind": "user"
+  },
+  {
+   "address": 65,
+   "name": "zpa_41",
+   "type": "ZeroPageAbsoluteAddress",
+   "kind": "auto"
+  },
+  {
+   "address": 66,
+   "name": "zpa_42",
+   "type": "ZeroPageAbsoluteAddress",
+   "kind": "auto"
+  },
+  {
+   "address": 67,
+   "name": "zpa_43",
+   "type": "ZeroPageAbsoluteAddress",
+   "kind": "auto"
+  },
+  {
+   "address": 68,
+   "name": "zpa_44",
+   "type": "ZeroPageAbsoluteAddress",
+   "kind": "auto"
+  },
+  {
+   "address": 69,
+   "name": "zpa_45",
+   "type": "ZeroPageAbsoluteAddress",
+   "kind": "auto"
+  },
+  {
+   "address": 70,
+   "name": "zpa_46",
+   "type": "ZeroPageAbsoluteAddress",
+   "kind": "auto"
+  },
+  {
+   "address": 71,
+   "name": "zpa_47",
+   "type": "ZeroPageAbsoluteAddress",
+   "kind": "auto"
+  },
+  {
+   "address": 72,
+   "name": "primary_work_pointer_hi",
+   "type": "ZeroPageAbsoluteAddress",
+   "kind": "user"
+  },
+  {
+   "address": 74,
+   "name": "zpa_4A",
+   "type": "ZeroPageAbsoluteAddress",
+   "kind": "auto"
+  },
+  {
+   "address": 75,
+   "name": "second_work_pointer_hi",
+   "type": "ZeroPageAbsoluteAddress",
+   "kind": "user"
+  },
+  {
+   "address": 78,
+   "name": "metatile_code_work",
+   "type": "ZeroPageAbsoluteAddress",
+   "kind": "user"
+  },
+  {
+   "address": 80,
+   "name": "zpa_50",
+   "type": "ZeroPageAbsoluteAddress",
+   "kind": "auto"
+  },
+  {
+   "address": 81,
+   "name": "zpa_51",
+   "type": "ZeroPageAbsoluteAddress",
+   "kind": "auto"
+  },
+  {
+   "address": 82,
+   "name": "zpa_52",
+   "type": "ZeroPageAbsoluteAddress",
+   "kind": "auto"
+  },
+  {
+   "address": 83,
+   "name": "zpa_53",
+   "type": "ZeroPageAbsoluteAddress",
+   "kind": "auto"
+  },
+  {
+   "address": 84,
+   "name": "zpa_54",
+   "type": "ZeroPageAbsoluteAddress",
+   "kind": "auto"
+  },
+  {
+   "address": 85,
+   "name": "zpa_55",
+   "type": "ZeroPageAbsoluteAddress",
+   "kind": "auto"
+  },
+  {
+   "address": 87,
+   "name": "zpa_57",
+   "type": "ZeroPageAbsoluteAddress",
+   "kind": "auto"
+  },
+  {
+   "address": 88,
+   "name": "zpa_58",
+   "type": "ZeroPageAbsoluteAddress",
+   "kind": "auto"
+  },
+  {
+   "address": 89,
+   "name": "map_tile_x",
+   "type": "ZeroPageAbsoluteAddress",
+   "kind": "user"
+  },
+  {
+   "address": 90,
+   "name": "map_tile_y",
+   "type": "ZeroPageAbsoluteAddress",
+   "kind": "user"
+  },
+  {
+   "address": 91,
+   "name": "zpa_5B",
+   "type": "ZeroPageAbsoluteAddress",
+   "kind": "auto"
+  },
+  {
+   "address": 92,
+   "name": "player_animation_delay",
+   "type": "ZeroPageAbsoluteAddress",
+   "kind": "user"
+  },
+  {
+   "address": 98,
+   "name": "up_input_delay",
+   "type": "ZeroPageAbsoluteAddress",
+   "kind": "user"
+  },
+  {
+   "address": 101,
+   "name": "zpa_65",
+   "type": "ZeroPageAbsoluteAddress",
+   "kind": "auto"
+  },
+  {
+   "address": 102,
+   "name": "zpa_66",
+   "type": "ZeroPageAbsoluteAddress",
+   "kind": "auto"
+  },
+  {
+   "address": 103,
+   "name": "zpa_67",
+   "type": "ZeroPageAbsoluteAddress",
+   "kind": "auto"
+  },
+  {
+   "address": 104,
+   "name": "zpa_68",
+   "type": "ZeroPageAbsoluteAddress",
+   "kind": "auto"
+  },
+  {
+   "address": 105,
+   "name": "zpa_69",
+   "type": "ZeroPageAbsoluteAddress",
+   "kind": "auto"
+  },
+  {
+   "address": 106,
+   "name": "zpa_6A",
+   "type": "ZeroPageAbsoluteAddress",
+   "kind": "auto"
+  },
+  {
+   "address": 107,
+   "name": "zpa_6B",
+   "type": "ZeroPageAbsoluteAddress",
+   "kind": "auto"
+  },
+  {
+   "address": 108,
+   "name": "zpa_6C",
+   "type": "ZeroPageAbsoluteAddress",
+   "kind": "auto"
+  },
+  {
+   "address": 109,
+   "name": "player_x_low",
+   "type": "ZeroPageAbsoluteAddress",
+   "kind": "user"
+  },
+  {
+   "address": 110,
+   "name": "player_y",
+   "type": "ZeroPageAbsoluteAddress",
+   "kind": "user"
+  },
+  {
+   "address": 111,
+   "name": "sprite_x_high_bits",
+   "type": "ZeroPageAbsoluteAddress",
+   "kind": "user"
+  },
+  {
+   "address": 112,
+   "name": "air_prescaler",
+   "type": "ZeroPageAbsoluteAddress",
+   "kind": "user"
+  },
+  {
+   "address": 788,
+   "name": "game_irq_vector",
+   "type": "AbsoluteAddress",
+   "kind": "user"
+  },
+  {
+   "address": 789,
+   "name": "game_irq_vector_hi",
+   "type": "AbsoluteAddress",
+   "kind": "user"
+  },
+  {
+   "address": 1024,
+   "name": "f_0400",
+   "type": "Field",
+   "kind": "auto"
+  },
+  {
+   "address": 1025,
+   "name": "f_0401",
+   "type": "Field",
+   "kind": "auto"
+  },
+  {
+   "address": 1039,
+   "name": "a_040F",
+   "type": "AbsoluteAddress",
+   "kind": "auto"
+  },
+  {
+   "address": 1047,
+   "name": "a_0417",
+   "type": "AbsoluteAddress",
+   "kind": "auto"
+  },
+  {
+   "address": 1053,
+   "name": "a_041D",
+   "type": "AbsoluteAddress",
+   "kind": "auto"
+  },
+  {
+   "address": 1062,
+   "name": "a_0426",
+   "type": "AbsoluteAddress",
+   "kind": "auto"
+  },
+  {
+   "address": 1065,
+   "name": "f_0429",
+   "type": "Field",
+   "kind": "auto"
+  },
+  {
+   "address": 1067,
+   "name": "f_042B",
+   "type": "Field",
+   "kind": "auto"
+  },
+  {
+   "address": 1075,
+   "name": "a_0433",
+   "type": "AbsoluteAddress",
+   "kind": "auto"
+  },
+  {
+   "address": 1076,
+   "name": "a_0434",
+   "type": "AbsoluteAddress",
+   "kind": "auto"
+  },
+  {
+   "address": 1077,
+   "name": "a_0435",
+   "type": "AbsoluteAddress",
+   "kind": "auto"
+  },
+  {
+   "address": 1079,
+   "name": "f_0437",
+   "type": "Field",
+   "kind": "auto"
+  },
+  {
+   "address": 1087,
+   "name": "f_043F",
+   "type": "Field",
+   "kind": "auto"
+  },
+  {
+   "address": 1093,
+   "name": "f_0445",
+   "type": "Field",
+   "kind": "auto"
+  },
+  {
+   "address": 1102,
+   "name": "f_044E",
+   "type": "Field",
+   "kind": "auto"
+  },
+  {
+   "address": 1107,
+   "name": "f_0453",
+   "type": "Field",
+   "kind": "auto"
+  },
+  {
+   "address": 1115,
+   "name": "a_045B",
+   "type": "AbsoluteAddress",
+   "kind": "auto"
+  },
+  {
+   "address": 1116,
+   "name": "a_045C",
+   "type": "AbsoluteAddress",
+   "kind": "auto"
+  },
+  {
+   "address": 1117,
+   "name": "a_045D",
+   "type": "AbsoluteAddress",
+   "kind": "auto"
+  },
+  {
+   "address": 1151,
+   "name": "f_047F",
+   "type": "Field",
+   "kind": "auto"
+  },
+  {
+   "address": 1185,
+   "name": "f_04A1",
+   "type": "Field",
+   "kind": "auto"
+  },
+  {
+   "address": 1222,
+   "name": "a_04C6",
+   "type": "AbsoluteAddress",
+   "kind": "auto"
+  },
+  {
+   "address": 1639,
+   "name": "f_0667",
+   "type": "Field",
+   "kind": "auto"
+  },
+  {
+   "address": 1640,
+   "name": "f_0668",
+   "type": "Field",
+   "kind": "auto"
+  },
+  {
+   "address": 1790,
+   "name": "f_06FE",
+   "type": "Field",
+   "kind": "auto"
+  },
+  {
+   "address": 2040,
+   "name": "a_07F8",
+   "type": "AbsoluteAddress",
+   "kind": "auto"
+  },
+  {
+   "address": 2041,
+   "name": "a_07F9",
+   "type": "AbsoluteAddress",
+   "kind": "auto"
+  },
+  {
+   "address": 2042,
+   "name": "a_07FA",
+   "type": "AbsoluteAddress",
+   "kind": "auto"
+  },
+  {
+   "address": 2043,
+   "name": "a_07FB",
+   "type": "AbsoluteAddress",
+   "kind": "auto"
+  },
+  {
+   "address": 2044,
+   "name": "a_07FC",
+   "type": "AbsoluteAddress",
+   "kind": "auto"
+  },
+  {
+   "address": 2045,
+   "name": "a_07FD",
+   "type": "AbsoluteAddress",
+   "kind": "auto"
+  },
+  {
+   "address": 2046,
+   "name": "a_07FE",
+   "type": "AbsoluteAddress",
+   "kind": "auto"
+  },
+  {
+   "address": 2047,
+   "name": "a_07FF",
+   "type": "AbsoluteAddress",
+   "kind": "auto"
+  },
+  {
+   "address": 2048,
+   "name": "myrtle_live_sprite_bank",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 2176,
+   "name": "hud_score_marker_sprite",
+   "type": "Field",
+   "kind": "user"
+  },
+  {
+   "address": 2240,
+   "name": "energy_gauge_left_half",
+   "type": "Field",
+   "kind": "user"
+  },
+  {
+   "address": 3264,
+   "name": "hud_air_and_heart_frames",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 3456,
+   "name": "energy_gauge_right_half",
+   "type": "Field",
+   "kind": "user"
+  },
+  {
+   "address": 3520,
+   "name": "actor_frame_buffer_0",
+   "type": "Field",
+   "kind": "user"
+  },
+  {
+   "address": 3584,
+   "name": "actor_frame_buffer_1",
+   "type": "Field",
+   "kind": "user"
+  },
+  {
+   "address": 4096,
+   "name": "room_map_tiles",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 5120,
+   "name": "room_map_second_row",
+   "type": "Field",
+   "kind": "user"
+  },
+  {
+   "address": 6144,
+   "name": "room_map_third_row",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 6145,
+   "name": "left_passage_tiles",
+   "type": "Field",
+   "kind": "user"
+  },
+  {
+   "address": 6219,
+   "name": "middle_passage_tiles",
+   "type": "Field",
+   "kind": "user"
+  },
+  {
+   "address": 7168,
+   "name": "room_map_fourth_row",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 7397,
+   "name": "ankh_patch_top_tiles",
+   "type": "Field",
+   "kind": "user"
+  },
+  {
+   "address": 7525,
+   "name": "ankh_patch_second_tiles",
+   "type": "Field",
+   "kind": "user"
+  },
+  {
+   "address": 7540,
+   "name": "ankh_patch_right_tiles",
+   "type": "Field",
+   "kind": "user"
+  },
+  {
+   "address": 7622,
+   "name": "lower_cavern_passage_tiles",
+   "type": "Field",
+   "kind": "user"
+  },
+  {
+   "address": 7668,
+   "name": "ankh_patch_right_lower_tiles",
+   "type": "Field",
+   "kind": "user"
+  },
+  {
+   "address": 7750,
+   "name": "lower_cavern_passage_floor",
+   "type": "Field",
+   "kind": "user"
+  },
+  {
+   "address": 7959,
+   "name": "gordon_barrier_tiles",
+   "type": "Field",
+   "kind": "user"
+  },
+  {
+   "address": 8192,
+   "name": "hud_letter_glyphs",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 8704,
+   "name": "hud_frame_glyphs",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 8768,
+   "name": "hud_border_join_glyphs",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 8960,
+   "name": "second_creature_live_frames",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 9216,
+   "name": "item_sprite_frames",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 9728,
+   "name": "bitmap_upper_overlap",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 9792,
+   "name": "bitmap_frame_top",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 10400,
+   "name": "frame_join_06_07",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 10720,
+   "name": "frame_join_07_08",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 11040,
+   "name": "frame_join_08_09",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 11360,
+   "name": "frame_join_09_10",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 11680,
+   "name": "frame_join_10_11",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 12000,
+   "name": "frame_join_11_12",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 12320,
+   "name": "frame_join_12_13",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 12640,
+   "name": "frame_join_13_14",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 12960,
+   "name": "frame_join_14_15",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 13280,
+   "name": "frame_join_15_16",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 13600,
+   "name": "frame_join_16_17",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 13920,
+   "name": "frame_join_17_18",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 14240,
+   "name": "frame_join_18_19",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 14560,
+   "name": "frame_join_19_20",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 14880,
+   "name": "frame_join_20_21",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 14944,
+   "name": "bitmap_draw_upper_operand_target",
+   "type": "Field",
+   "kind": "user"
+  },
+  {
+   "address": 15200,
+   "name": "frame_join_21_22",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 15264,
+   "name": "bitmap_draw_lower_operand_target",
+   "type": "Field",
+   "kind": "user"
+  },
+  {
+   "address": 15520,
+   "name": "frame_join_22_23",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 15552,
+   "name": "bitmap_frame_bottom",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 16384,
+   "name": "game_entry",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 16387,
+   "name": "restart_game",
+   "type": "Jump",
+   "kind": "user"
+  },
+  {
+   "address": 16390,
+   "name": "main_loop",
+   "type": "Jump",
+   "kind": "user"
+  },
+  {
+   "address": 16471,
+   "name": "setup_hardware",
+   "type": "Subroutine",
+   "kind": "user"
+  },
+  {
+   "address": 16509,
+   "name": "reset_attempt",
+   "type": "Subroutine",
+   "kind": "user"
+  },
+  {
+   "address": 16517,
+   "name": "b_4085",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 16526,
+   "name": "b_408E",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 16782,
+   "name": "clear_screen_cells",
+   "type": "Subroutine",
+   "kind": "user"
+  },
+  {
+   "address": 16792,
+   "name": "b_4198",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 16794,
+   "name": "b_419A",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 16827,
+   "name": "b_41BB",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 16831,
+   "name": "install_raster_irq",
+   "type": "Jump",
+   "kind": "user"
+  },
+  {
+   "address": 16873,
+   "name": "raster_irq",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 16882,
+   "name": "raster_jump_target_lo",
+   "type": "AbsoluteAddress",
+   "kind": "user"
+  },
+  {
+   "address": 16883,
+   "name": "raster_jump_target_hi",
+   "type": "AbsoluteAddress",
+   "kind": "user"
+  },
+  {
+   "address": 16884,
+   "name": "advance_raster_phase",
+   "type": "Jump",
+   "kind": "user"
+  },
+  {
+   "address": 16896,
+   "name": "b_4200",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 16910,
+   "name": "b_420E",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 16921,
+   "name": "raster_phase_handlers",
+   "type": "Field",
+   "kind": "user"
+  },
+  {
+   "address": 16922,
+   "name": "raster_phase_target_high_byte",
+   "type": "Field",
+   "kind": "user"
+  },
+  {
+   "address": 16927,
+   "name": "raster_hud",
+   "type": "Jump",
+   "kind": "user"
+  },
+  {
+   "address": 17138,
+   "name": "raster_playfield",
+   "type": "AbsoluteAddress",
+   "kind": "user"
+  },
+  {
+   "address": 17159,
+   "name": "b_4307",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 17175,
+   "name": "b_4317",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 17189,
+   "name": "b_4325",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 17194,
+   "name": "j_432A",
+   "type": "Jump",
+   "kind": "auto"
+  },
+  {
+   "address": 17297,
+   "name": "b_4391",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 17307,
+   "name": "b_439B",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 17310,
+   "name": "raster_lower_panel",
+   "type": "AbsoluteAddress",
+   "kind": "user"
+  },
+  {
+   "address": 17323,
+   "name": "b_43AB",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 17330,
+   "name": "j_43B2",
+   "type": "Jump",
+   "kind": "auto"
+  },
+  {
+   "address": 17336,
+   "name": "toggle_sound",
+   "type": "Subroutine",
+   "kind": "user"
+  },
+  {
+   "address": 17360,
+   "name": "b_43D0",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 17365,
+   "name": "r_43D5",
+   "type": "Return",
+   "kind": "auto"
+  },
+  {
+   "address": 17366,
+   "name": "f_43D6",
+   "type": "Field",
+   "kind": "auto"
+  },
+  {
+   "address": 17367,
+   "name": "a_43D7",
+   "type": "AbsoluteAddress",
+   "kind": "auto"
+  },
+  {
+   "address": 17369,
+   "name": "a_43D9",
+   "type": "AbsoluteAddress",
+   "kind": "auto"
+  },
+  {
+   "address": 17370,
+   "name": "a_43DA",
+   "type": "AbsoluteAddress",
+   "kind": "auto"
+  },
+  {
+   "address": 17371,
+   "name": "a_43DB",
+   "type": "AbsoluteAddress",
+   "kind": "auto"
+  },
+  {
+   "address": 17372,
+   "name": "visible_item_slot_0",
+   "type": "AbsoluteAddress",
+   "kind": "user"
+  },
+  {
+   "address": 17373,
+   "name": "visible_item_slot_1",
+   "type": "AbsoluteAddress",
+   "kind": "user"
+  },
+  {
+   "address": 17376,
+   "name": "a_43E0",
+   "type": "AbsoluteAddress",
+   "kind": "auto"
+  },
+  {
+   "address": 17377,
+   "name": "a_43E1",
+   "type": "AbsoluteAddress",
+   "kind": "auto"
+  },
+  {
+   "address": 17379,
+   "name": "a_43E3",
+   "type": "AbsoluteAddress",
+   "kind": "auto"
+  },
+  {
+   "address": 17380,
+   "name": "a_43E4",
+   "type": "AbsoluteAddress",
+   "kind": "auto"
+  },
+  {
+   "address": 17381,
+   "name": "a_43E5",
+   "type": "AbsoluteAddress",
+   "kind": "auto"
+  },
+  {
+   "address": 17382,
+   "name": "a_43E6",
+   "type": "AbsoluteAddress",
+   "kind": "auto"
+  },
+  {
+   "address": 17383,
+   "name": "a_43E7",
+   "type": "AbsoluteAddress",
+   "kind": "auto"
+  },
+  {
+   "address": 17384,
+   "name": "a_43E8",
+   "type": "AbsoluteAddress",
+   "kind": "auto"
+  },
+  {
+   "address": 17385,
+   "name": "a_43E9",
+   "type": "AbsoluteAddress",
+   "kind": "auto"
+  },
+  {
+   "address": 17386,
+   "name": "a_43EA",
+   "type": "AbsoluteAddress",
+   "kind": "auto"
+  },
+  {
+   "address": 17387,
+   "name": "a_43EB",
+   "type": "AbsoluteAddress",
+   "kind": "auto"
+  },
+  {
+   "address": 17388,
+   "name": "a_43EC",
+   "type": "AbsoluteAddress",
+   "kind": "auto"
+  },
+  {
+   "address": 17389,
+   "name": "a_43ED",
+   "type": "AbsoluteAddress",
+   "kind": "auto"
+  },
+  {
+   "address": 17390,
+   "name": "a_43EE",
+   "type": "AbsoluteAddress",
+   "kind": "auto"
+  },
+  {
+   "address": 17391,
+   "name": "a_43EF",
+   "type": "AbsoluteAddress",
+   "kind": "auto"
+  },
+  {
+   "address": 17392,
+   "name": "a_43F0",
+   "type": "AbsoluteAddress",
+   "kind": "auto"
+  },
+  {
+   "address": 17393,
+   "name": "a_43F1",
+   "type": "AbsoluteAddress",
+   "kind": "auto"
+  },
+  {
+   "address": 17394,
+   "name": "a_43F2",
+   "type": "AbsoluteAddress",
+   "kind": "auto"
+  },
+  {
+   "address": 17395,
+   "name": "a_43F3",
+   "type": "AbsoluteAddress",
+   "kind": "auto"
+  },
+  {
+   "address": 17396,
+   "name": "a_43F4",
+   "type": "AbsoluteAddress",
+   "kind": "auto"
+  },
+  {
+   "address": 17397,
+   "name": "a_43F5",
+   "type": "AbsoluteAddress",
+   "kind": "auto"
+  },
+  {
+   "address": 17398,
+   "name": "a_43F6",
+   "type": "AbsoluteAddress",
+   "kind": "auto"
+  },
+  {
+   "address": 17399,
+   "name": "a_43F7",
+   "type": "AbsoluteAddress",
+   "kind": "auto"
+  },
+  {
+   "address": 17400,
+   "name": "active_dynamite_flags",
+   "type": "Field",
+   "kind": "user"
+  },
+  {
+   "address": 17403,
+   "name": "dynamite_room_ids",
+   "type": "Field",
+   "kind": "user"
+  },
+  {
+   "address": 17406,
+   "name": "dynamite_remaining_ticks",
+   "type": "Field",
+   "kind": "user"
+  },
+  {
+   "address": 17409,
+   "name": "a_4401",
+   "type": "AbsoluteAddress",
+   "kind": "auto"
+  },
+  {
+   "address": 17411,
+   "name": "a_4403",
+   "type": "AbsoluteAddress",
+   "kind": "auto"
+  },
+  {
+   "address": 17412,
+   "name": "a_4404",
+   "type": "AbsoluteAddress",
+   "kind": "auto"
+  },
+  {
+   "address": 17413,
+   "name": "a_4405",
+   "type": "AbsoluteAddress",
+   "kind": "auto"
+  },
+  {
+   "address": 17414,
+   "name": "a_4406",
+   "type": "AbsoluteAddress",
+   "kind": "auto"
+  },
+  {
+   "address": 17415,
+   "name": "a_4407",
+   "type": "AbsoluteAddress",
+   "kind": "auto"
+  },
+  {
+   "address": 17416,
+   "name": "a_4408",
+   "type": "AbsoluteAddress",
+   "kind": "auto"
+  },
+  {
+   "address": 17417,
+   "name": "a_4409",
+   "type": "AbsoluteAddress",
+   "kind": "auto"
+  },
+  {
+   "address": 17418,
+   "name": "gordon_dive_step_clock",
+   "type": "AbsoluteAddress",
+   "kind": "user"
+  },
+  {
+   "address": 17421,
+   "name": "a_440D",
+   "type": "AbsoluteAddress",
+   "kind": "auto"
+  },
+  {
+   "address": 17422,
+   "name": "a_440E",
+   "type": "AbsoluteAddress",
+   "kind": "auto"
+  },
+  {
+   "address": 17423,
+   "name": "a_440F",
+   "type": "AbsoluteAddress",
+   "kind": "auto"
+  },
+  {
+   "address": 17424,
+   "name": "a_4410",
+   "type": "AbsoluteAddress",
+   "kind": "auto"
+  },
+  {
+   "address": 17425,
+   "name": "a_4411",
+   "type": "AbsoluteAddress",
+   "kind": "auto"
+  },
+  {
+   "address": 17426,
+   "name": "a_4412",
+   "type": "AbsoluteAddress",
+   "kind": "auto"
+  },
+  {
+   "address": 17427,
+   "name": "a_4413",
+   "type": "AbsoluteAddress",
+   "kind": "auto"
+  },
+  {
+   "address": 17428,
+   "name": "a_4414",
+   "type": "AbsoluteAddress",
+   "kind": "auto"
+  },
+  {
+   "address": 17429,
+   "name": "a_4415",
+   "type": "AbsoluteAddress",
+   "kind": "auto"
+  },
+  {
+   "address": 17430,
+   "name": "a_4416",
+   "type": "AbsoluteAddress",
+   "kind": "auto"
+  },
+  {
+   "address": 17431,
+   "name": "a_4417",
+   "type": "AbsoluteAddress",
+   "kind": "auto"
+  },
+  {
+   "address": 17432,
+   "name": "a_4418",
+   "type": "AbsoluteAddress",
+   "kind": "auto"
+  },
+  {
+   "address": 17433,
+   "name": "a_4419",
+   "type": "AbsoluteAddress",
+   "kind": "auto"
+  },
+  {
+   "address": 17434,
+   "name": "a_441A",
+   "type": "AbsoluteAddress",
+   "kind": "auto"
+  },
+  {
+   "address": 17435,
+   "name": "a_441B",
+   "type": "AbsoluteAddress",
+   "kind": "auto"
+  },
+  {
+   "address": 17436,
+   "name": "held_item_index",
+   "type": "AbsoluteAddress",
+   "kind": "user"
+  },
+  {
+   "address": 17437,
+   "name": "a_441D",
+   "type": "AbsoluteAddress",
+   "kind": "auto"
+  },
+  {
+   "address": 17438,
+   "name": "a_441E",
+   "type": "AbsoluteAddress",
+   "kind": "auto"
+  },
+  {
+   "address": 17440,
+   "name": "a_4420",
+   "type": "AbsoluteAddress",
+   "kind": "auto"
+  },
+  {
+   "address": 17441,
+   "name": "a_4421",
+   "type": "AbsoluteAddress",
+   "kind": "auto"
+  },
+  {
+   "address": 17442,
+   "name": "air_remaining",
+   "type": "AbsoluteAddress",
+   "kind": "user"
+  },
+  {
+   "address": 17443,
+   "name": "a_4423",
+   "type": "AbsoluteAddress",
+   "kind": "auto"
+  },
+  {
+   "address": 17444,
+   "name": "a_4424",
+   "type": "AbsoluteAddress",
+   "kind": "auto"
+  },
+  {
+   "address": 17445,
+   "name": "a_4425",
+   "type": "AbsoluteAddress",
+   "kind": "auto"
+  },
+  {
+   "address": 17446,
+   "name": "a_4426",
+   "type": "AbsoluteAddress",
+   "kind": "auto"
+  },
+  {
+   "address": 17447,
+   "name": "a_4427",
+   "type": "AbsoluteAddress",
+   "kind": "auto"
+  },
+  {
+   "address": 17448,
+   "name": "a_4428",
+   "type": "AbsoluteAddress",
+   "kind": "auto"
+  },
+  {
+   "address": 17449,
+   "name": "a_4429",
+   "type": "AbsoluteAddress",
+   "kind": "auto"
+  },
+  {
+   "address": 17450,
+   "name": "a_442A",
+   "type": "AbsoluteAddress",
+   "kind": "auto"
+  },
+  {
+   "address": 17451,
+   "name": "a_442B",
+   "type": "AbsoluteAddress",
+   "kind": "auto"
+  },
+  {
+   "address": 17452,
+   "name": "a_442C",
+   "type": "AbsoluteAddress",
+   "kind": "auto"
+  },
+  {
+   "address": 17453,
+   "name": "a_442D",
+   "type": "AbsoluteAddress",
+   "kind": "auto"
+  },
+  {
+   "address": 17455,
+   "name": "a_442F",
+   "type": "AbsoluteAddress",
+   "kind": "auto"
+  },
+  {
+   "address": 17456,
+   "name": "a_4430",
+   "type": "AbsoluteAddress",
+   "kind": "auto"
+  },
+  {
+   "address": 17458,
+   "name": "a_4432",
+   "type": "AbsoluteAddress",
+   "kind": "auto"
+  },
+  {
+   "address": 17459,
+   "name": "a_4433",
+   "type": "AbsoluteAddress",
+   "kind": "auto"
+  },
+  {
+   "address": 17461,
+   "name": "creature_direction_mask",
+   "type": "Field",
+   "kind": "user"
+  },
+  {
+   "address": 17464,
+   "name": "a_4438",
+   "type": "AbsoluteAddress",
+   "kind": "auto"
+  },
+  {
+   "address": 17465,
+   "name": "a_4439",
+   "type": "AbsoluteAddress",
+   "kind": "auto"
+  },
+  {
+   "address": 17467,
+   "name": "a_443B",
+   "type": "AbsoluteAddress",
+   "kind": "auto"
+  },
+  {
+   "address": 17468,
+   "name": "a_443C",
+   "type": "AbsoluteAddress",
+   "kind": "auto"
+  },
+  {
+   "address": 17470,
+   "name": "a_443E",
+   "type": "AbsoluteAddress",
+   "kind": "auto"
+  },
+  {
+   "address": 17471,
+   "name": "a_443F",
+   "type": "AbsoluteAddress",
+   "kind": "auto"
+  },
+  {
+   "address": 17473,
+   "name": "a_4441",
+   "type": "AbsoluteAddress",
+   "kind": "auto"
+  },
+  {
+   "address": 17474,
+   "name": "a_4442",
+   "type": "AbsoluteAddress",
+   "kind": "auto"
+  },
+  {
+   "address": 17475,
+   "name": "a_4443",
+   "type": "AbsoluteAddress",
+   "kind": "auto"
+  },
+  {
+   "address": 17476,
+   "name": "a_4444",
+   "type": "AbsoluteAddress",
+   "kind": "auto"
+  },
+  {
+   "address": 17477,
+   "name": "a_4445",
+   "type": "AbsoluteAddress",
+   "kind": "auto"
+  },
+  {
+   "address": 17478,
+   "name": "current_score",
+   "type": "AbsoluteAddress",
+   "kind": "user"
+  },
+  {
+   "address": 17479,
+   "name": "visited_room_bits",
+   "type": "AbsoluteAddress",
+   "kind": "user"
+  },
+  {
+   "address": 17483,
+   "name": "a_444B",
+   "type": "AbsoluteAddress",
+   "kind": "auto"
+  },
+  {
+   "address": 17484,
+   "name": "sound_disabled",
+   "type": "AbsoluteAddress",
+   "kind": "user"
+  },
+  {
+   "address": 17485,
+   "name": "a_444D",
+   "type": "AbsoluteAddress",
+   "kind": "auto"
+  },
+  {
+   "address": 17486,
+   "name": "a_444E",
+   "type": "AbsoluteAddress",
+   "kind": "auto"
+  },
+  {
+   "address": 17488,
+   "name": "retained_high_score",
+   "type": "AbsoluteAddress",
+   "kind": "user"
+  },
+  {
+   "address": 17489,
+   "name": "a_4451",
+   "type": "AbsoluteAddress",
+   "kind": "auto"
+  },
+  {
+   "address": 17490,
+   "name": "a_4452",
+   "type": "AbsoluteAddress",
+   "kind": "auto"
+  },
+  {
+   "address": 17491,
+   "name": "bitmap_cell_column_offsets",
+   "type": "Field",
+   "kind": "user"
+  },
+  {
+   "address": 17492,
+   "name": "bitmap_column_offsets_hi",
+   "type": "Field",
+   "kind": "user"
+  },
+  {
+   "address": 17556,
+   "name": "bitmap_column_table_tail",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 17573,
+   "name": "screen_cell_row_addresses",
+   "type": "Field",
+   "kind": "user"
+  },
+  {
+   "address": 17574,
+   "name": "screen_row_addresses_hi",
+   "type": "Field",
+   "kind": "user"
+  },
+  {
+   "address": 17623,
+   "name": "metatile_low_bytes",
+   "type": "Field",
+   "kind": "user"
+  },
+  {
+   "address": 17631,
+   "name": "metatile_high_bytes",
+   "type": "Field",
+   "kind": "user"
+  },
+  {
+   "address": 17663,
+   "name": "tick_delayed_music",
+   "type": "Subroutine",
+   "kind": "user"
+  },
+  {
+   "address": 17678,
+   "name": "r_450E",
+   "type": "Return",
+   "kind": "auto"
+  },
+  {
+   "address": 17679,
+   "name": "draw_metatile",
+   "type": "Subroutine",
+   "kind": "user"
+  },
+  {
+   "address": 17800,
+   "name": "b_4588",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 17801,
+   "name": "tile_first_source_low",
+   "type": "AbsoluteAddress",
+   "kind": "user"
+  },
+  {
+   "address": 17802,
+   "name": "tile_first_source_high",
+   "type": "AbsoluteAddress",
+   "kind": "user"
+  },
+  {
+   "address": 17804,
+   "name": "tile_upper_output_low",
+   "type": "AbsoluteAddress",
+   "kind": "user"
+  },
+  {
+   "address": 17805,
+   "name": "tile_upper_output_high",
+   "type": "AbsoluteAddress",
+   "kind": "user"
+  },
+  {
+   "address": 17807,
+   "name": "tile_second_source_low",
+   "type": "AbsoluteAddress",
+   "kind": "user"
+  },
+  {
+   "address": 17808,
+   "name": "tile_second_source_high",
+   "type": "AbsoluteAddress",
+   "kind": "user"
+  },
+  {
+   "address": 17810,
+   "name": "tile_lower_output_low",
+   "type": "AbsoluteAddress",
+   "kind": "user"
+  },
+  {
+   "address": 17811,
+   "name": "metatile_second_bitmap_destination_hi",
+   "type": "AbsoluteAddress",
+   "kind": "user"
+  },
+  {
+   "address": 17873,
+   "name": "b_45D1",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 17897,
+   "name": "check_cavern_light",
+   "type": "Subroutine",
+   "kind": "user"
+  },
+  {
+   "address": 17910,
+   "name": "b_45F6",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 17934,
+   "name": "j_460E",
+   "type": "Jump",
+   "kind": "auto"
+  },
+  {
+   "address": 17940,
+   "name": "j_4614",
+   "type": "Jump",
+   "kind": "auto"
+  },
+  {
+   "address": 17946,
+   "name": "draw_room",
+   "type": "Jump",
+   "kind": "user"
+  },
+  {
+   "address": 18001,
+   "name": "b_4651",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 18015,
+   "name": "b_465F",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 18018,
+   "name": "b_4662",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 18020,
+   "name": "b_4664",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 18028,
+   "name": "b_466C",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 18029,
+   "name": "room_map_fetch_lo",
+   "type": "AbsoluteAddress",
+   "kind": "user"
+  },
+  {
+   "address": 18030,
+   "name": "room_map_fetch_high",
+   "type": "AbsoluteAddress",
+   "kind": "user"
+  },
+  {
+   "address": 18060,
+   "name": "b_468C",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 18090,
+   "name": "r_46AA",
+   "type": "Return",
+   "kind": "auto"
+  },
+  {
+   "address": 18091,
+   "name": "copy_special_actor_frame",
+   "type": "Subroutine",
+   "kind": "user"
+  },
+  {
+   "address": 18102,
+   "name": "b_46B6",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 18108,
+   "name": "b_46BC",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 18111,
+   "name": "j_46BF",
+   "type": "Jump",
+   "kind": "auto"
+  },
+  {
+   "address": 18131,
+   "name": "b_46D3",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 18134,
+   "name": "special_actor_copy_destination_low",
+   "type": "AbsoluteAddress",
+   "kind": "user"
+  },
+  {
+   "address": 18135,
+   "name": "special_actor_copy_destination_hi",
+   "type": "AbsoluteAddress",
+   "kind": "user"
+  },
+  {
+   "address": 18140,
+   "name": "special_actor_source_offset",
+   "type": "Field",
+   "kind": "user"
+  },
+  {
+   "address": 18144,
+   "name": "special_actor_source_page",
+   "type": "Field",
+   "kind": "user"
+  },
+  {
+   "address": 18150,
+   "name": "animate_room_0c_actor",
+   "type": "Subroutine",
+   "kind": "user"
+  },
+  {
+   "address": 18196,
+   "name": "b_4714",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 18206,
+   "name": "b_471E",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 18209,
+   "name": "r_4721",
+   "type": "Return",
+   "kind": "auto"
+  },
+  {
+   "address": 18210,
+   "name": "animate_room_1e_event",
+   "type": "Subroutine",
+   "kind": "user"
+  },
+  {
+   "address": 18277,
+   "name": "try_room_above",
+   "type": "Subroutine",
+   "kind": "user"
+  },
+  {
+   "address": 18298,
+   "name": "b_477A",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 18301,
+   "name": "try_room_below",
+   "type": "Subroutine",
+   "kind": "user"
+  },
+  {
+   "address": 18326,
+   "name": "b_4796",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 18329,
+   "name": "try_room_left",
+   "type": "Subroutine",
+   "kind": "user"
+  },
+  {
+   "address": 18341,
+   "name": "try_room_right",
+   "type": "Subroutine",
+   "kind": "user"
+  },
+  {
+   "address": 18355,
+   "name": "r_47B3",
+   "type": "Return",
+   "kind": "auto"
+  },
+  {
+   "address": 18356,
+   "name": "read_swim_controls",
+   "type": "Subroutine",
+   "kind": "user"
+  },
+  {
+   "address": 18369,
+   "name": "b_47C1",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 18378,
+   "name": "b_47CA",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 18407,
+   "name": "b_47E7",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 18422,
+   "name": "j_47F6",
+   "type": "Jump",
+   "kind": "auto"
+  },
+  {
+   "address": 18424,
+   "name": "b_47F8",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 18442,
+   "name": "b_480A",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 18444,
+   "name": "apply_direction_bits",
+   "type": "Subroutine",
+   "kind": "user"
+  },
+  {
+   "address": 18461,
+   "name": "b_481D",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 18463,
+   "name": "b_481F",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 18464,
+   "name": "b_4820",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 18474,
+   "name": "b_482A",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 18500,
+   "name": "b_4844",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 18501,
+   "name": "b_4845",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 18526,
+   "name": "r_485E",
+   "type": "Return",
+   "kind": "auto"
+  },
+  {
+   "address": 18527,
+   "name": "check_right_boundary",
+   "type": "Subroutine",
+   "kind": "user"
+  },
+  {
+   "address": 18539,
+   "name": "b_486B",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 18578,
+   "name": "b_4892",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 18595,
+   "name": "b_48A3",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 18614,
+   "name": "enter_surface_movement_mode",
+   "type": "Subroutine",
+   "kind": "user"
+  },
+  {
+   "address": 18649,
+   "name": "r_48D9",
+   "type": "Return",
+   "kind": "auto"
+  },
+  {
+   "address": 18650,
+   "name": "check_left_boundary",
+   "type": "Subroutine",
+   "kind": "user"
+  },
+  {
+   "address": 18662,
+   "name": "b_48E6",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 18713,
+   "name": "b_4919",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 18758,
+   "name": "r_4946",
+   "type": "Return",
+   "kind": "auto"
+  },
+  {
+   "address": 18759,
+   "name": "check_downward_room_edge",
+   "type": "Subroutine",
+   "kind": "user"
+  },
+  {
+   "address": 18778,
+   "name": "r_495A",
+   "type": "Return",
+   "kind": "auto"
+  },
+  {
+   "address": 18779,
+   "name": "check_upward_room_edge",
+   "type": "Subroutine",
+   "kind": "user"
+  },
+  {
+   "address": 18792,
+   "name": "r_4968",
+   "type": "Return",
+   "kind": "auto"
+  },
+  {
+   "address": 18793,
+   "name": "configure_player_sprites",
+   "type": "Subroutine",
+   "kind": "user"
+  },
+  {
+   "address": 18808,
+   "name": "b_4978",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 18814,
+   "name": "j_497E",
+   "type": "Jump",
+   "kind": "auto"
+  },
+  {
+   "address": 18828,
+   "name": "b_498C",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 18842,
+   "name": "b_499A",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 18867,
+   "name": "r_49B3",
+   "type": "Return",
+   "kind": "auto"
+  },
+  {
+   "address": 18868,
+   "name": "b_49B4",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 18897,
+   "name": "b_49D1",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 18913,
+   "name": "r_49E1",
+   "type": "Return",
+   "kind": "auto"
+  },
+  {
+   "address": 18914,
+   "name": "copy_myrtle_frames",
+   "type": "Subroutine",
+   "kind": "user"
+  },
+  {
+   "address": 18930,
+   "name": "b_49F2",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 18937,
+   "name": "b_49F9",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 18938,
+   "name": "sprite_copy_source_low",
+   "type": "AbsoluteAddress",
+   "kind": "user"
+  },
+  {
+   "address": 18939,
+   "name": "sprite_copy_source_high",
+   "type": "AbsoluteAddress",
+   "kind": "user"
+  },
+  {
+   "address": 18941,
+   "name": "myrtle_frame_copy_destination_lo",
+   "type": "AbsoluteAddress",
+   "kind": "user"
+  },
+  {
+   "address": 18942,
+   "name": "myrtle_frame_copy_destination_hi",
+   "type": "AbsoluteAddress",
+   "kind": "user"
+  },
+  {
+   "address": 18967,
+   "name": "b_4A17",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 18971,
+   "name": "sprite_frame_low_bytes",
+   "type": "Field",
+   "kind": "user"
+  },
+  {
+   "address": 18975,
+   "name": "sprite_frame_high_bytes",
+   "type": "Field",
+   "kind": "user"
+  },
+  {
+   "address": 19007,
+   "name": "animate_directional_swim_cycle",
+   "type": "Branch",
+   "kind": "user"
+  },
+  {
+   "address": 19022,
+   "name": "b_4A4E",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 19026,
+   "name": "j_4A52",
+   "type": "Jump",
+   "kind": "auto"
+  },
+  {
+   "address": 19057,
+   "name": "r_4A71",
+   "type": "Return",
+   "kind": "auto"
+  },
+  {
+   "address": 19058,
+   "name": "advance_myrtle",
+   "type": "Subroutine",
+   "kind": "user"
+  },
+  {
+   "address": 19090,
+   "name": "j_4A92",
+   "type": "Jump",
+   "kind": "auto"
+  },
+  {
+   "address": 19109,
+   "name": "r_4AA5",
+   "type": "Return",
+   "kind": "auto"
+  },
+  {
+   "address": 19110,
+   "name": "b_4AA6",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 19122,
+   "name": "r_4AB2",
+   "type": "Return",
+   "kind": "auto"
+  },
+  {
+   "address": 19123,
+   "name": "refresh_player_animation",
+   "type": "Subroutine",
+   "kind": "user"
+  },
+  {
+   "address": 19149,
+   "name": "b_4ACD",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 19158,
+   "name": "b_4AD6",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 19164,
+   "name": "b_4ADC",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 19170,
+   "name": "b_4AE2",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 19205,
+   "name": "b_4B05",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 19252,
+   "name": "b_4B34",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 19265,
+   "name": "b_4B41",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 19309,
+   "name": "r_4B6D",
+   "type": "Return",
+   "kind": "auto"
+  },
+  {
+   "address": 19310,
+   "name": "block_direction_on_bitmap",
+   "type": "Subroutine",
+   "kind": "user"
+  },
+  {
+   "address": 19329,
+   "name": "r_4B81",
+   "type": "Return",
+   "kind": "auto"
+  },
+  {
+   "address": 19330,
+   "name": "position_to_bitmap_cell",
+   "type": "Subroutine",
+   "kind": "user"
+  },
+  {
+   "address": 19363,
+   "name": "b_4BA3",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 19371,
+   "name": "probe_myrtle_terrain",
+   "type": "Subroutine",
+   "kind": "user"
+  },
+  {
+   "address": 19405,
+   "name": "b_4BCD",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 19409,
+   "name": "j_4BD1",
+   "type": "Jump",
+   "kind": "auto"
+  },
+  {
+   "address": 19426,
+   "name": "b_4BE2",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 19428,
+   "name": "b_4BE4",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 19429,
+   "name": "terrain_probe_strip_address_lo",
+   "type": "AbsoluteAddress",
+   "kind": "user"
+  },
+  {
+   "address": 19430,
+   "name": "terrain_probe_strip_address_hi",
+   "type": "AbsoluteAddress",
+   "kind": "user"
+  },
+  {
+   "address": 19435,
+   "name": "b_4BEB",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 19461,
+   "name": "b_4C05",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 19468,
+   "name": "b_4C0C",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 19477,
+   "name": "j_4C15",
+   "type": "Jump",
+   "kind": "auto"
+  },
+  {
+   "address": 19492,
+   "name": "b_4C24",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 19493,
+   "name": "terrain_probe_vertical_address_lo",
+   "type": "AbsoluteAddress",
+   "kind": "user"
+  },
+  {
+   "address": 19494,
+   "name": "terrain_probe_vertical_address_hi",
+   "type": "AbsoluteAddress",
+   "kind": "user"
+  },
+  {
+   "address": 19499,
+   "name": "b_4C2B",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 19504,
+   "name": "j_4C30",
+   "type": "Jump",
+   "kind": "auto"
+  },
+  {
+   "address": 19516,
+   "name": "apply_buoyancy",
+   "type": "Subroutine",
+   "kind": "user"
+  },
+  {
+   "address": 19547,
+   "name": "b_4C5B",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 19551,
+   "name": "b_4C5F",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 19565,
+   "name": "b_4C6D",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 19567,
+   "name": "r_4C6F",
+   "type": "Return",
+   "kind": "auto"
+  },
+  {
+   "address": 19568,
+   "name": "player_terrain_masks",
+   "type": "Field",
+   "kind": "user"
+  },
+  {
+   "address": 19572,
+   "name": "direction_release_masks",
+   "type": "Field",
+   "kind": "user"
+  },
+  {
+   "address": 19576,
+   "name": "dive_arc_heights",
+   "type": "Field",
+   "kind": "user"
+  },
+  {
+   "address": 19614,
+   "name": "wait_raster_200",
+   "type": "Subroutine",
+   "kind": "user"
+  },
+  {
+   "address": 19622,
+   "name": "locate_bitmap_cell",
+   "type": "Subroutine",
+   "kind": "user"
+  },
+  {
+   "address": 19658,
+   "name": "bitmap_row_low_bytes",
+   "type": "Field",
+   "kind": "user"
+  },
+  {
+   "address": 19662,
+   "name": "bitmap_row_high_bytes",
+   "type": "Field",
+   "kind": "user"
+  },
+  {
+   "address": 19687,
+   "name": "setup_room_creatures",
+   "type": "Subroutine",
+   "kind": "user"
+  },
+  {
+   "address": 19728,
+   "name": "b_4D10",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 19749,
+   "name": "b_4D25",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 19760,
+   "name": "b_4D30",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 19769,
+   "name": "setup_first_creature",
+   "type": "Subroutine",
+   "kind": "user"
+  },
+  {
+   "address": 19838,
+   "name": "setup_second_creature",
+   "type": "Subroutine",
+   "kind": "user"
+  },
+  {
+   "address": 19872,
+   "name": "advance_creature_paths",
+   "type": "Subroutine",
+   "kind": "user"
+  },
+  {
+   "address": 19880,
+   "name": "b_4DA8",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 19886,
+   "name": "b_4DAE",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 19910,
+   "name": "j_4DC6",
+   "type": "Jump",
+   "kind": "auto"
+  },
+  {
+   "address": 19942,
+   "name": "b_4DE6",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 19951,
+   "name": "b_4DEF",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 19957,
+   "name": "b_4DF5",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 19981,
+   "name": "b_4E0D",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 19982,
+   "name": "b_4E0E",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 20003,
+   "name": "b_4E23",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 20028,
+   "name": "b_4E3C",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 20034,
+   "name": "r_4E42",
+   "type": "Return",
+   "kind": "auto"
+  },
+  {
+   "address": 20035,
+   "name": "update_room_1a_creature",
+   "type": "Subroutine",
+   "kind": "user"
+  },
+  {
+   "address": 20073,
+   "name": "b_4E69",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 20098,
+   "name": "b_4E82",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 20105,
+   "name": "r_4E89",
+   "type": "Return",
+   "kind": "auto"
+  },
+  {
+   "address": 20106,
+   "name": "b_4E8A",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 20129,
+   "name": "room_1a_animation_msb_sequence",
+   "type": "Field",
+   "kind": "user"
+  },
+  {
+   "address": 20133,
+   "name": "draw_special_room_sprite",
+   "type": "Subroutine",
+   "kind": "user"
+  },
+  {
+   "address": 20144,
+   "name": "b_4EB0",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 20162,
+   "name": "b_4EC2",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 20177,
+   "name": "j_4ED1",
+   "type": "Jump",
+   "kind": "auto"
+  },
+  {
+   "address": 20205,
+   "name": "creatures_x_msb_masks",
+   "type": "Field",
+   "kind": "user"
+  },
+  {
+   "address": 20209,
+   "name": "draw_room_creatures",
+   "type": "Subroutine",
+   "kind": "user"
+  },
+  {
+   "address": 20281,
+   "name": "creature_colour_by_type",
+   "type": "Field",
+   "kind": "user"
+  },
+  {
+   "address": 20286,
+   "name": "creature_frame_mask_operand",
+   "type": "AbsoluteAddress",
+   "kind": "user"
+  },
+  {
+   "address": 20290,
+   "name": "copy_room_creature_frames",
+   "type": "Jump",
+   "kind": "user"
+  },
+  {
+   "address": 20336,
+   "name": "b_4F70",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 20355,
+   "name": "b_4F83",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 20356,
+   "name": "creature_frame_copy_source_lo",
+   "type": "AbsoluteAddress",
+   "kind": "user"
+  },
+  {
+   "address": 20357,
+   "name": "creature_frame_copy_source_hi",
+   "type": "AbsoluteAddress",
+   "kind": "user"
+  },
+  {
+   "address": 20359,
+   "name": "creature_frame_copy_dest_lo",
+   "type": "AbsoluteAddress",
+   "kind": "user"
+  },
+  {
+   "address": 20360,
+   "name": "creature_frame_copy_dest_hi",
+   "type": "AbsoluteAddress",
+   "kind": "user"
+  },
+  {
+   "address": 20367,
+   "name": "creature_frame_destination_lows",
+   "type": "Field",
+   "kind": "user"
+  },
+  {
+   "address": 20369,
+   "name": "creature_frame_destination_highs",
+   "type": "Field",
+   "kind": "user"
+  },
+  {
+   "address": 20371,
+   "name": "add_score_decimal",
+   "type": "Subroutine",
+   "kind": "user"
+  },
+  {
+   "address": 20385,
+   "name": "draw_score_panel",
+   "type": "Subroutine",
+   "kind": "user"
+  },
+  {
+   "address": 20481,
+   "name": "score_percent_glyph",
+   "type": "AbsoluteAddress",
+   "kind": "user"
+  },
+  {
+   "address": 20482,
+   "name": "tick_heart_animation",
+   "type": "Subroutine",
+   "kind": "user"
+  },
+  {
+   "address": 20512,
+   "name": "b_5020",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 20521,
+   "name": "r_5029",
+   "type": "Return",
+   "kind": "auto"
+  },
+  {
+   "address": 20522,
+   "name": "j_502A",
+   "type": "Jump",
+   "kind": "auto"
+  },
+  {
+   "address": 20560,
+   "name": "b_5050",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 20596,
+   "name": "j_5074",
+   "type": "Jump",
+   "kind": "auto"
+  },
+  {
+   "address": 20608,
+   "name": "randomize_stout_rooms",
+   "type": "Subroutine",
+   "kind": "user"
+  },
+  {
+   "address": 20610,
+   "name": "b_5082",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 20612,
+   "name": "b_5084",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 20636,
+   "name": "load_room_stout",
+   "type": "Subroutine",
+   "kind": "user"
+  },
+  {
+   "address": 20685,
+   "name": "b_50CD",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 20691,
+   "name": "draw_room_stout_sprite",
+   "type": "Subroutine",
+   "kind": "user"
+  },
+  {
+   "address": 20737,
+   "name": "drink_stout",
+   "type": "Subroutine",
+   "kind": "user"
+  },
+  {
+   "address": 20801,
+   "name": "b_5141",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 20809,
+   "name": "r_5149",
+   "type": "Return",
+   "kind": "auto"
+  },
+  {
+   "address": 20810,
+   "name": "start_gordons_rescue",
+   "type": "Subroutine",
+   "kind": "user"
+  },
+  {
+   "address": 20830,
+   "name": "b_515E",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 20861,
+   "name": "r_517D",
+   "type": "Return",
+   "kind": "auto"
+  },
+  {
+   "address": 20862,
+   "name": "animate_gordons_rescue",
+   "type": "Subroutine",
+   "kind": "user"
+  },
+  {
+   "address": 20907,
+   "name": "b_51AB",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 20916,
+   "name": "b_51B4",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 20918,
+   "name": "r_51B6",
+   "type": "Return",
+   "kind": "auto"
+  },
+  {
+   "address": 20919,
+   "name": "b_51B7",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 20932,
+   "name": "rescue_motion_records",
+   "type": "Field",
+   "kind": "user"
+  },
+  {
+   "address": 20933,
+   "name": "rescue_motion_record_duration",
+   "type": "Field",
+   "kind": "user"
+  },
+  {
+   "address": 20939,
+   "name": "stout_room_bits",
+   "type": "Field",
+   "kind": "user"
+  },
+  {
+   "address": 20942,
+   "name": "last_stout_room_bits",
+   "type": "AbsoluteAddress",
+   "kind": "user"
+  },
+  {
+   "address": 20943,
+   "name": "room_bit_masks",
+   "type": "Field",
+   "kind": "user"
+  },
+  {
+   "address": 20951,
+   "name": "stout_x_by_room",
+   "type": "Field",
+   "kind": "user"
+  },
+  {
+   "address": 20983,
+   "name": "stout_y_by_room",
+   "type": "Field",
+   "kind": "user"
+  },
+  {
+   "address": 21015,
+   "name": "redraw_air_needle",
+   "type": "Jump",
+   "kind": "user"
+  },
+  {
+   "address": 21032,
+   "name": "tick_air_supply",
+   "type": "Subroutine",
+   "kind": "user"
+  },
+  {
+   "address": 21048,
+   "name": "b_5238",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 21051,
+   "name": "r_523B",
+   "type": "Return",
+   "kind": "auto"
+  },
+  {
+   "address": 21052,
+   "name": "handle_object_fire",
+   "type": "Subroutine",
+   "kind": "user"
+  },
+  {
+   "address": 21081,
+   "name": "b_5259",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 21085,
+   "name": "r_525D",
+   "type": "Return",
+   "kind": "auto"
+  },
+  {
+   "address": 21086,
+   "name": "b_525E",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 21105,
+   "name": "b_5271",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 21154,
+   "name": "inventory_spare_return",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 21155,
+   "name": "draw_held_item_name",
+   "type": "Jump",
+   "kind": "user"
+  },
+  {
+   "address": 21183,
+   "name": "b_52BF",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 21192,
+   "name": "b_52C8",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 21206,
+   "name": "clear_inventory_label",
+   "type": "Subroutine",
+   "kind": "user"
+  },
+  {
+   "address": 21210,
+   "name": "b_52DA",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 21217,
+   "name": "restore_item_defaults",
+   "type": "Subroutine",
+   "kind": "user"
+  },
+  {
+   "address": 21219,
+   "name": "b_52E3",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 21231,
+   "name": "check_creature_collision",
+   "type": "Subroutine",
+   "kind": "user"
+  },
+  {
+   "address": 21259,
+   "name": "b_530B",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 21267,
+   "name": "b_5313",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 21288,
+   "name": "b_5328",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 21290,
+   "name": "j_532A",
+   "type": "Jump",
+   "kind": "auto"
+  },
+  {
+   "address": 21301,
+   "name": "b_5335",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 21307,
+   "name": "r_533B",
+   "type": "Return",
+   "kind": "auto"
+  },
+  {
+   "address": 21308,
+   "name": "redraw_energy_bottle",
+   "type": "Subroutine",
+   "kind": "user"
+  },
+  {
+   "address": 21359,
+   "name": "b_536F",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 21373,
+   "name": "gauge_frame_pointer",
+   "type": "Subroutine",
+   "kind": "user"
+  },
+  {
+   "address": 21394,
+   "name": "check_end_of_attempt",
+   "type": "Subroutine",
+   "kind": "user"
+  },
+  {
+   "address": 21409,
+   "name": "r_53A1",
+   "type": "Return",
+   "kind": "auto"
+  },
+  {
+   "address": 21410,
+   "name": "animate_end_of_heart",
+   "type": "Subroutine",
+   "kind": "user"
+  },
+  {
+   "address": 21423,
+   "name": "b_53AF",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 21439,
+   "name": "clear_presentation_flags_and_wait",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 21447,
+   "name": "wait_150_rasters",
+   "type": "Subroutine",
+   "kind": "user"
+  },
+  {
+   "address": 21449,
+   "name": "b_53C9",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 21456,
+   "name": "wait_for_start_fire",
+   "type": "Branch",
+   "kind": "user"
+  },
+  {
+   "address": 21466,
+   "name": "advance_gordon",
+   "type": "Subroutine",
+   "kind": "user"
+  },
+  {
+   "address": 21480,
+   "name": "b_53E8",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 21499,
+   "name": "reset_gordon_animation",
+   "type": "Subroutine",
+   "kind": "user"
+  },
+  {
+   "address": 21503,
+   "name": "b_53FF",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 21541,
+   "name": "b_5425",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 21556,
+   "name": "r_5434",
+   "type": "Return",
+   "kind": "auto"
+  },
+  {
+   "address": 21557,
+   "name": "b_5435",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 21636,
+   "name": "r_5484",
+   "type": "Return",
+   "kind": "auto"
+  },
+  {
+   "address": 21637,
+   "name": "b_5485",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 21667,
+   "name": "b_54A3",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 21699,
+   "name": "b_54C3",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 21704,
+   "name": "move_gordon_right",
+   "type": "Subroutine",
+   "kind": "user"
+  },
+  {
+   "address": 21719,
+   "name": "r_54D7",
+   "type": "Return",
+   "kind": "auto"
+  },
+  {
+   "address": 21720,
+   "name": "draw_gordon_sprites",
+   "type": "Subroutine",
+   "kind": "user"
+  },
+  {
+   "address": 21774,
+   "name": "r_550E",
+   "type": "Return",
+   "kind": "auto"
+  },
+  {
+   "address": 21775,
+   "name": "b_550F",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 21800,
+   "name": "b_5528",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 21809,
+   "name": "seed_room_random_state",
+   "type": "Subroutine",
+   "kind": "user"
+  },
+  {
+   "address": 21822,
+   "name": "advance_random_state",
+   "type": "Subroutine",
+   "kind": "user"
+  },
+  {
+   "address": 21845,
+   "name": "set_room_palette_and_heart",
+   "type": "Subroutine",
+   "kind": "user"
+  },
+  {
+   "address": 21860,
+   "name": "b_5564",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 21906,
+   "name": "compute_room_index",
+   "type": "Subroutine",
+   "kind": "user"
+  },
+  {
+   "address": 21918,
+   "name": "count_first_visit",
+   "type": "Subroutine",
+   "kind": "user"
+  },
+  {
+   "address": 21951,
+   "name": "r_55BF",
+   "type": "Return",
+   "kind": "auto"
+  },
+  {
+   "address": 21952,
+   "name": "load_visible_objects",
+   "type": "Subroutine",
+   "kind": "user"
+  },
+  {
+   "address": 21995,
+   "name": "b_55EB",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 22043,
+   "name": "b_561B",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 22070,
+   "name": "r_5636",
+   "type": "Return",
+   "kind": "auto"
+  },
+  {
+   "address": 22071,
+   "name": "b_5637",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 22075,
+   "name": "display_object_sprites",
+   "type": "Subroutine",
+   "kind": "user"
+  },
+  {
+   "address": 22135,
+   "name": "b_5677",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 22167,
+   "name": "r_5697",
+   "type": "Return",
+   "kind": "auto"
+  },
+  {
+   "address": 22168,
+   "name": "bob_myrtle_at_surface",
+   "type": "Subroutine",
+   "kind": "user"
+  },
+  {
+   "address": 22198,
+   "name": "b_56B6",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 22212,
+   "name": "b_56C4",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 22243,
+   "name": "b_56E3",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 22250,
+   "name": "b_56EA",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 22252,
+   "name": "r_56EC",
+   "type": "Return",
+   "kind": "auto"
+  },
+  {
+   "address": 22253,
+   "name": "reset_surface_bob",
+   "type": "Subroutine",
+   "kind": "user"
+  },
+  {
+   "address": 22266,
+   "name": "bob_surface_chest",
+   "type": "Subroutine",
+   "kind": "user"
+  },
+  {
+   "address": 22325,
+   "name": "b_5735",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 22335,
+   "name": "b_573F",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 22337,
+   "name": "j_5741",
+   "type": "Jump",
+   "kind": "auto"
+  },
+  {
+   "address": 22361,
+   "name": "b_5759",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 22375,
+   "name": "pick_up_touching_item",
+   "type": "Jump",
+   "kind": "user"
+  },
+  {
+   "address": 22390,
+   "name": "b_5776",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 22414,
+   "name": "b_578E",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 22425,
+   "name": "b_5799",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 22438,
+   "name": "b_57A6",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 22448,
+   "name": "j_57B0",
+   "type": "Jump",
+   "kind": "auto"
+  },
+  {
+   "address": 22469,
+   "name": "b_57C5",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 22492,
+   "name": "r_57DC",
+   "type": "Return",
+   "kind": "auto"
+  },
+  {
+   "address": 22493,
+   "name": "settle_dropped_items",
+   "type": "Subroutine",
+   "kind": "user"
+  },
+  {
+   "address": 22495,
+   "name": "j_57DF",
+   "type": "Jump",
+   "kind": "auto"
+  },
+  {
+   "address": 22503,
+   "name": "b_57E7",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 22517,
+   "name": "b_57F5",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 22524,
+   "name": "j_57FC",
+   "type": "Jump",
+   "kind": "auto"
+  },
+  {
+   "address": 22551,
+   "name": "b_5817",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 22572,
+   "name": "b_582C",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 22590,
+   "name": "j_583E",
+   "type": "Jump",
+   "kind": "auto"
+  },
+  {
+   "address": 22604,
+   "name": "b_584C",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 22620,
+   "name": "b_585C",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 22627,
+   "name": "b_5863",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 22632,
+   "name": "j_5868",
+   "type": "Jump",
+   "kind": "auto"
+  },
+  {
+   "address": 22633,
+   "name": "j_5869",
+   "type": "Jump",
+   "kind": "auto"
+  },
+  {
+   "address": 22639,
+   "name": "r_586F",
+   "type": "Return",
+   "kind": "auto"
+  },
+  {
+   "address": 22640,
+   "name": "j_5870",
+   "type": "Jump",
+   "kind": "auto"
+  },
+  {
+   "address": 22657,
+   "name": "check_room_1e_landing",
+   "type": "Subroutine",
+   "kind": "user"
+  },
+  {
+   "address": 22710,
+   "name": "b_58B6",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 22730,
+   "name": "r_58CA",
+   "type": "Return",
+   "kind": "auto"
+  },
+  {
+   "address": 22731,
+   "name": "j_58CB",
+   "type": "Jump",
+   "kind": "auto"
+  },
+  {
+   "address": 22744,
+   "name": "move_object_to_adjacent_room",
+   "type": "Subroutine",
+   "kind": "user"
+  },
+  {
+   "address": 22757,
+   "name": "b_58E5",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 22768,
+   "name": "b_58F0",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 22784,
+   "name": "test_item_background",
+   "type": "Subroutine",
+   "kind": "user"
+  },
+  {
+   "address": 22837,
+   "name": "b_5935",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 22852,
+   "name": "b_5944",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 22854,
+   "name": "check_room_1f_overlap",
+   "type": "Subroutine",
+   "kind": "user"
+  },
+  {
+   "address": 22911,
+   "name": "r_597F",
+   "type": "Return",
+   "kind": "auto"
+  },
+  {
+   "address": 22912,
+   "name": "check_room_1e_ankhs",
+   "type": "Subroutine",
+   "kind": "user"
+  },
+  {
+   "address": 22962,
+   "name": "r_59B2",
+   "type": "Return",
+   "kind": "auto"
+  },
+  {
+   "address": 22963,
+   "name": "b_59B3",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 22978,
+   "name": "r_59C2",
+   "type": "Return",
+   "kind": "auto"
+  },
+  {
+   "address": 22979,
+   "name": "b_59C3",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 22981,
+   "name": "b_59C5",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 22988,
+   "name": "check_room_0c_landing",
+   "type": "Subroutine",
+   "kind": "user"
+  },
+  {
+   "address": 23033,
+   "name": "r_59F9",
+   "type": "Return",
+   "kind": "auto"
+  },
+  {
+   "address": 23034,
+   "name": "b_59FA",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 23059,
+   "name": "check_room_0c_damage",
+   "type": "Subroutine",
+   "kind": "user"
+  },
+  {
+   "address": 23104,
+   "name": "b_5A40",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 23118,
+   "name": "r_5A4E",
+   "type": "Return",
+   "kind": "auto"
+  },
+  {
+   "address": 23119,
+   "name": "redraw_room_1e_detail",
+   "type": "Subroutine",
+   "kind": "user"
+  },
+  {
+   "address": 23123,
+   "name": "b_5A53",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 23145,
+   "name": "b_5A69",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 23164,
+   "name": "restore_room_1e_detail",
+   "type": "Subroutine",
+   "kind": "user"
+  },
+  {
+   "address": 23171,
+   "name": "restore_passage_metatiles",
+   "type": "Subroutine",
+   "kind": "user"
+  },
+  {
+   "address": 23173,
+   "name": "b_5A85",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 23192,
+   "name": "clear_room_14_passage",
+   "type": "AbsoluteAddress",
+   "kind": "user"
+  },
+  {
+   "address": 23196,
+   "name": "b_5A9C",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 23203,
+   "name": "clear_room_10_passage",
+   "type": "Subroutine",
+   "kind": "user"
+  },
+  {
+   "address": 23207,
+   "name": "b_5AA7",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 23214,
+   "name": "clear_room_1c_passage",
+   "type": "AbsoluteAddress",
+   "kind": "user"
+  },
+  {
+   "address": 23218,
+   "name": "b_5AB2",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 23228,
+   "name": "restore_rescue_tiles",
+   "type": "Subroutine",
+   "kind": "user"
+  },
+  {
+   "address": 23230,
+   "name": "b_5ABE",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 23240,
+   "name": "rescue_barrier_defaults",
+   "type": "Field",
+   "kind": "user"
+  },
+  {
+   "address": 23243,
+   "name": "arm_landed_dynamite",
+   "type": "Subroutine",
+   "kind": "user"
+  },
+  {
+   "address": 23256,
+   "name": "b_5AD8",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 23277,
+   "name": "tick_dynamite",
+   "type": "Subroutine",
+   "kind": "user"
+  },
+  {
+   "address": 23279,
+   "name": "b_5AEF",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 23325,
+   "name": "b_5B1D",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 23366,
+   "name": "dynamite_patch_call_lo",
+   "type": "AbsoluteAddress",
+   "kind": "user"
+  },
+  {
+   "address": 23367,
+   "name": "dynamite_patch_call_hi",
+   "type": "AbsoluteAddress",
+   "kind": "user"
+  },
+  {
+   "address": 23383,
+   "name": "b_5B57",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 23387,
+   "name": "shake_playfield",
+   "type": "Subroutine",
+   "kind": "user"
+  },
+  {
+   "address": 23429,
+   "name": "r_5B85",
+   "type": "Return",
+   "kind": "auto"
+  },
+  {
+   "address": 23430,
+   "name": "blast_fine_scroll_work",
+   "type": "AbsoluteAddress",
+   "kind": "user"
+  },
+  {
+   "address": 23431,
+   "name": "passage_default_tile_ids",
+   "type": "Field",
+   "kind": "user"
+  },
+  {
+   "address": 23434,
+   "name": "dynamite_target_rooms",
+   "type": "Field",
+   "kind": "user"
+  },
+  {
+   "address": 23437,
+   "name": "dynamite_map_patch_entries",
+   "type": "Field",
+   "kind": "user"
+  },
+  {
+   "address": 23438,
+   "name": "dynamite_patch_address_hi",
+   "type": "Field",
+   "kind": "user"
+  },
+  {
+   "address": 23443,
+   "name": "room_1e_patch_top_sources",
+   "type": "Field",
+   "kind": "user"
+  },
+  {
+   "address": 23448,
+   "name": "room_1e_patch_bottom_sources",
+   "type": "Field",
+   "kind": "user"
+  },
+  {
+   "address": 23463,
+   "name": "item_vic_bit_masks",
+   "type": "Field",
+   "kind": "user"
+  },
+  {
+   "address": 23465,
+   "name": "item_x_positions",
+   "type": "Field",
+   "kind": "user"
+  },
+  {
+   "address": 23473,
+   "name": "chest_world_x",
+   "type": "AbsoluteAddress",
+   "kind": "user"
+  },
+  {
+   "address": 23476,
+   "name": "item_y_positions",
+   "type": "Field",
+   "kind": "user"
+  },
+  {
+   "address": 23484,
+   "name": "chest_world_y",
+   "type": "AbsoluteAddress",
+   "kind": "user"
+  },
+  {
+   "address": 23487,
+   "name": "item_room_flags",
+   "type": "Field",
+   "kind": "user"
+  },
+  {
+   "address": 23488,
+   "name": "dynamite_room_presence_bytes",
+   "type": "Field",
+   "kind": "user"
+  },
+  {
+   "address": 23493,
+   "name": "item_6_room_presence",
+   "type": "AbsoluteAddress",
+   "kind": "user"
+  },
+  {
+   "address": 23494,
+   "name": "item_7_room_presence",
+   "type": "AbsoluteAddress",
+   "kind": "user"
+  },
+  {
+   "address": 23495,
+   "name": "chest_room_presence",
+   "type": "AbsoluteAddress",
+   "kind": "user"
+  },
+  {
+   "address": 23497,
+   "name": "torch_room_presence",
+   "type": "AbsoluteAddress",
+   "kind": "user"
+  },
+  {
+   "address": 23498,
+   "name": "item_x_high_bits",
+   "type": "Field",
+   "kind": "user"
+  },
+  {
+   "address": 23506,
+   "name": "chest_world_x_hi",
+   "type": "AbsoluteAddress",
+   "kind": "user"
+  },
+  {
+   "address": 23509,
+   "name": "item_in_motion",
+   "type": "Field",
+   "kind": "user"
+  },
+  {
+   "address": 23515,
+   "name": "pearl_in_motion",
+   "type": "AbsoluteAddress",
+   "kind": "user"
+  },
+  {
+   "address": 23516,
+   "name": "salt_in_motion",
+   "type": "AbsoluteAddress",
+   "kind": "user"
+  },
+  {
+   "address": 23517,
+   "name": "chest_motion_flag",
+   "type": "AbsoluteAddress",
+   "kind": "user"
+  },
+  {
+   "address": 23520,
+   "name": "display_colour_by_item",
+   "type": "Field",
+   "kind": "user"
+  },
+  {
+   "address": 23531,
+   "name": "item_motion_dividers",
+   "type": "Field",
+   "kind": "user"
+  },
+  {
+   "address": 23542,
+   "name": "initial_item_tables",
+   "type": "Field",
+   "kind": "user"
+  },
+  {
+   "address": 23597,
+   "name": "sprite_frame_by_item",
+   "type": "Field",
+   "kind": "user"
+  },
+  {
+   "address": 23608,
+   "name": "heart_delay_by_room",
+   "type": "Field",
+   "kind": "user"
+  },
+  {
+   "address": 23640,
+   "name": "gap_after_heart_delays",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 23646,
+   "name": "heart_frame_delay_by_row",
+   "type": "Field",
+   "kind": "user"
+  },
+  {
+   "address": 23650,
+   "name": "random_state_first",
+   "type": "AbsoluteAddress",
+   "kind": "user"
+  },
+  {
+   "address": 23651,
+   "name": "random_state_second",
+   "type": "AbsoluteAddress",
+   "kind": "user"
+  },
+  {
+   "address": 23653,
+   "name": "item_name_pointers",
+   "type": "Field",
+   "kind": "user"
+  },
+  {
+   "address": 23654,
+   "name": "item_name_pointer_hi",
+   "type": "Field",
+   "kind": "user"
+  },
+  {
+   "address": 23675,
+   "name": "item_name_text",
+   "type": "AbsoluteAddress",
+   "kind": "user"
+  },
+  {
+   "address": 23679,
+   "name": "a_5C7F",
+   "type": "AbsoluteAddress",
+   "kind": "auto"
+  },
+  {
+   "address": 23686,
+   "name": "a_5C86",
+   "type": "AbsoluteAddress",
+   "kind": "auto"
+  },
+  {
+   "address": 23693,
+   "name": "a_5C8D",
+   "type": "AbsoluteAddress",
+   "kind": "auto"
+  },
+  {
+   "address": 23700,
+   "name": "a_5C94",
+   "type": "AbsoluteAddress",
+   "kind": "auto"
+  },
+  {
+   "address": 23705,
+   "name": "a_5C99",
+   "type": "AbsoluteAddress",
+   "kind": "auto"
+  },
+  {
+   "address": 23710,
+   "name": "a_5C9E",
+   "type": "AbsoluteAddress",
+   "kind": "auto"
+  },
+  {
+   "address": 23715,
+   "name": "a_5CA3",
+   "type": "AbsoluteAddress",
+   "kind": "auto"
+  },
+  {
+   "address": 23719,
+   "name": "a_5CA7",
+   "type": "AbsoluteAddress",
+   "kind": "auto"
+  },
+  {
+   "address": 23724,
+   "name": "a_5CAC",
+   "type": "AbsoluteAddress",
+   "kind": "auto"
+  },
+  {
+   "address": 23731,
+   "name": "a_5CB3",
+   "type": "AbsoluteAddress",
+   "kind": "auto"
+  },
+  {
+   "address": 23736,
+   "name": "item_name_lengths",
+   "type": "Field",
+   "kind": "user"
+  },
+  {
+   "address": 23747,
+   "name": "room_creature_types",
+   "type": "Field",
+   "kind": "user"
+  },
+  {
+   "address": 23773,
+   "name": "room_1a_creature_mask",
+   "type": "AbsoluteAddress",
+   "kind": "user"
+  },
+  {
+   "address": 23778,
+   "name": "room_1f_creature_mask",
+   "type": "AbsoluteAddress",
+   "kind": "user"
+  },
+  {
+   "address": 23779,
+   "name": "first_creature_start_x",
+   "type": "Field",
+   "kind": "user"
+  },
+  {
+   "address": 23811,
+   "name": "second_creature_start_x",
+   "type": "Field",
+   "kind": "user"
+  },
+  {
+   "address": 23843,
+   "name": "first_creature_start_y",
+   "type": "Field",
+   "kind": "user"
+  },
+  {
+   "address": 23875,
+   "name": "second_creature_start_y",
+   "type": "Field",
+   "kind": "user"
+  },
+  {
+   "address": 23907,
+   "name": "room_creature_path_pointers",
+   "type": "Field",
+   "kind": "user"
+  },
+  {
+   "address": 23908,
+   "name": "first_creature_path_hi_by_room",
+   "type": "Field",
+   "kind": "user"
+  },
+  {
+   "address": 23909,
+   "name": "second_creature_path_lo_by_room",
+   "type": "Field",
+   "kind": "user"
+  },
+  {
+   "address": 23910,
+   "name": "second_creature_path_hi_by_room",
+   "type": "Field",
+   "kind": "user"
+  },
+  {
+   "address": 24035,
+   "name": "creature_motion_tracks",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 24255,
+   "name": "draw_hud_frames",
+   "type": "Subroutine",
+   "kind": "user"
+  },
+  {
+   "address": 24257,
+   "name": "b_5EC1",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 24291,
+   "name": "b_5EE3",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 24368,
+   "name": "clear_hud_text",
+   "type": "Subroutine",
+   "kind": "user"
+  },
+  {
+   "address": 24372,
+   "name": "b_5F34",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 24381,
+   "name": "draw_score_labels",
+   "type": "Subroutine",
+   "kind": "user"
+  },
+  {
+   "address": 24383,
+   "name": "b_5F3F",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 24396,
+   "name": "b_5F4C",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 24420,
+   "name": "r_5F64",
+   "type": "Return",
+   "kind": "auto"
+  },
+  {
+   "address": 24421,
+   "name": "mirror_player_sprite_bank",
+   "type": "Subroutine",
+   "kind": "user"
+  },
+  {
+   "address": 24447,
+   "name": "b_5F7F",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 24457,
+   "name": "b_5F89",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 24486,
+   "name": "b_5FA6",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 24503,
+   "name": "b_5FB7",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 24506,
+   "name": "mirror_sprite_bits",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 24510,
+   "name": "b_5FBE",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 24512,
+   "name": "b_5FC0",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 24514,
+   "name": "b_5FC2",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 24544,
+   "name": "b_5FE0",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 24548,
+   "name": "b_5FE4",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 24566,
+   "name": "set_default_myrtle_palette",
+   "type": "Subroutine",
+   "kind": "user"
+  },
+  {
+   "address": 24570,
+   "name": "j_5FFA",
+   "type": "Jump",
+   "kind": "auto"
+  },
+  {
+   "address": 24576,
+   "name": "metatile_pixels",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 24672,
+   "name": "metatile_03_upper_pixels",
+   "type": "Field",
+   "kind": "user"
+  },
+  {
+   "address": 24688,
+   "name": "metatile_03_lower_pixels",
+   "type": "Field",
+   "kind": "user"
+  },
+  {
+   "address": 24752,
+   "name": "remaining_tiles_first_bank",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 25600,
+   "name": "metatile_pixels_20",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 26624,
+   "name": "metatile_pixels_40",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 27648,
+   "name": "metatile_pixels_60",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 28672,
+   "name": "metatile_pixels_80",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 29696,
+   "name": "metatile_pixels_a0",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 30720,
+   "name": "metatile_pixels_c0",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 31744,
+   "name": "metatile_pixels_e0",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 32768,
+   "name": "metatile_screen_upper_left",
+   "type": "Field",
+   "kind": "user"
+  },
+  {
+   "address": 33024,
+   "name": "metatile_screen_upper_right",
+   "type": "Field",
+   "kind": "user"
+  },
+  {
+   "address": 33280,
+   "name": "metatile_screen_lower_left",
+   "type": "Field",
+   "kind": "user"
+  },
+  {
+   "address": 33536,
+   "name": "metatile_screen_lower_right",
+   "type": "Field",
+   "kind": "user"
+  },
+  {
+   "address": 33792,
+   "name": "metatile_colour_upper_left",
+   "type": "Field",
+   "kind": "user"
+  },
+  {
+   "address": 34048,
+   "name": "metatile_colour_upper_right",
+   "type": "Field",
+   "kind": "user"
+  },
+  {
+   "address": 34304,
+   "name": "metatile_colour_lower_left",
+   "type": "Field",
+   "kind": "user"
+  },
+  {
+   "address": 34560,
+   "name": "metatile_colour_lower_right",
+   "type": "Field",
+   "kind": "user"
+  },
+  {
+   "address": 36864,
+   "name": "music_request",
+   "type": "AbsoluteAddress",
+   "kind": "user"
+  },
+  {
+   "address": 36865,
+   "name": "sound_request",
+   "type": "AbsoluteAddress",
+   "kind": "user"
+  },
+  {
+   "address": 36866,
+   "name": "voice_2_effect_request",
+   "type": "AbsoluteAddress",
+   "kind": "user"
+  },
+  {
+   "address": 36867,
+   "name": "voice_3_effect_request",
+   "type": "AbsoluteAddress",
+   "kind": "user"
+  },
+  {
+   "address": 36868,
+   "name": "active_music_request",
+   "type": "AbsoluteAddress",
+   "kind": "user"
+  },
+  {
+   "address": 36869,
+   "name": "sound_tick",
+   "type": "Subroutine",
+   "kind": "user"
+  },
+  {
+   "address": 36872,
+   "name": "sound_driver_standalone_setup",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 36895,
+   "name": "a_901F",
+   "type": "AbsoluteAddress",
+   "kind": "auto"
+  },
+  {
+   "address": 36896,
+   "name": "a_9020",
+   "type": "AbsoluteAddress",
+   "kind": "auto"
+  },
+  {
+   "address": 36897,
+   "name": "a_9021",
+   "type": "AbsoluteAddress",
+   "kind": "auto"
+  },
+  {
+   "address": 36898,
+   "name": "a_9022",
+   "type": "AbsoluteAddress",
+   "kind": "auto"
+  },
+  {
+   "address": 36899,
+   "name": "a_9023",
+   "type": "AbsoluteAddress",
+   "kind": "auto"
+  },
+  {
+   "address": 36900,
+   "name": "advance_music_rate_counter",
+   "type": "Subroutine",
+   "kind": "user"
+  },
+  {
+   "address": 36919,
+   "name": "r_9037",
+   "type": "Return",
+   "kind": "auto"
+  },
+  {
+   "address": 36920,
+   "name": "set_voice_2_note",
+   "type": "Subroutine",
+   "kind": "user"
+  },
+  {
+   "address": 36926,
+   "name": "b_903E",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 36977,
+   "name": "set_voice_3_note",
+   "type": "Subroutine",
+   "kind": "user"
+  },
+  {
+   "address": 36983,
+   "name": "b_9077",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 37000,
+   "name": "adjust_voice_3_pitch",
+   "type": "Subroutine",
+   "kind": "user"
+  },
+  {
+   "address": 37011,
+   "name": "b_9093",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 37030,
+   "name": "j_90A6",
+   "type": "Jump",
+   "kind": "auto"
+  },
+  {
+   "address": 37039,
+   "name": "b_90AF",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 37050,
+   "name": "reference_voice_3_note",
+   "type": "AbsoluteAddress",
+   "kind": "user"
+  },
+  {
+   "address": 37051,
+   "name": "music_voice_3_note_work",
+   "type": "AbsoluteAddress",
+   "kind": "user"
+  },
+  {
+   "address": 37086,
+   "name": "advance_music_note_index",
+   "type": "Subroutine",
+   "kind": "user"
+  },
+  {
+   "address": 37105,
+   "name": "r_90F1",
+   "type": "Return",
+   "kind": "auto"
+  },
+  {
+   "address": 37106,
+   "name": "sid_note_periods",
+   "type": "Field",
+   "kind": "user"
+  },
+  {
+   "address": 37170,
+   "name": "sid_high_note_periods",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 37300,
+   "name": "sound_driver_irq_entry",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 37317,
+   "name": "dispatch_music_tick",
+   "type": "Jump",
+   "kind": "user"
+  },
+  {
+   "address": 37344,
+   "name": "b_91E0",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 37362,
+   "name": "b_91F2",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 37377,
+   "name": "music_dispatch_displacement",
+   "type": "AbsoluteAddress",
+   "kind": "user"
+  },
+  {
+   "address": 37378,
+   "name": "music_dispatch_return",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 37379,
+   "name": "music_slot_zero_padding",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 37381,
+   "name": "music_dispatch_slots",
+   "type": "Branch",
+   "kind": "user"
+  },
+  {
+   "address": 37411,
+   "name": "reset_music_frequency",
+   "type": "Subroutine",
+   "kind": "user"
+  },
+  {
+   "address": 37465,
+   "name": "r_9259",
+   "type": "Return",
+   "kind": "auto"
+  },
+  {
+   "address": 37466,
+   "name": "set_voice_1_envelope_and_gate",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 37483,
+   "name": "set_alternating_voice_2_pitch",
+   "type": "Subroutine",
+   "kind": "user"
+  },
+  {
+   "address": 37498,
+   "name": "b_927A",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 37511,
+   "name": "reset_sid_volume_filter",
+   "type": "Subroutine",
+   "kind": "user"
+  },
+  {
+   "address": 37527,
+   "name": "transpose_track_note",
+   "type": "Subroutine",
+   "kind": "user"
+  },
+  {
+   "address": 37536,
+   "name": "b_92A0",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 37542,
+   "name": "pulse_sweep_voice_2",
+   "type": "Subroutine",
+   "kind": "user"
+  },
+  {
+   "address": 37559,
+   "name": "pulse_sweep_voice_3",
+   "type": "Subroutine",
+   "kind": "user"
+  },
+  {
+   "address": 37576,
+   "name": "pulse_sweep_voice_1",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 37593,
+   "name": "voice_1_width_counter",
+   "type": "AbsoluteAddress",
+   "kind": "user"
+  },
+  {
+   "address": 37594,
+   "name": "voice_3_width_counter",
+   "type": "AbsoluteAddress",
+   "kind": "user"
+  },
+  {
+   "address": 37595,
+   "name": "play_music_request_1",
+   "type": "Jump",
+   "kind": "user"
+  },
+  {
+   "address": 37646,
+   "name": "r_930E",
+   "type": "Return",
+   "kind": "auto"
+  },
+  {
+   "address": 37647,
+   "name": "music_1_notes",
+   "type": "Field",
+   "kind": "user"
+  },
+  {
+   "address": 37695,
+   "name": "play_music_request_2",
+   "type": "Jump",
+   "kind": "user"
+  },
+  {
+   "address": 37758,
+   "name": "r_937E",
+   "type": "Return",
+   "kind": "auto"
+  },
+  {
+   "address": 37759,
+   "name": "music_2_voice_2",
+   "type": "Field",
+   "kind": "user"
+  },
+  {
+   "address": 37763,
+   "name": "music_2_voice_3",
+   "type": "Field",
+   "kind": "user"
+  },
+  {
+   "address": 37827,
+   "name": "play_music_request_3",
+   "type": "Jump",
+   "kind": "user"
+  },
+  {
+   "address": 37875,
+   "name": "b_93F3",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 37887,
+   "name": "r_93FF",
+   "type": "Return",
+   "kind": "auto"
+  },
+  {
+   "address": 37888,
+   "name": "music_3_voice_2",
+   "type": "Field",
+   "kind": "user"
+  },
+  {
+   "address": 37952,
+   "name": "music_3_voice_3",
+   "type": "Field",
+   "kind": "user"
+  },
+  {
+   "address": 38080,
+   "name": "play_music_request_4",
+   "type": "Jump",
+   "kind": "user"
+  },
+  {
+   "address": 38146,
+   "name": "b_9502",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 38166,
+   "name": "r_9516",
+   "type": "Return",
+   "kind": "auto"
+  },
+  {
+   "address": 38167,
+   "name": "music_4_transposition",
+   "type": "AbsoluteAddress",
+   "kind": "user"
+  },
+  {
+   "address": 38168,
+   "name": "music_4_voice_3_notes",
+   "type": "Field",
+   "kind": "user"
+  },
+  {
+   "address": 38296,
+   "name": "music_4_voice_2_notes",
+   "type": "Field",
+   "kind": "user"
+  },
+  {
+   "address": 38552,
+   "name": "play_music_request_5",
+   "type": "Jump",
+   "kind": "user"
+  },
+  {
+   "address": 38609,
+   "name": "r_96D1",
+   "type": "Return",
+   "kind": "auto"
+  },
+  {
+   "address": 38610,
+   "name": "music_5_notes",
+   "type": "Field",
+   "kind": "user"
+  },
+  {
+   "address": 38642,
+   "name": "play_music_request_6",
+   "type": "Jump",
+   "kind": "user"
+  },
+  {
+   "address": 38694,
+   "name": "request_6_next_track_operand",
+   "type": "AbsoluteAddress",
+   "kind": "user"
+  },
+  {
+   "address": 38706,
+   "name": "r_9732",
+   "type": "Return",
+   "kind": "auto"
+  },
+  {
+   "address": 38707,
+   "name": "music_6_voice_2",
+   "type": "Field",
+   "kind": "user"
+  },
+  {
+   "address": 38739,
+   "name": "music_6_voice_3",
+   "type": "Field",
+   "kind": "user"
+  },
+  {
+   "address": 38771,
+   "name": "play_music_request_7",
+   "type": "Jump",
+   "kind": "user"
+  },
+  {
+   "address": 38819,
+   "name": "r_97A3",
+   "type": "Return",
+   "kind": "auto"
+  },
+  {
+   "address": 38820,
+   "name": "music_7_voice_2",
+   "type": "Field",
+   "kind": "user"
+  },
+  {
+   "address": 38868,
+   "name": "shared_music_7_8_voice_3",
+   "type": "Field",
+   "kind": "user"
+  },
+  {
+   "address": 38964,
+   "name": "music_8_voice_2",
+   "type": "Field",
+   "kind": "user"
+  },
+  {
+   "address": 39060,
+   "name": "play_music_request_8",
+   "type": "Jump",
+   "kind": "user"
+  },
+  {
+   "address": 39071,
+   "name": "b_989F",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 39117,
+   "name": "r_98CD",
+   "type": "Return",
+   "kind": "auto"
+  },
+  {
+   "address": 39118,
+   "name": "tick_sound_effects",
+   "type": "Subroutine",
+   "kind": "user"
+  },
+  {
+   "address": 39154,
+   "name": "b_98F2",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 39196,
+   "name": "b_991C",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 39202,
+   "name": "b_9922",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 39217,
+   "name": "b_9931",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 39232,
+   "name": "b_9940",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 39274,
+   "name": "b_996A",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 39282,
+   "name": "b_9972",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 39293,
+   "name": "b_997D",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 39308,
+   "name": "r_998C",
+   "type": "Return",
+   "kind": "auto"
+  },
+  {
+   "address": 39309,
+   "name": "voice_3_ad_by_effect_bits",
+   "type": "Field",
+   "kind": "user"
+  },
+  {
+   "address": 39313,
+   "name": "a_9991",
+   "type": "AbsoluteAddress",
+   "kind": "auto"
+  },
+  {
+   "address": 39314,
+   "name": "a_9992",
+   "type": "AbsoluteAddress",
+   "kind": "auto"
+  },
+  {
+   "address": 39315,
+   "name": "a_9993",
+   "type": "AbsoluteAddress",
+   "kind": "auto"
+  },
+  {
+   "address": 39316,
+   "name": "a_9994",
+   "type": "AbsoluteAddress",
+   "kind": "auto"
+  },
+  {
+   "address": 39317,
+   "name": "a_9995",
+   "type": "AbsoluteAddress",
+   "kind": "auto"
+  },
+  {
+   "address": 39318,
+   "name": "a_9996",
+   "type": "AbsoluteAddress",
+   "kind": "auto"
+  },
+  {
+   "address": 39319,
+   "name": "a_9997",
+   "type": "AbsoluteAddress",
+   "kind": "auto"
+  },
+  {
+   "address": 39320,
+   "name": "a_9998",
+   "type": "AbsoluteAddress",
+   "kind": "auto"
+  },
+  {
+   "address": 39321,
+   "name": "a_9999",
+   "type": "AbsoluteAddress",
+   "kind": "auto"
+  },
+  {
+   "address": 39322,
+   "name": "driver_volume_state",
+   "type": "AbsoluteAddress",
+   "kind": "user"
+  },
+  {
+   "address": 39327,
+   "name": "a_999F",
+   "type": "AbsoluteAddress",
+   "kind": "auto"
+  },
+  {
+   "address": 39329,
+   "name": "a_99A1",
+   "type": "AbsoluteAddress",
+   "kind": "auto"
+  },
+  {
+   "address": 39330,
+   "name": "a_99A2",
+   "type": "AbsoluteAddress",
+   "kind": "auto"
+  },
+  {
+   "address": 39331,
+   "name": "a_99A3",
+   "type": "AbsoluteAddress",
+   "kind": "auto"
+  },
+  {
+   "address": 39332,
+   "name": "voice_3_effect_frequency_high",
+   "type": "AbsoluteAddress",
+   "kind": "user"
+  },
+  {
+   "address": 39424,
+   "name": "special_actor_sprite_frames",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 40384,
+   "name": "special_actor_frame_0f",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 40960,
+   "name": "myrtle_source_frames",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 41536,
+   "name": "source_frame_09",
+   "type": "Field",
+   "kind": "user"
+  },
+  {
+   "address": 41600,
+   "name": "moving_player_gfx",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 42112,
+   "name": "middle_player_sprite_frames",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 42624,
+   "name": "alternate_player_sprite_frames",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 43136,
+   "name": "energy_gauge_gfx",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 43648,
+   "name": "energy_gauge_second_gfx",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 44032,
+   "name": "intro_and_first_creature_frames",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 44160,
+   "name": "gordon_opening_frames",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 45056,
+   "name": "creature_frames_40",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 46080,
+   "name": "creature_frames_50",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 47104,
+   "name": "creature_frames_60",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 48128,
+   "name": "creature_frames_final_page_group",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 49072,
+   "name": "sprite_editor_residual_text",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 49152,
+   "name": "score_and_end_text",
+   "type": "Field",
+   "kind": "user"
+  },
+  {
+   "address": 49159,
+   "name": "f_C007",
+   "type": "Field",
+   "kind": "auto"
+  },
+  {
+   "address": 49166,
+   "name": "f_C00E",
+   "type": "Field",
+   "kind": "auto"
+  },
+  {
+   "address": 49175,
+   "name": "f_C017",
+   "type": "Field",
+   "kind": "auto"
+  },
+  {
+   "address": 49223,
+   "name": "update_high_score",
+   "type": "Subroutine",
+   "kind": "user"
+  },
+  {
+   "address": 49234,
+   "name": "r_C052",
+   "type": "Return",
+   "kind": "auto"
+  },
+  {
+   "address": 49235,
+   "name": "show_end_message",
+   "type": "Jump",
+   "kind": "user"
+  },
+  {
+   "address": 49264,
+   "name": "b_C070",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 49273,
+   "name": "b_C079",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 49284,
+   "name": "b_C084",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 49290,
+   "name": "b_C08A",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 49294,
+   "name": "b_C08E",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 49303,
+   "name": "b_C097",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 49319,
+   "name": "b_C0A7",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 49326,
+   "name": "settle_items_before_redraw",
+   "type": "Subroutine",
+   "kind": "user"
+  },
+  {
+   "address": 49333,
+   "name": "b_C0B5",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 49349,
+   "name": "show_title",
+   "type": "Subroutine",
+   "kind": "user"
+  },
+  {
+   "address": 49370,
+   "name": "j_C0DA",
+   "type": "Jump",
+   "kind": "auto"
+  },
+  {
+   "address": 49387,
+   "name": "j_C0EB",
+   "type": "Jump",
+   "kind": "auto"
+  },
+  {
+   "address": 49418,
+   "name": "b_C10A",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 49424,
+   "name": "b_C110",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 49425,
+   "name": "title_screen_address_lo",
+   "type": "AbsoluteAddress",
+   "kind": "user"
+  },
+  {
+   "address": 49426,
+   "name": "title_screen_address_hi",
+   "type": "AbsoluteAddress",
+   "kind": "user"
+  },
+  {
+   "address": 49430,
+   "name": "title_colour_address_lo",
+   "type": "AbsoluteAddress",
+   "kind": "user"
+  },
+  {
+   "address": 49431,
+   "name": "title_colour_address_hi",
+   "type": "AbsoluteAddress",
+   "kind": "user"
+  },
+  {
+   "address": 49437,
+   "name": "b_C11D",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 49452,
+   "name": "title_row_pointer_offset",
+   "type": "AbsoluteAddress",
+   "kind": "user"
+  },
+  {
+   "address": 49453,
+   "name": "title_text_stream",
+   "type": "Field",
+   "kind": "user"
+  },
+  {
+   "address": 49615,
+   "name": "title_row_pointers",
+   "type": "Field",
+   "kind": "user"
+  },
+  {
+   "address": 49616,
+   "name": "title_row_pointers_hi",
+   "type": "Field",
+   "kind": "user"
+  },
+  {
+   "address": 49629,
+   "name": "choose_item_during_double_contact",
+   "type": "Subroutine",
+   "kind": "user"
+  },
+  {
+   "address": 49631,
+   "name": "b_C1DF",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 49689,
+   "name": "b_C219",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 55297,
+   "name": "f_D801",
+   "type": "Field",
+   "kind": "auto"
+  },
+  {
+   "address": 55337,
+   "name": "f_D829",
+   "type": "Field",
+   "kind": "auto"
+  },
+  {
+   "address": 55339,
+   "name": "f_D82B",
+   "type": "Field",
+   "kind": "auto"
+  },
+  {
+   "address": 55347,
+   "name": "a_D833",
+   "type": "AbsoluteAddress",
+   "kind": "auto"
+  },
+  {
+   "address": 55348,
+   "name": "a_D834",
+   "type": "AbsoluteAddress",
+   "kind": "auto"
+  },
+  {
+   "address": 55349,
+   "name": "a_D835",
+   "type": "AbsoluteAddress",
+   "kind": "auto"
+  },
+  {
+   "address": 55351,
+   "name": "f_D837",
+   "type": "Field",
+   "kind": "auto"
+  },
+  {
+   "address": 55359,
+   "name": "f_D83F",
+   "type": "Field",
+   "kind": "auto"
+  },
+  {
+   "address": 55365,
+   "name": "f_D845",
+   "type": "Field",
+   "kind": "auto"
+  },
+  {
+   "address": 55374,
+   "name": "f_D84E",
+   "type": "Field",
+   "kind": "auto"
+  },
+  {
+   "address": 55379,
+   "name": "f_D853",
+   "type": "Field",
+   "kind": "auto"
+  },
+  {
+   "address": 55387,
+   "name": "a_D85B",
+   "type": "AbsoluteAddress",
+   "kind": "auto"
+  },
+  {
+   "address": 55388,
+   "name": "a_D85C",
+   "type": "AbsoluteAddress",
+   "kind": "auto"
+  },
+  {
+   "address": 55389,
+   "name": "a_D85D",
+   "type": "AbsoluteAddress",
+   "kind": "auto"
+  },
+  {
+   "address": 55423,
+   "name": "f_D87F",
+   "type": "Field",
+   "kind": "auto"
+  },
+  {
+   "address": 55457,
+   "name": "f_D8A1",
+   "type": "Field",
+   "kind": "auto"
+  },
+  {
+   "address": 55911,
+   "name": "f_DA67",
+   "type": "Field",
+   "kind": "auto"
+  },
+  {
+   "address": 55912,
+   "name": "f_DA68",
+   "type": "Field",
+   "kind": "auto"
+  },
+  {
+   "address": 56062,
+   "name": "f_DAFE",
+   "type": "Field",
+   "kind": "auto"
+  },
+  {
+   "address": 59953,
+   "name": "j_EA31",
+   "type": "Jump",
+   "kind": "auto"
+  }
+ ],
+ "comments": [
+  {
+   "address": 2,
+   "type": "line",
+   "text": "Cycles through three timeslots and selects the two-byte target in the interrupt dispatch table."
+  },
+  {
+   "address": 36,
+   "type": "line",
+   "text": "Unsigned energy reservoir capped at $FF. Zero reached through damage sets the end flag."
+  },
+  {
+   "address": 37,
+   "type": "line",
+   "text": "Set by air underflow, fatal damage and the completed rescue sequence. Evaluated at the end of the main loop."
+  },
+  {
+   "address": 50,
+   "type": "line",
+   "text": "Row-major room ID used to select objects, enemies and room-specific rules."
+  },
+  {
+   "address": 54,
+   "type": "line",
+   "text": "Copy of the VIC sprite-sprite collision latch read by the main loop. Used by contact damage and item overlap tests."
+  },
+  {
+   "address": 55,
+   "type": "line",
+   "text": "Prevents a held trigger from repeating the inventory action until fire has been released."
+  },
+  {
+   "address": 63,
+   "type": "line",
+   "text": "Main playfield's colour value copied to the VIC's second shared sprite multicolour register."
+  },
+  {
+   "address": 72,
+   "type": "line",
+   "text": "High byte of the first working pointer, used for tile output positions and temporary inputs to frame copies."
+  },
+  {
+   "address": 75,
+   "type": "line",
+   "text": "High byte of the second zero-page data pointer used for surface copying and gauge frame loads."
+  },
+  {
+   "address": 78,
+   "type": "line",
+   "text": "Current tile byte passed from room map fetch to the per-tile drawing routine."
+  },
+  {
+   "address": 89,
+   "type": "line",
+   "text": "Room column times 16. Horizontal room transitions add or subtract $10."
+  },
+  {
+   "address": 90,
+   "type": "line",
+   "text": "Room row times eight. Vertical room transitions add or subtract $08."
+  },
+  {
+   "address": 92,
+   "type": "line",
+   "text": "Countdown for advancement of the moving player sprite frame index."
+  },
+  {
+   "address": 98,
+   "type": "line",
+   "text": "Set after Up input and during dive transitions. Nonzero delays automatic upward movement."
+  },
+  {
+   "address": 109,
+   "type": "line",
+   "text": "Low byte of the player's sprite X position. Horizontal movement keeps its ninth bit in the sprite X mask."
+  },
+  {
+   "address": 110,
+   "type": "line",
+   "text": "Vertical sprite position, updated by directional input and by buoyancy."
+  },
+  {
+   "address": 111,
+   "type": "line",
+   "text": "Packed ninth X bits for the sprites across the 256-pixel boundary."
+  },
+  {
+   "address": 112,
+   "type": "line",
+   "text": "Counts calls to the air routine before the next decrement of the remaining-air counter."
+  },
+  {
+   "address": 788,
+   "type": "line",
+   "text": "The low byte of the KERNAL RAM IRQ vector, set to $E9 by the game startup."
+  },
+  {
+   "address": 789,
+   "type": "line",
+   "text": "The high byte of the KERNAL vector. The game sets $41 and the driver's standalone prologue selects $91 instead."
+  },
+  {
+   "address": 2048,
+   "type": "line",
+   "text": "Sprite slots $20 and $21 receive the two live Myrtle frames. Higher sprite slots in this bank hold other actor and panel graphics."
+  },
+  {
+   "address": 2176,
+   "type": "line",
+   "text": "Sprite slot $22 is used by sprite 4 in the HUD, at X $30 and Y $3E."
+  },
+  {
+   "address": 2240,
+   "type": "line",
+   "text": "First energy-gauge buffer copied by $533C and selected by HUD sprite 3 with pointer $23."
+  },
+  {
+   "address": 3264,
+   "type": "line",
+   "text": "VIC sprite pointers $33\u2013$35 address these HUD graphics slots."
+  },
+  {
+   "address": 3456,
+   "type": "line",
+   "text": "The second of two sprite buffers refreshed together by the energy-gauge routine."
+  },
+  {
+   "address": 3520,
+   "type": "line",
+   "text": "Frame buffer loaded for Gordon and the two fixed-position puzzle actors. The playfield uses sprite pointer $37 for it."
+  },
+  {
+   "address": 3584,
+   "type": "line",
+   "text": "Second frame buffer for Gordon. Selected with pointer $38 in the playfield."
+  },
+  {
+   "address": 4096,
+   "type": "line",
+   "text": "A 128-tile-wide map with 32 rows. Each $80-byte row contains eight 16-tile-wide room slices. The redraw selects eight successive rows of one slice."
+  },
+  {
+   "address": 5120,
+   "type": "line",
+   "text": "Start of the second band of eight metatile rows. The room above/below handlers change the start address by $0400."
+  },
+  {
+   "address": 6144,
+   "type": "line",
+   "text": "Start of the map's third room row. The initial map also seeds passage tiles patched by dynamite during play."
+  },
+  {
+   "address": 6145,
+   "type": "line",
+   "text": "Three consecutive map tile IDs cleared by the dynamite patch at $5AA3."
+  },
+  {
+   "address": 6219,
+   "type": "line",
+   "text": "Three map tile IDs cleared at $5A9C when the room $14 blast applies its patch."
+  },
+  {
+   "address": 7168,
+   "type": "line",
+   "text": "Start of the deepest room row, including the rooms with the rescue barrier and item-triggered patches."
+  },
+  {
+   "address": 7397,
+   "type": "line",
+   "text": "Destination for the first five tiles of the room $1E state update."
+  },
+  {
+   "address": 7525,
+   "type": "line",
+   "text": "Five metatiles one map row after the first row of the room $1E patch."
+  },
+  {
+   "address": 7540,
+   "type": "line",
+   "text": "Three metatiles at the right edge of the second metatile row modified by the room $1E update."
+  },
+  {
+   "address": 7622,
+   "type": "line",
+   "text": "First three-tile row cleared by the room $1C dynamite patch."
+  },
+  {
+   "address": 7668,
+   "type": "line",
+   "text": "Three metatiles directly below the right-hand room $1E patch."
+  },
+  {
+   "address": 7750,
+   "type": "line",
+   "text": "Second three-tile row cleared under the room $1C passage."
+  },
+  {
+   "address": 7959,
+   "type": "line",
+   "text": "Three map tile IDs cleared when the rescue starts, restored from $5AC8 at reset."
+  },
+  {
+   "address": 8192,
+   "type": "line",
+   "text": "Eight-byte HUD glyphs at screen codes $00\u2013$3F. The alphabet sits at $01\u2013$1A, space at $20 and the digits at $30\u2013$39."
+  },
+  {
+   "address": 8704,
+   "type": "line",
+   "text": "Ten eight-byte glyphs for the panel edges and junctions, indexed by screen codes $40\u2013$49."
+  },
+  {
+   "address": 8768,
+   "type": "line",
+   "text": "Last pair of the panel border characters, including the lower junction."
+  },
+  {
+   "address": 8960,
+   "type": "line",
+   "text": "Four 64-byte creature frames. The raster handler adds the animation index to pointer $8C."
+  },
+  {
+   "address": 9216,
+   "type": "line",
+   "text": "The eleven-item lookup maps onto an eight-slot object frame bank at pointer $90 plus the mapped frame number. Several inventory items share a silhouette."
+  },
+  {
+   "address": 9728,
+   "type": "line",
+   "text": "Last eight cells of the bitmap row behind the HUD before the bitmap display is enabled."
+  },
+  {
+   "address": 9792,
+   "type": "line",
+   "text": "Two authored 40-cell bitmap rows across the top of the room frame. The room redraw starts one row below this band."
+  },
+  {
+   "address": 10400,
+   "type": "line",
+   "text": "Right border pixels of row 6 and the left border pixels of row 7. The linear bitmap stores these two outer edges consecutively."
+  },
+  {
+   "address": 10720,
+   "type": "line",
+   "text": "Right border pixels of row 7 and the left border pixels of row 8. The linear bitmap stores these two outer edges consecutively."
+  },
+  {
+   "address": 11040,
+   "type": "line",
+   "text": "Right border pixels of row 8 and the left border pixels of row 9. The linear bitmap stores these two outer edges consecutively."
+  },
+  {
+   "address": 11360,
+   "type": "line",
+   "text": "Right border pixels of row 9 and the left border pixels of row 10. The linear bitmap stores these two outer edges consecutively."
+  },
+  {
+   "address": 11680,
+   "type": "line",
+   "text": "Right border pixels of row 10 and the left border pixels of row 11. The linear bitmap stores these two outer edges consecutively."
+  },
+  {
+   "address": 12000,
+   "type": "line",
+   "text": "Right border pixels of row 11 and the left border pixels of row 12. The linear bitmap stores these two outer edges consecutively."
+  },
+  {
+   "address": 12320,
+   "type": "line",
+   "text": "Right border pixels of row 12 and the left border pixels of row 13. The linear bitmap stores these two outer edges consecutively."
+  },
+  {
+   "address": 12640,
+   "type": "line",
+   "text": "Right border pixels of row 13 and the left border pixels of row 14. The linear bitmap stores these two outer edges consecutively."
+  },
+  {
+   "address": 12960,
+   "type": "line",
+   "text": "Right border pixels of row 14 and the left border pixels of row 15. The linear bitmap stores these two outer edges consecutively."
+  },
+  {
+   "address": 13280,
+   "type": "line",
+   "text": "Right border pixels of row 15 and the left border pixels of row 16. The linear bitmap stores these two outer edges consecutively."
+  },
+  {
+   "address": 13600,
+   "type": "line",
+   "text": "Right border pixels of row 16 and the left border pixels of row 17. The linear bitmap stores these two outer edges consecutively."
+  },
+  {
+   "address": 13920,
+   "type": "line",
+   "text": "Right border pixels of row 17 and the left border pixels of row 18. The linear bitmap stores these two outer edges consecutively."
+  },
+  {
+   "address": 14240,
+   "type": "line",
+   "text": "Right border pixels of row 18 and the left border pixels of row 19. The linear bitmap stores these two outer edges consecutively."
+  },
+  {
+   "address": 14560,
+   "type": "line",
+   "text": "Right border pixels of row 19 and the left border pixels of row 20. The linear bitmap stores these two outer edges consecutively."
+  },
+  {
+   "address": 14880,
+   "type": "line",
+   "text": "Right border pixels of row 20 and the left border pixels of row 21. The linear bitmap stores these two outer edges consecutively."
+  },
+  {
+   "address": 14944,
+   "type": "line",
+   "text": "Sample destination of the upper strip's self-modified address in the promenade snapshot."
+  },
+  {
+   "address": 15200,
+   "type": "line",
+   "text": "Right border pixels of row 21 and the left border pixels of row 22. The linear bitmap stores these two outer edges consecutively."
+  },
+  {
+   "address": 15264,
+   "type": "line",
+   "text": "The lower strip is drawn 320 bytes past the upper strip at the next character row."
+  },
+  {
+   "address": 15520,
+   "type": "line",
+   "text": "Right border pixels of the final room row, immediately before the full-width lower band."
+  },
+  {
+   "address": 15552,
+   "type": "line",
+   "text": "Two authored 40-cell bitmap rows below the room rectangle, containing the bottom border."
+  },
+  {
+   "address": 16384,
+   "type": "line",
+   "text": "Installs hardware state once before entering the restart path. The unpacker transfers control here."
+  },
+  {
+   "address": 16387,
+   "type": "line",
+   "text": "Clears the attempt's state and presents the title before entering the main loop."
+  },
+  {
+   "address": 16390,
+   "type": "line",
+   "text": "Waits for raster line 200, checks controls, advances actors and items, runs room events and checks for an end of play."
+  },
+  {
+   "address": 16471,
+   "type": "line",
+   "text": "Banks out BASIC, selects the HUD glyphs, puts sprites behind foreground bitmap pixels, and installs the IRQ."
+  },
+  {
+   "address": 16509,
+   "type": "line",
+   "text": "Clears the main working state while preserving facing, rebuilds the HUD and item tables, initializes the air and energy gauges, and waits for fire on the title screen."
+  },
+  {
+   "address": 16782,
+   "type": "line",
+   "text": "Sets all 1000 screen cells to $0C and clears the corresponding colour RAM."
+  },
+  {
+   "address": 16831,
+   "type": "line",
+   "text": "Installs the KERNAL RAM vector at $0314, enables the raster IRQ on line 0 and clears the CIA timer A interrupt mask."
+  },
+  {
+   "address": 16873,
+   "type": "line",
+   "text": "Acknowledges the VIC interrupt and dispatches through a JMP operand updated by the previous raster handler. Other IRQs return through the saved KERNAL stack frame."
+  },
+  {
+   "address": 16882,
+   "type": "line",
+   "text": "Low byte of the JMP operand written by the raster phase dispatcher."
+  },
+  {
+   "address": 16883,
+   "type": "line",
+   "text": "High byte of the active raster dispatch target."
+  },
+  {
+   "address": 16884,
+   "type": "line",
+   "text": "Walks the three-entry handler table and rewrites the IRQ dispatch JMP operand before returning."
+  },
+  {
+   "address": 16921,
+   "type": "line",
+   "text": "Three little-endian dispatch targets for raster lines 0, 90 and 180."
+  },
+  {
+   "address": 16922,
+   "type": "line",
+   "text": "Indexed high-byte view of the raster table. The IRQ dispatcher doubles the phase index before reading it."
+  },
+  {
+   "address": 16927,
+   "type": "line",
+   "text": "Selects character mode and configures the panel sprites and black background. Schedules the playfield handler at line 90."
+  },
+  {
+   "address": 17138,
+   "type": "line",
+   "text": "Sets the playfield's video mode and colours, programs actor sprites, samples collisions and ticks the sound driver when enabled."
+  },
+  {
+   "address": 17310,
+   "type": "line",
+   "text": "Sets the final band's background colour and schedules the next frame's line 0 interrupt."
+  },
+  {
+   "address": 17336,
+   "type": "line",
+   "text": "Toggles $444C on a newly pressed CIA1 port B bit 4 and clears its latch when the bit is released."
+  },
+  {
+   "address": 17372,
+   "type": "line",
+   "text": "Index of the item assigned to sprite 5, with $80 indicating an empty slot."
+  },
+  {
+   "address": 17373,
+   "type": "line",
+   "text": "Index of the item assigned to sprite 7, with the same $80 empty value."
+  },
+  {
+   "address": 17400,
+   "type": "line",
+   "text": "One live countdown flag per dynamite index. Item pickup tests this flag before accepting the item."
+  },
+  {
+   "address": 17403,
+   "type": "line",
+   "text": "Room in which each dynamite charge is armed, compared with the displayed room on detonation."
+  },
+  {
+   "address": 17406,
+   "type": "line",
+   "text": "Three fuse counters initialized to $C8 when the respective item lands."
+  },
+  {
+   "address": 17418,
+   "type": "line",
+   "text": "Alternates its low bit so Gordon's trajectory index advances on alternate loop passes."
+  },
+  {
+   "address": 17436,
+   "type": "line",
+   "text": "Item index for the inventory. A negative byte means the carry slot is empty."
+  },
+  {
+   "address": 17442,
+   "type": "line",
+   "text": "Remaining air. Its high nibble drives the air gauge and decrementing zero ends the attempt."
+  },
+  {
+   "address": 17461,
+   "type": "line",
+   "text": "Two active movement masks copied from the current room creature script and shifted to test four directions."
+  },
+  {
+   "address": 17478,
+   "type": "line",
+   "text": "Packed-decimal percentage shown in the first line of the HUD."
+  },
+  {
+   "address": 17479,
+   "type": "line",
+   "text": "Four bytes marking which of the 32 rooms have already earned a first-visit point."
+  },
+  {
+   "address": 17484,
+   "type": "line",
+   "text": "Sound toggle flag tested by the raster handler before calling the SID driver."
+  },
+  {
+   "address": 17488,
+   "type": "line",
+   "text": "Packed-decimal high score displayed on the second line of the panel."
+  },
+  {
+   "address": 17491,
+   "type": "line",
+   "text": "Even-spaced low and high offsets for the left edge of bitmap cells."
+  },
+  {
+   "address": 17492,
+   "type": "line",
+   "text": "High-byte view of the indexed bitmap column offset table."
+  },
+  {
+   "address": 17556,
+   "type": "line",
+   "text": "High byte of the final directly accessible column-offset pair and the additional pairs beyond the 32-column room window."
+  },
+  {
+   "address": 17573,
+   "type": "line",
+   "text": "Row pointers for writes to screen RAM and, after adding $D400, the corresponding colour RAM."
+  },
+  {
+   "address": 17574,
+   "type": "line",
+   "text": "High-byte view of the interleaved row table used by the screen attribute writes."
+  },
+  {
+   "address": 17623,
+   "type": "line",
+   "text": "Low address bytes in $20 steps, selected by the low three bits of a tile ID."
+  },
+  {
+   "address": 17631,
+   "type": "line",
+   "text": "Bitmap source page $60 plus the tile ID divided by eight."
+  },
+  {
+   "address": 17663,
+   "type": "line",
+   "text": "Counts down a pending music change and writes request 2 to $9000 on expiry."
+  },
+  {
+   "address": 17679,
+   "type": "line",
+   "text": "Splits a tile index into bitmap-source page and offset, copies two strips of pixels and supplies four screen and colour attributes. Dark rooms zero the attributes instead."
+  },
+  {
+   "address": 17801,
+   "type": "line",
+   "text": "Low operand of the first 16-byte metatile read, patched using the three low bits of the tile code."
+  },
+  {
+   "address": 17802,
+   "type": "line",
+   "text": "High operand of the first strip source, loaded from the tile code divided by eight."
+  },
+  {
+   "address": 17804,
+   "type": "line",
+   "text": "Low operand of the first bitmap strip write."
+  },
+  {
+   "address": 17805,
+   "type": "line",
+   "text": "High operand of the upper strip write, patched using the character row and column offsets."
+  },
+  {
+   "address": 17807,
+   "type": "line",
+   "text": "Low operand of the second strip read, calculated by adding 16 to the first source address."
+  },
+  {
+   "address": 17808,
+   "type": "line",
+   "text": "High byte of the second strip source, adjusted for carry from the low byte."
+  },
+  {
+   "address": 17810,
+   "type": "line",
+   "text": "Low operand byte of the lower bitmap-strip write, advanced by the 320-byte row stride."
+  },
+  {
+   "address": 17811,
+   "type": "line",
+   "text": "High operand byte of the second bitmap-strip store. The renderer recalculates it from the first strip's address."
+  },
+  {
+   "address": 17897,
+   "type": "line",
+   "text": "Rooms $14 and $1C are dark unless item 9 is carried or appears in either visible room item slot."
+  },
+  {
+   "address": 17946,
+   "type": "line",
+   "text": "Computes room index and redraws eight rows of 16 metatiles from $1000 plus the room's map offset, then installs the room's actors and colours."
+  },
+  {
+   "address": 18029,
+   "type": "line",
+   "text": "Low operand byte of the indexed metatile row read, advanced by $80 each tile row."
+  },
+  {
+   "address": 18030,
+   "type": "line",
+   "text": "High operand byte of the room map read. Written from the map position and advanced along with its low byte once per tile row."
+  },
+  {
+   "address": 18091,
+   "type": "line",
+   "text": "Copies one 64-byte frame for the special actor in room $0C or $1E to $0DC0."
+  },
+  {
+   "address": 18134,
+   "type": "line",
+   "text": "Low destination operand for the selected 64-byte actor frame."
+  },
+  {
+   "address": 18135,
+   "type": "line",
+   "text": "High byte of the destination operand. Set by Gordon's alternate two-sprite frame and the end animation, restored before room drawing."
+  },
+  {
+   "address": 18140,
+   "type": "line",
+   "text": "Four offsets for the actor animation's 64-byte source alignment."
+  },
+  {
+   "address": 18144,
+   "type": "line",
+   "text": "Selects one of the $9A\u2013$9F source pages for the fixed actor and ending animation sprite frames."
+  },
+  {
+   "address": 18150,
+   "type": "line",
+   "text": "Advances the room $0C actor's animation, awarding eight points on its completed sequence when the room trigger is armed."
+  },
+  {
+   "address": 18210,
+   "type": "line",
+   "text": "Once armed in room $1E, advances its animation, reveals item 6, adds eight points and queues sound request 10."
+  },
+  {
+   "address": 18277,
+   "type": "line",
+   "text": "Moves one map row up where there is a row above. On reaching row zero, requests music 2 if the delayed-music counter is zero."
+  },
+  {
+   "address": 18301,
+   "type": "line",
+   "text": "Moves one map row down where there is a row below. On entering row 1, requests music 4 if the delayed-music counter is zero."
+  },
+  {
+   "address": 18329,
+   "type": "line",
+   "text": "Subtracts one column from the room map offset unless already at the leftmost column."
+  },
+  {
+   "address": 18341,
+   "type": "line",
+   "text": "Adds one column to the room map offset unless already at the rightmost column."
+  },
+  {
+   "address": 18356,
+   "type": "line",
+   "text": "Gates movement by mode and lock flags, reads the four active-low direction bits from CIA1 port A, and dispatches vertical and horizontal movement."
+  },
+  {
+   "address": 18444,
+   "type": "line",
+   "text": "Consumes up, down, left and right in sequence. Vertical motion updates the Y byte and horizontal motion updates X and its high bit."
+  },
+  {
+   "address": 18527,
+   "type": "line",
+   "text": "Handles a right-hand room edge and updates the room coordinates before redrawing when crossing is permitted."
+  },
+  {
+   "address": 18614,
+   "type": "line",
+   "text": "Moves Myrtle to a fixed entry position, switches to mode 4, resets the frame index and queues music request zero."
+  },
+  {
+   "address": 18650,
+   "type": "line",
+   "text": "Tests the left edge before subtracting from X and handles the room transition where allowed."
+  },
+  {
+   "address": 18759,
+   "type": "line",
+   "text": "Tests the lower Y boundary and calls the lower-room transition at the boundary."
+  },
+  {
+   "address": 18779,
+   "type": "line",
+   "text": "Tests the upper Y boundary and calls the upper-room transition when crossed."
+  },
+  {
+   "address": 18793,
+   "type": "line",
+   "text": "Converts the player's working coordinates to sprite positions and ninth X bits for the raster handler."
+  },
+  {
+   "address": 18914,
+   "type": "line",
+   "text": "Copies two 64-byte Myrtle frames from the source bank into the live sprite buffers at $0800 and $0840."
+  },
+  {
+   "address": 18938,
+   "type": "line",
+   "text": "Low source operand and output of the generic sprite frame-pointer calculation."
+  },
+  {
+   "address": 18939,
+   "type": "line",
+   "text": "High source operand and output of the same calculator, indexed by frame ID divided by four."
+  },
+  {
+   "address": 18941,
+   "type": "line",
+   "text": "Low operand byte of the player frame copy. The driver advances it by $40 for the second sprite."
+  },
+  {
+   "address": 18942,
+   "type": "line",
+   "text": "High operand byte of the sprite copy target, used with $49FD to advance from the first destination to the second one."
+  },
+  {
+   "address": 18971,
+   "type": "line",
+   "text": "Four byte offsets for 64-byte aligned frames within each page."
+  },
+  {
+   "address": 18975,
+   "type": "line",
+   "text": "Sprite source page $A0 plus the frame ID divided by four, for frame indices 0 through 127."
+  },
+  {
+   "address": 19007,
+   "type": "line",
+   "text": "Selects a four-frame range from the player's facing flag, copies the frame pair and steps the cycle when the countdown expires."
+  },
+  {
+   "address": 19058,
+   "type": "line",
+   "text": "Selects movement and animation according to the opening, jump, swim and surface modes."
+  },
+  {
+   "address": 19123,
+   "type": "line",
+   "text": "Selects the player's directional frame set before the next sprite update."
+  },
+  {
+   "address": 19310,
+   "type": "line",
+   "text": "If the recorded collision bit and a local bitmap probe both indicate obstruction, sets the corresponding bit in the active-low direction mask."
+  },
+  {
+   "address": 19330,
+   "type": "line",
+   "text": "Converts the test object's 9-bit X and 8-bit Y into character-cell coordinates used by collision probes."
+  },
+  {
+   "address": 19371,
+   "type": "line",
+   "text": "Samples bitmap strips around Myrtle. Direction selects the relative cells and whether the probe tests 16 contiguous bytes or two eight-byte strips."
+  },
+  {
+   "address": 19429,
+   "type": "line",
+   "text": "Low operand patched for the eight-byte bitmap probe."
+  },
+  {
+   "address": 19430,
+   "type": "line",
+   "text": "High operand byte of the eight-byte bitmap sample. The routine advances the address to sample a second screen row."
+  },
+  {
+   "address": 19493,
+   "type": "line",
+   "text": "Low operand for the 16-byte bitmap cell sample."
+  },
+  {
+   "address": 19494,
+   "type": "line",
+   "text": "High byte patched before the 16-byte adjacent-cell probe."
+  },
+  {
+   "address": 19516,
+   "type": "line",
+   "text": "In swim mode, waits out the recent Up input delay. When buoyancy is active, passes two synthetic Up inputs through the terrain filter and movement code."
+  },
+  {
+   "address": 19568,
+   "type": "line",
+   "text": "Four masks that select the collision bits before each directional terrain probe."
+  },
+  {
+   "address": 19572,
+   "type": "line",
+   "text": "One bit per primary direction. The terrain check ORs it into the active-low input to block that direction."
+  },
+  {
+   "address": 19576,
+   "type": "line",
+   "text": "Frame-by-frame heights shared by the launch and dive sequences."
+  },
+  {
+   "address": 19614,
+   "type": "line",
+   "text": "Polls the VIC raster register until it reads $C8, synchronizing the main loop with the display."
+  },
+  {
+   "address": 19622,
+   "type": "line",
+   "text": "Looks up the bitmap offset for the working cell row and column and returns the summed pointer in $47 and $48."
+  },
+  {
+   "address": 19658,
+   "type": "line",
+   "text": "Four repeating low bytes for consecutive 320-byte bitmap row strides."
+  },
+  {
+   "address": 19662,
+   "type": "line",
+   "text": "High bytes for the row addresses used by the character-cell bitmap probes."
+  },
+  {
+   "address": 19687,
+   "type": "line",
+   "text": "Loads the current room's creature slots from the coordinate and movement tables."
+  },
+  {
+   "address": 19769,
+   "type": "line",
+   "text": "Initializes sprite 4 coordinates, flags, colour, path pointer and path index for the room."
+  },
+  {
+   "address": 19838,
+   "type": "line",
+   "text": "Reads sprite 6 coordinates from the room tables and initializes the enable bit, colour, timer and path index from constants."
+  },
+  {
+   "address": 19872,
+   "type": "line",
+   "text": "Reads duration and direction pairs for active creatures, loops when the flags byte is $FF, applies one-pixel movement and advances the four-frame animation index."
+  },
+  {
+   "address": 20035,
+   "type": "line",
+   "text": "Advances the room $1A animation and removes the creature with an eight-point award when it reaches the required object position."
+  },
+  {
+   "address": 20129,
+   "type": "line",
+   "text": "Four values copied into the creature frame mask operand during the room $1A animation."
+  },
+  {
+   "address": 20133,
+   "type": "line",
+   "text": "Programs expanded sprite 2 at a fixed position for rooms $0C and $1E."
+  },
+  {
+   "address": 20205,
+   "type": "line",
+   "text": "Masks for the ninth X bit of sprites 4 and 6."
+  },
+  {
+   "address": 20209,
+   "type": "line",
+   "text": "Programs positions, colours, pointers and enable bits for the creatures in VIC sprites 4 and 6."
+  },
+  {
+   "address": 20281,
+   "type": "line",
+   "text": "Sprite colour lookup indexed by the one-based creature type."
+  },
+  {
+   "address": 20286,
+   "type": "line",
+   "text": "Operand changed by the room $1A actor routine before the frame-selection logic."
+  },
+  {
+   "address": 20290,
+   "type": "line",
+   "text": "Selects a four-frame group by creature and horizontal direction and copies 256 bytes into its sprite display bank."
+  },
+  {
+   "address": 20356,
+   "type": "line",
+   "text": "Low source operand patched from the selected creature frame index."
+  },
+  {
+   "address": 20357,
+   "type": "line",
+   "text": "High operand of the creature graphics source, copied from the sprite lookup result."
+  },
+  {
+   "address": 20359,
+   "type": "line",
+   "text": "Low byte of the destination byte stream selected for creature slot 0 or 1."
+  },
+  {
+   "address": 20360,
+   "type": "line",
+   "text": "High byte of the dynamically selected frame bank destination."
+  },
+  {
+   "address": 20367,
+   "type": "line",
+   "text": "Low bytes $40 and $00 of the two 256-byte live sprite frame banks."
+  },
+  {
+   "address": 20369,
+   "type": "line",
+   "text": "High bytes $0E and $23 of the two live creature graphics banks."
+  },
+  {
+   "address": 20371,
+   "type": "line",
+   "text": "Adds one packed-decimal point per count in Y and redraws the score and high score display."
+  },
+  {
+   "address": 20385,
+   "type": "line",
+   "text": "Splits packed-decimal score and high score into digit glyphs and writes the numbers and percent signs into the upper panel."
+  },
+  {
+   "address": 20481,
+   "type": "line",
+   "text": "Screen code for the percent marker drawn after each BCD field."
+  },
+  {
+   "address": 20482,
+   "type": "line",
+   "text": "Steps the panel heart frame after its countdown and uses the room-dependent delay between animation loops."
+  },
+  {
+   "address": 20608,
+   "type": "line",
+   "text": "Fills three bytes of the room bitset with successive random bits and masks out bit 6 in its last byte."
+  },
+  {
+   "address": 20636,
+   "type": "line",
+   "text": "Tests the current room's stout bit and fills the bottle sprite coordinates and flags when it is set."
+  },
+  {
+   "address": 20691,
+   "type": "line",
+   "text": "Uses the room bottle slot to update its sprite during the playfield raster handler."
+  },
+  {
+   "address": 20737,
+   "type": "line",
+   "text": "With a visible bottle and a qualifying sprite overlap, fire removes the bottle from its room bitset, adds $20 energy capped at $FF and redraws the gauge."
+  },
+  {
+   "address": 20810,
+   "type": "line",
+   "text": "Detects item 10 assigned to room $19, clears three map cells, locks movement, and starts the rescue track with eight points."
+  },
+  {
+   "address": 20862,
+   "type": "line",
+   "text": "Applies motion flags and delays from a two-byte record stream in room $19. The terminator sets the completion and end flags."
+  },
+  {
+   "address": 20932,
+   "type": "line",
+   "text": "Flag and delay pairs for the rescue animation, ended by $FF in the flag position."
+  },
+  {
+   "address": 20933,
+   "type": "line",
+   "text": "Second byte of each rescue record, reloaded into the motion timer on each flag change."
+  },
+  {
+   "address": 20939,
+   "type": "line",
+   "text": "Four bytes recording which rooms have a bottle available."
+  },
+  {
+   "address": 20942,
+   "type": "line",
+   "text": "Bitset byte covering rooms $18\u2013$1F. The randomizer clears bit 6 after generating it."
+  },
+  {
+   "address": 20943,
+   "type": "line",
+   "text": "Eight masks used with the room number's low three bits in the room-state bitsets."
+  },
+  {
+   "address": 20951,
+   "type": "line",
+   "text": "Low X coordinate of a bottle, used when the room's bottle bit is set."
+  },
+  {
+   "address": 20983,
+   "type": "line",
+   "text": "Bottle Y coordinate by room, loaded with its matching X table entry."
+  },
+  {
+   "address": 21015,
+   "type": "line",
+   "text": "Converts the remaining-air high nibble to the clockwise needle frame selector by subtracting it from $35."
+  },
+  {
+   "address": 21032,
+   "type": "line",
+   "text": "On prescaler expiry, reloads $C0 and decrements the air byte. For a nonnegative result it recalculates the gauge frame. Underflow sets the pending end flag."
+  },
+  {
+   "address": 21052,
+   "type": "line",
+   "text": "Uses a fire latch on CIA1 port A bit 4 to call the pickup path when empty-handed, or place the held object in one of two free room slots."
+  },
+  {
+   "address": 21154,
+   "type": "line",
+   "text": "Return instruction between the drop routine's tail jump and the adjacent inventory label routine."
+  },
+  {
+   "address": 21155,
+   "type": "line",
+   "text": "Uses the held item index to select a text pointer and length, converts letters to screen codes and writes the inventory label."
+  },
+  {
+   "address": 21206,
+   "type": "line",
+   "text": "Blanks the eight cells reserved for the held object name."
+  },
+  {
+   "address": 21217,
+   "type": "line",
+   "text": "Copies $37 bytes from the initial object data to the mutable item table at the start of an attempt."
+  },
+  {
+   "address": 21231,
+   "type": "line",
+   "text": "Reads the VIC sprite collision latch, filters sprite combinations and deducts energy for qualifying contact."
+  },
+  {
+   "address": 21308,
+   "type": "line",
+   "text": "Uses the high three energy bits to select two 64-byte bottle frames and copies them into the panel sprite buffers."
+  },
+  {
+   "address": 21373,
+   "type": "line",
+   "text": "Converts a frame index into the low and high bytes of a 64-byte frame address through separate lookup tables."
+  },
+  {
+   "address": 21394,
+   "type": "line",
+   "text": "Tests the pending end flag, runs the ending animation and delay, then discards its return address and restarts."
+  },
+  {
+   "address": 21410,
+   "type": "line",
+   "text": "Starts at heart frame 3 and uses its extended animation until frame 7 before proceeding to the end scene."
+  },
+  {
+   "address": 21439,
+   "type": "line",
+   "text": "Clears both display override flags, then falls through to the line-200 delay."
+  },
+  {
+   "address": 21447,
+   "type": "line",
+   "text": "Repeats the line-200 wait 150 times."
+  },
+  {
+   "address": 21456,
+   "type": "line",
+   "text": "Polls active-low fire on joystick port 2 until pressed."
+  },
+  {
+   "address": 21466,
+   "type": "line",
+   "text": "Walks and animates Gordon in the opening, follows the dive trajectory, then manages his sprite frames in room $19."
+  },
+  {
+   "address": 21499,
+   "type": "line",
+   "text": "Zeros the promenade frame index, then falls through to copy the corresponding pair of sprite frames."
+  },
+  {
+   "address": 21704,
+   "type": "line",
+   "text": "Adds two to Gordon's X low byte, setting his sprites' ninth X bits on overflow."
+  },
+  {
+   "address": 21720,
+   "type": "line",
+   "text": "Positions and enables Gordon's two sprites. Uses vertical or horizontal placement depending on the current animation."
+  },
+  {
+   "address": 21809,
+   "type": "line",
+   "text": "Samples the raster counter for the two bytes subsequently updated by the random-state routine."
+  },
+  {
+   "address": 21822,
+   "type": "line",
+   "text": "Rotates the two seed bytes and mixes them with exclusive-or and add before saving the new low byte."
+  },
+  {
+   "address": 21845,
+   "type": "line",
+   "text": "Selects the heart timing and a room-dependent display colour from the map position after the opening phase."
+  },
+  {
+   "address": 21906,
+   "type": "line",
+   "text": "Divides the horizontal tile offset by 16 and adds the vertical map offset to get the row-major room index."
+  },
+  {
+   "address": 21918,
+   "type": "line",
+   "text": "Sets the room's bit in the four-byte visited table and adds one percentage point if the bit was clear."
+  },
+  {
+   "address": 21952,
+   "type": "line",
+   "text": "Scans eleven item records for the current room and assigns at most two present items to the live sprite slots."
+  },
+  {
+   "address": 22075,
+   "type": "line",
+   "text": "Programs sprites 5 and 7 from the room object slots, leaving the VIC sprite-enable bits in place for other sprites."
+  },
+  {
+   "address": 22168,
+   "type": "line",
+   "text": "Applies alternating vertical displacement in the surface row during swim mode, with exceptions for rooms $03 and $04."
+  },
+  {
+   "address": 22253,
+   "type": "line",
+   "text": "Initializes the delay, step and direction state for the surface bob after a room redraw."
+  },
+  {
+   "address": 22266,
+   "type": "line",
+   "text": "Changes the room sprite Y coordinate of item 8 in small alternating steps when its room is at the surface."
+  },
+  {
+   "address": 22375,
+   "type": "line",
+   "text": "Selects an overlapping item slot from the collision bits, rejects lit dynamite and clears the selected item's present bit as the item becomes held."
+  },
+  {
+   "address": 22493,
+   "type": "line",
+   "text": "Advances falling items and the rising chest, checks bitmap surfaces or coordinate stops, then calls room-specific landing handlers."
+  },
+  {
+   "address": 22657,
+   "type": "line",
+   "text": "Tests a falling object's position and the presence of item 7 in either live slot before arming the room $1E event."
+  },
+  {
+   "address": 22744,
+   "type": "line",
+   "text": "Advances a sinking item down one row where possible. The chest moves up one row instead."
+  },
+  {
+   "address": 22784,
+   "type": "line",
+   "text": "Tests two adjacent character cells on the same bitmap scanline near a settling item. Returns carry set for a blocked sample unless the surface exception applies."
+  },
+  {
+   "address": 22854,
+   "type": "line",
+   "text": "Requires object 0 present and a specific three-sprite overlap in room $1F, then clears a room flag, hides sprite 6 and awards eight points."
+  },
+  {
+   "address": 22912,
+   "type": "line",
+   "text": "In room $1E while carrying item 6, tests both present slots for item 5 to choose the eight-plus-one-point branch or the alternate room state."
+  },
+  {
+   "address": 22988,
+   "type": "line",
+   "text": "Checks the settling item's X window and tests whether item 6 is visible and marked in motion. Arms the room $0C actor and clears item 6's present bit on success."
+  },
+  {
+   "address": 23059,
+   "type": "line",
+   "text": "Checks the player's coordinates against a rectangle in room $0C and repeats the standard contact damage path while the actor is enabled."
+  },
+  {
+   "address": 23119,
+   "type": "line",
+   "text": "Copies two slices of authored tile data into the map area for the room $1E state change."
+  },
+  {
+   "address": 23164,
+   "type": "line",
+   "text": "Loads the initial source offset before rewriting the room $1E tile patch at reset."
+  },
+  {
+   "address": 23171,
+   "type": "line",
+   "text": "Restores the three saved map tile IDs at the four passage locations affected by dynamite."
+  },
+  {
+   "address": 23192,
+   "type": "line",
+   "text": "Clears three metatiles at $184B when the room $14 dynamite patch runs."
+  },
+  {
+   "address": 23203,
+   "type": "line",
+   "text": "Clears three tile bytes beginning at $1801. The blast code selects this patch by rewriting its own call target."
+  },
+  {
+   "address": 23214,
+   "type": "line",
+   "text": "Clears two rows of three metatiles at $1DC6 and $1E46 when the room $1C patch runs."
+  },
+  {
+   "address": 23228,
+   "type": "line",
+   "text": "Copies three initial tile IDs back into the rescue room's movable barrier."
+  },
+  {
+   "address": 23240,
+   "type": "line",
+   "text": "Three initial map tile indices for the barrier at $1F17."
+  },
+  {
+   "address": 23243,
+   "type": "line",
+   "text": "Records the room and starts a $C8-pass timer when item 1, 2 or 3 finishes falling."
+  },
+  {
+   "address": 23277,
+   "type": "line",
+   "text": "Counts three fuse timers down, removes each detonated item, starts the shake, kills the player in the blast room and applies the passage change when the room matches its table."
+  },
+  {
+   "address": 23366,
+   "type": "line",
+   "text": "Low operand of the JSR selected from the blast-specific passage patch table."
+  },
+  {
+   "address": 23367,
+   "type": "line",
+   "text": "High operand of the JSR dynamically patched from the three dynamite-specific map update addresses."
+  },
+  {
+   "address": 23387,
+   "type": "line",
+   "text": "Chooses a horizontal VIC scroll offset from the random state during the blast timer and restores zero scroll when the effect expires."
+  },
+  {
+   "address": 23430,
+   "type": "line",
+   "text": "Stores three random bits briefly while the shake routine combines them with VIC control register 2."
+  },
+  {
+   "address": 23431,
+   "type": "line",
+   "text": "Three tile codes copied into each destructible passage at reset."
+  },
+  {
+   "address": 23434,
+   "type": "line",
+   "text": "Room IDs $1C, $14 and $10 for the three dynamite items."
+  },
+  {
+   "address": 23437,
+   "type": "line",
+   "text": "Function pointers for the three passage patches on successful blasts."
+  },
+  {
+   "address": 23438,
+   "type": "line",
+   "text": "High-byte indexed view of the interleaved passage patch pointer table."
+  },
+  {
+   "address": 23443,
+   "type": "line",
+   "text": "Source IDs used to construct the upper row of the room $1E puzzle graphic."
+  },
+  {
+   "address": 23448,
+   "type": "line",
+   "text": "Source IDs that supply the corresponding lower row of the puzzle graphic."
+  },
+  {
+   "address": 23463,
+   "type": "line",
+   "text": "Two masks for the room item slots on sprites 5 and 7."
+  },
+  {
+   "address": 23465,
+   "type": "line",
+   "text": "Eleven mutable item X bytes."
+  },
+  {
+   "address": 23473,
+   "type": "line",
+   "text": "Chest X coordinate used in the actor check that compares two active positions in room $1A."
+  },
+  {
+   "address": 23476,
+   "type": "line",
+   "text": "Eleven mutable item Y bytes."
+  },
+  {
+   "address": 23484,
+   "type": "line",
+   "text": "Initial Y of the chest as copied into the surface-bobbing position byte."
+  },
+  {
+   "address": 23487,
+   "type": "line",
+   "text": "Eleven bytes with room ID in bits 0\u20136 and item present in bit 7."
+  },
+  {
+   "address": 23488,
+   "type": "line",
+   "text": "Room/present entries directly manipulated by the blast routine for dynamite items 1 through 3."
+  },
+  {
+   "address": 23493,
+   "type": "line",
+   "text": "World location and visibility flag for the pearl. Room puzzle routines can reveal or remove it."
+  },
+  {
+   "address": 23494,
+   "type": "line",
+   "text": "Room and presence flag for the salt object."
+  },
+  {
+   "address": 23495,
+   "type": "line",
+   "text": "Chest room ID with presence in bit 7. Surface bobbing and room checks read it."
+  },
+  {
+   "address": 23497,
+   "type": "line",
+   "text": "Rescue begins when this entry has room ID $19 and the active room also matches."
+  },
+  {
+   "address": 23498,
+   "type": "line",
+   "text": "Eleven bytes carrying each item's ninth X bit."
+  },
+  {
+   "address": 23506,
+   "type": "line",
+   "text": "Chest ninth X bit used by the room $1A actor position logic."
+  },
+  {
+   "address": 23509,
+   "type": "line",
+   "text": "Eleven flags for objects still settling after a drop."
+  },
+  {
+   "address": 23515,
+   "type": "line",
+   "text": "Item 6 motion flag required by the room $0C landing check."
+  },
+  {
+   "address": 23516,
+   "type": "line",
+   "text": "Item 7 settling flag read by the room $1E puzzle check."
+  },
+  {
+   "address": 23517,
+   "type": "line",
+   "text": "While set, the chest has motion from a drop and the surface bob routine leaves its Y alone."
+  },
+  {
+   "address": 23520,
+   "type": "line",
+   "text": "One sprite colour per individual inventory object."
+  },
+  {
+   "address": 23531,
+   "type": "line",
+   "text": "Per-item toggles used to step ordinary falling and rising animation on alternating calls."
+  },
+  {
+   "address": 23542,
+   "type": "line",
+   "text": "Five parallel eleven-byte initial tables copied to the mutable item data at reset."
+  },
+  {
+   "address": 23597,
+   "type": "line",
+   "text": "Maps the eleven item records onto eight sprite frames by item kind."
+  },
+  {
+   "address": 23608,
+   "type": "line",
+   "text": "One delay value per map position used between heart animations after the opening."
+  },
+  {
+   "address": 23640,
+   "type": "line",
+   "text": "Six bytes between the 32 room-indexed heart delays and the four row-indexed delays. Neither bounded table lookup reaches these bytes."
+  },
+  {
+   "address": 23646,
+   "type": "line",
+   "text": "Heart animation frame interval by room row."
+  },
+  {
+   "address": 23650,
+   "type": "line",
+   "text": "First raster-seeded byte fed through the rotate and add operations."
+  },
+  {
+   "address": 23651,
+   "type": "line",
+   "text": "Second raster-seeded byte used in the room random-state update."
+  },
+  {
+   "address": 23653,
+   "type": "line",
+   "text": "Eleven pointers into the packed inventory words."
+  },
+  {
+   "address": 23654,
+   "type": "line",
+   "text": "High-byte view of the interleaved word table for inventory names."
+  },
+  {
+   "address": 23675,
+   "type": "line",
+   "text": "Concatenated item labels from TYRE through TORCH, read with the separate length table."
+  },
+  {
+   "address": 23679,
+   "type": "line",
+   "text": "Inventory name D/MITE1, seven bytes selected with item index 1."
+  },
+  {
+   "address": 23686,
+   "type": "line",
+   "text": "D/MITE2, second seven-byte label with a distinct room blast target."
+  },
+  {
+   "address": 23693,
+   "type": "line",
+   "text": "D/MITE3, the third charge's inventory label."
+  },
+  {
+   "address": 23700,
+   "type": "line",
+   "text": "Five-byte label ANKH1, for item index 4."
+  },
+  {
+   "address": 23705,
+   "type": "line",
+   "text": "ANKH2, the second ankh's five-byte name."
+  },
+  {
+   "address": 23710,
+   "type": "line",
+   "text": "PEARL, item index 6."
+  },
+  {
+   "address": 23715,
+   "type": "line",
+   "text": "SALT, four letters at item index 7."
+  },
+  {
+   "address": 23719,
+   "type": "line",
+   "text": "CHEST, five letters for the rising object."
+  },
+  {
+   "address": 23724,
+   "type": "line",
+   "text": "LANTERN, the label selected for the cavern's light source."
+  },
+  {
+   "address": 23731,
+   "type": "line",
+   "text": "TORCH, the final five-byte inventory label."
+  },
+  {
+   "address": 23736,
+   "type": "line",
+   "text": "Eleven lengths for copying the corresponding inventory words to the HUD."
+  },
+  {
+   "address": 23747,
+   "type": "line",
+   "text": "One eight-bit creature type mask per room. Setup takes the first two set bits."
+  },
+  {
+   "address": 23773,
+   "type": "line",
+   "text": "Room $1A entry in the creature type mask table, cleared by the special actor event."
+  },
+  {
+   "address": 23778,
+   "type": "line",
+   "text": "Last room entry of the creature mask table, with its high bit cleared during the room $1F object event."
+  },
+  {
+   "address": 23779,
+   "type": "line",
+   "text": "Starting low X byte for the room's sprite 4 creature."
+  },
+  {
+   "address": 23811,
+   "type": "line",
+   "text": "Starting low X byte for the room's sprite 6 creature."
+  },
+  {
+   "address": 23843,
+   "type": "line",
+   "text": "Starting Y byte for sprite 4 by room."
+  },
+  {
+   "address": 23875,
+   "type": "line",
+   "text": "Starting Y byte for sprite 6 by room."
+  },
+  {
+   "address": 23907,
+   "type": "line",
+   "text": "Four bytes per room containing two pairs of pointers for creature movement records."
+  },
+  {
+   "address": 23908,
+   "type": "line",
+   "text": "High byte of the first script pointer inside each four-byte room record."
+  },
+  {
+   "address": 23909,
+   "type": "line",
+   "text": "Low byte of the second script pointer in the same room record."
+  },
+  {
+   "address": 23910,
+   "type": "line",
+   "text": "Fourth byte of each room's movement pointer quartet. It is the high byte of the second creature's script pointer."
+  },
+  {
+   "address": 24035,
+   "type": "line",
+   "text": "Path byte pairs hold a duration and four direction bits. A flag byte of $FF restarts the current track."
+  },
+  {
+   "address": 24255,
+   "type": "line",
+   "text": "Draws the upper panel boxes from custom glyphs $40\u2013$49 and assigns blue colour RAM to the borders."
+  },
+  {
+   "address": 24368,
+   "type": "line",
+   "text": "Clears the upper 160 screen cells to the font's space glyph."
+  },
+  {
+   "address": 24381,
+   "type": "line",
+   "text": "Subtracts $40 from the ASCII-range SCORE and HISCORE letters and writes the resulting glyph codes with green colour."
+  },
+  {
+   "address": 24421,
+   "type": "line",
+   "text": "On a direction change, reverses each three-byte sprite row bytewise and bitwise across eighteen player frames."
+  },
+  {
+   "address": 24506,
+   "type": "line",
+   "text": "Reverses the bit order of each byte of the horizontally mirrored sprite frames."
+  },
+  {
+   "address": 24566,
+   "type": "line",
+   "text": "Loads the player sprite colours 7 and 8 before the next raster update."
+  },
+  {
+   "address": 24576,
+   "type": "line",
+   "text": "Metatiles $00\u2013$07 occupy this first page, 32 bitmap bytes per tile. The room renderer draws two 16-byte strips."
+  },
+  {
+   "address": 24672,
+   "type": "line",
+   "text": "First strip of metatile $03, copied to the working bitmap at $3A60 by the current draw operands."
+  },
+  {
+   "address": 24688,
+   "type": "line",
+   "text": "Second strip of metatile $03. The renderer advances by 16 bytes from the first source strip."
+  },
+  {
+   "address": 24752,
+   "type": "line",
+   "text": "From the bottom strip of tile $05 through tile $1F, two 16-byte strips per tile."
+  },
+  {
+   "address": 25600,
+   "type": "line",
+   "text": "Bitmap pixel pairs for metatiles $20\u2013$3F."
+  },
+  {
+   "address": 26624,
+   "type": "line",
+   "text": "The $40\u2013$5F range of map metatile shapes."
+  },
+  {
+   "address": 27648,
+   "type": "line",
+   "text": "Metatile shape records selected for IDs $60\u2013$7F."
+  },
+  {
+   "address": 28672,
+   "type": "line",
+   "text": "Map graphics for metatile indices $80\u2013$9F."
+  },
+  {
+   "address": 29696,
+   "type": "line",
+   "text": "Metatile graphics for codes $A0\u2013$BF."
+  },
+  {
+   "address": 30720,
+   "type": "line",
+   "text": "The two-strip bitmap graphics for tiles $C0\u2013$DF."
+  },
+  {
+   "address": 31744,
+   "type": "line",
+   "text": "High metatile codes $E0\u2013$FF are represented here."
+  },
+  {
+   "address": 32768,
+   "type": "line",
+   "text": "Screen-byte table for the upper left cell of each metatile."
+  },
+  {
+   "address": 33024,
+   "type": "line",
+   "text": "Upper right cell screen attributes indexed by tile ID."
+  },
+  {
+   "address": 33280,
+   "type": "line",
+   "text": "Lower left cell screen data selected for the next character row."
+  },
+  {
+   "address": 33536,
+   "type": "line",
+   "text": "Screen data for the lower right character cell."
+  },
+  {
+   "address": 33792,
+   "type": "line",
+   "text": "Extra multicolour attribute for the tile's top left cell."
+  },
+  {
+   "address": 34048,
+   "type": "line",
+   "text": "Colour RAM lookup for the top right cell of a tile."
+  },
+  {
+   "address": 34304,
+   "type": "line",
+   "text": "Tile-indexed colour RAM values for the bottom left cell."
+  },
+  {
+   "address": 34560,
+   "type": "line",
+   "text": "Fourth colour RAM page, used for the bottom right cell."
+  },
+  {
+   "address": 36864,
+   "type": "line",
+   "text": "Main-thread music selection read by the sound driver. The title and post-title init write different values here."
+  },
+  {
+   "address": 36865,
+   "type": "line",
+   "text": "Request byte used for contact, stout and named puzzle events. The raster handler ticks the driver."
+  },
+  {
+   "address": 36866,
+   "type": "line",
+   "text": "One-shot effect data consumed by the voice 2 noise and pitch sweep setup."
+  },
+  {
+   "address": 36867,
+   "type": "line",
+   "text": "One-shot effect byte configuring the voice 3 sweep and waveform mode."
+  },
+  {
+   "address": 36868,
+   "type": "line",
+   "text": "Reports the active track ID with the internal high bit masked off."
+  },
+  {
+   "address": 36869,
+   "type": "line",
+   "text": "Raster-call entry to the sound sequencer at $91C5."
+  },
+  {
+   "address": 36872,
+   "type": "line",
+   "text": "Sets CIA1 timer high byte, initial SID volume and KERNAL IRQ vector for the driver's $91B4 entry."
+  },
+  {
+   "address": 36900,
+   "type": "line",
+   "text": "Uses A as the divider modulus, advancing the substep counter and resetting it on the next note tick."
+  },
+  {
+   "address": 36920,
+   "type": "line",
+   "text": "Uses the note value and transposition as a frequency-table index, saving the pitch and gating SID voice 2."
+  },
+  {
+   "address": 36977,
+   "type": "line",
+   "text": "Updates the third SID voice from a transposed index into the pitch table."
+  },
+  {
+   "address": 37000,
+   "type": "line",
+   "text": "Selects a neighbouring transposed frequency-table index relative to the driver's reference note and writes voice 3 pitch."
+  },
+  {
+   "address": 37050,
+   "type": "line",
+   "text": "Baseline index used by the pitch adjustment routine."
+  },
+  {
+   "address": 37051,
+   "type": "line",
+   "text": "Mutable note index compared with the reference pitch at $90BA before the doubled frequency-table lookup."
+  },
+  {
+   "address": 37086,
+   "type": "line",
+   "text": "Increments the note index and wraps it at the length passed in A."
+  },
+  {
+   "address": 37106,
+   "type": "line",
+   "text": "Little-endian pitch words indexed by note number and the driver's transposition offset."
+  },
+  {
+   "address": 37170,
+   "type": "line",
+   "text": "Continuation of the little-endian frequency table through entry 96."
+  },
+  {
+   "address": 37300,
+   "type": "line",
+   "text": "Standalone driver IRQ entry resets three sustain/release registers, ticks sound and jumps to the KERNAL IRQ routine."
+  },
+  {
+   "address": 37317,
+   "type": "line",
+   "text": "Processes the effect dispatcher, accepts a pending music request, then uses a three-byte-step jump table to enter the active music routine."
+  },
+  {
+   "address": 37377,
+   "type": "line",
+   "text": "Rewritten relative branch offset equal to three times the track selector."
+  },
+  {
+   "address": 37378,
+   "type": "line",
+   "text": "Sequence zero returns directly. Each following slot is a three-byte jump."
+  },
+  {
+   "address": 37379,
+   "type": "line",
+   "text": "Two NOP bytes pad the return slot to the same three-byte width as a dispatch JMP."
+  },
+  {
+   "address": 37381,
+   "type": "line",
+   "text": "Jumps to the matching playback handler at an offset of three bytes per requested track number."
+  },
+  {
+   "address": 37411,
+   "type": "line",
+   "text": "Clears the saved pitches and all three SID frequency pairs before handling the selected request's reset case."
+  },
+  {
+   "address": 37466,
+   "type": "line",
+   "text": "Takes attack/decay in A and starts the waveform after setting its frequency high byte and noise control."
+  },
+  {
+   "address": 37483,
+   "type": "line",
+   "text": "Picks one of the two stored pitch pairs based on the current subdivision counter and the input mask."
+  },
+  {
+   "address": 37511,
+   "type": "line",
+   "text": "Sets volume to 15, clears filter resonance and resets the driver's volume state byte."
+  },
+  {
+   "address": 37527,
+   "type": "line",
+   "text": "Saves A and adds the transposition from X when the note value is nonzero."
+  },
+  {
+   "address": 37542,
+   "type": "line",
+   "text": "Sets pulse waveform and gate on SID voice 2, increments the width shadow counter and ORs bit 3 into the value sent to the pulse-width high register."
+  },
+  {
+   "address": 37559,
+   "type": "line",
+   "text": "Sets pulse waveform and gate on SID voice 3, increments the width shadow counter and ORs bit 3 into the value sent to its width high register."
+  },
+  {
+   "address": 37576,
+   "type": "line",
+   "text": "Uses a separate shadow counter for voice 1's pulse-width register and forces width bit 3 before writing."
+  },
+  {
+   "address": 37593,
+   "type": "line",
+   "text": "Shadow pulse width counter used by the standalone voice 1 modulation routine."
+  },
+  {
+   "address": 37594,
+   "type": "line",
+   "text": "Counter incremented before writing the new SID voice 3 pulse width."
+  },
+  {
+   "address": 37595,
+   "type": "line",
+   "text": "Uses one 48-entry sequence for both melody voices with different transpositions and clears the track after the last position."
+  },
+  {
+   "address": 37647,
+   "type": "line",
+   "text": "Common note sequence for the two voices in music request 1."
+  },
+  {
+   "address": 37695,
+   "type": "line",
+   "text": "Selects the voice-3 note from the 64-value pattern, chooses the voice-2 note by the low two position bits, and transitions to request 3 after 128 positions."
+  },
+  {
+   "address": 37759,
+   "type": "line",
+   "text": "Four-note pattern repeated by request 2's voice 2."
+  },
+  {
+   "address": 37763,
+   "type": "line",
+   "text": "64 note values indexed by the low six bits of the request 2 step."
+  },
+  {
+   "address": 37827,
+   "type": "line",
+   "text": "Advances the two sequences at different rates and returns to request 2 when its byte counter wraps."
+  },
+  {
+   "address": 37888,
+   "type": "line",
+   "text": "Sixty-four slowed voice-2 entries, selected on every second note step."
+  },
+  {
+   "address": 37952,
+   "type": "line",
+   "text": "128 notes indexed directly by the track step modulo 128."
+  },
+  {
+   "address": 38080,
+   "type": "line",
+   "text": "Updates SID pulse and envelope state, then reads note data when the four-call music counter rolls over."
+  },
+  {
+   "address": 38167,
+   "type": "line",
+   "text": "Voice-2 transposition used directly, with $18 added for voice 3. The track toggles the base after each wrap."
+  },
+  {
+   "address": 38168,
+   "type": "line",
+   "text": "128 values selected once per two request-4 notes, used for the third SID voice."
+  },
+  {
+   "address": 38296,
+   "type": "line",
+   "text": "256 values selected by the full step counter for the second SID voice."
+  },
+  {
+   "address": 38552,
+   "type": "line",
+   "text": "Eight-call note divider, one 32-note sequence for both voices, pulse modulation and a stop after the final step."
+  },
+  {
+   "address": 38610,
+   "type": "line",
+   "text": "Shared transposed melody for the two music voices in request 5."
+  },
+  {
+   "address": 38642,
+   "type": "line",
+   "text": "Two 32-note sequences on a five-call divider. On completion changes the pending track selector and toggles the operand of the selector rewrite."
+  },
+  {
+   "address": 38694,
+   "type": "line",
+   "text": "Immediate operand XORed with $0F after request 6 completes, alternating the next request between 8 and 7."
+  },
+  {
+   "address": 38707,
+   "type": "line",
+   "text": "Thirty-two note values for the second SID voice."
+  },
+  {
+   "address": 38739,
+   "type": "line",
+   "text": "Thirty-two notes played by the third SID voice alongside the other request 6 sequence."
+  },
+  {
+   "address": 38771,
+   "type": "line",
+   "text": "Plays two 48-note parts with a ten-call divider and selects request 6 when the step sequence completes."
+  },
+  {
+   "address": 38820,
+   "type": "line",
+   "text": "48 request 7 values sent to SID voice 2 with transposition $30."
+  },
+  {
+   "address": 38868,
+   "type": "line",
+   "text": "Voice-3 part shared by requests 7 and 8. Request 7 plays its first 48 entries and request 8 runs 96."
+  },
+  {
+   "address": 38964,
+   "type": "line",
+   "text": "Ninety-six values for the request 8 voice-2 sequence."
+  },
+  {
+   "address": 39060,
+   "type": "line",
+   "text": "Varies voice-2 attack and decay by step, selects notes from the two request 8 tracks and hands off to request 6 after 96 entries."
+  },
+  {
+   "address": 39118,
+   "type": "line",
+   "text": "Consumes the three effect request bytes, configures the corresponding SID envelopes and controls, and advances the per-voice frequency sweep."
+  },
+  {
+   "address": 39309,
+   "type": "line",
+   "text": "Four attack/decay bytes chosen by the low two bits of the voice 3 effect request."
+  },
+  {
+   "address": 39322,
+   "type": "line",
+   "text": "Set to $FF during the driver's filter and volume reset."
+  },
+  {
+   "address": 39332,
+   "type": "line",
+   "text": "Working high frequency byte for the voice 3 sweep, initialized to $40 on a new effect and advanced by its step byte."
+  },
+  {
+   "address": 39424,
+   "type": "line",
+   "text": "Twenty-four 64-byte slots reached by the actor copy routine through the six-page frame address table. Room puzzle animations and the ending load from these pages."
+  },
+  {
+   "address": 40384,
+   "type": "line",
+   "text": "Fifteenth indexed frame within the six-page special-animation frame bank, used by the paired Gordon frame sequence."
+  },
+  {
+   "address": 40960,
+   "type": "line",
+   "text": "128 addressable 64-byte source slots. The frame lookup at $4A1B and $4A1F supplies addresses here for player, gauge, opening-actor and creature graphics."
+  },
+  {
+   "address": 41536,
+   "type": "line",
+   "text": "Source operand seen at the first player frame load in the promenade snapshot. Frame index 9 occupies this 64-byte slot."
+  },
+  {
+   "address": 41600,
+   "type": "line",
+   "text": "Player sources from frame $0A onward, selected using the frame index and the overlay offset used for the second sprite."
+  },
+  {
+   "address": 42112,
+   "type": "line",
+   "text": "Frame $12 begins here. The swim frames and their overlay frames are selected from this area."
+  },
+  {
+   "address": 42624,
+   "type": "line",
+   "text": "Frame $1A begins here. The other swim direction and its overlay use this part of the bank."
+  },
+  {
+   "address": 43136,
+   "type": "line",
+   "text": "First gauge family begins at frame $22. The selector subtracts the high three energy bits from $29."
+  },
+  {
+   "address": 43648,
+   "type": "line",
+   "text": "Second energy gauge family at frames $2A\u2013$31, eight slots above the first family."
+  },
+  {
+   "address": 44032,
+   "type": "line",
+   "text": "Source indices $30\u2013$3F include the end of opening actor frames and the beginning of the creature section."
+  },
+  {
+   "address": 44160,
+   "type": "line",
+   "text": "Gordon promenade animation starts at frame $32. The paired source frame is six frame slots higher."
+  },
+  {
+   "address": 45056,
+   "type": "line",
+   "text": "Source indices $40\u2013$4F hold the rest of the first creature family, the second and the first two frames of the third."
+  },
+  {
+   "address": 46080,
+   "type": "line",
+   "text": "Source indices $50\u2013$5F hold the remainder of the third family, the fourth and the first two frames of the fifth."
+  },
+  {
+   "address": 47104,
+   "type": "line",
+   "text": "Source indices $60\u2013$6F finish the fifth family, include the sixth and begin the seventh."
+  },
+  {
+   "address": 48128,
+   "type": "line",
+   "text": "Indices $70\u2013$7D finish the seventh family and contain the eighth."
+  },
+  {
+   "address": 49072,
+   "type": "line",
+   "text": "Screen-code sprite labels surviving beyond the last indexed enemy shape."
+  },
+  {
+   "address": 49152,
+   "type": "line",
+   "text": "Stores the score headers followed by the end-of-attempt lines."
+  },
+  {
+   "address": 49159,
+   "type": "line",
+   "text": "Seven letters printed as the second score heading, HISCORE."
+  },
+  {
+   "address": 49166,
+   "type": "line",
+   "text": "Nine-character end-message string used on the clear flag branch of the ending text renderer."
+  },
+  {
+   "address": 49175,
+   "type": "line",
+   "text": "Two-line end message written when the completion flag is set."
+  },
+  {
+   "address": 49223,
+   "type": "line",
+   "text": "Copies the current score to the retained high score when it is at least as large."
+  },
+  {
+   "address": 49235,
+   "type": "line",
+   "text": "Redraws a room with sprites suppressed and writes one of the two ending messages according to the completion flag."
+  },
+  {
+   "address": 49326,
+   "type": "line",
+   "text": "Gives the item motion routine $78 accelerated passes with the redraw flag set."
+  },
+  {
+   "address": 49349,
+   "type": "line",
+   "text": "Suppresses sprites, interprets the title control bytes and prints the text to screen RAM. Waits for port 2 fire before returning."
+  },
+  {
+   "address": 49425,
+   "type": "line",
+   "text": "Low operand set from the row destination table for the current text line."
+  },
+  {
+   "address": 49426,
+   "type": "line",
+   "text": "High byte patched from the title row pointer before copying the next line."
+  },
+  {
+   "address": 49430,
+   "type": "line",
+   "text": "Low operand shared with the screen text destination and copied before each row."
+  },
+  {
+   "address": 49431,
+   "type": "line",
+   "text": "High byte patched with the screen address high byte plus $D4 for the title colour write."
+  },
+  {
+   "address": 49452,
+   "type": "line",
+   "text": "Advances by two when the title text stream reaches a row-change marker."
+  },
+  {
+   "address": 49453,
+   "type": "line",
+   "text": "Title and credits in ASCII-range letters, with $FE selecting the next output row and $FF ending the stream."
+  },
+  {
+   "address": 49615,
+   "type": "line",
+   "text": "Destination word table indexed by the row-change offset from the title reader."
+  },
+  {
+   "address": 49616,
+   "type": "line",
+   "text": "Indexed high-byte view of the destination pointers for title rows."
+  },
+  {
+   "address": 49629,
+   "type": "line",
+   "text": "Tests both visible item coordinates against the player if both item sprite bits are set and dispatches directly to the selected pickup branch."
+  }
+ ]
+}

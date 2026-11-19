@@ -1,0 +1,238 @@
+{
+  "schema": 1,
+  "platform": "c64",
+  "slug": "mermaid-madness",
+  "title": "Mermaid Madness",
+  "year": 1986,
+  "publisher": "Electric Dreams",
+  "developer": "Soft Design",
+  "title_image": "reference/title.png",
+  "build": "Kurt crack, MERMAID MADNESS from C64.com D64",
+  "tier": "bronze",
+  "coverage_percent": 100,
+  "copy": "agent-draft",
+  "steward": "",
+  "credits": [],
+  "tools": {
+    "emulator": "VICE v3.14.0 macOS arm64 headless, dummy audio",
+    "disassembler": "Regenerator2000"
+  },
+  "model": "gpt-6.2-sol",
+  "step_models": {
+    "10-orient": [
+      "gpt-6.2-sol"
+    ],
+    "12-media": [
+      "gpt-6.2-sol"
+    ],
+    "20-features": [
+      "gpt-6.2-sol"
+    ],
+    "30-text": [
+      "gpt-6.2-sol"
+    ],
+    "40-sweep": [
+      "gpt-6.2-sol"
+    ],
+    "50-coverage": [
+      "gpt-6.2-sol"
+    ],
+    "60-verify": [
+      "gpt-6.2-sol"
+    ]
+  },
+  "accuracy": [
+    {
+      "step": "research",
+      "models": [
+        "gpt-6.2-sol"
+      ],
+      "web": true
+    },
+    {
+      "step": "annotate",
+      "models": [
+        "gpt-6.2-sol"
+      ]
+    },
+    {
+      "step": "sample",
+      "size": 60,
+      "wrong": 8,
+      "fixed": 8,
+      "seed": 386,
+      "models": [
+        "gpt-6.2-sol"
+      ]
+    },
+    {
+      "step": "sample",
+      "size": 60,
+      "wrong": 2,
+      "fixed": 2,
+      "seed": 20261119,
+      "models": [
+        "gpt-6.2-sol"
+      ]
+    }
+  ],
+  "kit_version": "0.0.360",
+  "created": "2026-11-19",
+  "video": {
+    "screen": "$0400",
+    "charset": ""
+  },
+  "coverage": {
+    "exclude": [
+      [
+        "$D000",
+        "$EFFF",
+        "Physical RAM outside VIC bank zero. The second unpacker writes both mirrored copies before $4000. Play leaves I/O and KERNAL visible and the alternate release does not share these bytes."
+      ],
+      [
+        "$F000",
+        "$FFFF",
+        "Kurt packing residue beneath KERNAL. Startup stores hit here with $01 = $34, and game entry keeps KERNAL visible."
+      ],
+      [
+        "$0400",
+        "$07FF",
+        "Generated screen bytes and VIC sprite pointers. The hand-over screen is spaces, and the game clears and rebuilds the screen from $418E, $450F and the HUD routines."
+      ],
+      [
+        "$0000",
+        "$00FF",
+        "6510 port, KERNAL workspace and zero-page runtime state. Game variables and pointers are initialized or overwritten by their respective routines."
+      ],
+      [
+        "$0200",
+        "$03FF",
+        "KERNAL workspace and RAM vectors set at start-up. The remaining setup bytes are outside the game engine called at $4000."
+      ],
+      [
+        "$43D6",
+        "$4452",
+        "Runtime actor, object, gauge, movement and redraw state. $407D clears its working fields and initializes the attempt. $4450 is the separately recorded retained high-score field."
+      ],
+      [
+        "$901F",
+        "$9023",
+        "Music sequencer counters and work bytes written by $9024, $90DE and $91C5."
+      ],
+      [
+        "$9991",
+        "$99A4",
+        "Mutable SID driver state for effect pitches, counters and current track. It is updated by SID routines as they run."
+      ],
+      [
+        "$28E0",
+        "$29DF",
+        "Room bitmap output, character row 7, columns 4–35. The tile renderer writes this row on redraw."
+      ],
+      [
+        "$2A20",
+        "$2B1F",
+        "Room bitmap output, character row 8, columns 4–35. The tile renderer writes this row on redraw."
+      ],
+      [
+        "$2B60",
+        "$2C5F",
+        "Room bitmap output, character row 9, columns 4–35. The tile renderer writes this row on redraw."
+      ],
+      [
+        "$2CA0",
+        "$2D9F",
+        "Room bitmap output, character row 10, columns 4–35. The tile renderer writes this row on redraw."
+      ],
+      [
+        "$2DE0",
+        "$2EDF",
+        "Room bitmap output, character row 11, columns 4–35. The tile renderer writes this row on redraw."
+      ],
+      [
+        "$2F20",
+        "$301F",
+        "Room bitmap output, character row 12, columns 4–35. The tile renderer writes this row on redraw."
+      ],
+      [
+        "$3060",
+        "$315F",
+        "Room bitmap output, character row 13, columns 4–35. The tile renderer writes this row on redraw."
+      ],
+      [
+        "$31A0",
+        "$329F",
+        "Room bitmap output, character row 14, columns 4–35. The tile renderer writes this row on redraw."
+      ],
+      [
+        "$32E0",
+        "$33DF",
+        "Room bitmap output, character row 15, columns 4–35. The tile renderer writes this row on redraw."
+      ],
+      [
+        "$3420",
+        "$351F",
+        "Room bitmap output, character row 16, columns 4–35. The tile renderer writes this row on redraw."
+      ],
+      [
+        "$3560",
+        "$365F",
+        "Room bitmap output, character row 17, columns 4–35. The tile renderer writes this row on redraw."
+      ],
+      [
+        "$36A0",
+        "$379F",
+        "Room bitmap output, character row 18, columns 4–35. The tile renderer writes this row on redraw."
+      ],
+      [
+        "$37E0",
+        "$38DF",
+        "Room bitmap output, character row 19, columns 4–35. The tile renderer writes this row on redraw."
+      ],
+      [
+        "$3920",
+        "$3A1F",
+        "Room bitmap output, character row 20, columns 4–35. The tile renderer writes this row on redraw."
+      ],
+      [
+        "$3A60",
+        "$3B5F",
+        "Room bitmap output, character row 21, columns 4–35. The tile renderer writes this row on redraw."
+      ],
+      [
+        "$3BA0",
+        "$3C9F",
+        "Room bitmap output, character row 22, columns 4–35. The tile renderer writes this row on redraw."
+      ],
+      [
+        "$8800",
+        "$8FFF",
+        "Loaded bytes beyond the eight metatile attribute pages. The byte-indexed attributes end at $87FF and the engine’s indirect graphics sources address the bitmap, item texts, paths and sprite banks elsewhere. A redraw watch observed 1,024 attribute reads and zero reads in this range."
+      ],
+      [
+        "$99A5",
+        "$99FF",
+        "Bytes after the SID driver state, including a fragment with KERNAL I/O calls. The game’s indexed SID reads here are bounded to X=0 or 2 for the pitch pair and X=0–3 for effect envelopes."
+      ],
+      [
+        "$CC80",
+        "$CFFF",
+        "Variant-specific Kurt loader code and data. Startup stores hit $CC80 before $4000 in the second depack. No engine call or decoded data reference reaches this region, and the Remember entry uses different bytes."
+      ]
+    ],
+    "extra": [],
+    "include": []
+  },
+  "io": [],
+  "regions": [],
+  "links": {
+    "wiki": {
+      "title": "Mermaid Madness – C64-Wiki",
+      "url": "https://www.c64-wiki.de/wiki/Mermaid_Madness"
+    },
+    "manual": {
+      "title": "",
+      "url": ""
+    }
+  }
+}
