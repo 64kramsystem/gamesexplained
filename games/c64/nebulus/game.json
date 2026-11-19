@@ -9,7 +9,7 @@
   "title_image": "reference/title.png",
   "build": "Danish Gold, limited lives",
   "tier": "bronze",
-  "coverage_percent": 94.4,
+  "coverage_percent": 100,
   "copy": "agent-draft",
   "steward": "",
   "credits": [],
@@ -43,11 +43,41 @@
   },
   "accuracy": [
     {
+      "step": "research",
+      "web": true,
+      "models": [
+        "gpt-6.2-sol"
+      ]
+    },
+    {
+      "step": "annotate",
+      "models": [
+        "gpt-6.2-sol"
+      ]
+    },
+    {
       "step": "sample",
       "size": 60,
       "wrong": 2,
       "fixed": 2,
       "seed": 20261119,
+      "models": [
+        "gpt-6.2-sol"
+      ]
+    },
+    {
+      "step": "annotate",
+      "models": [
+        "gpt-6.2-sol"
+      ],
+      "note": "Completed the resident image ledger in the follow-up."
+    },
+    {
+      "step": "sample",
+      "size": 60,
+      "wrong": 6,
+      "fixed": 6,
+      "seed": 20261120,
       "models": [
         "gpt-6.2-sol"
       ]
@@ -105,18 +135,21 @@
         26368,
         26623,
         "Sprite mask work page cleared by $BCEF."
-      ]
-    ],
-    "extra": [
-      [
-        65024,
-        65279,
-        "Retained high RAM loaded at hand-over. Consumer remains open."
       ],
       [
-        65344,
+        3584,
+        3839,
+        "Column 12 of the runtime tower grid expanded by $B043. The alternate C128 path at $ABC9 uses its first eight bytes as trampoline space."
+      ],
+      [
+        65024,
         65533,
-        "Retained high RAM loaded at hand-over below the vectors. Consumer remains open."
+        "Retained packed loader stream. Replaying the decoder at $0100 on this stream reproduces $FAA0-$FDFF byte for byte. The resident game installs its RAM vectors over the stream's final bytes."
+      ],
+      [
+        0,
+        255,
+        "6510 port and zero-page workspace. Game logic uses this page for mutable scene state, pointers, counters and flags."
       ]
     ],
     "include": [
@@ -127,7 +160,14 @@
       ]
     ]
   },
-  "io": [],
+  "io": [
+    [
+      41613,
+      41675,
+      "ram",
+      "The C64 path banks I/O out before restoring patterns and setting the CPU IRQ vector."
+    ]
+  ],
   "regions": [],
   "links": {
     "wiki": {

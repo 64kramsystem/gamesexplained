@@ -13,3 +13,9 @@ In the submarine scene, stopping at $A1C4 after setup showed the twenty destinat
 Watchpoints tested the retained high RAM for 150 frames from hand-over and for 120 from the first tower. There were zero hits in $FE00-$FEFE and $FF40-$FFF9 in both windows. The sound descriptor watch at $F800-$FD3F recorded 1,020 and 80 hits respectively. The object phase tables at $CA00-$CDFF recorded 28 hits in the tower window. The negative windows leave the high-RAM payload's role open.
 
 The independent gpt-6.2-sol checker sampled 60 of 460 listing comments, draw seed 20261119. It identified two issues, at $9066 and $C1B4. Simulated blocked motion confirmed that door alignment can fail while the animation advances. A second simulator case moved the camera without touching the screen. Both comments and the camera's jump-entry description were corrected. The draw and settled verdicts are in work/reports/handoff/.
+
+## Coverage follow-up
+
+The boot checkpoint at $0102 captured the loader after the intro. Watches counted 512 reads from $FE00-$FFFF and 864 writes to $FAA0-$FDFF before $0115. The destination matched the hand-over. A separate instruction replay from $FE00 showed the first $6B repeat marker being decoded and matched all 864 output bytes with the same destination redirected to $6000. The ledger excludes the packed tail, retains the decoded sound records and excludes the runtime zero page and map column at $0E00.
+
+The independent gpt-6.2-sol sample drew 60 comments from a population of 900. Six errors were confirmed and corrected. VICE steps established the underwater row writes, explicit sound pitch override, BCD extras clamp and RAM writes during the pattern restore. The traces and sample verdicts are in work/. The ledger closed at 43,013 explained of 43,013 tracked bytes. The rebuilt listing has no uncounted stretches.

@@ -4,6 +4,8 @@
 
 The Danish Gold disk's first file passes control to the resident game at `$8017`. This was captured with an execute breakpoint, trainer set to limited lives. At the entry, `$8001=$01` selects the C64 banking and video path. The bootstrap at `$8017` sets the processor port, initializes the resident state and sound driver, and enters the title cycle at `$803E`. The second disk file independently autostarts into a documentation program labelled Hades Nebula.
 
+The RAM at `$FE00-$FFFF` in the hand-over snapshot contains the final packed stream. The decoder at `$0100` reads through `($FE),Y`. An ordinary byte is written directly through `($2D,X)`. A `$6B` marker followed by a nonzero count and byte emits a repeated run. In a VICE debugger call with the source set to `$FE00` and the destination redirected to `$6000`, instruction steps showed the first `$6B $0D $00` marker take the repeat path. The return to `$0115` left 864 bytes that matched the hand-over image at `$FAA0-$FDFF`. A boot trace stopped at the decoder’s compare at `$0102` after dismissing the trainer intro. From there to `$0115`, VICE counted 512 reads at `$FE00-$FFFF` and 864 writes at `$FAA0-$FDFF`, and the written bytes matched the hand-over snapshot. The decoded sound records are in the resident image. The packed stream and the runtime vectors that overwrite its tail are outside its coverage ledger.
+
 ## Raster interrupts and display synchronization
 
 The live port reads `$35` and the engine owns the RAM IRQ vector. The tower raster trace stopped at `$B88B` on line 0, `$B94B` on line 80, `$B981` on line 92 and `$B853` on line 250. Stepping the stores at `$B8E5`, `$B96F` and `$B875` established the vector transitions. The line-250 handler increments `$1707`, which the foreground polls at `$AA93`. The routines at `$AB44` and `$AB5F` clear the back screen and switch the roles of the two screen pages at `$7000` and `$7400`. The IRQ route can add a waterline split based on `$3E`.
@@ -60,7 +62,7 @@ Angle `$C6` wraps at 128 units, with eight units per map column. At `$9CDC`, the
 
 The message records at `$84BF-$86BD` are zero-terminated. The printable bytes use uppercase ASCII-compatible codes. Bytes `$01-$0F` change the colour before any following printable pair. At `$B708`, the glyph pair for A–Z starts at `$36+2*(letter-$41)`. The pair for digits 1–9 starts at `$6A+2*(digit-$31)`. The special table at `$B6F6` handles space, left and right angle brackets, at sign, asterisk and zero. The left/right codes are respectively `00/00, 7F/7F, 7E/7E, 7C/7D, 7E/7F, 52/53`. Each printable byte advances the display position by two cells.
 
-The pristine 2,048-byte pattern block at `$7800` in the hand-over equals the play copy at RAM `$D000`. `$AA00` banks I/O out for the copy and `$A280` copies it back for the interlude. During the tower, `$AC6A` constructs a new pattern set at `$7800`. The glyph render used during analysis is in ignored `work/glyphs.txt`.
+The pristine 2,048-byte pattern block at `$7800` in the hand-over equals the play copy at RAM `$D000`. `$AA00` banks I/O out for the copy and `$A280` copies it back for the interlude. During the tower, `$AC6A` constructs a new pattern set at `$7800`. At `$A2B1`, with I/O banked out, a VICE instruction step wrote plain RAM `$D012`. The IRQ vector held `$A999` at `$A2CE` before I/O was exposed again. The glyph render used during analysis is in ignored `work/glyphs.txt`.
 
 ## Hardware census
 
@@ -77,8 +79,22 @@ The pristine 2,048-byte pattern block at `$7800` in the hand-over equals the pla
 
 The title sequencer at `$3959` consumes three streams of pitch/duration pairs and uses the voice driver at `$F006`. Effects use fixed-width 32-byte descriptors from `$F800`. Audio routing and sequencer code were traced. The individual notes and sound identification remain open.
 
+A controlled call to `$F0C4` with A=$15, X=0 and Y=$40 stepped through the store at `$F0DA`, which completed the descriptor pointer `$FAA0`. The stores at `$F140` and `$F143` then wrote the explicit pitch override `$40` to the original and modulated pitch slots at `$F015` and `$F039`.
+
+## Tower bonus counters
+
+The reset at `$B5E9` sets the selected player’s BCD technique counter to `$0100` and their extras to zero. The extras routine at `$B619` compares the resulting BCD high byte with six. In VICE, stepping `$B62B` after adding five to `$0500` took the branch to `$B633` and kept `$0505`. Adding one to `$0599` fell through to `$B62D` and wrote `$0500`.
+
 ## Local evidence
 
 The hand-over and first-tower snapshots are `work/entry.vsf` and `work/play-tower1.vsf`. Targeted CPU logs are `work/joystick-trace.txt`, `work/branch-trace.txt`, `work/irq-trace.txt`, `work/underwater-trace.txt` and `work/map-trace.txt`. The inputs in these probes are debugger cases with isolated snapshots. There is no cross-emulator route recording.
 
-At the submarine row writer's instruction breakpoint `$A1C4`, all twenty destination operands had been rewritten into `$74C8-$77C0`. The play snapshot stores placeholders in those same high bytes. References from the unpatched operands into the main program and title text are not the underwater writes.
+The submarine background writer at `$A1C4` patches twenty absolute-indexed store operands to the bases of screen rows 5 through 24. In the sampled back page at `$7400`, those bases are `$74C8-$77C0`. Instruction steps at `$A1C7`, `$A1CD` and `$A1D2` wrote column 39 of the first three rows at `$74EF`, `$7517` and `$753F`. The next pass reached `$A1C4` with Y=38. The tower snapshot holds placeholder high bytes because its foreground uses the tower renderer.
+
+The follow-up VICE traces are in `work/verify-loader-boot.txt`, `work/unpack-replay.txt` and `work/verify-followup.txt`. They use controlled debugger calls, which establish the instruction behaviour in the supplied states.
+
+## The listing's error rate
+
+Seed 20261119 drew 60 of 460 comments. The independent checker used `gpt-6.2-sol` and found two errors, an estimated 3.3% with a 95% Wilson interval of 0.9% to 11.4%. Both were corrected. The door animation can advance when its alignment step is blocked, and the camera update changes height without drawing. The checker may have missed other errors.
+
+Seed 20261120 drew 60 of 900 comments. The independent `gpt-6.2-sol` checker found six errors, an estimated 10.0% with a 95% Wilson interval of 4.7% to 20.1%. The edits correct the restart flag, the interlude bonus reset, sprite mask source addressing, the extras clamp, the edge writer’s destination column and the title sprite strip. The checker may have missed other errors.

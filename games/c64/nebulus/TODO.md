@@ -1,10 +1,9 @@
 # Nebulus analysis handoff
 
-The analysis remains Bronze. The listing was produced from `work/play-tower1.vsf`, with `work/entry.vsf` supplying the hand-over comparison. The step 50 ledger measures **41,354 of 43,789 bytes explained (94.4%)**, with 16,840 of 17,514 code bytes and 24,514 of 26,275 data bytes explained. `work/final-coverage.txt` carries the ordered queue.
+The resident C64 listing uses `work/play-tower1.vsf`, with `work/entry.vsf` as the hand-over comparison. The exact step 50 ledger is **43,013 of 43,013 bytes explained**. It covers 17,498 code bytes and 25,515 data bytes. The rebuilt listing reports no uncounted stretches. The same resident image contains all eight tower maps and the submarine scene. The separate documentation file is classified in `media.json`.
 
-- Establish the role of the high RAM at `$FE00-$FEFF` and `$FF40-$FFFD`. The bytes are present at hand-over. The watchpoint windows recorded no hits in `$FE00-$FEFE` and `$FF40-$FFF9`. An exact classification awaits a traced consumer or a trace that accounts for the bytes at load time. The ledger includes them as unexplained.
-- Finish the remaining annotation queue, including input-phase tables, low-memory flags and operand bytes in self-modifying draw and sound routines.
-- Complete step 60 verification for the open feature paths after closing the coverage queue. The independent sample found 2 errors in 60 comments (3.3%, Wilson 95% interval 0.9% to 11.4%). Both sampled comments were corrected, along with a related jump-entry description. The sample can miss errors. A listing-wide audit is still due. `facts.md` records the resolved instruction traces and the features that remain open. The kit classifies `gpt-6.2-sol` as unproven, so the listing also needs the kit's proven-model check for Silver.
-- Step 65 had no applicable route. The debugger cases requested only individual instruction or data transitions from controlled snapshots.
+- The follow-up's independent sample found six errors in 60 comments. All six sampled errors were corrected. The estimated error rate before those corrections was 10.0%, with a 95% Wilson interval of 4.7% to 20.1%. The sample can miss errors. A listing-wide audit is due. The kit classifies `gpt-6.2-sol` as unproven, so Silver also requires its proven-model check.
+- The full lift and door transitions and the mapping from individual music events to named tunes remain open. The traced predicates and music entry points are in `facts.md`.
+- Step 65 required no recording. The verification cases replay controlled debugger states and make no route reachability claim.
 
-The fork branch is an analysis handoff. Its game metadata keeps the entry out of site builds until site work begins.
+The branch is an analysis handoff. Its metadata keeps the entry out of site builds until site work begins.
