@@ -1,0 +1,66 @@
+{
+  "title": "Base",
+  "order": 2,
+  "video": {
+    "screen": "$4400",
+    "charset": ""
+  },
+  "coverage": {
+    "exclude": [
+      [
+        "$4000",
+        "$43FF",
+        "Alternate live tile matrix and its sprite pointers, initialized at $BA19 and moved by the scrolling routines."
+      ],
+      [
+        "$4800",
+        "$4FFF",
+        "Live floor glyph copy. Source glyphs are listed at $E000, $E800 and $F000."
+      ],
+      [
+        "$0400",
+        "$07FF",
+        "Scratch screen populated by the map expansion at $B907."
+      ],
+      [
+        "$2904",
+        "$2944",
+        "Runtime keyboard samples cleared and rebuilt at $CAF8."
+      ],
+      [
+        "$4400",
+        "$47FF",
+        "Second runtime tile matrix and its pointer table."
+      ]
+    ],
+    "extra": [],
+    "include": [
+      [
+        "$E000",
+        "$FEFF",
+        "Banked glyph sources used by the floor and title copies."
+      ]
+    ]
+  },
+  "io": [
+    [
+      "$0F50",
+      "$0F70",
+      "ram",
+      "Title glyph copy with KERNAL banked out."
+    ],
+    [
+      "$0F9E",
+      "$0FBE",
+      "ram",
+      "Panel glyph restoration with KERNAL banked out."
+    ],
+    [
+      "$BA70",
+      "$BAA0",
+      "ram",
+      "Floor glyph copy with KERNAL banked out."
+    ]
+  ],
+  "regions": []
+}
