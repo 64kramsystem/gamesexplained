@@ -1,0 +1,7 @@
+# Popeye — analysis handoff
+
+- The coverage ledger explains 41,382 of 45,744 tracked bytes (90.5%). It leaves 4,362 tracked bytes bare and lists 9,279 further bytes across 51 stretches outside the denominator. The latter include display RAM and unresolved bytes. Use the listing's `uncounted` list and the local `work/coverage.txt` to pick up the queue.
+- The compilation leaves material at `$8608–$9505`, beside the room placement data at `$C733–$C7FF`, and between named drawing streams. The entry/play comparison establishes that the bytes are present. The observed reads and recovered pointers leave their role unresolved. Distinguishing live assets or routines from retained compilation bytes needs more reader or producer evidence before assigning coverage.
+- The media ledger leaves three additional boot choices open. The selected `POPEYE 86` image contains both observed rooms. Its transition trace had no KERNAL LOAD hit. The other files have not been reconciled against that resident image.
+- Finish tracing the open feature rows and audit the listing on a proven model before claiming Silver. The independent first sample found 9 issues in 70 comments. The corrections are in the exported listing.
+- Local `work/` keeps the analyzed D64, `entry.vsf`, `play.vsf`, the CPU capture and watchpoints, the register and string sweeps, glyph render, annotation log and the sample with its verdicts.

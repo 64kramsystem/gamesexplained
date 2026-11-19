@@ -1,0 +1,12 @@
+{"schema": 1,
+ "images": [
+  {"name": "disk", "file": "Popeye 86.d64", "what": "disk side", "sha256": "25a4c18a1255c130208524f1904d5f8788beb1607916beb2fd9eada18e29b4ad"}
+ ],
+ "items": [
+  {"image": "disk", "label": "----------------", "place": {"file": "----------------", "type": "DEL", "track": 18, "sector": 0}, "bytes": 762, "sha256": "4b1f6a67dd8863089496c55c6c8ed39f6117118233d038c047b47919f5597c64", "also": ["disk: ---------------- (2)", "disk: ---------------- (3)", "disk: ---------------- (4)", "disk: ---------------- (5)"], "answer": "unused", "why": "Deleted directory separators point to track 18 sector 0, the directory BAM, and have no live PRG chain."},
+  {"image": "disk", "label": "POPEYE", "place": {"file": "POPEYE", "type": "PRG", "track": 17, "sector": 0}, "load": "$0801", "bytes": 31867, "sha256": "69eaf02527ed3f442a7b0828bb101b921dfb136a9ef55529e9d6e3425db59e37", "answer": "open"},
+  {"image": "disk", "label": "POPEYE PIC", "place": {"file": "POPEYE PIC", "type": "PRG", "track": 19, "sector": 0}, "load": "$0801", "bytes": 2289, "sha256": "575250d0a02b6d36f199abdc18b8153dbae0dc500f317949bd7ec61991d93479", "answer": "data", "why": "Standalone display of the Macmillan and King Features copyright picture, observed by autostarting this named file."},
+  {"image": "disk", "label": "POPEYE 86", "place": {"file": "POPEYE 86", "type": "PRG", "track": 19, "sector": 5}, "load": "$0801", "bytes": 35872, "sha256": "e21fd7b84f5b4c6cced5de55d364ae12329c92c6e26cf5c5b198a80e2f576066", "answer": "part", "at": "$4000", "packed": true, "why": "Autostart hands control to the resident image at $4000. The opening room and lighthouse use the same image."},
+  {"image": "disk", "label": "POPEYE 1986", "place": {"file": "POPEYE 1986", "type": "PRG", "track": 11, "sector": 0}, "load": "$0801", "bytes": 36964, "sha256": "232ff2eed2a943766d8b53ffd169ebe3dfa57959715533ef1f7e38d064856c58", "answer": "open"},
+  {"image": "disk", "label": "POPEYE '86", "place": {"file": "POPEYE '86", "type": "PRG", "track": 27, "sector": 1}, "load": "$0801", "bytes": 50001, "sha256": "316a452852f63fd4f3d5005c3141bb401adcee44d5c0caa05902b04cb4b0f6c8", "answer": "open"}
+ ]}

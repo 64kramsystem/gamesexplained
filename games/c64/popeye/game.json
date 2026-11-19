@@ -1,0 +1,124 @@
+{
+  "schema": 1,
+  "platform": "c64",
+  "slug": "popeye",
+  "title": "Popeye",
+  "year": 1986,
+  "publisher": "Macmillan Ltd.",
+  "developer": "Five Ways Software",
+  "title_image": "reference/copyright.png",
+  "build": "C64.COM Popeye 86 compilation, POPEYE 86 PRG",
+  "tier": "bronze",
+  "coverage_percent": 90.5,
+  "copy": "agent-draft",
+  "steward": "",
+  "credits": [],
+  "tools": {
+    "emulator": "VICE v3.14.0 headless, dummy audio",
+    "disassembler": "regenerator2000 0.9.18"
+  },
+  "model": "gpt-6.2-sol",
+  "step_models": {
+    "10-orient": [
+      "gpt-6.2-sol"
+    ],
+    "12-media": [
+      "gpt-6.2-sol"
+    ],
+    "20-features": [
+      "gpt-6.2-sol"
+    ],
+    "30-text": [
+      "gpt-6.2-sol"
+    ],
+    "40-sweep": [
+      "gpt-6.2-sol"
+    ],
+    "50-coverage": [
+      "gpt-6.2-sol"
+    ],
+    "60-verify": [
+      "gpt-6.2-sol"
+    ]
+  },
+  "accuracy": [
+    {
+      "step": "research",
+      "web": true,
+      "models": [
+        "gpt-6.2-sol"
+      ]
+    },
+    {
+      "step": "annotate",
+      "models": [
+        "gpt-6.2-sol"
+      ]
+    },
+    {
+      "step": "sample",
+      "size": 70,
+      "wrong": 9,
+      "fixed": 9,
+      "seed": 1986,
+      "models": [
+        "gpt-6.2-sol"
+      ]
+    }
+  ],
+  "kit_version": "0.0.360",
+  "created": "2026-11-19",
+  "video": {
+    "screen": "$0400",
+    "charset": "",
+    "bitmap": "$2000"
+  },
+  "coverage": {
+    "exclude": [
+      [
+        "$FBC0",
+        "$FD1F",
+        "Exact copy of BASIC ROM 901226-01 offsets $0000–$015F in both the entry and play snapshots"
+      ]
+    ],
+    "extra": [],
+    "include": [
+      [
+        "$D000",
+        "$DFFF",
+        "Physical RAM scratch and planar scenery cache written by the room renderer with I/O hidden"
+      ]
+    ]
+  },
+  "io": [
+    [
+      "$40F3",
+      "$4127",
+      "ram",
+      "Clear mask bits in the room cache in the RAM beneath I/O"
+    ],
+    [
+      "$48F6",
+      "$4A2B",
+      "ram",
+      "Scenery generation writes the room cache in RAM with I/O hidden"
+    ],
+    [
+      "$4B6B",
+      "$4BA6",
+      "ram",
+      "Copy nine pages of the room cache from physical RAM"
+    ]
+  ],
+  "regions": [],
+  "links": {
+    "wiki": {
+      "title": "",
+      "url": ""
+    },
+    "manual": {
+      "title": "Alternative Software manual",
+      "url": "https://www.lemon64.com/doc/popeye/459"
+    }
+  }
+}
