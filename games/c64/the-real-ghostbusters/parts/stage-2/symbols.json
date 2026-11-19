@@ -1,0 +1,1449 @@
+{
+ "schema": 1,
+ "platform": "c64",
+ "game": "the-real-ghostbusters",
+ "part": "stage-2",
+ "build": "OUG disk crack, both trainers declined",
+ "source": "regenerator2000 live",
+ "regions": {
+  "exclude": [
+   [
+    256,
+    511,
+    "stack"
+   ],
+   [
+    53248,
+    57343,
+    "I/O and colour RAM"
+   ],
+   [
+    0,
+    24575,
+    "Resident engine"
+   ],
+   [
+    52269,
+    65535,
+    "Resident engine"
+   ]
+  ],
+  "extra": [
+   [
+    24576,
+    52268,
+    "Expanded LEVELB stream through the final output pointer at $0A/$0B"
+   ]
+  ],
+  "edges": [
+   0,
+   256,
+   512,
+   1024,
+   2048,
+   4096,
+   16384,
+   32768,
+   40960,
+   49152,
+   53248,
+   57344
+  ],
+  "elsewhere": [
+   [
+    0,
+    24575,
+    "Resident engine"
+   ],
+   [
+    52269,
+    65535,
+    "Resident engine"
+   ]
+  ]
+ },
+ "blocks": [
+  {
+   "start": 24576,
+   "end": 49151,
+   "type": "Byte"
+  },
+  {
+   "start": 49152,
+   "end": 49157,
+   "type": "Address"
+  },
+  {
+   "start": 49158,
+   "end": 49162,
+   "type": "Byte"
+  },
+  {
+   "start": 49163,
+   "end": 49164,
+   "type": "Address"
+  },
+  {
+   "start": 49165,
+   "end": 49166,
+   "type": "Byte"
+  },
+  {
+   "start": 49167,
+   "end": 49168,
+   "type": "Address"
+  },
+  {
+   "start": 49169,
+   "end": 49778,
+   "type": "Byte"
+  },
+  {
+   "start": 49779,
+   "end": 49812,
+   "type": "Code"
+  },
+  {
+   "start": 49813,
+   "end": 49840,
+   "type": "Address"
+  },
+  {
+   "start": 49841,
+   "end": 49971,
+   "type": "Byte"
+  },
+  {
+   "start": 49972,
+   "end": 50462,
+   "type": "Code"
+  },
+  {
+   "start": 50463,
+   "end": 50476,
+   "type": "Undefined"
+  },
+  {
+   "start": 50477,
+   "end": 50487,
+   "type": "Code"
+  },
+  {
+   "start": 50488,
+   "end": 50488,
+   "type": "Undefined"
+  },
+  {
+   "start": 50489,
+   "end": 50661,
+   "type": "Code"
+  },
+  {
+   "start": 50662,
+   "end": 50698,
+   "type": "Undefined"
+  },
+  {
+   "start": 50699,
+   "end": 50704,
+   "type": "Code"
+  },
+  {
+   "start": 50705,
+   "end": 50705,
+   "type": "Undefined"
+  },
+  {
+   "start": 50706,
+   "end": 50795,
+   "type": "Code"
+  },
+  {
+   "start": 50796,
+   "end": 50856,
+   "type": "Undefined"
+  },
+  {
+   "start": 50857,
+   "end": 51088,
+   "type": "Code"
+  },
+  {
+   "start": 51089,
+   "end": 51104,
+   "type": "Undefined"
+  },
+  {
+   "start": 51105,
+   "end": 51331,
+   "type": "Code"
+  },
+  {
+   "start": 51332,
+   "end": 51562,
+   "type": "Undefined"
+  },
+  {
+   "start": 51563,
+   "end": 52020,
+   "type": "Code"
+  },
+  {
+   "start": 52021,
+   "end": 52023,
+   "type": "Undefined"
+  },
+  {
+   "start": 52024,
+   "end": 52036,
+   "type": "Code"
+  },
+  {
+   "start": 52037,
+   "end": 52268,
+   "type": "Undefined"
+  }
+ ],
+ "symbols": [
+  {
+   "address": 24576,
+   "name": "stage_sprite_slots_80",
+   "type": "AbsoluteAddress",
+   "kind": "user"
+  },
+  {
+   "address": 24577,
+   "name": "stage_sprite_data_01",
+   "type": "AbsoluteAddress",
+   "kind": "user"
+  },
+  {
+   "address": 25600,
+   "name": "stage_sprite_slots_90",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 26624,
+   "name": "stage_sprite_slots_a0",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 27648,
+   "name": "stage_sprite_slots_b0",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 28672,
+   "name": "stage_sprite_slots_c0",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 29696,
+   "name": "stage_sprite_slots_d0",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 30464,
+   "name": "tile_colour",
+   "type": "Field",
+   "kind": "user"
+  },
+  {
+   "address": 30720,
+   "name": "playfield_charset_low",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 30936,
+   "name": "playfield_glyph_1b",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 31072,
+   "name": "f_7960",
+   "type": "Field",
+   "kind": "auto"
+  },
+  {
+   "address": 31744,
+   "name": "playfield_charset_high",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 32768,
+   "name": "map_rows_000",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 33792,
+   "name": "map_rows_011",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 34816,
+   "name": "map_rows_023",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 35840,
+   "name": "map_rows_035",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 36864,
+   "name": "map_rows_047",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 37888,
+   "name": "map_rows_059",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 38912,
+   "name": "map_rows_071",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 39936,
+   "name": "map_rows_083",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 40960,
+   "name": "map_rows_095",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 41984,
+   "name": "map_rows_107",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 43008,
+   "name": "map_rows_119",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 44032,
+   "name": "map_rows_130",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 45056,
+   "name": "map_rows_142",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 46080,
+   "name": "map_rows_154",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 47104,
+   "name": "map_rows_166",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 48128,
+   "name": "map_rows_178",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 49152,
+   "name": "actor_records_pointer",
+   "type": "AbsoluteAddress",
+   "kind": "user"
+  },
+  {
+   "address": 49153,
+   "name": "actor_records_pointer_hi",
+   "type": "AbsoluteAddress",
+   "kind": "user"
+  },
+  {
+   "address": 49154,
+   "name": "stage_setup_pointer",
+   "type": "AbsoluteAddress",
+   "kind": "user"
+  },
+  {
+   "address": 49155,
+   "name": "stage_setup_pointer_hi",
+   "type": "AbsoluteAddress",
+   "kind": "user"
+  },
+  {
+   "address": 49156,
+   "name": "object_list_pointer",
+   "type": "AbsoluteAddress",
+   "kind": "user"
+  },
+  {
+   "address": 49157,
+   "name": "object_list_pointer_hi",
+   "type": "AbsoluteAddress",
+   "kind": "user"
+  },
+  {
+   "address": 49158,
+   "name": "stage_palettes",
+   "type": "AbsoluteAddress",
+   "kind": "user"
+  },
+  {
+   "address": 49159,
+   "name": "stage_background_third",
+   "type": "AbsoluteAddress",
+   "kind": "user"
+  },
+  {
+   "address": 49160,
+   "name": "stage_header_08",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 49162,
+   "name": "a_C00A",
+   "type": "AbsoluteAddress",
+   "kind": "auto"
+  },
+  {
+   "address": 49163,
+   "name": "tile_patch_pointer_table",
+   "type": "AbsoluteAddress",
+   "kind": "user"
+  },
+  {
+   "address": 49164,
+   "name": "tile_patch_pointer_table_hi",
+   "type": "AbsoluteAddress",
+   "kind": "user"
+  },
+  {
+   "address": 49165,
+   "name": "stage_parameter",
+   "type": "AbsoluteAddress",
+   "kind": "user"
+  },
+  {
+   "address": 49167,
+   "name": "stage_update_pointer",
+   "type": "AbsoluteAddress",
+   "kind": "user"
+  },
+  {
+   "address": 49168,
+   "name": "stage_update_pointer_hi",
+   "type": "AbsoluteAddress",
+   "kind": "user"
+  },
+  {
+   "address": 49169,
+   "name": "stage_actor_records",
+   "type": "AbsoluteAddress",
+   "kind": "user"
+  },
+  {
+   "address": 49399,
+   "name": "placed_objects",
+   "type": "AbsoluteAddress",
+   "kind": "user"
+  },
+  {
+   "address": 49775,
+   "name": "object_list_end",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 49779,
+   "name": "stage_setup",
+   "type": "AbsoluteAddress",
+   "kind": "user"
+  },
+  {
+   "address": 49809,
+   "name": "actor_return_c291",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 49810,
+   "name": "stage_update",
+   "type": "AbsoluteAddress",
+   "kind": "user"
+  },
+  {
+   "address": 49813,
+   "name": "tile_patch_addresses",
+   "type": "AbsoluteAddress",
+   "kind": "user"
+  },
+  {
+   "address": 49841,
+   "name": "tile_patch_00",
+   "type": "AbsoluteAddress",
+   "kind": "user"
+  },
+  {
+   "address": 49845,
+   "name": "tile_patch_01",
+   "type": "AbsoluteAddress",
+   "kind": "user"
+  },
+  {
+   "address": 49849,
+   "name": "tile_patch_02",
+   "type": "AbsoluteAddress",
+   "kind": "user"
+  },
+  {
+   "address": 49853,
+   "name": "tile_patch_03",
+   "type": "AbsoluteAddress",
+   "kind": "user"
+  },
+  {
+   "address": 49857,
+   "name": "tile_patch_04",
+   "type": "AbsoluteAddress",
+   "kind": "user"
+  },
+  {
+   "address": 49861,
+   "name": "tile_patch_05",
+   "type": "AbsoluteAddress",
+   "kind": "user"
+  },
+  {
+   "address": 49872,
+   "name": "tile_patch_06",
+   "type": "AbsoluteAddress",
+   "kind": "user"
+  },
+  {
+   "address": 49883,
+   "name": "tile_patch_07",
+   "type": "AbsoluteAddress",
+   "kind": "user"
+  },
+  {
+   "address": 49903,
+   "name": "tile_patch_08",
+   "type": "AbsoluteAddress",
+   "kind": "user"
+  },
+  {
+   "address": 49914,
+   "name": "tile_patch_09",
+   "type": "AbsoluteAddress",
+   "kind": "user"
+  },
+  {
+   "address": 49936,
+   "name": "tile_patch_10",
+   "type": "AbsoluteAddress",
+   "kind": "user"
+  },
+  {
+   "address": 49939,
+   "name": "tile_patch_11",
+   "type": "AbsoluteAddress",
+   "kind": "user"
+  },
+  {
+   "address": 49950,
+   "name": "tile_patch_12",
+   "type": "AbsoluteAddress",
+   "kind": "user"
+  },
+  {
+   "address": 49961,
+   "name": "tile_patch_13",
+   "type": "AbsoluteAddress",
+   "kind": "user"
+  },
+  {
+   "address": 49998,
+   "name": "s_C34E",
+   "type": "Subroutine",
+   "kind": "auto"
+  },
+  {
+   "address": 50000,
+   "name": "j_C350",
+   "type": "Jump",
+   "kind": "auto"
+  },
+  {
+   "address": 50143,
+   "name": "j_C3DF",
+   "type": "Jump",
+   "kind": "auto"
+  },
+  {
+   "address": 50180,
+   "name": "j_C404",
+   "type": "Jump",
+   "kind": "auto"
+  },
+  {
+   "address": 50211,
+   "name": "r_C423",
+   "type": "Return",
+   "kind": "auto"
+  },
+  {
+   "address": 50222,
+   "name": "b_C42E",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 50314,
+   "name": "actor_return_c48a",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 50409,
+   "name": "s_C4E9",
+   "type": "Subroutine",
+   "kind": "auto"
+  },
+  {
+   "address": 50527,
+   "name": "r_C55F",
+   "type": "Return",
+   "kind": "auto"
+  },
+  {
+   "address": 50528,
+   "name": "j_C560",
+   "type": "Jump",
+   "kind": "auto"
+  },
+  {
+   "address": 50562,
+   "name": "b_C582",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 50578,
+   "name": "b_C592",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 50590,
+   "name": "b_C59E",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 50601,
+   "name": "b_C5A9",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 50610,
+   "name": "b_C5B2",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 50629,
+   "name": "s_C5C5",
+   "type": "Subroutine",
+   "kind": "auto"
+  },
+  {
+   "address": 50641,
+   "name": "r_C5D1",
+   "type": "Return",
+   "kind": "auto"
+  },
+  {
+   "address": 50661,
+   "name": "r_C5E5",
+   "type": "Return",
+   "kind": "auto"
+  },
+  {
+   "address": 50699,
+   "name": "b_C60B",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 50706,
+   "name": "s_C612",
+   "type": "Subroutine",
+   "kind": "auto"
+  },
+  {
+   "address": 50723,
+   "name": "b_C623",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 50786,
+   "name": "b_C662",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 50796,
+   "name": "a_C66C",
+   "type": "AbsoluteAddress",
+   "kind": "auto"
+  },
+  {
+   "address": 50865,
+   "name": "b_C6B1",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 50896,
+   "name": "b_C6D0",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 50913,
+   "name": "r_C6E1",
+   "type": "Return",
+   "kind": "auto"
+  },
+  {
+   "address": 50933,
+   "name": "b_C6F5",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 50939,
+   "name": "b_C6FB",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 50959,
+   "name": "b_C70F",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 50973,
+   "name": "s_C71D",
+   "type": "Subroutine",
+   "kind": "auto"
+  },
+  {
+   "address": 50998,
+   "name": "b_C736",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 51013,
+   "name": "b_C745",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 51051,
+   "name": "b_C76B",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 51053,
+   "name": "b_C76D",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 51073,
+   "name": "b_C781",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 51075,
+   "name": "b_C783",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 51086,
+   "name": "b_C78E",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 51089,
+   "name": "f_C791",
+   "type": "Field",
+   "kind": "auto"
+  },
+  {
+   "address": 51115,
+   "name": "r_C7AB",
+   "type": "Return",
+   "kind": "auto"
+  },
+  {
+   "address": 51139,
+   "name": "b_C7C3",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 51157,
+   "name": "b_C7D5",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 51175,
+   "name": "b_C7E7",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 51201,
+   "name": "b_C801",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 51207,
+   "name": "r_C807",
+   "type": "Return",
+   "kind": "auto"
+  },
+  {
+   "address": 51214,
+   "name": "b_C80E",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 51243,
+   "name": "r_C82B",
+   "type": "Return",
+   "kind": "auto"
+  },
+  {
+   "address": 51244,
+   "name": "j_C82C",
+   "type": "Jump",
+   "kind": "auto"
+  },
+  {
+   "address": 51250,
+   "name": "b_C832",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 51265,
+   "name": "b_C841",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 51273,
+   "name": "b_C849",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 51286,
+   "name": "actor_return_c856",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 51287,
+   "name": "s_C857",
+   "type": "Subroutine",
+   "kind": "auto"
+  },
+  {
+   "address": 51293,
+   "name": "b_C85D",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 51308,
+   "name": "b_C86C",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 51325,
+   "name": "b_C87D",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 51332,
+   "name": "f_C884",
+   "type": "Field",
+   "kind": "auto"
+  },
+  {
+   "address": 51336,
+   "name": "f_C888",
+   "type": "Field",
+   "kind": "auto"
+  },
+  {
+   "address": 51340,
+   "name": "f_C88C",
+   "type": "Field",
+   "kind": "auto"
+  },
+  {
+   "address": 51556,
+   "name": "a_C964",
+   "type": "AbsoluteAddress",
+   "kind": "auto"
+  },
+  {
+   "address": 51557,
+   "name": "a_C965",
+   "type": "AbsoluteAddress",
+   "kind": "auto"
+  },
+  {
+   "address": 51558,
+   "name": "f_C966",
+   "type": "Field",
+   "kind": "auto"
+  },
+  {
+   "address": 51583,
+   "name": "b_C97F",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 51612,
+   "name": "b_C99C",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 51622,
+   "name": "b_C9A6",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 51631,
+   "name": "b_C9AF",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 51645,
+   "name": "s_C9BD",
+   "type": "Subroutine",
+   "kind": "auto"
+  },
+  {
+   "address": 51664,
+   "name": "b_C9D0",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 51687,
+   "name": "r_C9E7",
+   "type": "Return",
+   "kind": "auto"
+  },
+  {
+   "address": 51688,
+   "name": "b_C9E8",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 51722,
+   "name": "b_CA0A",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 51735,
+   "name": "j_CA17",
+   "type": "Jump",
+   "kind": "auto"
+  },
+  {
+   "address": 51774,
+   "name": "b_CA3E",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 51785,
+   "name": "r_CA49",
+   "type": "Return",
+   "kind": "auto"
+  },
+  {
+   "address": 51807,
+   "name": "b_CA5F",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 51820,
+   "name": "j_CA6C",
+   "type": "Jump",
+   "kind": "auto"
+  },
+  {
+   "address": 51874,
+   "name": "b_CAA2",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 51887,
+   "name": "j_CAAF",
+   "type": "Jump",
+   "kind": "auto"
+  },
+  {
+   "address": 51943,
+   "name": "b_CAE7",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 51956,
+   "name": "j_CAF4",
+   "type": "Jump",
+   "kind": "auto"
+  },
+  {
+   "address": 51991,
+   "name": "j_CB17",
+   "type": "Jump",
+   "kind": "auto"
+  },
+  {
+   "address": 52011,
+   "name": "b_CB2B",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 52024,
+   "name": "b_CB38",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 52029,
+   "name": "b_CB3D",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 52032,
+   "name": "b_CB40",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 52037,
+   "name": "a_CB45",
+   "type": "AbsoluteAddress",
+   "kind": "auto"
+  },
+  {
+   "address": 52038,
+   "name": "a_CB46",
+   "type": "AbsoluteAddress",
+   "kind": "auto"
+  },
+  {
+   "address": 52039,
+   "name": "a_CB47",
+   "type": "AbsoluteAddress",
+   "kind": "auto"
+  },
+  {
+   "address": 52040,
+   "name": "a_CB48",
+   "type": "AbsoluteAddress",
+   "kind": "auto"
+  },
+  {
+   "address": 52041,
+   "name": "a_CB49",
+   "type": "AbsoluteAddress",
+   "kind": "auto"
+  }
+ ],
+ "comments": [
+  {
+   "address": 24576,
+   "type": "line",
+   "text": "LEVELB sprite slots for VIC pointers $80\u2013$8F in bank $4000. Each slot has 63 pixel bytes followed by a byte outside the VIC's sprite fetch."
+  },
+  {
+   "address": 24577,
+   "type": "line",
+   "text": "The byte at $6001 belongs to the first sprite's 63-byte pattern. The stage loader uses this address for the length high byte before overwriting it with expanded sprite data."
+  },
+  {
+   "address": 25600,
+   "type": "line",
+   "text": "LEVELB sprite slots for VIC pointers $90\u2013$9F in bank $4000. Each slot has 63 pixel bytes followed by a byte outside the VIC's sprite fetch."
+  },
+  {
+   "address": 26624,
+   "type": "line",
+   "text": "LEVELB sprite slots for VIC pointers $A0\u2013$AF in bank $4000. Each slot has 63 pixel bytes followed by a byte outside the VIC's sprite fetch."
+  },
+  {
+   "address": 27648,
+   "type": "line",
+   "text": "LEVELB sprite slots for VIC pointers $B0\u2013$BF in bank $4000. Each slot has 63 pixel bytes followed by a byte outside the VIC's sprite fetch."
+  },
+  {
+   "address": 28672,
+   "type": "line",
+   "text": "LEVELB sprite slots for VIC pointers $C0\u2013$CF in bank $4000. Each slot has 63 pixel bytes followed by a byte outside the VIC's sprite fetch."
+  },
+  {
+   "address": 29696,
+   "type": "line",
+   "text": "LEVELB sprite slots for VIC pointers $D0\u2013$DB in bank $4000. Each slot has 63 pixel bytes followed by a byte outside the VIC's sprite fetch."
+  },
+  {
+   "address": 30464,
+   "type": "line",
+   "text": "Translate each of LEVELB's 256 character indices to a colour byte for the viewport renderer at $131B."
+  },
+  {
+   "address": 30720,
+   "type": "line",
+   "text": "The first 128 glyphs for LEVELB. The IRQ at $0C84 selects the 2 KB character set with $D018 = $0E while VIC bank $4000 is selected."
+  },
+  {
+   "address": 30936,
+   "type": "line",
+   "text": "The low page of the playfield character set continues here, starting at glyph $1B. The VIC reads eight pattern bytes per glyph."
+  },
+  {
+   "address": 31744,
+   "type": "line",
+   "text": "LEVELB's glyphs $80-$FF continue the character set at $7800. Each glyph occupies eight bytes."
+  },
+  {
+   "address": 32768,
+   "type": "line",
+   "text": "LEVELB character map, spanning row 0 column 0 through row 11 column 77. The row address tables created at $12CD use a stride of 86 bytes."
+  },
+  {
+   "address": 33792,
+   "type": "line",
+   "text": "LEVELB character map, spanning row 11 column 78 through row 23 column 69. The row address tables created at $12CD use a stride of 86 bytes."
+  },
+  {
+   "address": 34816,
+   "type": "line",
+   "text": "LEVELB character map, spanning row 23 column 70 through row 35 column 61. The row address tables created at $12CD use a stride of 86 bytes."
+  },
+  {
+   "address": 35840,
+   "type": "line",
+   "text": "LEVELB character map, spanning row 35 column 62 through row 47 column 53. The row address tables created at $12CD use a stride of 86 bytes."
+  },
+  {
+   "address": 36864,
+   "type": "line",
+   "text": "LEVELB character map, spanning row 47 column 54 through row 59 column 45. The row address tables created at $12CD use a stride of 86 bytes."
+  },
+  {
+   "address": 37888,
+   "type": "line",
+   "text": "LEVELB character map, spanning row 59 column 46 through row 71 column 37. The row address tables created at $12CD use a stride of 86 bytes."
+  },
+  {
+   "address": 38912,
+   "type": "line",
+   "text": "LEVELB character map, spanning row 71 column 38 through row 83 column 29. The row address tables created at $12CD use a stride of 86 bytes."
+  },
+  {
+   "address": 39936,
+   "type": "line",
+   "text": "LEVELB character map, spanning row 83 column 30 through row 95 column 21. The row address tables created at $12CD use a stride of 86 bytes."
+  },
+  {
+   "address": 40960,
+   "type": "line",
+   "text": "LEVELB character map, spanning row 95 column 22 through row 107 column 13. The row address tables created at $12CD use a stride of 86 bytes."
+  },
+  {
+   "address": 41984,
+   "type": "line",
+   "text": "LEVELB character map, spanning row 107 column 14 through row 119 column 5. The row address tables created at $12CD use a stride of 86 bytes."
+  },
+  {
+   "address": 43008,
+   "type": "line",
+   "text": "LEVELB character map, spanning row 119 column 6 through row 130 column 83. The row address tables created at $12CD use a stride of 86 bytes."
+  },
+  {
+   "address": 44032,
+   "type": "line",
+   "text": "LEVELB character map, spanning row 130 column 84 through row 142 column 75. The row address tables created at $12CD use a stride of 86 bytes."
+  },
+  {
+   "address": 45056,
+   "type": "line",
+   "text": "LEVELB character map, spanning row 142 column 76 through row 154 column 67. The row address tables created at $12CD use a stride of 86 bytes."
+  },
+  {
+   "address": 46080,
+   "type": "line",
+   "text": "LEVELB character map, spanning row 154 column 68 through row 166 column 59. The row address tables created at $12CD use a stride of 86 bytes."
+  },
+  {
+   "address": 47104,
+   "type": "line",
+   "text": "LEVELB character map, spanning row 166 column 60 through row 178 column 51. The row address tables created at $12CD use a stride of 86 bytes."
+  },
+  {
+   "address": 48128,
+   "type": "line",
+   "text": "LEVELB character map, spanning row 178 column 52 through row 190 column 43. The row address tables created at $12CD use a stride of 86 bytes."
+  },
+  {
+   "address": 49152,
+   "type": "line",
+   "text": "Base used by $199F for types $25 and above. The offset is ten times the type minus $25."
+  },
+  {
+   "address": 49153,
+   "type": "line",
+   "text": "High byte of the table base used at $19A9."
+  },
+  {
+   "address": 49154,
+   "type": "line",
+   "text": "The resident code at $1517 reads this word and dispatches to $C273 through $15EB."
+  },
+  {
+   "address": 49155,
+   "type": "line",
+   "text": "High byte of the setup callback loaded by the resident program at $151C."
+  },
+  {
+   "address": 49156,
+   "type": "line",
+   "text": "Pointer to the four-byte object records selected by $3765 and $35A3."
+  },
+  {
+   "address": 49157,
+   "type": "line",
+   "text": "High byte read by $376A for the initial object scan."
+  },
+  {
+   "address": 49158,
+   "type": "line",
+   "text": "Two background colour values passed from the LEVELB header through $E374/$E375 to VIC registers $D022/$D023."
+  },
+  {
+   "address": 49159,
+   "type": "line",
+   "text": "Copied to $E375 by $156D, then written to $D023 by the raster handler."
+  },
+  {
+   "address": 49160,
+   "type": "line",
+   "text": "Remaining header bytes before the tile-patch pointer. The loader's stage-zero decision reads byte $C00A at $32DB."
+  },
+  {
+   "address": 49163,
+   "type": "line",
+   "text": "Pointer to the table of two-byte tile patch addresses read by $37B1 and $37B6."
+  },
+  {
+   "address": 49164,
+   "type": "line",
+   "text": "High byte used by $37A7 when taking the address of the pointer table."
+  },
+  {
+   "address": 49165,
+   "type": "line",
+   "text": "Setup copies $C00D into $6F at $1573. The purpose of the adjacent header byte is open."
+  },
+  {
+   "address": 49167,
+   "type": "line",
+   "text": "The resident loop at $0965 reads this word and dispatches to $C292 through $15EB."
+  },
+  {
+   "address": 49168,
+   "type": "line",
+   "text": "High byte of the update callback loaded at $096A."
+  },
+  {
+   "address": 49169,
+   "type": "line",
+   "text": "Holds 23 ten-byte descriptors selected by the resident routine at $1965. The last two bytes of each record are the routine address read at $1DC9 and $1DCE."
+  },
+  {
+   "address": 49399,
+   "type": "line",
+   "text": "Holds 94 object records. Setup at $3765 reads column, row, type and flags. The row and column choose where the tile patch begins when flag $20 is set."
+  },
+  {
+   "address": 49775,
+   "type": "line",
+   "text": "The first $FF in the column field ends LEVELB's object list at $3773. The final record is four bytes of $FF."
+  },
+  {
+   "address": 49779,
+   "type": "line",
+   "text": "Initialize the viewport row to $8D in $46 and its column to $15 in $45. Store the row plus $0A in $E690 and the column plus $14 in $E630. Clear $1D, $1F and $390C and return with carry set."
+  },
+  {
+   "address": 49809,
+   "type": "line",
+   "text": "Return immediately from the actor callback. The corresponding descriptor slot passes control through $15EB and this RTS returns to the engine."
+  },
+  {
+   "address": 49810,
+   "type": "line",
+   "text": "Forward the resident engine's stage update callback to $C82C."
+  },
+  {
+   "address": 49813,
+   "type": "line",
+   "text": "The 14 pointers index LEVELB's rectangular tile patches. $37B1 reads the low byte and $37B6 reads the next byte for the high byte."
+  },
+  {
+   "address": 49841,
+   "type": "line",
+   "text": "A 2-column by 1-row tile patch, entry 0 in LEVELB's pointer table. The two dimensions precede 2 character bytes copied to the map by $37D5."
+  },
+  {
+   "address": 49845,
+   "type": "line",
+   "text": "A 2-column by 1-row tile patch, entry 1 in LEVELB's pointer table. The two dimensions precede 2 character bytes copied to the map by $37D5."
+  },
+  {
+   "address": 49849,
+   "type": "line",
+   "text": "A 2-column by 1-row tile patch, entry 2 in LEVELB's pointer table. The two dimensions precede 2 character bytes copied to the map by $37D5."
+  },
+  {
+   "address": 49853,
+   "type": "line",
+   "text": "A 2-column by 1-row tile patch, entry 3 in LEVELB's pointer table. The two dimensions precede 2 character bytes copied to the map by $37D5."
+  },
+  {
+   "address": 49857,
+   "type": "line",
+   "text": "A 2-column by 1-row tile patch, entry 4 in LEVELB's pointer table. The two dimensions precede 2 character bytes copied to the map by $37D5."
+  },
+  {
+   "address": 49861,
+   "type": "line",
+   "text": "A 3-column by 3-row tile patch, entry 5 in LEVELB's pointer table. The two dimensions precede 9 character bytes copied to the map by $37D5."
+  },
+  {
+   "address": 49872,
+   "type": "line",
+   "text": "A 3-column by 3-row tile patch, entry 6 in LEVELB's pointer table. The two dimensions precede 9 character bytes copied to the map by $37D5."
+  },
+  {
+   "address": 49883,
+   "type": "line",
+   "text": "A 2-column by 9-row tile patch, entry 7 in LEVELB's pointer table. The two dimensions precede 18 character bytes copied to the map by $37D5."
+  },
+  {
+   "address": 49903,
+   "type": "line",
+   "text": "A 3-column by 3-row tile patch, entry 8 in LEVELB's pointer table. The two dimensions precede 9 character bytes copied to the map by $37D5."
+  },
+  {
+   "address": 49914,
+   "type": "line",
+   "text": "A 4-column by 5-row tile patch, entry 9 in LEVELB's pointer table. The two dimensions precede 20 character bytes copied to the map by $37D5."
+  },
+  {
+   "address": 49936,
+   "type": "line",
+   "text": "A 1-column by 1-row tile patch, entry 10 in LEVELB's pointer table. The two dimensions precede 1 character bytes copied to the map by $37D5."
+  },
+  {
+   "address": 49939,
+   "type": "line",
+   "text": "A 3-column by 3-row tile patch, entry 11 in LEVELB's pointer table. The two dimensions precede 9 character bytes copied to the map by $37D5."
+  },
+  {
+   "address": 49950,
+   "type": "line",
+   "text": "A 3-column by 3-row tile patch, entry 12 in LEVELB's pointer table. The two dimensions precede 9 character bytes copied to the map by $37D5."
+  },
+  {
+   "address": 49961,
+   "type": "line",
+   "text": "A 3-column by 3-row tile patch, entry 13 in LEVELB's pointer table. The two dimensions precede 9 character bytes copied to the map by $37D5."
+  },
+  {
+   "address": 50314,
+   "type": "line",
+   "text": "Return immediately from the actor callback. The corresponding descriptor slot passes control through $15EB and this RTS returns to the engine."
+  },
+  {
+   "address": 51286,
+   "type": "line",
+   "text": "Return immediately from the actor callback. The corresponding descriptor slot passes control through $15EB and this RTS returns to the engine."
+  }
+ ]
+}

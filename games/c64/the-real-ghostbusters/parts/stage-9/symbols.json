@@ -1,0 +1,1245 @@
+{
+ "schema": 1,
+ "platform": "c64",
+ "game": "the-real-ghostbusters",
+ "part": "stage-9",
+ "build": "OUG disk crack, both trainers declined",
+ "source": "regenerator2000 live",
+ "regions": {
+  "exclude": [
+   [
+    256,
+    511,
+    "stack"
+   ],
+   [
+    53248,
+    57343,
+    "I/O and colour RAM"
+   ],
+   [
+    0,
+    24575,
+    "Resident engine"
+   ],
+   [
+    51620,
+    65535,
+    "Resident engine"
+   ]
+  ],
+  "extra": [
+   [
+    24576,
+    51619,
+    "Expanded LEVELI stream through the final output pointer at $0A/$0B"
+   ]
+  ],
+  "edges": [
+   0,
+   256,
+   512,
+   1024,
+   2048,
+   4096,
+   16384,
+   32768,
+   40960,
+   49152,
+   53248,
+   57344
+  ],
+  "elsewhere": [
+   [
+    0,
+    24575,
+    "Resident engine"
+   ],
+   [
+    51620,
+    65535,
+    "Resident engine"
+   ]
+  ]
+ },
+ "blocks": [
+  {
+   "start": 24576,
+   "end": 49151,
+   "type": "Byte"
+  },
+  {
+   "start": 49152,
+   "end": 49157,
+   "type": "Address"
+  },
+  {
+   "start": 49158,
+   "end": 49162,
+   "type": "Byte"
+  },
+  {
+   "start": 49163,
+   "end": 49164,
+   "type": "Address"
+  },
+  {
+   "start": 49165,
+   "end": 49166,
+   "type": "Byte"
+  },
+  {
+   "start": 49167,
+   "end": 49168,
+   "type": "Address"
+  },
+  {
+   "start": 49169,
+   "end": 49778,
+   "type": "Byte"
+  },
+  {
+   "start": 49779,
+   "end": 49812,
+   "type": "Code"
+  },
+  {
+   "start": 49813,
+   "end": 49838,
+   "type": "Address"
+  },
+  {
+   "start": 49839,
+   "end": 49939,
+   "type": "Byte"
+  },
+  {
+   "start": 49940,
+   "end": 49945,
+   "type": "Undefined"
+  },
+  {
+   "start": 49946,
+   "end": 50062,
+   "type": "Code"
+  },
+  {
+   "start": 50063,
+   "end": 50104,
+   "type": "Undefined"
+  },
+  {
+   "start": 50105,
+   "end": 50624,
+   "type": "Code"
+  },
+  {
+   "start": 50625,
+   "end": 50632,
+   "type": "Undefined"
+  },
+  {
+   "start": 50633,
+   "end": 50676,
+   "type": "Code"
+  },
+  {
+   "start": 50677,
+   "end": 50778,
+   "type": "Undefined"
+  },
+  {
+   "start": 50779,
+   "end": 50888,
+   "type": "Code"
+  },
+  {
+   "start": 50889,
+   "end": 50896,
+   "type": "Undefined"
+  },
+  {
+   "start": 50897,
+   "end": 51410,
+   "type": "Code"
+  },
+  {
+   "start": 51411,
+   "end": 51413,
+   "type": "Undefined"
+  },
+  {
+   "start": 51414,
+   "end": 51516,
+   "type": "Code"
+  },
+  {
+   "start": 51517,
+   "end": 51592,
+   "type": "Undefined"
+  },
+  {
+   "start": 51593,
+   "end": 51619,
+   "type": "Code"
+  }
+ ],
+ "symbols": [
+  {
+   "address": 24576,
+   "name": "stage_sprite_slots_80",
+   "type": "AbsoluteAddress",
+   "kind": "user"
+  },
+  {
+   "address": 24577,
+   "name": "stage_sprite_data_01",
+   "type": "AbsoluteAddress",
+   "kind": "user"
+  },
+  {
+   "address": 25600,
+   "name": "stage_sprite_slots_90",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 26624,
+   "name": "stage_sprite_slots_a0",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 27648,
+   "name": "stage_sprite_slots_b0",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 28672,
+   "name": "stage_sprite_slots_c0",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 29696,
+   "name": "stage_sprite_slots_d0",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 30464,
+   "name": "tile_colour",
+   "type": "Field",
+   "kind": "user"
+  },
+  {
+   "address": 30720,
+   "name": "playfield_charset_low",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 30936,
+   "name": "playfield_glyph_1b",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 31112,
+   "name": "f_7988",
+   "type": "Field",
+   "kind": "auto"
+  },
+  {
+   "address": 31744,
+   "name": "playfield_charset_high",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 32768,
+   "name": "map_rows_000",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 33792,
+   "name": "map_rows_011",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 34816,
+   "name": "map_rows_023",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 35840,
+   "name": "map_rows_035",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 36864,
+   "name": "map_rows_047",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 37888,
+   "name": "map_rows_059",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 38912,
+   "name": "map_rows_071",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 39936,
+   "name": "map_rows_083",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 40960,
+   "name": "map_rows_095",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 41984,
+   "name": "map_rows_107",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 43008,
+   "name": "map_rows_119",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 44032,
+   "name": "map_rows_130",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 45056,
+   "name": "map_rows_142",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 46080,
+   "name": "map_rows_154",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 47104,
+   "name": "map_rows_166",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 48128,
+   "name": "map_rows_178",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 49152,
+   "name": "actor_records_pointer",
+   "type": "AbsoluteAddress",
+   "kind": "user"
+  },
+  {
+   "address": 49153,
+   "name": "actor_records_pointer_hi",
+   "type": "AbsoluteAddress",
+   "kind": "user"
+  },
+  {
+   "address": 49154,
+   "name": "stage_setup_pointer",
+   "type": "AbsoluteAddress",
+   "kind": "user"
+  },
+  {
+   "address": 49155,
+   "name": "stage_setup_pointer_hi",
+   "type": "AbsoluteAddress",
+   "kind": "user"
+  },
+  {
+   "address": 49156,
+   "name": "object_list_pointer",
+   "type": "AbsoluteAddress",
+   "kind": "user"
+  },
+  {
+   "address": 49157,
+   "name": "object_list_pointer_hi",
+   "type": "AbsoluteAddress",
+   "kind": "user"
+  },
+  {
+   "address": 49158,
+   "name": "stage_palettes",
+   "type": "AbsoluteAddress",
+   "kind": "user"
+  },
+  {
+   "address": 49159,
+   "name": "stage_background_third",
+   "type": "AbsoluteAddress",
+   "kind": "user"
+  },
+  {
+   "address": 49160,
+   "name": "stage_header_08",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 49162,
+   "name": "a_C00A",
+   "type": "AbsoluteAddress",
+   "kind": "auto"
+  },
+  {
+   "address": 49163,
+   "name": "tile_patch_pointer_table",
+   "type": "AbsoluteAddress",
+   "kind": "user"
+  },
+  {
+   "address": 49164,
+   "name": "tile_patch_pointer_table_hi",
+   "type": "AbsoluteAddress",
+   "kind": "user"
+  },
+  {
+   "address": 49165,
+   "name": "stage_parameter",
+   "type": "AbsoluteAddress",
+   "kind": "user"
+  },
+  {
+   "address": 49167,
+   "name": "stage_update_pointer",
+   "type": "AbsoluteAddress",
+   "kind": "user"
+  },
+  {
+   "address": 49168,
+   "name": "stage_update_pointer_hi",
+   "type": "AbsoluteAddress",
+   "kind": "user"
+  },
+  {
+   "address": 49169,
+   "name": "stage_actor_records",
+   "type": "AbsoluteAddress",
+   "kind": "user"
+  },
+  {
+   "address": 49359,
+   "name": "placed_objects",
+   "type": "AbsoluteAddress",
+   "kind": "user"
+  },
+  {
+   "address": 49775,
+   "name": "object_list_end",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 49779,
+   "name": "stage_setup",
+   "type": "AbsoluteAddress",
+   "kind": "user"
+  },
+  {
+   "address": 49809,
+   "name": "actor_return_c291",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 49810,
+   "name": "stage_update",
+   "type": "AbsoluteAddress",
+   "kind": "user"
+  },
+  {
+   "address": 49813,
+   "name": "tile_patch_addresses",
+   "type": "AbsoluteAddress",
+   "kind": "user"
+  },
+  {
+   "address": 49839,
+   "name": "tile_patch_00",
+   "type": "AbsoluteAddress",
+   "kind": "user"
+  },
+  {
+   "address": 49843,
+   "name": "tile_patch_01",
+   "type": "AbsoluteAddress",
+   "kind": "user"
+  },
+  {
+   "address": 49847,
+   "name": "tile_patch_02",
+   "type": "AbsoluteAddress",
+   "kind": "user"
+  },
+  {
+   "address": 49851,
+   "name": "tile_patch_03",
+   "type": "AbsoluteAddress",
+   "kind": "user"
+  },
+  {
+   "address": 49855,
+   "name": "tile_patch_04",
+   "type": "AbsoluteAddress",
+   "kind": "user"
+  },
+  {
+   "address": 49859,
+   "name": "tile_patch_05",
+   "type": "AbsoluteAddress",
+   "kind": "user"
+  },
+  {
+   "address": 49881,
+   "name": "tile_patch_06",
+   "type": "AbsoluteAddress",
+   "kind": "user"
+  },
+  {
+   "address": 49903,
+   "name": "tile_patch_07",
+   "type": "AbsoluteAddress",
+   "kind": "user"
+  },
+  {
+   "address": 49911,
+   "name": "tile_patch_08",
+   "type": "AbsoluteAddress",
+   "kind": "user"
+  },
+  {
+   "address": 49919,
+   "name": "tile_patch_09",
+   "type": "AbsoluteAddress",
+   "kind": "user"
+  },
+  {
+   "address": 49925,
+   "name": "tile_patch_10",
+   "type": "AbsoluteAddress",
+   "kind": "user"
+  },
+  {
+   "address": 49931,
+   "name": "tile_patch_11",
+   "type": "AbsoluteAddress",
+   "kind": "user"
+  },
+  {
+   "address": 49937,
+   "name": "tile_patch_12",
+   "type": "AbsoluteAddress",
+   "kind": "user"
+  },
+  {
+   "address": 49996,
+   "name": "j_C34C",
+   "type": "Jump",
+   "kind": "auto"
+  },
+  {
+   "address": 50124,
+   "name": "b_C3CC",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 50193,
+   "name": "j_C411",
+   "type": "Jump",
+   "kind": "auto"
+  },
+  {
+   "address": 50224,
+   "name": "r_C430",
+   "type": "Return",
+   "kind": "auto"
+  },
+  {
+   "address": 50449,
+   "name": "s_C511",
+   "type": "Subroutine",
+   "kind": "auto"
+  },
+  {
+   "address": 50497,
+   "name": "b_C541",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 50502,
+   "name": "b_C546",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 50505,
+   "name": "j_C549",
+   "type": "Jump",
+   "kind": "auto"
+  },
+  {
+   "address": 50537,
+   "name": "b_C569",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 50552,
+   "name": "r_C578",
+   "type": "Return",
+   "kind": "auto"
+  },
+  {
+   "address": 50570,
+   "name": "b_C58A",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 50605,
+   "name": "b_C5AD",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 50624,
+   "name": "r_C5C0",
+   "type": "Return",
+   "kind": "auto"
+  },
+  {
+   "address": 50625,
+   "name": "f_C5C1",
+   "type": "Field",
+   "kind": "auto"
+  },
+  {
+   "address": 50633,
+   "name": "actor_return_c5c9",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 50634,
+   "name": "j_C5CA",
+   "type": "Jump",
+   "kind": "auto"
+  },
+  {
+   "address": 50656,
+   "name": "b_C5E0",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 50666,
+   "name": "b_C5EA",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 50676,
+   "name": "r_C5F4",
+   "type": "Return",
+   "kind": "auto"
+  },
+  {
+   "address": 50677,
+   "name": "f_C5F5",
+   "type": "Field",
+   "kind": "auto"
+  },
+  {
+   "address": 50681,
+   "name": "f_C5F9",
+   "type": "Field",
+   "kind": "auto"
+  },
+  {
+   "address": 50777,
+   "name": "a_C659",
+   "type": "AbsoluteAddress",
+   "kind": "auto"
+  },
+  {
+   "address": 50778,
+   "name": "a_C65A",
+   "type": "AbsoluteAddress",
+   "kind": "auto"
+  },
+  {
+   "address": 50798,
+   "name": "b_C66E",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 50804,
+   "name": "b_C674",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 50824,
+   "name": "b_C688",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 50838,
+   "name": "s_C696",
+   "type": "Subroutine",
+   "kind": "auto"
+  },
+  {
+   "address": 50844,
+   "name": "s_C69C",
+   "type": "Subroutine",
+   "kind": "auto"
+  },
+  {
+   "address": 50850,
+   "name": "b_C6A2",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 50865,
+   "name": "b_C6B1",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 50882,
+   "name": "b_C6C2",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 50889,
+   "name": "f_C6C9",
+   "type": "Field",
+   "kind": "auto"
+  },
+  {
+   "address": 50893,
+   "name": "f_C6CD",
+   "type": "Field",
+   "kind": "auto"
+  },
+  {
+   "address": 50920,
+   "name": "b_C6E8",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 50938,
+   "name": "b_C6FA",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 50956,
+   "name": "b_C70C",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 50982,
+   "name": "b_C726",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 50988,
+   "name": "r_C72C",
+   "type": "Return",
+   "kind": "auto"
+  },
+  {
+   "address": 51003,
+   "name": "b_C73B",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 51018,
+   "name": "r_C74A",
+   "type": "Return",
+   "kind": "auto"
+  },
+  {
+   "address": 51037,
+   "name": "b_C75D",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 51040,
+   "name": "s_C760",
+   "type": "Subroutine",
+   "kind": "auto"
+  },
+  {
+   "address": 51081,
+   "name": "s_C789",
+   "type": "Subroutine",
+   "kind": "auto"
+  },
+  {
+   "address": 51122,
+   "name": "b_C7B2",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 51139,
+   "name": "r_C7C3",
+   "type": "Return",
+   "kind": "auto"
+  },
+  {
+   "address": 51183,
+   "name": "r_C7EF",
+   "type": "Return",
+   "kind": "auto"
+  },
+  {
+   "address": 51201,
+   "name": "b_C801",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 51232,
+   "name": "b_C820",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 51249,
+   "name": "b_C831",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 51274,
+   "name": "r_C84A",
+   "type": "Return",
+   "kind": "auto"
+  },
+  {
+   "address": 51378,
+   "name": "j_C8B2",
+   "type": "Jump",
+   "kind": "auto"
+  },
+  {
+   "address": 51398,
+   "name": "b_C8C6",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 51414,
+   "name": "b_C8D6",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 51419,
+   "name": "b_C8DB",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 51422,
+   "name": "b_C8DE",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 51427,
+   "name": "j_C8E3",
+   "type": "Jump",
+   "kind": "auto"
+  },
+  {
+   "address": 51444,
+   "name": "b_C8F4",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 51507,
+   "name": "b_C933",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 51517,
+   "name": "a_C93D",
+   "type": "AbsoluteAddress",
+   "kind": "auto"
+  },
+  {
+   "address": 51603,
+   "name": "b_C993",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 51606,
+   "name": "b_C996",
+   "type": "Branch",
+   "kind": "auto"
+  }
+ ],
+ "comments": [
+  {
+   "address": 24576,
+   "type": "line",
+   "text": "LEVELI sprite slots for VIC pointers $80\u2013$8F in bank $4000. Each slot has 63 pixel bytes followed by a byte outside the VIC's sprite fetch."
+  },
+  {
+   "address": 24577,
+   "type": "line",
+   "text": "The byte at $6001 belongs to the first sprite's 63-byte pattern. The stage loader uses this address for the length high byte before overwriting it with expanded sprite data."
+  },
+  {
+   "address": 25600,
+   "type": "line",
+   "text": "LEVELI sprite slots for VIC pointers $90\u2013$9F in bank $4000. Each slot has 63 pixel bytes followed by a byte outside the VIC's sprite fetch."
+  },
+  {
+   "address": 26624,
+   "type": "line",
+   "text": "LEVELI sprite slots for VIC pointers $A0\u2013$AF in bank $4000. Each slot has 63 pixel bytes followed by a byte outside the VIC's sprite fetch."
+  },
+  {
+   "address": 27648,
+   "type": "line",
+   "text": "LEVELI sprite slots for VIC pointers $B0\u2013$BF in bank $4000. Each slot has 63 pixel bytes followed by a byte outside the VIC's sprite fetch."
+  },
+  {
+   "address": 28672,
+   "type": "line",
+   "text": "LEVELI sprite slots for VIC pointers $C0\u2013$CF in bank $4000. Each slot has 63 pixel bytes followed by a byte outside the VIC's sprite fetch."
+  },
+  {
+   "address": 29696,
+   "type": "line",
+   "text": "LEVELI sprite slots for VIC pointers $D0\u2013$DB in bank $4000. Each slot has 63 pixel bytes followed by a byte outside the VIC's sprite fetch."
+  },
+  {
+   "address": 30464,
+   "type": "line",
+   "text": "Translate each of LEVELI's 256 character indices to a colour byte for the viewport renderer at $131B."
+  },
+  {
+   "address": 30720,
+   "type": "line",
+   "text": "The first 128 glyphs for LEVELI. The IRQ at $0C84 selects the 2 KB character set with $D018 = $0E while VIC bank $4000 is selected."
+  },
+  {
+   "address": 30936,
+   "type": "line",
+   "text": "The low page of the playfield character set continues here, starting at glyph $1B. The VIC reads eight pattern bytes per glyph."
+  },
+  {
+   "address": 31744,
+   "type": "line",
+   "text": "LEVELI's glyphs $80-$FF continue the character set at $7800. Each glyph occupies eight bytes."
+  },
+  {
+   "address": 32768,
+   "type": "line",
+   "text": "LEVELI character map, spanning row 0 column 0 through row 11 column 77. The row address tables created at $12CD use a stride of 86 bytes."
+  },
+  {
+   "address": 33792,
+   "type": "line",
+   "text": "LEVELI character map, spanning row 11 column 78 through row 23 column 69. The row address tables created at $12CD use a stride of 86 bytes."
+  },
+  {
+   "address": 34816,
+   "type": "line",
+   "text": "LEVELI character map, spanning row 23 column 70 through row 35 column 61. The row address tables created at $12CD use a stride of 86 bytes."
+  },
+  {
+   "address": 35840,
+   "type": "line",
+   "text": "LEVELI character map, spanning row 35 column 62 through row 47 column 53. The row address tables created at $12CD use a stride of 86 bytes."
+  },
+  {
+   "address": 36864,
+   "type": "line",
+   "text": "LEVELI character map, spanning row 47 column 54 through row 59 column 45. The row address tables created at $12CD use a stride of 86 bytes."
+  },
+  {
+   "address": 37888,
+   "type": "line",
+   "text": "LEVELI character map, spanning row 59 column 46 through row 71 column 37. The row address tables created at $12CD use a stride of 86 bytes."
+  },
+  {
+   "address": 38912,
+   "type": "line",
+   "text": "LEVELI character map, spanning row 71 column 38 through row 83 column 29. The row address tables created at $12CD use a stride of 86 bytes."
+  },
+  {
+   "address": 39936,
+   "type": "line",
+   "text": "LEVELI character map, spanning row 83 column 30 through row 95 column 21. The row address tables created at $12CD use a stride of 86 bytes."
+  },
+  {
+   "address": 40960,
+   "type": "line",
+   "text": "LEVELI character map, spanning row 95 column 22 through row 107 column 13. The row address tables created at $12CD use a stride of 86 bytes."
+  },
+  {
+   "address": 41984,
+   "type": "line",
+   "text": "LEVELI character map, spanning row 107 column 14 through row 119 column 5. The row address tables created at $12CD use a stride of 86 bytes."
+  },
+  {
+   "address": 43008,
+   "type": "line",
+   "text": "LEVELI character map, spanning row 119 column 6 through row 130 column 83. The row address tables created at $12CD use a stride of 86 bytes."
+  },
+  {
+   "address": 44032,
+   "type": "line",
+   "text": "LEVELI character map, spanning row 130 column 84 through row 142 column 75. The row address tables created at $12CD use a stride of 86 bytes."
+  },
+  {
+   "address": 45056,
+   "type": "line",
+   "text": "LEVELI character map, spanning row 142 column 76 through row 154 column 67. The row address tables created at $12CD use a stride of 86 bytes."
+  },
+  {
+   "address": 46080,
+   "type": "line",
+   "text": "LEVELI character map, spanning row 154 column 68 through row 166 column 59. The row address tables created at $12CD use a stride of 86 bytes."
+  },
+  {
+   "address": 47104,
+   "type": "line",
+   "text": "LEVELI character map, spanning row 166 column 60 through row 178 column 51. The row address tables created at $12CD use a stride of 86 bytes."
+  },
+  {
+   "address": 48128,
+   "type": "line",
+   "text": "LEVELI character map, spanning row 178 column 52 through row 190 column 43. The row address tables created at $12CD use a stride of 86 bytes."
+  },
+  {
+   "address": 49152,
+   "type": "line",
+   "text": "Base used by $199F for types $25 and above. The offset is ten times the type minus $25."
+  },
+  {
+   "address": 49153,
+   "type": "line",
+   "text": "High byte of the table base used at $19A9."
+  },
+  {
+   "address": 49154,
+   "type": "line",
+   "text": "The resident code at $1517 reads this word and dispatches to $C273 through $15EB."
+  },
+  {
+   "address": 49155,
+   "type": "line",
+   "text": "High byte of the setup callback loaded by the resident program at $151C."
+  },
+  {
+   "address": 49156,
+   "type": "line",
+   "text": "Pointer to the four-byte object records selected by $3765 and $35A3."
+  },
+  {
+   "address": 49157,
+   "type": "line",
+   "text": "High byte read by $376A for the initial object scan."
+  },
+  {
+   "address": 49158,
+   "type": "line",
+   "text": "Two background colour values passed from the LEVELI header through $E374/$E375 to VIC registers $D022/$D023."
+  },
+  {
+   "address": 49159,
+   "type": "line",
+   "text": "Copied to $E375 by $156D, then written to $D023 by the raster handler."
+  },
+  {
+   "address": 49160,
+   "type": "line",
+   "text": "Remaining header bytes before the tile-patch pointer. The loader's stage-zero decision reads byte $C00A at $32DB."
+  },
+  {
+   "address": 49163,
+   "type": "line",
+   "text": "Pointer to the table of two-byte tile patch addresses read by $37B1 and $37B6."
+  },
+  {
+   "address": 49164,
+   "type": "line",
+   "text": "High byte used by $37A7 when taking the address of the pointer table."
+  },
+  {
+   "address": 49165,
+   "type": "line",
+   "text": "Setup copies $C00D into $6F at $1573. The purpose of the adjacent header byte is open."
+  },
+  {
+   "address": 49167,
+   "type": "line",
+   "text": "The resident loop at $0965 reads this word and dispatches to $C292 through $15EB."
+  },
+  {
+   "address": 49168,
+   "type": "line",
+   "text": "High byte of the update callback loaded at $096A."
+  },
+  {
+   "address": 49169,
+   "type": "line",
+   "text": "Holds 19 ten-byte descriptors selected by the resident routine at $1965. The last two bytes of each record are the routine address read at $1DC9 and $1DCE."
+  },
+  {
+   "address": 49359,
+   "type": "line",
+   "text": "Holds 104 object records. Setup at $3765 reads column, row, type and flags. The row and column choose where the tile patch begins when flag $20 is set."
+  },
+  {
+   "address": 49775,
+   "type": "line",
+   "text": "The first $FF in the column field ends LEVELI's object list at $3773. The final record is four bytes of $FF."
+  },
+  {
+   "address": 49779,
+   "type": "line",
+   "text": "Initialize the viewport row to $86 in $46 and its column to $05 in $45. Store the row plus $19 in $E690 and the column plus $1E in $E630. Clear $1D, $1F and $390C and return with carry set."
+  },
+  {
+   "address": 49809,
+   "type": "line",
+   "text": "Return immediately from the actor callback. The corresponding descriptor slot passes control through $15EB and this RTS returns to the engine."
+  },
+  {
+   "address": 49810,
+   "type": "line",
+   "text": "Forward the resident engine's stage update callback to $C5CA."
+  },
+  {
+   "address": 49813,
+   "type": "line",
+   "text": "The 13 pointers index LEVELI's rectangular tile patches. $37B1 reads the low byte and $37B6 reads the next byte for the high byte."
+  },
+  {
+   "address": 49839,
+   "type": "line",
+   "text": "A 2-column by 1-row tile patch, entry 0 in LEVELI's pointer table. The two dimensions precede 2 character bytes copied to the map by $37D5."
+  },
+  {
+   "address": 49843,
+   "type": "line",
+   "text": "A 2-column by 1-row tile patch, entry 1 in LEVELI's pointer table. The two dimensions precede 2 character bytes copied to the map by $37D5."
+  },
+  {
+   "address": 49847,
+   "type": "line",
+   "text": "A 2-column by 1-row tile patch, entry 2 in LEVELI's pointer table. The two dimensions precede 2 character bytes copied to the map by $37D5."
+  },
+  {
+   "address": 49851,
+   "type": "line",
+   "text": "A 2-column by 1-row tile patch, entry 3 in LEVELI's pointer table. The two dimensions precede 2 character bytes copied to the map by $37D5."
+  },
+  {
+   "address": 49855,
+   "type": "line",
+   "text": "A 2-column by 1-row tile patch, entry 4 in LEVELI's pointer table. The two dimensions precede 2 character bytes copied to the map by $37D5."
+  },
+  {
+   "address": 49859,
+   "type": "line",
+   "text": "A 4-column by 5-row tile patch, entry 5 in LEVELI's pointer table. The two dimensions precede 20 character bytes copied to the map by $37D5."
+  },
+  {
+   "address": 49881,
+   "type": "line",
+   "text": "A 2-column by 10-row tile patch, entry 6 in LEVELI's pointer table. The two dimensions precede 20 character bytes copied to the map by $37D5."
+  },
+  {
+   "address": 49903,
+   "type": "line",
+   "text": "A 3-column by 2-row tile patch, entry 7 in LEVELI's pointer table. The two dimensions precede 6 character bytes copied to the map by $37D5."
+  },
+  {
+   "address": 49911,
+   "type": "line",
+   "text": "A 3-column by 2-row tile patch, entry 8 in LEVELI's pointer table. The two dimensions precede 6 character bytes copied to the map by $37D5."
+  },
+  {
+   "address": 49919,
+   "type": "line",
+   "text": "A 2-column by 2-row tile patch, entry 9 in LEVELI's pointer table. The two dimensions precede 4 character bytes copied to the map by $37D5."
+  },
+  {
+   "address": 49925,
+   "type": "line",
+   "text": "A 2-column by 2-row tile patch, entry 10 in LEVELI's pointer table. The two dimensions precede 4 character bytes copied to the map by $37D5."
+  },
+  {
+   "address": 49931,
+   "type": "line",
+   "text": "A 2-column by 2-row tile patch, entry 11 in LEVELI's pointer table. The two dimensions precede 4 character bytes copied to the map by $37D5."
+  },
+  {
+   "address": 49937,
+   "type": "line",
+   "text": "A 1-column by 1-row tile patch, entry 12 in LEVELI's pointer table. The two dimensions precede 1 character bytes copied to the map by $37D5."
+  },
+  {
+   "address": 50633,
+   "type": "line",
+   "text": "Return immediately from the actor callback. The corresponding descriptor slot passes control through $15EB and this RTS returns to the engine."
+  }
+ ]
+}
