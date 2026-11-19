@@ -1,0 +1,230 @@
+{
+  "schema": 1,
+  "platform": "c64",
+  "slug": "mission-a-d",
+  "title": "Mission A.D.",
+  "year": 1986,
+  "publisher": "Odin Computer Graphics",
+  "developer": "Odin Computer Graphics",
+  "title_image": "reference/title.png",
+  "build": "CSDb 210100 disk with freezer loader",
+  "tier": "bronze",
+  "coverage_percent": null,
+  "copy": "agent-draft",
+  "steward": "",
+  "credits": [],
+  "tools": {
+    "emulator": "vice-mcp v3.14.0 macOS arm64 headless (dummy audio)",
+    "disassembler": "regenerator2000 0.9.18",
+    "host": "macOS-26.6.2-arm64-arm-64bit-Mach-O"
+  },
+  "model": "gpt-6.2-sol",
+  "step_models": {
+    "10-orient": [
+      "gpt-6.2-sol"
+    ],
+    "20-features": [
+      "gpt-6.2-sol"
+    ],
+    "30-text": [
+      "gpt-6.2-sol"
+    ],
+    "40-sweep": [
+      "gpt-6.2-sol"
+    ],
+    "50-coverage": [
+      "gpt-6.2-sol"
+    ],
+    "60-verify": [
+      "gpt-6.2-sol"
+    ]
+  },
+  "accuracy": [
+    {
+      "step": "research",
+      "web": true,
+      "models": [
+        "gpt-6.2-sol"
+      ]
+    },
+    {
+      "step": "annotate",
+      "models": [
+        "gpt-6.2-sol"
+      ]
+    },
+    {
+      "step": "sample",
+      "seed": 19026,
+      "size": 80,
+      "wrong": 5,
+      "fixed": 5,
+      "models": [
+        "gpt-6.2-sol"
+      ],
+      "note": "80 of 1,130 comments. Five of 60 written comments and zero of 20 generated comments were wrong. Wilson 95% interval 2.7% to 13.8%, with 4.5% weighted across the two strata. The sample predates the final listing gap repairs."
+    }
+  ],
+  "kit_version": "0.0.360",
+  "created": "2026-11-19",
+  "video": {
+    "screen": "$0400",
+    "charset": ""
+  },
+  "coverage": {
+    "exclude": [
+      [
+        "$0400",
+        "$07FF",
+        "Live VIC bitmap screen matrix and sprite pointers in bank 0"
+      ],
+      [
+        "$0820",
+        "$087F",
+        "Live player sprite image buffer populated by $B454"
+      ],
+      [
+        "$1003",
+        "$1322",
+        "Mutable screen attribute buffer cleared by $199A and copied by $5E0D"
+      ],
+      [
+        "$13EB",
+        "$170A",
+        "Mutable colour attribute buffer cleared by $199A and copied by $5E0D"
+      ],
+      [
+        "$2000",
+        "$3F3F",
+        "Live 8000-byte VIC bitmap drawn by the room and message renderers"
+      ],
+      [
+        "$D000",
+        "$D203",
+        "Freezer restore staging at $D004-$D203 and its four-byte prefix. Original tape title does not contain these bytes"
+      ],
+      [
+        "$D204",
+        "$DFFF",
+        "Deterministic emulator RAM fill. Every byte equals its high address byte XOR its low address byte"
+      ],
+      [
+        "$F900",
+        "$F9C3",
+        "Bitmap icon working buffers populated by $6278 and $6383"
+      ],
+      [
+        "$0880",
+        "$0AFF",
+        "Five VIC sprite staging pairs at pointers $22-$2B. The copy operands at $B80E and $B811 select these work destinations through $1EAE"
+      ],
+      [
+        "$1323",
+        "$13EA",
+        "Mutable bottom attribute buffer cleared by $C5B1 and copied by $C54B"
+      ],
+      [
+        "$170B",
+        "$17D2",
+        "Mutable bottom colour buffer cleared by $C5B1 and copied by $C54B"
+      ],
+      [
+        "$3F80",
+        "$3FFF",
+        "Sixth sprite staging pair at pointers $FE-$FF. The image begins at $3FA0, the last destination in the $1EAE table"
+      ],
+      [
+        "$FA14",
+        "$FC53",
+        "Six 96-byte mirrored sprite work buffers in the directory at $BC5D, written by $BC69"
+      ],
+      [
+        "$FCD4",
+        "$FFA3",
+        "Five 144-byte live entity slot arrays initialised in $B99A and shifted as the player moves between floors by $5F33"
+      ],
+      [
+        "$FFA4",
+        "$FFE3",
+        "Live 64-byte map bitmap cleared and rebuilt at $C2B2"
+      ],
+      [
+        "$0000",
+        "$00FF",
+        "Processor port and transient zero-page workspace. $1901 clears $02-$FF and restores only the current control and music choices"
+      ],
+      [
+        "$0200",
+        "$02DB",
+        "Active mission and entity arrays cleared by $B73F and $B8F3, plus per-column bitmap work buffers filled by $C10E"
+      ],
+      [
+        "$0800",
+        "$081F",
+        "First 32 cells of the live agent sprite pair. The initialization loop at $B2D8 clears the sprite pair area before play"
+      ],
+      [
+        "$FA04",
+        "$FA13",
+        "Address-dependent VICE power-on bytes between live entity attributes and the first mirror buffer. Each byte is the XOR of its address bytes"
+      ]
+    ],
+    "extra": [],
+    "include": []
+  },
+  "io": [],
+  "regions": [
+    [
+      "$4D8C",
+      "$540B",
+      "graphics",
+      "Multicolour bitmap glyphs"
+    ],
+    [
+      "$544C",
+      "$57CB",
+      "levels",
+      "Entity strip definitions"
+    ],
+    [
+      "$6393",
+      "$7A30",
+      "levels",
+      "Base and overlay layout indices and placements"
+    ],
+    [
+      "$8296",
+      "$A687",
+      "graphics",
+      "Door strips and room shape artwork"
+    ],
+    [
+      "$A688",
+      "$ACC7",
+      "graphics",
+      "Bottom-panel bitmap and attributes, with embedded tables and text"
+    ],
+    [
+      "$E000",
+      "$F7FF",
+      "graphics",
+      "Entity animation images"
+    ],
+    [
+      "$F800",
+      "$F8FF",
+      "levels",
+      "Room layout grid"
+    ]
+  ],
+  "links": {
+    "wiki": {
+      "title": "",
+      "url": ""
+    },
+    "manual": {
+      "title": "Mission A.D.",
+      "url": "https://retrogames.biz/games/c64/mission-ad/"
+    }
+  }
+}
