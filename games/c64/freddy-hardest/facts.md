@@ -20,7 +20,25 @@ call KERNAL SETNAM and LOAD for named resources, including C.B, C.A and
 PIC. Those names are missing from this input disk's directory. The
 disk's three actual entries are accounted for in `media.json`.
 The packed route above reaches gameplay without using those directory
-names. The consumers for all retained data have not been established.
+names. The original file-to-RAM mapping is open.
+
+## Loading picture fragments
+
+The standalone `FREDDY HARDEST` file displays the loading illustration
+from VIC bank `$C000`. The stopped display had `$19` at `$D018`
+and multicolour bitmap mode enabled. Rendering its RAM at
+`$E000–$FF3F` as VIC bitmap cells recovers the title, faces and
+credits. Rendering each gameplay hand-over at `$2000–$3F3F` shows
+parts of the same composition between gameplay tables.
+
+The base fragment at `$35B8–$3A1F` matches 1,110 of 1,128 bytes
+at the corresponding offset in the standalone loader. The entire
+`$3CAB–$3F3D` fragment matches between the surface and base, and 627
+of its 659 bytes match the loader. In the base, the 63 bytes after
+`$3B2D` and the 63 bytes after `$3C08` match the illustration exactly.
+The individual workspace bytes at `$3B2D` and `$3C08` are updated by
+the game. The listings identify these surviving picture fragments and
+the gameplay variables between them.
 
 ## The listing's error rate
 

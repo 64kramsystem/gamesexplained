@@ -33,6 +33,20 @@ The four entering-edge routines are `$B78B`, `$B7EA`,
 | 3 | $E000 | $2AF8 | $1F52–$2224 | $BCDF |
 | Other | $F000 | $30A8 | $2352–$2438 | $BD48 |
 
+The reverse reader at `$B710` subtracts 82 bytes before fetching its
+pair. In isolated traces with the cursor set to each forward start,
+the loads at `$B729` and `$B72F` both triggered the watchpoint on
+the first pair of that floor's prefix. The pairs read at `$1300`,
+`$1A00`, `$1F00` and `$2300` were `32 22`, `06 10`,
+`2C 06` and `1E 1B` respectively. Each prefix contains 41 pairs.
+
+The routine at `$B52D` shifts 39 source cells one place to the
+right per row. It includes destination offset 40. In an isolated
+trace with the row pointer at `$4400`, the store instruction at
+`$B532` triggered the watchpoint at `$4428`. The separate player
+frame routine at `$8583` stored `$7B` and `$7C` at
+`$3A20` and `$3A21` when stepped with X set to `$7B`.
+
 `$A119` matches the map cursor to one of four pairs in
 `$ACB3` and `$ACB7`. `$A60C` dispatches the ship readiness
 checks and checks the selected ship's hyperspace and energy-cell
@@ -42,6 +56,19 @@ ready and not-ready messages, a captain-code prompt, choices for
 Artex, Fenix, Borax and Audax, and successful and unsuccessful endings.
 The relation between each physical terminal, collected item and
 all relevant state bytes is open.
+
+The location selector at `$A5D7` uses the low course-cursor byte.
+The code maps `$50` and `$52` to 0, `$9E` and `$A0` to 1,
+and `$EC` and `$EE` to 2. Other values select 3. Isolated store
+watchpoints on `$3BD3` confirmed the outputs for `$50`, `$A0`,
+`$EE` and `$08`. The response printer adds `$3BD5` as a column
+offset, adds `$3BD4` rows of 40 cells, and stops after `$3BD6`
+characters.
+
+In an isolated sprite update at `$CF1E`, the store at `$CF32`
+copied frame pointer `$7B` to `$47F8`. In separate audio tests,
+the load instruction at `$B143` read the streams at `$9D40` and
+`$9E0C` after the voice-one and voice-two initializers respectively.
 
 ## Register census
 

@@ -27,6 +27,12 @@ highest index is 56. The position limits tested by `$C1EE` are
 `$0008` and `$09F9`. Five restart marker comparisons are at
 `$8119`. The meanings of all restart paths are open.
 
+The reverse reader subtracts 41 from the forward cursor before
+fetching an ID. In an isolated trace with the forward cursor at
+`$32F1`, the load at `$C0E6` read `$0C` from `$32C8` and
+triggered a watchpoint there. The fourteen IDs at `$32C8–$32D5`
+precede the forward start and use the same column dictionary.
+
 `$C370` increments the six score glyphs using `$3BBB` as a count
 and `$3BBC` as its starting digit. It carries by wrapping a 9
 glyph at `$6D` to 0 at `$64`. `$B59D` awards a life when
@@ -60,3 +66,9 @@ store. Neutral, right, left and fire read `$7F`, `$77`, `$7B`
 and `$6F` from `$DC00` and store `$1F`, `$17`, `$1B`
 and `$0F` in `$3C1C`. The original snapshot reached the keyboard path. The isolated trace confirms
 that the port-2 joystick path reads the injected directions and fire.
+
+In an isolated sprite update at `$C8F9`, the store at `$C8FE`
+copied sprite 0's Y shadow to `$D001`. A voice-one initialization
+with the pointer set to `$956E` hit the execute checkpoint at
+`$C57E` and triggered three load-watchpoint hits in the stream's
+first seven bytes during the following 17 instructions.

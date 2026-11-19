@@ -8,7 +8,7 @@
 | Surface | Walk, jump, duck, fly-kick and fire a laser | open |
 | Surface | Avoid or fight the surface creatures and cross gaps on floating islands | traced sprite 7 position and update paths at $C221 and $B366. Creature rules remain open |
 | Base | Separate load prompts for the access code | confirmed at $100D with a store watchpoint on $1137 |
-| Base | Explore corridors, tunnels and floors linked by lifts | traced floor data and lift position tables at $BB28 and $BB60. The tunnel controls remain open |
+| Base | Explore corridors, tunnels and floors linked by lifts | live reads of the reverse column data at $B729 and $B72F with the cursor set to each floor's forward start. Lift positions are traced at $BB28 and $BB60. Tunnel controls remain open |
 | Base | Find terminal information and energy cells to prepare a colour-coded ship | traced readiness display at $A60C. Item and terminal paths remain open |
 | Base | Enter the captain's code and launch | open |
 | Base | Fight sentinels, inhabitants and robots with laser, kicks or hand-to-hand moves | open |
