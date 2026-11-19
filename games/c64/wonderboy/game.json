@@ -1,0 +1,105 @@
+{
+  "schema": 1,
+  "platform": "c64",
+  "slug": "wonderboy",
+  "title": "Wonder Boy",
+  "year": 1987,
+  "publisher": "Activision",
+  "developer": "Images Design",
+  "title_image": "reference/title.png",
+  "build": "Remember +10, April 2005",
+  "tier": "bronze",
+  "coverage_percent": 92.7,
+  "copy": "agent-draft",
+  "steward": "",
+  "credits": [],
+  "tools": {
+    "emulator": "VICE 3.14.0 macOS arm64 headless (dummy audio)",
+    "disassembler": "Regenerator2000 0.9.18"
+  },
+  "model": "gpt-6.2-sol",
+  "step_models": {
+    "50-coverage": [
+      "gpt-6.2-sol"
+    ]
+  },
+  "accuracy": [],
+  "kit_version": "0.0.360",
+  "created": "2026-11-19",
+  "video": {
+    "screen": "$4000",
+    "charset": "$7000"
+  },
+  "coverage": {
+    "exclude": [
+      [
+        "$7818",
+        "$7FFF",
+        "Runtime character buffer expanded from the four counted source streams at $AB1F\u2013$BBD1."
+      ]
+    ],
+    "extra": [
+      [
+        "$4400",
+        "$6EFF",
+        "Shape cells in the VIC bank selected by the sprite pointer table."
+      ],
+      [
+        "$7000",
+        "$77FF",
+        "Fixed panel characters and glyphs."
+      ],
+      [
+        "$7800",
+        "$7817",
+        "The shared beginning of the round character set before the unpacker output."
+      ]
+    ],
+    "include": []
+  },
+  "io": [],
+  "regions": [
+    [
+      "$4400",
+      "$6EFF",
+      "graphics",
+      "VIC sprite cell storage"
+    ],
+    [
+      "$7000",
+      "$77FF",
+      "graphics",
+      "Fixed panel characters"
+    ],
+    [
+      "$8000",
+      "$AB11",
+      "levels",
+      "Four compressed round layouts and their tile color tables"
+    ],
+    [
+      "$AB12",
+      "$BBD1",
+      "graphics",
+      "Packed round character shapes"
+    ],
+    [
+      "$C286",
+      "$C2C0",
+      "text",
+      "Title messages"
+    ],
+    [
+      "$C300",
+      "$CE01",
+      "levels",
+      "Object placement lists for the four rounds"
+    ]
+  ],
+  "links": {
+    "wiki": {
+      "title": "Wonder Boy \u2013 C64-Wiki",
+      "url": "https://www.c64-wiki.com/wiki/Wonder_Boy"
+    }
+  }
+}
