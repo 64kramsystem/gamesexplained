@@ -1,0 +1,145 @@
+{
+  "schema": 1,
+  "platform": "c64",
+  "slug": "mountie-micks-death-ride",
+  "title": "Mountie Mick's Death Ride",
+  "year": 1987,
+  "publisher": "Ariolasoft",
+  "developer": "Timedata",
+  "title_image": "reference/title.png",
+  "build": "CSDb 246550, DEATH RIDE /MEGA",
+  "tier": "bronze",
+  "coverage_percent": 100,
+  "copy": "agent-draft",
+  "steward": "",
+  "credits": [],
+  "tools": {
+    "emulator": "VICE-MCP v3.14.0 macOS arm64 headless, dummy audio",
+    "disassembler": "regenerator2000"
+  },
+  "model": "gpt-6.2-sol",
+  "step_models": {
+    "10-orient": [
+      "gpt-6.2-sol"
+    ],
+    "12-media": [
+      "gpt-6.2-sol"
+    ],
+    "20-features": [
+      "gpt-6.2-sol"
+    ],
+    "30-text": [
+      "gpt-6.2-sol"
+    ],
+    "40-sweep": [
+      "gpt-6.2-sol"
+    ],
+    "50-coverage": [
+      "gpt-6.2-sol"
+    ],
+    "60-verify": [
+      "gpt-6.2-sol"
+    ]
+  },
+  "accuracy": [
+    {
+      "step": "research",
+      "models": [
+        "gpt-6.2-sol"
+      ],
+      "web": true
+    },
+    {
+      "step": "annotate",
+      "models": [
+        "gpt-6.2-sol"
+      ]
+    },
+    {
+      "step": "sample",
+      "size": 65,
+      "wrong": 4,
+      "fixed": 4,
+      "seed": 20261119,
+      "models": [
+        "gpt-6.2-sol"
+      ]
+    }
+  ],
+  "kit_version": "0.0.360",
+  "created": "2026-11-19",
+  "video": {
+    "screen": "$4000",
+    "charset": "$4800"
+  },
+  "coverage": {
+    "exclude": [
+      [
+        "$0100",
+        "$02FF",
+        "Unpacker and processor stack workspace. The engine payload begins at $1000."
+      ],
+      [
+        "$0530",
+        "$0FFF",
+        "Bytes below the unpacked engine. The live seven-row train ring ends at $0517, and this remainder matches the loading-picture image except for the packed mover operand."
+      ],
+      [
+        "$AC10",
+        "$FFF9",
+        "Packed staging residue left above the unpacker output pointer when $012B jumps to $1000. The engine installs vectors separately at $FFFA."
+      ],
+      [
+        "$4400",
+        "$47E7",
+        "Alternate work screen. The unpacked image contains zero-filled cells here, and the opening reveal and title write the display."
+      ],
+      [
+        "$47E8",
+        "$47F7",
+        "Padding between the end of the alternate work screen and its eight hardware sprite pointers."
+      ]
+    ],
+    "extra": [
+      [
+        "$1000",
+        "$3FFF",
+        "Game engine, inline data and dispatch tables."
+      ],
+      [
+        "$4800",
+        "$7FFF",
+        "Video character sets and sprite images."
+      ],
+      [
+        "$8000",
+        "$AC0F",
+        "Title, play actions, wagon definitions and audio code and data."
+      ],
+      [
+        "$4000",
+        "$43FF",
+        "Authored initial playfield and status screen."
+      ]
+    ],
+    "include": [
+      [
+        "$4000",
+        "$43FF",
+        "Initial playfield screen supplied by the engine payload, including generated hardware pointer cells."
+      ]
+    ]
+  },
+  "io": [],
+  "regions": [],
+  "links": {
+    "wiki": {
+      "title": "Mountie Mick's Deathride",
+      "url": "https://www.c64-wiki.com/wiki/Mountie_Mick%27s_Deathride"
+    },
+    "manual": {
+      "title": "Mountie Mick's Death Ride - Documentation",
+      "url": "https://www.lemon64.com/doc/mountie-micks-death-ride/1083"
+    }
+  }
+}
