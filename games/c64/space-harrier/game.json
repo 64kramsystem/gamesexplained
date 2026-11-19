@@ -1,0 +1,211 @@
+{
+  "schema": 1,
+  "platform": "c64",
+  "slug": "space-harrier",
+  "title": "Space Harrier",
+  "year": 1987,
+  "publisher": "Elite Systems",
+  "developer": "Chris Butler",
+  "title_image": "reference/title.png",
+  "build": "Elite PAL, Jazzcat Cracking Team D64",
+  "tier": "bronze",
+  "coverage_percent": 80.4,
+  "copy": "agent-draft",
+  "steward": "",
+  "credits": [],
+  "tools": {
+    "emulator": "release v3.14.0, v3.14.0-macos-arm64-headless.zip",
+    "disassembler": "regenerator2000 0.9.18"
+  },
+  "model": "gpt-6.2-sol",
+  "step_models": {
+    "10-orient": [
+      "gpt-6.2-sol"
+    ],
+    "12-media": [
+      "gpt-6.2-sol"
+    ],
+    "20-features": [
+      "gpt-6.2-sol"
+    ],
+    "30-text": [
+      "gpt-6.2-sol"
+    ],
+    "40-sweep": [
+      "gpt-6.2-sol"
+    ],
+    "50-coverage": [
+      "gpt-6.2-sol"
+    ],
+    "60-verify": [
+      "gpt-6.2-sol"
+    ]
+  },
+  "accuracy": [
+    {
+      "step": "research",
+      "web": true,
+      "models": [
+        "gpt-6.2-sol"
+      ]
+    },
+    {
+      "step": "annotate",
+      "models": [
+        "gpt-6.2-sol"
+      ]
+    },
+    {
+      "step": "sample",
+      "size": 65,
+      "wrong": 6,
+      "fixed": 6,
+      "seed": 20261119,
+      "models": [
+        "gpt-6.2-sol"
+      ]
+    }
+  ],
+  "kit_version": "0.0.360",
+  "created": "2026-11-19",
+  "video": {
+    "screen": "$F800",
+    "charset": ""
+  },
+  "coverage": {
+    "exclude": [
+      [
+        "$0000",
+        "$00FF",
+        "CPU port and working zero page, including projectile and object slot state"
+      ],
+      [
+        "$0200",
+        "$084F",
+        "System work area, cracker screen and loader residue before the engine entry"
+      ],
+      [
+        "$4E8B",
+        "$4EEA",
+        "Resident engine work area from player input and stage counters through object motion scratch"
+      ],
+      [
+        "$F800",
+        "$FBFF",
+        "Generated screen cells, HUD and sprite pointers in VIC bank 3"
+      ],
+      [
+        "$A000",
+        "$A0BA",
+        "Music driver voice and filter work area"
+      ],
+      [
+        "$BAEE",
+        "$BAF5",
+        "Sound effect request and in-progress driver state"
+      ],
+      [
+        "$12D0",
+        "$12E1",
+        "Writable score words, cleared in the handover image"
+      ],
+      [
+        "$F7FF",
+        "$F7FF",
+        "Operand base for the clear loop. X ranges from one through $F0, so the first destination is $F800."
+      ],
+      [
+        "$FF4B",
+        "$FFF9",
+        "Identical packed bytes at the second JCT depacker's entry and at game handover. The final destination cursor stopped at $FF4B."
+      ]
+    ],
+    "extra": [
+      [
+        "$4EEB",
+        "$6FFF",
+        "Bytes shared by both disk builds. No consumer or data format assigned."
+      ],
+      [
+        "$BFB3",
+        "$C7FF",
+        "Unclassified bytes following the last effect stream and initial contents of the live character-bank destination."
+      ],
+      [
+        "$EE8D",
+        "$EEFF",
+        "Unclassified loaded bytes beyond the mapped sprite slots or screen workspace."
+      ],
+      [
+        "$EF8D",
+        "$F005",
+        "Unclassified loaded bytes beyond the mapped sprite slots or screen workspace."
+      ],
+      [
+        "$F19F",
+        "$F1F0",
+        "Unclassified loaded bytes beyond the mapped sprite slots or screen workspace."
+      ],
+      [
+        "$F28D",
+        "$F2F4",
+        "Unclassified loaded bytes beyond the mapped sprite slots or screen workspace."
+      ],
+      [
+        "$F49F",
+        "$F4F0",
+        "Unclassified loaded bytes beyond the mapped sprite slots or screen workspace."
+      ],
+      [
+        "$F58D",
+        "$F5F4",
+        "Unclassified loaded bytes beyond the mapped sprite slots or screen workspace."
+      ],
+      [
+        "$F69F",
+        "$F6F0",
+        "Unclassified loaded bytes beyond the mapped sprite slots or screen workspace."
+      ],
+      [
+        "$F78D",
+        "$F7F4",
+        "Unclassified loaded bytes beyond the mapped sprite slots or screen workspace."
+      ],
+      [
+        "$FC9F",
+        "$FCF4",
+        "Unclassified loaded bytes beyond the mapped sprite slots or screen workspace."
+      ],
+      [
+        "$FD9F",
+        "$FDF0",
+        "Unclassified loaded bytes beyond the mapped sprite slots or screen workspace."
+      ],
+      [
+        "$FE9F",
+        "$FEF4",
+        "Unclassified loaded bytes beyond the mapped sprite slots or screen workspace."
+      ]
+    ],
+    "include": [
+      [
+        "$D000",
+        "$DFFF",
+        "VIC sprite pixel data in physical RAM below the chips"
+      ]
+    ]
+  },
+  "io": [],
+  "regions": [],
+  "links": {
+    "wiki": {
+      "title": "Space Harrier \u2013 C64-Wiki",
+      "url": "https://www.c64-wiki.com/wiki/Space_Harrier"
+    },
+    "manual": {
+      "title": "Space Harrier instructions",
+      "url": "https://idpixel.ru/games/s/spaceharrier/files/spaceharriermulti-lang.pdf"
+    }
+  },
+  "hidden": true
+}
