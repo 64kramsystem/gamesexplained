@@ -3,7 +3,7 @@
  "platform": "c64",
  "game": "indiana-jones-and-the-last-crusade",
  "part": "catacombs",
- "build": "",
+ "build": "Electric Boyz disk release",
  "source": "regenerator2000 live",
  "regions": {
   "exclude": [
@@ -85,13 +85,8 @@
   },
   {
    "start": 13824,
-   "end": 30173,
-   "type": "Byte"
-  },
-  {
-   "start": 30174,
    "end": 30208,
-   "type": "Undefined"
+   "type": "Byte"
   }
  ],
  "symbols": [
@@ -220,6 +215,18 @@
    "name": "catacombs_map_107_0",
    "type": "UserDefined",
    "kind": "user"
+  },
+  {
+   "address": 30174,
+   "name": "catacombs_map_row_109_prefix",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 30208,
+   "name": "catacombs_map_row_109_edge_byte",
+   "type": "Field",
+   "kind": "user"
   }
  ],
  "comments": [
@@ -327,6 +334,16 @@
    "address": 29874,
    "type": "line",
    "text": "Catacombs tile IDs from row 107, column 0 through row 108, column 149 (zero-based, 150 bytes per row). The viewport renderer at $883C reads these through the row pointers at $3400/$3500."
+  },
+  {
+   "address": 30174,
+   "type": "line",
+   "text": "First 34 tile codes of row 109 in the 150-column catacombs map. The renderer computes $75DE as the row base."
+  },
+  {
+   "address": 30208,
+   "type": "line",
+   "text": "The last byte written by the map load sits at column 34 of row 109. It has value $02 and the row reader can fetch it at that coordinate."
   }
  ]
 }

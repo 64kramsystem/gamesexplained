@@ -4,8 +4,8 @@
 
 - Electric Boyz release of the C64 action game. [CSDb release record](https://csdb.dk/release/?id=83398)
 - Local disk image `work/electric.d64` is a 174,848-byte, 683-sector D64. The sector reader found six PRGs and no allocated sectors outside the files. The first PRG is `INDIANA JONES`, with load address `$0801`.
-- VICE MCP v3.14.0 macOS arm64 headless with dummy audio, PAL, MCP port 18520. The emulator check passed exact instruction stops and execution, load and store watchpoints. Host-key F1 failed and matrix F1 passed. The unpaced-call portion had no final result before the emulator was restarted.
-- Regenerator2000 on port 18522. Use the assigned port for one part at a time.
+- VICE MCP v3.14.0 macOS arm64 headless with dummy audio, PAL, MCP port 19412 for the resumed session. The emulator check passed exact instruction stops and execution, load and store watchpoints. Host-key F1 failed and matrix F1 passed. The unpaced-call portion had no final result before the emulator was restarted.
+- Regenerator2000 on port 19414 for the resumed session. Use the assigned port for one part at a time.
 
 ## Title and caves
 

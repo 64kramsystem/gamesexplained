@@ -1,22 +1,17 @@
-# Analysis still open
+# Analysis handoff
 
-- Work the resident ledger's bare and uncounted ranges (run `kit/scripts/coverage.py` on the game and resident part). Finish classifying initialized data, the sprite bank's shape groups and the remaining engine and music routines.
-- Resolve the catacombs map's loaded tail at `$75DE–$7600`. Trace consumers before classifying the extra bytes at `$7600` and `$3000` in the later loads.
-- Complete coverage before the verification step. Sample listing comments using the agreed model, then rebuild the listings and recheck the exact counts.
-- Resolve the feature rows still marked open, particularly the remaining stage mechanics. A full playthrough is outside this analysis handoff.
+The rebuilt listings and exported maps cover the full tracked image. The resident data uses at $2500–$26FF, $7AB0–$7B2F, $13F7–$146C and $BB00–$BB47 remain open beyond the measured formats and comparisons in [facts.md](facts.md) and the [resident notes](parts/resident/facts.md). Other feature questions and the evidence examined are in [features.md](features.md).
 
-## Coverage at handoff
+The independent listing sample found six errors in 60 comments, all corrected. A full audit is recommended. This run used gpt-6.2-sol, which the kit's model registry does not list as proven. Attaining Silver also requires the proven-model check, minisite and reader review.
 
-The rebuilt listings report zero uncounted stretches. The resident ledger tracks several stable hand-over ranges whose purpose remains open. The part ledgers still have 13,927 tracked bytes without explanations.
+The stage states came from the game’s initializer. Instruction watchpoints started from the saved states. No replayable play route was required.
 
-| Part | Explained bytes | Tracked bytes |
-|---|---:|---:|
-| Resident engine | 26,966 | 40,854 |
-| Caves | 18,432 | 18,432 |
-| Train | 8,704 | 8,704 |
-| Catacombs | 18,398 | 18,433 |
-| Airship | 18,432 | 18,434 |
-| Grail temple | 18,432 | 18,434 |
-| Total | 109,364 | 123,291 |
-
-Step 50 is open. Steps 60 and 65 have no completed output. The overlay snapshots use the stage initializer directly and require no recorded play to reconstruct. Per-part reports and scripts are in the ignored work directories.
+| Part | Explained bytes | Tracked bytes | Uncounted listing stretches |
+|---|---:|---:|---:|
+| Resident engine | 40,901 | 40,901 | 0 |
+| Caves | 18,432 | 18,432 | 0 |
+| Train | 8,704 | 8,704 | 0 |
+| Catacombs | 18,433 | 18,433 | 0 |
+| Airship | 18,434 | 18,434 | 0 |
+| Grail temple | 18,434 | 18,434 | 0 |
+| Total | 123,338 | 123,338 | 0 |

@@ -3,7 +3,7 @@
  "platform": "c64",
  "game": "indiana-jones-and-the-last-crusade",
  "part": "airship",
- "build": "",
+ "build": "Electric Boyz disk release",
  "source": "regenerator2000 live",
  "regions": {
   "exclude": [
@@ -119,9 +119,9 @@
   },
   {
    "address": 12288,
-   "name": "f_3000",
+   "name": "stage_load_palette_entry_zero",
    "type": "Field",
-   "kind": "auto"
+   "kind": "user"
   },
   {
    "address": 13824,
@@ -224,6 +224,12 @@
    "name": "airship_map_62_0",
    "type": "UserDefined",
    "kind": "user"
+  },
+  {
+   "address": 30208,
+   "name": "stage_map_end_byte",
+   "type": "UserDefined",
+   "kind": "user"
   }
  ],
  "comments": [
@@ -236,6 +242,11 @@
    "address": 11264,
    "type": "line",
    "text": "Patterns $80-$FF for the airship charset at $2800. The high-index patterns are selected by map bytes in the same way as the lower 128."
+  },
+  {
+   "address": 12288,
+   "type": "line",
+   "text": "A load-time $FF at the first working palette entry. Stage setup replaces it with $0B before the screen colour lookup reads this address."
   },
   {
    "address": 13824,
@@ -321,6 +332,11 @@
    "address": 29696,
    "type": "line",
    "text": "Airship tile IDs from row 62, column 0 through row 63, column 255 (zero-based, 256 bytes per row). The viewport renderer at $883C reads these through the row pointers at $3400/$3500."
+  },
+  {
+   "address": 30208,
+   "type": "line",
+   "text": "The final expanded map byte has value $02. The 256-column row addressing places it at column zero of row 64, immediately after the 64 complete loaded rows."
   }
  ]
 }
