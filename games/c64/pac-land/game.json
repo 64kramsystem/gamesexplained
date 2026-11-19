@@ -1,0 +1,150 @@
+{
+  "schema": 1,
+  "platform": "c64",
+  "slug": "pac-land",
+  "title": "Pac-Land",
+  "year": 1988,
+  "publisher": "Quicksilva",
+  "developer": "Martin Gannon and Allan Ogg",
+  "title_image": "",
+  "build": "Madonna Cracking Group disk",
+  "tier": "bronze",
+  "coverage_percent": 99.9,
+  "copy": "agent-draft",
+  "steward": "",
+  "credits": [],
+  "tools": {
+    "emulator": "VICE-MCP 3.14.0 macOS arm64 headless, dummy audio",
+    "disassembler": "regenerator2000 0.9.18 (stdio bridge)"
+  },
+  "model": "gpt-6.2-sol",
+  "step_models": {
+    "10-orient": [
+      "gpt-6.2-sol"
+    ],
+    "12-media": [
+      "gpt-6.2-sol"
+    ],
+    "20-features": [
+      "gpt-6.2-sol"
+    ],
+    "30-text": [
+      "gpt-6.2-sol"
+    ],
+    "40-sweep": [
+      "gpt-6.2-sol"
+    ],
+    "50-coverage": [
+      "gpt-6.2-sol"
+    ],
+    "60-verify": [
+      "gpt-6.2-sol"
+    ]
+  },
+  "accuracy": [
+    {
+      "step": "research",
+      "web": true,
+      "models": [
+        "gpt-6.2-sol"
+      ]
+    },
+    {
+      "step": "annotate",
+      "models": [
+        "gpt-6.2-sol"
+      ]
+    },
+    {
+      "step": "sample",
+      "size": 80,
+      "wrong": 9,
+      "fixed": 9,
+      "seed": 20261119,
+      "models": [
+        "gpt-6.2-sol"
+      ]
+    }
+  ],
+  "kit_version": "0.0.360",
+  "created": "2026-11-19",
+  "video": {
+    "screen": "",
+    "charset": ""
+  },
+  "coverage": {
+    "exclude": [
+      [
+        "$0000",
+        "$00FF",
+        "CPU port and runtime zero-page workspace initialized and overwritten by the engine"
+      ],
+      [
+        "$0210",
+        "$0298",
+        "Runtime object slots, counters and movement workspace initialized by the engine"
+      ],
+      [
+        "$0314",
+        "$0319",
+        "KERNAL indirect vectors written at engine initialization"
+      ],
+      [
+        "$9F80",
+        "$A7FF",
+        "Generated order lists, event maps and score scratch space"
+      ],
+      [
+        "$B000",
+        "$B068",
+        "SID voice and sequencing work state initially cleared by the tune initializer"
+      ],
+      [
+        "$C7F8",
+        "$C7FF",
+        "Runtime sprite pointers written to VIC screen memory"
+      ],
+      [
+        "$B1C4",
+        "$B1DB",
+        "Active sound effect descriptor copy and music/effect sequence timers"
+      ]
+    ],
+    "extra": [
+      [
+        "$C400",
+        "$C7F7",
+        "Authored screen cells at handover, reused as the live screen matrix"
+      ],
+      [
+        "$3FEA",
+        "$3FFF",
+        "Retained bytes before the terrain dictionary, with purpose still open"
+      ],
+      [
+        "$BFEE",
+        "$BFFE",
+        "Retained bytes between the icon glyph source and alternate-scroll index base, with purpose still open"
+      ]
+    ],
+    "include": [
+      [
+        "$D000",
+        "$DFFF",
+        "VIC sprite pattern RAM at $D000-$DFFF beneath CPU I/O"
+      ]
+    ]
+  },
+  "io": [],
+  "regions": [],
+  "links": {
+    "wiki": {
+      "title": "Pac-Land – C64-Wiki",
+      "url": "https://www.c64-wiki.com/wiki/Pac-Land"
+    },
+    "manual": {
+      "title": "Pac-Land – C64 Instructions",
+      "url": "https://www.lemon64.com/doc/pac-land/434"
+    }
+  }
+}

@@ -1,0 +1,10 @@
+{"schema": 1,
+ "images": [
+  {"name": "disk", "file": "pac-land.d64", "what": "disk side", "sha256": "8e0bcde5d3c760869eba445dec3eabf443f5bc8fc98d1ceec7f0f244de5458c3"}
+ ],
+ "items": [
+  {"image": "disk", "label": "PAC-LAND   (PIC)", "place": {"file": "PAC-LAND   (PIC)", "type": "PRG", "track": 17, "sector": 0}, "load": "$0801", "bytes": 8681, "sha256": "b8b878f39382ee055f59c0eb980ac9cf00abecfbc66d3a9849aaf2b8f1927e7c", "answer": "data", "why": "Independently runnable bitmap viewer at directory entry 1. After unpacking, it displays a map of Pac-Land with the fairy and Pac."},
+  {"image": "disk", "label": "PAC-LAND   (MCG)", "place": {"file": "PAC-LAND   (MCG)", "type": "PRG", "track": 19, "sector": 0}, "load": "$0801", "bytes": 43759, "sha256": "13d6a241b8fd1218e1dbba46b8995b2d2c4fb26718cdac6797749527fd3eda8c", "answer": "part", "at": "$033C", "packed": true, "why": "The packed boot and MCG intro hand over to the installed game at $033C. The listing is built from that snapshot."},
+  {"image": "disk", "label": "^PAC LAND NOTE!^", "place": {"file": "^PAC LAND NOTE!^", "type": "PRG", "track": 16, "sector": 17}, "load": "$0801", "bytes": 1448, "sha256": "fb7a5439f41f7d2dc56170aeca27ce96a372b548fb529d1d32ab71be5c5aace6", "answer": "data", "why": "Independently runnable RADWAR note. Its screen describes the credit requirement and controls. It has a separate BASIC SYS 2080 entry loaded from directory entry 3."},
+  {"image": "disk", "label": "PAC-LAND TUNES!!", "place": {"file": "PAC-LAND TUNES!!", "type": "PRG", "track": 16, "sector": 6}, "load": "$0801", "bytes": 4110, "sha256": "fdbd374acfaeeeab42002c9ee593fca7eb8bb7a25073470d632e55e888054ba8", "answer": "data", "why": "Stand-alone music rip identified on the disk and by the CSDb catalog. Eleven aligned chunks match resident music at displacement $ACDC, in both game snapshots."}
+ ]}
