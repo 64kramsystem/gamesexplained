@@ -8,7 +8,7 @@ The address references are for the Madonna Cracking Group disk, using the packed
 - The renderer combines $C400 character cells and $D800 colour cells with two character sets. $382A swaps eight pages between $A800 and $C800. A byte-for-byte comparison of entry and Round 1 shows both sets exchanged, all 2,048 bytes in each direction. $386B can replace the $CA78-$CBE7 tile subset with one of two $170-byte patches at $78D2 and $7A42.
 - The working round index $1D runs from 1 to 16. $0C6D adds one and changes $11 to 1. It separately increments the decimal display count at $1C. Stepping the transition instructions from $1C=$16 and $1D=$10 produced $1C=$17 and $1D=$01 at $0C81.
 - $EF46 selects the round's recipe through the split pointer table at $7D08/$7D1C. A positive byte selects a strip. A negative byte goes straight into the expanded high-byte stream as an event marker. Zero ends the recipe.
-- A strip consists of paired source lists selected by $7855/$7874 and $7893/$78B2. The high list's zero ends the strip. Each normal pair gives a pointer into $4000-$6FFF. The sixteen recipes reach 807 distinct, consecutive column records in that range. The records each decode to 20 glyphs.
+- A strip consists of paired source lists selected by $7855/$7874 and $7893/$78B2. The high list's zero ends the strip. Each normal pair gives a pointer into $4000-$6FFF. The sixteen recipes reach 807 distinct, consecutive column records in that range. The records each decode to 20 glyphs. In Round 2 a read watch on $78D1 stopped after $EFA2 with X=$1F and A=$78. The next instruction installed the high byte of strip $1F's high-list pointer, $7830.
 - In a column record, bytes $00-$07 select colour, $FF terminates, and $F2-$FE repeat the preceding glyph by the low nibble. Ordinary bytes in between emit a glyph. The runtime decoder has an additional colour case for glyph $82 at $9D47 and $9E3A. The Round 1 right-edge decoder executed $9E2D with its operand patched to $4561. At $4561 the first eight bytes are `06 BE 21 FE 81 20 F2 FF`.
 - $EF46 also expands the selected round's object layout and its separate run-length event map. $F023 reads count and value pairs until count zero and writes the result beginning at $A5E0. In Round 1, eleven pairs at $939C expand to 503 bytes.
 - The main loop compares the 16-bit world coordinate at $9D/$9E with the finish coordinate at $9F/$A0. When equal it calls the finish sequence and then the round transition. $0DCD dispatches ending sequences using the round modulo four. These paths are traced from the code.
@@ -63,10 +63,15 @@ The boot reached the handover and Round 1. Additional checks used execute breakp
 - A write watch on the pause operand at $040F fired after $7FBB when F7 was held. The operand was 1 and the PC had advanced to $7FBE.
 - From the eligible power pill contact branch at $2853, stepping $2857-$285D set the flag at $23 and passed A=$09 to the tune selector. The check isolates the result of a successful contact. Object-specific collision windows remain open.
 - $7F0B and $EE0B use the round number to index $BFFF. The sixteen bytes read are also the first two glyph definitions of the panel character set. The two zero entries leave the normal scroll path active for rounds 7 and 15. A nonzero entry selects the alternate path.
+- The startup copy at $0342 reads nine bytes from $03C2-$03CA and writes nine to $8000-$8008. A store watch on the adjacent seven zero bytes recorded zero hits from entry to title. The glyph copy at $1B4D reads eight bytes through $7FFC and leaves the three trailing zero bytes unread on that path.
+- At $0CCE, X=2 selects the second player's saved restart-coordinate high byte at $8688. A store watch fired once and the value became zero during the isolated round-save routine.
+- The final placement script begins at $9242. Its last four bytes form the third and fourth lists and their terminators. Read and store watches in the initializer caught four reads at $9246-$9249 and the writes of $80 to $0128 and $00 to $0130.
 
-## Resident bytes with open purpose
+## Data retained from unpacking
 
-$3FEA-$3FFF and $BFEE-$BFFE are present in both the MCG handover and the Wanderer Group title snapshot. A load watch on each interval recorded zero hits while running each of the sixteen round initializers from $EBC2 to $ED5F. The terrain dictionary watch recorded 495–562 reads on those same paths. The intervals remain in the coverage denominator.
+Both the MCG handover and the Wanderer Group title snapshot contain identical sequences at $3FEA-$3FFF and $BFEE-$BFFE. The MCG intro held different bytes at both locations. After SPACE, store watches on the two intervals and on the neighboring terrain dictionary stopped at PC $03C4 during unpacking. At the handover at $033C all three ranges matched the entry snapshot.
+
+Read and execute watches recorded zero hits on both intervals from the handover to the title input at $074C. The sixteen round initializers also left them unread, with 495–562 reads recorded on the terrain dictionary as a positive control. The icon copier read 48 bytes through $BFED and wrote all 48 to $C840-$C86F. Its read watch on $BFEE-$BFFE recorded zero hits. Both retained intervals are counted and described in the listing. Their original role is open.
 
 ## Listing error rate
 

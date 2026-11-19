@@ -56,12 +56,12 @@
    [
     16362,
     16383,
-    "Retained bytes before the terrain dictionary, with purpose still open"
+    "Resident bytes installed by the unpacker before the terrain dictionary"
    ],
    [
     49134,
     49150,
-    "Retained bytes between the icon glyph source and alternate-scroll index base, with purpose still open"
+    "Resident bytes installed by the unpacker between the icon glyph source and alternate-scroll index base"
    ]
   ],
   "edges": [
@@ -143,11 +143,6 @@
   },
   {
    "start": 30929,
-   "end": 30929,
-   "type": "Undefined"
-  },
-  {
-   "start": 30930,
    "end": 31927,
    "type": "Byte"
   },
@@ -178,31 +173,11 @@
   },
   {
    "start": 32757,
-   "end": 32764,
+   "end": 34440,
    "type": "Byte"
   },
   {
-   "start": 32765,
-   "end": 32767,
-   "type": "Undefined"
-  },
-  {
-   "start": 32768,
-   "end": 32776,
-   "type": "Byte"
-  },
-  {
-   "start": 32777,
-   "end": 32783,
-   "type": "Undefined"
-  },
-  {
-   "start": 32784,
-   "end": 34439,
-   "type": "Byte"
-  },
-  {
-   "start": 34440,
+   "start": 34441,
    "end": 34514,
    "type": "Undefined"
   },
@@ -258,11 +233,11 @@
   },
   {
    "start": 37362,
-   "end": 37445,
+   "end": 37449,
    "type": "Byte"
   },
   {
-   "start": 37446,
+   "start": 37450,
    "end": 37526,
    "type": "Undefined"
   },
@@ -9535,6 +9510,12 @@
    "kind": "auto"
   },
   {
+   "address": 16362,
+   "name": "retained_before_terrain_columns",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
    "address": 16384,
    "name": "terrain_column_4000",
    "type": "UserDefined",
@@ -14875,6 +14856,12 @@
    "kind": "user"
   },
   {
+   "address": 30929,
+   "name": "strip_31_high_pointer_high",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
    "address": 30930,
    "name": "first_tile_patch",
    "type": "Field",
@@ -15409,9 +15396,21 @@
    "kind": "user"
   },
   {
+   "address": 32765,
+   "name": "icon_source_trailing_zeros",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
    "address": 32768,
    "name": "restart_signature",
    "type": "Field",
+   "kind": "user"
+  },
+  {
+   "address": 32777,
+   "name": "restart_signature_trailing_zeros",
+   "type": "UserDefined",
    "kind": "user"
   },
   {
@@ -15628,6 +15627,12 @@
    "address": 34438,
    "name": "restart_world_position_high",
    "type": "Field",
+   "kind": "user"
+  },
+  {
+   "address": 34440,
+   "name": "player_two_restart_world_high",
+   "type": "UserDefined",
    "kind": "user"
   },
   {
@@ -16245,6 +16250,12 @@
   {
    "address": 37370,
    "name": "scripted_placement_streams",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 37446,
+   "name": "final_placement_script_tail",
    "type": "UserDefined",
    "kind": "user"
   },
@@ -18316,6 +18327,12 @@
    "address": 49086,
    "name": "playfield_icon_glyph_source",
    "type": "Field",
+   "kind": "user"
+  },
+  {
+   "address": 49134,
+   "name": "retained_after_icon_glyphs",
+   "type": "UserDefined",
    "kind": "user"
   },
   {
@@ -22867,6 +22884,11 @@
    "text": "Read the saved per-player marker for the selected round and clear the matching byte reached through $C35E/$C36F when the branch permits."
   },
   {
+   "address": 16362,
+   "type": "line",
+   "text": "Twenty-two resident bytes between the restart helper ending at $3FE7 and the terrain dictionary starting at $4000. The MCG unpacker writes these bytes in the same pass as the dictionary, and the Wanderer release preserves the identical sequence. Entry to title and the sixteen round initializers left the range unread. Its original role is open."
+  },
+  {
    "address": 16384,
    "type": "line",
    "text": "Terrain column starting with palette byte 5. Its glyph sequence begins with $20, repeats that glyph 13 times and then emits $8C, $EF and four copies of $20 before the terminator."
@@ -27319,7 +27341,12 @@
   {
    "address": 30898,
    "type": "line",
-   "text": "High address bytes of the split table for terrain strip high-pointer lists."
+   "text": "At this address the final low byte is used for strip $1F. $EFA2 uses the same address as its indexed base, so the first actual high byte is at $78B3 and the last is at $78D1."
+  },
+  {
+   "address": 30929,
+   "type": "line",
+   "text": "Final high byte of the terrain strip high-stream pointers. $EFA2 reads it with X=$1F, pairing it with the low byte at $78B2. The high-byte table begins at $78B3 because strip indices start at one."
   },
   {
    "address": 30930,
@@ -27632,9 +27659,19 @@
    "text": "Eight glyph bytes installed at $C8E0 by $1B40."
   },
   {
+   "address": 32765,
+   "type": "line",
+   "text": "Three zero bytes between the eight-byte glyph at $7FF5 and the restart signature at $8000. The glyph copier at $1B4D stops at $7FFC."
+  },
+  {
    "address": 32768,
    "type": "line",
    "text": "Reset and NMI words plus the cartridge signature bytes installed from $03C2 when the engine enters."
+  },
+  {
+   "address": 32777,
+   "type": "line",
+   "text": "Seven zero bytes between the nine-byte restart signature and the next data block at $8010. The entry loop at $0342-$0349 writes only $8000-$8008."
   },
   {
    "address": 32784,
@@ -27815,6 +27852,11 @@
    "address": 34438,
    "type": "line",
    "text": "Base of the paired saved restart-coordinate high bytes."
+  },
+  {
+   "address": 34440,
+   "type": "line",
+   "text": "Second player's saved restart coordinate high byte, at $8686 indexed with X=2. $0CCE clears it when saving the player's round."
   },
   {
    "address": 34441,
@@ -28330,6 +28372,11 @@
    "address": 37370,
    "type": "line",
    "text": "Concatenated placement tables copied to $0118, $0120, $0128 and $0130 for selected rounds."
+  },
+  {
+   "address": 37446,
+   "type": "line",
+   "text": "In the fourth placement script, $80,$FF closes the list copied to $0128 and $00,$FF closes the list copied to $0130. The loops at $247B and $248B consume these four bytes."
   },
   {
    "address": 37450,
@@ -29155,6 +29202,11 @@
    "address": 49086,
    "type": "line",
    "text": "Six eight-byte glyphs copied to active character slots $08-$0D at $C840."
+  },
+  {
+   "address": 49134,
+   "type": "line",
+   "text": "Seventeen resident bytes between the six icon glyphs and the round-index base at $BFFF. The MCG unpacker installs these bytes and the Wanderer release preserves the identical sequence. $1B42 reads 48 source bytes through $BFED, and the round-indexed reader adds a 1-based index to $BFFF. The intervening bytes have an open original role."
   },
   {
    "address": 49151,
