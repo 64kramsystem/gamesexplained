@@ -37,9 +37,84 @@
     "Residual KERNAL tape header and bootstrap, up to the game payload at $0400."
    ],
    [
+    3624,
+    4095,
+    "RAM residue after the front-end END marker. It shares the low-address and bit pattern of the unrelated engine tail at $C668."
+   ],
+   [
+    4584,
+    4607,
+    "Star page tail after the trailing flag array and color. It shares the RAM residue pattern at the same offsets in other pages."
+   ],
+   [
+    4840,
+    4863,
+    "Nuncha page tail after the trailing flag array and color. It shares the RAM residue pattern at the same offsets in other pages."
+   ],
+   [
+    5114,
+    5119,
+    "Pole page tail after the extra small-value fields. Five of its last six bytes match the same offsets at $16FA, with one differing bit."
+   ],
+   [
+    5356,
+    5375,
+    "Chain page residue after the END marker and its trailing zero."
+   ],
+   [
+    5868,
+    5887,
+    "Fan page residue after the END marker and its trailing zero."
+   ],
+   [
+    6124,
+    6143,
+    "Sword page residue after the END marker and its trailing zero."
+   ],
+   [
+    6380,
+    6399,
+    "Tonfun page residue after the END marker and its trailing zero."
+   ],
+   [
+    6623,
+    6655,
+    "Blues page residue begins at the exclusive bound of the opponent copy and has the alternating byte pattern of the unloaded portion of the exchange-table pages."
+   ],
+   [
+    6976,
+    7167,
+    "RAM residue after the last pose flag. For example, 63 of the first 64 bytes match the corresponding offsets at $1F40."
+   ],
+   [
+    7462,
+    8191,
+    "RAM residue after the exchange tables and END marker. The two last pages match in 240 of 256 positions and share their remaining bit patterns with the sprite-bank tail."
+   ],
+   [
+    12415,
+    13311,
+    "RAM residue from the first byte beyond the sprite exchange. The same offsets repeat with bit variations across these pages and in the tail of the exchange tables."
+   ],
+   [
+    13734,
+    13823,
+    "RAM residue after the retained terrain commands. At $35A8, 79 of 88 bytes match $30A8 in the sprite-bank tail."
+   ],
+   [
     16384,
     17407,
     "At hand-over this is the relocated tape loader and its workspace. The game overwrites it with generated screen cells and live sprite pointers."
+   ],
+   [
+    40447,
+    40959,
+    "RAM residue beyond the sound events. The two last pages match in 241 of 256 positions with a shared alternating byte pattern."
+   ],
+   [
+    50794,
+    51199,
+    "RAM residue after the END marker and the largest effective index from the move-to-pose table. The tail shares the low-address and bit pattern of the unrelated front-end tail at $0E28."
    ]
   ],
   "extra": [
@@ -204,7 +279,7 @@
   {
    "start": 2977,
    "end": 2991,
-   "type": "Undefined"
+   "type": "PETSCII Text"
   },
   {
    "start": 2992,
@@ -243,96 +318,81 @@
   },
   {
    "start": 3621,
+   "end": 3623,
+   "type": "Byte"
+  },
+  {
+   "start": 3624,
    "end": 4095,
    "type": "Undefined"
   },
   {
    "start": 4096,
-   "end": 4318,
+   "end": 4583,
    "type": "Byte"
   },
   {
-   "start": 4319,
-   "end": 4351,
-   "type": "Undefined"
-  },
-  {
-   "start": 4352,
-   "end": 4574,
-   "type": "Byte"
-  },
-  {
-   "start": 4575,
+   "start": 4584,
    "end": 4607,
    "type": "Undefined"
   },
   {
    "start": 4608,
-   "end": 4830,
+   "end": 4839,
    "type": "Byte"
   },
   {
-   "start": 4831,
+   "start": 4840,
    "end": 4863,
    "type": "Undefined"
   },
   {
    "start": 4864,
-   "end": 5086,
+   "end": 5113,
    "type": "Byte"
   },
   {
-   "start": 5087,
+   "start": 5114,
    "end": 5119,
    "type": "Undefined"
   },
   {
    "start": 5120,
-   "end": 5342,
+   "end": 5355,
    "type": "Byte"
   },
   {
-   "start": 5343,
+   "start": 5356,
    "end": 5375,
    "type": "Undefined"
   },
   {
    "start": 5376,
-   "end": 5598,
+   "end": 5867,
    "type": "Byte"
   },
   {
-   "start": 5599,
-   "end": 5631,
-   "type": "Undefined"
-  },
-  {
-   "start": 5632,
-   "end": 5854,
-   "type": "Byte"
-  },
-  {
-   "start": 5855,
+   "start": 5868,
    "end": 5887,
    "type": "Undefined"
   },
   {
    "start": 5888,
-   "end": 6110,
+   "end": 6123,
    "type": "Byte"
   },
   {
-   "start": 6111,
+   "start": 6124,
    "end": 6143,
    "type": "Undefined"
   },
   {
    "start": 6144,
-   "end": 6366,
+   "end": 6379,
    "type": "Byte"
   },
   {
-   "start": 6367,
+   "start": 6380,
    "end": 6399,
    "type": "Undefined"
   },
@@ -393,11 +453,11 @@
   },
   {
    "start": 7455,
-   "end": 7458,
+   "end": 7461,
    "type": "Byte"
   },
   {
-   "start": 7459,
+   "start": 7462,
    "end": 8191,
    "type": "Undefined"
   },
@@ -413,46 +473,16 @@
   },
   {
    "start": 13312,
-   "end": 13568,
+   "end": 13733,
    "type": "Byte"
   },
   {
-   "start": 13569,
-   "end": 13573,
-   "type": "Undefined"
-  },
-  {
-   "start": 13574,
-   "end": 13728,
-   "type": "Byte"
-  },
-  {
-   "start": 13729,
+   "start": 13734,
    "end": 13823,
    "type": "Undefined"
   },
   {
    "start": 13824,
-   "end": 14333,
-   "type": "Byte"
-  },
-  {
-   "start": 14334,
-   "end": 14335,
-   "type": "Undefined"
-  },
-  {
-   "start": 14336,
-   "end": 15094,
-   "type": "Byte"
-  },
-  {
-   "start": 15095,
-   "end": 15231,
-   "type": "Undefined"
-  },
-  {
-   "start": 15232,
    "end": 16383,
    "type": "Byte"
   },
@@ -523,31 +553,11 @@
   },
   {
    "start": 36530,
-   "end": 37766,
+   "end": 40446,
    "type": "Byte"
   },
   {
-   "start": 37767,
-   "end": 37782,
-   "type": "Undefined"
-  },
-  {
-   "start": 37783,
-   "end": 39627,
-   "type": "Byte"
-  },
-  {
-   "start": 39628,
-   "end": 39658,
-   "type": "Undefined"
-  },
-  {
-   "start": 39659,
-   "end": 40444,
-   "type": "Byte"
-  },
-  {
-   "start": 40445,
+   "start": 40447,
    "end": 40959,
    "type": "Undefined"
   },
@@ -758,16 +768,6 @@
   },
   {
    "start": 46118,
-   "end": 46148,
-   "type": "Byte"
-  },
-  {
-   "start": 46149,
-   "end": 46158,
-   "type": "Undefined"
-  },
-  {
-   "start": 46159,
    "end": 46169,
    "type": "Byte"
   },
@@ -978,11 +978,11 @@
   },
   {
    "start": 50777,
-   "end": 50787,
+   "end": 50793,
    "type": "Byte"
   },
   {
-   "start": 50788,
+   "start": 50794,
    "end": 51199,
    "type": "Undefined"
   },
@@ -1683,6 +1683,12 @@
    "kind": "user"
   },
   {
+   "address": 2048,
+   "name": "rank_stage_labels_tail",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
    "address": 2061,
    "name": "f_080D",
    "type": "Field",
@@ -2007,6 +2013,12 @@
    "kind": "auto"
   },
   {
+   "address": 2977,
+   "name": "retained_name_entry_caption",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
    "address": 2992,
    "name": "poll_both_joystick_ports",
    "type": "Subroutine",
@@ -2109,9 +2121,21 @@
    "kind": "auto"
   },
   {
+   "address": 3621,
+   "name": "frontend_end_marker",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
    "address": 4096,
    "name": "buchu_pose_parameters",
    "type": "AbsoluteAddress",
+   "kind": "user"
+  },
+  {
+   "address": 4319,
+   "name": "buchu_retained_record_tail",
+   "type": "UserDefined",
    "kind": "user"
   },
   {
@@ -2127,9 +2151,21 @@
    "kind": "user"
   },
   {
+   "address": 4575,
+   "name": "star_retained_record_tail",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
    "address": 4608,
    "name": "nuncha_pose_parameters",
    "type": "AbsoluteAddress",
+   "kind": "user"
+  },
+  {
+   "address": 4831,
+   "name": "nuncha_retained_record_tail",
+   "type": "UserDefined",
    "kind": "user"
   },
   {
@@ -2139,9 +2175,21 @@
    "kind": "user"
   },
   {
+   "address": 5087,
+   "name": "pole_retained_record_tail",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
    "address": 5120,
    "name": "chain_pose_parameters",
    "type": "AbsoluteAddress",
+   "kind": "user"
+  },
+  {
+   "address": 5343,
+   "name": "chain_retained_record_tail",
+   "type": "UserDefined",
    "kind": "user"
   },
   {
@@ -2151,9 +2199,21 @@
    "kind": "user"
   },
   {
+   "address": 5599,
+   "name": "club_retained_record_tail",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
    "address": 5632,
    "name": "fan_pose_parameters",
    "type": "AbsoluteAddress",
+   "kind": "user"
+  },
+  {
+   "address": 5855,
+   "name": "fan_retained_record_tail",
+   "type": "UserDefined",
    "kind": "user"
   },
   {
@@ -2169,9 +2229,21 @@
    "kind": "user"
   },
   {
+   "address": 6111,
+   "name": "sword_retained_record_tail",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
    "address": 6144,
    "name": "tonfun_pose_parameters",
    "type": "AbsoluteAddress",
+   "kind": "user"
+  },
+  {
+   "address": 6367,
+   "name": "tonfun_retained_record_tail",
+   "type": "UserDefined",
    "kind": "user"
   },
   {
@@ -2487,6 +2559,12 @@
    "kind": "auto"
   },
   {
+   "address": 7459,
+   "name": "exchange_end_marker",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
    "address": 7584,
    "name": "a_1DA0",
    "type": "AbsoluteAddress",
@@ -2553,8 +2631,20 @@
    "kind": "user"
   },
   {
+   "address": 13569,
+   "name": "terrain_stream_bridge",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
    "address": 13574,
    "name": "repeated_stage_color_and_tile_runs",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 13729,
+   "name": "retained_terrain_tail",
    "type": "UserDefined",
    "kind": "user"
   },
@@ -2577,9 +2667,27 @@
    "kind": "user"
   },
   {
+   "address": 14334,
+   "name": "retained_preview_fill_bytes",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
    "address": 14336,
    "name": "temple_stage_stream",
    "type": "AbsoluteAddress",
+   "kind": "user"
+  },
+  {
+   "address": 15095,
+   "name": "retained_temple_stream_fragments",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 15123,
+   "name": "temple_page_fill",
+   "type": "UserDefined",
    "kind": "user"
   },
   {
@@ -3328,7 +3436,7 @@
   },
   {
    "address": 33149,
-   "name": "restore_voice_one_pitch_state",
+   "name": "restore_voice_one_pulse_width",
    "type": "Subroutine",
    "kind": "user"
   },
@@ -3340,7 +3448,7 @@
   },
   {
    "address": 33174,
-   "name": "restore_voice_two_pitch_state",
+   "name": "restore_voice_two_pulse_width",
    "type": "Subroutine",
    "kind": "user"
   },
@@ -3352,7 +3460,7 @@
   },
   {
    "address": 33199,
-   "name": "restore_voice_three_pitch_state",
+   "name": "restore_voice_three_pulse_width",
    "type": "Subroutine",
    "kind": "user"
   },
@@ -4234,13 +4342,13 @@
   },
   {
    "address": 34879,
-   "name": "voice_two_pitch_ramp_mode",
+   "name": "voice_two_pulse_width_ramp_mode",
    "type": "UserDefined",
    "kind": "user"
   },
   {
    "address": 34880,
-   "name": "voice_two_ramp_mode_mask",
+   "name": "voice_two_pulse_width_restart_mask",
    "type": "AbsoluteAddress",
    "kind": "user"
   },
@@ -6099,6 +6207,12 @@
    "kind": "user"
   },
   {
+   "address": 37767,
+   "name": "retained_duration_multiples",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
    "address": 37783,
    "name": "sid_music_events_9397",
    "type": "AbsoluteAddress",
@@ -6339,6 +6453,12 @@
    "kind": "user"
   },
   {
+   "address": 39628,
+   "name": "retained_music_phrase",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
    "address": 39659,
    "name": "sid_music_events_9aeb",
    "type": "AbsoluteAddress",
@@ -6414,6 +6534,12 @@
    "address": 40396,
    "name": "sid_music_events_9dcc",
    "type": "AbsoluteAddress",
+   "kind": "user"
+  },
+  {
+   "address": 40445,
+   "name": "retained_final_music_bytes",
+   "type": "UserDefined",
    "kind": "user"
   },
   {
@@ -9214,9 +9340,9 @@
   },
   {
    "address": 46148,
-   "name": "f_B444",
+   "name": "opponent_attack_selection_modes",
    "type": "Field",
-   "kind": "auto"
+   "kind": "user"
   },
   {
    "address": 46159,
@@ -10912,8 +11038,20 @@
   },
   {
    "address": 50777,
-   "name": "opponent_hit_sound_commands",
+   "name": "contact_bcd_score_increments",
    "type": "Field",
+   "kind": "user"
+  },
+  {
+   "address": 50788,
+   "name": "engine_end_marker",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 50791,
+   "name": "retained_score_lookup_boundary",
+   "type": "UserDefined",
    "kind": "user"
   },
   {
@@ -11220,6 +11358,11 @@
    "text": "Subtracts the screen-code zero from each of six stored score digits and packs each pair into BCD. Returns the most significant pair in X, the middle pair in Y, and the least significant pair in A."
   },
   {
+   "address": 1190,
+   "type": "line",
+   "text": "PETSCII STAGE label and its trailing spaces, read by the menu copy loop at $042E."
+  },
+  {
    "address": 1199,
    "type": "line",
    "text": "Installs the RAM NMI pointer, initializes the music driver, draws the bitmap title and jumps into the attract loop."
@@ -11237,7 +11380,7 @@
   {
    "address": 1385,
    "type": "line",
-   "text": "Copies the four TIME characters to the bottom row and uses X to set their color."
+   "text": "Copies the four TIME characters to screen row 23, the penultimate row, and uses X to set their color."
   },
   {
    "address": 1403,
@@ -11258,6 +11401,11 @@
    "address": 1508,
    "type": "line",
    "text": "Player-number offset inserted in the end-of-game and name-entry prompts."
+  },
+  {
+   "address": 1509,
+   "type": "line",
+   "text": "Four bytes between the front-end player index and the TIME label. The bytes include one screen-code space."
   },
   {
    "address": 1513,
@@ -11387,7 +11535,52 @@
   {
    "address": 1901,
    "type": "line",
-   "text": "Ten slots of ten characters for the name entry and rank table."
+   "text": "Ten stored name characters per rank. The print loop at $0B25 masks each byte to its screen code."
+  },
+  {
+   "address": 1911,
+   "type": "line",
+   "text": "Ten PETSCII-compatible stored characters for the name in rank 2. The print loop at $0B25 masks them to screen codes."
+  },
+  {
+   "address": 1921,
+   "type": "line",
+   "text": "Ten PETSCII-compatible stored characters for the name in rank 3. The print loop at $0B25 masks them to screen codes."
+  },
+  {
+   "address": 1931,
+   "type": "line",
+   "text": "Ten PETSCII-compatible stored characters for the name in rank 4. The print loop at $0B25 masks them to screen codes."
+  },
+  {
+   "address": 1941,
+   "type": "line",
+   "text": "Ten PETSCII-compatible stored characters for the name in rank 5. The print loop at $0B25 masks them to screen codes."
+  },
+  {
+   "address": 1951,
+   "type": "line",
+   "text": "Ten PETSCII-compatible stored characters for the name in rank 6. The print loop at $0B25 masks them to screen codes."
+  },
+  {
+   "address": 1961,
+   "type": "line",
+   "text": "Ten PETSCII-compatible stored characters for the name in rank 7. The print loop at $0B25 masks them to screen codes."
+  },
+  {
+   "address": 1971,
+   "type": "line",
+   "text": "Ten PETSCII-compatible stored characters for the name in rank 8. The print loop at $0B25 masks them to screen codes."
+  },
+  {
+   "address": 1981,
+   "type": "line",
+   "text": "Ten PETSCII-compatible stored characters for the name in rank 9. The print loop at $0B25 masks them to screen codes."
+  },
+  {
+   "address": 1991,
+   "type": "line",
+   "text": "Ten PETSCII-compatible stored characters for the name in rank 10. The print loop at $0B25 masks them to screen codes."
   },
   {
    "address": 2001,
@@ -11398,6 +11591,21 @@
    "address": 2011,
    "type": "line",
    "text": "Five-character stage fields for the saved ranks, followed by the small working tail for the current result."
+  },
+  {
+   "address": 2048,
+   "type": "line",
+   "text": "End of the eighth five-character stage field and the ninth and tenth fields printed in the high-score list."
+  },
+  {
+   "address": 2061,
+   "type": "line",
+   "text": "First of the ten numeric stage results associated with the saved entries. The rank sort swaps it alongside the adjacent result."
+  },
+  {
+   "address": 2062,
+   "type": "line",
+   "text": "Adjacent stage-result slot used by the other half of the pairwise swap at $06DE. This span reaches the last rank's numeric stage result."
   },
   {
    "address": 2071,
@@ -11465,6 +11673,11 @@
    "text": "The high byte of the two-byte attract-screen countdown."
   },
   {
+   "address": 2697,
+   "type": "line",
+   "text": "Two color RAM addresses used by the player-selection highlighter. $0A37 doubles the menu row selector to choose its pointer."
+  },
+  {
    "address": 2701,
    "type": "line",
    "text": "Alternates the attract sequence between the bitmap title and credit text."
@@ -11500,6 +11713,11 @@
    "text": "Selects VIC bank $C000 and multicolor bitmap mode, with pixels at $E000 and screen attributes at $CC00. Copies the title's per-cell color RAM source from $C800."
   },
   {
+   "address": 2977,
+   "type": "line",
+   "text": "PETSCII ENTER YOUR NAME text between the title bitmap setup and the front-end joystick reader. The rank entry routine also carries a longer active prompt at $05FF."
+  },
+  {
    "address": 2992,
    "type": "line",
    "text": "ANDs the active-low states read at CIA1 ports A and B, then inverts them. Keeps the fire bit for changed samples and strips it from unchanged samples, retaining the direction bits."
@@ -11520,6 +11738,11 @@
    "text": "Waits for raster low byte $FF, ticks the music, and decrements the delay counter at $0A87 until zero. Reloads the counter with three and preserves Y across the music call."
   },
   {
+   "address": 3049,
+   "type": "line",
+   "text": "Offset into the high-score name rows. The insertion code adjusts it while copying names with indexed screen-code accesses."
+  },
+  {
    "address": 3051,
    "type": "line",
    "text": "Writes spaces to all four screen pages at $4000 and writes color 3 to the corresponding four color RAM pages."
@@ -11532,7 +11755,7 @@
   {
    "address": 3285,
    "type": "line",
-   "text": "The instructions for one- and two-player selection and their labels, copied into the player menu."
+   "text": "Text introducing the player-mode menu. Its instructions mention both modes. The selectable row labels start at $0D4D."
   },
   {
    "address": 3405,
@@ -11560,9 +11783,19 @@
    "text": "Copies the first 80 credit bytes from $0C0F, masks each to a screen code and writes both the cells and color 4. The rest of the routine adds the remaining credit text."
   },
   {
+   "address": 3621,
+   "type": "line",
+   "text": "Three high-bit PETSCII bytes spelling END, immediately after the attract-credit routine's final RTS."
+  },
+  {
    "address": 4096,
    "type": "line",
    "text": "Buchu\u2019s 223-byte record copied to $B65F for opponent index 0. The first arrays select three component sprites per pose, followed by the position offsets, attack parameters and sprite color."
+  },
+  {
+   "address": 4319,
+   "type": "line",
+   "text": "Eight binary flags and another $03, followed by larger values, an END marker and a final RAM-pattern tail. The copy at $A47C stops before offset $DF."
   },
   {
    "address": 4352,
@@ -11575,9 +11808,19 @@
    "text": "This address is inside Star's copied parameter record. It also appears as the discarded BIT address in an overlapping sound-command entry."
   },
   {
+   "address": 4575,
+   "type": "line",
+   "text": "The eight binary fields and $02 are outside the active opponent copy and repeat the flags and color immediately before the attack index bytes. The copy at $A47C stops before offset $DF."
+  },
+  {
    "address": 4608,
    "type": "line",
    "text": "Nuncha\u2019s 223-byte record copied to $B65F for opponent index 2. The first arrays select three component sprites per pose, followed by the position offsets, attack parameters and sprite color."
+  },
+  {
+   "address": 4831,
+   "type": "line",
+   "text": "The retained flag array is followed by $07, matching the color in the live record. The copy at $A47C stops before offset $DF."
   },
   {
    "address": 4864,
@@ -11585,9 +11828,19 @@
    "text": "Pole\u2019s 223-byte record copied to $B65F for opponent index 3. The first arrays select three component sprites per pose, followed by the position offsets, attack parameters and sprite color."
   },
   {
+   "address": 5087,
+   "type": "line",
+   "text": "The opening flags and color $05 are followed by small values including a rising run from $05 to $0D. No read of that extra run has been established. The copy at $A47C stops before offset $DF."
+  },
+  {
    "address": 5120,
    "type": "line",
    "text": "Chain\u2019s 223-byte record copied to $B65F for opponent index 4. The first arrays select three component sprites per pose, followed by the position offsets, attack parameters and sprite color."
+  },
+  {
+   "address": 5343,
+   "type": "line",
+   "text": "Eight flag bytes, color $0E and the high-bit END marker with a zero after it. The copy at $A47C stops before offset $DF."
   },
   {
    "address": 5376,
@@ -11595,9 +11848,19 @@
    "text": "Club\u2019s 223-byte record copied to $B65F for opponent index 5. The first arrays select three component sprites per pose, followed by the position offsets, attack parameters and sprite color."
   },
   {
+   "address": 5599,
+   "type": "line",
+   "text": "The eight binary flag fields and color $05 precede the END marker. This page also retains twenty small values in the $1D\u2013$24 range after it. The copy at $A47C stops before offset $DF."
+  },
+  {
    "address": 5632,
    "type": "line",
    "text": "Fan\u2019s 223-byte record copied to $B65F for opponent index 6. The first arrays select three component sprites per pose, followed by the position offsets, attack parameters and sprite color."
+  },
+  {
+   "address": 5855,
+   "type": "line",
+   "text": "The retained flags and color $02 precede the END marker and its following zero. The copy at $A47C stops before offset $DF."
   },
   {
    "address": 5888,
@@ -11610,9 +11873,19 @@
    "text": "This address is inside Sword's copied parameter record. The song selector's overlapping BIT instruction incidentally names it."
   },
   {
+   "address": 6111,
+   "type": "line",
+   "text": "Eight flag bytes and color $0C precede the END marker and its following zero. The copy at $A47C stops before offset $DF."
+  },
+  {
    "address": 6144,
    "type": "line",
    "text": "Tonfun\u2019s 223-byte record copied to $B65F for opponent index 8. The first arrays select three component sprites per pose, followed by the position offsets, attack parameters and sprite color."
+  },
+  {
+   "address": 6367,
+   "type": "line",
+   "text": "An alternate flag array retains five set flags, then three clear flags, color $05 and a terminated END marker. The copy at $A47C stops before offset $DF."
   },
   {
    "address": 6400,
@@ -11725,6 +11998,11 @@
    "text": "Five handler addresses in order from $FB (repeat glyph) through $FF (leave the decoder), used to patch the call at $1C44."
   },
   {
+   "address": 7286,
+   "type": "line",
+   "text": "High-byte base of the five screen command pointers, indexed by twice the difference between the opcode and $FB."
+  },
+  {
    "address": 7295,
    "type": "line",
    "text": "Takes a run length then a glyph byte from the stream. Calls the cell writer once per glyph, with a zero length running for 256 iterations."
@@ -11750,6 +12028,11 @@
    "text": "Advances the encoded source cursor by 20 with carry."
   },
   {
+   "address": 7350,
+   "type": "line",
+   "text": "Retained byte between the skip-handler RTS and the three bytes used as screen-stream work state."
+  },
+  {
    "address": 7351,
    "type": "line",
    "text": "Holds the glyph byte used by the repeat command."
@@ -11767,7 +12050,12 @@
   {
    "address": 7354,
    "type": "line",
-   "text": "Four source pointers in selector order. They name the waterfall scenery, temple scenery, score panel and opponent preview streams."
+   "text": "Four little-endian screen-stream pointers in waterfall, temple, panel and preview order. $1C12 doubles the index selected by the entry at $1C0B."
+  },
+  {
+   "address": 7355,
+   "type": "line",
+   "text": "High-byte base of the indexed screen stream pointers for the waterfall, temple, panel and preview."
   },
   {
    "address": 7362,
@@ -11785,14 +12073,34 @@
    "text": "Start addresses for the left operand of the two in-place block swaps at $1CC2."
   },
   {
+   "address": 7448,
+   "type": "line",
+   "text": "High-byte base for the first exchange address. X is twice the exchange selector, so the indexed read selects the high byte of either word."
+  },
+  {
    "address": 7451,
    "type": "line",
    "text": "Start addresses for the right operand of the two in-place block swaps at $1CC2."
   },
   {
+   "address": 7452,
+   "type": "line",
+   "text": "High-byte base for the second exchange address, read with the doubled exchange selector."
+  },
+  {
    "address": 7455,
    "type": "line",
    "text": "Each pair gives the trailing byte count then the number of full pages to exchange."
+  },
+  {
+   "address": 7456,
+   "type": "line",
+   "text": "Indexed base for the full-page count of each exchange. The preceding byte of each pair supplies its partial-page count."
+  },
+  {
+   "address": 7459,
+   "type": "line",
+   "text": "High-bit PETSCII END marker following the block exchange pointer and size tables."
   },
   {
    "address": 8192,
@@ -11845,9 +12153,19 @@
    "text": "Encoded preview glyph data with FB runs and FE colors. This 257-byte fragment also occurs at $3662."
   },
   {
+   "address": 13569,
+   "type": "line",
+   "text": "Five glyph and palette bytes matching the exact sequence at $3CF9 before the next retained terrain fragment."
+  },
+  {
    "address": 13574,
    "type": "line",
    "text": "A 155-byte run of encoded stage commands and tiles identical to the run beginning at $3763 and part of the waterfall stream."
+  },
+  {
+   "address": 13729,
+   "type": "line",
+   "text": "End of the retained terrain fragment. The $0E is the color operand following $FE at $35A0, before glyphs $C1 and $CF and the next $FE pair."
   },
   {
    "address": 13824,
@@ -11865,9 +12183,24 @@
    "text": "Encoded rock color and glyph commands copied from $3506 after the preview data."
   },
   {
+   "address": 14334,
+   "type": "line",
+   "text": "Final two bytes after the retained terrain commands and before the temple stream at $3800. The loaded bytes are $CF,$FE."
+  },
+  {
    "address": 14336,
    "type": "line",
    "text": "Encoded screen data ending in $FF. Starts at $4078 and fills 881 cells with the temple backdrop and ground."
+  },
+  {
+   "address": 15095,
+   "type": "line",
+   "text": "Two terminated strings of glyphs and palette commands after the temple stream's first terminator. The first repeats the temple ending from the group at $3AE5, and the second includes an eleven-space run."
+  },
+  {
+   "address": 15123,
+   "type": "line",
+   "text": "Alternating bytes after the two retained temple fragments. The low lane is mostly $20 and the high lane mostly $DF or $FF. The next stream starts at $3B80."
   },
   {
    "address": 15232,
@@ -11955,9 +12288,29 @@
    "text": "VIC bank $4000 sprite slots $B0\u2013$BF. The rendered group includes small weapon pieces, hand silhouettes and stance components."
   },
   {
+   "address": 28350,
+   "type": "line",
+   "text": "Slot $BA ends with its last bitmap byte and the unused sprite-slot byte."
+  },
+  {
+   "address": 28352,
+   "type": "line",
+   "text": "First two pixel columns of the first row in reflected weapon slot $BB."
+  },
+  {
    "address": 28354,
    "type": "line",
    "text": "Biased destination operand for the third byte of each reflected weapon row in sprite slot $BB."
+  },
+  {
+   "address": 28414,
+   "type": "line",
+   "text": "Last two bytes in the reflected weapon slot $BB, including its unused sprite-slot byte."
+  },
+  {
+   "address": 28416,
+   "type": "line",
+   "text": "First two pixel columns of the first row in reflected sprite slot $BC."
   },
   {
    "address": 28418,
@@ -11965,9 +12318,29 @@
    "text": "Third column address for one of the reflected fighter pieces. The copier writes the reflected shape in the $6F00 slot."
   },
   {
+   "address": 28478,
+   "type": "line",
+   "text": "End of reflected sprite slot $BC, following its last full pixel columns."
+  },
+  {
+   "address": 28480,
+   "type": "line",
+   "text": "First two pixel columns in reflection buffer slot $BD."
+  },
+  {
    "address": 28482,
    "type": "line",
    "text": "Biased destination for the third column of each reflected row in the $6F40 buffer."
+  },
+  {
+   "address": 28542,
+   "type": "line",
+   "text": "End of reflection buffer slot $BD, including the trailing slot byte."
+  },
+  {
+   "address": 28544,
+   "type": "line",
+   "text": "First two pixel columns in reflection buffer slot $BE."
   },
   {
    "address": 28546,
@@ -12095,6 +12468,11 @@
    "text": "Loads Y with the final byte offset $05 of the selected stream-pointer group. The overlapping BIT instructions skip the later LDY operands."
   },
   {
+   "address": 32980,
+   "type": "line",
+   "text": "BIT opcode for the overlapping song-command entry. Fall-through from $80D2 executes the three-byte BIT where direct entry at $80D5 loads the next song selector."
+  },
+  {
    "address": 32981,
    "type": "line",
    "text": "Loads Y with the final byte offset $0B of the selected stream-pointer group. The overlapping BIT instructions skip the later LDY operands."
@@ -12130,6 +12508,11 @@
    "text": "Loads Y with the final byte offset $2F of the selected stream-pointer group. The overlapping BIT instructions skip the later LDY operands."
   },
   {
+   "address": 33001,
+   "type": "line",
+   "text": "Final BIT opcode in the overlapping song selection sequence. Its operand shares the two bytes of LDY #$35 at $80EA."
+  },
+  {
    "address": 33002,
    "type": "line",
    "text": "Selects the last three stream pointers in the title song group before the common song setup copies each pointer and resets its state."
@@ -12162,7 +12545,7 @@
   {
    "address": 33149,
    "type": "line",
-   "text": "Loads two cached pitch bytes and saves them to the active voice 1 modulation state."
+   "text": "Copies the saved pulse-width pair into the active voice 1 pulse-width accumulator."
   },
   {
    "address": 33161,
@@ -12172,17 +12555,17 @@
   {
    "address": 33174,
    "type": "line",
-   "text": "Loads two cached pitch bytes into the voice 2 effect's active modulation state."
+   "text": "Reloads the active pulse width from the saved voice 2 pair, then reloads both pulse-width step counters."
   },
   {
    "address": 33186,
    "type": "line",
-   "text": "Stores the cached voice 2 ramp counts as the active counters."
+   "text": "Restores both voice 2 pulse-width step counts from their initial values."
   },
   {
    "address": 33199,
    "type": "line",
-   "text": "Loads and saves cached frequency bytes for the third SID voice's active effect."
+   "text": "Copies the saved voice 3 pulse-width pair into the current accumulator and reloads the two step counters."
   },
   {
    "address": 33211,
@@ -12347,7 +12730,7 @@
   {
    "address": 34202,
    "type": "line",
-   "text": "Steps through three pitch ramps. Each selects a 16-bit delta while its duration remains and passes the resulting oscillator value to $85D3."
+   "text": "Continues through the second, third and fourth oscillator-frequency ramps in order. Each selects a 16-bit delta while its count remains, then passes the resulting frequency to $85D3."
   },
   {
    "address": 34259,
@@ -12452,12 +12835,12 @@
   {
    "address": 34879,
    "type": "line",
-   "text": "Tests the voice 2 pitch-ramp flags to decide whether to restart with the saved pitch or reload the current ramp counts."
+   "text": "Tests the voice 2 pulse-width restart flags. $8845 reloads the saved width and the counts. $884B reloads the counts alone."
   },
   {
    "address": 34880,
    "type": "line",
-   "text": "The operand for the ramp restart mask. The following branch selects the voice 2 pitch update or reload path."
+   "text": "Mask $81 for the voice 2 pulse-width restart choices. The following branches select whether to reload the width as well as the counts."
   },
   {
    "address": 35087,
@@ -12585,9 +12968,69 @@
    "text": "Voice 1 working parameters for its waveform, envelope and note modulation. Stream commands update this block from pointed instrument data."
   },
   {
+   "address": 35891,
+   "type": "line",
+   "text": "Voice 1. Entry in the parameter area addressed by the third voice\u2019s biased indexed accesses."
+  },
+  {
+   "address": 35893,
+   "type": "line",
+   "text": "Voice 1. Parameter cleared when starting the stream, before the first instrument command."
+  },
+  {
+   "address": 35894,
+   "type": "line",
+   "text": "Voice 1. Start of the indexed parameter sequence used by the note update."
+  },
+  {
+   "address": 35897,
+   "type": "line",
+   "text": "Voice 1. Parameter read before selecting the indexed parameter sequence for the note update."
+  },
+  {
+   "address": 35902,
+   "type": "line",
+   "text": "Voice 1. Voice parameter cleared during song start and accessed by the note restart path."
+  },
+  {
+   "address": 35903,
+   "type": "line",
+   "text": "Voice 1. Voice index or parameter count initialized to eight on song start."
+  },
+  {
+   "address": 35904,
+   "type": "line",
+   "text": "Voice 1. Start of the five-byte command $D6 parameter block."
+  },
+  {
+   "address": 35907,
+   "type": "line",
+   "text": "Voice 1. Gate-linked timing loaded to effect state when the next note starts."
+  },
+  {
+   "address": 35908,
+   "type": "line",
+   "text": "Voice 1. Effect lifetime loaded by the music note path."
+  },
+  {
    "address": 35909,
    "type": "line",
    "text": "Eight low return-address bytes, eight high return-address bytes, and eight repeat counters for voice 1."
+  },
+  {
+   "address": 35917,
+   "type": "line",
+   "text": "Voice 1. Eight high return-pointer bytes paired with the preceding low-byte array."
+  },
+  {
+   "address": 35925,
+   "type": "line",
+   "text": "Voice 1. First repeat-count byte of the eight-entry music stack."
+  },
+  {
+   "address": 35926,
+   "type": "line",
+   "text": "Voice 1. Repeat-count array biased by one to access the entry below the current stack cursor."
   },
   {
    "address": 35933,
@@ -12595,9 +13038,109 @@
    "text": "Voice 2 working modulation parameters and repeat state. $87A9 writes to the first parameter array."
   },
   {
+   "address": 35947,
+   "type": "line",
+   "text": "Voice 2. Start of the indexed parameter sequence used by the note update."
+  },
+  {
+   "address": 35950,
+   "type": "line",
+   "text": "Voice 2. Parameter read before selecting the indexed parameter sequence for the note update."
+  },
+  {
+   "address": 35955,
+   "type": "line",
+   "text": "Voice 2 command byte address biased to select an instrument field using Y."
+  },
+  {
+   "address": 35957,
+   "type": "line",
+   "text": "Voice 2. Start of the five-byte command $D6 parameter block."
+  },
+  {
+   "address": 35960,
+   "type": "line",
+   "text": "Voice 2. Gate-linked timing loaded to effect state when the next note starts."
+  },
+  {
+   "address": 35961,
+   "type": "line",
+   "text": "Voice 2. Effect lifetime loaded by the music note path."
+  },
+  {
+   "address": 35962,
+   "type": "line",
+   "text": "Voice 2. Eight low return-pointer bytes for nested music stream commands."
+  },
+  {
+   "address": 35970,
+   "type": "line",
+   "text": "Voice 2. Eight high return-pointer bytes paired with the preceding low-byte array."
+  },
+  {
+   "address": 35978,
+   "type": "line",
+   "text": "Voice 2. First repeat-count byte of the eight-entry music stack."
+  },
+  {
+   "address": 35979,
+   "type": "line",
+   "text": "Voice 2. Repeat-count array biased by one to access the entry below the current stack cursor."
+  },
+  {
    "address": 35986,
    "type": "line",
    "text": "Voice 3 working modulation parameters and repeat state. $8AC2 writes to the first parameter array."
+  },
+  {
+   "address": 36000,
+   "type": "line",
+   "text": "Voice 3. Start of the indexed parameter sequence used by the note update."
+  },
+  {
+   "address": 36003,
+   "type": "line",
+   "text": "Voice 3. Parameter read before selecting the indexed parameter sequence for the note update."
+  },
+  {
+   "address": 36008,
+   "type": "line",
+   "text": "Voice 3 command byte address biased to select an instrument field using Y."
+  },
+  {
+   "address": 36010,
+   "type": "line",
+   "text": "Voice 3. Start of the five-byte command $D6 parameter block."
+  },
+  {
+   "address": 36013,
+   "type": "line",
+   "text": "Voice 3. Gate-linked timing loaded to effect state when the next note starts."
+  },
+  {
+   "address": 36014,
+   "type": "line",
+   "text": "Voice 3. Effect lifetime loaded by the music note path."
+  },
+  {
+   "address": 36015,
+   "type": "line",
+   "text": "Voice 3. Eight low return-pointer bytes for nested music stream commands."
+  },
+  {
+   "address": 36023,
+   "type": "line",
+   "text": "Voice 3. Eight high return-pointer bytes paired with the preceding low-byte array."
+  },
+  {
+   "address": 36031,
+   "type": "line",
+   "text": "Voice 3. First repeat-count byte of the eight-entry music stack."
+  },
+  {
+   "address": 36032,
+   "type": "line",
+   "text": "Voice 3. Repeat-count array biased by one to access the entry below the current stack cursor."
   },
   {
    "address": 36038,
@@ -12610,9 +13153,389 @@
    "text": "Voice 1 synthesis parameters copied into the current effect state, followed by the frequency, gate and effect lifetime fields."
   },
   {
+   "address": 36056,
+   "type": "line",
+   "text": "Voice 1 effect. High byte of the first oscillator frequency step. The indexed modulation mode reads this same byte as note offset 1."
+  },
+  {
+   "address": 36057,
+   "type": "line",
+   "text": "Voice 1 effect. Low byte of the second oscillator frequency step. The indexed modulation mode reads this same byte as note offset 2."
+  },
+  {
+   "address": 36058,
+   "type": "line",
+   "text": "Voice 1 effect. High byte of the second oscillator frequency step. The indexed modulation mode reads this same byte as note offset 3."
+  },
+  {
+   "address": 36059,
+   "type": "line",
+   "text": "Voice 1 effect. Low byte of the third oscillator frequency step. The indexed modulation mode reads this same byte as note offset 4."
+  },
+  {
+   "address": 36060,
+   "type": "line",
+   "text": "Voice 1 effect. High byte of the third oscillator frequency step. The indexed modulation mode reads this same byte as note offset 5."
+  },
+  {
+   "address": 36061,
+   "type": "line",
+   "text": "Voice 1 effect. Low byte of the fourth oscillator frequency step. The indexed modulation mode reads this same byte as note offset 6."
+  },
+  {
+   "address": 36062,
+   "type": "line",
+   "text": "Voice 1 effect. High byte of the fourth oscillator frequency step. The indexed modulation mode reads this same byte as note offset 7."
+  },
+  {
+   "address": 36063,
+   "type": "line",
+   "text": "Voice 1 effect. Initial tick count for the first oscillator frequency step."
+  },
+  {
+   "address": 36064,
+   "type": "line",
+   "text": "Voice 1 effect. Initial tick count for the second oscillator frequency step."
+  },
+  {
+   "address": 36065,
+   "type": "line",
+   "text": "Voice 1 effect. Note base added to the selected indexed pitch offset, or the third step\u2019s initial count."
+  },
+  {
+   "address": 36066,
+   "type": "line",
+   "text": "Voice 1 effect. Initial sequence index for indexed offsets, or the fourth step\u2019s initial count."
+  },
+  {
+   "address": 36067,
+   "type": "line",
+   "text": "Voice 1 effect. Active oscillator sequence cursor or delay counter."
+  },
+  {
+   "address": 36068,
+   "type": "line",
+   "text": "Voice 1 effect. Oscillator modulation mode bits. Bit 3 selects note-table indexing."
+  },
+  {
+   "address": 36069,
+   "type": "line",
+   "text": "Voice 1 effect. Initial count for the first pulse-width step."
+  },
+  {
+   "address": 36070,
+   "type": "line",
+   "text": "Voice 1 effect. Initial count for the second pulse-width step."
+  },
+  {
+   "address": 36071,
+   "type": "line",
+   "text": "Voice 1 effect. Pulse-width update delay counter."
+  },
+  {
+   "address": 36072,
+   "type": "line",
+   "text": "Voice 1 effect. Pulse-width mode bits tested by the service routine."
+  },
+  {
+   "address": 36073,
+   "type": "line",
+   "text": "Voice 1 effect. Low byte of the first pulse-width step."
+  },
+  {
+   "address": 36074,
+   "type": "line",
+   "text": "Voice 1 effect. High byte of the first pulse-width step."
+  },
+  {
+   "address": 36075,
+   "type": "line",
+   "text": "Voice 1 effect. Low byte of the second pulse-width step."
+  },
+  {
+   "address": 36076,
+   "type": "line",
+   "text": "Voice 1 effect. High byte of the second pulse-width step."
+  },
+  {
+   "address": 36077,
+   "type": "line",
+   "text": "Voice 1 effect. Low byte of the saved pulse width."
+  },
+  {
+   "address": 36078,
+   "type": "line",
+   "text": "Voice 1 effect. High byte of the saved pulse width."
+  },
+  {
+   "address": 36079,
+   "type": "line",
+   "text": "Voice 1 effect. Low byte of the saved oscillator frequency."
+  },
+  {
+   "address": 36080,
+   "type": "line",
+   "text": "Voice 1 effect. High byte of the saved oscillator frequency."
+  },
+  {
+   "address": 36081,
+   "type": "line",
+   "text": "Voice 1 effect. Saved SID control byte used by the gate-release path."
+  },
+  {
+   "address": 36082,
+   "type": "line",
+   "text": "Voice 1 effect. Gate-release threshold or countdown, depending on the control byte."
+  },
+  {
+   "address": 36083,
+   "type": "line",
+   "text": "Voice 1 effect. Active effect lifetime. Zero skips the channel\u2019s effect service."
+  },
+  {
+   "address": 36084,
+   "type": "line",
+   "text": "Voice 1 effect. Low byte of the oscillator frequency accumulator."
+  },
+  {
+   "address": 36085,
+   "type": "line",
+   "text": "Voice 1 effect. High byte of the oscillator frequency accumulator."
+  },
+  {
+   "address": 36086,
+   "type": "line",
+   "text": "Voice 1 effect. Remaining ticks of the first oscillator frequency step."
+  },
+  {
+   "address": 36087,
+   "type": "line",
+   "text": "Voice 1 effect. Remaining ticks of the second oscillator frequency step."
+  },
+  {
+   "address": 36088,
+   "type": "line",
+   "text": "Voice 1 effect. Remaining ticks of the third oscillator frequency step."
+  },
+  {
+   "address": 36089,
+   "type": "line",
+   "text": "Voice 1 effect. Remaining ticks of the fourth oscillator frequency step."
+  },
+  {
+   "address": 36090,
+   "type": "line",
+   "text": "Voice 1 effect. Low byte of the active pulse-width accumulator."
+  },
+  {
+   "address": 36091,
+   "type": "line",
+   "text": "Voice 1 effect. High byte of the active pulse-width accumulator."
+  },
+  {
+   "address": 36092,
+   "type": "line",
+   "text": "Voice 1 effect. Remaining ticks of the first pulse-width step."
+  },
+  {
+   "address": 36093,
+   "type": "line",
+   "text": "Voice 1 effect. Remaining ticks of the second pulse-width step."
+  },
+  {
    "address": 36094,
    "type": "line",
    "text": "Voice 2 copy of the current effect parameters and its pitch, gate and timing fields."
+  },
+  {
+   "address": 36095,
+   "type": "line",
+   "text": "Voice 2 effect. High byte of the first oscillator frequency step. The indexed modulation mode reads this same byte as note offset 1."
+  },
+  {
+   "address": 36096,
+   "type": "line",
+   "text": "Voice 2 effect. Low byte of the second oscillator frequency step. The indexed modulation mode reads this same byte as note offset 2."
+  },
+  {
+   "address": 36097,
+   "type": "line",
+   "text": "Voice 2 effect. High byte of the second oscillator frequency step. The indexed modulation mode reads this same byte as note offset 3."
+  },
+  {
+   "address": 36098,
+   "type": "line",
+   "text": "Voice 2 effect. Low byte of the third oscillator frequency step. The indexed modulation mode reads this same byte as note offset 4."
+  },
+  {
+   "address": 36099,
+   "type": "line",
+   "text": "Voice 2 effect. High byte of the third oscillator frequency step. The indexed modulation mode reads this same byte as note offset 5."
+  },
+  {
+   "address": 36100,
+   "type": "line",
+   "text": "Voice 2 effect. Low byte of the fourth oscillator frequency step. The indexed modulation mode reads this same byte as note offset 6."
+  },
+  {
+   "address": 36101,
+   "type": "line",
+   "text": "Voice 2 effect. High byte of the fourth oscillator frequency step. The indexed modulation mode reads this same byte as note offset 7."
+  },
+  {
+   "address": 36102,
+   "type": "line",
+   "text": "Voice 2 effect. Initial tick count for the first oscillator frequency step."
+  },
+  {
+   "address": 36103,
+   "type": "line",
+   "text": "Voice 2 effect. Initial tick count for the second oscillator frequency step."
+  },
+  {
+   "address": 36104,
+   "type": "line",
+   "text": "Voice 2 effect. Note base added to the selected indexed pitch offset, or the third step\u2019s initial count."
+  },
+  {
+   "address": 36105,
+   "type": "line",
+   "text": "Voice 2 effect. Initial sequence index for indexed offsets, or the fourth step\u2019s initial count."
+  },
+  {
+   "address": 36106,
+   "type": "line",
+   "text": "Voice 2 effect. Active oscillator sequence cursor or delay counter."
+  },
+  {
+   "address": 36107,
+   "type": "line",
+   "text": "Voice 2 effect. Oscillator modulation mode bits. Bit 3 selects note-table indexing."
+  },
+  {
+   "address": 36108,
+   "type": "line",
+   "text": "Voice 2 effect. Initial count for the first pulse-width step."
+  },
+  {
+   "address": 36109,
+   "type": "line",
+   "text": "Voice 2 effect. Initial count for the second pulse-width step."
+  },
+  {
+   "address": 36110,
+   "type": "line",
+   "text": "Voice 2 effect. Pulse-width update delay counter."
+  },
+  {
+   "address": 36111,
+   "type": "line",
+   "text": "Voice 2 effect. Pulse-width mode bits tested by the service routine."
+  },
+  {
+   "address": 36112,
+   "type": "line",
+   "text": "Voice 2 effect. Low byte of the first pulse-width step."
+  },
+  {
+   "address": 36113,
+   "type": "line",
+   "text": "Voice 2 effect. High byte of the first pulse-width step."
+  },
+  {
+   "address": 36114,
+   "type": "line",
+   "text": "Voice 2 effect. Low byte of the second pulse-width step."
+  },
+  {
+   "address": 36115,
+   "type": "line",
+   "text": "Voice 2 effect. High byte of the second pulse-width step."
+  },
+  {
+   "address": 36116,
+   "type": "line",
+   "text": "Voice 2 effect. Low byte of the saved pulse width."
+  },
+  {
+   "address": 36117,
+   "type": "line",
+   "text": "Voice 2 effect. High byte of the saved pulse width."
+  },
+  {
+   "address": 36118,
+   "type": "line",
+   "text": "Voice 2 effect. Low byte of the saved oscillator frequency."
+  },
+  {
+   "address": 36119,
+   "type": "line",
+   "text": "Voice 2 effect. High byte of the saved oscillator frequency."
+  },
+  {
+   "address": 36120,
+   "type": "line",
+   "text": "Voice 2 effect. Saved SID control byte used by the gate-release path."
+  },
+  {
+   "address": 36121,
+   "type": "line",
+   "text": "Voice 2 effect. Gate-release threshold or countdown, depending on the control byte."
+  },
+  {
+   "address": 36122,
+   "type": "line",
+   "text": "Voice 2 effect. Active effect lifetime. Zero skips the channel\u2019s effect service."
+  },
+  {
+   "address": 36123,
+   "type": "line",
+   "text": "Voice 2 effect. Low byte of the oscillator frequency accumulator."
+  },
+  {
+   "address": 36124,
+   "type": "line",
+   "text": "Voice 2 effect. High byte of the oscillator frequency accumulator."
+  },
+  {
+   "address": 36125,
+   "type": "line",
+   "text": "Voice 2 effect. Remaining ticks of the first oscillator frequency step."
+  },
+  {
+   "address": 36126,
+   "type": "line",
+   "text": "Voice 2 effect. Remaining ticks of the second oscillator frequency step."
+  },
+  {
+   "address": 36127,
+   "type": "line",
+   "text": "Voice 2 effect. Remaining ticks of the third oscillator frequency step."
+  },
+  {
+   "address": 36128,
+   "type": "line",
+   "text": "Voice 2 effect. Remaining ticks of the fourth oscillator frequency step."
+  },
+  {
+   "address": 36129,
+   "type": "line",
+   "text": "Voice 2 effect. Low byte of the active pulse-width accumulator."
+  },
+  {
+   "address": 36130,
+   "type": "line",
+   "text": "Voice 2 effect. High byte of the active pulse-width accumulator."
+  },
+  {
+   "address": 36131,
+   "type": "line",
+   "text": "Voice 2 effect. Remaining ticks of the first pulse-width step."
+  },
+  {
+   "address": 36132,
+   "type": "line",
+   "text": "Voice 2 effect. Remaining ticks of the second pulse-width step."
   },
   {
    "address": 36133,
@@ -12620,9 +13543,209 @@
    "text": "Voice 3 copy of the current effect parameters, oscillator ramp and lifetime fields."
   },
   {
+   "address": 36134,
+   "type": "line",
+   "text": "Voice 3 effect. High byte of the first oscillator frequency step. The indexed modulation mode reads this same byte as note offset 1."
+  },
+  {
+   "address": 36135,
+   "type": "line",
+   "text": "Voice 3 effect. Low byte of the second oscillator frequency step. The indexed modulation mode reads this same byte as note offset 2."
+  },
+  {
+   "address": 36136,
+   "type": "line",
+   "text": "Voice 3 effect. High byte of the second oscillator frequency step. The indexed modulation mode reads this same byte as note offset 3."
+  },
+  {
+   "address": 36137,
+   "type": "line",
+   "text": "Voice 3 effect. Low byte of the third oscillator frequency step. The indexed modulation mode reads this same byte as note offset 4."
+  },
+  {
+   "address": 36138,
+   "type": "line",
+   "text": "Voice 3 effect. High byte of the third oscillator frequency step. The indexed modulation mode reads this same byte as note offset 5."
+  },
+  {
+   "address": 36139,
+   "type": "line",
+   "text": "Voice 3 effect. Low byte of the fourth oscillator frequency step. The indexed modulation mode reads this same byte as note offset 6."
+  },
+  {
+   "address": 36140,
+   "type": "line",
+   "text": "Voice 3 effect. High byte of the fourth oscillator frequency step. The indexed modulation mode reads this same byte as note offset 7."
+  },
+  {
+   "address": 36141,
+   "type": "line",
+   "text": "Voice 3 effect. Initial tick count for the first oscillator frequency step."
+  },
+  {
+   "address": 36142,
+   "type": "line",
+   "text": "Voice 3 effect. Initial tick count for the second oscillator frequency step."
+  },
+  {
+   "address": 36143,
+   "type": "line",
+   "text": "Voice 3 effect. Note base added to the selected indexed pitch offset, or the third step\u2019s initial count."
+  },
+  {
+   "address": 36144,
+   "type": "line",
+   "text": "Voice 3 effect. Initial sequence index for indexed offsets, or the fourth step\u2019s initial count."
+  },
+  {
+   "address": 36145,
+   "type": "line",
+   "text": "Voice 3 effect. Active oscillator sequence cursor or delay counter."
+  },
+  {
+   "address": 36146,
+   "type": "line",
+   "text": "Voice 3 effect. Oscillator modulation mode bits. Bit 3 selects note-table indexing."
+  },
+  {
+   "address": 36147,
+   "type": "line",
+   "text": "Voice 3 effect. Initial count for the first pulse-width step."
+  },
+  {
+   "address": 36148,
+   "type": "line",
+   "text": "Voice 3 effect. Initial count for the second pulse-width step."
+  },
+  {
+   "address": 36149,
+   "type": "line",
+   "text": "Voice 3 effect. Pulse-width update delay counter."
+  },
+  {
+   "address": 36150,
+   "type": "line",
+   "text": "Voice 3 effect. Pulse-width mode bits tested by the service routine."
+  },
+  {
+   "address": 36151,
+   "type": "line",
+   "text": "Voice 3 effect. Low byte of the first pulse-width step."
+  },
+  {
+   "address": 36152,
+   "type": "line",
+   "text": "Voice 3 effect. High byte of the first pulse-width step."
+  },
+  {
+   "address": 36153,
+   "type": "line",
+   "text": "Voice 3 effect. Low byte of the second pulse-width step."
+  },
+  {
+   "address": 36154,
+   "type": "line",
+   "text": "Voice 3 effect. High byte of the second pulse-width step."
+  },
+  {
+   "address": 36155,
+   "type": "line",
+   "text": "Voice 3 effect. Low byte of the saved pulse width."
+  },
+  {
+   "address": 36156,
+   "type": "line",
+   "text": "Voice 3 effect. High byte of the saved pulse width."
+  },
+  {
+   "address": 36157,
+   "type": "line",
+   "text": "Voice 3 effect. Low byte of the saved oscillator frequency."
+  },
+  {
+   "address": 36158,
+   "type": "line",
+   "text": "Voice 3 effect. High byte of the saved oscillator frequency."
+  },
+  {
+   "address": 36159,
+   "type": "line",
+   "text": "Voice 3 effect. Saved SID control byte used by the gate-release path."
+  },
+  {
+   "address": 36160,
+   "type": "line",
+   "text": "Voice 3 effect. Gate-release threshold or countdown, depending on the control byte."
+  },
+  {
+   "address": 36161,
+   "type": "line",
+   "text": "Voice 3 effect. Active effect lifetime. Zero skips the channel\u2019s effect service."
+  },
+  {
+   "address": 36162,
+   "type": "line",
+   "text": "Voice 3 effect. Low byte of the oscillator frequency accumulator."
+  },
+  {
+   "address": 36163,
+   "type": "line",
+   "text": "Voice 3 effect. High byte of the oscillator frequency accumulator."
+  },
+  {
+   "address": 36164,
+   "type": "line",
+   "text": "Voice 3 effect. Remaining ticks of the first oscillator frequency step."
+  },
+  {
+   "address": 36165,
+   "type": "line",
+   "text": "Voice 3 effect. Remaining ticks of the second oscillator frequency step."
+  },
+  {
+   "address": 36166,
+   "type": "line",
+   "text": "Voice 3 effect. Remaining ticks of the third oscillator frequency step."
+  },
+  {
+   "address": 36167,
+   "type": "line",
+   "text": "Voice 3 effect. Remaining ticks of the fourth oscillator frequency step."
+  },
+  {
+   "address": 36168,
+   "type": "line",
+   "text": "Voice 3 effect. Low byte of the active pulse-width accumulator."
+  },
+  {
+   "address": 36169,
+   "type": "line",
+   "text": "Voice 3 effect. High byte of the active pulse-width accumulator."
+  },
+  {
+   "address": 36170,
+   "type": "line",
+   "text": "Voice 3 effect. Remaining ticks of the first pulse-width step."
+  },
+  {
+   "address": 36171,
+   "type": "line",
+   "text": "Voice 3 effect. Remaining ticks of the second pulse-width step."
+  },
+  {
    "address": 36172,
    "type": "line",
    "text": "One note transposition per stream, added before the SID frequency lookup."
+  },
+  {
+   "address": 36173,
+   "type": "line",
+   "text": "Voice 2 semitone transposition added before looking up the current SID pitch."
+  },
+  {
+   "address": 36174,
+   "type": "line",
+   "text": "Voice 3 semitone transposition used by its note lookup."
   },
   {
    "address": 36175,
@@ -12630,9 +13753,29 @@
    "text": "Three flags controlling whether the respective music voice fetches and advances note events."
   },
   {
+   "address": 36176,
+   "type": "line",
+   "text": "Voice 2 stream active flag, tested before decrementing the stream duration."
+  },
+  {
+   "address": 36177,
+   "type": "line",
+   "text": "Voice 3 stream active flag, tested before consuming another event."
+  },
+  {
    "address": 36178,
    "type": "line",
    "text": "Per-voice state used by the note path before applying the voice's own SID registers."
+  },
+  {
+   "address": 36179,
+   "type": "line",
+   "text": "Voice 2 note restart state, cleared when a sound effect takes the channel."
+  },
+  {
+   "address": 36180,
+   "type": "line",
+   "text": "Voice 3 note restart state, cleared when a sound effect takes the channel."
   },
   {
    "address": 36181,
@@ -12640,14 +13783,74 @@
    "text": "Voice restart mask followed by cached cutoff, filter resonance, mode and volume fields."
   },
   {
+   "address": 36182,
+   "type": "line",
+   "text": "Low bits of the SID filter cutoff written to $D415."
+  },
+  {
+   "address": 36183,
+   "type": "line",
+   "text": "High byte of the SID filter cutoff written to $D416."
+  },
+  {
+   "address": 36184,
+   "type": "line",
+   "text": "Filter routing and resonance passed to $D417."
+  },
+  {
+   "address": 36185,
+   "type": "line",
+   "text": "Filter mode and cached mixer bits ORed with the volume state."
+  },
+  {
+   "address": 36186,
+   "type": "line",
+   "text": "Volume bits combined with the filter mode for the write to $D418."
+  },
+  {
    "address": 36187,
    "type": "line",
-   "text": "Offset bases used to map voice indices to their working state and their SID register groups."
+   "text": "Three voice offsets into the effect workspace. $81CA uses them to place effect descriptor fields into the selected voice state."
+  },
+  {
+   "address": 36190,
+   "type": "line",
+   "text": "Three pre-biased target offsets for the channel-specific SID register stores at $81E4 and $81EF."
+  },
+  {
+   "address": 36193,
+   "type": "line",
+   "text": "Relative bases $00,$35,$6A for the three voice parameter workspaces. $810C selects the base during song startup."
+  },
+  {
+   "address": 36194,
+   "type": "line",
+   "text": "Biased low-byte address for the voice 1 command dispatch. An opcode from $C0 to $DC makes the access land in the handler table at $8E22."
+  },
+  {
+   "address": 36195,
+   "type": "line",
+   "text": "Biased high-byte address for the voice 1 command dispatch. The same opcode is used unscaled to fetch the second byte of the handler address."
   },
   {
    "address": 36196,
    "type": "line",
-   "text": "The high bytes of the ascending 16-bit SID note frequencies. Indexed alongside $8DC3 after decoding the note and transposition."
+   "text": "High bytes of 94 ascending SID note frequencies followed by the high byte of the zero entry at index 94. The low halves start at $8DC3."
+  },
+  {
+   "address": 36224,
+   "type": "line",
+   "text": "Interior of the SID pitch high-byte table. Adding command $C0 to this biased low-byte base lands at the voice 2 handler table at $8E40."
+  },
+  {
+   "address": 36225,
+   "type": "line",
+   "text": "Interior of the pitch high-byte table and biased base for the high bytes of the voice 2 command handlers. The following frequency bytes are used by the note paths."
+  },
+  {
+   "address": 36254,
+   "type": "line",
+   "text": "This pitch byte also lies at the biased low-byte base for the voice 3 command dispatcher, whose first real read is $8E5E."
   },
   {
    "address": 36255,
@@ -12657,22 +13860,22 @@
   {
    "address": 36291,
    "type": "line",
-   "text": "Low bytes paired with the high-byte table at $8D64. The three music voice routines read these before writing their SID frequency registers."
+   "text": "Low bytes of the 94 ascending SID frequencies and the zero entry at index 94. The high halves start at $8D64."
   },
   {
    "address": 36386,
    "type": "line",
-   "text": "Fifteen little-endian dispatch words for voice 1 stream commands $C0, $C2, through $DC. The command byte indexes the table directly after the driver biases its base."
+   "text": "Fifteen little-endian handler addresses for voice 1 event opcodes $C0\u2013$DC, fetched via biased operands at $82FD and $8303."
   },
   {
    "address": 36416,
    "type": "line",
-   "text": "Voice 2 handlers for even stream commands $C0\u2013$DC, using voice 2 cursor, repeat stack and instrument state."
+   "text": "Fifteen little-endian handler addresses for voice 2 event opcodes $C0\u2013$DC."
   },
   {
    "address": 36446,
    "type": "line",
-   "text": "Voice 3 handlers for even stream commands $C0\u2013$DC, using voice 3 cursor, repeat stack and instrument state."
+   "text": "Fifteen little-endian handler addresses for voice 3 event opcodes $C0\u2013$DC."
   },
   {
    "address": 36476,
@@ -12682,87 +13885,87 @@
   {
    "address": 36530,
    "type": "line",
-   "text": "First descriptor in the effect bank, also passed by the $8085 wrapper. The setup at $81CA reads the initial SID register fields at offsets $16\u2013$1C and loads the remaining parameters into effect state."
+   "text": "First descriptor in the effect bank, also passed by the $8085 wrapper. $81CA writes descriptor offsets $16\u2013$1A and $1D\u2013$1E to the SID voice\u2019s registers and saves $1B\u2013$1C as timing state."
   },
   {
    "address": 36561,
    "type": "line",
-   "text": "Effect descriptor 2 in the bank. The setup at $81CA reads the initial SID register fields at offsets $16\u2013$1C and loads the remaining parameters into effect state."
+   "text": "Effect descriptor 2 in the bank. $81CA writes descriptor offsets $16\u2013$1A and $1D\u2013$1E to the SID voice\u2019s registers and saves $1B\u2013$1C as timing state."
   },
   {
    "address": 36592,
    "type": "line",
-   "text": "Effect descriptor 3 in the bank. The setup at $81CA reads the initial SID register fields at offsets $16\u2013$1C and loads the remaining parameters into effect state."
+   "text": "Effect descriptor 3 in the bank. $81CA writes descriptor offsets $16\u2013$1A and $1D\u2013$1E to the SID voice\u2019s registers and saves $1B\u2013$1C as timing state."
   },
   {
    "address": 36623,
    "type": "line",
-   "text": "Effect descriptor 4 in the bank. The setup at $81CA reads the initial SID register fields at offsets $16\u2013$1C and loads the remaining parameters into effect state."
+   "text": "Effect descriptor 4 in the bank. $81CA writes descriptor offsets $16\u2013$1A and $1D\u2013$1E to the SID voice\u2019s registers and saves $1B\u2013$1C as timing state."
   },
   {
    "address": 36654,
    "type": "line",
-   "text": "Effect descriptor 5 in the bank. The setup at $81CA reads the initial SID register fields at offsets $16\u2013$1C and loads the remaining parameters into effect state."
+   "text": "Effect descriptor 5 in the bank. $81CA writes descriptor offsets $16\u2013$1A and $1D\u2013$1E to the SID voice\u2019s registers and saves $1B\u2013$1C as timing state."
   },
   {
    "address": 36685,
    "type": "line",
-   "text": "Effect descriptor 6 in the bank. The setup at $81CA reads the initial SID register fields at offsets $16\u2013$1C and loads the remaining parameters into effect state."
+   "text": "Effect descriptor 6 in the bank. $81CA writes descriptor offsets $16\u2013$1A and $1D\u2013$1E to the SID voice\u2019s registers and saves $1B\u2013$1C as timing state."
   },
   {
    "address": 36716,
    "type": "line",
-   "text": "Effect descriptor 7 in the bank. The setup at $81CA reads the initial SID register fields at offsets $16\u2013$1C and loads the remaining parameters into effect state."
+   "text": "Effect descriptor 7 in the bank. $81CA writes descriptor offsets $16\u2013$1A and $1D\u2013$1E to the SID voice\u2019s registers and saves $1B\u2013$1C as timing state."
   },
   {
    "address": 36747,
    "type": "line",
-   "text": "Effect descriptor 8 in the bank. The setup at $81CA reads the initial SID register fields at offsets $16\u2013$1C and loads the remaining parameters into effect state."
+   "text": "Effect descriptor 8 in the bank. $81CA writes descriptor offsets $16\u2013$1A and $1D\u2013$1E to the SID voice\u2019s registers and saves $1B\u2013$1C as timing state."
   },
   {
    "address": 36778,
    "type": "line",
-   "text": "Effect descriptor 9 in the bank. The setup at $81CA reads the initial SID register fields at offsets $16\u2013$1C and loads the remaining parameters into effect state."
+   "text": "Effect descriptor 9 in the bank. $81CA writes descriptor offsets $16\u2013$1A and $1D\u2013$1E to the SID voice\u2019s registers and saves $1B\u2013$1C as timing state."
   },
   {
    "address": 36809,
    "type": "line",
-   "text": "Effect descriptor 10 in the bank. The setup at $81CA reads the initial SID register fields at offsets $16\u2013$1C and loads the remaining parameters into effect state."
+   "text": "Effect descriptor 10 in the bank. $81CA writes descriptor offsets $16\u2013$1A and $1D\u2013$1E to the SID voice\u2019s registers and saves $1B\u2013$1C as timing state."
   },
   {
    "address": 36840,
    "type": "line",
-   "text": "Effect descriptor 11 in the bank. The setup at $81CA reads the initial SID register fields at offsets $16\u2013$1C and loads the remaining parameters into effect state."
+   "text": "Effect descriptor 11 in the bank. $81CA writes descriptor offsets $16\u2013$1A and $1D\u2013$1E to the SID voice\u2019s registers and saves $1B\u2013$1C as timing state."
   },
   {
    "address": 36871,
    "type": "line",
-   "text": "Effect descriptor 12 in the bank. The setup at $81CA reads the initial SID register fields at offsets $16\u2013$1C and loads the remaining parameters into effect state."
+   "text": "Effect descriptor 12 in the bank. $81CA writes descriptor offsets $16\u2013$1A and $1D\u2013$1E to the SID voice\u2019s registers and saves $1B\u2013$1C as timing state."
   },
   {
    "address": 36902,
    "type": "line",
-   "text": "Effect descriptor 13 in the bank. The setup at $81CA reads the initial SID register fields at offsets $16\u2013$1C and loads the remaining parameters into effect state."
+   "text": "Effect descriptor 13 in the bank. $81CA writes descriptor offsets $16\u2013$1A and $1D\u2013$1E to the SID voice\u2019s registers and saves $1B\u2013$1C as timing state."
   },
   {
    "address": 36933,
    "type": "line",
-   "text": "Effect descriptor 14 in the bank. The setup at $81CA reads the initial SID register fields at offsets $16\u2013$1C and loads the remaining parameters into effect state."
+   "text": "Effect descriptor 14 in the bank. $81CA writes descriptor offsets $16\u2013$1A and $1D\u2013$1E to the SID voice\u2019s registers and saves $1B\u2013$1C as timing state."
   },
   {
    "address": 36964,
    "type": "line",
-   "text": "Effect descriptor 15 in the bank. The setup at $81CA reads the initial SID register fields at offsets $16\u2013$1C and loads the remaining parameters into effect state."
+   "text": "Effect descriptor 15 in the bank. $81CA writes descriptor offsets $16\u2013$1A and $1D\u2013$1E to the SID voice\u2019s registers and saves $1B\u2013$1C as timing state."
   },
   {
    "address": 36995,
    "type": "line",
-   "text": "Effect descriptor 16 in the bank. The setup at $81CA reads the initial SID register fields at offsets $16\u2013$1C and loads the remaining parameters into effect state."
+   "text": "Effect descriptor 16 in the bank. $81CA writes descriptor offsets $16\u2013$1A and $1D\u2013$1E to the SID voice\u2019s registers and saves $1B\u2013$1C as timing state."
   },
   {
    "address": 37026,
    "type": "line",
-   "text": "Effect descriptor 17 in the bank. The setup at $81CA reads the initial SID register fields at offsets $16\u2013$1C and loads the remaining parameters into effect state."
+   "text": "Effect descriptor 17 in the bank. $81CA writes descriptor offsets $16\u2013$1A and $1D\u2013$1E to the SID voice\u2019s registers and saves $1B\u2013$1C as timing state."
   },
   {
    "address": 37057,
@@ -12848,6 +14051,11 @@
    "address": 37751,
    "type": "line",
    "text": "Parameter data beginning at $9377, selected by a music command that loads 16 byte(s) from this pointer into the active voice\u2019s synthesis state."
+  },
+  {
+   "address": 37767,
+   "type": "line",
+   "text": "Sixteen multiples of seven, following the sixteen multiples of six at $9377. The $D0 command at $9397 selects the first table with a final source index of $0F."
   },
   {
    "address": 37783,
@@ -13050,6 +14258,11 @@
    "text": "Music event bytes at $9816 reached from voice stream start(s) $9AEB. Note and duration pairs share the stream with even control commands $C0\u2013$DC."
   },
   {
+   "address": 39628,
+   "type": "line",
+   "text": "Bytes bypassed by the redirect at $9AC9. The leading $97 matches the high byte of the repeat setup at $9B6E; the next 28 bytes repeat the corresponding note and duration pairs at $9B71, followed by the $C0 stream exit."
+  },
+  {
    "address": 39659,
    "type": "line",
    "text": "Music event bytes at $9AEB reached from voice stream start(s) $9AEB. Note and duration pairs share the stream with even control commands $C0\u2013$DC."
@@ -13115,9 +14328,19 @@
    "text": "Music event bytes at $9DCC reached from voice stream start(s) $9DCC. Note and duration pairs share the stream with even control commands $C0\u2013$DC."
   },
   {
+   "address": 40445,
+   "type": "line",
+   "text": "Repeated $06,$C0 pair following the last event of the third title voice. The preceding $C0 exits the voice stream."
+  },
+  {
    "address": 40960,
    "type": "line",
    "text": "Jumps to the fight initialization at $BD42. The preceding front end passes its player-mode argument in A."
+  },
+  {
+   "address": 40963,
+   "type": "line",
+   "text": "Sprite-contact working byte assigned by the different contact paths before returning to the fight loop."
   },
   {
    "address": 40964,
@@ -13125,9 +14348,59 @@
    "text": "Eight live pointers written to $43F8\u2013$43FF. Slots 2\u20134 and 5\u20137 supply the two fighters' groups of component sprites."
   },
   {
+   "address": 40965,
+   "type": "line",
+   "text": "Second sprite pointer, initialized to $3B at round reset and updated by the preview path."
+  },
+  {
+   "address": 40966,
+   "type": "line",
+   "text": "Base for the first body-part sprite pointer of either fighter. Y selects the fighter\u2019s three-slot group."
+  },
+  {
+   "address": 40967,
+   "type": "line",
+   "text": "Base for the second body-part sprite pointer installed by the pose writers."
+  },
+  {
+   "address": 40968,
+   "type": "line",
+   "text": "Base for the third body-part sprite pointer installed by the pose writers."
+  },
+  {
+   "address": 40969,
+   "type": "line",
+   "text": "Pointer for hardware sprite five, set by the preview card writer at $A31C."
+  },
+  {
+   "address": 40970,
+   "type": "line",
+   "text": "Preview sprite pointer set at $A335."
+  },
+  {
+   "address": 40971,
+   "type": "line",
+   "text": "Preview sprite pointer set at $A357, for the last hardware sprite slot."
+  },
+  {
    "address": 40972,
    "type": "line",
    "text": "Source pointers retained when rendered sprite pointers refer to reflection buffers instead. $BCED converts one into a byte address."
+  },
+  {
+   "address": 40973,
+   "type": "line",
+   "text": "Source pointer for the second of three fighter pieces to be reflected."
+  },
+  {
+   "address": 40974,
+   "type": "line",
+   "text": "Source pointer for the third reflected fighter piece. The three parallel slots ahead hold the other fighter\u2019s source pieces."
+  },
+  {
+   "address": 40978,
+   "type": "line",
+   "text": "Auxiliary sprite source pointer used by its reflection copier."
   },
   {
    "address": 40979,
@@ -13135,9 +14408,219 @@
    "text": "Eight X coordinates in half-pixel units. $BA1E doubles them into the low register and extension bit for each sprite."
   },
   {
+   "address": 40980,
+   "type": "line",
+   "text": "Horizontal position for VIC sprite one, overwritten by the contact and preview paths."
+  },
+  {
+   "address": 40981,
+   "type": "line",
+   "text": "Base for the horizontal positions of each fighter\u2019s first sprite piece, expressed in half pixels."
+  },
+  {
+   "address": 40982,
+   "type": "line",
+   "text": "Base for the horizontal positions of each fighter\u2019s second sprite piece, expressed in half pixels."
+  },
+  {
+   "address": 40983,
+   "type": "line",
+   "text": "Base for the horizontal positions of each fighter\u2019s third sprite piece, expressed in half pixels."
+  },
+  {
+   "address": 40984,
+   "type": "line",
+   "text": "Half-pixel X slot populated from a preview-card position at $A310."
+  },
+  {
+   "address": 40985,
+   "type": "line",
+   "text": "Half-pixel X slot populated from a preview-card position at $A329."
+  },
+  {
+   "address": 40986,
+   "type": "line",
+   "text": "Half-pixel X slot populated from a preview-card position at $A34B."
+  },
+  {
    "address": 40987,
    "type": "line",
    "text": "Eight full-height Y coordinates written to the VIC-II sprite position pairs by $BA1E."
+  },
+  {
+   "address": 40988,
+   "type": "line",
+   "text": "Vertical position of VIC sprite one, written by contact and KO-display paths and the preview builder."
+  },
+  {
+   "address": 40989,
+   "type": "line",
+   "text": "Base for the vertical positions of each fighter\u2019s first sprite piece."
+  },
+  {
+   "address": 40990,
+   "type": "line",
+   "text": "Base for the vertical positions of each fighter\u2019s second sprite piece."
+  },
+  {
+   "address": 40991,
+   "type": "line",
+   "text": "Base for the vertical positions of each fighter\u2019s third sprite piece."
+  },
+  {
+   "address": 40992,
+   "type": "line",
+   "text": "Y position populated for preview sprite five by $A30A."
+  },
+  {
+   "address": 40993,
+   "type": "line",
+   "text": "Y position populated for preview sprite six by $A323."
+  },
+  {
+   "address": 40994,
+   "type": "line",
+   "text": "Y position populated for preview sprite seven by $A345."
+  },
+  {
+   "address": 40995,
+   "type": "line",
+   "text": "Scratch used as a bit source by the reflection-table generator and as the scale input by $B45A."
+  },
+  {
+   "address": 40996,
+   "type": "line",
+   "text": "Reflected pixel result under construction at $BD20. Also used as scratch for the random scale calculation and collision comparisons."
+  },
+  {
+   "address": 40997,
+   "type": "line",
+   "text": "First fractional movement byte adjusted at $B768 before checking the carry into the corresponding position."
+  },
+  {
+   "address": 40998,
+   "type": "line",
+   "text": "Second fractional movement byte adjusted at $B777 before checking the carry into position."
+  },
+  {
+   "address": 40999,
+   "type": "line",
+   "text": "VIC sprite X high-bit accumulator, assembled from the carries of the eight doubled logical X positions."
+  },
+  {
+   "address": 41000,
+   "type": "line",
+   "text": "Contact point Y reused as the vertical position of the hit sprite."
+  },
+  {
+   "address": 41001,
+   "type": "line",
+   "text": "Contact point X passed to the hit display after the geometry checks."
+  },
+  {
+   "address": 41002,
+   "type": "line",
+   "text": "Saved weapon origin X for the trajectory and chain-span calculations."
+  },
+  {
+   "address": 41003,
+   "type": "line",
+   "text": "Starting vertical value for the stepped projectile path, selected from $A8F0."
+  },
+  {
+   "address": 41004,
+   "type": "line",
+   "text": "Current projectile phase. The six-phase pointer table at $AA5B uses it as an index."
+  },
+  {
+   "address": 41005,
+   "type": "line",
+   "text": "Index into the vertical trajectory at $AA61. The projectile phase determines whether it increments or decrements."
+  },
+  {
+   "address": 41006,
+   "type": "line",
+   "text": "Index into the horizontal trajectory at $AA82."
+  },
+  {
+   "address": 41007,
+   "type": "line",
+   "text": "Signed horizontal increment used to start the projectile\u2019s motion."
+  },
+  {
+   "address": 41008,
+   "type": "line",
+   "text": "Selected chain variant passed from $AB93 to the row-span drawing path."
+  },
+  {
+   "address": 41009,
+   "type": "line",
+   "text": "Opponent attack sequence cursor. The Nuncha path at $B09B instead toggles it between two auxiliary-sprite frames."
+  },
+  {
+   "address": 41010,
+   "type": "line",
+   "text": "Opponent selection counter set by $A78D and updated by the move selection paths."
+  },
+  {
+   "address": 41011,
+   "type": "line",
+   "text": "Other selection counter consulted by the alternate branches into $B407."
+  },
+  {
+   "address": 41012,
+   "type": "line",
+   "text": "Attack sequence timing byte. Its countdown gates the move update at $AF9E."
+  },
+  {
+   "address": 41013,
+   "type": "line",
+   "text": "Divider initialized to ten during round setup and decremented by the tick service at $A10F."
+  },
+  {
+   "address": 41014,
+   "type": "line",
+   "text": "Counter advanced by the timing path at $A12D and reset by $A13C."
+  },
+  {
+   "address": 41015,
+   "type": "line",
+   "text": "Preview counter read, advanced and saved by the path at $A27B."
+  },
+  {
+   "address": 41016,
+   "type": "line",
+   "text": "Waterfall animation divider advanced until $C16E resets it and rotates the screen cells."
+  },
+  {
+   "address": 41017,
+   "type": "line",
+   "text": "Opponent action phase incremented by the handlers at $AE63 and $AFC4."
+  },
+  {
+   "address": 41018,
+   "type": "line",
+   "text": "Round-sequence flag tested at $A150 and advanced on the path at $A447."
+  },
+  {
+   "address": 41019,
+   "type": "line",
+   "text": "Round-state flag tested at $BE4A before the round clear. In the fight, $B8DC sets it when the KO counter at $A071 falls below zero."
+  },
+  {
+   "address": 41020,
+   "type": "line",
+   "text": "Round transition countdown started at $A41C and decremented at $A431."
+  },
+  {
+   "address": 41021,
+   "type": "line",
+   "text": "Staged opponent move latch. Opponent response setup can copy it into the active move."
+  },
+  {
+   "address": 41022,
+   "type": "line",
+   "text": "Fight status set at $A164 and checked by the KO handler at $B876."
   },
   {
    "address": 41023,
@@ -13155,9 +14638,59 @@
    "text": "Opponent move selected by the stage decision routine. Selects the component pose through $B64F."
   },
   {
+   "address": 41026,
+   "type": "line",
+   "text": "Opponent movement result from $B3C7, also used in the staged opponent responses."
+  },
+  {
+   "address": 41027,
+   "type": "line",
+   "text": "Opponent auxiliary attack flag which is set on launch and combined with the current move state."
+  },
+  {
+   "address": 41028,
+   "type": "line",
+   "text": "Opponent contact-response delay decremented by $B08E."
+  },
+  {
+   "address": 41029,
+   "type": "line",
+   "text": "Contact state flag set by the auxiliary attack and hit handling paths."
+  },
+  {
+   "address": 41030,
+   "type": "line",
+   "text": "Projectile activation latch. The distance check at $A949 sets it when the gap reaches $23."
+  },
+  {
+   "address": 41031,
+   "type": "line",
+   "text": "Oolong contact latch used to gate the scan at $A502 and consulted by the controls update."
+  },
+  {
+   "address": 41032,
+   "type": "line",
+   "text": "Timing counter for opponent action and recovery, written by the stage-indexed selectors."
+  },
+  {
+   "address": 41033,
+   "type": "line",
+   "text": "Companion opponent state supplied by the contact table at $A723 and updated by the behavior paths."
+  },
+  {
+   "address": 41034,
+   "type": "line",
+   "text": "Auxiliary action counter decremented at $ADF9 and read again at $AE2C."
+  },
+  {
    "address": 41035,
    "type": "line",
    "text": "The last sampled five-bit port 2 joystick state after inversion."
+  },
+  {
+   "address": 41036,
+   "type": "line",
+   "text": "Oolong jump state, entered by the direction check at $BAD3 and advanced by the jump update."
   },
   {
    "address": 41037,
@@ -13165,9 +14698,39 @@
    "text": "Indicates whether Oolong is to the right of his opponent. Chooses the reflection path and reverses direction bits."
   },
   {
+   "address": 41038,
+   "type": "line",
+   "text": "Previous tested move value for the change detector at $B9D8. The next byte is adjacent round scratch."
+  },
+  {
    "address": 41040,
    "type": "line",
    "text": "Counts matching samples before the input path accepts a new move."
+  },
+  {
+   "address": 41041,
+   "type": "line",
+   "text": "Oolong vertical-move state. $B90F initializes it and $B952 uses it to decide how to advance the height index."
+  },
+  {
+   "address": 41042,
+   "type": "line",
+   "text": "Opponent horizontal travel count initialized by $B20B or $B21A and decremented by $B1C0."
+  },
+  {
+   "address": 41043,
+   "type": "line",
+   "text": "Move code used for Oolong\u2019s alternate pose while the vertical-move state is set. The following byte is adjacent work RAM."
+  },
+  {
+   "address": 41045,
+   "type": "line",
+   "text": "Saved pose code for the alternate fighter sprite-group update at $BA88."
+  },
+  {
+   "address": 41046,
+   "type": "line",
+   "text": "Opponent pose latch checked or assigned by $B517 and $B51E."
   },
   {
    "address": 41047,
@@ -13180,9 +14743,74 @@
    "text": "Signed horizontal displacement added to the opponent's logical X."
   },
   {
+   "address": 41049,
+   "type": "line",
+   "text": "Signed adjustment input to the opponent attack path at $B160."
+  },
+  {
+   "address": 41050,
+   "type": "line",
+   "text": "First per-tick movement value added into the fractional accumulator at $B761."
+  },
+  {
+   "address": 41051,
+   "type": "line",
+   "text": "Second per-tick movement value added into the fractional accumulator by $B770."
+  },
+  {
+   "address": 41052,
+   "type": "line",
+   "text": "Round scratch set at $B251 during the stage-dependent initialization path."
+  },
+  {
+   "address": 41053,
+   "type": "line",
+   "text": "Fighter sprite-group selector toggled between 0 and 3 for the pose update."
+  },
+  {
+   "address": 41054,
+   "type": "line",
+   "text": "Sprite-group selector updated by $B52B and used by the opponent pose update."
+  },
+  {
+   "address": 41055,
+   "type": "line",
+   "text": "Pose-update countdown decremented at $BA85 and reloaded to four at $BA94."
+  },
+  {
+   "address": 41056,
+   "type": "line",
+   "text": "Opponent sprite update countdown decremented at $B514 and reloaded at $B523."
+  },
+  {
    "address": 41057,
    "type": "line",
    "text": "Raster-to-main-loop counter. IRQ routines increment it and the fight loop consumes it."
+  },
+  {
+   "address": 41058,
+   "type": "line",
+   "text": "Saved vertical jump base used by Oolong\u2019s and the alternate arc paths."
+  },
+  {
+   "address": 41059,
+   "type": "line",
+   "text": "Saved opponent vertical arc base subtracted at $A82D and added back at $A844."
+  },
+  {
+   "address": 41060,
+   "type": "line",
+   "text": "Preview card index maintained while walking the pointer table at $BFC1."
+  },
+  {
+   "address": 41061,
+   "type": "line",
+   "text": "Preview card row counter set at $BF9C and decremented at $BFA4."
+  },
+  {
+   "address": 41062,
+   "type": "line",
+   "text": "Saved opponent index during preview setup. The restore at $BF5C copies it back into $A07E."
   },
   {
    "address": 41063,
@@ -13190,14 +14818,44 @@
    "text": "Set to one on a confirmed hit, advances through the opponent\u2019s brief hit response, and clears when its timer expires."
   },
   {
+   "address": 41064,
+   "type": "line",
+   "text": "Oolong hit-state counter. The incoming contact path initializes it and $B7E0 advances it while updating his origin."
+  },
+  {
+   "address": 41065,
+   "type": "line",
+   "text": "Contact delay checked by both the movement and input updates."
+  },
+  {
    "address": 41066,
    "type": "line",
    "text": "Countdown initialized to twelve for opponent hit recovery."
   },
   {
+   "address": 41067,
+   "type": "line",
+   "text": "Direction indicator code from the input handler, used to choose the glyph at $B904."
+  },
+  {
+   "address": 41068,
+   "type": "line",
+   "text": "Last direction indicator code drawn into the sprite, used to avoid repeating an unchanged draw."
+  },
+  {
    "address": 41069,
    "type": "line",
    "text": "Selects the current fighter sprite group. XOR with three selects the other group."
+  },
+  {
+   "address": 41070,
+   "type": "line",
+   "text": "Stage-dependent fight state saved at $B270 and tested by the raster phase at $C434."
+  },
+  {
+   "address": 41071,
+   "type": "line",
+   "text": "Scratch sprite index retained across the consecutive reflection calls at $C1D4 and following."
   },
   {
    "address": 41072,
@@ -13210,14 +14868,74 @@
    "text": "Opponent meter initialized to $0F. The win path is entered after a decrement makes it negative."
   },
   {
+   "address": 41074,
+   "type": "line",
+   "text": "Fight-result flag set when the KO count at $A070 underflows."
+  },
+  {
+   "address": 41075,
+   "type": "line",
+   "text": "Height-table index for Oolong\u2019s vertical move and the alternate arc update."
+  },
+  {
+   "address": 41076,
+   "type": "line",
+   "text": "Opponent arc index initialized by $A81C and stepped by the update at $A858."
+  },
+  {
+   "address": 41077,
+   "type": "line",
+   "text": "Number of contact comparisons remaining in the active point scan."
+  },
+  {
+   "address": 41078,
+   "type": "line",
+   "text": "Opponent action delay selected by stage at $B395 and decremented before the next selection."
+  },
+  {
+   "address": 41079,
+   "type": "line",
+   "text": "Chain update counter advanced until the state changes at $AB1D."
+  },
+  {
+   "address": 41080,
+   "type": "line",
+   "text": "Weapon direction selector set at $AB20 or $AB42 and tested before drawing a chain span."
+  },
+  {
+   "address": 41081,
+   "type": "line",
+   "text": "Saved collision geometry index used to fetch the offset arrays for the current pose."
+  },
+  {
    "address": 41082,
    "type": "line",
    "text": "Gate for opponent special actions. Stage-specific handlers set and reset it as the action starts and finishes."
   },
   {
+   "address": 41083,
+   "type": "line",
+   "text": "Round timing counter advanced by $B269."
+  },
+  {
+   "address": 41084,
+   "type": "line",
+   "text": "Round state byte written by the setup path at $B24C."
+  },
+  {
+   "address": 41085,
+   "type": "line",
+   "text": "Companion stage counter advanced and wrapped by the checks from $B254."
+  },
+  {
    "address": 41086,
    "type": "line",
    "text": "Zero-based opponent index in active play. During the opponent preview the engine temporarily uses $F3 to select its separate raster sequence."
+  },
+  {
+   "address": 41087,
+   "type": "line",
+   "text": "Pass counter incremented when the opponent index wraps after its tenth entry, with a bounded increment at $A21B."
   },
   {
    "address": 41088,
@@ -13228,6 +14946,51 @@
    "address": 41089,
    "type": "line",
    "text": "Saved bit 1 of the highest BCD score byte, compared with its new value by the extra-life check."
+  },
+  {
+   "address": 41090,
+   "type": "line",
+   "text": "Active player slot. In two-player mode the switch handler toggles bit zero before restoring the selected player's saved state."
+  },
+  {
+   "address": 41091,
+   "type": "line",
+   "text": "Session's player-mode selection passed in A by the front end at $A000."
+  },
+  {
+   "address": 41092,
+   "type": "line",
+   "text": "Two remaining-lives bytes saved and restored using the active player slot as the index."
+  },
+  {
+   "address": 41094,
+   "type": "line",
+   "text": "Two saved opponent indices associated with the two player slots."
+  },
+  {
+   "address": 41096,
+   "type": "line",
+   "text": "Low BCD score byte for each of the two saved players."
+  },
+  {
+   "address": 41098,
+   "type": "line",
+   "text": "Middle BCD score byte for each of the two saved players."
+  },
+  {
+   "address": 41100,
+   "type": "line",
+   "text": "High BCD score byte for each of the two saved players."
+  },
+  {
+   "address": 41102,
+   "type": "line",
+   "text": "Saved extra-life score bit for each of the two player slots."
+  },
+  {
+   "address": 41104,
+   "type": "line",
+   "text": "Set when the first player reaches the name-entry path during an alternating-player session."
   },
   {
    "address": 41105,
@@ -13430,6 +15193,31 @@
    "text": "Ten contact-indicator colors indexed by the opponent number."
   },
   {
+   "address": 42767,
+   "type": "line",
+   "text": "Per-opponent move codes installed into $A03D on the contact path at $A6B4."
+  },
+  {
+   "address": 42777,
+   "type": "line",
+   "text": "Per-opponent initial timing values for $A048 on the contact path at $A6BA."
+  },
+  {
+   "address": 42787,
+   "type": "line",
+   "text": "Per-opponent values copied to both $A049 and $A044 on the contact path at $A6C0."
+  },
+  {
+   "address": 42797,
+   "type": "line",
+   "text": "Ten stage values that reset the horizontal-motion accumulator at $A05A after contact."
+  },
+  {
+   "address": 42807,
+   "type": "line",
+   "text": "Ten stage values that set the companion horizontal-motion accumulator at $A05B after contact."
+  },
+  {
    "address": 42817,
    "type": "line",
    "text": "Ten stage-dependent fractional step values used to begin the opponent's vertical motion."
@@ -13480,9 +15268,34 @@
    "text": "Matches the active opponent move against the weapon action codes. For a match, sets sprite 0's pointer and Y offset, then uses fighter facing to place the weapon."
   },
   {
+   "address": 43221,
+   "type": "line",
+   "text": "Two auxiliary-sprite pointers. The selector checks move codes at $A8D7 and $AB04 before reading the matching pointer."
+  },
+  {
+   "address": 43223,
+   "type": "line",
+   "text": "First weapon move code tested at $A885, followed by the alternate entry also present at $AB04. The second comparison reads $AB04."
+  },
+  {
+   "address": 43225,
+   "type": "line",
+   "text": "Two weapon Y positions selected after the matching move code is found."
+  },
+  {
+   "address": 43227,
+   "type": "line",
+   "text": "Horizontal offsets for the two weapon choices, added or reflected according to facing."
+  },
+  {
    "address": 43229,
    "type": "line",
    "text": "Sets sprite 1 to single-color mode and uses a projectile activity flag to decide between piece setup and position updates."
+  },
+  {
+   "address": 43248,
+   "type": "line",
+   "text": "Three choices for the auxiliary projectile setup at $A8F9. The selection is written into the trajectory base at $A02B."
   },
   {
    "address": 43251,
@@ -13505,6 +15318,21 @@
    "text": "Tests whether the traveling fan crosses the player's logical X. Subsequent motion depends on the fan state at $A02C."
   },
   {
+   "address": 43611,
+   "type": "line",
+   "text": "Six sprite pointers for the auxiliary projectile's flight phases, installed in VIC slot zero."
+  },
+  {
+   "address": 43617,
+   "type": "line",
+   "text": "Vertical trajectory table subtracted from the projectile's saved origin using its flight phase counter at $A02D."
+  },
+  {
+   "address": 43650,
+   "type": "line",
+   "text": "Horizontal trajectory table. The four direction and reversal paths halve a selected value before adding it to the saved starting X."
+  },
+  {
    "address": 43683,
    "type": "line",
    "text": "Sets sprite 1 to single-color mode and delegates to a handler that recognizes two action codes and hides that sprite for other codes."
@@ -13513,6 +15341,26 @@
    "address": 43692,
    "type": "line",
    "text": "Matches the active opponent move against two club action codes. Places or hides sprite 0 accordingly, using the weapon height offset relative to the opponent."
+  },
+  {
+   "address": 43777,
+   "type": "line",
+   "text": "Two auxiliary sprite pointers copied to the source and active slot entries."
+  },
+  {
+   "address": 43779,
+   "type": "line",
+   "text": "Two move codes tested before displaying the weapon sprite."
+  },
+  {
+   "address": 43781,
+   "type": "line",
+   "text": "Y offsets relative to the opponent origin for the two matching weapon moves."
+  },
+  {
+   "address": 43783,
+   "type": "line",
+   "text": "X offsets relative to the opponent origin, adjusted for facing along the two paths at $AAE6 and $AAF6."
   },
   {
    "address": 43785,
@@ -13543,6 +15391,21 @@
    "address": 44140,
    "type": "line",
    "text": "Checks screen limits and maximum separation from the chain anchor before leaving the active chain state in place."
+  },
+  {
+   "address": 44181,
+   "type": "line",
+   "text": "Cursor incremented modulo sixteen by the selection routine at $AB93."
+  },
+  {
+   "address": 44182,
+   "type": "line",
+   "text": "Sixteen selection values fetched by the cyclic cursor at $AC95. The selected value is returned in X."
+  },
+  {
+   "address": 44198,
+   "type": "line",
+   "text": "Starting Y positions for Chain's auxiliary weapon sprite, selected after the cycling lookup at $AB93."
   },
   {
    "address": 44210,
@@ -13580,6 +15443,11 @@
    "text": "Three starting screen addresses selected by the current chain variant."
   },
   {
+   "address": 44423,
+   "type": "line",
+   "text": "High-byte base for the three starting screen addresses of the chain row."
+  },
+  {
    "address": 44428,
    "type": "line",
    "text": "Sets sprite 1 to single-color mode and tests the opponent action flag before and after the decision call at $AE89."
@@ -13605,9 +15473,44 @@
    "text": "Computes separation from the fighter positions and returns the result of the range comparison."
   },
   {
+   "address": 44753,
+   "type": "line",
+   "text": "Initial state bytes preceding the six attack codes at $AED5."
+  },
+  {
+   "address": 44757,
+   "type": "line",
+   "text": "Six attack codes tested before choosing the auxiliary sprite for the current move."
+  },
+  {
+   "address": 44763,
+   "type": "line",
+   "text": "Sprite pointers paired with the attack codes at $AED5. The matching entry is handed to the reflection path when required by facing."
+  },
+  {
    "address": 44769,
    "type": "line",
    "text": "Sets sprite 1 to single-color mode. With no active action, looks up the current opponent move in a two-entry list and hides the weapon sprite on other moves."
+  },
+  {
+   "address": 44811,
+   "type": "line",
+   "text": "Two move codes matched by the auxiliary-sprite selector at $AEF0 and $AEF6."
+  },
+  {
+   "address": 44813,
+   "type": "line",
+   "text": "Sprite pointers for the two matched moves, written to the auxiliary sprite slot."
+  },
+  {
+   "address": 44815,
+   "type": "line",
+   "text": "Y offsets for the auxiliary sprite, selected in parallel with the sprite pointers."
+  },
+  {
+   "address": 44817,
+   "type": "line",
+   "text": "Facing-dependent X offsets for the two auxiliary sprite poses."
   },
   {
    "address": 44819,
@@ -13623,6 +15526,11 @@
    "address": 44958,
    "type": "line",
    "text": "Uses a two-pass divider to fetch the next move from the sequence at $AFB8 and enters its completion path on zero."
+  },
+  {
+   "address": 44984,
+   "type": "line",
+   "text": "Move-code sequence installed into $A041 during the timed opponent attack. A zero leaves the stepping routine by its exit path."
   },
   {
    "address": 44989,
@@ -13655,6 +15563,11 @@
    "text": "Adds the star's horizontal step and updates its sprite position inside $04\u2013$AF. Beyond that range, clears the position and action flag."
   },
   {
+   "address": 45432,
+   "type": "line",
+   "text": "Three Y positions indexed by the low two move-code bits minus one on the attack initiation path."
+  },
+  {
    "address": 45435,
    "type": "line",
    "text": "Tests for a low random value and a suitable opponent move before considering the jump action. An active jump updates its own timer and resets the action and Y position when it finishes."
@@ -13668,6 +15581,11 @@
    "address": 45548,
    "type": "line",
    "text": "Chooses a trajectory value and sets the active flag, move and motion counters for Buchu\u2019s flying attack."
+  },
+  {
+   "address": 45611,
+   "type": "line",
+   "text": "Four starting Y values selected by the bounded choice at $B1EE for the opponent attack."
   },
   {
    "address": 45615,
@@ -13732,12 +15650,17 @@
   {
    "address": 46118,
    "type": "line",
-   "text": "Stage-specific attack sequence read using Chain's action cursor. The negative last byte loops back to the initial choice."
+   "text": "Attack choices read by the stage selector. Chain takes entry zero directly. Other users can advance the cursor and wrap at a negative byte. Blues has a separate table at $B433."
   },
   {
    "address": 46131,
    "type": "line",
    "text": "Stage-specific sequence read for Blues when its alternate action flag is set."
+  },
+  {
+   "address": 46148,
+   "type": "line",
+   "text": "Control bytes indexed by the current opponent at $B395 and stored into $A076. The final loaded byte follows its ten indexed entries."
   },
   {
    "address": 46159,
@@ -13765,6 +15688,21 @@
    "text": "Four bytes rotated by the scaled pseudo-random generator at $B45A."
   },
   {
+   "address": 46298,
+   "type": "line",
+   "text": "Byte preceding $B4D9 in the carry chain through the four-byte selection state."
+  },
+  {
+   "address": 46299,
+   "type": "line",
+   "text": "Third byte in the carry rotation through the four-byte selection state. It passes carry from $B4DC to $B4DA."
+  },
+  {
+   "address": 46300,
+   "type": "line",
+   "text": "First byte rotated in the lookup selection's three-byte shift at $B466."
+  },
+  {
    "address": 46301,
    "type": "line",
    "text": "Uses the direction bits when no attack or motion lock applies. Chooses increment or decrement according to the selected direction and tests the arena boundary."
@@ -13788,6 +15726,21 @@
    "address": 46699,
    "type": "line",
    "text": "Twelve slots for the opponent\u2019s second sprite. $A47C replaces the record with data for the active opponent."
+  },
+  {
+   "address": 46706,
+   "type": "line",
+   "text": "Eighth slot in the active opponent's second-piece sprite pointer array."
+  },
+  {
+   "address": 46707,
+   "type": "line",
+   "text": "Ninth slot in the active opponent's second-piece sprite pointer array."
+  },
+  {
+   "address": 46708,
+   "type": "line",
+   "text": "Tenth through twelfth slots in the second-piece sprite pointer array copied for the current opponent."
   },
   {
    "address": 46711,
@@ -13885,6 +15838,11 @@
    "text": "Loads a post-action delay indexed by opponent, clears the action flag and resets the two fractional vertical steps to $FF."
   },
   {
+   "address": 47057,
+   "type": "line",
+   "text": "Ten timing values loaded into $A048 when $B7A6 resets the opponent motion state."
+  },
+  {
    "address": 47067,
    "type": "line",
    "text": "Advances the player hit state, toggles the low X bit to move the sprite slightly and clears the contact indicator when recovery ends."
@@ -13920,6 +15878,16 @@
    "text": "Selects cues from the player's remaining meter and flags, substitutes the corresponding KO bar glyph, and decrements the meter. A negative result sets the player loss flag and starts its cue."
   },
   {
+   "address": 47287,
+   "type": "line",
+   "text": "Two glyphs for the odd and even remaining-energy counts of Oolong\u2019s KO bar at $405B."
+  },
+  {
+   "address": 47289,
+   "type": "line",
+   "text": "Two glyphs for the odd and even remaining-energy counts of the opponent KO bar at $4065."
+  },
+  {
    "address": 47291,
    "type": "line",
    "text": "Enters the opponent meter update on the first pass of the opponent hit response."
@@ -13935,9 +15903,19 @@
    "text": "Uses the direction index at $A06B to choose a glyph and copies its eight rows into the sprite at $6FC0 when the direction changes."
   },
   {
+   "address": 47364,
+   "type": "line",
+   "text": "Direction icon glyph offsets into the waterfall character set at $70D8. The updater draws eight source bytes down one sprite column."
+  },
+  {
    "address": 47375,
    "type": "line",
    "text": "Recognizes input codes $06, $11 and $19, latches the move and prepares its vertical trajectory. An active move branches into the trajectory update path."
+  },
+  {
+   "address": 47563,
+   "type": "line",
+   "text": "Vertical offsets used by Oolong's jump update. The entry path finds the initial base using index eight and the update adds the offset for the current phase."
   },
   {
    "address": 47573,
@@ -13973,6 +15951,11 @@
    "address": 47809,
    "type": "line",
    "text": "Recognizes the upward input in an ordinary non-fire direction, latches the jump state and chooses horizontal travel from the side bits."
+  },
+  {
+   "address": 47945,
+   "type": "line",
+   "text": "Vertical arc offsets used by the opponent and weapon movement paths at $A82D and $BAF9. The paths subtract the starting offset and add subsequent offsets to that base."
   },
   {
    "address": 47978,
@@ -14040,6 +16023,11 @@
    "text": "Draws the KO bars, panel numbers and opponent label, selects the needed sprite bank, and loads the parameters for the current opponent."
   },
   {
+   "address": 48712,
+   "type": "line",
+   "text": "Two sound dispatch indices that select the stage-entry cue at $BE3C."
+  },
+  {
    "address": 48714,
    "type": "line",
    "text": "Chooses whether to show the opponent preview or enter the next fight. In a two-player session it can hand a completed player's result to the front end before changing turns."
@@ -14090,6 +16078,11 @@
    "text": "Five pointers to the cells for the cards in each group of five opponents."
   },
   {
+   "address": 49090,
+   "type": "line",
+   "text": "High-byte base of the preview card screen-address table. The five records are indexed in pairs at $BF6D."
+  },
+  {
    "address": 49099,
    "type": "line",
    "text": "Offsets of the successive 40-column card rows from the card\u2019s screen address."
@@ -14115,9 +16108,19 @@
    "text": "Two pointers passed to the addressed string copier. Selects PERFECT or the blank row."
   },
   {
+   "address": 49141,
+   "type": "line",
+   "text": "High-byte base of the two addressed text pointers for drawing or clearing PERFECT."
+  },
+  {
    "address": 49144,
    "type": "line",
    "text": "The screen address followed by PERFECT and a negative terminator."
+  },
+  {
+   "address": 49152,
+   "type": "line",
+   "text": "Final letter T of the PERFECT award message and the negative byte that ends the addressed screen string."
   },
   {
    "address": 49154,
@@ -14260,6 +16263,11 @@
    "text": "All 256 possible eight-bit rows with the order of their four two-bit pixels reversed. Initialized at $BD08 and used when copying reflected fighter sprites."
   },
   {
+   "address": 50036,
+   "type": "line",
+   "text": "Two bytes following the 256-entry reflected-pixel table. The first routine that follows them begins at $C376."
+  },
+  {
    "address": 50038,
    "type": "line",
    "text": "Installs $C3A7 in the hardware IRQ vector, enables raster IRQ on line $C8, disables CIA1 IRQ sources and sets the CPU port to $35 before enabling interrupts."
@@ -14395,9 +16403,19 @@
    "text": "Three BCD bytes holding the award to add to the player's score. The low byte is reset after the addition."
   },
   {
+   "address": 50625,
+   "type": "line",
+   "text": "Middle packed BCD byte of the pending score increment, added with carry at $C5D1."
+  },
+  {
+   "address": 50626,
+   "type": "line",
+   "text": "Highest packed BCD byte of the pending score increment, added with carry at $C5DA."
+  },
+  {
    "address": 50627,
    "type": "line",
-   "text": "Adds three BCD bytes with decimal carry to $0380\u2013$0382, then restores binary arithmetic."
+   "text": "Adds three BCD bytes with decimal carry to $0380\u2013$0382, clears the low increment byte and restores binary arithmetic. Live trace at $C5D1 and $C5DA carries 9900 plus 1000 into 10900."
   },
   {
    "address": 50663,
@@ -14412,12 +16430,22 @@
   {
    "address": 50741,
    "type": "line",
-   "text": "Watches bit 1 of the highest BCD score byte, ignores the transition addressed by its branch and adds one life if the count is below eight. Plays a cue and refreshes the icons."
+   "text": "Compares bit 1 of the highest BCD score byte with its saved value. The following bit-0 check always yields zero. Live trace confirms either change reaches the life increment when the life counter is below eight."
   },
   {
    "address": 50777,
    "type": "line",
-   "text": "Offsets into the sound dispatch table used by the hit paths to select cues for pose indices."
+   "text": "Packed BCD amounts indexed by pose or move. The contact paths at $A6A8, $A6FA and $B153 place the selected byte in $C5C1 before calling the score adder at $C5C3."
+  },
+  {
+   "address": 50788,
+   "type": "line",
+   "text": "High-bit PETSCII END marker after the eleven score increments. The indexed score lookup can address these bytes with indices $0B\u2013$0D."
+  },
+  {
+   "address": 50791,
+   "type": "line",
+   "text": "Bytes immediately after the END marker. The move-to-pose table contains indices $0E\u2013$10, which would make the unbounded score lookup address this span if they reach its scoring path."
   },
   {
    "address": 51200,

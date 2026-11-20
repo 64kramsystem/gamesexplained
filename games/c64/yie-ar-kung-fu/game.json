@@ -37,6 +37,9 @@
     ],
     "50-coverage": [
       "gpt-6.2-sol"
+    ],
+    "60-verify": [
+      "gpt-6.2-sol"
     ]
   },
   "accuracy": [
@@ -49,6 +52,16 @@
     },
     {
       "step": "annotate",
+      "models": [
+        "gpt-6.2-sol"
+      ]
+    },
+    {
+      "step": "sample",
+      "size": 80,
+      "wrong": 15,
+      "fixed": 15,
+      "seed": 20261120,
       "models": [
         "gpt-6.2-sol"
       ]
@@ -83,9 +96,84 @@
         "Residual KERNAL tape header and bootstrap, up to the game payload at $0400."
       ],
       [
+        "$0E28",
+        "$0FFF",
+        "RAM residue after the front-end END marker. It shares the low-address and bit pattern of the unrelated engine tail at $C668."
+      ],
+      [
+        "$11E8",
+        "$11FF",
+        "Star page tail after the trailing flag array and color. It shares the RAM residue pattern at the same offsets in other pages."
+      ],
+      [
+        "$12E8",
+        "$12FF",
+        "Nuncha page tail after the trailing flag array and color. It shares the RAM residue pattern at the same offsets in other pages."
+      ],
+      [
+        "$13FA",
+        "$13FF",
+        "Pole page tail after the extra small-value fields. Five of its last six bytes match the same offsets at $16FA, with one differing bit."
+      ],
+      [
+        "$14EC",
+        "$14FF",
+        "Chain page residue after the END marker and its trailing zero."
+      ],
+      [
+        "$16EC",
+        "$16FF",
+        "Fan page residue after the END marker and its trailing zero."
+      ],
+      [
+        "$17EC",
+        "$17FF",
+        "Sword page residue after the END marker and its trailing zero."
+      ],
+      [
+        "$18EC",
+        "$18FF",
+        "Tonfun page residue after the END marker and its trailing zero."
+      ],
+      [
+        "$19DF",
+        "$19FF",
+        "Blues page residue begins at the exclusive bound of the opponent copy and has the alternating byte pattern of the unloaded portion of the exchange-table pages."
+      ],
+      [
+        "$1B40",
+        "$1BFF",
+        "RAM residue after the last pose flag. For example, 63 of the first 64 bytes match the corresponding offsets at $1F40."
+      ],
+      [
+        "$1D26",
+        "$1FFF",
+        "RAM residue after the exchange tables and END marker. The two last pages match in 240 of 256 positions and share their remaining bit patterns with the sprite-bank tail."
+      ],
+      [
+        "$307F",
+        "$33FF",
+        "RAM residue from the first byte beyond the sprite exchange. The same offsets repeat with bit variations across these pages and in the tail of the exchange tables."
+      ],
+      [
+        "$35A6",
+        "$35FF",
+        "RAM residue after the retained terrain commands. At $35A8, 79 of 88 bytes match $30A8 in the sprite-bank tail."
+      ],
+      [
         "$4000",
         "$43FF",
         "At hand-over this is the relocated tape loader and its workspace. The game overwrites it with generated screen cells and live sprite pointers."
+      ],
+      [
+        "$9DFF",
+        "$9FFF",
+        "RAM residue beyond the sound events. The two last pages match in 241 of 256 positions with a shared alternating byte pattern."
+      ],
+      [
+        "$C66A",
+        "$C7FF",
+        "RAM residue after the END marker and the largest effective index from the move-to-pose table. The tail shares the low-address and bit pattern of the unrelated front-end tail at $0E28."
       ]
     ],
     "extra": [
