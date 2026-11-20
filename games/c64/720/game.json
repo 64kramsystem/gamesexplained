@@ -1,0 +1,135 @@
+{
+  "schema": 1,
+  "platform": "c64",
+  "slug": "720",
+  "title": "720°",
+  "year": 1987,
+  "publisher": "U.S. Gold",
+  "developer": "Chris Butler",
+  "title_image": "reference/title.png",
+  "build": "European C64 release, C64 Comics Group T64",
+  "tier": "bronze",
+  "coverage_percent": 100.0,
+  "copy": "agent-draft",
+  "steward": "",
+  "credits": [],
+  "tools": {
+    "emulator": "VICE with vice-mcp v3.14.0, macOS arm64 headless, PAL, dummy audio",
+    "disassembler": "regenerator2000 0.9.18"
+  },
+  "model": "gpt-6.2-sol",
+  "step_models": {
+    "10-orient": [
+      "gpt-6.2-sol"
+    ],
+    "12-media": [
+      "gpt-6.2-sol"
+    ],
+    "20-features": [
+      "gpt-6.2-sol"
+    ],
+    "30-text": [
+      "gpt-6.2-sol"
+    ],
+    "40-sweep": [
+      "gpt-6.2-sol"
+    ],
+    "50-coverage": [
+      "gpt-6.2-sol"
+    ],
+    "60-verify": [
+      "gpt-6.2-sol"
+    ]
+  },
+  "accuracy": [
+    {
+      "step": "research",
+      "web": true,
+      "models": [
+        "gpt-6.2-sol"
+      ]
+    },
+    {
+      "step": "annotate",
+      "models": [
+        "gpt-6.2-sol"
+      ]
+    },
+    {
+      "step": "sample",
+      "size": 80,
+      "wrong": 11,
+      "fixed": 11,
+      "seed": 7202026,
+      "models": [
+        "gpt-6.2-sol"
+      ]
+    }
+  ],
+  "kit_version": "0.0.360",
+  "created": "2026-11-20",
+  "video": {
+    "screen": "",
+    "charset": "$F800"
+  },
+  "coverage": {
+    "exclude": [
+      [
+        "$0000",
+        "$00FF",
+        "Processor port, transient IRQ saves, renderer and music pointers, and live actor and skater state. The final unpacker starts its game output at $0400."
+      ]
+    ],
+    "extra": [
+      [
+        "$0400",
+        "$FFFE",
+        "Address span written by the final unpacker before the jump to $0850"
+      ]
+    ],
+    "include": [
+      [
+        "$D000",
+        "$DFFF",
+        "Authored 64-byte sprite records fetched by VIC-II from bank $C000"
+      ]
+    ]
+  },
+  "io": [],
+  "regions": [
+    [
+      "$4000",
+      "$BFFF",
+      "levels",
+      "One 256 by 128 tile map, with Skate City and the four courses"
+    ],
+    [
+      "$D000",
+      "$F3FF",
+      "graphics",
+      "64-byte sprite records in the VIC bank at $C000"
+    ],
+    [
+      "$F400",
+      "$F7FF",
+      "graphics",
+      "Authored title screen template reused as playfield screen RAM"
+    ],
+    [
+      "$F800",
+      "$FFF9",
+      "graphics",
+      "VIC character generator for terrain, digits and letters"
+    ]
+  ],
+  "links": {
+    "wiki": {
+      "title": "",
+      "url": ""
+    },
+    "manual": {
+      "title": "720° instructions",
+      "url": "https://www.lemon64.com/doc/720-degrees/1373"
+    }
+  }
+}
