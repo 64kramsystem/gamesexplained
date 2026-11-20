@@ -83,21 +83,6 @@
         "$0400",
         "$07FF",
         "Handoff holds the Novaload screen program and boot screen cells. The game builds shape lookup arrays here and assigns glyph indices at runtime."
-      ],
-      [
-        "$5C00",
-        "$5FFF",
-        "Title screen matrix: $3BEF initializes its 1000 cells and $1049 uploads the title sprite pointers when this screen is selected. The VIC ignores the gap between the cells and pointer slots."
-      ],
-      [
-        "$6800",
-        "$6FFF",
-        "Race display matrices and sprite pointer slots. Startup clears or derives the cells and pointers before play and uses the pages as map conversion scratch."
-      ],
-      [
-        "$7000",
-        "$7BFF",
-        "Startup copies the title staging image to $6900\u2013$7DFF before the first watchpoint read from this range in the transform at $1401. The freed region is rewritten as bitmap and race-character output."
       ]
     ],
     "extra": [

@@ -20,21 +20,6 @@
     1024,
     2047,
     "Handoff holds the Novaload screen program and boot screen cells. The game builds shape lookup arrays here and assigns glyph indices at runtime."
-   ],
-   [
-    23552,
-    24575,
-    "Title screen matrix: $3BEF initializes its 1000 cells and $1049 uploads the title sprite pointers when this screen is selected. The VIC ignores the gap between the cells and pointer slots."
-   ],
-   [
-    26624,
-    28671,
-    "Race display matrices and sprite pointer slots. Startup clears or derives the cells and pointers before play and uses the pages as map conversion scratch."
-   ],
-   [
-    28672,
-    31743,
-    "Startup copies the title staging image to $6900\u2013$7DFF before the first watchpoint read from this range in the transform at $1401. The freed region is rewritten as bitmap and race-character output."
    ]
   ],
   "extra": [
@@ -383,31 +368,6 @@
   },
   {
    "start": 16175,
-   "end": 23551,
-   "type": "Byte"
-  },
-  {
-   "start": 23552,
-   "end": 24083,
-   "type": "Undefined"
-  },
-  {
-   "start": 24084,
-   "end": 24575,
-   "type": "Code"
-  },
-  {
-   "start": 24576,
-   "end": 26623,
-   "type": "Byte"
-  },
-  {
-   "start": 26624,
-   "end": 31743,
-   "type": "Undefined"
-  },
-  {
-   "start": 31744,
    "end": 52157,
    "type": "Byte"
   },
@@ -7158,9 +7118,9 @@
   },
   {
    "address": 23552,
-   "name": "f_5C00",
+   "name": "title_matrix_handoff",
    "type": "Field",
-   "kind": "auto"
+   "kind": "user"
   },
   {
    "address": 23802,
@@ -7230,9 +7190,9 @@
   },
   {
    "address": 26624,
-   "name": "f_6800",
+   "name": "race_matrices_handoff",
    "type": "Field",
-   "kind": "auto"
+   "kind": "user"
   },
   {
    "address": 26664,
@@ -7764,9 +7724,9 @@
   },
   {
    "address": 28160,
-   "name": "f_6E00",
+   "name": "race_matrix_tail_handoff",
    "type": "Field",
-   "kind": "auto"
+   "kind": "user"
   },
   {
    "address": 28162,
@@ -7956,9 +7916,9 @@
   },
   {
    "address": 28672,
-   "name": "f_7000",
+   "name": "graphics_staging_handoff",
    "type": "Field",
-   "kind": "auto"
+   "kind": "user"
   },
   {
    "address": 28680,
@@ -8063,6 +8023,12 @@
    "kind": "auto"
   },
   {
+   "address": 29952,
+   "name": "glyph_fragments_handoff",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
    "address": 30704,
    "name": "f_77F0",
    "type": "Field",
@@ -8136,9 +8102,9 @@
   },
   {
    "address": 31232,
-   "name": "f_7A00",
+   "name": "graphics_tail_handoff",
    "type": "Field",
-   "kind": "auto"
+   "kind": "user"
   },
   {
    "address": 31295,
@@ -13735,6 +13701,41 @@
    "text": "Final 64 bytes before the title screen matrix base. The bytes include a compact series of $11 and $44 patterns followed by mixed nonpixel values. The live sprite indices stop at $6C in the identified pointer tables."
   },
   {
+   "address": 23552,
+   "type": "line",
+   "text": "Tape-loaded initial bytes in the title matrix allocation. Sparse nonzero cells give way to zero padding in the last two pages. The title setup writes its own 1000 cells from $3BF0 before displaying the finished title."
+  },
+  {
+   "address": 23802,
+   "type": "line",
+   "text": "Title matrix seed bytes ($5CFA\u2013$5D39) with all 64 bytes are $00. Direct instruction references to this address are STA at $3BF3."
+  },
+  {
+   "address": 23866,
+   "type": "line",
+   "text": "Title matrix seed bytes ($5D3A\u2013$5DF3) with all 186 bytes are $00."
+  },
+  {
+   "address": 24052,
+   "type": "line",
+   "text": "Title matrix seed bytes ($5DF4\u2013$5E33) with 5 distinct values, starting with $00 $00 $00 $00. Direct instruction references to this address are STA at $3BF6."
+  },
+  {
+   "address": 24116,
+   "type": "line",
+   "text": "Title matrix padding at tape handoff ($5E34\u2013$5EED) with all 186 bytes are $00."
+  },
+  {
+   "address": 24302,
+   "type": "line",
+   "text": "Title matrix padding at tape handoff ($5EEE\u2013$5F2D) with all 64 bytes are $00. Direct instruction references to this address are STA at $3BF9."
+  },
+  {
+   "address": 24366,
+   "type": "line",
+   "text": "Title matrix padding at tape handoff ($5F2E\u2013$5FFF) with all 210 bytes are $00."
+  },
+  {
    "address": 24576,
    "type": "line",
    "text": "The first 2 KB of character patterns for the HUD and road display. The glyphs start with punctuation and figures followed by lettering and road textures."
@@ -13773,6 +13774,826 @@
    "address": 26616,
    "type": "line",
    "text": "Eight bytes of $55 used for the reserved fill glyph, initialized by $11BF."
+  },
+  {
+   "address": 26624,
+   "type": "line",
+   "text": "Tape-loaded bytes in the first race matrix allocation. The map transpose writes the first cell at $1403 before $1172 clears and builds both race matrices."
+  },
+  {
+   "address": 26664,
+   "type": "line",
+   "text": "Tape seed at row 1, column 0 of the $6800 matrix ($6828\u2013$6867) with all 64 bytes are $00. Direct instruction references to this address are STA at $2BCC."
+  },
+  {
+   "address": 26728,
+   "type": "line",
+   "text": "Tape seed at row 2, column 24 of the $6800 matrix ($6868\u2013$68C8) with $FE at offsets 49, 52, 56, 95, 96, with zero in the other cells."
+  },
+  {
+   "address": 26825,
+   "type": "line",
+   "text": "Tape seed at row 5, column 1 of the $6800 matrix ($68C9\u2013$68CD) with all 5 bytes are $00. Direct instruction references to this address are STA at $37EF."
+  },
+  {
+   "address": 26830,
+   "type": "line",
+   "text": "Tape seed at row 5, column 6 of the $6800 matrix ($68CE\u2013$68D2) with all 5 bytes are $00. Direct instruction references to this address are STA at $37F5."
+  },
+  {
+   "address": 26835,
+   "type": "line",
+   "text": "Tape seed at row 5, column 11 of the $6800 matrix ($68D3\u2013$68D7) with all 5 bytes are $00. Direct instruction references to this address are STA at $37FB."
+  },
+  {
+   "address": 26840,
+   "type": "line",
+   "text": "Tape seed at row 5, column 16 of the $6800 matrix ($68D8\u2013$68DC) with all 5 bytes are $00. Direct instruction references to this address are STA at $3801."
+  },
+  {
+   "address": 26845,
+   "type": "line",
+   "text": "Tape seed at row 5, column 21 of the $6800 matrix ($68DD\u2013$68E1) with all 5 bytes are $00. Direct instruction references to this address are STA at $3807."
+  },
+  {
+   "address": 26850,
+   "type": "line",
+   "text": "Tape seed at row 5, column 26 of the $6800 matrix ($68E2\u2013$68E6) with $FE at offsets 2, with zero in the other cells. Direct instruction references to this address are STA at $380D."
+  },
+  {
+   "address": 26855,
+   "type": "line",
+   "text": "Tape seed at row 5, column 31 of the $6800 matrix ($68E7\u2013$68EB) with all 5 bytes are $00. Direct instruction references to this address are STA at $3813."
+  },
+  {
+   "address": 26860,
+   "type": "line",
+   "text": "Tape seed at row 5, column 36 of the $6800 matrix ($68EC\u2013$68EF) with all 4 bytes are $00. Direct instruction references to this address are STA at $381D."
+  },
+  {
+   "address": 26864,
+   "type": "line",
+   "text": "Tape seed at row 6, column 0 of the $6800 matrix ($68F0\u2013$68FF) with all 16 bytes are $00. Direct instruction references to this address are STA at $3267."
+  },
+  {
+   "address": 26880,
+   "type": "line",
+   "text": "Tape seed at row 6, column 16 of the $6800 matrix ($6900\u2013$6902) with all 3 bytes are $00. Direct instruction references to this address are STA at $1184."
+  },
+  {
+   "address": 26883,
+   "type": "line",
+   "text": "Tape seed at row 6, column 19 of the $6800 matrix ($6903\u2013$6917) with all 21 bytes are $00. Direct instruction references to this address are STA at $326A."
+  },
+  {
+   "address": 26904,
+   "type": "line",
+   "text": "Tape seed at row 7, column 0 of the $6800 matrix ($6918\u2013$692A) with $FE at offsets 5, 13, with zero in the other cells. Direct instruction references to this address are STA at $3261."
+  },
+  {
+   "address": 26923,
+   "type": "line",
+   "text": "Tape seed at row 7, column 19 of the $6800 matrix ($692B\u2013$693F) with all 21 bytes are $00. Direct instruction references to this address are STA at $3264."
+  },
+  {
+   "address": 26944,
+   "type": "line",
+   "text": "Tape seed at row 8, column 0 of the $6800 matrix ($6940\u2013$6952) with all 19 bytes are $00. Direct instruction references to this address are STA at $325B."
+  },
+  {
+   "address": 26963,
+   "type": "line",
+   "text": "Tape seed at row 8, column 19 of the $6800 matrix ($6953\u2013$6967) with $FE at offsets 6, 11, 14, 19, with zero in the other cells. Direct instruction references to this address are STA at $325E."
+  },
+  {
+   "address": 26984,
+   "type": "line",
+   "text": "Tape seed at row 9, column 0 of the $6800 matrix ($6968\u2013$6968) with all 1 bytes are $00. Direct instruction references to this address are STA at $3255."
+  },
+  {
+   "address": 26985,
+   "type": "line",
+   "text": "Tape seed at row 9, column 1 of the $6800 matrix ($6969\u2013$696D) with all 5 bytes are $00. Direct instruction references to this address are STA at $2F86."
+  },
+  {
+   "address": 26990,
+   "type": "line",
+   "text": "Tape seed at row 9, column 6 of the $6800 matrix ($696E\u2013$6971) with all 4 bytes are $00. Direct instruction references to this address are STA at $2FE8."
+  },
+  {
+   "address": 26994,
+   "type": "line",
+   "text": "Tape seed at row 9, column 10 of the $6800 matrix ($6972\u2013$697A) with all 9 bytes are $00. Direct instruction references to this address are STA at $3023."
+  },
+  {
+   "address": 27003,
+   "type": "line",
+   "text": "Tape seed at row 9, column 19 of the $6800 matrix ($697B\u2013$6985) with all 11 bytes are $00. Direct instruction references to this address are STA at $3258."
+  },
+  {
+   "address": 27014,
+   "type": "line",
+   "text": "Tape seed at row 9, column 30 of the $6800 matrix ($6986\u2013$6989) with all 4 bytes are $00. Direct instruction references to this address are STA at $2FEB."
+  },
+  {
+   "address": 27018,
+   "type": "line",
+   "text": "Tape seed at row 9, column 34 of the $6800 matrix ($698A\u2013$698F) with all 6 bytes are $00. Direct instruction references to this address are STA at $2F89."
+  },
+  {
+   "address": 27024,
+   "type": "line",
+   "text": "Tape seed at row 10, column 0 of the $6800 matrix ($6990\u2013$69A2) with $FE at offsets 10, 15, 18, with zero in the other cells. Direct instruction references to this address are STA at $324F."
+  },
+  {
+   "address": 27043,
+   "type": "line",
+   "text": "Tape seed at row 10, column 19 of the $6800 matrix ($69A3\u2013$69B7) with $FE at offsets 4, with zero in the other cells. Direct instruction references to this address are STA at $3252."
+  },
+  {
+   "address": 27064,
+   "type": "line",
+   "text": "Tape seed at row 11, column 0 of the $6800 matrix ($69B8\u2013$69CA) with all 19 bytes are $00. Direct instruction references to this address are STA at $3249."
+  },
+  {
+   "address": 27083,
+   "type": "line",
+   "text": "Tape seed at row 11, column 19 of the $6800 matrix ($69CB\u2013$69DF) with $FE at offsets 13, 16, with zero in the other cells. Direct instruction references to this address are STA at $324C."
+  },
+  {
+   "address": 27104,
+   "type": "line",
+   "text": "Tape seed at row 12, column 0 of the $6800 matrix ($69E0\u2013$69E0) with all 1 bytes are $FE. Direct instruction references to this address are STA at $3243."
+  },
+  {
+   "address": 27105,
+   "type": "line",
+   "text": "Tape seed at row 12, column 1 of the $6800 matrix ($69E1\u2013$69ED) with all 13 bytes are $00. Direct instruction references to this address are STA at $2F8C."
+  },
+  {
+   "address": 27118,
+   "type": "line",
+   "text": "Tape seed at row 12, column 14 of the $6800 matrix ($69EE\u2013$69F2) with all 5 bytes are $00. Direct instruction references to this address are STA at $309B."
+  },
+  {
+   "address": 27123,
+   "type": "line",
+   "text": "Tape seed at row 12, column 19 of the $6800 matrix ($69F3\u2013$69FF) with all 13 bytes are $00. Direct instruction references to this address are STA at $3246."
+  },
+  {
+   "address": 27136,
+   "type": "line",
+   "text": "Tape seed at row 12, column 32 of the $6800 matrix ($6A00\u2013$6A01) with all 2 bytes are $00. Direct instruction references to this address are STA at $1187."
+  },
+  {
+   "address": 27138,
+   "type": "line",
+   "text": "Tape seed at row 12, column 34 of the $6800 matrix ($6A02\u2013$6A07) with $FE at offsets 5, with zero in the other cells. Direct instruction references to this address are STA at $2F8F."
+  },
+  {
+   "address": 27144,
+   "type": "line",
+   "text": "Tape seed at row 13, column 0 of the $6800 matrix ($6A08\u2013$6A1A) with $FE at offsets 0, with zero in the other cells. Direct instruction references to this address are STA at $323D."
+  },
+  {
+   "address": 27163,
+   "type": "line",
+   "text": "Tape seed at row 13, column 19 of the $6800 matrix ($6A1B\u2013$6A2F) with $FE at offsets 8, 10, with zero in the other cells. Direct instruction references to this address are STA at $3240."
+  },
+  {
+   "address": 27184,
+   "type": "line",
+   "text": "Tape seed at row 14, column 0 of the $6800 matrix ($6A30\u2013$6A57) with all 40 bytes are $00. Direct instruction references to this address are STA at $3215."
+  },
+  {
+   "address": 27224,
+   "type": "line",
+   "text": "Tape seed at row 15, column 0 of the $6800 matrix ($6A58\u2013$6A58) with all 1 bytes are $00. Direct instruction references to this address are STA at $3218."
+  },
+  {
+   "address": 27225,
+   "type": "line",
+   "text": "Tape seed at row 15, column 1 of the $6800 matrix ($6A59\u2013$6A79) with $FE at offsets 3, 5, 13, with zero in the other cells. Direct instruction references to this address are STA at $2F92."
+  },
+  {
+   "address": 27258,
+   "type": "line",
+   "text": "Tape seed at row 15, column 34 of the $6800 matrix ($6A7A\u2013$6A7F) with all 6 bytes are $00. Direct instruction references to this address are STA at $2F95."
+  },
+  {
+   "address": 27264,
+   "type": "line",
+   "text": "Tape seed at row 16, column 0 of the $6800 matrix ($6A80\u2013$6AA7) with $FE at offsets 24, 31, 32, 39, with zero in the other cells. Direct instruction references to this address are STA at $321B."
+  },
+  {
+   "address": 27304,
+   "type": "line",
+   "text": "Tape seed at row 17, column 0 of the $6800 matrix ($6AA8\u2013$6ACF) with all 40 bytes are $00. Direct instruction references to this address are STA at $321E."
+  },
+  {
+   "address": 27344,
+   "type": "line",
+   "text": "Tape seed at row 18, column 0 of the $6800 matrix ($6AD0\u2013$6AD0) with all 1 bytes are $00. Direct instruction references to this address are STA at $3221."
+  },
+  {
+   "address": 27345,
+   "type": "line",
+   "text": "Tape seed at row 18, column 1 of the $6800 matrix ($6AD1\u2013$6AF1) with $FE at offsets 8, 16, with zero in the other cells. Direct instruction references to this address are STA at $2F98."
+  },
+  {
+   "address": 27378,
+   "type": "line",
+   "text": "Tape seed at row 18, column 34 of the $6800 matrix ($6AF2\u2013$6AF7) with all 6 bytes are $00. Direct instruction references to this address are STA at $2F9B."
+  },
+  {
+   "address": 27384,
+   "type": "line",
+   "text": "Tape seed at row 19, column 0 of the $6800 matrix ($6AF8\u2013$6AFF) with all 8 bytes are $00. Direct instruction references to this address are STA at $3224."
+  },
+  {
+   "address": 27392,
+   "type": "line",
+   "text": "Tape seed at row 19, column 8 of the $6800 matrix ($6B00\u2013$6B1F) with $FE at offsets 26, with zero in the other cells. Direct instruction references to this address are STA at $118A."
+  },
+  {
+   "address": 27424,
+   "type": "line",
+   "text": "Tape seed at row 20, column 0 of the $6800 matrix ($6B20\u2013$6B47) with $FE at offsets 0, 39, with zero in the other cells. Direct instruction references to this address are STA at $3227."
+  },
+  {
+   "address": 27464,
+   "type": "line",
+   "text": "Tape seed at row 21, column 0 of the $6800 matrix ($6B48\u2013$6B48) with all 1 bytes are $FE. Direct instruction references to this address are STA at $322A."
+  },
+  {
+   "address": 27465,
+   "type": "line",
+   "text": "Tape seed at row 21, column 1 of the $6800 matrix ($6B49\u2013$6B4D) with all 5 bytes are $00. Direct instruction references to this address are STA at $2F22."
+  },
+  {
+   "address": 27470,
+   "type": "line",
+   "text": "Tape seed at row 21, column 6 of the $6800 matrix ($6B4E\u2013$6B69) with $FE at offsets 22, 25, with zero in the other cells. Direct instruction references to this address are STA at $3062."
+  },
+  {
+   "address": 27498,
+   "type": "line",
+   "text": "Tape seed at row 21, column 34 of the $6800 matrix ($6B6A\u2013$6B6F) with all 6 bytes are $00. Direct instruction references to this address are STA at $2F2A."
+  },
+  {
+   "address": 27504,
+   "type": "line",
+   "text": "Tape seed at row 22, column 0 of the $6800 matrix ($6B70\u2013$6B97) with all 40 bytes are $00. Direct instruction references to this address are STA at $322D."
+  },
+  {
+   "address": 27544,
+   "type": "line",
+   "text": "Tape seed at row 23, column 0 of the $6800 matrix ($6B98\u2013$6BBF) with $FE at offsets 0, 5, 8, 13, with zero in the other cells. Direct instruction references to this address are STA at $3230."
+  },
+  {
+   "address": 27584,
+   "type": "line",
+   "text": "Tape seed at row 24, column 0 of the $6800 matrix ($6BC0\u2013$6BFF) with $FE at offsets 25, 30, 33, 38, with zero in the other cells. Direct instruction references to this address are STA at $3233."
+  },
+  {
+   "address": 27648,
+   "type": "line",
+   "text": "Tape seed at row 0, column 0 of the $6C00 matrix ($6C00\u2013$6C27) with $FE at offsets 26, 34, with zero in the other cells. Direct instruction references to this address are STA at $1175, STA at $1328, LDA at $133A, STA at $3BB2."
+  },
+  {
+   "address": 27688,
+   "type": "line",
+   "text": "Tape seed at row 1, column 0 of the $6C00 matrix ($6C28\u2013$6C67) with $FE at offsets 51, with zero in the other cells. Direct instruction references to this address are STA at $2BCF."
+  },
+  {
+   "address": 27752,
+   "type": "line",
+   "text": "Tape seed at row 2, column 24 of the $6C00 matrix ($6C68\u2013$6CC8) with $FE at offsets 15, 16, 55, 59, 62, with zero in the other cells."
+  },
+  {
+   "address": 27849,
+   "type": "line",
+   "text": "Tape seed at row 5, column 1 of the $6C00 matrix ($6CC9\u2013$6CCD) with all 5 bytes are $00. Direct instruction references to this address are STA at $37EC."
+  },
+  {
+   "address": 27854,
+   "type": "line",
+   "text": "Tape seed at row 5, column 6 of the $6C00 matrix ($6CCE\u2013$6CD2) with all 5 bytes are $00. Direct instruction references to this address are STA at $37F2."
+  },
+  {
+   "address": 27859,
+   "type": "line",
+   "text": "Tape seed at row 5, column 11 of the $6C00 matrix ($6CD3\u2013$6CD7) with all 5 bytes are $00. Direct instruction references to this address are STA at $37F8."
+  },
+  {
+   "address": 27864,
+   "type": "line",
+   "text": "Tape seed at row 5, column 16 of the $6C00 matrix ($6CD8\u2013$6CDC) with $FE at offsets 4, with zero in the other cells. Direct instruction references to this address are STA at $37FE."
+  },
+  {
+   "address": 27869,
+   "type": "line",
+   "text": "Tape seed at row 5, column 21 of the $6C00 matrix ($6CDD\u2013$6CE1) with $FE at offsets 2, with zero in the other cells. Direct instruction references to this address are STA at $3804."
+  },
+  {
+   "address": 27874,
+   "type": "line",
+   "text": "Tape seed at row 5, column 26 of the $6C00 matrix ($6CE2\u2013$6CE6) with $FE at offsets 2, with zero in the other cells. Direct instruction references to this address are STA at $380A."
+  },
+  {
+   "address": 27879,
+   "type": "line",
+   "text": "Tape seed at row 5, column 31 of the $6C00 matrix ($6CE7\u2013$6CEB) with $FE at offsets 0, with zero in the other cells. Direct instruction references to this address are STA at $3810."
+  },
+  {
+   "address": 27884,
+   "type": "line",
+   "text": "Tape seed at row 5, column 36 of the $6C00 matrix ($6CEC\u2013$6CEF) with all 4 bytes are $00. Direct instruction references to this address are STA at $381A."
+  },
+  {
+   "address": 27888,
+   "type": "line",
+   "text": "Tape seed at row 6, column 0 of the $6C00 matrix ($6CF0\u2013$6CF9) with all 10 bytes are $00. Direct instruction references to this address are STA at $31C0."
+  },
+  {
+   "address": 27898,
+   "type": "line",
+   "text": "Tape seed at row 6, column 10 of the $6C00 matrix ($6CFA\u2013$6CFF) with all 6 bytes are $00. Direct instruction references to this address are STA at $3BB5."
+  },
+  {
+   "address": 27904,
+   "type": "line",
+   "text": "Tape seed at row 6, column 16 of the $6C00 matrix ($6D00\u2013$6D02) with all 3 bytes are $00. Direct instruction references to this address are STA at $1178."
+  },
+  {
+   "address": 27907,
+   "type": "line",
+   "text": "Tape seed at row 6, column 19 of the $6C00 matrix ($6D03\u2013$6D17) with all 21 bytes are $00. Direct instruction references to this address are STA at $31C3."
+  },
+  {
+   "address": 27928,
+   "type": "line",
+   "text": "Tape seed at row 7, column 0 of the $6C00 matrix ($6D18\u2013$6D2A) with $FE at offsets 0, 5, 8, 13, with zero in the other cells. Direct instruction references to this address are STA at $31BA."
+  },
+  {
+   "address": 27947,
+   "type": "line",
+   "text": "Tape seed at row 7, column 19 of the $6C00 matrix ($6D2B\u2013$6D3F) with all 21 bytes are $00. Direct instruction references to this address are STA at $31BD."
+  },
+  {
+   "address": 27968,
+   "type": "line",
+   "text": "Tape seed at row 8, column 0 of the $6C00 matrix ($6D40\u2013$6D52) with all 19 bytes are $00. Direct instruction references to this address are STA at $31B4."
+  },
+  {
+   "address": 27987,
+   "type": "line",
+   "text": "Tape seed at row 8, column 19 of the $6C00 matrix ($6D53\u2013$6D67) with $FE at offsets 6, 14, with zero in the other cells. Direct instruction references to this address are STA at $31B7."
+  },
+  {
+   "address": 28008,
+   "type": "line",
+   "text": "Tape seed at row 9, column 0 of the $6C00 matrix ($6D68\u2013$6D68) with all 1 bytes are $00. Direct instruction references to this address are STA at $31AE."
+  },
+  {
+   "address": 28009,
+   "type": "line",
+   "text": "Tape seed at row 9, column 1 of the $6C00 matrix ($6D69\u2013$6D6D) with all 5 bytes are $00. Direct instruction references to this address are STA at $2F6E."
+  },
+  {
+   "address": 28014,
+   "type": "line",
+   "text": "Tape seed at row 9, column 6 of the $6C00 matrix ($6D6E\u2013$6D71) with all 4 bytes are $00. Direct instruction references to this address are STA at $2FE2."
+  },
+  {
+   "address": 28018,
+   "type": "line",
+   "text": "Tape seed at row 9, column 10 of the $6C00 matrix ($6D72\u2013$6D7A) with all 9 bytes are $00. Direct instruction references to this address are STA at $3020."
+  },
+  {
+   "address": 28027,
+   "type": "line",
+   "text": "Tape seed at row 9, column 19 of the $6C00 matrix ($6D7B\u2013$6D85) with all 11 bytes are $00. Direct instruction references to this address are STA at $31B1."
+  },
+  {
+   "address": 28038,
+   "type": "line",
+   "text": "Tape seed at row 9, column 30 of the $6C00 matrix ($6D86\u2013$6D89) with all 4 bytes are $00. Direct instruction references to this address are STA at $2FE5."
+  },
+  {
+   "address": 28042,
+   "type": "line",
+   "text": "Tape seed at row 9, column 34 of the $6C00 matrix ($6D8A\u2013$6D8F) with all 6 bytes are $00. Direct instruction references to this address are STA at $2F71."
+  },
+  {
+   "address": 28048,
+   "type": "line",
+   "text": "Tape seed at row 10, column 0 of the $6C00 matrix ($6D90\u2013$6DA2) with $FE at offsets 10, with zero in the other cells. Direct instruction references to this address are STA at $31A8."
+  },
+  {
+   "address": 28067,
+   "type": "line",
+   "text": "Tape seed at row 10, column 19 of the $6C00 matrix ($6DA3\u2013$6DB7) with $FE at offsets 20, with zero in the other cells. Direct instruction references to this address are STA at $31AB."
+  },
+  {
+   "address": 28088,
+   "type": "line",
+   "text": "Tape seed at row 11, column 0 of the $6C00 matrix ($6DB8\u2013$6DCA) with $FE at offsets 0, with zero in the other cells. Direct instruction references to this address are STA at $31A2."
+  },
+  {
+   "address": 28107,
+   "type": "line",
+   "text": "Tape seed at row 11, column 19 of the $6C00 matrix ($6DCB\u2013$6DDF) with $FE at offsets 20, with zero in the other cells. Direct instruction references to this address are STA at $31A5."
+  },
+  {
+   "address": 28128,
+   "type": "line",
+   "text": "Tape seed at row 12, column 0 of the $6C00 matrix ($6DE0\u2013$6DE0) with all 1 bytes are $00. Direct instruction references to this address are STA at $319C."
+  },
+  {
+   "address": 28129,
+   "type": "line",
+   "text": "Tape seed at row 12, column 1 of the $6C00 matrix ($6DE1\u2013$6DED) with 5 distinct values, starting with $00 $FE $00 $00. Direct instruction references to this address are STA at $2F74."
+  },
+  {
+   "address": 28142,
+   "type": "line",
+   "text": "Tape seed at row 12, column 14 of the $6C00 matrix ($6DEE\u2013$6DF2) with 3 distinct values, starting with $42 $B0 $00 $00. Direct instruction references to this address are STA at $3098."
+  },
+  {
+   "address": 28147,
+   "type": "line",
+   "text": "Tape seed at row 12, column 19 of the $6C00 matrix ($6DF3\u2013$6DF3) with all 1 bytes are $00. Direct instruction references to this address are STA at $319F."
+  },
+  {
+   "address": 28148,
+   "type": "line",
+   "text": "Tape seed at row 12, column 20 of the $6C00 matrix ($6DF4\u2013$6DFF) with 6 distinct values, starting with $00 $80 $A2 $60. Direct instruction references to this address are STA at $3BB8."
+  },
+  {
+   "address": 28160,
+   "type": "line",
+   "text": "Packed residual bytes in the second race matrix allocation. The title map staging copy at $1393 covers these pages before the race initializer clears them."
+  },
+  {
+   "address": 28162,
+   "type": "line",
+   "text": "Tape seed at row 12, column 34 of the $6C00 matrix ($6E02\u2013$6E07) with 4 distinct values, starting with $00 $00 $00 $95. Direct instruction references to this address are STA at $2F77."
+  },
+  {
+   "address": 28168,
+   "type": "line",
+   "text": "Tape seed at row 13, column 0 of the $6C00 matrix ($6E08\u2013$6E1A) with 6 distinct values, starting with $00 $00 $00 $00. Direct instruction references to this address are STA at $3196."
+  },
+  {
+   "address": 28187,
+   "type": "line",
+   "text": "Tape seed at row 13, column 19 of the $6C00 matrix ($6E1B\u2013$6E2F) with 11 distinct values, starting with $FE $00 $2A $FA. Direct instruction references to this address are STA at $3199."
+  },
+  {
+   "address": 28208,
+   "type": "line",
+   "text": "Tape seed at row 14, column 0 of the $6C00 matrix ($6E30\u2013$6E57) with 20 distinct values, starting with $00 $00 $00 $00. Direct instruction references to this address are STA at $316E."
+  },
+  {
+   "address": 28248,
+   "type": "line",
+   "text": "Tape seed at row 15, column 0 of the $6C00 matrix ($6E58\u2013$6E58) with all 1 bytes are $00. Direct instruction references to this address are STA at $3171."
+  },
+  {
+   "address": 28249,
+   "type": "line",
+   "text": "Tape seed at row 15, column 1 of the $6C00 matrix ($6E59\u2013$6E79) with 14 distinct values, starting with $00 $00 $00 $7F. Direct instruction references to this address are STA at $2F7A."
+  },
+  {
+   "address": 28282,
+   "type": "line",
+   "text": "Tape seed at row 15, column 34 of the $6C00 matrix ($6E7A\u2013$6E7F) with 4 distinct values, starting with $00 $00 $62 $B4. Direct instruction references to this address are STA at $2F7D."
+  },
+  {
+   "address": 28288,
+   "type": "line",
+   "text": "Tape seed at row 16, column 0 of the $6C00 matrix ($6E80\u2013$6EA7) with 18 distinct values, starting with $00 $00 $00 $00. Direct instruction references to this address are STA at $3174."
+  },
+  {
+   "address": 28328,
+   "type": "line",
+   "text": "Tape seed at row 17, column 0 of the $6C00 matrix ($6EA8\u2013$6ECF) with 12 distinct values, starting with $00 $00 $00 $60. Direct instruction references to this address are STA at $3177."
+  },
+  {
+   "address": 28368,
+   "type": "line",
+   "text": "Tape seed at row 18, column 0 of the $6C00 matrix ($6ED0\u2013$6ED0) with all 1 bytes are $00. Direct instruction references to this address are STA at $317A."
+  },
+  {
+   "address": 28369,
+   "type": "line",
+   "text": "Tape seed at row 18, column 1 of the $6C00 matrix ($6ED1\u2013$6EED) with 9 distinct values, starting with $00 $00 $00 $07. Direct instruction references to this address are STA at $2F80."
+  },
+  {
+   "address": 28398,
+   "type": "line",
+   "text": "Tape seed at row 18, column 30 of the $6C00 matrix ($6EEE\u2013$6EF1) with all 4 bytes are $00. Direct instruction references to this address are STA at $3BBB."
+  },
+  {
+   "address": 28402,
+   "type": "line",
+   "text": "Tape seed at row 18, column 34 of the $6C00 matrix ($6EF2\u2013$6EF7) with $FE at offsets 5, with zero in the other cells. Direct instruction references to this address are STA at $2F83."
+  },
+  {
+   "address": 28408,
+   "type": "line",
+   "text": "Tape seed at row 19, column 0 of the $6C00 matrix ($6EF8\u2013$6EFF) with $FE at offsets 0, with zero in the other cells. Direct instruction references to this address are STA at $317D."
+  },
+  {
+   "address": 28416,
+   "type": "line",
+   "text": "Tape seed at row 19, column 8 of the $6C00 matrix ($6F00\u2013$6F1F) with $FE at offsets 31, with zero in the other cells. Direct instruction references to this address are STA at $117E."
+  },
+  {
+   "address": 28448,
+   "type": "line",
+   "text": "Tape seed at row 20, column 0 of the $6C00 matrix ($6F20\u2013$6F47) with 29 distinct values, starting with $00 $C5 $D5 $3F. Direct instruction references to this address are STA at $3180."
+  },
+  {
+   "address": 28488,
+   "type": "line",
+   "text": "Tape seed at row 21, column 0 of the $6C00 matrix ($6F48\u2013$6F48) with all 1 bytes are $07. Direct instruction references to this address are STA at $3183."
+  },
+  {
+   "address": 28489,
+   "type": "line",
+   "text": "Tape seed at row 21, column 1 of the $6C00 matrix ($6F49\u2013$6F4D) with 5 distinct values, starting with $42 $FF $FC $52. Direct instruction references to this address are STA at $2F1F."
+  },
+  {
+   "address": 28494,
+   "type": "line",
+   "text": "Tape seed at row 21, column 6 of the $6C00 matrix ($6F4E\u2013$6F69) with 23 distinct values, starting with $BA $00 $04 $5C. Direct instruction references to this address are STA at $305F."
+  },
+  {
+   "address": 28522,
+   "type": "line",
+   "text": "Tape seed at row 21, column 34 of the $6C00 matrix ($6F6A\u2013$6F6F) with 5 distinct values, starting with $D0 $82 $57 $E1. Direct instruction references to this address are STA at $2F27."
+  },
+  {
+   "address": 28528,
+   "type": "line",
+   "text": "Tape seed at row 22, column 0 of the $6C00 matrix ($6F70\u2013$6F97) with 28 distinct values, starting with $80 $00 $80 $3D. Direct instruction references to this address are STA at $3186."
+  },
+  {
+   "address": 28568,
+   "type": "line",
+   "text": "Tape seed at row 23, column 0 of the $6C00 matrix ($6F98\u2013$6FBF) with 26 distinct values, starting with $5D $40 $C0 $10. Direct instruction references to this address are STA at $3189."
+  },
+  {
+   "address": 28608,
+   "type": "line",
+   "text": "Tape seed at row 24, column 0 of the $6C00 matrix ($6FC0\u2013$6FF7) with 36 distinct values, starting with $00 $00 $1C $01. Direct instruction references to this address are STA at $318C."
+  },
+  {
+   "address": 28664,
+   "type": "line",
+   "text": "Tape seed for sprite pointer 0 of the second race matrix ($6FF8\u2013$6FF8) with all 1 bytes are $00. Direct instruction references to this address are STA at $0D6D, STA at $10F6."
+  },
+  {
+   "address": 28665,
+   "type": "line",
+   "text": "Tape seed for sprite pointer 1 of the second race matrix ($6FF9\u2013$6FF9) with all 1 bytes are $07. Direct instruction references to this address are STA at $0D73, STA at $1103."
+  },
+  {
+   "address": 28666,
+   "type": "line",
+   "text": "Tape seed for sprite pointer 2 of the second race matrix ($6FFA\u2013$6FFA) with all 1 bytes are $01. Direct instruction references to this address are STA at $1110."
+  },
+  {
+   "address": 28667,
+   "type": "line",
+   "text": "Tape seed for sprite pointer 3 of the second race matrix ($6FFB\u2013$6FFB) with all 1 bytes are $52. Direct instruction references to this address are STA at $111D."
+  },
+  {
+   "address": 28668,
+   "type": "line",
+   "text": "Tape seed for sprite pointer 4 of the second race matrix ($6FFC\u2013$6FFC) with all 1 bytes are $5E. Direct instruction references to this address are STA at $1070."
+  },
+  {
+   "address": 28669,
+   "type": "line",
+   "text": "Tape seed for sprite pointer 5 of the second race matrix ($6FFD\u2013$6FFD) with all 1 bytes are $E0. Direct instruction references to this address are STA at $107D."
+  },
+  {
+   "address": 28670,
+   "type": "line",
+   "text": "Tape seed for sprite pointer 6 of the second race matrix ($6FFE\u2013$6FFE) with all 1 bytes are $01. Direct instruction references to this address are STA at $112A."
+  },
+  {
+   "address": 28671,
+   "type": "line",
+   "text": "Tape seed for sprite pointer 7 of the second race matrix ($6FFF\u2013$6FFF) with all 1 bytes are $CE. Direct instruction references to this address are STA at $1137."
+  },
+  {
+   "address": 28672,
+   "type": "line",
+   "text": "Graphics-like bytes from the tape. The map copy at $1393 replaces this allocation with bytes from the source at $CBC0. The initial graphics' consumer is open."
+  },
+  {
+   "address": 28680,
+   "type": "line",
+   "text": "Packed tape graphics fragment in the startup map workspace ($7008\u2013$7046) with 22 distinct values, starting with $55 $C7 $07 $14. Direct instruction references to this address are STA at $3274."
+  },
+  {
+   "address": 28743,
+   "type": "line",
+   "text": "Packed tape graphics fragment in the startup map workspace ($7047\u2013$7085) with 26 distinct values, starting with $00 $00 $00 $00. Direct instruction references to this address are STA at $3277."
+  },
+  {
+   "address": 28806,
+   "type": "line",
+   "text": "Packed tape graphics fragment in the startup map workspace ($7086\u2013$70C4) with 47 distinct values, starting with $01 $F9 $38 $52. Direct instruction references to this address are STA at $327A."
+  },
+  {
+   "address": 28869,
+   "type": "line",
+   "text": "Packed tape graphics fragment in the startup map workspace ($70C5\u2013$7103) with 36 distinct values, starting with $FF $52 $C0 $00. Direct instruction references to this address are STA at $327D."
+  },
+  {
+   "address": 28932,
+   "type": "line",
+   "text": "Packed tape graphics fragment in the startup map workspace ($7104\u2013$7142) with 38 distinct values, starting with $AA $2F $F2 $02. Direct instruction references to this address are STA at $3280."
+  },
+  {
+   "address": 28995,
+   "type": "line",
+   "text": "Packed tape graphics fragment in the startup map workspace ($7143\u2013$7181) with 23 distinct values, starting with $20 $F5 $94 $F4. Direct instruction references to this address are STA at $3283."
+  },
+  {
+   "address": 29058,
+   "type": "line",
+   "text": "Packed tape graphics fragment in the startup map workspace ($7182\u2013$71C0) with 27 distinct values, starting with $00 $00 $00 $FE. Direct instruction references to this address are STA at $3286."
+  },
+  {
+   "address": 29121,
+   "type": "line",
+   "text": "Packed tape graphics fragment in the startup map workspace ($71C1\u2013$71FF) with 40 distinct values, starting with $00 $F8 $FD $84. Direct instruction references to this address are STA at $3289."
+  },
+  {
+   "address": 29184,
+   "type": "line",
+   "text": "Packed tape graphics fragment in the startup map workspace ($7200\u2013$723E) with 31 distinct values, starting with $F7 $00 $FF $9C. Direct instruction references to this address are STA at $328C."
+  },
+  {
+   "address": 29247,
+   "type": "line",
+   "text": "Packed tape graphics fragment in the startup map workspace ($723F\u2013$727D) with 35 distinct values, starting with $00 $FC $00 $F0. Direct instruction references to this address are STA at $328F."
+  },
+  {
+   "address": 29310,
+   "type": "line",
+   "text": "Packed tape graphics fragment in the startup map workspace ($727E\u2013$72BC) with 32 distinct values, starting with $01 $07 $00 $00. Direct instruction references to this address are STA at $329F."
+  },
+  {
+   "address": 29373,
+   "type": "line",
+   "text": "Packed tape graphics fragment in the startup map workspace ($72BD\u2013$72FB) with 29 distinct values, starting with $FF $00 $77 $FE. Direct instruction references to this address are STA at $32A2."
+  },
+  {
+   "address": 29436,
+   "type": "line",
+   "text": "Packed tape graphics fragment in the startup map workspace ($72FC\u2013$733A) with 41 distinct values, starting with $00 $20 $5F $14. Direct instruction references to this address are STA at $32A5."
+  },
+  {
+   "address": 29499,
+   "type": "line",
+   "text": "Packed tape graphics fragment in the startup map workspace ($733B\u2013$7379) with 44 distinct values, starting with $FF $2A $41 $FA. Direct instruction references to this address are STA at $32A8."
+  },
+  {
+   "address": 29562,
+   "type": "line",
+   "text": "Packed tape graphics fragment in the startup map workspace ($737A\u2013$73B8) with 42 distinct values, starting with $FF $F1 $00 $FF. Direct instruction references to this address are STA at $32AB."
+  },
+  {
+   "address": 29625,
+   "type": "line",
+   "text": "Packed tape graphics fragment in the startup map workspace ($73B9\u2013$73F7) with 38 distinct values, starting with $8A $FF $C0 $00. Direct instruction references to this address are STA at $32AE."
+  },
+  {
+   "address": 29688,
+   "type": "line",
+   "text": "Packed tape graphics fragment in the startup map workspace ($73F8\u2013$7437) with 42 distinct values, starting with $FF $0F $FF $A5. Direct instruction references to this address are STA at $32B1."
+  },
+  {
+   "address": 29752,
+   "type": "line",
+   "text": "Packed tape graphics fragment in the startup map workspace ($7438\u2013$74FF) with 100 distinct values, starting with $BC $B8 $00 $A0."
+  },
+  {
+   "address": 29952,
+   "type": "line",
+   "text": "This part of the tape load transitions from packed bytes to successive eight-byte glyph patterns. Rendering the slots reveals lettering, including F1 labels in the $7900 page. The startup title-map copy covers these original bytes."
+  },
+  {
+   "address": 30704,
+   "type": "line",
+   "text": "Packed tape graphics fragment in the startup map workspace ($77F0\u2013$77F7) with all 8 bytes are $FF. Direct instruction references to this address are STA at $11CC."
+  },
+  {
+   "address": 30712,
+   "type": "line",
+   "text": "Packed tape graphics fragment in the startup map workspace ($77F8\u2013$77FF) with all 8 bytes are $55. Direct instruction references to this address are STA at $11BC."
+  },
+  {
+   "address": 30720,
+   "type": "line",
+   "text": "Packed tape graphics fragment in the startup map workspace ($7800\u2013$7807) with all 8 bytes are $00. Direct instruction references to this address are STA at $11A9, STA at $3BC9."
+  },
+  {
+   "address": 30728,
+   "type": "line",
+   "text": "Packed tape graphics fragment in the startup map workspace ($7808\u2013$7846) with 7 distinct values, starting with $01 $03 $07 $0D. Direct instruction references to this address are STA at $31CD."
+  },
+  {
+   "address": 30791,
+   "type": "line",
+   "text": "Packed tape graphics fragment in the startup map workspace ($7847\u2013$7885) with 6 distinct values, starting with $07 $81 $81 $81. Direct instruction references to this address are STA at $31D0."
+  },
+  {
+   "address": 30854,
+   "type": "line",
+   "text": "Packed tape graphics fragment in the startup map workspace ($7886\u2013$789F) with 6 distinct values, starting with $0D $01 $00 $00. Direct instruction references to this address are STA at $31D3."
+  },
+  {
+   "address": 30880,
+   "type": "line",
+   "text": "Packed tape graphics fragment in the startup map workspace ($78A0\u2013$78C4) with 6 distinct values, starting with $00 $00 $3F $3F. Direct instruction references to this address are STA at $3BCF."
+  },
+  {
+   "address": 30917,
+   "type": "line",
+   "text": "Packed tape graphics fragment in the startup map workspace ($78C5\u2013$7903) with 13 distinct values, starting with $FF $3C $3C $00. Direct instruction references to this address are STA at $31D6."
+  },
+  {
+   "address": 30980,
+   "type": "line",
+   "text": "Packed tape graphics fragment in the startup map workspace ($7904\u2013$7942) with 10 distinct values, starting with $81 $81 $81 $81. Direct instruction references to this address are STA at $31D9."
+  },
+  {
+   "address": 31043,
+   "type": "line",
+   "text": "Packed tape graphics fragment in the startup map workspace ($7943\u2013$7981) with 6 distinct values, starting with $00 $00 $00 $00. Direct instruction references to this address are STA at $31DC."
+  },
+  {
+   "address": 31106,
+   "type": "line",
+   "text": "Packed tape graphics fragment in the startup map workspace ($7982\u2013$79C0) with 10 distinct values, starting with $FC $FC $CC $CC. Direct instruction references to this address are STA at $31DF."
+  },
+  {
+   "address": 31169,
+   "type": "line",
+   "text": "Packed tape graphics fragment in the startup map workspace ($79C1\u2013$79FF) with 7 distinct values, starting with $ED $07 $07 $01. Direct instruction references to this address are STA at $31E2."
+  },
+  {
+   "address": 31232,
+   "type": "line",
+   "text": "Eight-byte pictorial fragments precede the directory at $7C00 in the handoff image. Startup reads that directory at $1270 and subsequently overwrites this fragment range in the title-map copy. Exact fragment attribution is open."
+  },
+  {
+   "address": 31295,
+   "type": "line",
+   "text": "Packed tape graphics fragment in the startup map workspace ($7A3F\u2013$7A7D) with 41 distinct values, starting with $C1 $00 $00 $00. Direct instruction references to this address are STA at $31E8."
+  },
+  {
+   "address": 31358,
+   "type": "line",
+   "text": "Packed tape graphics fragment in the startup map workspace ($7A7E\u2013$7ABC) with 44 distinct values, starting with $A9 $12 $A8 $50. Direct instruction references to this address are STA at $31F8."
+  },
+  {
+   "address": 31421,
+   "type": "line",
+   "text": "Packed tape graphics fragment in the startup map workspace ($7ABD\u2013$7AFB) with 32 distinct values, starting with $20 $20 $00 $00. Direct instruction references to this address are STA at $31FB."
+  },
+  {
+   "address": 31484,
+   "type": "line",
+   "text": "Packed tape graphics fragment in the startup map workspace ($7AFC\u2013$7B3A) with 7 distinct values, starting with $00 $01 $00 $00. Direct instruction references to this address are STA at $31FE."
+  },
+  {
+   "address": 31547,
+   "type": "line",
+   "text": "Packed tape graphics fragment in the startup map workspace ($7B3B\u2013$7B79) with 17 distinct values, starting with $C0 $C0 $C0 $00. Direct instruction references to this address are STA at $3201."
+  },
+  {
+   "address": 31610,
+   "type": "line",
+   "text": "Packed tape graphics fragment in the startup map workspace ($7B7A\u2013$7BB8) with 11 distinct values, starting with $00 $00 $00 $00. Direct instruction references to this address are STA at $3204."
+  },
+  {
+   "address": 31673,
+   "type": "line",
+   "text": "Packed tape graphics fragment in the startup map workspace ($7BB9\u2013$7BF7) with 24 distinct values, starting with $EE $EE $EE $AA. Direct instruction references to this address are STA at $3207."
+  },
+  {
+   "address": 31736,
+   "type": "line",
+   "text": "Packed tape graphics fragment in the startup map workspace ($7BF8\u2013$7BFF) with 8 distinct values, starting with $16 $08 $07 $04. Direct instruction references to this address are STA at $320A."
   },
   {
    "address": 31744,
