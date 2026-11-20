@@ -1,0 +1,105 @@
+{
+  "schema": 1,
+  "platform": "c64",
+  "slug": "who-dares-wins",
+  "title": "Who Dares Wins",
+  "year": 1985,
+  "publisher": "Alligata Software",
+  "developer": "Steve Evans",
+  "title_image": "reference/title.png",
+  "build": "Alligata cassette, primary recording",
+  "tier": "bronze",
+  "coverage_percent": null,
+  "copy": "agent-draft",
+  "steward": "",
+  "credits": [],
+  "tools": {
+    "emulator": "VICE MCP v3.14.0 macOS arm64 headless, dummy audio",
+    "host": "macOS arm64",
+    "disassembler": "regenerator2000"
+  },
+  "model": "gpt-6.2-sol",
+  "step_models": {
+    "50-coverage": [
+      "gpt-6.2-sol"
+    ],
+    "60-verify": [
+      "gpt-6.2-sol"
+    ]
+  },
+  "accuracy": [
+    {
+      "step": "research",
+      "web": true,
+      "models": [
+        "gpt-6.2-sol"
+      ]
+    },
+    {
+      "step": "annotate",
+      "models": [
+        "gpt-6.2-sol"
+      ]
+    },
+    {
+      "step": "sample",
+      "size": 60,
+      "wrong": 7,
+      "fixed": 7,
+      "seed": 1985,
+      "models": [
+        "gpt-6.2-sol"
+      ]
+    }
+  ],
+  "kit_version": "0.0.360",
+  "created": "2026-11-20",
+  "video": {
+    "screen": "$0400",
+    "charset": "$3800"
+  },
+  "coverage": {
+    "exclude": [
+      [
+        "$FD30",
+        "$FD4F",
+        "RAM mirror of the KERNAL ROM default vectors, identical in the hand-over and play snapshots and to reads from the ROM bank."
+      ],
+      [
+        "$0000",
+        "$00FF",
+        "CPU port, KERNAL workspace and engine registers initialized at run time; tape payload starts at $0900."
+      ],
+      [
+        "$0200",
+        "$03FF",
+        "KERNAL and tape-loader workspace reused for music, input latches and the live IRQ and NMI vectors."
+      ],
+      [
+        "$0400",
+        "$07FF",
+        "VIC screen, status rows, and sprite pointers written at run time."
+      ]
+    ],
+    "extra": [
+      [
+        "$0900",
+        "$C7FF",
+        "Fast-load payload matched byte for byte at the $4000 hand-over."
+      ]
+    ],
+    "include": []
+  },
+  "io": [],
+  "regions": [],
+  "links": {
+    "wiki": {
+      "title": "",
+      "url": ""
+    },
+    "manual": {
+      "title": "Who Dares Wins cassette inlay",
+      "url": "https://www.gamesthatwerent.com/wp-content/uploads/gtw64/w/who-dares-wins/WDW-improved-cover.jpg"
+    }
+  }
+}

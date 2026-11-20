@@ -1,0 +1,5179 @@
+{
+ "schema": 1,
+ "platform": "c64",
+ "game": "who-dares-wins",
+ "build": "Alligata cassette, primary recording",
+ "source": "regenerator2000 live",
+ "regions": {
+  "exclude": [
+   [
+    256,
+    511,
+    "stack"
+   ],
+   [
+    53248,
+    57343,
+    "I/O and colour RAM"
+   ],
+   [
+    1024,
+    2047,
+    "screen RAM"
+   ],
+   [
+    64816,
+    64847,
+    "RAM mirror of the KERNAL ROM default vectors, identical in the hand-over and play snapshots and to reads from the ROM bank."
+   ],
+   [
+    0,
+    255,
+    "CPU port, KERNAL workspace and engine registers initialized at run time; tape payload starts at $0900."
+   ],
+   [
+    512,
+    1023,
+    "KERNAL and tape-loader workspace reused for music, input latches and the live IRQ and NMI vectors."
+   ],
+   [
+    1024,
+    2047,
+    "VIC screen, status rows, and sprite pointers written at run time."
+   ]
+  ],
+  "extra": [
+   [
+    14336,
+    16383,
+    "character set"
+   ],
+   [
+    2304,
+    51199,
+    "Fast-load payload matched byte for byte at the $4000 hand-over."
+   ]
+  ],
+  "edges": [
+   0,
+   256,
+   512,
+   1024,
+   2048,
+   4096,
+   16384,
+   32768,
+   40960,
+   49152,
+   53248,
+   57344
+  ]
+ },
+ "blocks": [
+  {
+   "start": 0,
+   "end": 2303,
+   "type": "Undefined"
+  },
+  {
+   "start": 2304,
+   "end": 4355,
+   "type": "Byte"
+  },
+  {
+   "start": 4356,
+   "end": 4401,
+   "type": "Address"
+  },
+  {
+   "start": 4402,
+   "end": 4447,
+   "type": "Byte"
+  },
+  {
+   "start": 4448,
+   "end": 4497,
+   "type": "Address"
+  },
+  {
+   "start": 4498,
+   "end": 5030,
+   "type": "Byte"
+  },
+  {
+   "start": 5031,
+   "end": 7922,
+   "type": "Code"
+  },
+  {
+   "start": 7923,
+   "end": 16383,
+   "type": "Byte"
+  },
+  {
+   "start": 16384,
+   "end": 19654,
+   "type": "Code"
+  },
+  {
+   "start": 19655,
+   "end": 19658,
+   "type": "Byte"
+  },
+  {
+   "start": 19659,
+   "end": 19746,
+   "type": "Code"
+  },
+  {
+   "start": 19747,
+   "end": 19754,
+   "type": "Byte"
+  },
+  {
+   "start": 19755,
+   "end": 20051,
+   "type": "Code"
+  },
+  {
+   "start": 20052,
+   "end": 51199,
+   "type": "Byte"
+  },
+  {
+   "start": 51200,
+   "end": 65535,
+   "type": "Undefined"
+  }
+ ],
+ "symbols": [
+  {
+   "address": 0,
+   "name": "j_00",
+   "type": "Jump",
+   "kind": "auto"
+  },
+  {
+   "address": 1,
+   "name": "zpa_01",
+   "type": "ZeroPageAbsoluteAddress",
+   "kind": "auto"
+  },
+  {
+   "address": 2,
+   "name": "zpa_02",
+   "type": "ZeroPageAbsoluteAddress",
+   "kind": "auto"
+  },
+  {
+   "address": 7,
+   "name": "zpa_07",
+   "type": "ZeroPageAbsoluteAddress",
+   "kind": "auto"
+  },
+  {
+   "address": 20,
+   "name": "zpa_14",
+   "type": "ZeroPageAbsoluteAddress",
+   "kind": "auto"
+  },
+  {
+   "address": 21,
+   "name": "zpa_15",
+   "type": "ZeroPageAbsoluteAddress",
+   "kind": "auto"
+  },
+  {
+   "address": 23,
+   "name": "zpa_17",
+   "type": "ZeroPageAbsoluteAddress",
+   "kind": "auto"
+  },
+  {
+   "address": 24,
+   "name": "zpa_18",
+   "type": "ZeroPageAbsoluteAddress",
+   "kind": "auto"
+  },
+  {
+   "address": 61,
+   "name": "zpa_3D",
+   "type": "ZeroPageAbsoluteAddress",
+   "kind": "auto"
+  },
+  {
+   "address": 62,
+   "name": "zpa_3E",
+   "type": "ZeroPageAbsoluteAddress",
+   "kind": "auto"
+  },
+  {
+   "address": 77,
+   "name": "zpp_4D",
+   "type": "ZeroPagePointer",
+   "kind": "auto"
+  },
+  {
+   "address": 78,
+   "name": "zpa_4E",
+   "type": "ZeroPageAbsoluteAddress",
+   "kind": "auto"
+  },
+  {
+   "address": 79,
+   "name": "zpa_4F",
+   "type": "ZeroPageAbsoluteAddress",
+   "kind": "auto"
+  },
+  {
+   "address": 80,
+   "name": "zpf_50",
+   "type": "ZeroPageField",
+   "kind": "auto"
+  },
+  {
+   "address": 86,
+   "name": "zpa_56",
+   "type": "ZeroPageAbsoluteAddress",
+   "kind": "auto"
+  },
+  {
+   "address": 87,
+   "name": "zpa_57",
+   "type": "ZeroPageAbsoluteAddress",
+   "kind": "auto"
+  },
+  {
+   "address": 88,
+   "name": "zpa_58",
+   "type": "ZeroPageAbsoluteAddress",
+   "kind": "auto"
+  },
+  {
+   "address": 89,
+   "name": "zpa_59",
+   "type": "ZeroPageAbsoluteAddress",
+   "kind": "auto"
+  },
+  {
+   "address": 90,
+   "name": "zpa_5A",
+   "type": "ZeroPageAbsoluteAddress",
+   "kind": "auto"
+  },
+  {
+   "address": 91,
+   "name": "zpa_5B",
+   "type": "ZeroPageAbsoluteAddress",
+   "kind": "auto"
+  },
+  {
+   "address": 92,
+   "name": "zpa_5C",
+   "type": "ZeroPageAbsoluteAddress",
+   "kind": "auto"
+  },
+  {
+   "address": 93,
+   "name": "zpa_5D",
+   "type": "ZeroPageAbsoluteAddress",
+   "kind": "auto"
+  },
+  {
+   "address": 95,
+   "name": "zpa_5F",
+   "type": "ZeroPageAbsoluteAddress",
+   "kind": "auto"
+  },
+  {
+   "address": 151,
+   "name": "zpa_97",
+   "type": "ZeroPageAbsoluteAddress",
+   "kind": "auto"
+  },
+  {
+   "address": 160,
+   "name": "zpa_A0",
+   "type": "ZeroPageAbsoluteAddress",
+   "kind": "auto"
+  },
+  {
+   "address": 161,
+   "name": "zpa_A1",
+   "type": "ZeroPageAbsoluteAddress",
+   "kind": "auto"
+  },
+  {
+   "address": 162,
+   "name": "zpa_A2",
+   "type": "ZeroPageAbsoluteAddress",
+   "kind": "auto"
+  },
+  {
+   "address": 163,
+   "name": "zpa_A3",
+   "type": "ZeroPageAbsoluteAddress",
+   "kind": "auto"
+  },
+  {
+   "address": 164,
+   "name": "zpa_A4",
+   "type": "ZeroPageAbsoluteAddress",
+   "kind": "auto"
+  },
+  {
+   "address": 206,
+   "name": "zpa_CE",
+   "type": "ZeroPageAbsoluteAddress",
+   "kind": "auto"
+  },
+  {
+   "address": 251,
+   "name": "zpa_FB",
+   "type": "ZeroPageAbsoluteAddress",
+   "kind": "auto"
+  },
+  {
+   "address": 252,
+   "name": "zpa_FC",
+   "type": "ZeroPageAbsoluteAddress",
+   "kind": "auto"
+  },
+  {
+   "address": 253,
+   "name": "zpa_FD",
+   "type": "ZeroPageAbsoluteAddress",
+   "kind": "auto"
+  },
+  {
+   "address": 254,
+   "name": "zpa_FE",
+   "type": "ZeroPageAbsoluteAddress",
+   "kind": "auto"
+  },
+  {
+   "address": 255,
+   "name": "zpa_FF",
+   "type": "ZeroPageAbsoluteAddress",
+   "kind": "auto"
+  },
+  {
+   "address": 690,
+   "name": "a_02B2",
+   "type": "AbsoluteAddress",
+   "kind": "auto"
+  },
+  {
+   "address": 691,
+   "name": "a_02B3",
+   "type": "AbsoluteAddress",
+   "kind": "auto"
+  },
+  {
+   "address": 692,
+   "name": "f_02B4",
+   "type": "Field",
+   "kind": "auto"
+  },
+  {
+   "address": 700,
+   "name": "f_02BC",
+   "type": "Field",
+   "kind": "auto"
+  },
+  {
+   "address": 701,
+   "name": "a_02BD",
+   "type": "AbsoluteAddress",
+   "kind": "auto"
+  },
+  {
+   "address": 703,
+   "name": "f_02BF",
+   "type": "Field",
+   "kind": "auto"
+  },
+  {
+   "address": 704,
+   "name": "a_02C0",
+   "type": "AbsoluteAddress",
+   "kind": "auto"
+  },
+  {
+   "address": 706,
+   "name": "f_02C2",
+   "type": "Field",
+   "kind": "auto"
+  },
+  {
+   "address": 707,
+   "name": "a_02C3",
+   "type": "AbsoluteAddress",
+   "kind": "auto"
+  },
+  {
+   "address": 709,
+   "name": "f_02C5",
+   "type": "Field",
+   "kind": "auto"
+  },
+  {
+   "address": 712,
+   "name": "f_02C8",
+   "type": "Field",
+   "kind": "auto"
+  },
+  {
+   "address": 788,
+   "name": "a_0314",
+   "type": "AbsoluteAddress",
+   "kind": "auto"
+  },
+  {
+   "address": 789,
+   "name": "a_0315",
+   "type": "AbsoluteAddress",
+   "kind": "auto"
+  },
+  {
+   "address": 792,
+   "name": "a_0318",
+   "type": "AbsoluteAddress",
+   "kind": "auto"
+  },
+  {
+   "address": 793,
+   "name": "a_0319",
+   "type": "AbsoluteAddress",
+   "kind": "auto"
+  },
+  {
+   "address": 984,
+   "name": "f_03D8",
+   "type": "Field",
+   "kind": "auto"
+  },
+  {
+   "address": 1024,
+   "name": "f_0400",
+   "type": "Field",
+   "kind": "auto"
+  },
+  {
+   "address": 1025,
+   "name": "f_0401",
+   "type": "Field",
+   "kind": "auto"
+  },
+  {
+   "address": 1064,
+   "name": "f_0428",
+   "type": "Field",
+   "kind": "auto"
+  },
+  {
+   "address": 1122,
+   "name": "f_0462",
+   "type": "Field",
+   "kind": "auto"
+  },
+  {
+   "address": 1280,
+   "name": "f_0500",
+   "type": "Field",
+   "kind": "auto"
+  },
+  {
+   "address": 1350,
+   "name": "f_0546",
+   "type": "Field",
+   "kind": "auto"
+  },
+  {
+   "address": 1430,
+   "name": "f_0596",
+   "type": "Field",
+   "kind": "auto"
+  },
+  {
+   "address": 1536,
+   "name": "f_0600",
+   "type": "Field",
+   "kind": "auto"
+  },
+  {
+   "address": 1545,
+   "name": "f_0609",
+   "type": "Field",
+   "kind": "auto"
+  },
+  {
+   "address": 1585,
+   "name": "f_0631",
+   "type": "Field",
+   "kind": "auto"
+  },
+  {
+   "address": 1688,
+   "name": "f_0698",
+   "type": "Field",
+   "kind": "auto"
+  },
+  {
+   "address": 1784,
+   "name": "f_06F8",
+   "type": "Field",
+   "kind": "auto"
+  },
+  {
+   "address": 1938,
+   "name": "f_0792",
+   "type": "Field",
+   "kind": "auto"
+  },
+  {
+   "address": 1944,
+   "name": "f_0798",
+   "type": "Field",
+   "kind": "auto"
+  },
+  {
+   "address": 1945,
+   "name": "f_0799",
+   "type": "Field",
+   "kind": "auto"
+  },
+  {
+   "address": 1984,
+   "name": "f_07C0",
+   "type": "Field",
+   "kind": "auto"
+  },
+  {
+   "address": 2040,
+   "name": "a_07F8",
+   "type": "AbsoluteAddress",
+   "kind": "auto"
+  },
+  {
+   "address": 2041,
+   "name": "a_07F9",
+   "type": "AbsoluteAddress",
+   "kind": "auto"
+  },
+  {
+   "address": 2042,
+   "name": "a_07FA",
+   "type": "AbsoluteAddress",
+   "kind": "auto"
+  },
+  {
+   "address": 2043,
+   "name": "a_07FB",
+   "type": "AbsoluteAddress",
+   "kind": "auto"
+  },
+  {
+   "address": 2044,
+   "name": "a_07FC",
+   "type": "AbsoluteAddress",
+   "kind": "auto"
+  },
+  {
+   "address": 2045,
+   "name": "a_07FD",
+   "type": "AbsoluteAddress",
+   "kind": "auto"
+  },
+  {
+   "address": 2046,
+   "name": "a_07FE",
+   "type": "AbsoluteAddress",
+   "kind": "auto"
+  },
+  {
+   "address": 2047,
+   "name": "a_07FF",
+   "type": "AbsoluteAddress",
+   "kind": "auto"
+  },
+  {
+   "address": 2304,
+   "name": "victory_text",
+   "type": "Field",
+   "kind": "user"
+  },
+  {
+   "address": 2504,
+   "name": "title_velocity_y",
+   "type": "Field",
+   "kind": "user"
+  },
+  {
+   "address": 2515,
+   "name": "title_velocity_x",
+   "type": "Field",
+   "kind": "user"
+  },
+  {
+   "address": 2526,
+   "name": "title_sprite_colour",
+   "type": "Field",
+   "kind": "user"
+  },
+  {
+   "address": 2537,
+   "name": "title_initial_x",
+   "type": "Field",
+   "kind": "user"
+  },
+  {
+   "address": 2548,
+   "name": "title_initial_y",
+   "type": "Field",
+   "kind": "user"
+  },
+  {
+   "address": 2559,
+   "name": "initial_object_types",
+   "type": "Field",
+   "kind": "user"
+  },
+  {
+   "address": 2577,
+   "name": "title_copyright",
+   "type": "Field",
+   "kind": "user"
+  },
+  {
+   "address": 2617,
+   "name": "title_author",
+   "type": "Field",
+   "kind": "user"
+  },
+  {
+   "address": 2657,
+   "name": "before_title_shapes",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 3072,
+   "name": "title_left_shapes",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 3584,
+   "name": "title_right_shapes",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 3968,
+   "name": "title_soldier_shape",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 4032,
+   "name": "following_title_shape",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 4096,
+   "name": "before_game_settings",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 4146,
+   "name": "spawn_type_cutoff",
+   "type": "AbsoluteAddress",
+   "kind": "user"
+  },
+  {
+   "address": 4147,
+   "name": "enemy_fire_cutoff",
+   "type": "AbsoluteAddress",
+   "kind": "user"
+  },
+  {
+   "address": 4148,
+   "name": "garrison_reserve_seed",
+   "type": "AbsoluteAddress",
+   "kind": "user"
+  },
+  {
+   "address": 4149,
+   "name": "title_tune_enabled",
+   "type": "AbsoluteAddress",
+   "kind": "user"
+  },
+  {
+   "address": 4150,
+   "name": "hud_text",
+   "type": "Field",
+   "kind": "user"
+  },
+  {
+   "address": 4190,
+   "name": "hud_colours",
+   "type": "Field",
+   "kind": "user"
+  },
+  {
+   "address": 4230,
+   "name": "clear_message",
+   "type": "Field",
+   "kind": "user"
+  },
+  {
+   "address": 4242,
+   "name": "cleared_area_digit",
+   "type": "AbsoluteAddress",
+   "kind": "user"
+  },
+  {
+   "address": 4258,
+   "name": "rush_message",
+   "type": "Field",
+   "kind": "user"
+  },
+  {
+   "address": 4283,
+   "name": "next_area_digit",
+   "type": "AbsoluteAddress",
+   "kind": "user"
+  },
+  {
+   "address": 4286,
+   "name": "fixed_screen_row_buffer",
+   "type": "Field",
+   "kind": "user"
+  },
+  {
+   "address": 4324,
+   "name": "row_buffer_alignment",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 4326,
+   "name": "garrison_decoration",
+   "type": "Field",
+   "kind": "user"
+  },
+  {
+   "address": 4356,
+   "name": "object_update_table",
+   "type": "Field",
+   "kind": "user"
+  },
+  {
+   "address": 4357,
+   "name": "object_update_high",
+   "type": "Field",
+   "kind": "user"
+  },
+  {
+   "address": 4402,
+   "name": "object_point_tens_units",
+   "type": "Field",
+   "kind": "user"
+  },
+  {
+   "address": 4425,
+   "name": "object_point_hundreds_flags",
+   "type": "Field",
+   "kind": "user"
+  },
+  {
+   "address": 4448,
+   "name": "row_command_table",
+   "type": "Field",
+   "kind": "user"
+  },
+  {
+   "address": 4449,
+   "name": "row_command_high",
+   "type": "Field",
+   "kind": "user"
+  },
+  {
+   "address": 4480,
+   "name": "raster_vector_table",
+   "type": "Field",
+   "kind": "user"
+  },
+  {
+   "address": 4481,
+   "name": "raster_vector_high",
+   "type": "Field",
+   "kind": "user"
+  },
+  {
+   "address": 4498,
+   "name": "raster_line_table",
+   "type": "Field",
+   "kind": "user"
+  },
+  {
+   "address": 4507,
+   "name": "facing_shape_base",
+   "type": "Field",
+   "kind": "user"
+  },
+  {
+   "address": 4515,
+   "name": "facing_y_delta",
+   "type": "Field",
+   "kind": "user"
+  },
+  {
+   "address": 4523,
+   "name": "facing_x_delta",
+   "type": "Field",
+   "kind": "user"
+  },
+  {
+   "address": 4531,
+   "name": "actor_aux_state",
+   "type": "Field",
+   "kind": "user"
+  },
+  {
+   "address": 4551,
+   "name": "actor_secondary_accumulator",
+   "type": "Field",
+   "kind": "user"
+  },
+  {
+   "address": 4571,
+   "name": "actor_type",
+   "type": "Field",
+   "kind": "user"
+  },
+  {
+   "address": 4578,
+   "name": "title_object_override",
+   "type": "Field",
+   "kind": "user"
+  },
+  {
+   "address": 4591,
+   "name": "actor_x",
+   "type": "Field",
+   "kind": "user"
+  },
+  {
+   "address": 4611,
+   "name": "actor_y",
+   "type": "Field",
+   "kind": "user"
+  },
+  {
+   "address": 4631,
+   "name": "actor_shape",
+   "type": "Field",
+   "kind": "user"
+  },
+  {
+   "address": 4641,
+   "name": "title_shape_override",
+   "type": "AbsoluteAddress",
+   "kind": "user"
+  },
+  {
+   "address": 4651,
+   "name": "actor_priority",
+   "type": "Field",
+   "kind": "user"
+  },
+  {
+   "address": 4671,
+   "name": "actor_colour",
+   "type": "Field",
+   "kind": "user"
+  },
+  {
+   "address": 4691,
+   "name": "actor_dx",
+   "type": "Field",
+   "kind": "user"
+  },
+  {
+   "address": 4711,
+   "name": "actor_dy",
+   "type": "Field",
+   "kind": "user"
+  },
+  {
+   "address": 4731,
+   "name": "actor_phase",
+   "type": "Field",
+   "kind": "user"
+  },
+  {
+   "address": 4751,
+   "name": "actor_counter",
+   "type": "Field",
+   "kind": "user"
+  },
+  {
+   "address": 4771,
+   "name": "player_frame_counter",
+   "type": "AbsoluteAddress",
+   "kind": "user"
+  },
+  {
+   "address": 4772,
+   "name": "player_half_x",
+   "type": "AbsoluteAddress",
+   "kind": "user"
+  },
+  {
+   "address": 4773,
+   "name": "gait_frame_offsets",
+   "type": "Field",
+   "kind": "user"
+  },
+  {
+   "address": 4781,
+   "name": "player_facing",
+   "type": "AbsoluteAddress",
+   "kind": "user"
+  },
+  {
+   "address": 4782,
+   "name": "player_scroll_threshold",
+   "type": "AbsoluteAddress",
+   "kind": "user"
+  },
+  {
+   "address": 4783,
+   "name": "area_number",
+   "type": "AbsoluteAddress",
+   "kind": "user"
+  },
+  {
+   "address": 4784,
+   "name": "grenade_stock",
+   "type": "AbsoluteAddress",
+   "kind": "user"
+  },
+  {
+   "address": 4785,
+   "name": "score_units",
+   "type": "AbsoluteAddress",
+   "kind": "user"
+  },
+  {
+   "address": 4786,
+   "name": "score_hundreds",
+   "type": "AbsoluteAddress",
+   "kind": "user"
+  },
+  {
+   "address": 4787,
+   "name": "score_ten_thousands",
+   "type": "AbsoluteAddress",
+   "kind": "user"
+  },
+  {
+   "address": 4788,
+   "name": "record_units",
+   "type": "AbsoluteAddress",
+   "kind": "user"
+  },
+  {
+   "address": 4789,
+   "name": "record_hundreds",
+   "type": "AbsoluteAddress",
+   "kind": "user"
+  },
+  {
+   "address": 4790,
+   "name": "record_ten_thousands",
+   "type": "AbsoluteAddress",
+   "kind": "user"
+  },
+  {
+   "address": 4791,
+   "name": "restart_map_low",
+   "type": "AbsoluteAddress",
+   "kind": "user"
+  },
+  {
+   "address": 4792,
+   "name": "restart_map_high",
+   "type": "AbsoluteAddress",
+   "kind": "user"
+  },
+  {
+   "address": 4793,
+   "name": "fill_slot_zero",
+   "type": "AbsoluteAddress",
+   "kind": "user"
+  },
+  {
+   "address": 4794,
+   "name": "fill_slot_one",
+   "type": "AbsoluteAddress",
+   "kind": "user"
+  },
+  {
+   "address": 4795,
+   "name": "fill_slot_two",
+   "type": "AbsoluteAddress",
+   "kind": "user"
+  },
+  {
+   "address": 4796,
+   "name": "fill_slot_three",
+   "type": "AbsoluteAddress",
+   "kind": "user"
+  },
+  {
+   "address": 4797,
+   "name": "fill_pointer_low",
+   "type": "Field",
+   "kind": "user"
+  },
+  {
+   "address": 4801,
+   "name": "fill_pointer_high",
+   "type": "Field",
+   "kind": "user"
+  },
+  {
+   "address": 4805,
+   "name": "next_fill_slot",
+   "type": "AbsoluteAddress",
+   "kind": "user"
+  },
+  {
+   "address": 4806,
+   "name": "extra_life_score_band",
+   "type": "AbsoluteAddress",
+   "kind": "user"
+  },
+  {
+   "address": 4807,
+   "name": "men_remaining",
+   "type": "AbsoluteAddress",
+   "kind": "user"
+  },
+  {
+   "address": 4808,
+   "name": "death_countdown",
+   "type": "AbsoluteAddress",
+   "kind": "user"
+  },
+  {
+   "address": 4809,
+   "name": "effect_pitch_interval",
+   "type": "Field",
+   "kind": "user"
+  },
+  {
+   "address": 4825,
+   "name": "effect_phase0_delta_low",
+   "type": "Field",
+   "kind": "user"
+  },
+  {
+   "address": 4841,
+   "name": "effect_phase0_delta_high",
+   "type": "Field",
+   "kind": "user"
+  },
+  {
+   "address": 4857,
+   "name": "effect_phase1_delta_low",
+   "type": "Field",
+   "kind": "user"
+  },
+  {
+   "address": 4873,
+   "name": "effect_phase1_delta_high",
+   "type": "Field",
+   "kind": "user"
+  },
+  {
+   "address": 4889,
+   "name": "effect_phase2_delta_low",
+   "type": "Field",
+   "kind": "user"
+  },
+  {
+   "address": 4905,
+   "name": "effect_phase2_delta_high",
+   "type": "Field",
+   "kind": "user"
+  },
+  {
+   "address": 4921,
+   "name": "effect_phase0_steps",
+   "type": "Field",
+   "kind": "user"
+  },
+  {
+   "address": 4937,
+   "name": "effect_phase1_steps",
+   "type": "Field",
+   "kind": "user"
+  },
+  {
+   "address": 4953,
+   "name": "effect_phase2_steps",
+   "type": "Field",
+   "kind": "user"
+  },
+  {
+   "address": 4969,
+   "name": "effect_attack_decay",
+   "type": "Field",
+   "kind": "user"
+  },
+  {
+   "address": 4985,
+   "name": "effect_sustain_release",
+   "type": "Field",
+   "kind": "user"
+  },
+  {
+   "address": 5001,
+   "name": "voice1_gate_time",
+   "type": "Field",
+   "kind": "user"
+  },
+  {
+   "address": 5002,
+   "name": "voice2_gate_time",
+   "type": "AbsoluteAddress",
+   "kind": "user"
+  },
+  {
+   "address": 5003,
+   "name": "voice3_gate_time",
+   "type": "AbsoluteAddress",
+   "kind": "user"
+  },
+  {
+   "address": 5004,
+   "name": "voice1_effect_request",
+   "type": "Field",
+   "kind": "user"
+  },
+  {
+   "address": 5005,
+   "name": "voice2_effect_request",
+   "type": "AbsoluteAddress",
+   "kind": "user"
+  },
+  {
+   "address": 5006,
+   "name": "voice3_effect_request",
+   "type": "AbsoluteAddress",
+   "kind": "user"
+  },
+  {
+   "address": 5007,
+   "name": "voice_pitch_phase",
+   "type": "Field",
+   "kind": "user"
+  },
+  {
+   "address": 5010,
+   "name": "voice_phase_steps",
+   "type": "Field",
+   "kind": "user"
+  },
+  {
+   "address": 5013,
+   "name": "voice_pitch_timers",
+   "type": "Field",
+   "kind": "user"
+  },
+  {
+   "address": 5016,
+   "name": "voice1_waveform",
+   "type": "Field",
+   "kind": "user"
+  },
+  {
+   "address": 5017,
+   "name": "voice2_waveform",
+   "type": "AbsoluteAddress",
+   "kind": "user"
+  },
+  {
+   "address": 5018,
+   "name": "voice3_waveform",
+   "type": "AbsoluteAddress",
+   "kind": "user"
+  },
+  {
+   "address": 5019,
+   "name": "voice_pitch_low",
+   "type": "Field",
+   "kind": "user"
+  },
+  {
+   "address": 5022,
+   "name": "voice1_pitch_high",
+   "type": "Field",
+   "kind": "user"
+  },
+  {
+   "address": 5023,
+   "name": "voice2_pitch_high",
+   "type": "AbsoluteAddress",
+   "kind": "user"
+  },
+  {
+   "address": 5024,
+   "name": "voice3_pitch_high",
+   "type": "AbsoluteAddress",
+   "kind": "user"
+  },
+  {
+   "address": 5031,
+   "name": "tick_sid_voices",
+   "type": "Subroutine",
+   "kind": "user"
+  },
+  {
+   "address": 5041,
+   "name": "b_13B1",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 5049,
+   "name": "b_13B9",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 5058,
+   "name": "b_13C2",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 5079,
+   "name": "b_13D7",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 5090,
+   "name": "advance_voice_pitch",
+   "type": "Subroutine",
+   "kind": "user"
+  },
+  {
+   "address": 5124,
+   "name": "b_1404",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 5140,
+   "name": "b_1414",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 5153,
+   "name": "j_1421",
+   "type": "Jump",
+   "kind": "auto"
+  },
+  {
+   "address": 5183,
+   "name": "b_143F",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 5192,
+   "name": "b_1448",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 5204,
+   "name": "start_voice_effect",
+   "type": "Subroutine",
+   "kind": "user"
+  },
+  {
+   "address": 5253,
+   "name": "copy_reverse_map_rows",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 5277,
+   "name": "b_149D",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 5279,
+   "name": "b_149F",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 5322,
+   "name": "save_upper_map",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 5370,
+   "name": "irq_panel",
+   "type": "AbsoluteAddress",
+   "kind": "user"
+  },
+  {
+   "address": 5386,
+   "name": "irq_schedule_next",
+   "type": "Jump",
+   "kind": "user"
+  },
+  {
+   "address": 5423,
+   "name": "irq_mask_sprite_band",
+   "type": "AbsoluteAddress",
+   "kind": "user"
+  },
+  {
+   "address": 5454,
+   "name": "irq_playfield",
+   "type": "AbsoluteAddress",
+   "kind": "user"
+  },
+  {
+   "address": 5455,
+   "name": "irq_background_operand",
+   "type": "AbsoluteAddress",
+   "kind": "user"
+  },
+  {
+   "address": 5480,
+   "name": "install_raster_irq",
+   "type": "Subroutine",
+   "kind": "user"
+  },
+  {
+   "address": 5516,
+   "name": "reset_to_title",
+   "type": "Jump",
+   "kind": "user"
+  },
+  {
+   "address": 5651,
+   "name": "b_1613",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 5712,
+   "name": "b_1650",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 5737,
+   "name": "start_new_game",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 5752,
+   "name": "enter_field",
+   "type": "Jump",
+   "kind": "user"
+  },
+  {
+   "address": 5774,
+   "name": "b_168E",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 5793,
+   "name": "b_16A1",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 5850,
+   "name": "b_16DA",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 5883,
+   "name": "b_16FB",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 5895,
+   "name": "wait_game_tick",
+   "type": "Branch",
+   "kind": "user"
+  },
+  {
+   "address": 5915,
+   "name": "b_171B",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 5921,
+   "name": "animate_dust_characters",
+   "type": "Branch",
+   "kind": "user"
+  },
+  {
+   "address": 5935,
+   "name": "b_172F",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 5946,
+   "name": "tick_objects_and_garrison",
+   "type": "Jump",
+   "kind": "user"
+  },
+  {
+   "address": 5957,
+   "name": "b_1745",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 5972,
+   "name": "b_1754",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 5982,
+   "name": "show_area_cleared",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 6035,
+   "name": "b_1793",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 6067,
+   "name": "show_base_captured",
+   "type": "Branch",
+   "kind": "user"
+  },
+  {
+   "address": 6105,
+   "name": "b_17D9",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 6116,
+   "name": "b_17E4",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 6146,
+   "name": "b_1802",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 6153,
+   "name": "prepare_next_field",
+   "type": "Jump",
+   "kind": "user"
+  },
+  {
+   "address": 6157,
+   "name": "b_180D",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 6207,
+   "name": "b_183F",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 6210,
+   "name": "scroll_character_row",
+   "type": "Subroutine",
+   "kind": "user"
+  },
+  {
+   "address": 6212,
+   "name": "b_1844",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 6223,
+   "name": "b_184F",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 6260,
+   "name": "b_1874",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 6267,
+   "name": "b_187B",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 6268,
+   "name": "fill_store_low",
+   "type": "AbsoluteAddress",
+   "kind": "user"
+  },
+  {
+   "address": 6269,
+   "name": "fill_store_high",
+   "type": "AbsoluteAddress",
+   "kind": "user"
+  },
+  {
+   "address": 6273,
+   "name": "b_1881",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 6330,
+   "name": "b_18BA",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 6341,
+   "name": "b_18C5",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 6401,
+   "name": "r_1901",
+   "type": "Return",
+   "kind": "auto"
+  },
+  {
+   "address": 6402,
+   "name": "shift_screen_rows",
+   "type": "Subroutine",
+   "kind": "user"
+  },
+  {
+   "address": 6404,
+   "name": "b_1904",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 6405,
+   "name": "shift_source_low",
+   "type": "AbsoluteAddress",
+   "kind": "user"
+  },
+  {
+   "address": 6406,
+   "name": "shift_source_high",
+   "type": "AbsoluteAddress",
+   "kind": "user"
+  },
+  {
+   "address": 6408,
+   "name": "shift_destination_low",
+   "type": "AbsoluteAddress",
+   "kind": "user"
+  },
+  {
+   "address": 6409,
+   "name": "shift_destination_high",
+   "type": "AbsoluteAddress",
+   "kind": "user"
+  },
+  {
+   "address": 6440,
+   "name": "move_player",
+   "type": "Subroutine",
+   "kind": "user"
+  },
+  {
+   "address": 6476,
+   "name": "b_194C",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 6487,
+   "name": "b_1957",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 6488,
+   "name": "b_1958",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 6499,
+   "name": "b_1963",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 6516,
+   "name": "b_1974",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 6545,
+   "name": "b_1991",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 6553,
+   "name": "b_1999",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 6571,
+   "name": "b_19AB",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 6588,
+   "name": "b_19BC",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 6596,
+   "name": "try_vertical_player_move",
+   "type": "Branch",
+   "kind": "user"
+  },
+  {
+   "address": 6620,
+   "name": "b_19DC",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 6642,
+   "name": "b_19F2",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 6668,
+   "name": "b_1A0C",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 6671,
+   "name": "draw_player_and_check_ground",
+   "type": "Jump",
+   "kind": "user"
+  },
+  {
+   "address": 6756,
+   "name": "b_1A64",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 6775,
+   "name": "player_in_front",
+   "type": "Branch",
+   "kind": "user"
+  },
+  {
+   "address": 6784,
+   "name": "player_behind",
+   "type": "Branch",
+   "kind": "user"
+  },
+  {
+   "address": 6793,
+   "name": "scroll_one_pixel",
+   "type": "Subroutine",
+   "kind": "user"
+  },
+  {
+   "address": 6795,
+   "name": "b_1A8B",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 6815,
+   "name": "r_1A9F",
+   "type": "Return",
+   "kind": "auto"
+  },
+  {
+   "address": 6816,
+   "name": "b_1AA0",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 6822,
+   "name": "b_1AA6",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 6829,
+   "name": "scan_previous_map_cell",
+   "type": "Jump",
+   "kind": "user"
+  },
+  {
+   "address": 6833,
+   "name": "b_1AB1",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 6862,
+   "name": "b_1ACE",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 6871,
+   "name": "b_1AD7",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 6876,
+   "name": "b_1ADC",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 6877,
+   "name": "row_command_jump_low",
+   "type": "AbsoluteAddress",
+   "kind": "user"
+  },
+  {
+   "address": 6878,
+   "name": "row_command_jump_high",
+   "type": "AbsoluteAddress",
+   "kind": "user"
+  },
+  {
+   "address": 6879,
+   "name": "irq_draw_sprite_band",
+   "type": "AbsoluteAddress",
+   "kind": "user"
+  },
+  {
+   "address": 6887,
+   "name": "b_1AE7",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 6929,
+   "name": "b_1B11",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 6957,
+   "name": "b_1B2D",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 6979,
+   "name": "b_1B43",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 6984,
+   "name": "b_1B48",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 6992,
+   "name": "b_1B50",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 7002,
+   "name": "prepare_sprite_bands",
+   "type": "Jump",
+   "kind": "user"
+  },
+  {
+   "address": 7006,
+   "name": "b_1B5E",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 7013,
+   "name": "b_1B65",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 7035,
+   "name": "b_1B7B",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 7051,
+   "name": "band_capacity_operand",
+   "type": "AbsoluteAddress",
+   "kind": "user"
+  },
+  {
+   "address": 7064,
+   "name": "finish_sprite_band_scan",
+   "type": "Branch",
+   "kind": "user"
+  },
+  {
+   "address": 7093,
+   "name": "b_1BB5",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 7103,
+   "name": "b_1BBF",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 7118,
+   "name": "dispatch_objects",
+   "type": "Subroutine",
+   "kind": "user"
+  },
+  {
+   "address": 7126,
+   "name": "b_1BD6",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 7164,
+   "name": "b_1BFC",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 7165,
+   "name": "actor_call_low",
+   "type": "AbsoluteAddress",
+   "kind": "user"
+  },
+  {
+   "address": 7166,
+   "name": "actor_call_high",
+   "type": "AbsoluteAddress",
+   "kind": "user"
+  },
+  {
+   "address": 7167,
+   "name": "next_object_slot",
+   "type": "Branch",
+   "kind": "user"
+  },
+  {
+   "address": 7171,
+   "name": "rifle_fire_edge",
+   "type": "Subroutine",
+   "kind": "user"
+  },
+  {
+   "address": 7190,
+   "name": "b_1C16",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 7194,
+   "name": "update_rifle_bullet",
+   "type": "AbsoluteAddress",
+   "kind": "user"
+  },
+  {
+   "address": 7273,
+   "name": "r_1C69",
+   "type": "Return",
+   "kind": "auto"
+  },
+  {
+   "address": 7274,
+   "name": "b_1C6A",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 7284,
+   "name": "b_1C74",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 7344,
+   "name": "b_1CB0",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 7373,
+   "name": "b_1CCD",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 7378,
+   "name": "fly_rifle_bullet",
+   "type": "Branch",
+   "kind": "user"
+  },
+  {
+   "address": 7426,
+   "name": "b_1D02",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 7464,
+   "name": "r_1D28",
+   "type": "Return",
+   "kind": "auto"
+  },
+  {
+   "address": 7465,
+   "name": "b_1D29",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 7478,
+   "name": "release_bullet_slot",
+   "type": "Jump",
+   "kind": "user"
+  },
+  {
+   "address": 7484,
+   "name": "grenade_hold",
+   "type": "Subroutine",
+   "kind": "user"
+  },
+  {
+   "address": 7508,
+   "name": "b_1D54",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 7511,
+   "name": "r_1D57",
+   "type": "Return",
+   "kind": "auto"
+  },
+  {
+   "address": 7512,
+   "name": "update_player_grenade",
+   "type": "AbsoluteAddress",
+   "kind": "user"
+  },
+  {
+   "address": 7597,
+   "name": "r_1DAD",
+   "type": "Return",
+   "kind": "auto"
+  },
+  {
+   "address": 7598,
+   "name": "fly_player_grenade",
+   "type": "Branch",
+   "kind": "user"
+  },
+  {
+   "address": 7606,
+   "name": "b_1DB6",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 7681,
+   "name": "b_1E01",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 7687,
+   "name": "b_1E07",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 7718,
+   "name": "r_1E26",
+   "type": "Return",
+   "kind": "auto"
+  },
+  {
+   "address": 7719,
+   "name": "b_1E27",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 7734,
+   "name": "advance_player_blast",
+   "type": "Jump",
+   "kind": "user"
+  },
+  {
+   "address": 7770,
+   "name": "b_1E5A",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 7844,
+   "name": "b_1EA4",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 7849,
+   "name": "award_blast_points",
+   "type": "Jump",
+   "kind": "user"
+  },
+  {
+   "address": 7868,
+   "name": "b_1EBC",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 7907,
+   "name": "start_player_death",
+   "type": "Subroutine",
+   "kind": "user"
+  },
+  {
+   "address": 7922,
+   "name": "r_1EF2",
+   "type": "Return",
+   "kind": "auto"
+  },
+  {
+   "address": 7923,
+   "name": "gap_before_tile_flags",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 7936,
+   "name": "tile_flags",
+   "type": "Field",
+   "kind": "user"
+  },
+  {
+   "address": 8192,
+   "name": "walking_shapes_80",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 9216,
+   "name": "walking_shapes_90",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 10240,
+   "name": "player_and_bullet_shapes",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 10816,
+   "name": "sinking_sprite",
+   "type": "Field",
+   "kind": "user"
+  },
+  {
+   "address": 10880,
+   "name": "falling_and_hud_shapes",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 11264,
+   "name": "throw_and_explosion_shapes",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 12288,
+   "name": "emplacement_and_vehicle_shapes",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 13312,
+   "name": "late_vehicle_and_people_shapes",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 14336,
+   "name": "font_and_first_tiles",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 15360,
+   "name": "terrain_and_command_glyphs",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 16176,
+   "name": "animated_dust_glyphs",
+   "type": "Field",
+   "kind": "user"
+  },
+  {
+   "address": 16192,
+   "name": "dust_animation_source",
+   "type": "Field",
+   "kind": "user"
+  },
+  {
+   "address": 16256,
+   "name": "row_marker_and_tail_glyphs",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 16384,
+   "name": "start_game",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 16400,
+   "name": "write_packed_decimal",
+   "type": "Subroutine",
+   "kind": "user"
+  },
+  {
+   "address": 16413,
+   "name": "b_401D",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 16427,
+   "name": "scan_keyboard_matrix",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 16438,
+   "name": "b_4036",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 16460,
+   "name": "choose_heading_toward_player",
+   "type": "Subroutine",
+   "kind": "user"
+  },
+  {
+   "address": 16483,
+   "name": "b_4063",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 16501,
+   "name": "b_4075",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 16502,
+   "name": "r_4076",
+   "type": "Return",
+   "kind": "auto"
+  },
+  {
+   "address": 16503,
+   "name": "tick_pursuing_infantry",
+   "type": "AbsoluteAddress",
+   "kind": "user"
+  },
+  {
+   "address": 16522,
+   "name": "b_408A",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 16538,
+   "name": "b_409A",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 16547,
+   "name": "move_infantry",
+   "type": "Subroutine",
+   "kind": "user"
+  },
+  {
+   "address": 16589,
+   "name": "b_40CD",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 16627,
+   "name": "r_40F3",
+   "type": "Return",
+   "kind": "auto"
+  },
+  {
+   "address": 16628,
+   "name": "b_40F4",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 16630,
+   "name": "probe_horizontal_tile",
+   "type": "Jump",
+   "kind": "user"
+  },
+  {
+   "address": 16641,
+   "name": "b_4101",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 16667,
+   "name": "b_411B",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 16669,
+   "name": "probe_vertical_tiles",
+   "type": "Jump",
+   "kind": "user"
+  },
+  {
+   "address": 16696,
+   "name": "b_4138",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 16781,
+   "name": "return_zero",
+   "type": "Branch",
+   "kind": "user"
+  },
+  {
+   "address": 16783,
+   "name": "r_418F",
+   "type": "Return",
+   "kind": "auto"
+  },
+  {
+   "address": 16784,
+   "name": "b_4190",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 16789,
+   "name": "deactivate_object",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 16795,
+   "name": "update_enemy_bullet",
+   "type": "AbsoluteAddress",
+   "kind": "user"
+  },
+  {
+   "address": 16839,
+   "name": "b_41C7",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 16886,
+   "name": "b_41F6",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 16903,
+   "name": "b_4207",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 16906,
+   "name": "tick_wandering_infantry",
+   "type": "AbsoluteAddress",
+   "kind": "user"
+  },
+  {
+   "address": 16927,
+   "name": "randomize_walk_heading",
+   "type": "Jump",
+   "kind": "user"
+  },
+  {
+   "address": 16942,
+   "name": "r_422E",
+   "type": "Return",
+   "kind": "auto"
+  },
+  {
+   "address": 16943,
+   "name": "collect_ammunition_box",
+   "type": "AbsoluteAddress",
+   "kind": "user"
+  },
+  {
+   "address": 17030,
+   "name": "r_4286",
+   "type": "Return",
+   "kind": "auto"
+  },
+  {
+   "address": 17031,
+   "name": "spawn_ammunition_box",
+   "type": "AbsoluteAddress",
+   "kind": "user"
+  },
+  {
+   "address": 17064,
+   "name": "ignore_row_command",
+   "type": "AbsoluteAddress",
+   "kind": "user"
+  },
+  {
+   "address": 17067,
+   "name": "spawn_infantry",
+   "type": "AbsoluteAddress",
+   "kind": "user"
+  },
+  {
+   "address": 17104,
+   "name": "add_score_and_check_extra_life",
+   "type": "Subroutine",
+   "kind": "user"
+  },
+  {
+   "address": 17181,
+   "name": "b_431D",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 17203,
+   "name": "draw_two_score_digits",
+   "type": "Subroutine",
+   "kind": "user"
+  },
+  {
+   "address": 17224,
+   "name": "tick_captive",
+   "type": "AbsoluteAddress",
+   "kind": "user"
+  },
+  {
+   "address": 17243,
+   "name": "b_435B",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 17258,
+   "name": "b_436A",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 17263,
+   "name": "b_436F",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 17291,
+   "name": "r_438B",
+   "type": "Return",
+   "kind": "auto"
+  },
+  {
+   "address": 17292,
+   "name": "b_438C",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 17332,
+   "name": "spawn_stationary_gunner",
+   "type": "AbsoluteAddress",
+   "kind": "user"
+  },
+  {
+   "address": 17362,
+   "name": "aim_stationary_gunner",
+   "type": "AbsoluteAddress",
+   "kind": "user"
+  },
+  {
+   "address": 17380,
+   "name": "convert_to_pursuing_infantry",
+   "type": "Jump",
+   "kind": "user"
+  },
+  {
+   "address": 17403,
+   "name": "r_43FB",
+   "type": "Return",
+   "kind": "auto"
+  },
+  {
+   "address": 17404,
+   "name": "b_43FC",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 17406,
+   "name": "aim_and_request_shot",
+   "type": "Subroutine",
+   "kind": "user"
+  },
+  {
+   "address": 17429,
+   "name": "b_4415",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 17430,
+   "name": "b_4416",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 17461,
+   "name": "b_4435",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 17466,
+   "name": "animate_destroyed_object",
+   "type": "AbsoluteAddress",
+   "kind": "user"
+  },
+  {
+   "address": 17494,
+   "name": "b_4456",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 17498,
+   "name": "r_445A",
+   "type": "Return",
+   "kind": "auto"
+  },
+  {
+   "address": 17499,
+   "name": "b_445B",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 17503,
+   "name": "b_445F",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 17514,
+   "name": "b_446A",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 17529,
+   "name": "update_enemy_grenade",
+   "type": "AbsoluteAddress",
+   "kind": "user"
+  },
+  {
+   "address": 17537,
+   "name": "b_4481",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 17612,
+   "name": "r_44CC",
+   "type": "Return",
+   "kind": "auto"
+  },
+  {
+   "address": 17613,
+   "name": "b_44CD",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 17665,
+   "name": "update_vehicle_infantry",
+   "type": "AbsoluteAddress",
+   "kind": "user"
+  },
+  {
+   "address": 17688,
+   "name": "r_4518",
+   "type": "Return",
+   "kind": "auto"
+  },
+  {
+   "address": 17689,
+   "name": "b_4519",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 17728,
+   "name": "b_4540",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 17749,
+   "name": "b_4555",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 17754,
+   "name": "b_455A",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 17783,
+   "name": "b_4577",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 17803,
+   "name": "spawn_horizontal_patrol",
+   "type": "AbsoluteAddress",
+   "kind": "user"
+  },
+  {
+   "address": 17867,
+   "name": "b_45CB",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 17888,
+   "name": "spawn_animated_emplacement",
+   "type": "AbsoluteAddress",
+   "kind": "user"
+  },
+  {
+   "address": 17933,
+   "name": "tick_animated_emplacement",
+   "type": "AbsoluteAddress",
+   "kind": "user"
+  },
+  {
+   "address": 17955,
+   "name": "b_4623",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 17992,
+   "name": "b_4648",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 18016,
+   "name": "r_4660",
+   "type": "Return",
+   "kind": "auto"
+  },
+  {
+   "address": 18017,
+   "name": "wait_emplacement_phase",
+   "type": "Branch",
+   "kind": "user"
+  },
+  {
+   "address": 18026,
+   "name": "b_466A",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 18034,
+   "name": "tick_death_and_lives",
+   "type": "Jump",
+   "kind": "user"
+  },
+  {
+   "address": 18049,
+   "name": "b_4681",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 18068,
+   "name": "b_4694",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 18075,
+   "name": "b_469B",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 18093,
+   "name": "b_46AD",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 18106,
+   "name": "b_46BA",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 18119,
+   "name": "b_46C7",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 18129,
+   "name": "redraw_high_score",
+   "type": "Jump",
+   "kind": "user"
+  },
+  {
+   "address": 18133,
+   "name": "b_46D5",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 18145,
+   "name": "b_46E1",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 18148,
+   "name": "move_left_vehicle_half",
+   "type": "AbsoluteAddress",
+   "kind": "user"
+  },
+  {
+   "address": 18158,
+   "name": "b_46EE",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 18161,
+   "name": "move_right_vehicle_half",
+   "type": "AbsoluteAddress",
+   "kind": "user"
+  },
+  {
+   "address": 18176,
+   "name": "b_4700",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 18179,
+   "name": "spawn_paired_motorbikes",
+   "type": "AbsoluteAddress",
+   "kind": "user"
+  },
+  {
+   "address": 18240,
+   "name": "initialize_vehicle_half",
+   "type": "Subroutine",
+   "kind": "user"
+  },
+  {
+   "address": 18259,
+   "name": "spawn_paired_vehicles",
+   "type": "AbsoluteAddress",
+   "kind": "user"
+  },
+  {
+   "address": 18320,
+   "name": "allocate_companion_slot",
+   "type": "Subroutine",
+   "kind": "user"
+  },
+  {
+   "address": 18329,
+   "name": "b_4799",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 18347,
+   "name": "b_47AB",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 18353,
+   "name": "share_companion_destruction",
+   "type": "Jump",
+   "kind": "user"
+  },
+  {
+   "address": 18368,
+   "name": "r_47C0",
+   "type": "Return",
+   "kind": "auto"
+  },
+  {
+   "address": 18369,
+   "name": "spawn_prisoner_and_guard",
+   "type": "AbsoluteAddress",
+   "kind": "user"
+  },
+  {
+   "address": 18446,
+   "name": "update_captive_object",
+   "type": "AbsoluteAddress",
+   "kind": "user"
+  },
+  {
+   "address": 18472,
+   "name": "b_4828",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 18520,
+   "name": "b_4858",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 18539,
+   "name": "b_486B",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 18544,
+   "name": "r_4870",
+   "type": "Return",
+   "kind": "auto"
+  },
+  {
+   "address": 18545,
+   "name": "walk_diagonally_out",
+   "type": "Jump",
+   "kind": "user"
+  },
+  {
+   "address": 18578,
+   "name": "update_captive_guard",
+   "type": "AbsoluteAddress",
+   "kind": "user"
+  },
+  {
+   "address": 18599,
+   "name": "b_48A7",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 18610,
+   "name": "update_floating_text_sprite",
+   "type": "AbsoluteAddress",
+   "kind": "user"
+  },
+  {
+   "address": 18626,
+   "name": "request_destroyed_object_sound",
+   "type": "Subroutine",
+   "kind": "user"
+  },
+  {
+   "address": 18647,
+   "name": "request_blast_sound",
+   "type": "Subroutine",
+   "kind": "user"
+  },
+  {
+   "address": 18666,
+   "name": "tick_stationary_launcher",
+   "type": "AbsoluteAddress",
+   "kind": "user"
+  },
+  {
+   "address": 18676,
+   "name": "initialize_launcher_projectile",
+   "type": "Jump",
+   "kind": "user"
+  },
+  {
+   "address": 18741,
+   "name": "b_4935",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 18774,
+   "name": "r_4956",
+   "type": "Return",
+   "kind": "auto"
+  },
+  {
+   "address": 18775,
+   "name": "tick_reverse_launcher",
+   "type": "AbsoluteAddress",
+   "kind": "user"
+  },
+  {
+   "address": 18788,
+   "name": "spawn_frame_d8_launcher",
+   "type": "AbsoluteAddress",
+   "kind": "user"
+  },
+  {
+   "address": 18803,
+   "name": "place_stationary_actor",
+   "type": "Jump",
+   "kind": "user"
+  },
+  {
+   "address": 18821,
+   "name": "spawn_frame_c0_launcher",
+   "type": "AbsoluteAddress",
+   "kind": "user"
+  },
+  {
+   "address": 18839,
+   "name": "spawn_rocket_infantry",
+   "type": "AbsoluteAddress",
+   "kind": "user"
+  },
+  {
+   "address": 18875,
+   "name": "update_rocket_infantry",
+   "type": "AbsoluteAddress",
+   "kind": "user"
+  },
+  {
+   "address": 18892,
+   "name": "b_49CC",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 18977,
+   "name": "r_4A21",
+   "type": "Return",
+   "kind": "auto"
+  },
+  {
+   "address": 18978,
+   "name": "b_4A22",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 18989,
+   "name": "b_4A2D",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 19006,
+   "name": "b_4A3E",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 19021,
+   "name": "b_4A4D",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 19027,
+   "name": "tick_enemy_projectile",
+   "type": "AbsoluteAddress",
+   "kind": "user"
+  },
+  {
+   "address": 19095,
+   "name": "b_4A97",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 19105,
+   "name": "r_4AA1",
+   "type": "Return",
+   "kind": "auto"
+  },
+  {
+   "address": 19106,
+   "name": "check_projectile_player_hit",
+   "type": "Subroutine",
+   "kind": "user"
+  },
+  {
+   "address": 19164,
+   "name": "b_4ADC",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 19167,
+   "name": "set_earlier_restart_row",
+   "type": "AbsoluteAddress",
+   "kind": "user"
+  },
+  {
+   "address": 19185,
+   "name": "find_projectile_slot",
+   "type": "Subroutine",
+   "kind": "user"
+  },
+  {
+   "address": 19194,
+   "name": "b_4AFA",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 19202,
+   "name": "b_4B02",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 19204,
+   "name": "r_4B04",
+   "type": "Return",
+   "kind": "auto"
+  },
+  {
+   "address": 19205,
+   "name": "spawn_frame_d9_thrower",
+   "type": "AbsoluteAddress",
+   "kind": "user"
+  },
+  {
+   "address": 19236,
+   "name": "tick_frame_d9_thrower",
+   "type": "AbsoluteAddress",
+   "kind": "user"
+  },
+  {
+   "address": 19246,
+   "name": "b_4B2E",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 19257,
+   "name": "r_4B39",
+   "type": "Return",
+   "kind": "auto"
+  },
+  {
+   "address": 19258,
+   "name": "spawn_garrison_controller",
+   "type": "AbsoluteAddress",
+   "kind": "user"
+  },
+  {
+   "address": 19299,
+   "name": "b_4B63",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 19329,
+   "name": "move_exhausted_garrison",
+   "type": "Branch",
+   "kind": "user"
+  },
+  {
+   "address": 19347,
+   "name": "update_garrison_reinforcements",
+   "type": "AbsoluteAddress",
+   "kind": "user"
+  },
+  {
+   "address": 19361,
+   "name": "b_4BA1",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 19369,
+   "name": "r_4BA9",
+   "type": "Return",
+   "kind": "auto"
+  },
+  {
+   "address": 19370,
+   "name": "b_4BAA",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 19391,
+   "name": "b_4BBF",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 19450,
+   "name": "b_4BFA",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 19457,
+   "name": "place_garrison_reinforcement",
+   "type": "Jump",
+   "kind": "user"
+  },
+  {
+   "address": 19474,
+   "name": "b_4C12",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 19484,
+   "name": "request_hit_sound",
+   "type": "Subroutine",
+   "kind": "user"
+  },
+  {
+   "address": 19505,
+   "name": "choose_enemy_variant",
+   "type": "Subroutine",
+   "kind": "user"
+  },
+  {
+   "address": 19516,
+   "name": "b_4C3C",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 19519,
+   "name": "tick_title_score",
+   "type": "Subroutine",
+   "kind": "user"
+  },
+  {
+   "address": 19526,
+   "name": "b_4C46",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 19531,
+   "name": "decode_music_record",
+   "type": "Branch",
+   "kind": "user"
+  },
+  {
+   "address": 19589,
+   "name": "b_4C85",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 19603,
+   "name": "b_4C93",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 19623,
+   "name": "r_4CA7",
+   "type": "Return",
+   "kind": "auto"
+  },
+  {
+   "address": 19624,
+   "name": "b_4CA8",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 19655,
+   "name": "waveform_by_command",
+   "type": "Field",
+   "kind": "user"
+  },
+  {
+   "address": 19659,
+   "name": "restart_title_score",
+   "type": "Subroutine",
+   "kind": "user"
+  },
+  {
+   "address": 19693,
+   "name": "clear_character_display",
+   "type": "Subroutine",
+   "kind": "user"
+  },
+  {
+   "address": 19703,
+   "name": "b_4CF7",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 19719,
+   "name": "cycle_message_colour",
+   "type": "Subroutine",
+   "kind": "user"
+  },
+  {
+   "address": 19729,
+   "name": "paint_colour_ram",
+   "type": "Subroutine",
+   "kind": "user"
+  },
+  {
+   "address": 19731,
+   "name": "b_4D13",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 19747,
+   "name": "message_palette",
+   "type": "Field",
+   "kind": "user"
+  },
+  {
+   "address": 19755,
+   "name": "tick_title_delay",
+   "type": "Branch",
+   "kind": "user"
+  },
+  {
+   "address": 19765,
+   "name": "r_4D35",
+   "type": "Return",
+   "kind": "auto"
+  },
+  {
+   "address": 19766,
+   "name": "animate_title",
+   "type": "Subroutine",
+   "kind": "user"
+  },
+  {
+   "address": 19768,
+   "name": "b_4D38",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 19791,
+   "name": "b_4D4F",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 19793,
+   "name": "b_4D51",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 19860,
+   "name": "b_4D94",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 19866,
+   "name": "step_title_motion",
+   "type": "Subroutine",
+   "kind": "user"
+  },
+  {
+   "address": 19868,
+   "name": "b_4D9C",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 19897,
+   "name": "r_4DB9",
+   "type": "Return",
+   "kind": "auto"
+  },
+  {
+   "address": 19898,
+   "name": "reverse_title_motion",
+   "type": "Branch",
+   "kind": "user"
+  },
+  {
+   "address": 19906,
+   "name": "b_4DC2",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 19936,
+   "name": "request_sinking_sound",
+   "type": "Jump",
+   "kind": "user"
+  },
+  {
+   "address": 19957,
+   "name": "initialize_hud",
+   "type": "Subroutine",
+   "kind": "user"
+  },
+  {
+   "address": 19959,
+   "name": "b_4DF7",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 19989,
+   "name": "nmi_request_last_life",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 20000,
+   "name": "screen_pointer_from_sprite",
+   "type": "Subroutine",
+   "kind": "user"
+  },
+  {
+   "address": 20051,
+   "name": "spare_return",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 20052,
+   "name": "gap_before_world",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 20480,
+   "name": "world_rows_000",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 21468,
+   "name": "world_rows_026",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 22456,
+   "name": "world_rows_052",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 23444,
+   "name": "world_rows_078",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 24432,
+   "name": "world_rows_104",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 25420,
+   "name": "world_rows_130",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 26408,
+   "name": "world_rows_156",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 27396,
+   "name": "world_rows_182",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 28384,
+   "name": "world_rows_208",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 29372,
+   "name": "world_rows_234",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 30360,
+   "name": "world_rows_260",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 31348,
+   "name": "world_rows_286",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 32336,
+   "name": "world_rows_312",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 32768,
+   "name": "world_rows_312_continued",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 33324,
+   "name": "world_rows_338",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 34312,
+   "name": "world_rows_364",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 35300,
+   "name": "world_rows_390",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 36288,
+   "name": "world_rows_416",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 37276,
+   "name": "world_rows_442",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 38264,
+   "name": "world_rows_468",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 39252,
+   "name": "world_rows_494",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 40240,
+   "name": "world_rows_520",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 40960,
+   "name": "world_rows_520_continued",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 41228,
+   "name": "world_rows_546",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 42216,
+   "name": "world_rows_572",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 43204,
+   "name": "world_rows_598",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 44192,
+   "name": "world_rows_624",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 45180,
+   "name": "world_rows_650",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 46168,
+   "name": "world_rows_676",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 47156,
+   "name": "world_rows_702",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 48144,
+   "name": "world_rows_728",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 49132,
+   "name": "end_of_world_tail",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 49152,
+   "name": "note_frequency_low",
+   "type": "Field",
+   "kind": "user"
+  },
+  {
+   "address": 49216,
+   "name": "note_frequency_high",
+   "type": "Field",
+   "kind": "user"
+  },
+  {
+   "address": 49280,
+   "name": "title_voice1_prefix",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 49281,
+   "name": "title_voice1_c081",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 49708,
+   "name": "title_voice2_prefix",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 49709,
+   "name": "title_voice2_c22d",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 50219,
+   "name": "title_voice2_c42b",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 50729,
+   "name": "title_voice2_c629",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 55296,
+   "name": "f_D800",
+   "type": "Field",
+   "kind": "auto"
+  },
+  {
+   "address": 55552,
+   "name": "f_D900",
+   "type": "Field",
+   "kind": "auto"
+  },
+  {
+   "address": 55622,
+   "name": "f_D946",
+   "type": "Field",
+   "kind": "auto"
+  },
+  {
+   "address": 55702,
+   "name": "f_D996",
+   "type": "Field",
+   "kind": "auto"
+  },
+  {
+   "address": 55808,
+   "name": "f_DA00",
+   "type": "Field",
+   "kind": "auto"
+  },
+  {
+   "address": 55960,
+   "name": "f_DA98",
+   "type": "Field",
+   "kind": "auto"
+  },
+  {
+   "address": 56216,
+   "name": "f_DB98",
+   "type": "Field",
+   "kind": "auto"
+  },
+  {
+   "address": 65466,
+   "name": "KERNAL_SETLFS",
+   "type": "Predefined",
+   "kind": "system"
+  },
+  {
+   "address": 65469,
+   "name": "KERNAL_SETNAM",
+   "type": "Predefined",
+   "kind": "system"
+  },
+  {
+   "address": 65496,
+   "name": "KERNAL_SAVE",
+   "type": "Predefined",
+   "kind": "system"
+  }
+ ],
+ "comments": [
+  {
+   "address": 2304,
+   "type": "line",
+   "text": "Five 40-byte rows of the message after clearing area eight. The printer masks the stored uppercase letters and spaces to six-bit display codes."
+  },
+  {
+   "address": 2504,
+   "type": "line",
+   "text": "Eleven signed Y steps, one per title animation object."
+  },
+  {
+   "address": 2515,
+   "type": "line",
+   "text": "Eleven signed X steps, one per title animation object."
+  },
+  {
+   "address": 2526,
+   "type": "line",
+   "text": "VIC colour per title animation object, also copied to its software type byte while animating the title."
+  },
+  {
+   "address": 2537,
+   "type": "line",
+   "text": "Initial half-pixel X coordinate for each of the eleven title objects."
+  },
+  {
+   "address": 2548,
+   "type": "line",
+   "text": "Initial VIC Y coordinate for each of the eleven title objects."
+  },
+  {
+   "address": 2559,
+   "type": "line",
+   "text": "The eighteen software slot types established at field entry. $FF marks inactive slots and the first two entries dispatch the player bullet and grenade."
+  },
+  {
+   "address": 2577,
+   "type": "line",
+   "text": "Forty characters for the Alligata copyright line copied to $0428."
+  },
+  {
+   "address": 2617,
+   "type": "line",
+   "text": "Forty characters for Steve Evans's credit copied to $06F8."
+  },
+  {
+   "address": 2657,
+   "type": "line",
+   "text": "The allocation between the two title credit strings and sprite $30. Its dominant four-byte pattern is uninitialized-RAM fill with isolated non-fill remnants."
+  },
+  {
+   "address": 3072,
+   "type": "line",
+   "text": "VIC shapes $30\u2013$37 form the early columns of WHO DARES WINS. Each is a 64-byte slot with 21 three-byte rows; the title animator starts the columns at the positions in $09E9/$09F4."
+  },
+  {
+   "address": 3584,
+   "type": "line",
+   "text": "VIC shapes $38\u2013$3D hold the final title columns and sparse fragments. The active title motion uses $38 and $39 with the earlier shapes."
+  },
+  {
+   "address": 3968,
+   "type": "line",
+   "text": "VIC shape $3E is the soldier below the title artwork. The title animation selects it for shape-array element ten at $1221."
+  },
+  {
+   "address": 4032,
+   "type": "line",
+   "text": "Shape slot $3F contains a striped 24-by-21 bitmap when rendered. Its display role is unresolved."
+  },
+  {
+   "address": 4096,
+   "type": "line",
+   "text": "Fifty bytes before the stage parameters and the HUD strings. The tape contains $A9 followed by zeroes here."
+  },
+  {
+   "address": 4146,
+   "type": "line",
+   "text": "Compare CIA 1 timer A's low byte to choose the infantry variant returned by $4C31. The title sets this to $20 and area progression raises it toward its cap."
+  },
+  {
+   "address": 4147,
+   "type": "line",
+   "text": "Timer threshold for the aimed-shot request in the shared aiming routine at $43FE."
+  },
+  {
+   "address": 4148,
+   "type": "line",
+   "text": "Initial reserve count copied into a newly spawned garrison controller by $4B49."
+  },
+  {
+   "address": 4149,
+   "type": "line",
+   "text": "The tune routine returns immediately when this byte is zero. Title initialization and the final victory sequence enable it through $4CCB."
+  },
+  {
+   "address": 4150,
+   "type": "line",
+   "text": "Forty screen-panel positions with score, men, grenade icon and high-score text. Initialization masks each source byte to six bits."
+  },
+  {
+   "address": 4190,
+   "type": "line",
+   "text": "Forty panel-colour bytes paired with the HUD text. The setup masks them with $1F before storing in colour RAM."
+  },
+  {
+   "address": 4230,
+   "type": "line",
+   "text": "First 28-character line of the area-clear announcement."
+  },
+  {
+   "address": 4242,
+   "type": "line",
+   "text": "Writable digit inside the first message line, set from the stage number before the line is copied to screen RAM."
+  },
+  {
+   "address": 4258,
+   "type": "line",
+   "text": "Second 28-character line announces the next area."
+  },
+  {
+   "address": 4283,
+   "type": "line",
+   "text": "Writable digit near the end of the second line, filled with the next area's number before the two lines are displayed."
+  },
+  {
+   "address": 4286,
+   "type": "line",
+   "text": "Working storage for the 38 cells at $0609 saved before the scroll copies and restored at $0631 after the move."
+  },
+  {
+   "address": 4324,
+   "type": "line",
+   "text": "The two zero bytes between the 38-byte screen row buffer and the garrison decoration."
+  },
+  {
+   "address": 4326,
+   "type": "line",
+   "text": "Five successive rows of six tile codes. The garrison spawner copies them to $0462 with a destination stride of 40."
+  },
+  {
+   "address": 4356,
+   "type": "line",
+   "text": "Interleaved little-endian handlers indexed by twice the active software object type. The engine patches the JSR operand at $1BFD before calling the selected update."
+  },
+  {
+   "address": 4357,
+   "type": "line",
+   "text": "High-byte view of the pointer table at $1104. Each pointer names the per-tick handler for one of types $00 through $16."
+  },
+  {
+   "address": 4402,
+   "type": "line",
+   "text": "Packed BCD low byte of a hit award, indexed by object type. Bit zero also distinguishes targets the rifle test rejects."
+  },
+  {
+   "address": 4425,
+   "type": "line",
+   "text": "The low nibble supplies the hundreds part of the blast award; the high bit selects the blast destruction path. Type dispatch is bounded through $16."
+  },
+  {
+   "address": 4448,
+   "type": "line",
+   "text": "Sixteen interleaved pointers, selected by twice the low nibble of a map command $F0\u2013$FF. The selected routine is written into the JMP at $1ADC."
+  },
+  {
+   "address": 4449,
+   "type": "line",
+   "text": "High-byte view of the row-command pointers. Command $FF uses the last entry, the garrison spawner."
+  },
+  {
+   "address": 4480,
+   "type": "line",
+   "text": "Nine interleaved raster-handler addresses. The first six entries select the sprite-band handler, followed by mask, panel and playfield handlers."
+  },
+  {
+   "address": 4481,
+   "type": "line",
+   "text": "High-byte view of the raster-handler pointers. Index $A1 identifies the next interrupt."
+  },
+  {
+   "address": 4498,
+   "type": "line",
+   "text": "Nine next-band raster line numbers used by the common IRQ scheduler."
+  },
+  {
+   "address": 4507,
+   "type": "line",
+   "text": "First player/infantry shape for each of eight headings. Add the gait frame offset to select the sprite pointer."
+  },
+  {
+   "address": 4515,
+   "type": "line",
+   "text": "Signed Y steps for the eight headings, reused when initializing rifle shots and grenade throws."
+  },
+  {
+   "address": 4523,
+   "type": "line",
+   "text": "Eight signed horizontal steps in units of two VIC pixels, indexed by heading."
+  },
+  {
+   "address": 4531,
+   "type": "line",
+   "text": "Twenty bytes of object work area, with 18 used slots. Handlers use them for turn delays, grenade base Y, paired actor indices or vehicle animation bases."
+  },
+  {
+   "address": 4551,
+   "type": "line",
+   "text": "Twenty bytes of object work area. The projectile handler increments its slot's accumulator; the garrison handler uses the slot as a reserve count."
+  },
+  {
+   "address": 4571,
+   "type": "line",
+   "text": "Twenty bytes of object types with 18 processed slots. A set sign bit marks a free slot, and the remaining values index the update table."
+  },
+  {
+   "address": 4578,
+   "type": "line",
+   "text": "Type-array element seven. The title animation forces it inactive while constructing its sprites."
+  },
+  {
+   "address": 4591,
+   "type": "line",
+   "text": "Twenty X coordinates in units of two VIC pixels, with the first 18 processed by the engine. Zero hides an object. The raster handler doubles the value and uses carry for the VIC upper-X bit."
+  },
+  {
+   "address": 4611,
+   "type": "line",
+   "text": "Twenty VIC Y coordinates with 18 processed slots. A one-pixel terrain scroll moves all 18 object positions down by one."
+  },
+  {
+   "address": 4631,
+   "type": "line",
+   "text": "Twenty VIC sprite pointers with the first 18 used by the engine. The raster writer copies one to the screen's pointer table when rendering its slot."
+  },
+  {
+   "address": 4641,
+   "type": "line",
+   "text": "Shape-array element ten. The title seeds it with sprite $3E instead of sequential shape $3A."
+  },
+  {
+   "address": 4651,
+   "type": "line",
+   "text": "Twenty object plane flags with the first 18 used. The raster multiplexer uses bit zero to select each sprite's foreground priority."
+  },
+  {
+   "address": 4671,
+   "type": "line",
+   "text": "Twenty colour bytes. The raster IRQ reads the active actor's byte and writes it to the selected hardware sprite colour."
+  },
+  {
+   "address": 4691,
+   "type": "line",
+   "text": "Twenty entries for object horizontal velocity or a related movement quantity. Title and projectile handlers use the first 18 slots."
+  },
+  {
+   "address": 4711,
+   "type": "line",
+   "text": "Twenty entries for signed object vertical steps, with object handlers reusing the field as needed."
+  },
+  {
+   "address": 4731,
+   "type": "line",
+   "text": "Twenty entries for per-object phase, throw altitude, heading or companion index according to the type handler."
+  },
+  {
+   "address": 4751,
+   "type": "line",
+   "text": "Twenty entries for per-object timing and auxiliary motion state, including the player's grenade altitude step."
+  },
+  {
+   "address": 4771,
+   "type": "line",
+   "text": "Walking gait index in normal play. During sinking it is reused as the descending last byte to clear in the scratch sprite."
+  },
+  {
+   "address": 4772,
+   "type": "line",
+   "text": "Player X in units of two VIC pixels. Doubling supplies sprite zero X and puts its ninth bit in carry."
+  },
+  {
+   "address": 4773,
+   "type": "line",
+   "text": "Eight frame offsets for the motion cycle, indexed by the walking frame counter."
+  },
+  {
+   "address": 4781,
+   "type": "line",
+   "text": "Current index into the eight direction tables. A changed index resets the gait without moving that pass."
+  },
+  {
+   "address": 4782,
+   "type": "line",
+   "text": "Player Y above which upward movement scrolls the field. It starts at $8C and the garrison command changes it to $22."
+  },
+  {
+   "address": 4783,
+   "type": "line",
+   "text": "Area displayed in the intermission. It increments through eight and returns to one in the final-victory path."
+  },
+  {
+   "address": 4784,
+   "type": "line",
+   "text": "Packed BCD grenade count. A throw subtracts one and an ammunition box adds a timer-dependent amount."
+  },
+  {
+   "address": 4785,
+   "type": "line",
+   "text": "Low two digits of current score, packed BCD."
+  },
+  {
+   "address": 4786,
+   "type": "line",
+   "text": "Middle two digits of current score, packed BCD."
+  },
+  {
+   "address": 4787,
+   "type": "line",
+   "text": "High two digits of current score, compared with the extra-life threshold."
+  },
+  {
+   "address": 4788,
+   "type": "line",
+   "text": "Low two digits of the packed BCD record score."
+  },
+  {
+   "address": 4789,
+   "type": "line",
+   "text": "Middle two digits of the packed BCD record score."
+  },
+  {
+   "address": 4790,
+   "type": "line",
+   "text": "High two digits of the packed BCD record score."
+  },
+  {
+   "address": 4791,
+   "type": "line",
+   "text": "Saved map byte pointer low used to restart the field or checkpoint."
+  },
+  {
+   "address": 4792,
+   "type": "line",
+   "text": "Saved map byte pointer high, initialized to $50 at the title."
+  },
+  {
+   "address": 4793,
+   "type": "line",
+   "text": "First queued tile override. $FF disables it until an $E8\u2013$EF marker queues a fill."
+  },
+  {
+   "address": 4794,
+   "type": "line",
+   "text": "Second entry in the queued tile override array."
+  },
+  {
+   "address": 4795,
+   "type": "line",
+   "text": "Third entry in the queued tile override array."
+  },
+  {
+   "address": 4796,
+   "type": "line",
+   "text": "Fourth entry in the queued tile override array."
+  },
+  {
+   "address": 4797,
+   "type": "line",
+   "text": "Four low screen-address bytes. Each scroll adds 40 and uses the result to patch the row store destination."
+  },
+  {
+   "address": 4801,
+   "type": "line",
+   "text": "Four high screen-address bytes paired with $12BD."
+  },
+  {
+   "address": 4805,
+   "type": "line",
+   "text": "Index to the next entry in the four-slot scroll override ring."
+  },
+  {
+   "address": 4806,
+   "type": "line",
+   "text": "BCD high score byte required for the next extra man. Starts at one and increases by two after each award."
+  },
+  {
+   "address": 4807,
+   "type": "line",
+   "text": "Life count drawn on the HUD and decremented after the death animation."
+  },
+  {
+   "address": 4808,
+   "type": "line",
+   "text": "Zero in play. An ordinary death sets $4B; a sinking death installs its own state while the scratch sprite erodes."
+  },
+  {
+   "address": 4809,
+   "type": "line",
+   "text": "Sixteen detune intervals indexed by effect number. Each voice reloads its timing byte from this table."
+  },
+  {
+   "address": 4825,
+   "type": "line",
+   "text": "Low bytes of phase-zero signed frequency increments."
+  },
+  {
+   "address": 4841,
+   "type": "line",
+   "text": "High bytes of phase-zero frequency increments, added together with the carry from the low-byte update."
+  },
+  {
+   "address": 4857,
+   "type": "line",
+   "text": "Low bytes of phase-one frequency increments."
+  },
+  {
+   "address": 4873,
+   "type": "line",
+   "text": "High bytes of phase-one frequency increments."
+  },
+  {
+   "address": 4889,
+   "type": "line",
+   "text": "Low bytes of phase-two frequency increments."
+  },
+  {
+   "address": 4905,
+   "type": "line",
+   "text": "High bytes of phase-two frequency increments."
+  },
+  {
+   "address": 4921,
+   "type": "line",
+   "text": "Per-effect step limits before leaving phase zero."
+  },
+  {
+   "address": 4937,
+   "type": "line",
+   "text": "Per-effect step limits before leaving phase one."
+  },
+  {
+   "address": 4953,
+   "type": "line",
+   "text": "Per-effect step limits before cycling from phase two to phase zero."
+  },
+  {
+   "address": 4969,
+   "type": "line",
+   "text": "SID attack and decay register byte for each effect."
+  },
+  {
+   "address": 4985,
+   "type": "line",
+   "text": "SID sustain and release register byte for each effect."
+  },
+  {
+   "address": 5001,
+   "type": "line",
+   "text": "Voice one's finite gate countdown, with zero and $FF bypassing the decrement."
+  },
+  {
+   "address": 5002,
+   "type": "line",
+   "text": "Voice two's finite gate countdown, decremented while a note or effect remains active."
+  },
+  {
+   "address": 5003,
+   "type": "line",
+   "text": "Voice three's finite gate countdown, used by transient gameplay effects."
+  },
+  {
+   "address": 5004,
+   "type": "line",
+   "text": "Voice one's effect index. A request with bit seven set causes the initializer to write SID envelope and gate values."
+  },
+  {
+   "address": 5005,
+   "type": "line",
+   "text": "Voice two's effect index and high-bit retrigger request."
+  },
+  {
+   "address": 5006,
+   "type": "line",
+   "text": "Voice three's effect index and high-bit retrigger request."
+  },
+  {
+   "address": 5007,
+   "type": "line",
+   "text": "Current phase for each of the three effects, cycling 0\u20132."
+  },
+  {
+   "address": 5010,
+   "type": "line",
+   "text": "Number of frequency updates made in the current phase, per voice."
+  },
+  {
+   "address": 5013,
+   "type": "line",
+   "text": "Reloaded frequency-step countdown for each of the three SID voices."
+  },
+  {
+   "address": 5016,
+   "type": "line",
+   "text": "Voice one's control byte written again with the gate cleared at the end of a finite effect."
+  },
+  {
+   "address": 5017,
+   "type": "line",
+   "text": "Voice two's control byte with the saved waveform bits."
+  },
+  {
+   "address": 5018,
+   "type": "line",
+   "text": "Voice three's control byte with the saved waveform bits."
+  },
+  {
+   "address": 5019,
+   "type": "line",
+   "text": "Three current low frequency bytes. Carry from the per-phase addition flows to the matching high byte."
+  },
+  {
+   "address": 5022,
+   "type": "line",
+   "text": "Current frequency high byte for voice one."
+  },
+  {
+   "address": 5023,
+   "type": "line",
+   "text": "Current frequency high byte for voice two."
+  },
+  {
+   "address": 5024,
+   "type": "line",
+   "text": "Current frequency high byte for voice three. The following six bytes before $13A7 are zero in the tape image."
+  },
+  {
+   "address": 5031,
+   "type": "line",
+   "text": "Update voices 3 through 1 through a SID pointer that steps down by seven registers per voice. Initialize effect indices with bit 7 set, advance pitch when the interval expires, and clear the gate at the end of a finite note."
+  },
+  {
+   "address": 5090,
+   "type": "line",
+   "text": "Add the selected effect phase's two-byte frequency increment to the current voice pitch and write both SID frequency bytes. On the phase's step limit the state advances through phases 0, 1 and 2 and back to 0."
+  },
+  {
+   "address": 5204,
+   "type": "line",
+   "text": "Use the low nibble of the new effect request to load its interval and two envelope bytes. Reset the phase and count, then write the waveform with its gate bit set."
+  },
+  {
+   "address": 5253,
+   "type": "line",
+   "text": "Copy 18 rows of 38 bytes to the playfield at $0401 with a 40-byte screen stride. The source is stepped back by 38 after each row, and the processor port exposes RAM under BASIC during the copy."
+  },
+  {
+   "address": 5322,
+   "type": "line",
+   "text": "Set KERNAL logical file 15 on device 8 with a one-byte name at $0002, then request a SAVE from $A000 up to $C800 with BASIC ROM out. Restore the port's low bit on return."
+  },
+  {
+   "address": 5370,
+   "type": "line",
+   "text": "Switch to black background and the panel's character mode, then schedule the next raster interrupt through the shared IRQ tail."
+  },
+  {
+   "address": 5386,
+   "type": "line",
+   "text": "Index the raster-line and IRQ address tables with the band index at $A1. Update the KERNAL IRQ vector, acknowledge the VIC raster interrupt and restore Y, X and A from the IRQ stack before RTI."
+  },
+  {
+   "address": 5423,
+   "type": "line",
+   "text": "Set VIC vertical control to $77 and put blank shape $A8 into the seven sprite slots available to the multiplexer, then continue the IRQ chain."
+  },
+  {
+   "address": 5454,
+   "type": "line",
+   "text": "Set the brown background and apply the fine vertical scroll in $A2. Update the title tune and three SID voices, then build the next frame's sprite bands."
+  },
+  {
+   "address": 5455,
+   "type": "line",
+   "text": "Writable immediate operand of the load at $154E. Screen initialization and field entry set the colour used at the start of the playfield band."
+  },
+  {
+   "address": 5480,
+   "type": "line",
+   "text": "Install the first IRQ at raster $DC and vector $152F, enable VIC raster IRQs, mask CIA 1 IRQ sources and initialize the chain index to six before enabling interrupts."
+  },
+  {
+   "address": 5516,
+   "type": "line",
+   "text": "Bank out BASIC, initialize the title tune and playfield display, clear the three packed BCD score bytes, set six grenades and stage one, and initialize the saved map pointer to $5000. Copy the title credits and run title animation while joystick port 2 fire stays released."
+  },
+  {
+   "address": 5737,
+   "type": "line",
+   "text": "Reset the HUD, set three men and lower the raster index used by the title's animation. The common setup at $1678 then enters the first field."
+  },
+  {
+   "address": 5752,
+   "type": "line",
+   "text": "Clear the old display, seed the player sprite and object slots, restore the checkpoint map pointer and advance the scroll routine $B8 times to fill the playfield before entering the game loop."
+  },
+  {
+   "address": 5895,
+   "type": "line",
+   "text": "Wait for the raster chain's tick byte to differ from the previous tick, then alternate player movement or death with other work. Poll fire and update the object slots, and test whether the stopped-scroll garrison field is clear."
+  },
+  {
+   "address": 5921,
+   "type": "line",
+   "text": "On the selected raster ticks, shift a 16-byte window selected by CIA 2 timer A into the two live character cells at $3F30. Continue at the common per-tick object update."
+  },
+  {
+   "address": 5946,
+   "type": "line",
+   "text": "Read rifle and grenade fire flags when the player is alive, dispatch all active objects and latch VIC sprite collisions. At a garrison, check the upper object slots before entering the area-clear sequence."
+  },
+  {
+   "address": 5982,
+   "type": "line",
+   "text": "Insert the completed and upcoming area numbers in the two message lines, switch off sprites, configure the clearance sound and copy both lines to the playfield with distinct colours."
+  },
+  {
+   "address": 6067,
+   "type": "line",
+   "text": "Reset the area and map pointer, clear the playfield, restart music and transfer the five-row congratulations message to the screen, masking each letter to six bits."
+  },
+  {
+   "address": 6153,
+   "type": "line",
+   "text": "Cycle screen colour until the tick delay is reached, silence the title tune, save the map stream pointer, and raise the stage's spawn-related settings up to their cap before entering the next field."
+  },
+  {
+   "address": 6210,
+   "type": "line",
+   "text": "Save and restore the fixed panel row while shifting the two playfield runs down. Copy 38 consecutive map bytes to $0401 and advance the source by 38, then use an $E8\u2013$EF leading byte to schedule the corresponding screen-fill cell."
+  },
+  {
+   "address": 6268,
+   "type": "line",
+   "text": "Writable low byte of the STA operand at $187B, patched with the queued screen-row address before filling its 38 cells."
+  },
+  {
+   "address": 6269,
+   "type": "line",
+   "text": "Writable high byte of the fill store at $187B. After applying queued fills, the scroll code shifts the playfield rows and reads the next map row."
+  },
+  {
+   "address": 6402,
+   "type": "line",
+   "text": "Copy a 38-cell row through the two self-modified address operands at $1905 and $1908, then subtract 40 from the source so the next pass moves the row immediately above it."
+  },
+  {
+   "address": 6405,
+   "type": "line",
+   "text": "Low byte of the patched source address used at $1904, updated as the screen shift proceeds upward."
+  },
+  {
+   "address": 6406,
+   "type": "line",
+   "text": "High byte of the patched source address. The next two bytes contain the destination store opcode and its low address byte."
+  },
+  {
+   "address": 6408,
+   "type": "line",
+   "text": "Low byte of the patched destination address used at $1907."
+  },
+  {
+   "address": 6409,
+   "type": "line",
+   "text": "High byte of the patched destination. The rest of the shifter advances to the next source row and processes the remaining row count in X."
+  },
+  {
+   "address": 6440,
+   "type": "line",
+   "text": "Read active-low directions from CIA 1 port A and build a facing index. A direction change restarts the animation; continued movement uses the indexed X and Y deltas, checks tile flags at the feet and scrolls when upward movement goes above the current threshold."
+  },
+  {
+   "address": 6596,
+   "type": "line",
+   "text": "At a character-row crossing, read the two leading terrain cells and reject movement if either has bit 7 set. Otherwise check the sprite's Y limits and scroll or assign the new VIC Y."
+  },
+  {
+   "address": 6671,
+   "type": "line",
+   "text": "Select the player frame from heading and gait. Tile bit zero sets sprite priority. The sinking branch requires bit six in both sampled tiles, the VIC sprite-zero collision bit and a Y sub-row below four."
+  },
+  {
+   "address": 6775,
+   "type": "line",
+   "text": "Clear sprite zero's priority bit so the player is drawn ahead of foreground characters."
+  },
+  {
+   "address": 6784,
+   "type": "line",
+   "text": "Set sprite zero's priority bit so foreground characters can cover the player."
+  },
+  {
+   "address": 6793,
+   "type": "line",
+   "text": "Shift all software sprite Y coordinates by one and add one to the fine scroll modulo eight. On wrap, fetch a map row. On fine scroll one, scan for a row command and dispatch its low nibble through $1160."
+  },
+  {
+   "address": 6829,
+   "type": "line",
+   "text": "Continue the descending scan of the incoming screen row. Cell zero ends the scan without interpreting a command there."
+  },
+  {
+   "address": 6877,
+   "type": "line",
+   "text": "Low byte of the JMP target patched from the command table at $1160 before the row handler runs."
+  },
+  {
+   "address": 6878,
+   "type": "line",
+   "text": "High byte of the JMP target patched from $1161. The loaded zero word is a placeholder."
+  },
+  {
+   "address": 6879,
+   "type": "line",
+   "text": "Use the prepared band count and slot indices to copy object Y, doubled X, sprite pointer, colour and priority to the VIC. Reuse hardware slots 1\u20137, advance the band pointer, and increment the game tick at band four."
+  },
+  {
+   "address": 7002,
+   "type": "line",
+   "text": "Reset six band counts, then group active nonzero-X objects by Y into eight-byte bands. Set up the hardware sprite slot mask and return through the shared IRQ tail."
+  },
+  {
+   "address": 7051,
+   "type": "line",
+   "text": "Immediate operand of CMP at $1B8A. Title and gameplay initialization write different limits to this operand before the IRQ band packer runs."
+  },
+  {
+   "address": 7064,
+   "type": "line",
+   "text": "Continue scanning lower object slots. At the end clear non-player priority bits, reset the band pointer and sprite mask, and hide non-player sprites until the raster scheduler places them."
+  },
+  {
+   "address": 7118,
+   "type": "line",
+   "text": "Clear the two enemy firing requests, then iterate object slots 17 through 0. Use the slot's type to patch JSR at $1BFC, and retire lower-screen objects in slots 10 and above before dispatch."
+  },
+  {
+   "address": 7165,
+   "type": "line",
+   "text": "Patched low byte of the object's JSR target, drawn from the even byte in its dispatch slot."
+  },
+  {
+   "address": 7166,
+   "type": "line",
+   "text": "Patched high byte of the object's JSR target, drawn from the odd byte in its dispatch slot."
+  },
+  {
+   "address": 7167,
+   "type": "line",
+   "text": "Move X to the previous software object slot and repeat until slot zero is processed."
+  },
+  {
+   "address": 7171,
+   "type": "line",
+   "text": "Sample CIA 1 port A bit 4. Set the rifle request only on the transition to pressed and store the sampled pressed state at $02B2."
+  },
+  {
+   "address": 7194,
+   "type": "line",
+   "text": "If the bullet slot is empty, consume the fire-edge request, seed its position and double the facing deltas. For an active shot test enemy overlap, move the shot and switch to an impact animation on solid terrain."
+  },
+  {
+   "address": 7378,
+   "type": "line",
+   "text": "Move an active rifle shot by its saved velocities, check vertical bounds, then read terrain via the current screen pointer. A solid tile starts the impact animation."
+  },
+  {
+   "address": 7478,
+   "type": "line",
+   "text": "Clear the bullet's X coordinate so the sprite is hidden and the fixed bullet slot can accept a new request."
+  },
+  {
+   "address": 7484,
+   "type": "line",
+   "text": "Increment $02B3 on a pressed poll. At $0D or higher, raise the grenade request and restart the count at one. A released poll sets the count to zero."
+  },
+  {
+   "address": 7512,
+   "type": "line",
+   "text": "For an inactive grenade, require the hold request and a nonzero packed BCD grenade count. Spend one, update the panel and initialize the throw from the player's position and facing. For an active one continue its flight or blast."
+  },
+  {
+   "address": 7598,
+   "type": "line",
+   "text": "Advance the horizontal position and altitude, combining altitude with the moving base Y to choose the shadowed flight frame and displayed Y. On the signed altitude transition enter the landing path."
+  },
+  {
+   "address": 7734,
+   "type": "line",
+   "text": "Update the landed grenade's effect phase and inspect nearby object slots during the blast window."
+  },
+  {
+   "address": 7849,
+   "type": "line",
+   "text": "Preserve the target slot in $FF, extract its score hundreds and low BCD byte from the type tables, and pass them to the packed decimal score routine."
+  },
+  {
+   "address": 7907,
+   "type": "line",
+   "text": "If the player is not already dying, install the death countdown and set the player's death sprite, leaving the main loop to handle the transition."
+  },
+  {
+   "address": 7923,
+   "type": "line",
+   "text": "The 13 bytes between the last death-routine RTS and the page-aligned terrain table repeat the load's RAM fill pattern."
+  },
+  {
+   "address": 7936,
+   "type": "line",
+   "text": "A 256-entry table indexed by screen code. Bit seven blocks motion and bit zero controls sprite priority. Infantry movement also treats bit six as a blocker, and the player's sinking test checks bit six of both foot cells."
+  },
+  {
+   "address": 8192,
+   "type": "line",
+   "text": "Sprite slots $80\u2013$8F hold early player and infantry gait frames, including forward shots and profiles. Each VIC slot has 63 bitmap bytes and one byte outside the bitmap."
+  },
+  {
+   "address": 9216,
+   "type": "line",
+   "text": "Sprite slots $90\u2013$9F continue the infantry walking and aiming atlas with other facings."
+  },
+  {
+   "address": 10240,
+   "type": "line",
+   "text": "Sprite slots $A0\u2013$AF contain the remaining player gait frames, blank frame $A8, the writable sinking pose $A9, falling character poses and the GAME OVER sprite $AF."
+  },
+  {
+   "address": 10816,
+   "type": "line",
+   "text": "Sprite $A9 is work space for the player sinking sequence. The starting frame is copied here before the first erosion pass and then cleared from its last bytes toward the start."
+  },
+  {
+   "address": 10880,
+   "type": "line",
+   "text": "Sprite slots $AA\u2013$AF include falling characters, small shot and impact graphics and the GAME OVER lettering."
+  },
+  {
+   "address": 11264,
+   "type": "line",
+   "text": "Sprite slots $B0\u2013$BF contain the small thrown projectile frames, expanding blast frames $B8\u2013$BB and a points marker among the remaining shapes."
+  },
+  {
+   "address": 12288,
+   "type": "line",
+   "text": "Sprite slots $C0\u2013$CF contain stationary weapon and vehicle drawings, the released-prisoner marker $C1 and the paired moving frames $CE/$CF."
+  },
+  {
+   "address": 13312,
+   "type": "line",
+   "text": "Sprite slots $D0\u2013$DF contain the other vehicle half, projectile ink, prisoner and guard sequences and later infantry and launcher drawings."
+  },
+  {
+   "address": 14336,
+   "type": "line",
+   "text": "The first 128 eight-byte character definitions in the VIC bank. Code $00 is blank, $01\u2013$1A give A\u2013Z and $30\u2013$39 give digits. Later cells draw territory and title/panel details."
+  },
+  {
+   "address": 15360,
+   "type": "line",
+   "text": "Character codes $80\u2013$E5 before the animated cells. These definitions supply the commonly repeated speckled ground, wall pieces, obstacles and later map graphics."
+  },
+  {
+   "address": 16176,
+   "type": "line",
+   "text": "Character codes $E6/$E7, the 16-byte destination of $1733. The update shifts selected pattern rows left by one before writing them here."
+  },
+  {
+   "address": 16192,
+   "type": "line",
+   "text": "Source pixels for animated characters $E6/$E7. The routine at $1727 takes a 16-byte window starting at a multiple of eight, reverses its byte order and shifts each byte left into the live glyphs."
+  },
+  {
+   "address": 16256,
+   "type": "line",
+   "text": "The remaining sixteen eight-byte VIC character slots for $F0\u2013$FF. Map bytes in this range double as commands and have sparse glyph patterns."
+  },
+  {
+   "address": 16384,
+   "type": "line",
+   "text": "Draw the score panel, install the game NMI vector at $0318 and enter the high-score redraw path that leads to title initialization."
+  },
+  {
+   "address": 16400,
+   "type": "line",
+   "text": "Show the high nibble when nonzero and always show the low nibble through $0798 indexed by Y. Add $30 to each digit and clear the following cell."
+  },
+  {
+   "address": 16427,
+   "type": "line",
+   "text": "Drive each CIA 1 port A line high in turn and copy the corresponding port B byte to the eight-byte buffer at $02B4. Reset the port A data direction before returning."
+  },
+  {
+   "address": 16460,
+   "type": "line",
+   "text": "Compare the object at X with the player's X and Y bands and encode its relative heading in Y."
+  },
+  {
+   "address": 16503,
+   "type": "line",
+   "text": "On the selected parity update motion with $40A3, then use a countdown and the player's relative heading to decide when to change direction."
+  },
+  {
+   "address": 16547,
+   "type": "line",
+   "text": "Check close overlap with the player, probe ahead for tiles whose terrain flags block movement, add heading deltas, select a walking frame, and sometimes request an enemy bullet or arcing shot using CIA 2 timer A."
+  },
+  {
+   "address": 16630,
+   "type": "line",
+   "text": "Read terrain at the chosen horizontal offset from the screen pointer. Either of the high two terrain flag bits prevents the step."
+  },
+  {
+   "address": 16669,
+   "type": "line",
+   "text": "Test both adjacent cells at the proposed row edge for either of the high two terrain flag bits."
+  },
+  {
+   "address": 16781,
+   "type": "line",
+   "text": "Return A zero from the shared enemy motion exit."
+  },
+  {
+   "address": 16789,
+   "type": "line",
+   "text": "Mark slot X inactive by writing $FF to its type."
+  },
+  {
+   "address": 16795,
+   "type": "line",
+   "text": "Start a shot from the pending shooter with its heading and palette, or check an active shot against the player and continue the shared bullet motion."
+  },
+  {
+   "address": 16906,
+   "type": "line",
+   "text": "On the selected parity run the shared motion routine. If movement is blocked or the turn counter expires, derive a new heading and delay from the low CIA 1 timer byte."
+  },
+  {
+   "address": 16927,
+   "type": "line",
+   "text": "Set a turn timer from CIA 1 timer A low, using the bottom three bits of the result as the new facing index."
+  },
+  {
+   "address": 16943,
+   "type": "line",
+   "text": "Compare the box position with the player's rectangle, add a timer-dependent packed BCD quantity to grenades, refresh the panel, award 100 points and retire the box."
+  },
+  {
+   "address": 17031,
+   "type": "line",
+   "text": "Put type 6 at the command's X and Y $32, selecting one of two sprite frames using CIA 1 timer A bit 0."
+  },
+  {
+   "address": 17064,
+   "type": "line",
+   "text": "Continue scanning the row without initializing a new object for this command."
+  },
+  {
+   "address": 17067,
+   "type": "line",
+   "text": "Set an actor's start position from the row command, choose type 3 or 4, and initialize facing, walk counter and colour before resuming the row scan."
+  },
+  {
+   "address": 17104,
+   "type": "line",
+   "text": "Add A and $02 to the three-byte BCD score. Compare the high byte to the extra-life threshold, give a life up to nine and move the threshold by two BCD units when awarded. Refresh the six score digits."
+  },
+  {
+   "address": 17203,
+   "type": "line",
+   "text": "Write both packed BCD digits at the screen position indexed by Y, incrementing Y after each."
+  },
+  {
+   "address": 17224,
+   "type": "line",
+   "text": "Alternate two captive sprite frames, interleave them with a blank frame, and either retire the captive after its counter condition or turn it into a released-prisoner escort object with the $BE frame."
+  },
+  {
+   "address": 17332,
+   "type": "line",
+   "text": "Start type seven at Y $19 with colour 9. The row command supplies X and leaves carry clear, so the SBC #$02 in this handler subtracts three."
+  },
+  {
+   "address": 17362,
+   "type": "line",
+   "text": "Compare its Y distance from the player. Convert nearby objects to type 3, or pass to the shared aiming code to select a frame and possibly request a shot."
+  },
+  {
+   "address": 17380,
+   "type": "line",
+   "text": "Switch slot X to type 3, reset facing and animation and derive a turn delay from timer A."
+  },
+  {
+   "address": 17406,
+   "type": "line",
+   "text": "Set an aiming frame from horizontal separation from the player. When CIA 1 timer A is below the stage threshold, submit the slot as a bullet shooter and set its facing from the chosen frame."
+  },
+  {
+   "address": 17466,
+   "type": "line",
+   "text": "Initialize the $B8 blast frame and a sound, then step toward $BB and reverse until $B7 retires the object."
+  },
+  {
+   "address": 17529,
+   "type": "line",
+   "text": "Launch an arc from the pending thrower, with a distinct branch for the type $15 thrower. When active, use the same arc routine as the player's grenade."
+  },
+  {
+   "address": 17665,
+   "type": "line",
+   "text": "Wait for the initial delay, then animate and travel horizontally to the limit. Follow the second movement phase with a switch to the timer-selected infantry type."
+  },
+  {
+   "address": 17803,
+   "type": "line",
+   "text": "Set up a type 9 object at the top, selecting start side, horizontal direction and animation base from the map command's X."
+  },
+  {
+   "address": 17888,
+   "type": "line",
+   "text": "Initialize type 5 with the $C7 sprite, a row-relative position, and a negative phase so its countdown precedes the opening animation."
+  },
+  {
+   "address": 17933,
+   "type": "line",
+   "text": "Check the player's passing Y and retire the object when behind them. Cycle frames $C7 through $CA with randomized waits, then send the exposed phase through the aiming code."
+  },
+  {
+   "address": 18017,
+   "type": "line",
+   "text": "Count down the slot's timer and advance its phase when it reaches zero."
+  },
+  {
+   "address": 18034,
+   "type": "line",
+   "text": "Animate an ordinary death timer or erase the sinking player's scratch sprite a few bytes at a time. On completion subtract one man, update the HUD and either restart from the saved map pointer or compare scores and return to title."
+  },
+  {
+   "address": 18129,
+   "type": "line",
+   "text": "Copy the three current-score bytes to the record-score bytes and draw them at the high-score offset, then re-enter the title."
+  },
+  {
+   "address": 18148,
+   "type": "line",
+   "text": "Move one paired vehicle half left until X zero hides it; share destruction state with its companion."
+  },
+  {
+   "address": 18161,
+   "type": "line",
+   "text": "Move one paired vehicle half right until X $AC deactivates it; share destruction state with its companion."
+  },
+  {
+   "address": 18179,
+   "type": "line",
+   "text": "Allocate linked type $0C slots for $CE and $CF at half-width X positions $AC and $B8 on the right, both at Y $22. Their update moves both left. Request the long effect on SID voice three."
+  },
+  {
+   "address": 18240,
+   "type": "line",
+   "text": "Set the supplied sprite pointer, colour 9, height $22 and paired-slot index."
+  },
+  {
+   "address": 18259,
+   "type": "line",
+   "text": "Allocate linked slots for vehicle shapes $CD and $D0, at opposite sides, and request the long engine effect before continuing the row scan."
+  },
+  {
+   "address": 18320,
+   "type": "line",
+   "text": "Reserve the first object slot and search for another free one. If there is none, undo the first reservation and discard the subroutine return to resume the row scanner."
+  },
+  {
+   "address": 18353,
+   "type": "line",
+   "text": "If the associated vehicle half has become type $0A, assign the same destroyed type to this half."
+  },
+  {
+   "address": 18369,
+   "type": "line",
+   "text": "Allocate two linked objects at X positions eight units apart, with captive frame $D2 and guard frame $82, and store each slot index in its companion."
+  },
+  {
+   "address": 18446,
+   "type": "line",
+   "text": "Watch for the paired guard becoming type $0B. On that transition show a released-prisoner marker, switch the captive's frames and award 750 points. Continue its escape or flashing path based on the phase."
+  },
+  {
+   "address": 18545,
+   "type": "line",
+   "text": "XOR the selected animation bit into the frame and shift the actor one pixel step diagonally, removing it at the Y or X exit bound."
+  },
+  {
+   "address": 18578,
+   "type": "line",
+   "text": "Move while the linked captive is active. When the linked object reaches type $0B, convert the guard into independent type 4 movement."
+  },
+  {
+   "address": 18610,
+   "type": "line",
+   "text": "Count down the text sprite's remaining life while adding its signed Y movement."
+  },
+  {
+   "address": 18626,
+   "type": "line",
+   "text": "Load effect 4 on SID voice three with a five-tick gate and initial high frequency byte $09."
+  },
+  {
+   "address": 18647,
+   "type": "line",
+   "text": "Load effect zero on voice three, using A as the high byte of the starting pitch and setting a four-tick gate duration."
+  },
+  {
+   "address": 18666,
+   "type": "line",
+   "text": "On timer and free-slot success, allocate a type $13 projectile and seed motion accumulators. Otherwise check if the object is close enough to the player to trigger a hit."
+  },
+  {
+   "address": 18676,
+   "type": "line",
+   "text": "Initialize the second horizontal component, derive motion from the two timer bytes, then set the new projectile sprite, colour, position and type."
+  },
+  {
+   "address": 18775,
+   "type": "line",
+   "text": "Allocate a type $13 projectile with the opposite horizontal seed, or reuse the shared close-contact check if no shot can be allocated."
+  },
+  {
+   "address": 18788,
+   "type": "line",
+   "text": "Initialize type $11 in frame $D8 and continue into the common fixed-position spawner."
+  },
+  {
+   "address": 18803,
+   "type": "line",
+   "text": "Put the slot at the map command's X and fixed Y $1B, clearing the priority flags, then resume the row scan."
+  },
+  {
+   "address": 18821,
+   "type": "line",
+   "text": "Initialize type $14 in frame $C0 and use the common stationary positioning path."
+  },
+  {
+   "address": 18839,
+   "type": "line",
+   "text": "Create type $12 with sprite $DC, initial facing step one and map-derived X."
+  },
+  {
+   "address": 18875,
+   "type": "line",
+   "text": "On selected ticks walk across the screen and animate two frames. Convert to pursuit after passing the player's Y, or allocate a type $13 shot and choose its horizontal velocity from the player's position."
+  },
+  {
+   "address": 19027,
+   "type": "line",
+   "text": "Check player collision, update the shot's accumulators and position, and sample terrain at the new cell. Impact changes the slot to the destroyed-object animation."
+  },
+  {
+   "address": 19106,
+   "type": "line",
+   "text": "Require the player's sprite collision bit and then an X/Y bounding check. On a new hit install the death sprite, countdown and sound."
+  },
+  {
+   "address": 19167,
+   "type": "line",
+   "text": "Save the map pointer minus $036A, exactly 23 map rows, as the respawn point."
+  },
+  {
+   "address": 19185,
+   "type": "line",
+   "text": "When the timer is below $0A, scan downward for an inactive slot; return its Y index and negative flag. Return nonnegative on a timer miss or when no slot is available."
+  },
+  {
+   "address": 19205,
+   "type": "line",
+   "text": "Set type $15 with frame $D9, colour 9, map-derived X and Y $22. Also write $22 to the slot's auxiliary field at $128F and resume the map scan."
+  },
+  {
+   "address": 19236,
+   "type": "line",
+   "text": "Request an arcing shot while the sprite uses frame $D9. On the designated tick restore $D9 after the throw animation."
+  },
+  {
+   "address": 19258,
+   "type": "line",
+   "text": "Set the scroll threshold to $22, initialize type $16 with the stage's reserve count, and copy the five rows of garrison decoration to the screen before continuing command scanning."
+  },
+  {
+   "address": 19329,
+   "type": "line",
+   "text": "Step the garrison slot downward with shared infantry motion after its reserve count reaches zero."
+  },
+  {
+   "address": 19347,
+   "type": "line",
+   "text": "Wait for the timer and a free slot, reduce the reserve count, and spawn a timer-selected reinforcement. With the reserve exhausted, initialize the garrison controller's walking phase."
+  },
+  {
+   "address": 19457,
+   "type": "line",
+   "text": "Set the edge entrant's direction from A, select its start row with CIA 2 timer A and return."
+  },
+  {
+   "address": 19484,
+   "type": "line",
+   "text": "Load effect 1 into the second SID voice's request, with a finite gate duration and initial high frequency byte."
+  },
+  {
+   "address": 19505,
+   "type": "line",
+   "text": "Compare the low CIA 1 timer byte with the threshold at $1032, returning object type 3 or 4."
+  },
+  {
+   "address": 19519,
+   "type": "line",
+   "text": "Advance two note-stream pointers when their counters expire. High-bit bytes change waveform and effect selection. Ordinary pairs carry a pitch index and duration. The first stream reaching $C22C restarts both pointers."
+  },
+  {
+   "address": 19531,
+   "type": "line",
+   "text": "Fetch a music byte through the active stream pointer. Command records configure waveform and pitch effect; note records carry pitch and duration."
+  },
+  {
+   "address": 19655,
+   "type": "line",
+   "text": "Four SID waveform choices selected with bits 4\u20135 of a high-bit music-stream command."
+  },
+  {
+   "address": 19659,
+   "type": "line",
+   "text": "Set both music countdowns to one, initialize the next-read pointers to $C081 and $C22D, and enable the sequencer."
+  },
+  {
+   "address": 19693,
+   "type": "line",
+   "text": "Fill colour RAM with the colour in A, clear the raster background setting and blank all 1,000 character cells."
+  },
+  {
+   "address": 19719,
+   "type": "line",
+   "text": "Use bits 2\u20134 of the raster tick to choose a colour from the eight-entry palette, then fill colour RAM."
+  },
+  {
+   "address": 19729,
+   "type": "line",
+   "text": "Fill the 1,000 colour RAM cells with the colour in A."
+  },
+  {
+   "address": 19747,
+   "type": "line",
+   "text": "Eight colour values indexed by the message screen's raster tick."
+  },
+  {
+   "address": 19755,
+   "type": "line",
+   "text": "Subtract two from the title animation counter and return to phase zero when it reaches zero."
+  },
+  {
+   "address": 19766,
+   "type": "line",
+   "text": "Wait for a raster tick, then use the title's phase to seed eleven motion slots, advance them, pause or reverse both velocity components. The live sprite multiplexer draws the moving title."
+  },
+  {
+   "address": 19866,
+   "type": "line",
+   "text": "Add each of the eleven title slots' signed velocity bytes to its stored X and Y, then decrement the phase duration and advance the phase when it expires."
+  },
+  {
+   "address": 19898,
+   "type": "line",
+   "text": "After the pause counter expires, advance the phase, negate all eleven pairs of motion deltas and reload the duration."
+  },
+  {
+   "address": 19936,
+   "type": "line",
+   "text": "Start effect 3 on SID voice one for $15 ticks, with waveform $10 and starting high frequency byte $38."
+  },
+  {
+   "address": 19957,
+   "type": "line",
+   "text": "Fill the two border rows, mask the forty HUD template bytes into screen codes and copy their corresponding colour bytes to colour RAM."
+  },
+  {
+   "address": 19989,
+   "type": "line",
+   "text": "Preserve A and set both the death countdown and remaining men to one before returning from NMI."
+  },
+  {
+   "address": 20000,
+   "type": "line",
+   "text": "Convert half-pixel X in A and sprite Y in Y into a screen-cell pointer at $FB/$FC. Subtract the sprite origins, quantize X by four and Y by eight, and use the screen's 40-byte row stride."
+  },
+  {
+   "address": 20051,
+   "type": "line",
+   "text": "A separate RTS immediately after the screen-pointer conversion routine."
+  },
+  {
+   "address": 20052,
+   "type": "line",
+   "text": "RAM-fill-dominated interval between the last RTS and the world data at $5000. The few non-fill bytes are retained in the tape payload."
+  },
+  {
+   "address": 20480,
+   "type": "line",
+   "text": "Map rows 0\u201325, 38 bytes per row in scroll order. Common terrain tiles are $86 and $89. 2 rows start with a deferred fill marker."
+  },
+  {
+   "address": 21468,
+   "type": "line",
+   "text": "Map rows 26\u201351, 38 bytes per row in scroll order. Common terrain tiles are $81 and $84."
+  },
+  {
+   "address": 22456,
+   "type": "line",
+   "text": "Map rows 52\u201377, 38 bytes per row in scroll order. Common terrain tiles are $88 and $86. 1 row starts with a deferred fill marker."
+  },
+  {
+   "address": 23444,
+   "type": "line",
+   "text": "Map rows 78\u2013103, 38 bytes per row in scroll order. Common terrain tiles are $87 and $89. 1 row starts with a deferred fill marker."
+  },
+  {
+   "address": 24432,
+   "type": "line",
+   "text": "Map rows 104\u2013129, 38 bytes per row in scroll order. Common terrain tiles are $1D and $87. Garrison command $FF appears in row 116. 2 rows start with a deferred fill marker."
+  },
+  {
+   "address": 25420,
+   "type": "line",
+   "text": "Map rows 130\u2013155, 38 bytes per row in scroll order. Common terrain tiles are $8C and $82. 2 rows start with a deferred fill marker."
+  },
+  {
+   "address": 26408,
+   "type": "line",
+   "text": "Map rows 156\u2013181, 38 bytes per row in scroll order. Common terrain tiles are $8C and $85. 1 row starts with a deferred fill marker."
+  },
+  {
+   "address": 27396,
+   "type": "line",
+   "text": "Map rows 182\u2013207, 38 bytes per row in scroll order. Common terrain tiles are $82 and $89. 1 row starts with a deferred fill marker."
+  },
+  {
+   "address": 28384,
+   "type": "line",
+   "text": "Map rows 208\u2013233, 38 bytes per row in scroll order. Common terrain tiles are $87 and $82. Garrison command $FF appears in row 210. 2 rows start with a deferred fill marker."
+  },
+  {
+   "address": 29372,
+   "type": "line",
+   "text": "Map rows 234\u2013259, 38 bytes per row in scroll order. Common terrain tiles are $82 and $85. 1 row starts with a deferred fill marker."
+  },
+  {
+   "address": 30360,
+   "type": "line",
+   "text": "Map rows 260\u2013285, 38 bytes per row in scroll order. Common terrain tiles are $8C and $88. 1 row starts with a deferred fill marker."
+  },
+  {
+   "address": 31348,
+   "type": "line",
+   "text": "Map rows 286\u2013311, 38 bytes per row in scroll order. Common terrain tiles are $1D and $84. Garrison command $FF appears in row 311."
+  },
+  {
+   "address": 32336,
+   "type": "line",
+   "text": "Map rows 312\u2013337, 38 bytes per row in scroll order. Common terrain tiles are $85 and $86. 3 rows start with a deferred fill marker."
+  },
+  {
+   "address": 32768,
+   "type": "line",
+   "text": "Continue the map group at $7E50 across a memory-map boundary. Address $8000 is fourteen bytes into world row 323."
+  },
+  {
+   "address": 33324,
+   "type": "line",
+   "text": "Map rows 338\u2013363, 38 bytes per row in scroll order. Common terrain tiles are $8C and $87."
+  },
+  {
+   "address": 34312,
+   "type": "line",
+   "text": "Map rows 364\u2013389, 38 bytes per row in scroll order. Common terrain tiles are $89 and $88. 2 rows start with a deferred fill marker."
+  },
+  {
+   "address": 35300,
+   "type": "line",
+   "text": "Map rows 390\u2013415, 38 bytes per row in scroll order. Common terrain tiles are $85 and $86. 1 row starts with a deferred fill marker."
+  },
+  {
+   "address": 36288,
+   "type": "line",
+   "text": "Map rows 416\u2013441, 38 bytes per row in scroll order. Common terrain tiles are $82 and $83. Garrison command $FF appears in row 418. 1 row starts with a deferred fill marker."
+  },
+  {
+   "address": 37276,
+   "type": "line",
+   "text": "Map rows 442\u2013467, 38 bytes per row in scroll order. Common terrain tiles are $88 and $86."
+  },
+  {
+   "address": 38264,
+   "type": "line",
+   "text": "Map rows 468\u2013493, 38 bytes per row in scroll order. Common terrain tiles are $86 and $85. 2 rows start with a deferred fill marker."
+  },
+  {
+   "address": 39252,
+   "type": "line",
+   "text": "Map rows 494\u2013519, 38 bytes per row in scroll order. Common terrain tiles are $8C and $89. Garrison command $FF appears in row 505. 2 rows start with a deferred fill marker."
+  },
+  {
+   "address": 40240,
+   "type": "line",
+   "text": "Map rows 520\u2013545, 38 bytes per row in scroll order. Common terrain tiles are $86 and $B0. 2 rows start with a deferred fill marker."
+  },
+  {
+   "address": 40960,
+   "type": "line",
+   "text": "Continuation of the 520\u2013545 map group across the BASIC ROM boundary. The loader writes this portion first on the primary recording and title setup banks BASIC out before scrolling."
+  },
+  {
+   "address": 41228,
+   "type": "line",
+   "text": "Map rows 546\u2013571, 38 bytes per row in scroll order. Common terrain tiles are $A4 and $86."
+  },
+  {
+   "address": 42216,
+   "type": "line",
+   "text": "Map rows 572\u2013597, 38 bytes per row in scroll order. Common terrain tiles are $8C and $84. 1 row starts with a deferred fill marker."
+  },
+  {
+   "address": 43204,
+   "type": "line",
+   "text": "Map rows 598\u2013623, 38 bytes per row in scroll order. Common terrain tiles are $1D and $82. Garrison command $FF appears in row 605. 1 row starts with a deferred fill marker."
+  },
+  {
+   "address": 44192,
+   "type": "line",
+   "text": "Map rows 624\u2013649, 38 bytes per row in scroll order. Common terrain tiles are $82 and $80. 1 row starts with a deferred fill marker."
+  },
+  {
+   "address": 45180,
+   "type": "line",
+   "text": "Map rows 650\u2013675, 38 bytes per row in scroll order. Common terrain tiles are $70 and $71. 1 row starts with a deferred fill marker."
+  },
+  {
+   "address": 46168,
+   "type": "line",
+   "text": "Map rows 676\u2013701, 38 bytes per row in scroll order. Common terrain tiles are $86 and $88."
+  },
+  {
+   "address": 47156,
+   "type": "line",
+   "text": "Map rows 702\u2013727, 38 bytes per row in scroll order. Common terrain tiles are $8C and $B0. Garrison command $FF appears in row 705. 2 rows start with a deferred fill marker."
+  },
+  {
+   "address": 48144,
+   "type": "line",
+   "text": "Map rows 728\u2013753, 38 bytes per row in scroll order. Common terrain tiles are $1D and $84. Garrison command $FF appears in row 753."
+  },
+  {
+   "address": 49132,
+   "type": "line",
+   "text": "Twenty bytes after the last complete map row and before the pitch table. They include ground and wall tile values; the tape payload ends the map allocation on the address boundary."
+  },
+  {
+   "address": 49152,
+   "type": "line",
+   "text": "Sixty-four low bytes of the SID pitch words indexed by a note record's first byte. Index zero takes the rest path before this lookup."
+  },
+  {
+   "address": 49216,
+   "type": "line",
+   "text": "Sixty-four high bytes paired with the low pitch table at $C000."
+  },
+  {
+   "address": 49280,
+   "type": "line",
+   "text": "The byte immediately before voice one's first command at $C081. The reset initializes the stream pointer one byte beyond it."
+  },
+  {
+   "address": 49281,
+   "type": "line",
+   "text": "Title stream 1 from $C081 through $C22B, aligned to its records. This run has 212 pitch-duration pairs (30 rests), totalling 3840 encoded duration units, and 3 waveform/effect commands."
+  },
+  {
+   "address": 49708,
+   "type": "line",
+   "text": "The byte immediately before voice two's first command at $C22D. The sequencer tests this address as voice one's end and resets both pointers there."
+  },
+  {
+   "address": 49709,
+   "type": "line",
+   "text": "Title stream 2 from $C22D through $C42A, aligned to its records. This run has 192 pitch-duration pairs (62 rests), totalling 1548 encoded duration units, and 126 waveform/effect commands."
+  },
+  {
+   "address": 50219,
+   "type": "line",
+   "text": "Title stream 2 from $C42B through $C628, aligned to its records. This run has 194 pitch-duration pairs (43 rests), totalling 1566 encoded duration units, and 122 waveform/effect commands."
+  },
+  {
+   "address": 50729,
+   "type": "line",
+   "text": "Title stream 2 from $C629 through $C7FF, aligned to its records. This run has 183 pitch-duration pairs (47 rests), totalling 1278 encoded duration units, and 105 waveform/effect commands."
+  }
+ ]
+}
