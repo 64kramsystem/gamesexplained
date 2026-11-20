@@ -1,0 +1,1439 @@
+{
+ "schema": 1,
+ "platform": "c64",
+ "game": "rainbow-islands",
+ "part": "island-3",
+ "build": "Powers of Pain disk release",
+ "source": "regenerator2000 live",
+ "regions": {
+  "exclude": [
+   [
+    256,
+    511,
+    "stack"
+   ],
+   [
+    53248,
+    57343,
+    "I/O and colour RAM"
+   ],
+   [
+    14987,
+    15103,
+    "The fixed 32-page copy runs past the end of this island file. The authored payload is listed up to the file length."
+   ],
+   [
+    43588,
+    47103,
+    "Outside the suffix-2 file. This tail of the staging window can still contain the suffix-1 file, which is listed at its installed address."
+   ],
+   [
+    1536,
+    1797,
+    "Runtime copy of the tile and palette bytes installed by $0F57. The disk bytes are listed in the staging window."
+   ],
+   [
+    51200,
+    52735,
+    "Installed copy of the six character pages at $9800-$9DFF. List the source bytes once."
+   ],
+   [
+    59392,
+    63487,
+    "Runtime sprite slots expanded by the loop at $0F9D. The source images and all the expansion tables are listed at $9F05 and above."
+   ],
+   [
+    0,
+    1535,
+    "Resident engine"
+   ],
+   [
+    1798,
+    6911,
+    "Resident engine"
+   ],
+   [
+    15104,
+    38911,
+    "Resident engine"
+   ],
+   [
+    47104,
+    51199,
+    "Resident engine"
+   ],
+   [
+    52736,
+    59391,
+    "Resident engine"
+   ],
+   [
+    63488,
+    65535,
+    "Resident engine"
+   ]
+  ],
+  "extra": [],
+  "edges": [
+   0,
+   256,
+   512,
+   1024,
+   2048,
+   4096,
+   16384,
+   32768,
+   40960,
+   49152,
+   53248,
+   57344
+  ],
+  "elsewhere": [
+   [
+    0,
+    1535,
+    "Resident engine"
+   ],
+   [
+    1798,
+    6911,
+    "Resident engine"
+   ],
+   [
+    15104,
+    38911,
+    "Resident engine"
+   ],
+   [
+    47104,
+    51199,
+    "Resident engine"
+   ],
+   [
+    52736,
+    59391,
+    "Resident engine"
+   ],
+   [
+    63488,
+    65535,
+    "Resident engine"
+   ]
+  ]
+ },
+ "blocks": [
+  {
+   "start": 1536,
+   "end": 1797,
+   "type": "Undefined"
+  },
+  {
+   "start": 6912,
+   "end": 14986,
+   "type": "Byte"
+  },
+  {
+   "start": 14987,
+   "end": 15103,
+   "type": "Undefined"
+  },
+  {
+   "start": 38912,
+   "end": 43587,
+   "type": "Byte"
+  },
+  {
+   "start": 43588,
+   "end": 47103,
+   "type": "Undefined"
+  },
+  {
+   "start": 51200,
+   "end": 52735,
+   "type": "Undefined"
+  },
+  {
+   "start": 59392,
+   "end": 63487,
+   "type": "Undefined"
+  }
+ ],
+ "symbols": [
+  {
+   "address": 1536,
+   "name": "f_0600",
+   "type": "Field",
+   "kind": "auto"
+  },
+  {
+   "address": 1537,
+   "name": "f_0601",
+   "type": "Field",
+   "kind": "auto"
+  },
+  {
+   "address": 1538,
+   "name": "f_0602",
+   "type": "Field",
+   "kind": "auto"
+  },
+  {
+   "address": 1539,
+   "name": "f_0603",
+   "type": "Field",
+   "kind": "auto"
+  },
+  {
+   "address": 1628,
+   "name": "a_065C",
+   "type": "AbsoluteAddress",
+   "kind": "auto"
+  },
+  {
+   "address": 1787,
+   "name": "f_06FB",
+   "type": "Field",
+   "kind": "auto"
+  },
+  {
+   "address": 1792,
+   "name": "f_0700",
+   "type": "Field",
+   "kind": "auto"
+  },
+  {
+   "address": 1793,
+   "name": "a_0701",
+   "type": "AbsoluteAddress",
+   "kind": "auto"
+  },
+  {
+   "address": 1794,
+   "name": "a_0702",
+   "type": "AbsoluteAddress",
+   "kind": "auto"
+  },
+  {
+   "address": 1795,
+   "name": "a_0703",
+   "type": "AbsoluteAddress",
+   "kind": "auto"
+  },
+  {
+   "address": 1796,
+   "name": "f_0704",
+   "type": "Field",
+   "kind": "auto"
+  },
+  {
+   "address": 6912,
+   "name": "object_script_lo",
+   "type": "Field",
+   "kind": "user"
+  },
+  {
+   "address": 6944,
+   "name": "object_script_hi",
+   "type": "Field",
+   "kind": "user"
+  },
+  {
+   "address": 6976,
+   "name": "object_type_flags",
+   "type": "Field",
+   "kind": "user"
+  },
+  {
+   "address": 6991,
+   "name": "mutable_object_type_flags",
+   "type": "AbsoluteAddress",
+   "kind": "user"
+  },
+  {
+   "address": 7008,
+   "name": "object_slot_traits",
+   "type": "Field",
+   "kind": "user"
+  },
+  {
+   "address": 7040,
+   "name": "object_initial_frame",
+   "type": "Field",
+   "kind": "user"
+  },
+  {
+   "address": 7055,
+   "name": "mutable_object_frame",
+   "type": "AbsoluteAddress",
+   "kind": "user"
+  },
+  {
+   "address": 7072,
+   "name": "round_setup_lo",
+   "type": "Field",
+   "kind": "user"
+  },
+  {
+   "address": 7076,
+   "name": "round_setup_hi",
+   "type": "Field",
+   "kind": "user"
+  },
+  {
+   "address": 7080,
+   "name": "round_scroll_limits",
+   "type": "Field",
+   "kind": "user"
+  },
+  {
+   "address": 7081,
+   "name": "scroll_limits_second_section",
+   "type": "Field",
+   "kind": "user"
+  },
+  {
+   "address": 7083,
+   "name": "round_row_setting",
+   "type": "Field",
+   "kind": "user"
+  },
+  {
+   "address": 7096,
+   "name": "round_player_heights",
+   "type": "Field",
+   "kind": "user"
+  },
+  {
+   "address": 7099,
+   "name": "round_y_boundaries",
+   "type": "Field",
+   "kind": "user"
+  },
+  {
+   "address": 7112,
+   "name": "round_thresholds",
+   "type": "Field",
+   "kind": "user"
+  },
+  {
+   "address": 7128,
+   "name": "round_spawn_offsets",
+   "type": "Field",
+   "kind": "user"
+  },
+  {
+   "address": 7143,
+   "name": "island_control_byte",
+   "type": "AbsoluteAddress",
+   "kind": "user"
+  },
+  {
+   "address": 7144,
+   "name": "island_script_1be8",
+   "type": "Field",
+   "kind": "user"
+  },
+  {
+   "address": 7205,
+   "name": "island_script_1c25",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 7242,
+   "name": "island_script_1c4a",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 7288,
+   "name": "island_script_1c78",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 7319,
+   "name": "island_script_1c97",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 7327,
+   "name": "island_script_1c9f",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 7360,
+   "name": "island_script_1cc0",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 7392,
+   "name": "island_script_1ce0",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 7398,
+   "name": "island_script_1ce6",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 7405,
+   "name": "island_script_1ced",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 7412,
+   "name": "island_script_1cf4",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 7424,
+   "name": "island_script_1d00",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 7480,
+   "name": "island_script_1d38",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 7503,
+   "name": "round_1_setup",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 7728,
+   "name": "round_2_setup",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 7957,
+   "name": "round_3_setup",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 8194,
+   "name": "round_4_setup",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 8448,
+   "name": "dictionary_group_offsets",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 8449,
+   "name": "dictionary_group_count",
+   "type": "AbsoluteAddress",
+   "kind": "user"
+  },
+  {
+   "address": 8450,
+   "name": "dictionary_previous_boundary_hi",
+   "type": "Field",
+   "kind": "user"
+  },
+  {
+   "address": 8451,
+   "name": "dictionary_previous_boundary_lo",
+   "type": "Field",
+   "kind": "user"
+  },
+  {
+   "address": 8452,
+   "name": "dictionary_boundary_hi",
+   "type": "Field",
+   "kind": "user"
+  },
+  {
+   "address": 8453,
+   "name": "dictionary_boundary_lo",
+   "type": "Field",
+   "kind": "user"
+  },
+  {
+   "address": 8468,
+   "name": "round_map_stream_offsets",
+   "type": "Field",
+   "kind": "user"
+  },
+  {
+   "address": 8469,
+   "name": "round_map_stream_offset_low",
+   "type": "Field",
+   "kind": "user"
+  },
+  {
+   "address": 8476,
+   "name": "dictionary_stream_offset",
+   "type": "AbsoluteAddress",
+   "kind": "user"
+  },
+  {
+   "address": 8477,
+   "name": "dictionary_stream_offset_low",
+   "type": "AbsoluteAddress",
+   "kind": "user"
+  },
+  {
+   "address": 8478,
+   "name": "round_row_bounds",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 8481,
+   "name": "round_row_boundary_low",
+   "type": "Field",
+   "kind": "user"
+  },
+  {
+   "address": 8488,
+   "name": "packed_round_data",
+   "type": "AbsoluteAddress",
+   "kind": "user"
+  },
+  {
+   "address": 9117,
+   "name": "island_3_bitstream_refill",
+   "type": "AbsoluteAddress",
+   "kind": "user"
+  },
+  {
+   "address": 9256,
+   "name": "round_1_stream_2",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 9468,
+   "name": "round_2_stream_1",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 10236,
+   "name": "round_2_stream_2",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 10438,
+   "name": "round_3_stream_1",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 11206,
+   "name": "round_3_stream_2",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 11774,
+   "name": "round_4_stream_1",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 12032,
+   "name": "island_3_map_bytes_at_demo_address",
+   "type": "Subroutine",
+   "kind": "user"
+  },
+  {
+   "address": 12542,
+   "name": "round_4_stream_2",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 13310,
+   "name": "round_4_stream_3",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 13602,
+   "name": "dictionary_stream_1",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 14370,
+   "name": "dictionary_stream_2",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 38912,
+   "name": "island_character_pixels",
+   "type": "Field",
+   "kind": "user"
+  },
+  {
+   "address": 39936,
+   "name": "upper_island_character_pixels",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 40448,
+   "name": "island_character_attributes",
+   "type": "Field",
+   "kind": "user"
+  },
+  {
+   "address": 40704,
+   "name": "island_display_parameters",
+   "type": "Field",
+   "kind": "user"
+  },
+  {
+   "address": 40709,
+   "name": "island_sprite_byte_dictionary",
+   "type": "Field",
+   "kind": "user"
+  },
+  {
+   "address": 40960,
+   "name": "island_sprite_dictionary_tail",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 40965,
+   "name": "island_sprite_copy_flags",
+   "type": "Field",
+   "kind": "user"
+  },
+  {
+   "address": 41029,
+   "name": "island_sprite_source_lo",
+   "type": "Field",
+   "kind": "user"
+  },
+  {
+   "address": 41093,
+   "name": "island_sprite_source_hi",
+   "type": "Field",
+   "kind": "user"
+  },
+  {
+   "address": 41157,
+   "name": "island_sprite_destination_offsets",
+   "type": "Field",
+   "kind": "user"
+  },
+  {
+   "address": 41220,
+   "name": "island_sprite_source_a104",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 41284,
+   "name": "island_sprite_source_a144",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 41348,
+   "name": "island_sprite_source_a184",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 41412,
+   "name": "island_sprite_source_a1c4",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 41476,
+   "name": "island_sprite_source_a204",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 41540,
+   "name": "island_sprite_source_a244",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 41604,
+   "name": "island_sprite_source_a284",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 41668,
+   "name": "island_sprite_source_a2c4",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 41732,
+   "name": "island_sprite_source_a304",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 41796,
+   "name": "island_sprite_source_a344",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 41860,
+   "name": "island_sprite_source_a384",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 41924,
+   "name": "island_sprite_source_a3c4",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 41988,
+   "name": "island_sprite_source_a404",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 42052,
+   "name": "island_sprite_source_a444",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 42116,
+   "name": "island_sprite_source_a484",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 42180,
+   "name": "island_sprite_source_a4c4",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 42244,
+   "name": "island_sprite_source_a504",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 42308,
+   "name": "island_sprite_source_a544",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 42372,
+   "name": "island_sprite_source_a584",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 42436,
+   "name": "island_sprite_source_a5c4",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 42500,
+   "name": "island_sprite_source_a604",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 42564,
+   "name": "island_sprite_source_a644",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 42628,
+   "name": "island_sprite_source_a684",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 42692,
+   "name": "island_sprite_source_a6c4",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 42756,
+   "name": "island_sprite_source_a704",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 42820,
+   "name": "island_sprite_source_a744",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 42884,
+   "name": "island_sprite_source_a784",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 42948,
+   "name": "island_sprite_source_a7c4",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 43012,
+   "name": "island_sprite_source_a804",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 43076,
+   "name": "island_sprite_source_a844",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 43140,
+   "name": "island_sprite_source_a884",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 43204,
+   "name": "island_sprite_source_a8c4",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 43268,
+   "name": "island_sprite_source_a904",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 43332,
+   "name": "island_sprite_source_a944",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 43396,
+   "name": "island_sprite_source_a984",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 43460,
+   "name": "island_sprite_source_a9c4",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 43524,
+   "name": "island_sprite_source_aa04",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 61440,
+   "name": "f_F000",
+   "type": "Field",
+   "kind": "auto"
+  },
+  {
+   "address": 61444,
+   "name": "a_F004",
+   "type": "AbsoluteAddress",
+   "kind": "auto"
+  },
+  {
+   "address": 61445,
+   "name": "a_F005",
+   "type": "AbsoluteAddress",
+   "kind": "auto"
+  },
+  {
+   "address": 61446,
+   "name": "f_F006",
+   "type": "Field",
+   "kind": "auto"
+  },
+  {
+   "address": 61450,
+   "name": "a_F00A",
+   "type": "AbsoluteAddress",
+   "kind": "auto"
+  },
+  {
+   "address": 61451,
+   "name": "a_F00B",
+   "type": "AbsoluteAddress",
+   "kind": "auto"
+  },
+  {
+   "address": 61452,
+   "name": "f_F00C",
+   "type": "Field",
+   "kind": "auto"
+  }
+ ],
+ "comments": [
+  {
+   "address": 6912,
+   "type": "line",
+   "text": "Low bytes of the 32 type-indexed script pointers for island 3. $685E copies this field into the object slot at $09E0,X."
+  },
+  {
+   "address": 6944,
+   "type": "line",
+   "text": "High bytes of the type-indexed script pointers for island 3. Entries pointing below $1B00 use shared scripts in the resident engine."
+  },
+  {
+   "address": 6976,
+   "type": "line",
+   "text": "Initial type and flags loaded at $680A. The full byte goes to $08F0,X and the high nibble also goes to $0900,X."
+  },
+  {
+   "address": 6991,
+   "type": "line",
+   "text": "Type $0F flags can be patched at $62AD. The following bytes initialize the same flags for types $10 through $1F."
+  },
+  {
+   "address": 7008,
+   "type": "line",
+   "text": "Type-indexed field copied to $0B00,X at $681B. Its sign controls whether a slot is skipped during the mode checked by $6A81."
+  },
+  {
+   "address": 7040,
+   "type": "line",
+   "text": "Type-indexed byte copied to $0B41,X at $6815. $62A8 can overwrite entry $0F for the current game state."
+  },
+  {
+   "address": 7055,
+   "type": "line",
+   "text": "Initial frame for type $0F, patched at $62A8. The remainder supplies the initial frame for types $10 through $1F."
+  },
+  {
+   "address": 7072,
+   "type": "line",
+   "text": "Low bytes of four round setup tables, selected by $4B modulo four at $4ED4."
+  },
+  {
+   "address": 7076,
+   "type": "line",
+   "text": "High bytes of the four round setup tables. $4EE5 copies one 256-byte table to $0200."
+  },
+  {
+   "address": 7080,
+   "type": "line",
+   "text": "Round and section indexed values loaded into $15 and $A0 by $4258. The same byte seeds $17 minus four and $18 plus 22."
+  },
+  {
+   "address": 7081,
+   "type": "line",
+   "text": "Scroll origins for section indices one and two, immediately after the first entry at $1BA8."
+  },
+  {
+   "address": 7083,
+   "type": "line",
+   "text": "Used at $427D after X is masked with $FC. This point is the fourth entry in the first group of four, followed by the other groups."
+  },
+  {
+   "address": 7096,
+   "type": "line",
+   "text": "Initial player Y values indexed by round group and section. $4269 reads the value and $426C writes it to slot zero at $0970."
+  },
+  {
+   "address": 7099,
+   "type": "line",
+   "text": "Screen and object Y values at index three and later. $6390 uses the entries separated by four to seed an item position four rows below the corresponding boundary."
+  },
+  {
+   "address": 7112,
+   "type": "line",
+   "text": "Section-indexed bytes copied into $76 at $426F for the chosen round group."
+  },
+  {
+   "address": 7128,
+   "type": "line",
+   "text": "Section rows read by $4274 and kept in $90."
+  },
+  {
+   "address": 7143,
+   "type": "line",
+   "text": "Read by $6517 and $726A. This byte immediately precedes the first local object script."
+  },
+  {
+   "address": 7144,
+   "type": "line",
+   "text": "Island 3 object script entry for types $10. $6C57 fetches commands using the slot script offset and dispatches through $0DB1 and $0DF1."
+  },
+  {
+   "address": 7205,
+   "type": "line",
+   "text": "Island 3 object script entry for types $11. $6C57 fetches commands using the slot script offset and dispatches through $0DB1 and $0DF1."
+  },
+  {
+   "address": 7242,
+   "type": "line",
+   "text": "Island 3 object script entry for types $12. $6C57 fetches commands using the slot script offset and dispatches through $0DB1 and $0DF1."
+  },
+  {
+   "address": 7288,
+   "type": "line",
+   "text": "Island 3 object script entry for types $13. $6C57 fetches commands using the slot script offset and dispatches through $0DB1 and $0DF1."
+  },
+  {
+   "address": 7319,
+   "type": "line",
+   "text": "Island 3 object script entry for types $14. $6C57 fetches commands using the slot script offset and dispatches through $0DB1 and $0DF1."
+  },
+  {
+   "address": 7327,
+   "type": "line",
+   "text": "Island 3 object script entry for types $15. $6C57 fetches commands using the slot script offset and dispatches through $0DB1 and $0DF1."
+  },
+  {
+   "address": 7360,
+   "type": "line",
+   "text": "Island 3 object script entry for types $16. $6C57 fetches commands using the slot script offset and dispatches through $0DB1 and $0DF1."
+  },
+  {
+   "address": 7392,
+   "type": "line",
+   "text": "Island 3 object script entry for types $1C. $6C57 fetches commands using the slot script offset and dispatches through $0DB1 and $0DF1."
+  },
+  {
+   "address": 7398,
+   "type": "line",
+   "text": "Island 3 object script entry for types $17. $6C57 fetches commands using the slot script offset and dispatches through $0DB1 and $0DF1."
+  },
+  {
+   "address": 7405,
+   "type": "line",
+   "text": "Island 3 object script entry for types $18. $6C57 fetches commands using the slot script offset and dispatches through $0DB1 and $0DF1."
+  },
+  {
+   "address": 7412,
+   "type": "line",
+   "text": "Island 3 object script entry for types $19. $6C57 fetches commands using the slot script offset and dispatches through $0DB1 and $0DF1."
+  },
+  {
+   "address": 7424,
+   "type": "line",
+   "text": "Island 3 object script entry for types $1A. $6C57 fetches commands using the slot script offset and dispatches through $0DB1 and $0DF1."
+  },
+  {
+   "address": 7480,
+   "type": "line",
+   "text": "Island 3 object script entry for types $1B. $6C57 fetches commands using the slot script offset and dispatches through $0DB1 and $0DF1."
+  },
+  {
+   "address": 7503,
+   "type": "line",
+   "text": "Round 1 setup table for island 3. $4EE5 reads 256 bytes from this pointer and copies them to $0200 before the map is decoded."
+  },
+  {
+   "address": 7728,
+   "type": "line",
+   "text": "Round 2 setup table for island 3. $4EE5 reads 256 bytes from this pointer and copies them to $0200 before the map is decoded."
+  },
+  {
+   "address": 7957,
+   "type": "line",
+   "text": "Round 3 setup table for island 3. $4EE5 reads 256 bytes from this pointer and copies them to $0200 before the map is decoded."
+  },
+  {
+   "address": 8194,
+   "type": "line",
+   "text": "Round 4 setup table for island 3. $4EE5 reads 256 bytes from this pointer and copies them to $0200 before the map is decoded."
+  },
+  {
+   "address": 8448,
+   "type": "line",
+   "text": "Group count at $2101 and high-byte-first boundary pairs. $4FCB subtracts adjacent boundaries to get the counts used when setting bits in the decoded table at $9000."
+  },
+  {
+   "address": 8449,
+   "type": "line",
+   "text": "Number of variable-length dictionary groups. $4F6E doubles this count to index the final offset and $4FCB uses it as the initial group index."
+  },
+  {
+   "address": 8450,
+   "type": "line",
+   "text": "High byte of the first dictionary boundary. $4FD8 and $4FDB subtract neighboring words."
+  },
+  {
+   "address": 8451,
+   "type": "line",
+   "text": "Low byte of the first boundary and source of the group-flag mask loaded at $4FEB."
+  },
+  {
+   "address": 8452,
+   "type": "line",
+   "text": "High-byte base of the boundary table indexed by twice the group number."
+  },
+  {
+   "address": 8453,
+   "type": "line",
+   "text": "Low-byte base of the dictionary boundaries. $4F76 adds one to the final boundary's low byte before decoding."
+  },
+  {
+   "address": 8468,
+   "type": "line",
+   "text": "Four high-byte-first offsets from $2100. $505C and $5062 position the bit reader at the stream for the chosen round."
+  },
+  {
+   "address": 8469,
+   "type": "line",
+   "text": "Low byte of the first round stream offset. $5062 reads this side of each big-endian pair indexed by twice the round."
+  },
+  {
+   "address": 8476,
+   "type": "line",
+   "text": "High-byte-first offset from $2100 to the compressed dictionary stream. The loader initializes the stream with $5230 and writes groups of four bytes to $9000."
+  },
+  {
+   "address": 8477,
+   "type": "line",
+   "text": "Low byte used as X by $4F61 when positioning the map bit reader on the dictionary."
+  },
+  {
+   "address": 8478,
+   "type": "line",
+   "text": "Five high-byte-first boundaries. $502E and $5038 use the selected round boundary to calculate the first row and destination in the decoded map at $9800."
+  },
+  {
+   "address": 8481,
+   "type": "line",
+   "text": "Low byte of the start boundary read by $502E. Later pairs hold the other round boundaries."
+  },
+  {
+   "address": 8488,
+   "type": "line",
+   "text": "Bit streams for island 3. $5246 shifts a common seed from $2128 and fetches subsequent bytes at the dictionary and round stream offsets. The setup code writes the decoded dictionary at $9000 and the expanded map at $9800."
+  },
+  {
+   "address": 9117,
+   "type": "line",
+   "text": "Interior of the island 3 map data. The self-modifying reader at $525C fetches its next byte through this operand and increments it before each refill."
+  },
+  {
+   "address": 9256,
+   "type": "line",
+   "text": "Island 3 round 1 stream bytes $2428 through $24FB. The round decoder consumes this bit stream to write the expanded map at $9800."
+  },
+  {
+   "address": 9468,
+   "type": "line",
+   "text": "Island 3 round 2 stream bytes $24FC through $27FB. The round decoder consumes this bit stream to write the expanded map at $9800."
+  },
+  {
+   "address": 10236,
+   "type": "line",
+   "text": "Island 3 round 2 stream bytes $27FC through $28C5. The round decoder consumes this bit stream to write the expanded map at $9800."
+  },
+  {
+   "address": 10438,
+   "type": "line",
+   "text": "Island 3 round 3 stream bytes $28C6 through $2BC5. The round decoder consumes this bit stream to write the expanded map at $9800."
+  },
+  {
+   "address": 11206,
+   "type": "line",
+   "text": "Island 3 round 3 stream bytes $2BC6 through $2DFD. The round decoder consumes this bit stream to write the expanded map at $9800."
+  },
+  {
+   "address": 11774,
+   "type": "line",
+   "text": "Island 3 round 4 stream bytes $2DFE through $30FD. The round decoder consumes this bit stream to write the expanded map at $9800."
+  },
+  {
+   "address": 12032,
+   "type": "line",
+   "text": "Map stream bytes at an address that holds the attract routine while Island 1 is loaded. The transition to the title restores Island 1 before calling $2F00."
+  },
+  {
+   "address": 12542,
+   "type": "line",
+   "text": "Island 3 round 4 stream bytes $30FE through $33FD. The round decoder consumes this bit stream to write the expanded map at $9800."
+  },
+  {
+   "address": 13310,
+   "type": "line",
+   "text": "Island 3 round 4 stream bytes $33FE through $3521. The round decoder consumes this bit stream to write the expanded map at $9800."
+  },
+  {
+   "address": 13602,
+   "type": "line",
+   "text": "Island 3 dictionary stream bytes $3522 through $3821. The decoder reads paired 11-bit values from this stream for the output at $9000."
+  },
+  {
+   "address": 14370,
+   "type": "line",
+   "text": "Island 3 dictionary stream bytes $3822 through $3A8A. The decoder reads paired 11-bit values from this stream for the output at $9000."
+  },
+  {
+   "address": 38912,
+   "type": "line",
+   "text": "First 128 of the 192 eight-byte character images for island 3. $0F57 copies six pages into the VIC-II character area at $C800."
+  },
+  {
+   "address": 39936,
+   "type": "line",
+   "text": "Characters $80 through $BF of the island 3 tile set. The setup loop installs these final two pages at $CC00 and $CD00."
+  },
+  {
+   "address": 40448,
+   "type": "line",
+   "text": "One page copied to both $CE00 and $0600 by $0F75. The two copies support the screen tile and colour routines."
+  },
+  {
+   "address": 40704,
+   "type": "line",
+   "text": "First five bytes of the six-byte setup copied to $0700. $4F14 uses byte 0 to patch $76DD and the next three bytes to choose background colours."
+  },
+  {
+   "address": 40709,
+   "type": "line",
+   "text": "Byte dictionary used by $0FBD when a sprite slot is marked for expansion. The source record supplies the byte index as Y."
+  },
+  {
+   "address": 40960,
+   "type": "line",
+   "text": "Dictionary entries $FB through $FF, covering the last five possible source-byte indexes used by $0FBD."
+  },
+  {
+   "address": 40965,
+   "type": "line",
+   "text": "One byte per destination sprite slot. A nonzero byte uses the direct 63-byte copy at $0FCD. Zero uses the byte dictionary and the offset map."
+  },
+  {
+   "address": 41029,
+   "type": "line",
+   "text": "Low bytes of 64 sprite source pointers, installed in the source instructions at $0FBA and $0FCD."
+  },
+  {
+   "address": 41093,
+   "type": "line",
+   "text": "High bytes of 64 sprite source pointers, used by both the direct and dictionary copy paths."
+  },
+  {
+   "address": 41157,
+   "type": "line",
+   "text": "63 destination offsets used with dictionary-expanded sprite bytes. The direct copy path preserves the original byte order."
+  },
+  {
+   "address": 41220,
+   "type": "line",
+   "text": "Island 3 sprite source for destination slot bytes $02, $06. The $A005 flag table selects dictionary expansion, direct copy. Each destination uses 63 pixel bytes in its 64-byte slot."
+  },
+  {
+   "address": 41284,
+   "type": "line",
+   "text": "Island 3 sprite source for destination slot bytes $03, $07. The $A005 flag table selects dictionary expansion, direct copy. Each destination uses 63 pixel bytes in its 64-byte slot."
+  },
+  {
+   "address": 41348,
+   "type": "line",
+   "text": "Island 3 sprite source for destination slot bytes $04, $08. The $A005 flag table selects dictionary expansion, direct copy. Each destination uses 63 pixel bytes in its 64-byte slot."
+  },
+  {
+   "address": 41412,
+   "type": "line",
+   "text": "Island 3 sprite source for destination slot bytes $05, $09. The $A005 flag table selects dictionary expansion, direct copy. Each destination uses 63 pixel bytes in its 64-byte slot."
+  },
+  {
+   "address": 41476,
+   "type": "line",
+   "text": "Island 3 sprite source for destination slot bytes $0A, $0E. The $A005 flag table selects dictionary expansion, direct copy. Each destination uses 63 pixel bytes in its 64-byte slot."
+  },
+  {
+   "address": 41540,
+   "type": "line",
+   "text": "Island 3 sprite source for destination slot bytes $0B, $0F. The $A005 flag table selects dictionary expansion, direct copy. Each destination uses 63 pixel bytes in its 64-byte slot."
+  },
+  {
+   "address": 41604,
+   "type": "line",
+   "text": "Island 3 sprite source for destination slot bytes $0C, $10. The $A005 flag table selects dictionary expansion, direct copy. Each destination uses 63 pixel bytes in its 64-byte slot."
+  },
+  {
+   "address": 41668,
+   "type": "line",
+   "text": "Island 3 sprite source for destination slot bytes $0D, $11. The $A005 flag table selects dictionary expansion, direct copy. Each destination uses 63 pixel bytes in its 64-byte slot."
+  },
+  {
+   "address": 41732,
+   "type": "line",
+   "text": "Island 3 sprite source for destination slot bytes $12. The $A005 flag table selects direct copy. Each destination uses 63 pixel bytes in its 64-byte slot."
+  },
+  {
+   "address": 41796,
+   "type": "line",
+   "text": "Island 3 sprite source for destination slot bytes $13. The $A005 flag table selects direct copy. Each destination uses 63 pixel bytes in its 64-byte slot."
+  },
+  {
+   "address": 41860,
+   "type": "line",
+   "text": "Island 3 sprite source for destination slot bytes $14, $18. The $A005 flag table selects dictionary expansion, direct copy. Each destination uses 63 pixel bytes in its 64-byte slot."
+  },
+  {
+   "address": 41924,
+   "type": "line",
+   "text": "Island 3 sprite source for destination slot bytes $15, $19. The $A005 flag table selects dictionary expansion, direct copy. Each destination uses 63 pixel bytes in its 64-byte slot."
+  },
+  {
+   "address": 41988,
+   "type": "line",
+   "text": "Island 3 sprite source for destination slot bytes $16, $1A. The $A005 flag table selects dictionary expansion, direct copy. Each destination uses 63 pixel bytes in its 64-byte slot."
+  },
+  {
+   "address": 42052,
+   "type": "line",
+   "text": "Island 3 sprite source for destination slot bytes $17, $1B. The $A005 flag table selects dictionary expansion, direct copy. Each destination uses 63 pixel bytes in its 64-byte slot."
+  },
+  {
+   "address": 42116,
+   "type": "line",
+   "text": "Island 3 sprite source for destination slot bytes $1C. The $A005 flag table selects direct copy. Each destination uses 63 pixel bytes in its 64-byte slot."
+  },
+  {
+   "address": 42180,
+   "type": "line",
+   "text": "Island 3 sprite source for destination slot bytes $1D. The $A005 flag table selects direct copy. Each destination uses 63 pixel bytes in its 64-byte slot."
+  },
+  {
+   "address": 42244,
+   "type": "line",
+   "text": "Island 3 sprite source for destination slot bytes $1E, $20. The $A005 flag table selects dictionary expansion, direct copy. Each destination uses 63 pixel bytes in its 64-byte slot."
+  },
+  {
+   "address": 42308,
+   "type": "line",
+   "text": "Island 3 sprite source for destination slot bytes $1F, $21. The $A005 flag table selects dictionary expansion, direct copy. Each destination uses 63 pixel bytes in its 64-byte slot."
+  },
+  {
+   "address": 42372,
+   "type": "line",
+   "text": "Island 3 sprite source for destination slot bytes $22. The $A005 flag table selects direct copy. Each destination uses 63 pixel bytes in its 64-byte slot."
+  },
+  {
+   "address": 42436,
+   "type": "line",
+   "text": "Island 3 sprite source for destination slot bytes $23. The $A005 flag table selects direct copy. Each destination uses 63 pixel bytes in its 64-byte slot."
+  },
+  {
+   "address": 42500,
+   "type": "line",
+   "text": "Island 3 sprite source for destination slot bytes $24. The $A005 flag table selects direct copy. Each destination uses 63 pixel bytes in its 64-byte slot."
+  },
+  {
+   "address": 42564,
+   "type": "line",
+   "text": "Island 3 sprite source for destination slot bytes $25. The $A005 flag table selects direct copy. Each destination uses 63 pixel bytes in its 64-byte slot."
+  },
+  {
+   "address": 42628,
+   "type": "line",
+   "text": "Island 3 sprite source for destination slot bytes $26. The $A005 flag table selects direct copy. Each destination uses 63 pixel bytes in its 64-byte slot."
+  },
+  {
+   "address": 42692,
+   "type": "line",
+   "text": "Island 3 sprite source for destination slot bytes $29, $2B. The $A005 flag table selects dictionary expansion, direct copy. Each destination uses 63 pixel bytes in its 64-byte slot."
+  },
+  {
+   "address": 42756,
+   "type": "line",
+   "text": "Island 3 sprite source for destination slot bytes $27, $2D. The $A005 flag table selects dictionary expansion, direct copy. Each destination uses 63 pixel bytes in its 64-byte slot."
+  },
+  {
+   "address": 42820,
+   "type": "line",
+   "text": "Island 3 sprite source for destination slot bytes $31, $33. The $A005 flag table selects dictionary expansion, direct copy. Each destination uses 63 pixel bytes in its 64-byte slot."
+  },
+  {
+   "address": 42884,
+   "type": "line",
+   "text": "Island 3 sprite source for destination slot bytes $2F, $35. The $A005 flag table selects dictionary expansion, direct copy. Each destination uses 63 pixel bytes in its 64-byte slot."
+  },
+  {
+   "address": 42948,
+   "type": "line",
+   "text": "Island 3 sprite source for destination slot bytes $2A, $2C. The $A005 flag table selects dictionary expansion, direct copy. Each destination uses 63 pixel bytes in its 64-byte slot."
+  },
+  {
+   "address": 43012,
+   "type": "line",
+   "text": "Island 3 sprite source for destination slot bytes $28, $2E. The $A005 flag table selects dictionary expansion, direct copy. Each destination uses 63 pixel bytes in its 64-byte slot."
+  },
+  {
+   "address": 43076,
+   "type": "line",
+   "text": "Island 3 sprite source for destination slot bytes $32, $34. The $A005 flag table selects dictionary expansion, direct copy. Each destination uses 63 pixel bytes in its 64-byte slot."
+  },
+  {
+   "address": 43140,
+   "type": "line",
+   "text": "Island 3 sprite source for destination slot bytes $30, $36. The $A005 flag table selects dictionary expansion, direct copy. Each destination uses 63 pixel bytes in its 64-byte slot."
+  },
+  {
+   "address": 43204,
+   "type": "line",
+   "text": "Island 3 sprite source for destination slot bytes $00. The $A005 flag table selects direct copy. Each destination uses 63 pixel bytes in its 64-byte slot."
+  },
+  {
+   "address": 43268,
+   "type": "line",
+   "text": "Island 3 sprite source for destination slot bytes $01. The $A005 flag table selects direct copy. Each destination uses 63 pixel bytes in its 64-byte slot."
+  },
+  {
+   "address": 43332,
+   "type": "line",
+   "text": "Island 3 sprite source for destination slot bytes $37. The $A005 flag table selects direct copy. Each destination uses 63 pixel bytes in its 64-byte slot."
+  },
+  {
+   "address": 43396,
+   "type": "line",
+   "text": "Island 3 sprite source for destination slot bytes $38. The $A005 flag table selects direct copy. Each destination uses 63 pixel bytes in its 64-byte slot."
+  },
+  {
+   "address": 43460,
+   "type": "line",
+   "text": "Island 3 sprite source for destination slot bytes $39. The $A005 flag table selects direct copy. Each destination uses 63 pixel bytes in its 64-byte slot."
+  },
+  {
+   "address": 43524,
+   "type": "line",
+   "text": "Island 3 sprite source for destination slot bytes $3A. The $A005 flag table selects direct copy. Each destination uses 63 pixel bytes in its 64-byte slot."
+  }
+ ]
+}

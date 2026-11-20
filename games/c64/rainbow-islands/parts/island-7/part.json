@@ -1,0 +1,64 @@
+{
+  "title": "Island 7",
+  "order": 8,
+  "over": "engine",
+  "ranges": [
+    [
+      "$0600",
+      "$0705"
+    ],
+    [
+      "$1B00",
+      "$3AFF"
+    ],
+    [
+      "$9800",
+      "$B7FF"
+    ],
+    [
+      "$C800",
+      "$CDFF"
+    ],
+    [
+      "$E800",
+      "$F7FF"
+    ]
+  ],
+  "video": {
+    "screen": "",
+    "charset": ""
+  },
+  "coverage": {
+    "exclude": [
+      [
+        "$37F3",
+        "$3AFF",
+        "The fixed 32-page copy runs past the end of this island file. The authored payload is listed up to the file length."
+      ],
+      [
+        "$AA84",
+        "$B7FF",
+        "Outside the suffix-2 file. This tail of the staging window can still contain the suffix-1 file, which is listed at its installed address."
+      ],
+      [
+        "$0600",
+        "$0705",
+        "Runtime copy of the tile and palette bytes installed by $0F57. The disk bytes are listed in the staging window."
+      ],
+      [
+        "$C800",
+        "$CDFF",
+        "Installed copy of the six character pages at $9800-$9DFF. List the source bytes once."
+      ],
+      [
+        "$E800",
+        "$F7FF",
+        "Runtime sprite slots expanded by the loop at $0F9D. The source images and all the expansion tables are listed at $9F05 and above."
+      ]
+    ],
+    "extra": [],
+    "include": []
+  },
+  "io": [],
+  "regions": []
+}

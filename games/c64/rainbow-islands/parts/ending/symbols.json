@@ -1,0 +1,4848 @@
+{
+ "schema": 1,
+ "platform": "c64",
+ "game": "rainbow-islands",
+ "part": "ending",
+ "build": "Powers of Pain disk release",
+ "source": "regenerator2000 live",
+ "regions": {
+  "exclude": [
+   [
+    256,
+    511,
+    "stack"
+   ],
+   [
+    53248,
+    57343,
+    "I/O and colour RAM"
+   ],
+   [
+    24576,
+    25599,
+    "screen RAM"
+   ],
+   [
+    16384,
+    24575,
+    "Runtime bitmap copied from the selected result image by $0988. Both source pictures are listed."
+   ],
+   [
+    24576,
+    25599,
+    "Runtime screen output and sprite pointers initialized by the result display. Source screen colours are listed at $9000 and $B800."
+   ],
+   [
+    27135,
+    28159,
+    "Runtime work space for generated result sprites. $0A47 clears this area from an indexed base of $69FF and $09E5 writes the expanded pixels."
+   ],
+   [
+    0,
+    2048,
+    "Resident engine"
+   ],
+   [
+    49152,
+    65535,
+    "Resident engine"
+   ]
+  ],
+  "extra": [],
+  "edges": [
+   0,
+   256,
+   512,
+   1024,
+   2048,
+   4096,
+   16384,
+   32768,
+   40960,
+   49152,
+   53248,
+   57344
+  ],
+  "elsewhere": [
+   [
+    0,
+    2048,
+    "Resident engine"
+   ],
+   [
+    49152,
+    65535,
+    "Resident engine"
+   ]
+  ]
+ },
+ "blocks": [
+  {
+   "start": 2049,
+   "end": 2063,
+   "type": "Undefined"
+  },
+  {
+   "start": 2064,
+   "end": 5198,
+   "type": "Code"
+  },
+  {
+   "start": 5199,
+   "end": 10386,
+   "type": "Byte"
+  },
+  {
+   "start": 10387,
+   "end": 26623,
+   "type": "Undefined"
+  },
+  {
+   "start": 26624,
+   "end": 26979,
+   "type": "Byte"
+  },
+  {
+   "start": 26980,
+   "end": 28671,
+   "type": "Undefined"
+  },
+  {
+   "start": 28672,
+   "end": 49151,
+   "type": "Byte"
+  }
+ ],
+ "symbols": [
+  {
+   "address": 2064,
+   "name": "start_ending",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 2122,
+   "name": "cycle_ending_title_colours",
+   "type": "Branch",
+   "kind": "user"
+  },
+  {
+   "address": 2148,
+   "name": "b_0864",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 2150,
+   "name": "b_0866",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 2198,
+   "name": "show_player_result",
+   "type": "Subroutine",
+   "kind": "user"
+  },
+  {
+   "address": 2244,
+   "name": "b_08C4",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 2263,
+   "name": "r_08D7",
+   "type": "Return",
+   "kind": "auto"
+  },
+  {
+   "address": 2264,
+   "name": "show_alternate_result",
+   "type": "Branch",
+   "kind": "user"
+  },
+  {
+   "address": 2304,
+   "name": "b_0900",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 2318,
+   "name": "b_090E",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 2325,
+   "name": "ending_bonus_count_operand",
+   "type": "AbsoluteAddress",
+   "kind": "user"
+  },
+  {
+   "address": 2333,
+   "name": "b_091D",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 2348,
+   "name": "b_092C",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 2368,
+   "name": "install_result_picture",
+   "type": "Subroutine",
+   "kind": "user"
+  },
+  {
+   "address": 2375,
+   "name": "b_0947",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 2391,
+   "name": "result_bitmap_source_page",
+   "type": "AbsoluteAddress",
+   "kind": "user"
+  },
+  {
+   "address": 2400,
+   "name": "result_matrix_source_page",
+   "type": "AbsoluteAddress",
+   "kind": "user"
+  },
+  {
+   "address": 2409,
+   "name": "result_colour_source_page",
+   "type": "AbsoluteAddress",
+   "kind": "user"
+  },
+  {
+   "address": 2419,
+   "name": "b_0973",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 2440,
+   "name": "copy_picture_pages",
+   "type": "Subroutine",
+   "kind": "user"
+  },
+  {
+   "address": 2448,
+   "name": "b_0990",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 2450,
+   "name": "picture_copy_input_page",
+   "type": "AbsoluteAddress",
+   "kind": "user"
+  },
+  {
+   "address": 2453,
+   "name": "picture_copy_output_page",
+   "type": "AbsoluteAddress",
+   "kind": "user"
+  },
+  {
+   "address": 2467,
+   "name": "prepare_result_sprite",
+   "type": "Subroutine",
+   "kind": "user"
+  },
+  {
+   "address": 2474,
+   "name": "b_09AA",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 2502,
+   "name": "b_09C6",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 2520,
+   "name": "b_09D8",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 2533,
+   "name": "expand_result_sprite",
+   "type": "Subroutine",
+   "kind": "user"
+  },
+  {
+   "address": 2537,
+   "name": "b_09E9",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 2561,
+   "name": "sprite_pixel_patch_operand",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 2567,
+   "name": "expand_sprite_glyph_row",
+   "type": "Field",
+   "kind": "user"
+  },
+  {
+   "address": 2568,
+   "name": "sprite_glyph_address_low",
+   "type": "AbsoluteAddress",
+   "kind": "user"
+  },
+  {
+   "address": 2569,
+   "name": "glyph_page_patch_operand",
+   "type": "AbsoluteAddress",
+   "kind": "user"
+  },
+  {
+   "address": 2600,
+   "name": "b_0A28",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 2608,
+   "name": "next_result_sprite_frames",
+   "type": "Subroutine",
+   "kind": "user"
+  },
+  {
+   "address": 2627,
+   "name": "companion_sprite_frame_operand",
+   "type": "AbsoluteAddress",
+   "kind": "user"
+  },
+  {
+   "address": 2631,
+   "name": "clear_result_sprites",
+   "type": "Subroutine",
+   "kind": "user"
+  },
+  {
+   "address": 2635,
+   "name": "b_0A4B",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 2663,
+   "name": "clear_result_text",
+   "type": "Subroutine",
+   "kind": "user"
+  },
+  {
+   "address": 2670,
+   "name": "b_0A6E",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 2703,
+   "name": "draw_result_text",
+   "type": "Subroutine",
+   "kind": "user"
+  },
+  {
+   "address": 2722,
+   "name": "j_0AA2",
+   "type": "Jump",
+   "kind": "auto"
+  },
+  {
+   "address": 2739,
+   "name": "b_0AB3",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 2746,
+   "name": "text_command_cursor_restore",
+   "type": "AbsoluteAddress",
+   "kind": "user"
+  },
+  {
+   "address": 2750,
+   "name": "r_0ABE",
+   "type": "Return",
+   "kind": "auto"
+  },
+  {
+   "address": 2751,
+   "name": "emit_text_fragment",
+   "type": "Subroutine",
+   "kind": "user"
+  },
+  {
+   "address": 2765,
+   "name": "b_0ACD",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 2776,
+   "name": "b_0AD8",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 2779,
+   "name": "b_0ADB",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 2789,
+   "name": "b_0AE5",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 2802,
+   "name": "b_0AF2",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 2817,
+   "name": "fragment_cursor_restore",
+   "type": "AbsoluteAddress",
+   "kind": "user"
+  },
+  {
+   "address": 2818,
+   "name": "j_0B02",
+   "type": "Jump",
+   "kind": "auto"
+  },
+  {
+   "address": 2823,
+   "name": "dispatch_text_control",
+   "type": "Subroutine",
+   "kind": "user"
+  },
+  {
+   "address": 2851,
+   "name": "set_text_colour",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 2854,
+   "name": "set_text_position",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 2861,
+   "name": "set_result_row_pointers",
+   "type": "Subroutine",
+   "kind": "user"
+  },
+  {
+   "address": 2881,
+   "name": "advance_text_column",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 2887,
+   "name": "initialize_ending_vic_and_timers",
+   "type": "Subroutine",
+   "kind": "user"
+  },
+  {
+   "address": 2928,
+   "name": "b_0B70",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 2976,
+   "name": "b_0BA0",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 3009,
+   "name": "b_0BC1",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 3021,
+   "name": "j_0BCD",
+   "type": "Jump",
+   "kind": "auto"
+  },
+  {
+   "address": 3040,
+   "name": "b_0BE0",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 3070,
+   "name": "r_0BFE",
+   "type": "Return",
+   "kind": "auto"
+  },
+  {
+   "address": 3071,
+   "name": "b_0BFF",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 3073,
+   "name": "b_0C01",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 3085,
+   "name": "b_0C0D",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 3093,
+   "name": "b_0C15",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 3119,
+   "name": "b_0C2F",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 3137,
+   "name": "alternate_score_index_operand",
+   "type": "AbsoluteAddress",
+   "kind": "user"
+  },
+  {
+   "address": 3144,
+   "name": "score_display_column_operand",
+   "type": "AbsoluteAddress",
+   "kind": "user"
+  },
+  {
+   "address": 3147,
+   "name": "write_ending_score",
+   "type": "Subroutine",
+   "kind": "user"
+  },
+  {
+   "address": 3163,
+   "name": "b_0C5B",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 3196,
+   "name": "b_0C7C",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 3201,
+   "name": "b_0C81",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 3208,
+   "name": "b_0C88",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 3216,
+   "name": "b_0C90",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 3225,
+   "name": "ending_display_nmi",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 3250,
+   "name": "b_0CB2",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 3253,
+   "name": "set_ending_raster_callback",
+   "type": "Subroutine",
+   "kind": "user"
+  },
+  {
+   "address": 3282,
+   "name": "ending_raster_irq",
+   "type": "Subroutine",
+   "kind": "user"
+  },
+  {
+   "address": 3290,
+   "name": "ending_raster_callback_lo",
+   "type": "AbsoluteAddress",
+   "kind": "user"
+  },
+  {
+   "address": 3291,
+   "name": "ending_raster_callback_hi",
+   "type": "AbsoluteAddress",
+   "kind": "user"
+  },
+  {
+   "address": 3304,
+   "name": "ending_sound_tick",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 3318,
+   "name": "ending_first_sprite_row",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 3342,
+   "name": "b_0D0E",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 3393,
+   "name": "ending_second_sprite_row",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 3397,
+   "name": "b_0D45",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 3429,
+   "name": "sequence_ordinary_result",
+   "type": "Subroutine",
+   "kind": "user"
+  },
+  {
+   "address": 3446,
+   "name": "b_0D76",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 3449,
+   "name": "b_0D79",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 3482,
+   "name": "b_0D9A",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 3485,
+   "name": "sequence_alternate_result",
+   "type": "Subroutine",
+   "kind": "user"
+  },
+  {
+   "address": 3498,
+   "name": "b_0DAA",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 3501,
+   "name": "select_ending_text_display",
+   "type": "Subroutine",
+   "kind": "user"
+  },
+  {
+   "address": 3517,
+   "name": "display_ending_multicolour_overlay",
+   "type": "Subroutine",
+   "kind": "user"
+  },
+  {
+   "address": 3527,
+   "name": "b_0DC7",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 3529,
+   "name": "b_0DC9",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 3549,
+   "name": "b_0DDD",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 3563,
+   "name": "ending_sound_callback",
+   "type": "Subroutine",
+   "kind": "user"
+  },
+  {
+   "address": 3564,
+   "name": "ending_sound_callback_lo",
+   "type": "AbsoluteAddress",
+   "kind": "user"
+  },
+  {
+   "address": 3565,
+   "name": "ending_sound_callback_hi",
+   "type": "AbsoluteAddress",
+   "kind": "user"
+  },
+  {
+   "address": 3566,
+   "name": "j_0DEE",
+   "type": "Jump",
+   "kind": "auto"
+  },
+  {
+   "address": 3567,
+   "name": "arrangement_select_patch",
+   "type": "AbsoluteAddress",
+   "kind": "user"
+  },
+  {
+   "address": 3576,
+   "name": "b_0DF8",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 3578,
+   "name": "start_ending_sound",
+   "type": "Subroutine",
+   "kind": "user"
+  },
+  {
+   "address": 3642,
+   "name": "j_0E3A",
+   "type": "Jump",
+   "kind": "auto"
+  },
+  {
+   "address": 3644,
+   "name": "j_0E3C",
+   "type": "Jump",
+   "kind": "auto"
+  },
+  {
+   "address": 3648,
+   "name": "b_0E40",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 3677,
+   "name": "b_0E5D",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 3688,
+   "name": "r_0E68",
+   "type": "Return",
+   "kind": "auto"
+  },
+  {
+   "address": 3689,
+   "name": "advance_ending_music",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 3697,
+   "name": "b_0E71",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 3705,
+   "name": "j_0E79",
+   "type": "Jump",
+   "kind": "auto"
+  },
+  {
+   "address": 3722,
+   "name": "b_0E8A",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 3732,
+   "name": "b_0E94",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 3744,
+   "name": "b_0EA0",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 3763,
+   "name": "b_0EB3",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 3779,
+   "name": "b_0EC3",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 3782,
+   "name": "b_0EC6",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 3799,
+   "name": "b_0ED7",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 3802,
+   "name": "b_0EDA",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 3806,
+   "name": "next_ending_music_group",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 3812,
+   "name": "b_0EE4",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 3840,
+   "name": "b_0F00",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 3850,
+   "name": "b_0F0A",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 3861,
+   "name": "b_0F15",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 3872,
+   "name": "decode_ending_pitch",
+   "type": "Jump",
+   "kind": "user"
+  },
+  {
+   "address": 3900,
+   "name": "b_0F3C",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 3907,
+   "name": "b_0F43",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 3969,
+   "name": "b_0F81",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 4022,
+   "name": "b_0FB6",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 4034,
+   "name": "finish_ending_channel_tick",
+   "type": "Jump",
+   "kind": "user"
+  },
+  {
+   "address": 4053,
+   "name": "j_0FD5",
+   "type": "Jump",
+   "kind": "auto"
+  },
+  {
+   "address": 4056,
+   "name": "j_0FD8",
+   "type": "Jump",
+   "kind": "auto"
+  },
+  {
+   "address": 4064,
+   "name": "r_0FE0",
+   "type": "Return",
+   "kind": "auto"
+  },
+  {
+   "address": 4065,
+   "name": "j_0FE1",
+   "type": "Jump",
+   "kind": "auto"
+  },
+  {
+   "address": 4075,
+   "name": "b_0FEB",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 4095,
+   "name": "b_0FFF",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 4104,
+   "name": "b_1008",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 4124,
+   "name": "b_101C",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 4131,
+   "name": "b_1023",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 4137,
+   "name": "update_ending_voice",
+   "type": "Subroutine",
+   "kind": "user"
+  },
+  {
+   "address": 4163,
+   "name": "b_1043",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 4173,
+   "name": "b_104D",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 4210,
+   "name": "b_1072",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 4221,
+   "name": "b_107D",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 4246,
+   "name": "b_1096",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 4248,
+   "name": "b_1098",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 4258,
+   "name": "b_10A2",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 4265,
+   "name": "b_10A9",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 4277,
+   "name": "b_10B5",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 4309,
+   "name": "b_10D5",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 4312,
+   "name": "b_10D8",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 4332,
+   "name": "voice_modulation_control_operand",
+   "type": "AbsoluteAddress",
+   "kind": "user"
+  },
+  {
+   "address": 4333,
+   "name": "b_10ED",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 4337,
+   "name": "b_10F1",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 4347,
+   "name": "b_10FB",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 4360,
+   "name": "b_1108",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 4368,
+   "name": "b_1110",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 4371,
+   "name": "b_1113",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 4373,
+   "name": "b_1115",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 4456,
+   "name": "filter_sweep_control_operand",
+   "type": "AbsoluteAddress",
+   "kind": "user"
+  },
+  {
+   "address": 4457,
+   "name": "b_1169",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 4461,
+   "name": "b_116D",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 4471,
+   "name": "b_1177",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 4484,
+   "name": "b_1184",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 4492,
+   "name": "b_118C",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 4495,
+   "name": "b_118F",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 4497,
+   "name": "b_1191",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 4512,
+   "name": "b_11A0",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 4525,
+   "name": "b_11AD",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 4532,
+   "name": "b_11B4",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 4541,
+   "name": "b_11BD",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 4561,
+   "name": "b_11D1",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 4576,
+   "name": "b_11E0",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 4606,
+   "name": "b_11FE",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 4646,
+   "name": "b_1226",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 4658,
+   "name": "b_1232",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 4692,
+   "name": "pitch_sweep_control_operand",
+   "type": "AbsoluteAddress",
+   "kind": "user"
+  },
+  {
+   "address": 4693,
+   "name": "b_1255",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 4697,
+   "name": "b_1259",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 4708,
+   "name": "b_1264",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 4736,
+   "name": "b_1280",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 4749,
+   "name": "pitch_repeat_counter_operand",
+   "type": "AbsoluteAddress",
+   "kind": "user"
+  },
+  {
+   "address": 4750,
+   "name": "j_128E",
+   "type": "Jump",
+   "kind": "auto"
+  },
+  {
+   "address": 4756,
+   "name": "b_1294",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 4766,
+   "name": "j_129E",
+   "type": "Jump",
+   "kind": "auto"
+  },
+  {
+   "address": 4769,
+   "name": "r_12A1",
+   "type": "Return",
+   "kind": "auto"
+  },
+  {
+   "address": 4770,
+   "name": "load_ending_instrument",
+   "type": "Subroutine",
+   "kind": "user"
+  },
+  {
+   "address": 4846,
+   "name": "b_12EE",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 4866,
+   "name": "b_1302",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 4879,
+   "name": "b_130F",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 4886,
+   "name": "b_1316",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 4899,
+   "name": "b_1323",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 4906,
+   "name": "b_132A",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 4919,
+   "name": "b_1337",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 4926,
+   "name": "b_133E",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 4939,
+   "name": "b_134B",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 4949,
+   "name": "b_1355",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 4955,
+   "name": "b_135B",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 4960,
+   "name": "b_1360",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 4985,
+   "name": "b_1379",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 4992,
+   "name": "route_sid_filter",
+   "type": "Subroutine",
+   "kind": "user"
+  },
+  {
+   "address": 5014,
+   "name": "b_1396",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 5041,
+   "name": "b_13B1",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 5067,
+   "name": "seed_ending_pitch_modulation",
+   "type": "Branch",
+   "kind": "user"
+  },
+  {
+   "address": 5074,
+   "name": "b_13D2",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 5092,
+   "name": "voice_index_restore_operand",
+   "type": "AbsoluteAddress",
+   "kind": "user"
+  },
+  {
+   "address": 5138,
+   "name": "b_1412",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 5177,
+   "name": "reverse_frequency_delta",
+   "type": "Subroutine",
+   "kind": "user"
+  },
+  {
+   "address": 5199,
+   "name": "ending_mute_or_use_voice",
+   "type": "Field",
+   "kind": "user"
+  },
+  {
+   "address": 5212,
+   "name": "ending_voice_array_offsets",
+   "type": "Field",
+   "kind": "user"
+  },
+  {
+   "address": 5215,
+   "name": "ending_wave_step_count",
+   "type": "Field",
+   "kind": "user"
+  },
+  {
+   "address": 5218,
+   "name": "voice_attack_decay",
+   "type": "Field",
+   "kind": "user"
+  },
+  {
+   "address": 5221,
+   "name": "voice_sustain_release_seed",
+   "type": "Field",
+   "kind": "user"
+  },
+  {
+   "address": 5224,
+   "name": "voice_envelope_repeat_period",
+   "type": "Field",
+   "kind": "user"
+  },
+  {
+   "address": 5227,
+   "name": "voice_pulse_phase_timer",
+   "type": "Field",
+   "kind": "user"
+  },
+  {
+   "address": 5230,
+   "name": "voice_pulse_control_flags",
+   "type": "Field",
+   "kind": "user"
+  },
+  {
+   "address": 5233,
+   "name": "voice_envelope_restarts_left",
+   "type": "Field",
+   "kind": "user"
+  },
+  {
+   "address": 5236,
+   "name": "voice_pulse_step_parameter",
+   "type": "Field",
+   "kind": "user"
+  },
+  {
+   "address": 5239,
+   "name": "voice_envelope_restart_seed",
+   "type": "Field",
+   "kind": "user"
+  },
+  {
+   "address": 5242,
+   "name": "voice_gate_pattern",
+   "type": "Field",
+   "kind": "user"
+  },
+  {
+   "address": 5245,
+   "name": "voice_frequency_modulation_flags",
+   "type": "Field",
+   "kind": "user"
+  },
+  {
+   "address": 5248,
+   "name": "voice_frequency_delta_seed_lo",
+   "type": "Field",
+   "kind": "user"
+  },
+  {
+   "address": 5251,
+   "name": "voice_frequency_delta_seed_hi",
+   "type": "Field",
+   "kind": "user"
+  },
+  {
+   "address": 5254,
+   "name": "voice_frequency_delta_lo",
+   "type": "Field",
+   "kind": "user"
+  },
+  {
+   "address": 5257,
+   "name": "voice_frequency_delta_hi",
+   "type": "Field",
+   "kind": "user"
+  },
+  {
+   "address": 5260,
+   "name": "voice_frequency_control_timer",
+   "type": "Field",
+   "kind": "user"
+  },
+  {
+   "address": 5263,
+   "name": "voice_filter_sweep_flags",
+   "type": "Field",
+   "kind": "user"
+  },
+  {
+   "address": 5266,
+   "name": "voice_filter_mode",
+   "type": "Field",
+   "kind": "user"
+  },
+  {
+   "address": 5269,
+   "name": "voice_filter_routing",
+   "type": "Field",
+   "kind": "user"
+  },
+  {
+   "address": 5272,
+   "name": "voice_filter_initial_cutoff_lo",
+   "type": "Field",
+   "kind": "user"
+  },
+  {
+   "address": 5275,
+   "name": "voice_filter_initial_cutoff_hi",
+   "type": "Field",
+   "kind": "user"
+  },
+  {
+   "address": 5278,
+   "name": "voice_filter_delta_lo",
+   "type": "Field",
+   "kind": "user"
+  },
+  {
+   "address": 5281,
+   "name": "voice_filter_delta_hi",
+   "type": "Field",
+   "kind": "user"
+  },
+  {
+   "address": 5284,
+   "name": "voice_filter_sweep_reload",
+   "type": "Field",
+   "kind": "user"
+  },
+  {
+   "address": 5287,
+   "name": "voice_pitch_bend_enable",
+   "type": "Field",
+   "kind": "user"
+  },
+  {
+   "address": 5290,
+   "name": "voice_pitch_bend_delay",
+   "type": "Field",
+   "kind": "user"
+  },
+  {
+   "address": 5293,
+   "name": "voice_pitch_bend_delta",
+   "type": "Field",
+   "kind": "user"
+  },
+  {
+   "address": 5296,
+   "name": "voice_pitch_bend_step_period",
+   "type": "Field",
+   "kind": "user"
+  },
+  {
+   "address": 5299,
+   "name": "voice_pitch_bend_direction_period",
+   "type": "Field",
+   "kind": "user"
+  },
+  {
+   "address": 5302,
+   "name": "voice_pitch_cycle_flags",
+   "type": "Field",
+   "kind": "user"
+  },
+  {
+   "address": 5305,
+   "name": "voice_second_pitch_cycle_flags",
+   "type": "Field",
+   "kind": "user"
+  },
+  {
+   "address": 5308,
+   "name": "voice_third_pitch_cycle_flags",
+   "type": "Field",
+   "kind": "user"
+  },
+  {
+   "address": 5311,
+   "name": "voice_waveform_sequence",
+   "type": "Field",
+   "kind": "user"
+  },
+  {
+   "address": 5320,
+   "name": "voice_initial_pitch_low",
+   "type": "Field",
+   "kind": "user"
+  },
+  {
+   "address": 5323,
+   "name": "additional_voice_frequency_low",
+   "type": "Field",
+   "kind": "user"
+  },
+  {
+   "address": 5329,
+   "name": "voice_initial_pitch_high",
+   "type": "Field",
+   "kind": "user"
+  },
+  {
+   "address": 5332,
+   "name": "additional_voice_frequency_high",
+   "type": "Field",
+   "kind": "user"
+  },
+  {
+   "address": 5338,
+   "name": "voice_pitch_cycle_steps_low",
+   "type": "Field",
+   "kind": "user"
+  },
+  {
+   "address": 5341,
+   "name": "additional_pitch_step_low",
+   "type": "Field",
+   "kind": "user"
+  },
+  {
+   "address": 5347,
+   "name": "voice_pitch_cycle_steps_high",
+   "type": "Field",
+   "kind": "user"
+  },
+  {
+   "address": 5350,
+   "name": "additional_pitch_step_high",
+   "type": "Field",
+   "kind": "user"
+  },
+  {
+   "address": 5356,
+   "name": "voice_pitch_cycle_step_periods",
+   "type": "Field",
+   "kind": "user"
+  },
+  {
+   "address": 5365,
+   "name": "voice_pitch_cycle_step_counts",
+   "type": "Field",
+   "kind": "user"
+  },
+  {
+   "address": 5374,
+   "name": "voice_pitch_cycle_adjustment",
+   "type": "Field",
+   "kind": "user"
+  },
+  {
+   "address": 5383,
+   "name": "ending_note_delay",
+   "type": "AbsoluteAddress",
+   "kind": "user"
+  },
+  {
+   "address": 5386,
+   "name": "ending_pattern_cursor_lo",
+   "type": "AbsoluteAddress",
+   "kind": "user"
+  },
+  {
+   "address": 5389,
+   "name": "ending_pattern_cursor_hi",
+   "type": "AbsoluteAddress",
+   "kind": "user"
+  },
+  {
+   "address": 5392,
+   "name": "note_code_scratch",
+   "type": "AbsoluteAddress",
+   "kind": "user"
+  },
+  {
+   "address": 5395,
+   "name": "channel_instrument_selectors",
+   "type": "Field",
+   "kind": "user"
+  },
+  {
+   "address": 5398,
+   "name": "ending_tick_delay",
+   "type": "AbsoluteAddress",
+   "kind": "user"
+  },
+  {
+   "address": 5399,
+   "name": "ending_channel_index",
+   "type": "AbsoluteAddress",
+   "kind": "user"
+  },
+  {
+   "address": 5400,
+   "name": "ending_sid_voice_offset",
+   "type": "AbsoluteAddress",
+   "kind": "user"
+  },
+  {
+   "address": 5401,
+   "name": "ending_sequence_reset_flag",
+   "type": "AbsoluteAddress",
+   "kind": "user"
+  },
+  {
+   "address": 5402,
+   "name": "channel_note_delays",
+   "type": "Field",
+   "kind": "user"
+  },
+  {
+   "address": 5405,
+   "name": "decoded_frequency_lo",
+   "type": "AbsoluteAddress",
+   "kind": "user"
+  },
+  {
+   "address": 5406,
+   "name": "decoded_frequency_hi",
+   "type": "AbsoluteAddress",
+   "kind": "user"
+  },
+  {
+   "address": 5407,
+   "name": "ending_tick_reload",
+   "type": "AbsoluteAddress",
+   "kind": "user"
+  },
+  {
+   "address": 5408,
+   "name": "ending_sid_voice_offsets",
+   "type": "Field",
+   "kind": "user"
+  },
+  {
+   "address": 5411,
+   "name": "ending_pitch_words",
+   "type": "Field",
+   "kind": "user"
+  },
+  {
+   "address": 5412,
+   "name": "ending_base_pitch_hi",
+   "type": "Field",
+   "kind": "user"
+  },
+  {
+   "address": 5435,
+   "name": "ending_pattern_lo",
+   "type": "AbsoluteAddress",
+   "kind": "user"
+  },
+  {
+   "address": 5546,
+   "name": "ending_pattern_hi",
+   "type": "AbsoluteAddress",
+   "kind": "user"
+  },
+  {
+   "address": 5658,
+   "name": "ending_envelope_mode_index",
+   "type": "Field",
+   "kind": "user"
+  },
+  {
+   "address": 5661,
+   "name": "envelope_mode_masks",
+   "type": "Field",
+   "kind": "user"
+  },
+  {
+   "address": 5670,
+   "name": "shared_filter_mode",
+   "type": "AbsoluteAddress",
+   "kind": "user"
+  },
+  {
+   "address": 5671,
+   "name": "shared_filter_route",
+   "type": "AbsoluteAddress",
+   "kind": "user"
+  },
+  {
+   "address": 5672,
+   "name": "shared_filter_owner",
+   "type": "AbsoluteAddress",
+   "kind": "user"
+  },
+  {
+   "address": 5673,
+   "name": "ending_tune_tick_reload",
+   "type": "Field",
+   "kind": "user"
+  },
+  {
+   "address": 5686,
+   "name": "ending_arrangement_offsets",
+   "type": "Field",
+   "kind": "user"
+  },
+  {
+   "address": 5699,
+   "name": "ending_arrangement_rows",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 5901,
+   "name": "ending_pattern_000",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 5903,
+   "name": "ending_pattern_001",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 5937,
+   "name": "ending_pattern_002",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 5975,
+   "name": "ending_pattern_003",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 6010,
+   "name": "ending_pattern_004",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 6040,
+   "name": "ending_pattern_005",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 6051,
+   "name": "ending_pattern_006",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 6058,
+   "name": "ending_pattern_007",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 6091,
+   "name": "ending_pattern_008",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 6140,
+   "name": "ending_pattern_009",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 6178,
+   "name": "ending_pattern_010",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 6214,
+   "name": "ending_pattern_011",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 6235,
+   "name": "ending_pattern_012",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 6252,
+   "name": "ending_pattern_013",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 6258,
+   "name": "ending_pattern_014",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 6298,
+   "name": "ending_pattern_015",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 6346,
+   "name": "ending_pattern_016",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 6386,
+   "name": "ending_pattern_017",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 6426,
+   "name": "ending_pattern_018",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 6451,
+   "name": "ending_pattern_019",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 6470,
+   "name": "ending_pattern_020",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 6477,
+   "name": "ending_pattern_021",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 6513,
+   "name": "ending_pattern_022",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 6523,
+   "name": "ending_pattern_023",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 6536,
+   "name": "ending_pattern_024",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 6543,
+   "name": "ending_pattern_025",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 6550,
+   "name": "ending_pattern_026",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 6555,
+   "name": "ending_pattern_027",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 6560,
+   "name": "ending_pattern_028",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 6565,
+   "name": "ending_pattern_029",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 6570,
+   "name": "ending_pattern_031",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 6575,
+   "name": "ending_pattern_032",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 6585,
+   "name": "ending_pattern_033",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 6599,
+   "name": "ending_pattern_034",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 6608,
+   "name": "ending_pattern_035",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 6616,
+   "name": "ending_pattern_036",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 6621,
+   "name": "ending_pattern_037",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 6635,
+   "name": "ending_pattern_038",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 6647,
+   "name": "ending_pattern_039",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 6651,
+   "name": "ending_pattern_040",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 6691,
+   "name": "ending_pattern_041",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 6710,
+   "name": "ending_pattern_042",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 6746,
+   "name": "ending_pattern_043",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 6773,
+   "name": "ending_pattern_044",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 6816,
+   "name": "ending_pattern_045",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 6843,
+   "name": "ending_pattern_046",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 6864,
+   "name": "ending_pattern_047",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 6876,
+   "name": "ending_pattern_048",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 6896,
+   "name": "ending_pattern_049",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 7005,
+   "name": "ending_pattern_050",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 7070,
+   "name": "ending_pattern_051",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 7081,
+   "name": "ending_pattern_page_cross",
+   "type": "Field",
+   "kind": "user"
+  },
+  {
+   "address": 7134,
+   "name": "ending_pattern_052",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 7146,
+   "name": "ending_pattern_053",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 7157,
+   "name": "ending_pattern_054",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 7167,
+   "name": "ending_pattern_055",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 7186,
+   "name": "ending_pattern_056",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 7203,
+   "name": "ending_pattern_057",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 7230,
+   "name": "ending_pattern_058",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 7246,
+   "name": "ending_pattern_059",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 7262,
+   "name": "ending_pattern_060",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 7271,
+   "name": "ending_pattern_061",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 7300,
+   "name": "ending_pattern_062",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 7328,
+   "name": "ending_pattern_063",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 7353,
+   "name": "ending_pattern_064",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 7368,
+   "name": "ending_pattern_065",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 7381,
+   "name": "ending_pattern_066",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 7389,
+   "name": "ending_pattern_067",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 7421,
+   "name": "ending_pattern_068",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 7446,
+   "name": "ending_pattern_069",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 7482,
+   "name": "ending_pattern_070",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 7538,
+   "name": "ending_pattern_071",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 7576,
+   "name": "ending_pattern_072",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 7617,
+   "name": "ending_pattern_073",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 7647,
+   "name": "ending_pattern_074",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 7677,
+   "name": "ending_pattern_075",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 7680,
+   "name": "blank_instrument_pointer_target",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 7687,
+   "name": "ending_pattern_076",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 7703,
+   "name": "ending_pattern_077",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 7718,
+   "name": "ending_pattern_078",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 7782,
+   "name": "ending_pattern_079",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 7843,
+   "name": "ending_pattern_080",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 7925,
+   "name": "ending_pattern_081",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 7944,
+   "name": "ending_pattern_082",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 7962,
+   "name": "ending_pattern_083",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 8020,
+   "name": "ending_pattern_084",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 8035,
+   "name": "ending_pattern_085",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 8052,
+   "name": "ending_pattern_086",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 8060,
+   "name": "ending_pattern_087",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 8077,
+   "name": "ending_pattern_088",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 8085,
+   "name": "ending_pattern_089",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 8099,
+   "name": "ending_pattern_090",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 8113,
+   "name": "ending_pattern_091",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 8126,
+   "name": "ending_pattern_092",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 8148,
+   "name": "ending_pattern_093",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 8155,
+   "name": "ending_pattern_094",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 8171,
+   "name": "ending_pattern_095",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 8187,
+   "name": "ending_pattern_096",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 8203,
+   "name": "ending_pattern_097",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 8219,
+   "name": "ending_pattern_098",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 8224,
+   "name": "ending_pattern_099",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 8229,
+   "name": "ending_pattern_100",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 8245,
+   "name": "ending_pattern_101",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 8251,
+   "name": "ending_pattern_102",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 8255,
+   "name": "ending_pattern_103",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 8259,
+   "name": "ending_pattern_104",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 8262,
+   "name": "ending_pattern_105",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 8267,
+   "name": "ending_pattern_106",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 8269,
+   "name": "ending_pattern_107",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 8271,
+   "name": "ending_pattern_108",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 8276,
+   "name": "ending_pattern_109",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 8280,
+   "name": "ending_pattern_110",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 8290,
+   "name": "ending_instrument_addresses",
+   "type": "Field",
+   "kind": "user"
+  },
+  {
+   "address": 8291,
+   "name": "instrument_pointer_high_base",
+   "type": "Field",
+   "kind": "user"
+  },
+  {
+   "address": 8292,
+   "name": "following_instrument_pointer_lo",
+   "type": "Field",
+   "kind": "user"
+  },
+  {
+   "address": 8293,
+   "name": "next_instrument_pointer_hi",
+   "type": "Field",
+   "kind": "user"
+  },
+  {
+   "address": 8352,
+   "name": "ending_instrument_01",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 8372,
+   "name": "ending_instrument_02",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 8392,
+   "name": "ending_instrument_03",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 8421,
+   "name": "ending_instrument_04",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 8450,
+   "name": "ending_instrument_05",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 8479,
+   "name": "ending_instrument_06",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 8508,
+   "name": "ending_instrument_07",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 8537,
+   "name": "ending_instrument_08",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 8570,
+   "name": "ending_instrument_09",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 8595,
+   "name": "ending_instrument_10",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 8624,
+   "name": "ending_instrument_11",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 8649,
+   "name": "ending_instrument_12",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 8669,
+   "name": "ending_instrument_13",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 8698,
+   "name": "ending_instrument_14",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 8727,
+   "name": "ending_instrument_15",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 8760,
+   "name": "ending_instrument_16",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 8780,
+   "name": "ending_instrument_17",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 8794,
+   "name": "ending_instrument_18",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 8823,
+   "name": "ending_instrument_19",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 8846,
+   "name": "ending_instrument_20",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 8878,
+   "name": "ending_instrument_21",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 8916,
+   "name": "ending_instrument_22",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 8954,
+   "name": "ending_instrument_23",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 8974,
+   "name": "ending_instrument_24",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 8994,
+   "name": "ending_instrument_25",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 9017,
+   "name": "ending_instrument_26",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 9046,
+   "name": "ending_instrument_27",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 9060,
+   "name": "ending_instrument_28",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 9083,
+   "name": "ending_instrument_29",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 9097,
+   "name": "ending_instrument_30",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 9130,
+   "name": "text_control_dispatch",
+   "type": "Field",
+   "kind": "user"
+  },
+  {
+   "address": 9131,
+   "name": "text_control_handler_hi",
+   "type": "Field",
+   "kind": "user"
+  },
+  {
+   "address": 9136,
+   "name": "result_screen_row_lo",
+   "type": "Field",
+   "kind": "user"
+  },
+  {
+   "address": 9161,
+   "name": "result_screen_row_hi",
+   "type": "Field",
+   "kind": "user"
+  },
+  {
+   "address": 9186,
+   "name": "ending_player_colour_rows",
+   "type": "Field",
+   "kind": "user"
+  },
+  {
+   "address": 9188,
+   "name": "ending_player_colour_xor",
+   "type": "Field",
+   "kind": "user"
+  },
+  {
+   "address": 9190,
+   "name": "ending_title_colour_cycle",
+   "type": "Field",
+   "kind": "user"
+  },
+  {
+   "address": 9191,
+   "name": "ending_second_colour_row",
+   "type": "Field",
+   "kind": "user"
+  },
+  {
+   "address": 9192,
+   "name": "ending_third_colour_row",
+   "type": "Field",
+   "kind": "user"
+  },
+  {
+   "address": 9193,
+   "name": "ending_fourth_colour_row",
+   "type": "Field",
+   "kind": "user"
+  },
+  {
+   "address": 9194,
+   "name": "ending_fifth_colour_row",
+   "type": "Field",
+   "kind": "user"
+  },
+  {
+   "address": 9195,
+   "name": "ending_sixth_colour_row",
+   "type": "Field",
+   "kind": "user"
+  },
+  {
+   "address": 9196,
+   "name": "ending_colour_cycle_far_row",
+   "type": "Field",
+   "kind": "user"
+  },
+  {
+   "address": 9203,
+   "name": "ending_sprite_column_x",
+   "type": "Field",
+   "kind": "user"
+  },
+  {
+   "address": 9211,
+   "name": "ordinary_result_text",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 9227,
+   "name": "alternate_result_text",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 9355,
+   "name": "congratulations_text",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 9415,
+   "name": "ending_text_fragments",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 9769,
+   "name": "result_sprite_frame_table",
+   "type": "Field",
+   "kind": "user"
+  },
+  {
+   "address": 9778,
+   "name": "result_sprite_companion_table",
+   "type": "Field",
+   "kind": "user"
+  },
+  {
+   "address": 9787,
+   "name": "result_sprite_source_lo",
+   "type": "Field",
+   "kind": "user"
+  },
+  {
+   "address": 9799,
+   "name": "result_sprite_source_hi",
+   "type": "Field",
+   "kind": "user"
+  },
+  {
+   "address": 9811,
+   "name": "ending_sprite_frame_00",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 9859,
+   "name": "ending_sprite_frame_01",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 9907,
+   "name": "ending_sprite_frame_02",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 9955,
+   "name": "ending_sprite_frame_03",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 10003,
+   "name": "ending_sprite_frame_04",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 10051,
+   "name": "ending_sprite_frame_05",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 10099,
+   "name": "ending_sprite_frame_06",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 10147,
+   "name": "ending_sprite_frame_07",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 10195,
+   "name": "ending_sprite_frame_08",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 10243,
+   "name": "ending_sprite_frame_09",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 10291,
+   "name": "ending_sprite_frame_10",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 10339,
+   "name": "ending_sprite_frame_11",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 10345,
+   "name": "ending_bonus_first_digit",
+   "type": "AbsoluteAddress",
+   "kind": "user"
+  },
+  {
+   "address": 10371,
+   "name": "ending_bonus_digit_tens",
+   "type": "AbsoluteAddress",
+   "kind": "user"
+  },
+  {
+   "address": 10372,
+   "name": "ending_bonus_digit_units",
+   "type": "AbsoluteAddress",
+   "kind": "user"
+  },
+  {
+   "address": 16384,
+   "name": "f_4000",
+   "type": "Field",
+   "kind": "auto"
+  },
+  {
+   "address": 24576,
+   "name": "f_6000",
+   "type": "Field",
+   "kind": "auto"
+  },
+  {
+   "address": 24616,
+   "name": "f_6028",
+   "type": "Field",
+   "kind": "auto"
+  },
+  {
+   "address": 24832,
+   "name": "f_6100",
+   "type": "Field",
+   "kind": "auto"
+  },
+  {
+   "address": 25088,
+   "name": "f_6200",
+   "type": "Field",
+   "kind": "auto"
+  },
+  {
+   "address": 25344,
+   "name": "f_6300",
+   "type": "Field",
+   "kind": "auto"
+  },
+  {
+   "address": 25592,
+   "name": "f_63F8",
+   "type": "Field",
+   "kind": "auto"
+  },
+  {
+   "address": 26624,
+   "name": "ending_character_set",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 27135,
+   "name": "f_69FF",
+   "type": "Field",
+   "kind": "auto"
+  },
+  {
+   "address": 27263,
+   "name": "f_6A7F",
+   "type": "Field",
+   "kind": "auto"
+  },
+  {
+   "address": 27391,
+   "name": "f_6AFF",
+   "type": "Field",
+   "kind": "auto"
+  },
+  {
+   "address": 27519,
+   "name": "f_6B7F",
+   "type": "Field",
+   "kind": "auto"
+  },
+  {
+   "address": 27647,
+   "name": "f_6BFF",
+   "type": "Field",
+   "kind": "auto"
+  },
+  {
+   "address": 27775,
+   "name": "f_6C7F",
+   "type": "Field",
+   "kind": "auto"
+  },
+  {
+   "address": 27903,
+   "name": "f_6CFF",
+   "type": "Field",
+   "kind": "auto"
+  },
+  {
+   "address": 28031,
+   "name": "f_6D7F",
+   "type": "Field",
+   "kind": "auto"
+  },
+  {
+   "address": 28672,
+   "name": "ordinary_result_pixels_1",
+   "type": "Field",
+   "kind": "user"
+  },
+  {
+   "address": 29696,
+   "name": "ordinary_result_pixels_2",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 30720,
+   "name": "ordinary_result_pixels_3",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 31744,
+   "name": "ordinary_result_pixels_4",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 32768,
+   "name": "ordinary_result_pixels_5",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 33792,
+   "name": "ordinary_result_pixels_6",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 34816,
+   "name": "ordinary_result_pixels_7",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 35840,
+   "name": "ordinary_result_pixels_8",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 36864,
+   "name": "ordinary_result_screen",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 37888,
+   "name": "ordinary_result_colours",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 38912,
+   "name": "alternate_result_pixels_1",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 39936,
+   "name": "alternate_result_pixels_2",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 40960,
+   "name": "alternate_result_pixels_3",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 41984,
+   "name": "alternate_result_pixels_4",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 43008,
+   "name": "alternate_result_pixels_5",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 44032,
+   "name": "alternate_result_pixels_6",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 45056,
+   "name": "alternate_result_pixels_7",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 46080,
+   "name": "alternate_result_pixels_8",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 47104,
+   "name": "alternate_result_screen",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 48128,
+   "name": "alternate_result_colours",
+   "type": "UserDefined",
+   "kind": "user"
+  }
+ ],
+ "comments": [
+  {
+   "address": 2064,
+   "type": "line",
+   "text": "Resets the stack and banks out BASIC and KERNAL ROM. Initializes the display, visits two saved player records six bytes apart, shows each eligible result and switches to the final display."
+  },
+  {
+   "address": 2122,
+   "type": "line",
+   "text": "Polls CIA 1 timer A, advances the colour offset every four ticks and writes seven colours across twenty columns of the final message."
+  },
+  {
+   "address": 2198,
+   "type": "line",
+   "text": "Skips the display if the status byte at $F004,Y is negative. Tests the following byte for $7F and selects the ordinary or alternate result sequence."
+  },
+  {
+   "address": 2264,
+   "type": "line",
+   "text": "Draws the alternate result display, chooses digit codes from the value at $F004 plus one and adjusts the score at $F000 with decimal arithmetic."
+  },
+  {
+   "address": 2325,
+   "type": "line",
+   "text": "Patched from the original value at $F004 plus one. The comparison and decimal add below it update the saved score."
+  },
+  {
+   "address": 2368,
+   "type": "line",
+   "text": "Chooses base page $70 or $98 from carry derived from A bit 0. Copies 32 pages to the VIC bitmap at $4000, four pages to the screen matrix at $6000 and four pages to colour RAM at $D800."
+  },
+  {
+   "address": 2391,
+   "type": "line",
+   "text": "Patched to $70 or $98 based on the requested result picture."
+  },
+  {
+   "address": 2400,
+   "type": "line",
+   "text": "Patched twenty hex pages above the selected bitmap source before copying its screen colours."
+  },
+  {
+   "address": 2409,
+   "type": "line",
+   "text": "Patched four more pages after the matrix source to locate the colour RAM image."
+  },
+  {
+   "address": 2440,
+   "type": "line",
+   "text": "Patches the source and destination page bytes and copies X pages of 256 bytes. Y walks each page from zero through the remaining offsets in reverse order."
+  },
+  {
+   "address": 2450,
+   "type": "line",
+   "text": "Self-modifying input high address. $0999 advances one source page after each copy."
+  },
+  {
+   "address": 2453,
+   "type": "line",
+   "text": "Self-modifying destination high address. $099C advances it with the source."
+  },
+  {
+   "address": 2467,
+   "type": "line",
+   "text": "Selects one source pointer by the low seven bits of Y and clears the output sprite slots when bit 7 is set. Routes odd and even indices to different sprite pages."
+  },
+  {
+   "address": 2533,
+   "type": "line",
+   "text": "Expands each source byte to the eight cells addressed by the row loop and writes the cells three bytes apart in the sprite output. Starts a new 64-byte slot after three columns."
+  },
+  {
+   "address": 2561,
+   "type": "line",
+   "text": "Low byte of the store target in the instruction at $0A00. That store updates the byte read as the first row of the expanded sprite glyph."
+  },
+  {
+   "address": 2567,
+   "type": "line",
+   "text": "Fetches one of the eight selected font rows and writes it to the sprite with the three-byte row stride."
+  },
+  {
+   "address": 2568,
+   "type": "line",
+   "text": "Low operand of the font fetch, patched at $0A00."
+  },
+  {
+   "address": 2569,
+   "type": "line",
+   "text": "High byte of the glyph source base. The shift and rotate operations at $09F4 through $09FD scale the character number by eight."
+  },
+  {
+   "address": 2608,
+   "type": "line",
+   "text": "Advances the animation step and reads a pair of source frame indices. Negative companion values instead clear the sprite output."
+  },
+  {
+   "address": 2627,
+   "type": "line",
+   "text": "Patched with the companion frame index from $2632 before the second jump into the sprite preparation code."
+  },
+  {
+   "address": 2631,
+   "type": "line",
+   "text": "Clears eight spans of 128 bytes from $6A00 through $6DFF to remove the previous generated sprite pixels."
+  },
+  {
+   "address": 2663,
+   "type": "line",
+   "text": "Disables sprites, fills the screen with character code $24 and initializes colour RAM to one before drawing the requested text."
+  },
+  {
+   "address": 2703,
+   "type": "line",
+   "text": "Reads the starting column and row. Loops over entries, dispatches control codes at $F0 and above through $0B07, and interprets other values as indices to the text fragments."
+  },
+  {
+   "address": 2746,
+   "type": "line",
+   "text": "The fragment expansion preserves the command stream index here while it draws a referenced fragment."
+  },
+  {
+   "address": 2751,
+   "type": "line",
+   "text": "Walks length-prefixed fragments from $24C7 to find the requested index. Copies the fragment's character and colour to the current screen row, applying inline controls through $0B07."
+  },
+  {
+   "address": 2817,
+   "type": "line",
+   "text": "Preserves the index into the fragment while the character and colour bytes are written to the destination row."
+  },
+  {
+   "address": 2823,
+   "type": "line",
+   "text": "Uses the low two bits as an index to the four words at $23AA and calls the selected handler by indirect jump."
+  },
+  {
+   "address": 2851,
+   "type": "line",
+   "text": "Keeps the control byte as the colour for subsequent character writes."
+  },
+  {
+   "address": 2854,
+   "type": "line",
+   "text": "Stores the column and reads the next byte as the row before setting up row pointers."
+  },
+  {
+   "address": 2861,
+   "type": "line",
+   "text": "Combines the low and high bytes from the two row tables. The colour RAM pointer uses the same low byte with $78 added to the screen high byte."
+  },
+  {
+   "address": 2881,
+   "type": "line",
+   "text": "Advances the column by the control argument and returns without drawing characters."
+  },
+  {
+   "address": 2887,
+   "type": "line",
+   "text": "Selects VIC bank $4000, clears the zero-page working bytes and sets CIA timer A latches. Installs the ending NMI at $0C99 and begins each timer at its own raster line."
+  },
+  {
+   "address": 3137,
+   "type": "line",
+   "text": "Patched with the saved record index for the score display before the path at $0C42."
+  },
+  {
+   "address": 3144,
+   "type": "line",
+   "text": "Screen column literal in the load before the score printer. The preceding result display path can patch it."
+  },
+  {
+   "address": 3147,
+   "type": "line",
+   "text": "Converts the packed decimal bytes at $F000 to screen digit codes and suppresses leading zeroes by writing the space code until the first digit."
+  },
+  {
+   "address": 3225,
+   "type": "line",
+   "text": "Acknowledges CIA 2, and when the bitmap flag at $1E is negative selects the bitmap at $4000 and its screen matrix at $6000 for the result panel."
+  },
+  {
+   "address": 3253,
+   "type": "line",
+   "text": "Patches the call operand at $0CDA and $0CDB, installs the IRQ vector at $FFFE and $FFFF, and enables the VIC interrupt at line $FC."
+  },
+  {
+   "address": 3282,
+   "type": "line",
+   "text": "Saves the CPU registers, calls the patched callback through $0CDA and $0CDB, acknowledges the VIC-II and restores the registers."
+  },
+  {
+   "address": 3290,
+   "type": "line",
+   "text": "Low byte of the callback target shared by the ending raster handlers."
+  },
+  {
+   "address": 3291,
+   "type": "line",
+   "text": "High address byte of the call patched by $0CB5 and by the two sprite-row callbacks."
+  },
+  {
+   "address": 3304,
+   "type": "line",
+   "text": "Calls the sound callback at $0DEB between two writes to $D030."
+  },
+  {
+   "address": 3318,
+   "type": "line",
+   "text": "Selects the character panel, positions eight sprites in their first row using the X table at $23F3 and changes the next raster callback to $0D41."
+  },
+  {
+   "address": 3393,
+   "type": "line",
+   "text": "Reuses all eight sprites with the second set of picture pointers and restores the first callback for line $FC."
+  },
+  {
+   "address": 3429,
+   "type": "line",
+   "text": "Advances the ordinary animation when its tick wraps. On phase three switches to the character display, draws the companion page and selects sound arrangement $0B."
+  },
+  {
+   "address": 3485,
+   "type": "line",
+   "text": "Runs the next sprite animation step when the tick wraps and the phase has yet to reach eight."
+  },
+  {
+   "address": 3501,
+   "type": "line",
+   "text": "Selects the character screen and its character set with $D018=$8A, then applies $C8 and $1B to the VIC control registers."
+  },
+  {
+   "address": 3517,
+   "type": "line",
+   "text": "Sets the upper two bits on 32 cells per row in a 23-row region and switches the VIC into extended-background mode."
+  },
+  {
+   "address": 3563,
+   "type": "line",
+   "text": "Runtime jump target patched in the sound initializer at $0E44 and $0E47."
+  },
+  {
+   "address": 3564,
+   "type": "line",
+   "text": "Low byte of the sound jump target patched at $0E44."
+  },
+  {
+   "address": 3565,
+   "type": "line",
+   "text": "High byte of the sound jump target patched at $0E47."
+  },
+  {
+   "address": 3567,
+   "type": "line",
+   "text": "Operand of the arrangement index load, replaced from Y at $0E00."
+  },
+  {
+   "address": 3578,
+   "type": "line",
+   "text": "Selects a sound data entry with Y, resets sequence and voice state, chooses the playback entry and clears all three SID control registers."
+  },
+  {
+   "address": 3689,
+   "type": "line",
+   "text": "Counts down to the next music tick, loads the per-channel SID register offset and fetches sequence commands through the pattern pointer when the channel is due."
+  },
+  {
+   "address": 3806,
+   "type": "line",
+   "text": "Reads the next group of three pattern indices from the arrangement pointer at $2A. Resolves each through the split pattern address tables and returns to command decoding."
+  },
+  {
+   "address": 3872,
+   "type": "line",
+   "text": "Splits the input into a note selector and octave shift count, shifts down the SID frequency word and loads the current instrument."
+  },
+  {
+   "address": 4034,
+   "type": "line",
+   "text": "Saves the per-voice note delay and both bytes of its new sequence cursor before moving on to the next channel."
+  },
+  {
+   "address": 4137,
+   "type": "line",
+   "text": "Updates one voice's gate and envelope counters. Writes attack and decay, sustain and release and a gate transition to its SID register bank when restarting the envelope."
+  },
+  {
+   "address": 4332,
+   "type": "line",
+   "text": "Holds the control bits used after the frequency-modulation direction has been updated."
+  },
+  {
+   "address": 4456,
+   "type": "line",
+   "text": "Holds the rotated filter control byte while the two-byte signed cutoff delta is negated. The following branches can shorten or disable the sweep and restore the cutoff."
+  },
+  {
+   "address": 4692,
+   "type": "line",
+   "text": "Holds the control bits while the step at $14DA and $14E3 is negated. The rest of the update changes the modulation counters and can reload the base pitch."
+  },
+  {
+   "address": 4749,
+   "type": "line",
+   "text": "Holds the updated count while the next signed step is applied to the voice's pitch delta."
+  },
+  {
+   "address": 4770,
+   "type": "line",
+   "text": "Clears the voice's gate, resolves the selected instrument through its pointer table and initializes the working fields before reading the patch record."
+  },
+  {
+   "address": 4992,
+   "type": "line",
+   "text": "Compares the selected voice's routing and mode with the shared filter state. Updates $D417 and $D418 or removes the current voice's filter request."
+  },
+  {
+   "address": 5067,
+   "type": "line",
+   "text": "Resets the step counter, copies three pitch pairs to the working frequencies and writes the first frequency into the SID."
+  },
+  {
+   "address": 5092,
+   "type": "line",
+   "text": "Patched with the voice index before the three pitch pairs are copied to working registers. Restores the index for the SID stores."
+  },
+  {
+   "address": 5177,
+   "type": "line",
+   "text": "Negates the two-byte signed delta stored in the voice's $1486 and $1489 fields."
+  },
+  {
+   "address": 5199,
+   "type": "line",
+   "text": "Channel and mode flags read by $0DF0 before calling the active sound update."
+  },
+  {
+   "address": 5212,
+   "type": "line",
+   "text": "Three offsets for indexing the interleaved voice arrays. $11E2 and $1204 add one of them to the active voice."
+  },
+  {
+   "address": 5215,
+   "type": "line",
+   "text": "Per-voice cycle length used by $11D9 to wrap the wave step index."
+  },
+  {
+   "address": 5218,
+   "type": "line",
+   "text": "Attack and decay byte passed to $D405 at $1058."
+  },
+  {
+   "address": 5221,
+   "type": "line",
+   "text": "Initial sustain and release value copied to the working byte when the envelope restarts."
+  },
+  {
+   "address": 5224,
+   "type": "line",
+   "text": "Reload value for the delay between envelope restarts at $1050."
+  },
+  {
+   "address": 5227,
+   "type": "line",
+   "text": "Per-voice timer decremented before the pulse update."
+  },
+  {
+   "address": 5230,
+   "type": "line",
+   "text": "Written by the patch decoder and read at $1082 to select the pulse update branch."
+  },
+  {
+   "address": 5233,
+   "type": "line",
+   "text": "Envelope restart count, decremented by $103C after its delay expires."
+  },
+  {
+   "address": 5236,
+   "type": "line",
+   "text": "Pulse step parameter added or subtracted by the branches after $1082."
+  },
+  {
+   "address": 5239,
+   "type": "line",
+   "text": "Initial envelope countdown copied to the working byte at $1043."
+  },
+  {
+   "address": 5242,
+   "type": "line",
+   "text": "Loaded at $10A2 as a mode-dependent waveform and gate parameter."
+  },
+  {
+   "address": 5245,
+   "type": "line",
+   "text": "Enables the pitch step checked at $10DF and can be cleared from the rotated voice control flags."
+  },
+  {
+   "address": 5248,
+   "type": "line",
+   "text": "Low byte restored into the working pitch delta counter when the reset flag is set."
+  },
+  {
+   "address": 5251,
+   "type": "line",
+   "text": "High byte restored alongside the low byte and initialized to eight before reading a patch."
+  },
+  {
+   "address": 5254,
+   "type": "line",
+   "text": "Low byte of the signed frequency delta. $1439 reverses its sign."
+  },
+  {
+   "address": 5257,
+   "type": "line",
+   "text": "High byte of the signed frequency delta, negated with carry from the low byte."
+  },
+  {
+   "address": 5260,
+   "type": "line",
+   "text": "Shadow value for the duration of this modulation phase. The next timer uses it if the previous value reaches zero."
+  },
+  {
+   "address": 5263,
+   "type": "line",
+   "text": "Enables the cutoff step and governs whether it is reversed or disabled at the interval boundary."
+  },
+  {
+   "address": 5266,
+   "type": "line",
+   "text": "Desired filter mode for this voice. Compared to the shared SID mode at $1389."
+  },
+  {
+   "address": 5269,
+   "type": "line",
+   "text": "Desired filter route written to $D417 when the filter request is applied."
+  },
+  {
+   "address": 5272,
+   "type": "line",
+   "text": "Low byte of the cutoff restored by the restart branch at $117A."
+  },
+  {
+   "address": 5275,
+   "type": "line",
+   "text": "High cutoff byte paired with the low byte at $1498."
+  },
+  {
+   "address": 5278,
+   "type": "line",
+   "text": "Low byte of the signed cutoff increment applied at $1127. Negated by the sweep reversal."
+  },
+  {
+   "address": 5281,
+   "type": "line",
+   "text": "High byte of the filter increment with carry from the low update."
+  },
+  {
+   "address": 5284,
+   "type": "line",
+   "text": "Per-voice filter sweep interval used to reload the shared countdown."
+  },
+  {
+   "address": 5287,
+   "type": "line",
+   "text": "Enables the separate pitch step beginning at $1191."
+  },
+  {
+   "address": 5290,
+   "type": "line",
+   "text": "Startup delay for the extra pitch step. That step can run once the delay has expired."
+  },
+  {
+   "address": 5293,
+   "type": "line",
+   "text": "Signed delta added to the two-byte working pitch and negated at $11C4."
+  },
+  {
+   "address": 5296,
+   "type": "line",
+   "text": "Reloads the ticks between the signed pitch steps."
+  },
+  {
+   "address": 5299,
+   "type": "line",
+   "text": "Reloads the number of pitch steps before the sign is reversed."
+  },
+  {
+   "address": 5302,
+   "type": "line",
+   "text": "Per-step controls for the pitch cycle. Rotated by $1238 to choose a reversal, reset or reload."
+  },
+  {
+   "address": 5305,
+   "type": "line",
+   "text": "Following flags in the pitch-cycle array, installed by the patch data."
+  },
+  {
+   "address": 5308,
+   "type": "line",
+   "text": "Last group of flags in the pitch-cycle array."
+  },
+  {
+   "address": 5311,
+   "type": "line",
+   "text": "Control bits for the current waveform step. $11F3 combines them with the retained gate bit before writing SID control."
+  },
+  {
+   "address": 5320,
+   "type": "line",
+   "text": "Starting low frequency byte for the first pitch-cycle group."
+  },
+  {
+   "address": 5323,
+   "type": "line",
+   "text": "Low bytes of the extra modulation pitches after the first per-voice array."
+  },
+  {
+   "address": 5329,
+   "type": "line",
+   "text": "Starting high frequency byte for the first pitch-cycle group."
+  },
+  {
+   "address": 5332,
+   "type": "line",
+   "text": "High bytes paired with the extra pitch-cycle lows."
+  },
+  {
+   "address": 5338,
+   "type": "line",
+   "text": "Low bytes of the signed modulation steps. $1246 reverses the current step in place."
+  },
+  {
+   "address": 5341,
+   "type": "line",
+   "text": "Low bytes of the extra pitch-cycle steps after the first group of three."
+  },
+  {
+   "address": 5347,
+   "type": "line",
+   "text": "Upper bytes of the signed modulation steps, paired with $14DA."
+  },
+  {
+   "address": 5350,
+   "type": "line",
+   "text": "High bytes paired with the extra pitch-cycle steps."
+  },
+  {
+   "address": 5356,
+   "type": "line",
+   "text": "Delays governing when the pitch cycle adds the next step. $1291 updates the selected entry."
+  },
+  {
+   "address": 5365,
+   "type": "line",
+   "text": "Counters for the modulation step runs. $11EA applies a new counter after a waveform step advances."
+  },
+  {
+   "address": 5374,
+   "type": "line",
+   "text": "Signed pitch step adjustment added by the branch at $127A."
+  },
+  {
+   "address": 5383,
+   "type": "line",
+   "text": "Three remaining note delays, decremented at $0E82 and reset from $151A at the end of a channel tick."
+  },
+  {
+   "address": 5386,
+   "type": "line",
+   "text": "Working low bytes of the three pattern cursors."
+  },
+  {
+   "address": 5389,
+   "type": "line",
+   "text": "Working high bytes of the three pattern cursors."
+  },
+  {
+   "address": 5392,
+   "type": "line",
+   "text": "Preserves the command byte while the high nibble selects the frequency word and the low nibble gives the shift count."
+  },
+  {
+   "address": 5395,
+   "type": "line",
+   "text": "Current instrument selector for each voice. $0F1A sets a new selector and $0F49 retrieves it for a note."
+  },
+  {
+   "address": 5398,
+   "type": "line",
+   "text": "Number of raster ticks until the next sequence update. Reloaded from $151F at $0E76."
+  },
+  {
+   "address": 5399,
+   "type": "line",
+   "text": "Current voice, zero through two."
+  },
+  {
+   "address": 5400,
+   "type": "line",
+   "text": "SID register bank for the current voice. $0E7C reads it from the offset table."
+  },
+  {
+   "address": 5401,
+   "type": "line",
+   "text": "Cleared at $0E0D when a new arrangement initializes."
+  },
+  {
+   "address": 5402,
+   "type": "line",
+   "text": "Per-voice delay value selected by a $C0-range order byte and loaded into the note countdown at $0FC5."
+  },
+  {
+   "address": 5405,
+   "type": "line",
+   "text": "Temporary low byte rotated by the selected octave count."
+  },
+  {
+   "address": 5406,
+   "type": "line",
+   "text": "High byte stored after shifting the pitch word for the requested octave."
+  },
+  {
+   "address": 5407,
+   "type": "line",
+   "text": "Arrangement-specific period read from $1629 and used to reload $1516."
+  },
+  {
+   "address": 5408,
+   "type": "line",
+   "text": "Three SID register offsets $00, $07 and $0E."
+  },
+  {
+   "address": 5411,
+   "type": "line",
+   "text": "Twelve pitch words selected by the upper nibble at $0F2F and $0F35. The lower nibble determines the shift count."
+  },
+  {
+   "address": 5412,
+   "type": "line",
+   "text": "High bytes of the interleaved pitch words. $0F35 loads this high byte before the octave shifts."
+  },
+  {
+   "address": 5435,
+   "type": "line",
+   "text": "Low bytes for 111 patterns, looked up by index at $0EEE."
+  },
+  {
+   "address": 5546,
+   "type": "line",
+   "text": "High bytes for 111 patterns. The pattern addresses range from $170D to $2058."
+  },
+  {
+   "address": 5658,
+   "type": "line",
+   "text": "Instrument update mode selected from the low nibble of an $F0\u2013$F8 pattern command."
+  },
+  {
+   "address": 5661,
+   "type": "line",
+   "text": "Mode table read at $0F67 for the selected instrument update index."
+  },
+  {
+   "address": 5670,
+   "type": "line",
+   "text": "Current filter mode bits held for comparison with the next voice request."
+  },
+  {
+   "address": 5671,
+   "type": "line",
+   "text": "Most recent SID routing byte, compared to the next voice's request and mirrored at $D417."
+  },
+  {
+   "address": 5672,
+   "type": "line",
+   "text": "SID register offset of the last voice that took over the filter."
+  },
+  {
+   "address": 5673,
+   "type": "line",
+   "text": "Thirteen period values for sound arrangement indices supplied in Y."
+  },
+  {
+   "address": 5686,
+   "type": "line",
+   "text": "Thirteen offsets from $1643 to the start of the selected arrangement. The sound setup builds the pointer at $2A and $2B."
+  },
+  {
+   "address": 5699,
+   "type": "line",
+   "text": "Groups of three pattern indices, one for each SID voice. $0EDE starts each group and checks for the $FF marker before proceeding."
+  },
+  {
+   "address": 5901,
+   "type": "line",
+   "text": "Byte stream for ending pattern $00. $0EEE resolves its address and $0E94 decodes its note and control bytes. Notes can use the instrument already selected for the voice."
+  },
+  {
+   "address": 5903,
+   "type": "line",
+   "text": "Byte stream for ending pattern $01. $0EEE resolves its address and $0E94 decodes its note and control bytes. Notes can use the instrument already selected for the voice."
+  },
+  {
+   "address": 5937,
+   "type": "line",
+   "text": "Byte stream for ending pattern $02. $0EEE resolves its address and $0E94 decodes its note and control bytes. Notes can use the instrument already selected for the voice."
+  },
+  {
+   "address": 5975,
+   "type": "line",
+   "text": "Byte stream for ending pattern $03. $0EEE resolves its address and $0E94 decodes its note and control bytes. Notes can use the instrument already selected for the voice."
+  },
+  {
+   "address": 6010,
+   "type": "line",
+   "text": "Byte stream for ending pattern $04. $0EEE resolves its address and $0E94 decodes its note and control bytes. Notes can use the instrument already selected for the voice."
+  },
+  {
+   "address": 6040,
+   "type": "line",
+   "text": "Byte stream for ending pattern $05. $0EEE resolves its address and $0E94 decodes its note and control bytes. Notes can use the instrument already selected for the voice."
+  },
+  {
+   "address": 6051,
+   "type": "line",
+   "text": "Byte stream for ending pattern $06. $0EEE resolves its address and $0E94 decodes its note and control bytes. Notes can use the instrument already selected for the voice."
+  },
+  {
+   "address": 6058,
+   "type": "line",
+   "text": "Byte stream for ending pattern $07. $0EEE resolves its address and $0E94 decodes its note and control bytes. Notes can use the instrument already selected for the voice."
+  },
+  {
+   "address": 6091,
+   "type": "line",
+   "text": "Byte stream for ending pattern $08. $0EEE resolves its address and $0E94 decodes its note and control bytes. Notes can use the instrument already selected for the voice."
+  },
+  {
+   "address": 6140,
+   "type": "line",
+   "text": "Byte stream for ending pattern $09. $0EEE resolves its address and $0E94 decodes its note and control bytes. Notes can use the instrument already selected for the voice."
+  },
+  {
+   "address": 6178,
+   "type": "line",
+   "text": "Byte stream for ending pattern $0A. $0EEE resolves its address and $0E94 decodes its note and control bytes. Notes can use the instrument already selected for the voice."
+  },
+  {
+   "address": 6214,
+   "type": "line",
+   "text": "Byte stream for ending pattern $0B. $0EEE resolves its address and $0E94 decodes its note and control bytes. Notes can use the instrument already selected for the voice."
+  },
+  {
+   "address": 6235,
+   "type": "line",
+   "text": "Byte stream for ending pattern $0C. $0EEE resolves its address and $0E94 decodes its note and control bytes. Notes can use the instrument already selected for the voice."
+  },
+  {
+   "address": 6252,
+   "type": "line",
+   "text": "Byte stream for ending pattern $0D. $0EEE resolves its address and $0E94 decodes its note and control bytes. Notes can use the instrument already selected for the voice."
+  },
+  {
+   "address": 6258,
+   "type": "line",
+   "text": "Byte stream for ending pattern $0E. $0EEE resolves its address and $0E94 decodes its note and control bytes. Notes can use the instrument already selected for the voice."
+  },
+  {
+   "address": 6298,
+   "type": "line",
+   "text": "Byte stream for ending pattern $0F. $0EEE resolves its address and $0E94 decodes its note and control bytes. Notes can use the instrument already selected for the voice."
+  },
+  {
+   "address": 6346,
+   "type": "line",
+   "text": "Byte stream for ending pattern $10. $0EEE resolves its address and $0E94 decodes its note and control bytes. Notes can use the instrument already selected for the voice."
+  },
+  {
+   "address": 6386,
+   "type": "line",
+   "text": "Byte stream for ending pattern $11. $0EEE resolves its address and $0E94 decodes its note and control bytes. Notes can use the instrument already selected for the voice."
+  },
+  {
+   "address": 6426,
+   "type": "line",
+   "text": "Byte stream for ending pattern $12. $0EEE resolves its address and $0E94 decodes its note and control bytes. Notes can use the instrument already selected for the voice."
+  },
+  {
+   "address": 6451,
+   "type": "line",
+   "text": "Byte stream for ending pattern $13. $0EEE resolves its address and $0E94 decodes its note and control bytes. Notes can use the instrument already selected for the voice."
+  },
+  {
+   "address": 6470,
+   "type": "line",
+   "text": "Byte stream for ending pattern $14. $0EEE resolves its address and $0E94 decodes its note and control bytes. Notes can use the instrument already selected for the voice."
+  },
+  {
+   "address": 6477,
+   "type": "line",
+   "text": "Byte stream for ending pattern $15. $0EEE resolves its address and $0E94 decodes its note and control bytes. Notes can use the instrument already selected for the voice."
+  },
+  {
+   "address": 6513,
+   "type": "line",
+   "text": "Byte stream for ending pattern $16. $0EEE resolves its address and $0E94 decodes its note and control bytes. Notes can use the instrument already selected for the voice."
+  },
+  {
+   "address": 6523,
+   "type": "line",
+   "text": "Byte stream for ending pattern $17. $0EEE resolves its address and $0E94 decodes its note and control bytes. Notes can use the instrument already selected for the voice."
+  },
+  {
+   "address": 6536,
+   "type": "line",
+   "text": "Byte stream for ending pattern $18. $0EEE resolves its address and $0E94 decodes its note and control bytes. Notes can use the instrument already selected for the voice."
+  },
+  {
+   "address": 6543,
+   "type": "line",
+   "text": "Byte stream for ending pattern $19. $0EEE resolves its address and $0E94 decodes its note and control bytes. Notes can use the instrument already selected for the voice."
+  },
+  {
+   "address": 6550,
+   "type": "line",
+   "text": "Byte stream for ending pattern $1A. $0EEE resolves its address and $0E94 decodes its note and control bytes. Notes can use the instrument already selected for the voice."
+  },
+  {
+   "address": 6555,
+   "type": "line",
+   "text": "Byte stream for ending pattern $1B. $0EEE resolves its address and $0E94 decodes its note and control bytes. Notes can use the instrument already selected for the voice."
+  },
+  {
+   "address": 6560,
+   "type": "line",
+   "text": "Byte stream for ending pattern $1C. $0EEE resolves its address and $0E94 decodes its note and control bytes. Notes can use the instrument already selected for the voice."
+  },
+  {
+   "address": 6565,
+   "type": "line",
+   "text": "Byte stream for ending pattern $1D. $0EEE resolves its address and $0E94 decodes its note and control bytes. Notes can use the instrument already selected for the voice."
+  },
+  {
+   "address": 6570,
+   "type": "line",
+   "text": "Byte stream for ending pattern $1F. $0EEE resolves its address and $0E94 decodes its note and control bytes. Notes can use the instrument already selected for the voice."
+  },
+  {
+   "address": 6575,
+   "type": "line",
+   "text": "Byte stream for ending pattern $20. $0EEE resolves its address and $0E94 decodes its note and control bytes. Notes can use the instrument already selected for the voice."
+  },
+  {
+   "address": 6585,
+   "type": "line",
+   "text": "Byte stream for ending pattern $21. $0EEE resolves its address and $0E94 decodes its note and control bytes. Notes can use the instrument already selected for the voice."
+  },
+  {
+   "address": 6599,
+   "type": "line",
+   "text": "Byte stream for ending pattern $22. $0EEE resolves its address and $0E94 decodes its note and control bytes. Notes can use the instrument already selected for the voice."
+  },
+  {
+   "address": 6608,
+   "type": "line",
+   "text": "Byte stream for ending pattern $23. $0EEE resolves its address and $0E94 decodes its note and control bytes. Notes can use the instrument already selected for the voice."
+  },
+  {
+   "address": 6616,
+   "type": "line",
+   "text": "Byte stream for ending pattern $24. $0EEE resolves its address and $0E94 decodes its note and control bytes. Notes can use the instrument already selected for the voice."
+  },
+  {
+   "address": 6621,
+   "type": "line",
+   "text": "Byte stream for ending pattern $25. $0EEE resolves its address and $0E94 decodes its note and control bytes. Notes can use the instrument already selected for the voice."
+  },
+  {
+   "address": 6635,
+   "type": "line",
+   "text": "Byte stream for ending pattern $26. $0EEE resolves its address and $0E94 decodes its note and control bytes. Notes can use the instrument already selected for the voice."
+  },
+  {
+   "address": 6647,
+   "type": "line",
+   "text": "Byte stream for ending pattern $27. $0EEE resolves its address and $0E94 decodes its note and control bytes. Notes can use the instrument already selected for the voice."
+  },
+  {
+   "address": 6651,
+   "type": "line",
+   "text": "Byte stream for ending pattern $28. $0EEE resolves its address and $0E94 decodes its note and control bytes. Notes can use the instrument already selected for the voice."
+  },
+  {
+   "address": 6691,
+   "type": "line",
+   "text": "Byte stream for ending pattern $29. $0EEE resolves its address and $0E94 decodes its note and control bytes. Notes can use the instrument already selected for the voice."
+  },
+  {
+   "address": 6710,
+   "type": "line",
+   "text": "Byte stream for ending pattern $2A. $0EEE resolves its address and $0E94 decodes its note and control bytes. Notes can use the instrument already selected for the voice."
+  },
+  {
+   "address": 6746,
+   "type": "line",
+   "text": "Byte stream for ending pattern $2B. $0EEE resolves its address and $0E94 decodes its note and control bytes. Notes can use the instrument already selected for the voice."
+  },
+  {
+   "address": 6773,
+   "type": "line",
+   "text": "Byte stream for ending pattern $2C. $0EEE resolves its address and $0E94 decodes its note and control bytes. Notes can use the instrument already selected for the voice."
+  },
+  {
+   "address": 6816,
+   "type": "line",
+   "text": "Byte stream for ending pattern $2D. $0EEE resolves its address and $0E94 decodes its note and control bytes. Notes can use the instrument already selected for the voice."
+  },
+  {
+   "address": 6843,
+   "type": "line",
+   "text": "Byte stream for ending pattern $2E. $0EEE resolves its address and $0E94 decodes its note and control bytes. Notes can use the instrument already selected for the voice."
+  },
+  {
+   "address": 6864,
+   "type": "line",
+   "text": "Byte stream for ending pattern $2F. $0EEE resolves its address and $0E94 decodes its note and control bytes. Notes can use the instrument already selected for the voice."
+  },
+  {
+   "address": 6876,
+   "type": "line",
+   "text": "Byte stream for ending pattern $30. $0EEE resolves its address and $0E94 decodes its note and control bytes. Notes can use the instrument already selected for the voice."
+  },
+  {
+   "address": 6896,
+   "type": "line",
+   "text": "Byte stream for ending pattern $31. $0EEE resolves its address and $0E94 decodes its note and control bytes. Notes can use the instrument already selected for the voice."
+  },
+  {
+   "address": 7005,
+   "type": "line",
+   "text": "Byte stream for ending pattern $32. $0EEE resolves its address and $0E94 decodes its note and control bytes. Notes can use the instrument already selected for the voice."
+  },
+  {
+   "address": 7070,
+   "type": "line",
+   "text": "Byte stream for ending pattern $33. $0EEE resolves its address and $0E94 decodes its note and control bytes. Notes can use the instrument already selected for the voice."
+  },
+  {
+   "address": 7081,
+   "type": "line",
+   "text": "This split-pattern address crosses the ordinary pitch-modulation data page boundary. The source bytes are in the pattern stream reached from $153B and $15AA."
+  },
+  {
+   "address": 7134,
+   "type": "line",
+   "text": "Byte stream for ending pattern $34. $0EEE resolves its address and $0E94 decodes its note and control bytes. Notes can use the instrument already selected for the voice."
+  },
+  {
+   "address": 7146,
+   "type": "line",
+   "text": "Byte stream for ending pattern $35. $0EEE resolves its address and $0E94 decodes its note and control bytes. Notes can use the instrument already selected for the voice."
+  },
+  {
+   "address": 7157,
+   "type": "line",
+   "text": "Byte stream for ending pattern $36. $0EEE resolves its address and $0E94 decodes its note and control bytes. Notes can use the instrument already selected for the voice."
+  },
+  {
+   "address": 7167,
+   "type": "line",
+   "text": "Byte stream for ending pattern $37. $0EEE resolves its address and $0E94 decodes its note and control bytes. Notes can use the instrument already selected for the voice."
+  },
+  {
+   "address": 7186,
+   "type": "line",
+   "text": "Byte stream for ending pattern $38. $0EEE resolves its address and $0E94 decodes its note and control bytes. Notes can use the instrument already selected for the voice."
+  },
+  {
+   "address": 7203,
+   "type": "line",
+   "text": "Byte stream for ending pattern $39. $0EEE resolves its address and $0E94 decodes its note and control bytes. Notes can use the instrument already selected for the voice."
+  },
+  {
+   "address": 7230,
+   "type": "line",
+   "text": "Byte stream for ending pattern $3A. $0EEE resolves its address and $0E94 decodes its note and control bytes. Notes can use the instrument already selected for the voice."
+  },
+  {
+   "address": 7246,
+   "type": "line",
+   "text": "Byte stream for ending pattern $3B. $0EEE resolves its address and $0E94 decodes its note and control bytes. Notes can use the instrument already selected for the voice."
+  },
+  {
+   "address": 7262,
+   "type": "line",
+   "text": "Byte stream for ending pattern $3C. $0EEE resolves its address and $0E94 decodes its note and control bytes. Notes can use the instrument already selected for the voice."
+  },
+  {
+   "address": 7271,
+   "type": "line",
+   "text": "Byte stream for ending pattern $3D. $0EEE resolves its address and $0E94 decodes its note and control bytes. Notes can use the instrument already selected for the voice."
+  },
+  {
+   "address": 7300,
+   "type": "line",
+   "text": "Byte stream for ending pattern $3E. $0EEE resolves its address and $0E94 decodes its note and control bytes. Notes can use the instrument already selected for the voice."
+  },
+  {
+   "address": 7328,
+   "type": "line",
+   "text": "Byte stream for ending pattern $3F. $0EEE resolves its address and $0E94 decodes its note and control bytes. Notes can use the instrument already selected for the voice."
+  },
+  {
+   "address": 7353,
+   "type": "line",
+   "text": "Byte stream for ending pattern $40. $0EEE resolves its address and $0E94 decodes its note and control bytes. Notes can use the instrument already selected for the voice."
+  },
+  {
+   "address": 7368,
+   "type": "line",
+   "text": "Byte stream for ending pattern $41. $0EEE resolves its address and $0E94 decodes its note and control bytes. Notes can use the instrument already selected for the voice."
+  },
+  {
+   "address": 7381,
+   "type": "line",
+   "text": "Byte stream for ending pattern $42. $0EEE resolves its address and $0E94 decodes its note and control bytes. Notes can use the instrument already selected for the voice."
+  },
+  {
+   "address": 7389,
+   "type": "line",
+   "text": "Byte stream for ending pattern $43. $0EEE resolves its address and $0E94 decodes its note and control bytes. Notes can use the instrument already selected for the voice."
+  },
+  {
+   "address": 7421,
+   "type": "line",
+   "text": "Byte stream for ending pattern $44. $0EEE resolves its address and $0E94 decodes its note and control bytes. Notes can use the instrument already selected for the voice."
+  },
+  {
+   "address": 7446,
+   "type": "line",
+   "text": "Byte stream for ending pattern $45. $0EEE resolves its address and $0E94 decodes its note and control bytes. Notes can use the instrument already selected for the voice."
+  },
+  {
+   "address": 7482,
+   "type": "line",
+   "text": "Byte stream for ending pattern $46. $0EEE resolves its address and $0E94 decodes its note and control bytes. Notes can use the instrument already selected for the voice."
+  },
+  {
+   "address": 7538,
+   "type": "line",
+   "text": "Byte stream for ending pattern $47. $0EEE resolves its address and $0E94 decodes its note and control bytes. Notes can use the instrument already selected for the voice."
+  },
+  {
+   "address": 7576,
+   "type": "line",
+   "text": "Byte stream for ending pattern $48. $0EEE resolves its address and $0E94 decodes its note and control bytes. Notes can use the instrument already selected for the voice."
+  },
+  {
+   "address": 7617,
+   "type": "line",
+   "text": "Byte stream for ending pattern $49. $0EEE resolves its address and $0E94 decodes its note and control bytes. Notes can use the instrument already selected for the voice."
+  },
+  {
+   "address": 7647,
+   "type": "line",
+   "text": "Byte stream for ending pattern $4A. $0EEE resolves its address and $0E94 decodes its note and control bytes. Notes can use the instrument already selected for the voice."
+  },
+  {
+   "address": 7677,
+   "type": "line",
+   "text": "Byte stream for ending pattern $4B. $0EEE resolves its address and $0E94 decodes its note and control bytes. Notes can use the instrument already selected for the voice."
+  },
+  {
+   "address": 7680,
+   "type": "line",
+   "text": "The entry at $2062 points here, into $FF bytes. The normal instrument records numbered 1 through 30 begin at $20A0."
+  },
+  {
+   "address": 7687,
+   "type": "line",
+   "text": "Byte stream for ending pattern $4C. $0EEE resolves its address and $0E94 decodes its note and control bytes. Notes can use the instrument already selected for the voice."
+  },
+  {
+   "address": 7703,
+   "type": "line",
+   "text": "Byte stream for ending pattern $4D. $0EEE resolves its address and $0E94 decodes its note and control bytes. Notes can use the instrument already selected for the voice."
+  },
+  {
+   "address": 7718,
+   "type": "line",
+   "text": "Byte stream for ending pattern $4E. $0EEE resolves its address and $0E94 decodes its note and control bytes. Notes can use the instrument already selected for the voice."
+  },
+  {
+   "address": 7782,
+   "type": "line",
+   "text": "Byte stream for ending pattern $4F. $0EEE resolves its address and $0E94 decodes its note and control bytes. Notes can use the instrument already selected for the voice."
+  },
+  {
+   "address": 7843,
+   "type": "line",
+   "text": "Byte stream for ending pattern $50. $0EEE resolves its address and $0E94 decodes its note and control bytes. Notes can use the instrument already selected for the voice."
+  },
+  {
+   "address": 7925,
+   "type": "line",
+   "text": "Byte stream for ending pattern $51. $0EEE resolves its address and $0E94 decodes its note and control bytes. Notes can use the instrument already selected for the voice."
+  },
+  {
+   "address": 7944,
+   "type": "line",
+   "text": "Byte stream for ending pattern $52. $0EEE resolves its address and $0E94 decodes its note and control bytes. Notes can use the instrument already selected for the voice."
+  },
+  {
+   "address": 7962,
+   "type": "line",
+   "text": "Byte stream for ending pattern $53. $0EEE resolves its address and $0E94 decodes its note and control bytes. Notes can use the instrument already selected for the voice."
+  },
+  {
+   "address": 8020,
+   "type": "line",
+   "text": "Byte stream for ending pattern $54. $0EEE resolves its address and $0E94 decodes its note and control bytes. Notes can use the instrument already selected for the voice."
+  },
+  {
+   "address": 8035,
+   "type": "line",
+   "text": "Byte stream for ending pattern $55. $0EEE resolves its address and $0E94 decodes its note and control bytes. Notes can use the instrument already selected for the voice."
+  },
+  {
+   "address": 8052,
+   "type": "line",
+   "text": "Byte stream for ending pattern $56. $0EEE resolves its address and $0E94 decodes its note and control bytes. Notes can use the instrument already selected for the voice."
+  },
+  {
+   "address": 8060,
+   "type": "line",
+   "text": "Byte stream for ending pattern $57. $0EEE resolves its address and $0E94 decodes its note and control bytes. Notes can use the instrument already selected for the voice."
+  },
+  {
+   "address": 8077,
+   "type": "line",
+   "text": "Byte stream for ending pattern $58. $0EEE resolves its address and $0E94 decodes its note and control bytes. Notes can use the instrument already selected for the voice."
+  },
+  {
+   "address": 8085,
+   "type": "line",
+   "text": "Byte stream for ending pattern $59. $0EEE resolves its address and $0E94 decodes its note and control bytes. Notes can use the instrument already selected for the voice."
+  },
+  {
+   "address": 8099,
+   "type": "line",
+   "text": "Byte stream for ending pattern $5A. $0EEE resolves its address and $0E94 decodes its note and control bytes. Notes can use the instrument already selected for the voice."
+  },
+  {
+   "address": 8113,
+   "type": "line",
+   "text": "Byte stream for ending pattern $5B. $0EEE resolves its address and $0E94 decodes its note and control bytes. Notes can use the instrument already selected for the voice."
+  },
+  {
+   "address": 8126,
+   "type": "line",
+   "text": "Byte stream for ending pattern $5C. $0EEE resolves its address and $0E94 decodes its note and control bytes. Notes can use the instrument already selected for the voice."
+  },
+  {
+   "address": 8148,
+   "type": "line",
+   "text": "Byte stream for ending pattern $5D. $0EEE resolves its address and $0E94 decodes its note and control bytes. Notes can use the instrument already selected for the voice."
+  },
+  {
+   "address": 8155,
+   "type": "line",
+   "text": "Byte stream for ending pattern $5E. $0EEE resolves its address and $0E94 decodes its note and control bytes. Notes can use the instrument already selected for the voice."
+  },
+  {
+   "address": 8171,
+   "type": "line",
+   "text": "Byte stream for ending pattern $5F. $0EEE resolves its address and $0E94 decodes its note and control bytes. Notes can use the instrument already selected for the voice."
+  },
+  {
+   "address": 8187,
+   "type": "line",
+   "text": "Byte stream for ending pattern $60. $0EEE resolves its address and $0E94 decodes its note and control bytes. Notes can use the instrument already selected for the voice."
+  },
+  {
+   "address": 8203,
+   "type": "line",
+   "text": "Byte stream for ending pattern $61. $0EEE resolves its address and $0E94 decodes its note and control bytes. Notes can use the instrument already selected for the voice."
+  },
+  {
+   "address": 8219,
+   "type": "line",
+   "text": "Byte stream for ending pattern $62. $0EEE resolves its address and $0E94 decodes its note and control bytes. Notes can use the instrument already selected for the voice."
+  },
+  {
+   "address": 8224,
+   "type": "line",
+   "text": "Byte stream for ending pattern $63. $0EEE resolves its address and $0E94 decodes its note and control bytes. Notes can use the instrument already selected for the voice."
+  },
+  {
+   "address": 8229,
+   "type": "line",
+   "text": "Byte stream for ending pattern $64. $0EEE resolves its address and $0E94 decodes its note and control bytes. Notes can use the instrument already selected for the voice."
+  },
+  {
+   "address": 8245,
+   "type": "line",
+   "text": "Byte stream for ending pattern $65. $0EEE resolves its address and $0E94 decodes its note and control bytes. Notes can use the instrument already selected for the voice."
+  },
+  {
+   "address": 8251,
+   "type": "line",
+   "text": "Byte stream for ending pattern $66. $0EEE resolves its address and $0E94 decodes its note and control bytes. Notes can use the instrument already selected for the voice."
+  },
+  {
+   "address": 8255,
+   "type": "line",
+   "text": "Byte stream for ending pattern $67. $0EEE resolves its address and $0E94 decodes its note and control bytes. Notes can use the instrument already selected for the voice."
+  },
+  {
+   "address": 8259,
+   "type": "line",
+   "text": "Byte stream for ending pattern $68. $0EEE resolves its address and $0E94 decodes its note and control bytes. Notes can use the instrument already selected for the voice."
+  },
+  {
+   "address": 8262,
+   "type": "line",
+   "text": "Byte stream for ending pattern $69. $0EEE resolves its address and $0E94 decodes its note and control bytes. Notes can use the instrument already selected for the voice."
+  },
+  {
+   "address": 8267,
+   "type": "line",
+   "text": "Byte stream for ending pattern $6A. $0EEE resolves its address and $0E94 decodes its note and control bytes. Notes can use the instrument already selected for the voice."
+  },
+  {
+   "address": 8269,
+   "type": "line",
+   "text": "Byte stream for ending pattern $6B. $0EEE resolves its address and $0E94 decodes its note and control bytes. Notes can use the instrument already selected for the voice."
+  },
+  {
+   "address": 8271,
+   "type": "line",
+   "text": "Byte stream for ending pattern $6C. $0EEE resolves its address and $0E94 decodes its note and control bytes. Notes can use the instrument already selected for the voice."
+  },
+  {
+   "address": 8276,
+   "type": "line",
+   "text": "Byte stream for ending pattern $6D. $0EEE resolves its address and $0E94 decodes its note and control bytes. Notes can use the instrument already selected for the voice."
+  },
+  {
+   "address": 8280,
+   "type": "line",
+   "text": "Byte stream for ending pattern $6E. $0EEE resolves its address and $0E94 decodes its note and control bytes. Notes can use the instrument already selected for the voice."
+  },
+  {
+   "address": 8290,
+   "type": "line",
+   "text": "Interleaved little-endian addresses. $12B7 and $12BC use the instrument index doubled to read the pointer. The note path at $0F50 reads the next entry."
+  },
+  {
+   "address": 8291,
+   "type": "line",
+   "text": "High bytes interleaved with $2062 and selected by twice the instrument number."
+  },
+  {
+   "address": 8292,
+   "type": "line",
+   "text": "Low bytes of the pointer selected by the one-entry lookahead used when decoding a note."
+  },
+  {
+   "address": 8293,
+   "type": "line",
+   "text": "High byte of the next instrument record read during note decoding. The pointer selection at $0F50 is offset one entry past the ordinary base."
+  },
+  {
+   "address": 8352,
+   "type": "line",
+   "text": "Patch bytes for ending instrument $01, reached through the pointer at $2064. $12A2 initializes the voice from this record."
+  },
+  {
+   "address": 8372,
+   "type": "line",
+   "text": "Patch bytes for ending instrument $02, reached through the pointer at $2066. $12A2 initializes the voice from this record."
+  },
+  {
+   "address": 8392,
+   "type": "line",
+   "text": "Patch bytes for ending instrument $03, reached through the pointer at $2068. $12A2 initializes the voice from this record."
+  },
+  {
+   "address": 8421,
+   "type": "line",
+   "text": "Patch bytes for ending instrument $04, reached through the pointer at $206A. $12A2 initializes the voice from this record."
+  },
+  {
+   "address": 8450,
+   "type": "line",
+   "text": "Patch bytes for ending instrument $05, reached through the pointer at $206C. $12A2 initializes the voice from this record."
+  },
+  {
+   "address": 8479,
+   "type": "line",
+   "text": "Patch bytes for ending instrument $06, reached through the pointer at $206E. $12A2 initializes the voice from this record."
+  },
+  {
+   "address": 8508,
+   "type": "line",
+   "text": "Patch bytes for ending instrument $07, reached through the pointer at $2070. $12A2 initializes the voice from this record."
+  },
+  {
+   "address": 8537,
+   "type": "line",
+   "text": "Patch bytes for ending instrument $08, reached through the pointer at $2072. $12A2 initializes the voice from this record."
+  },
+  {
+   "address": 8570,
+   "type": "line",
+   "text": "Patch bytes for ending instrument $09, reached through the pointer at $2074. $12A2 initializes the voice from this record."
+  },
+  {
+   "address": 8595,
+   "type": "line",
+   "text": "Patch bytes for ending instrument $0A, reached through the pointer at $2076. $12A2 initializes the voice from this record."
+  },
+  {
+   "address": 8624,
+   "type": "line",
+   "text": "Patch bytes for ending instrument $0B, reached through the pointer at $2078. $12A2 initializes the voice from this record."
+  },
+  {
+   "address": 8649,
+   "type": "line",
+   "text": "Patch bytes for ending instrument $0C, reached through the pointer at $207A. $12A2 initializes the voice from this record."
+  },
+  {
+   "address": 8669,
+   "type": "line",
+   "text": "Patch bytes for ending instrument $0D, reached through the pointer at $207C. $12A2 initializes the voice from this record."
+  },
+  {
+   "address": 8698,
+   "type": "line",
+   "text": "Patch bytes for ending instrument $0E, reached through the pointer at $207E. $12A2 initializes the voice from this record."
+  },
+  {
+   "address": 8727,
+   "type": "line",
+   "text": "Patch bytes for ending instrument $0F, reached through the pointer at $2080. $12A2 initializes the voice from this record."
+  },
+  {
+   "address": 8760,
+   "type": "line",
+   "text": "Patch bytes for ending instrument $10, reached through the pointer at $2082. $12A2 initializes the voice from this record."
+  },
+  {
+   "address": 8780,
+   "type": "line",
+   "text": "Patch bytes for ending instrument $11, reached through the pointer at $2084. $12A2 initializes the voice from this record."
+  },
+  {
+   "address": 8794,
+   "type": "line",
+   "text": "Patch bytes for ending instrument $12, reached through the pointer at $2086. $12A2 initializes the voice from this record."
+  },
+  {
+   "address": 8823,
+   "type": "line",
+   "text": "Patch bytes for ending instrument $13, reached through the pointer at $2088. $12A2 initializes the voice from this record."
+  },
+  {
+   "address": 8846,
+   "type": "line",
+   "text": "Patch bytes for ending instrument $14, reached through the pointer at $208A. $12A2 initializes the voice from this record."
+  },
+  {
+   "address": 8878,
+   "type": "line",
+   "text": "Patch bytes for ending instrument $15, reached through the pointer at $208C. $12A2 initializes the voice from this record."
+  },
+  {
+   "address": 8916,
+   "type": "line",
+   "text": "Patch bytes for ending instrument $16, reached through the pointer at $208E. $12A2 initializes the voice from this record."
+  },
+  {
+   "address": 8954,
+   "type": "line",
+   "text": "Patch bytes for ending instrument $17, reached through the pointer at $2090. $12A2 initializes the voice from this record."
+  },
+  {
+   "address": 8974,
+   "type": "line",
+   "text": "Patch bytes for ending instrument $18, reached through the pointer at $2092. $12A2 initializes the voice from this record."
+  },
+  {
+   "address": 8994,
+   "type": "line",
+   "text": "Patch bytes for ending instrument $19, reached through the pointer at $2094. $12A2 initializes the voice from this record."
+  },
+  {
+   "address": 9017,
+   "type": "line",
+   "text": "Patch bytes for ending instrument $1A, reached through the pointer at $2096. $12A2 initializes the voice from this record."
+  },
+  {
+   "address": 9046,
+   "type": "line",
+   "text": "Patch bytes for ending instrument $1B, reached through the pointer at $2098. $12A2 initializes the voice from this record."
+  },
+  {
+   "address": 9060,
+   "type": "line",
+   "text": "Patch bytes for ending instrument $1C, reached through the pointer at $209A. $12A2 initializes the voice from this record."
+  },
+  {
+   "address": 9083,
+   "type": "line",
+   "text": "Patch bytes for ending instrument $1D, reached through the pointer at $209C. $12A2 initializes the voice from this record."
+  },
+  {
+   "address": 9097,
+   "type": "line",
+   "text": "Patch bytes for ending instrument $1E, reached through the pointer at $209E. $12A2 initializes the voice from this record."
+  },
+  {
+   "address": 9130,
+   "type": "line",
+   "text": "Four handler addresses for control codes selected by $0B07 with the low two bits."
+  },
+  {
+   "address": 9131,
+   "type": "line",
+   "text": "Upper byte of the first interleaved command handler. $0B18 loads the upper byte and $0B20 jumps through the assembled address."
+  },
+  {
+   "address": 9136,
+   "type": "line",
+   "text": "Low bytes for 25 screen rows. $0B2F uses the same low byte for both screen and colour RAM."
+  },
+  {
+   "address": 9161,
+   "type": "line",
+   "text": "High bytes for the screen rows. $0B3C derives the matching colour RAM page."
+  },
+  {
+   "address": 9186,
+   "type": "line",
+   "text": "Table read by $0BE0 when updating the colours for the current player record."
+  },
+  {
+   "address": 9188,
+   "type": "line",
+   "text": "Masks used at $0BE6, $0BEF and $0BF8 to toggle three colour values together."
+  },
+  {
+   "address": 9190,
+   "type": "line",
+   "text": "Colour bytes read in a moving window of seven positions and written to the colour rows by $0866 through $088D. The starting offset wraps after seven timer advances."
+  },
+  {
+   "address": 9191,
+   "type": "line",
+   "text": "Offset one within the rotating seven-colour window, used for the second row."
+  },
+  {
+   "address": 9192,
+   "type": "line",
+   "text": "Offset two within the rotating palette window, used for the third row."
+  },
+  {
+   "address": 9193,
+   "type": "line",
+   "text": "Offset three within the rotating palette window, used for the fourth row."
+  },
+  {
+   "address": 9194,
+   "type": "line",
+   "text": "Offset four within the rotating palette window, used for the fifth row."
+  },
+  {
+   "address": 9195,
+   "type": "line",
+   "text": "Offset five within the rotating palette window, used for the sixth row."
+  },
+  {
+   "address": 9196,
+   "type": "line",
+   "text": "Last offset in the seven-byte colour window. $088A applies that colour to the bottom row."
+  },
+  {
+   "address": 9203,
+   "type": "line",
+   "text": "Eight X positions for the first ending sprite row. $0D1C writes them to the corresponding VIC-II X registers."
+  },
+  {
+   "address": 9211,
+   "type": "line",
+   "text": "Command stream for the ordinary result page, passed to $0A8F by $0984."
+  },
+  {
+   "address": 9227,
+   "type": "line",
+   "text": "The stream following the ordinary page terminator. Its inline commands select colours and place indexed text fragments on the alternate page."
+  },
+  {
+   "address": 9355,
+   "type": "line",
+   "text": "Final ending page. $0839 passes this stream to $0A67, which clears the screen and draws its fragments."
+  },
+  {
+   "address": 9415,
+   "type": "line",
+   "text": "Length-prefixed fragments indexed by the screen command stream and interpreted at $0ABF."
+  },
+  {
+   "address": 9769,
+   "type": "line",
+   "text": "Frame indices read by $0A3C, then passed in Y to the sprite generator."
+  },
+  {
+   "address": 9778,
+   "type": "line",
+   "text": "Companion frame indices read at $0A34. A negative value clears generated sprites."
+  },
+  {
+   "address": 9787,
+   "type": "line",
+   "text": "Low address bytes for frame sources consumed by $09A3."
+  },
+  {
+   "address": 9799,
+   "type": "line",
+   "text": "High address bytes for frame sources consumed by $09A3."
+  },
+  {
+   "address": 9811,
+   "type": "line",
+   "text": "Two 24-byte halves of ending sprite source frame $00. $09E5 expands the character codes into sprite pixel columns."
+  },
+  {
+   "address": 9859,
+   "type": "line",
+   "text": "Two 24-byte halves of ending sprite source frame $01. $09E5 expands the character codes into sprite pixel columns."
+  },
+  {
+   "address": 9907,
+   "type": "line",
+   "text": "Two 24-byte halves of ending sprite source frame $02. $09E5 expands the character codes into sprite pixel columns."
+  },
+  {
+   "address": 9955,
+   "type": "line",
+   "text": "Two 24-byte halves of ending sprite source frame $03. $09E5 expands the character codes into sprite pixel columns."
+  },
+  {
+   "address": 10003,
+   "type": "line",
+   "text": "Two 24-byte halves of ending sprite source frame $04. $09E5 expands the character codes into sprite pixel columns."
+  },
+  {
+   "address": 10051,
+   "type": "line",
+   "text": "Two 24-byte halves of ending sprite source frame $05. $09E5 expands the character codes into sprite pixel columns."
+  },
+  {
+   "address": 10099,
+   "type": "line",
+   "text": "Two 24-byte halves of ending sprite source frame $06. $09E5 expands the character codes into sprite pixel columns."
+  },
+  {
+   "address": 10147,
+   "type": "line",
+   "text": "Two 24-byte halves of ending sprite source frame $07. $09E5 expands the character codes into sprite pixel columns."
+  },
+  {
+   "address": 10195,
+   "type": "line",
+   "text": "Two 24-byte halves of ending sprite source frame $08. $09E5 expands the character codes into sprite pixel columns."
+  },
+  {
+   "address": 10243,
+   "type": "line",
+   "text": "Two 24-byte halves of ending sprite source frame $09. $09E5 expands the character codes into sprite pixel columns."
+  },
+  {
+   "address": 10291,
+   "type": "line",
+   "text": "Two 24-byte halves of ending sprite source frame $0A. $09E5 expands the character codes into sprite pixel columns."
+  },
+  {
+   "address": 10339,
+   "type": "line",
+   "text": "Two 24-byte halves of ending sprite source frame $0B. $09E5 expands the character codes into sprite pixel columns."
+  },
+  {
+   "address": 10345,
+   "type": "line",
+   "text": "Live display character written by $0900 after limiting the value to the last single digit."
+  },
+  {
+   "address": 10371,
+   "type": "line",
+   "text": "Tens digit of the message's patched score award."
+  },
+  {
+   "address": 10372,
+   "type": "line",
+   "text": "Unit digit of the patched award amount, written at $0911 alongside the tens digit at $2883."
+  },
+  {
+   "address": 26624,
+   "type": "line",
+   "text": "Ending character pixels beginning at the $6800 VIC character base. $0CFB selects this set with $D018=$8A when the character panel is active."
+  },
+  {
+   "address": 28672,
+   "type": "line",
+   "text": "Source bytes 0 through 1023 of the ordinary result bitmap. $0988 copies these four pages to VIC RAM at $4000."
+  },
+  {
+   "address": 29696,
+   "type": "line",
+   "text": "Source bytes 1024 through 2047 of the ordinary result bitmap. $0988 copies these four pages to VIC RAM at $4400."
+  },
+  {
+   "address": 30720,
+   "type": "line",
+   "text": "Source bytes 2048 through 3071 of the ordinary result bitmap. $0988 copies these four pages to VIC RAM at $4800."
+  },
+  {
+   "address": 31744,
+   "type": "line",
+   "text": "Source bytes 3072 through 4095 of the ordinary result bitmap. $0988 copies these four pages to VIC RAM at $4C00."
+  },
+  {
+   "address": 32768,
+   "type": "line",
+   "text": "Source bytes 4096 through 5119 of the ordinary result bitmap. $0988 copies these four pages to VIC RAM at $5000."
+  },
+  {
+   "address": 33792,
+   "type": "line",
+   "text": "Source bytes 5120 through 6143 of the ordinary result bitmap. $0988 copies these four pages to VIC RAM at $5400."
+  },
+  {
+   "address": 34816,
+   "type": "line",
+   "text": "Source bytes 6144 through 7167 of the ordinary result bitmap. $0988 copies these four pages to VIC RAM at $5800."
+  },
+  {
+   "address": 35840,
+   "type": "line",
+   "text": "Source bytes 7168 through 8191 of the ordinary result bitmap. $0988 copies these four pages to VIC RAM at $5C00."
+  },
+  {
+   "address": 36864,
+   "type": "line",
+   "text": "Four pages of screen matrix source. $0965 copies them to $6000, where each visible cell selects colours for the bitmap."
+  },
+  {
+   "address": 37888,
+   "type": "line",
+   "text": "Four pages of colour RAM source copied to $D800 by $096E."
+  },
+  {
+   "address": 38912,
+   "type": "line",
+   "text": "Source bytes 0 through 1023 of the alternate result bitmap. $0988 copies these four pages to VIC RAM at $4000."
+  },
+  {
+   "address": 39936,
+   "type": "line",
+   "text": "Source bytes 1024 through 2047 of the alternate result bitmap. $0988 copies these four pages to VIC RAM at $4400."
+  },
+  {
+   "address": 40960,
+   "type": "line",
+   "text": "Source bytes 2048 through 3071 of the alternate result bitmap. $0988 copies these four pages to VIC RAM at $4800."
+  },
+  {
+   "address": 41984,
+   "type": "line",
+   "text": "Source bytes 3072 through 4095 of the alternate result bitmap. $0988 copies these four pages to VIC RAM at $4C00."
+  },
+  {
+   "address": 43008,
+   "type": "line",
+   "text": "Source bytes 4096 through 5119 of the alternate result bitmap. $0988 copies these four pages to VIC RAM at $5000."
+  },
+  {
+   "address": 44032,
+   "type": "line",
+   "text": "Source bytes 5120 through 6143 of the alternate result bitmap. $0988 copies these four pages to VIC RAM at $5400."
+  },
+  {
+   "address": 45056,
+   "type": "line",
+   "text": "Source bytes 6144 through 7167 of the alternate result bitmap. $0988 copies these four pages to VIC RAM at $5800."
+  },
+  {
+   "address": 46080,
+   "type": "line",
+   "text": "Source bytes 7168 through 8191 of the alternate result bitmap. $0988 copies these four pages to VIC RAM at $5C00."
+  },
+  {
+   "address": 47104,
+   "type": "line",
+   "text": "Four pages of alternate result screen matrix. $0940 selects this source when input bit 0 is set."
+  },
+  {
+   "address": 48128,
+   "type": "line",
+   "text": "Four pages of alternate colour data copied to $D800 when the alternate result is selected."
+  }
+ ]
+}

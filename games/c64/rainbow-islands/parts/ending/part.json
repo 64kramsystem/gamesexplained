@@ -1,0 +1,38 @@
+{
+  "title": "Ending",
+  "order": 9,
+  "over": "engine",
+  "ranges": [
+    [
+      "$0801",
+      "$BFFF"
+    ]
+  ],
+  "video": {
+    "screen": "$6000",
+    "charset": ""
+  },
+  "coverage": {
+    "exclude": [
+      [
+        "$4000",
+        "$5FFF",
+        "Runtime bitmap copied from the selected result image by $0988. Both source pictures are listed."
+      ],
+      [
+        "$6000",
+        "$63FF",
+        "Runtime screen output and sprite pointers initialized by the result display. Source screen colours are listed at $9000 and $B800."
+      ],
+      [
+        "$69FF",
+        "$6DFF",
+        "Runtime work space for generated result sprites. $0A47 clears this area from an indexed base of $69FF and $09E5 writes the expanded pixels."
+      ]
+    ],
+    "extra": [],
+    "include": []
+  },
+  "io": [],
+  "regions": []
+}
