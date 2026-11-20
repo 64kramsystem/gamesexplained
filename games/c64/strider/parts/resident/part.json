@@ -1,0 +1,159 @@
+{
+  "title": "Resident engine and title",
+  "order": 1,
+  "video": {
+    "screen": "",
+    "charset": ""
+  },
+  "coverage": {
+    "exclude": [
+      [
+        "$0440",
+        "$0440",
+        "One-byte disk name buffer written at $0404"
+      ],
+      [
+        "$0441",
+        "$07FF",
+        "Zero fill in the STLO DISK2 file between the file-name buffer and its $0800 entry"
+      ],
+      [
+        "$0A93",
+        "$0AAF",
+        "STLO DISK2 zero fill after $0A92 RTS"
+      ],
+      [
+        "$0AB0",
+        "$0AFF",
+        "Two 40-byte generated tile rows, written at $A189 through $A19B"
+      ],
+      [
+        "$4800",
+        "$4B3F",
+        "Residual source bytes of file B, copied to $D000 then used as generated screen cells. File B is counted at its relocated destination."
+      ],
+      [
+        "$BF00",
+        "$BFFF",
+        "Character source high-byte table built in $9FED"
+      ],
+      [
+        "$FFFA",
+        "$FFFF",
+        "Hardware vectors installed by the game at runtime"
+      ]
+    ],
+    "extra": [
+      [
+        "$0400",
+        "$043F",
+        "Resident disk file reader and file selector table"
+      ],
+      [
+        "$0800",
+        "$0A92",
+        "Disk and stage bridge"
+      ],
+      [
+        "$0B00",
+        "$11BF",
+        "File I sprite pattern sheet"
+      ],
+      [
+        "$1200",
+        "$15FF",
+        "File D"
+      ],
+      [
+        "$4B40",
+        "$59FF",
+        "File E below the level sprite slot"
+      ],
+      [
+        "$5A00",
+        "$67FF",
+        "Initial file E sprite patterns before stage loads"
+      ],
+      [
+        "$6800",
+        "$6BFF",
+        "File E above the level sprite slot"
+      ],
+      [
+        "$6C00",
+        "$80FE",
+        "File F sound engine and tables"
+      ],
+      [
+        "$8100",
+        "$BEFF",
+        "File G game engine and tables"
+      ],
+      [
+        "$C000",
+        "$CFFF",
+        "File H"
+      ],
+      [
+        "$D000",
+        "$DFFF",
+        "File B copied beneath I/O by $09BF"
+      ],
+      [
+        "$E000",
+        "$E3FF",
+        "File C below the level metatile slot"
+      ],
+      [
+        "$E400",
+        "$E7FF",
+        "Initial file C metatile definitions before stage loads"
+      ],
+      [
+        "$E800",
+        "$F4FF",
+        "File C between the level metatile and object slots"
+      ],
+      [
+        "$F500",
+        "$F6FF",
+        "Initial file C mirroring lookup tables before stage loads"
+      ],
+      [
+        "$F700",
+        "$FFDF",
+        "File C above the level object slot"
+      ]
+    ],
+    "include": [
+      [
+        "$D000",
+        "$DFFF",
+        "File B moved from $4000 by $09BF. VIC bank $C000 sees these sprite and image bytes."
+      ]
+    ]
+  },
+  "io": [
+    [
+      "$09D5",
+      "$09DA",
+      "ram",
+      "$09BF switches out I/O to copy file B"
+    ]
+  ],
+  "regions": [],
+  "ranges": [
+    [
+      23040,
+      26623
+    ],
+    [
+      58368,
+      59391
+    ],
+    [
+      62720,
+      63231
+    ]
+  ]
+}
