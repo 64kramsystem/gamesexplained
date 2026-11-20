@@ -1,0 +1,150 @@
+{
+  "schema": 1,
+  "platform": "c64",
+  "slug": "live-and-let-die",
+  "title": "Live and Let Die",
+  "year": 1988,
+  "publisher": "Domark",
+  "developer": "Elite Systems",
+  "title_image": "reference/title.png",
+  "build": "Fantasy disk release",
+  "tier": "bronze",
+  "coverage_percent": 100.0,
+  "copy": "agent-draft",
+  "steward": "",
+  "credits": [],
+  "tools": {
+    "emulator": "VICE v3.14.0 macOS arm64 headless, PAL, dummy audio",
+    "disassembler": "regenerator2000 0.9.18"
+  },
+  "model": "gpt-6.2-sol",
+  "step_models": {
+    "10-orient": [
+      "gpt-6.2-sol"
+    ],
+    "12-media": [
+      "gpt-6.2-sol"
+    ],
+    "20-features": [
+      "gpt-6.2-sol"
+    ],
+    "30-text": [
+      "gpt-6.2-sol"
+    ],
+    "40-sweep": [
+      "gpt-6.2-sol"
+    ],
+    "50-coverage": [
+      "gpt-6.2-sol"
+    ],
+    "60-verify": [
+      "gpt-6.2-sol"
+    ]
+  },
+  "accuracy": [
+    {
+      "step": "research",
+      "web": true,
+      "models": [
+        "gpt-6.2-sol"
+      ]
+    },
+    {
+      "step": "annotate",
+      "models": [
+        "gpt-6.2-sol"
+      ]
+    },
+    {
+      "step": "sample",
+      "size": 70,
+      "wrong": 17,
+      "fixed": 17,
+      "seed": 251120,
+      "models": [
+        "gpt-6.2-sol"
+      ]
+    }
+  ],
+  "kit_version": "0.0.360",
+  "created": "2026-11-20",
+  "video": {
+    "screen": "$4400",
+    "charset": "$7800"
+  },
+  "coverage": {
+    "exclude": [
+      [
+        "$0400",
+        "$07FF",
+        "KERNAL and Fantasy screen during startup. The game builds its working arrays here at $2AB6 and $2B05."
+      ],
+      [
+        "$0000",
+        "$00FF",
+        "6510 processor port and zero-page working registers outside all phase-file destinations."
+      ],
+      [
+        "$0200",
+        "$03FF",
+        "KERNAL workspace and game state outside all phase-file destinations. Game initialisers at $0EC3 and $2A03 seed the mutable state."
+      ],
+      [
+        "$CFFF",
+        "$CFFF",
+        "Byte beyond the end of PHASE3. Equal to its power-on loader state before the phase loads."
+      ]
+    ],
+    "extra": [
+      [
+        "$0800",
+        "$43FF",
+        "PHASE5 at its load address"
+      ],
+      [
+        "$4800",
+        "$7FFF",
+        "PHASE3 before the PHASE4 overlay"
+      ],
+      [
+        "$8000",
+        "$8FFF",
+        "PHASE4 at its load address"
+      ],
+      [
+        "$9000",
+        "$CFFE",
+        "PHASE3 after the PHASE4 overlay"
+      ],
+      [
+        "$D000",
+        "$DFFF",
+        "PHASE2 copied into RAM under I/O"
+      ],
+      [
+        "$E000",
+        "$FFFF",
+        "PHASE1 copied underneath KERNAL ROM"
+      ]
+    ],
+    "include": [
+      [
+        "$D000",
+        "$DFFF",
+        "PHASE2 copied to RAM beneath I/O"
+      ]
+    ]
+  },
+  "io": [],
+  "regions": [],
+  "links": {
+    "wiki": {
+      "title": "",
+      "url": ""
+    },
+    "manual": {
+      "title": "Live And Let Die (1988) \u2014 manual transcription",
+      "url": "https://www.mi6-hq.com/sections/games/lald?s=articles&t="
+    }
+  }
+}
