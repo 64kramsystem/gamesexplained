@@ -11,6 +11,61 @@
         "$0400",
         "$07FF",
         "Screen RAM kept from the OUG intro and trainer; the resident engine draws into $4000."
+      ],
+      [
+        "$553F",
+        "$554E",
+        "Sixteen unpacker scratch bytes. Store watchpoints at both ends stopped after $5636, and the loop at $5657 restored the bytes to the destination at $6000."
+      ],
+      [
+        "$E000",
+        "$E38B",
+        "Mutable raster, sprite and display workspace. The entry snapshot holds zeros and the startup clear at $0854\u2013$085D writes all four pages through $E3FF."
+      ],
+      [
+        "$E38C",
+        "$E509",
+        "Two runtime map-row pointer tables. A store watchpoint at the last entry stopped after $12E7 and all 191 pointers matched $8000 plus row times 86."
+      ],
+      [
+        "$CF00",
+        "$CFFF",
+        "Runtime zero-page backing page, all zero at the resident hand-over. The exchange at $34B7 copies all 256 zero-page bytes here. A startup store watchpoint on $CFEF caught the old $00EF value written after $34C1."
+      ],
+      [
+        "$0000",
+        "$00FF",
+        "Runtime 6510 port and zero-page state. The startup swap loop exchanges the page with the zeroed backing RAM at $CF00. A store watchpoint saw the final zero of the startup scratch clear at $00E1."
+      ],
+      [
+        "$022B",
+        "$0236",
+        "Placeholder address of three self-modified preset reads. Each initializer writes both operands before reading from its selected $F7DD table record. The voice-three copy was traced with the selector for the short-fire sound."
+      ],
+      [
+        "$0286",
+        "$0286",
+        "KERNAL current character colour variable. The round initializer writes zero at $14FD."
+      ],
+      [
+        "$E600",
+        "$EB3F",
+        "Actor runtime arrays of stride $30, all zero at the hand-over. Checkpoints at $375E caught the flag reset of slots $2E through zero and a store watchpoint at $3706 caught the allocator clearing an actor's fine X field."
+      ],
+      [
+        "$F05A",
+        "$F0CF",
+        "Music voice and effect runtime state. These bytes are zero at the hand-over. The music initializer clears its three voice records and then fills their order and pattern pointers. Effect flags are initialized by $FB05."
+      ],
+      [
+        "$F0D1",
+        "$F0D1",
+        "Runtime tune timing field. It begins zero and is written with the selected tune's timing byte by the initializer at $EFB8."
+      ],
+      [
+        "$FACC",
+        "$FAF8",
+        "Runtime effect records and sweep state, all zero at the hand-over. A watchpoint at $FAEA observed the voice-three preset copy from $F801."
       ]
     ],
     "extra": [
@@ -157,14 +212,14 @@
       [
         "$DF8C",
         "$DFFF",
-        "Bytes present under I/O at the $0820 hand-over and in Stage 1. They match $EF8C-$EFFF at the hand-over. Their consumer is open."
+        "The boot depacker writes this duplicate of the sound initializer at $EF8C-$EFFF into RAM under I/O."
       ]
     ],
     "include": [
       [
         "$DF00",
         "$DFFF",
-        "RAM under I/O present at the $0820 hand-over and in Stage 1. The consumer is open."
+        "Preserve the addressed RAM beneath I/O for the depacker copy of the sound initializer."
       ]
     ]
   },

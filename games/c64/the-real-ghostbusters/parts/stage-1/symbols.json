@@ -125,16 +125,6 @@
   },
   {
    "start": 50154,
-   "end": 50917,
-   "type": "Code"
-  },
-  {
-   "start": 50918,
-   "end": 50920,
-   "type": "Undefined"
-  },
-  {
-   "start": 50921,
    "end": 51099,
    "type": "Code"
   },
@@ -150,8 +140,13 @@
   },
   {
    "start": 51343,
-   "end": 51418,
+   "end": 51343,
    "type": "Undefined"
+  },
+  {
+   "start": 51344,
+   "end": 51418,
+   "type": "Byte"
   },
   {
    "start": 51419,
@@ -161,7 +156,7 @@
   {
    "start": 51532,
    "end": 51539,
-   "type": "Undefined"
+   "type": "Byte"
   },
   {
    "start": 51540,
@@ -393,9 +388,9 @@
   },
   {
    "address": 49162,
-   "name": "a_C00A",
+   "name": "stage_reload_comparison",
    "type": "AbsoluteAddress",
-   "kind": "auto"
+   "kind": "user"
   },
   {
    "address": 49163,
@@ -411,7 +406,13 @@
   },
   {
    "address": 49165,
-   "name": "stage_parameter",
+   "name": "stage_setup_and_respawn_parameters",
+   "type": "AbsoluteAddress",
+   "kind": "user"
+  },
+  {
+   "address": 49166,
+   "name": "partner_respawn_terrain_threshold",
    "type": "AbsoluteAddress",
    "kind": "user"
   },
@@ -429,9 +430,9 @@
   },
   {
    "address": 49169,
-   "name": "a_C011",
+   "name": "stage_zero_reload_flag",
    "type": "AbsoluteAddress",
-   "kind": "auto"
+   "kind": "user"
   },
   {
    "address": 49170,
@@ -566,22 +567,112 @@
    "kind": "user"
   },
   {
+   "address": 50154,
+   "name": "disable_actor_countdown",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 50160,
+   "name": "initialize_type_27",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
    "address": 50234,
-   "name": "s_C43A",
+   "name": "set_linked_actor_state",
    "type": "Subroutine",
-   "kind": "auto"
+   "kind": "user"
+  },
+  {
+   "address": 50253,
+   "name": "initialize_type_2c",
+   "type": "UserDefined",
+   "kind": "user"
   },
   {
    "address": 50279,
-   "name": "j_C467",
+   "name": "set_type_2c_or_2e_state",
    "type": "Jump",
-   "kind": "auto"
+   "kind": "user"
+  },
+  {
+   "address": 50298,
+   "name": "initialize_type_2d",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 50312,
+   "name": "initialize_type_2e",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 50345,
+   "name": "initialize_type_3e",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 50358,
+   "name": "initialize_types_2f_to_31",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 50367,
+   "name": "initialize_type_33",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 50395,
+   "name": "set_type_33_state",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 50401,
+   "name": "initialize_type_34",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 50435,
+   "name": "initialize_type_36",
+   "type": "UserDefined",
+   "kind": "user"
   },
   {
    "address": 50453,
-   "name": "j_C515",
+   "name": "set_types_32_and_36_state",
    "type": "Jump",
-   "kind": "auto"
+   "kind": "user"
+  },
+  {
+   "address": 50459,
+   "name": "initialize_type_35",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 50493,
+   "name": "initialize_type_32",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 50516,
+   "name": "initialize_type_37",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 50552,
+   "name": "initialize_drop_actor",
+   "type": "UserDefined",
+   "kind": "user"
   },
   {
    "address": 50585,
@@ -590,16 +681,40 @@
    "kind": "auto"
   },
   {
+   "address": 50586,
+   "name": "initialize_type_3a",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 50599,
+   "name": "initialize_type_3d",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 50604,
+   "name": "initialize_type_3b_or_3c",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
    "address": 50606,
-   "name": "j_C5AE",
+   "name": "initialize_fragment_timer_and_flags",
    "type": "Jump",
-   "kind": "auto"
+   "kind": "user"
   },
   {
    "address": 50614,
-   "name": "j_C5B6",
+   "name": "initialize_fragment_extents",
    "type": "Jump",
-   "kind": "auto"
+   "kind": "user"
+  },
+  {
+   "address": 50639,
+   "name": "initialize_type_2b",
+   "type": "UserDefined",
+   "kind": "user"
   },
   {
    "address": 50648,
@@ -608,10 +723,22 @@
    "kind": "user"
   },
   {
+   "address": 50649,
+   "name": "replace_sequence_actor",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
    "address": 50690,
    "name": "r_C602",
    "type": "Return",
    "kind": "auto"
+  },
+  {
+   "address": 50691,
+   "name": "update_type_27",
+   "type": "UserDefined",
+   "kind": "user"
   },
   {
    "address": 50708,
@@ -638,10 +765,28 @@
    "kind": "auto"
   },
   {
+   "address": 50782,
+   "name": "update_linked_type_28",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 50815,
+   "name": "update_linked_type_29",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 50850,
+   "name": "update_linked_type_2a",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
    "address": 50885,
-   "name": "j_C6C5",
+   "name": "copy_linked_actor_frame",
    "type": "Jump",
-   "kind": "auto"
+   "kind": "user"
   },
   {
    "address": 50905,
@@ -668,10 +813,28 @@
    "kind": "auto"
   },
   {
+   "address": 50933,
+   "name": "r_C6F5",
+   "type": "Return",
+   "kind": "auto"
+  },
+  {
+   "address": 50934,
+   "name": "update_type_35",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
    "address": 50949,
    "name": "b_C705",
    "type": "Branch",
    "kind": "auto"
+  },
+  {
+   "address": 50952,
+   "name": "update_type_36",
+   "type": "UserDefined",
+   "kind": "user"
   },
   {
    "address": 50981,
@@ -684,6 +847,12 @@
    "name": "b_C72A",
    "type": "Branch",
    "kind": "auto"
+  },
+  {
+   "address": 50989,
+   "name": "update_type_2c",
+   "type": "UserDefined",
+   "kind": "user"
   },
   {
    "address": 51024,
@@ -711,9 +880,9 @@
   },
   {
    "address": 51059,
-   "name": "j_C773",
+   "name": "update_walking_actor",
    "type": "Jump",
-   "kind": "auto"
+   "kind": "user"
   },
   {
    "address": 51093,
@@ -723,9 +892,15 @@
   },
   {
    "address": 51100,
-   "name": "f_C79C",
+   "name": "actor_direction_frame_offsets",
    "type": "Field",
-   "kind": "auto"
+   "kind": "user"
+  },
+  {
+   "address": 51116,
+   "name": "update_type_32",
+   "type": "UserDefined",
+   "kind": "user"
   },
   {
    "address": 51125,
@@ -753,9 +928,9 @@
   },
   {
    "address": 51176,
-   "name": "s_C7E8",
+   "name": "test_fragment_trigger",
    "type": "Subroutine",
-   "kind": "auto"
+   "kind": "user"
   },
   {
    "address": 51188,
@@ -764,10 +939,22 @@
    "kind": "auto"
   },
   {
+   "address": 51189,
+   "name": "update_type_2f",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
    "address": 51208,
    "name": "r_C808",
    "type": "Return",
    "kind": "auto"
+  },
+  {
+   "address": 51209,
+   "name": "update_type_30",
+   "type": "UserDefined",
+   "kind": "user"
   },
   {
    "address": 51228,
@@ -776,10 +963,16 @@
    "kind": "auto"
   },
   {
+   "address": 51229,
+   "name": "update_type_31",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
    "address": 51246,
-   "name": "b_C82E",
+   "name": "spawn_then_remove_parent",
    "type": "Branch",
-   "kind": "auto"
+   "kind": "user"
   },
   {
    "address": 51252,
@@ -789,9 +982,9 @@
   },
   {
    "address": 51253,
-   "name": "j_C835",
+   "name": "spawn_fragment_records",
    "type": "Jump",
-   "kind": "auto"
+   "kind": "user"
   },
   {
    "address": 51270,
@@ -807,15 +1000,51 @@
   },
   {
    "address": 51343,
-   "name": "a_C88F",
+   "name": "fragment_type_scratch",
    "type": "AbsoluteAddress",
-   "kind": "auto"
+   "kind": "user"
+  },
+  {
+   "address": 51344,
+   "name": "fragment_records_type_2f",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 51359,
+   "name": "fragment_records_type_30",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 51379,
+   "name": "fragment_records_type_31",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 51404,
+   "name": "fragment_records_type_27",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 51419,
+   "name": "update_type_2d",
+   "type": "UserDefined",
+   "kind": "user"
   },
   {
    "address": 51427,
    "name": "r_C8E3",
    "type": "Return",
    "kind": "auto"
+  },
+  {
+   "address": 51428,
+   "name": "update_type_2e",
+   "type": "UserDefined",
+   "kind": "user"
   },
   {
    "address": 51445,
@@ -828,6 +1057,12 @@
    "name": "r_C91A",
    "type": "Return",
    "kind": "auto"
+  },
+  {
+   "address": 51483,
+   "name": "update_type_33",
+   "type": "UserDefined",
+   "kind": "user"
   },
   {
    "address": 51512,
@@ -843,9 +1078,15 @@
   },
   {
    "address": 51532,
-   "name": "f_C94C",
+   "name": "type_33_frame_sequence",
    "type": "Field",
-   "kind": "auto"
+   "kind": "user"
+  },
+  {
+   "address": 51540,
+   "name": "update_type_34",
+   "type": "UserDefined",
+   "kind": "user"
   },
   {
    "address": 51571,
@@ -867,15 +1108,21 @@
   },
   {
    "address": 51606,
-   "name": "s_C996",
+   "name": "spawn_type_3b_burst",
    "type": "Subroutine",
-   "kind": "auto"
+   "kind": "user"
   },
   {
    "address": 51647,
-   "name": "s_C9BF",
+   "name": "spawn_type_3b_at_parent",
    "type": "Subroutine",
-   "kind": "auto"
+   "kind": "user"
+  },
+  {
+   "address": 51660,
+   "name": "update_type_37_when_sequence_active",
+   "type": "UserDefined",
+   "kind": "user"
   },
   {
    "address": 51688,
@@ -888,6 +1135,12 @@
    "name": "r_C9F9",
    "type": "Return",
    "kind": "auto"
+  },
+  {
+   "address": 51706,
+   "name": "update_drop_actor",
+   "type": "UserDefined",
+   "kind": "user"
   },
   {
    "address": 51729,
@@ -914,16 +1167,34 @@
    "kind": "auto"
   },
   {
+   "address": 51799,
+   "name": "update_type_3a",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
    "address": 51813,
    "name": "r_CA65",
    "type": "Return",
    "kind": "auto"
   },
   {
+   "address": 51814,
+   "name": "update_type_3b_or_3d",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
    "address": 51822,
    "name": "b_CA6E",
    "type": "Branch",
    "kind": "auto"
+  },
+  {
+   "address": 51833,
+   "name": "update_type_3c",
+   "type": "UserDefined",
+   "kind": "user"
   },
   {
    "address": 51843,
@@ -939,15 +1210,15 @@
   },
   {
    "address": 51860,
-   "name": "actor_return_ca94",
+   "name": "spawn_part_no_update",
    "type": "UserDefined",
    "kind": "user"
   },
   {
    "address": 51861,
-   "name": "j_CA95",
+   "name": "animate_playfield_glyphs",
    "type": "Jump",
-   "kind": "auto"
+   "kind": "user"
   },
   {
    "address": 51883,
@@ -969,27 +1240,39 @@
   },
   {
    "address": 51904,
-   "name": "f_CAC0",
+   "name": "glyph_animation_frame_ends",
    "type": "Field",
-   "kind": "auto"
+   "kind": "user"
   },
   {
    "address": 51908,
-   "name": "f_CAC4",
+   "name": "glyph_animation_frame_0",
    "type": "Field",
-   "kind": "auto"
+   "kind": "user"
+  },
+  {
+   "address": 51940,
+   "name": "glyph_animation_frame_1",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 51972,
+   "name": "glyph_animation_frame_2",
+   "type": "UserDefined",
+   "kind": "user"
   },
   {
    "address": 52004,
-   "name": "a_CB24",
+   "name": "glyph_animation_timer",
    "type": "AbsoluteAddress",
-   "kind": "auto"
+   "kind": "user"
   },
   {
    "address": 52005,
-   "name": "a_CB25",
+   "name": "glyph_animation_phase",
    "type": "AbsoluteAddress",
-   "kind": "auto"
+   "kind": "user"
   }
  ],
  "comments": [
@@ -1174,6 +1457,11 @@
    "text": "Remaining header bytes before the tile-patch pointer. The loader's stage-zero decision reads byte $C00A at $32DB."
   },
   {
+   "address": 49162,
+   "type": "line",
+   "text": "The stage switch compares this byte with index zero at $32DB. Equality allows the next test at $32E0 to skip a reload."
+  },
+  {
    "address": 49163,
    "type": "line",
    "text": "Pointer to the table of two-byte tile patch addresses read by $37B1 and $37B6."
@@ -1186,7 +1474,12 @@
   {
    "address": 49165,
    "type": "line",
-   "text": "Setup copies $C00D into $6F at $1573. The purpose of the adjacent header byte is open."
+   "text": "Setup copies $C00D into $6F at $1573. The following byte is the terrain comparison threshold for partner respawn."
+  },
+  {
+   "address": 49166,
+   "type": "line",
+   "text": "LEVELA passes $05 to the terrain check at $1ACA for each proposed respawn position near the surviving partner. The loop at $1D40 retries on carry set."
   },
   {
    "address": 49167,
@@ -1197,6 +1490,11 @@
    "address": 49168,
    "type": "line",
    "text": "High byte of the update callback loaded at $096A."
+  },
+  {
+   "address": 49169,
+   "type": "line",
+   "text": "LEVELA initializes this byte to zero. The callback at $C5D9 stores three. At $32E0 a nonzero value makes the loader continue even when $C00A matched the zero stage index."
   },
   {
    "address": 49170,
@@ -1309,14 +1607,354 @@
    "text": "A 1-column by 1-row tile patch, entry 15 in LEVELA's pointer table. The two dimensions precede 1 character bytes copied to the map by $37D5."
   },
   {
+   "address": 50154,
+   "type": "line",
+   "text": "Store $FF in the actor slot's field at $EA50,X and return."
+  },
+  {
+   "address": 50160,
+   "type": "line",
+   "text": "Initialize the actor's size and extent fields and clear the shared sequence flags at $1D/$1F. Set the linked-actor state through $C43A and allocate types $28, $29 and $2A with their parent fields pointing back to this slot."
+  },
+  {
+   "address": 50234,
+   "type": "line",
+   "text": "For the actor slot in X, set state $04 at $E930,X, set $EA50,X to $FF and set bit 4 at $E810,X. The initializer at $C3F0 calls this before allocating the three linked slots."
+  },
+  {
+   "address": 50253,
+   "type": "line",
+   "text": "Set the slot extent fields and bit 7 of $EB10. Fall through to the common initializer at $C467."
+  },
+  {
+   "address": 50279,
+   "type": "line",
+   "text": "Store state five, set bit 2 in the slot flags and initialize $E870,X to $0F."
+  },
+  {
+   "address": 50298,
+   "type": "line",
+   "text": "Set both slot size fields to two and $EA50,X to $FF."
+  },
+  {
+   "address": 50312,
+   "type": "line",
+   "text": "Set width and height fields to nine and sixteen, set $E9F0/$EA80 to three and five, then set motion and timing fields before entering $C467."
+  },
+  {
+   "address": 50345,
+   "type": "line",
+   "text": "Set flag bit 4, place the actor on row ten, and clear flag bit 6."
+  },
+  {
+   "address": 50358,
+   "type": "line",
+   "text": "Clear bit 6 in the slot flags and preserve the rest."
+  },
+  {
+   "address": 50367,
+   "type": "line",
+   "text": "Set dimensions ten by nineteen and state twelve, with $E9F0/$EA80 both two, $E780 at eight and $EB10 at $80."
+  },
+  {
+   "address": 50395,
+   "type": "line",
+   "text": "Write state $0C to $E930,X and return."
+  },
+  {
+   "address": 50401,
+   "type": "line",
+   "text": "Set dimensions eleven by nineteen and state four. Set $E9F0/$EA80 to one, $E780 to sixteen and $E840 to twenty."
+  },
+  {
+   "address": 50435,
+   "type": "line",
+   "text": "Set dimensions eleven by nineteen and set $E9F0/$EA80 to two. Continue through $C515 to enter state fourteen."
+  },
+  {
+   "address": 50453,
+   "type": "line",
+   "text": "Set state $0E in $E930,X."
+  },
+  {
+   "address": 50459,
+   "type": "line",
+   "text": "Set dimensions ten by eighteen, set $E9F0/$EA80 to two and four, select state two and set bit 7 of $EB10."
+  },
+  {
+   "address": 50493,
+   "type": "line",
+   "text": "Set dimensions ten by nineteen with $E9F0/$EA80 at two and four, then enter the state-fourteen path at $C515."
+  },
+  {
+   "address": 50516,
+   "type": "line",
+   "text": "Set a disabled timer at $EA50 and dimensions eight by eleven. Set the extent fields to four and six, clear flag bit 6 and set bit 4."
+  },
+  {
+   "address": 50552,
+   "type": "line",
+   "text": "Set dimensions two by three and $EA50,X to $FF. If the low three flag bits are nonzero, move them into the timer at $E840,X and clear those bits."
+  },
+  {
+   "address": 50586,
+   "type": "line",
+   "text": "Set $E870 to fifteen and set flag bit 5, then enter the common path at $C5B6."
+  },
+  {
+   "address": 50599,
+   "type": "line",
+   "text": "Set the timer value to thirty, then join the flag setup at $C5AE."
+  },
+  {
+   "address": 50604,
+   "type": "line",
+   "text": "Set the timer value to fifteen before the shared flag setup."
+  },
+  {
+   "address": 50606,
+   "type": "line",
+   "text": "Store the supplied timer in $E870 and set flag mask $34 before the common fragment initializer."
+  },
+  {
+   "address": 50614,
+   "type": "line",
+   "text": "Store the flag byte, set bit zero of $EB10, disable the $EA50 timer and set both size fields to one."
+  },
+  {
+   "address": 50639,
+   "type": "line",
+   "text": "Set flag bit 5 on the slot at X."
+  },
+  {
    "address": 50648,
    "type": "line",
    "text": "Return immediately from the actor callback. The corresponding descriptor slot passes control through $15EB and this RTS returns to the engine."
   },
   {
+   "address": 50649,
+   "type": "line",
+   "text": "When $1D is nonzero, record its low seven bits at $70 and set $1E and $C011 to three. Allocate a type $2B at the old actor's position, set its slot in $15 and mark the old slot for removal."
+  },
+  {
+   "address": 50691,
+   "type": "line",
+   "text": "Update through $38BD and stop early while $390C is set. Otherwise choose state from the test at $23B7. Carry from $2757 starts a twenty-count sequence, while the other path updates motion and periodically spawns three type $3C actors."
+  },
+  {
+   "address": 50782,
+   "type": "line",
+   "text": "Copy the parent slot's coordinates and add three to its coarse horizontal position, then update shared frame and state."
+  },
+  {
+   "address": 50815,
+   "type": "line",
+   "text": "Copy the parent slot's coordinates and add $0280 to its vertical position, then update shared frame and state."
+  },
+  {
+   "address": 50850,
+   "type": "line",
+   "text": "Copy the parent slot's coordinates with a three-unit horizontal and $0280 vertical offset, then enter the shared frame and state copy."
+  },
+  {
+   "address": 50885,
+   "type": "line",
+   "text": "Copy the parent's frame and state. Remove the linked actor when $390C is set or its parent changes type or is removed."
+  },
+  {
+   "address": 50918,
+   "type": "line",
+   "text": "Jump to the RTS at $C6F5. The branch from $C6E1 enters past this jump for the parent flag test."
+  },
+  {
+   "address": 50934,
+   "type": "line",
+   "text": "Choose frame $AB or $AC from flag bit 3 and enter the update shared at $C773."
+  },
+  {
+   "address": 50952,
+   "type": "line",
+   "text": "Every eighth update, toggle the low bit of the two-bit frame offset and select its second bit from flag bit 3. Then enter the shared update at $C773."
+  },
+  {
+   "address": 50989,
+   "type": "line",
+   "text": "Every second update, increment the four-frame phase. Select the frame-table group from the signed motion fields and the direction flag before entering the shared update at $C773."
+  },
+  {
+   "address": 51059,
+   "type": "line",
+   "text": "Set $E780 to $0C, call the shared actor handler and test its carry. When the local timer is clear and the player test passes, a zero seven-bit random sample queues effect $3D. Then continue through $1B64 with $08 set to four."
+  },
+  {
+   "address": 51100,
+   "type": "line",
+   "text": "The four groups of four frame offsets indexed at $C76D. On a nonzero $E7B0 the sign chooses group 0 or 4, and with $E780 nonzero the direction flag chooses group 8 or 12 when $E7B0 is zero."
+  },
+  {
+   "address": 51116,
+   "type": "line",
+   "text": "Choose frame offset zero or two from actor flag bit 3. Update through $2742 and $275A. With carry clear, process the $E840 timer and use $1B75 with mode four when it reaches zero."
+  },
+  {
+   "address": 51176,
+   "type": "line",
+   "text": "Call the test at $279E with A set to two, and on carry set run $2760 with A set to five."
+  },
+  {
+   "address": 51189,
+   "type": "line",
+   "text": "On carry from the trigger test, select the three fragment records at $C890 and start spawning type $32 through $C82E."
+  },
+  {
+   "address": 51209,
+   "type": "line",
+   "text": "On carry from the trigger test, use the four records at $C89F to spawn type $32."
+  },
+  {
+   "address": 51229,
+   "type": "line",
+   "text": "On carry from the trigger test, use the four entries at $C8B3. The path at $C82E spawns the selected actors and marks the original slot for removal."
+  },
+  {
+   "address": 51246,
+   "type": "line",
+   "text": "Call the fragment spawner at $C835, then set the parent's removal flag through $2739."
+  },
+  {
+   "address": 51253,
+   "type": "line",
+   "text": "Save A as the type and Y as the record count. Allocate one slot per five-byte record. Add the first two signed byte offsets to the parent's coarse coordinates and store the three remaining bytes in the child timer and motion fields."
+  },
+  {
+   "address": 51343,
+   "type": "line",
+   "text": "The spawner writes the child type here before calling the allocator for each record."
+  },
+  {
+   "address": 51344,
+   "type": "line",
+   "text": "Three five-byte child records. The fields are horizontal and vertical byte offsets, a timer copied to $E840 and $E870, then motion bytes for $E780 and $E7B0."
+  },
+  {
+   "address": 51359,
+   "type": "line",
+   "text": "Four five-byte spawn records for the trigger at $C809, using the same tuple as $C890."
+  },
+  {
+   "address": 51379,
+   "type": "line",
+   "text": "Five-byte tuples used by the trigger at $C81D. That call takes four records and starts at this address."
+  },
+  {
+   "address": 51399,
+   "type": "line",
+   "text": "A five-byte tuple between the end of the four-record group consumed at $C81D and the start of the type $27 group. Its caller is open."
+  },
+  {
+   "address": 51404,
+   "type": "line",
+   "text": "Three five-byte records selected by $C64E for the type $3C allocation."
+  },
+  {
+   "address": 51419,
+   "type": "line",
+   "text": "Call the shared updater at $287A only while the stage glyph phase at $CB25 equals zero."
+  },
+  {
+   "address": 51428,
+   "type": "line",
+   "text": "On the first update without flag bit 2, toggle direction and set bit 2. After the tests at $2757 and $1A57 pass, spawn type $39 three rows below and set its timer to twenty."
+  },
+  {
+   "address": 51483,
+   "type": "line",
+   "text": "Call $275A and update motion with $08 set to two. Every fifth tick, advance the low two frame bits and use flag bit 3 to choose the group indexed at $C94C."
+  },
+  {
+   "address": 51532,
+   "type": "line",
+   "text": "Two four-frame rows. The first is $A2/$A1/$A2/$A3 and the second is $A5/$A4/$A5/$A6. The direction flag selects the row."
+  },
+  {
+   "address": 51540,
+   "type": "line",
+   "text": "Run the shared update and decrement $E840. On underflow, reload twenty and toggle direction, then use $2760 to decide whether to spawn the actor burst at $C996. Independently toggle the frame every fifth tick."
+  },
+  {
+   "address": 51606,
+   "type": "line",
+   "text": "Spawn four type $3B actors. Set motion bytes $C0 and $40 in $E7B0 on the first two, set $E780 to $40 in the other two, and toggle the final child's direction flag."
+  },
+  {
+   "address": 51647,
+   "type": "line",
+   "text": "Allocate type $3B, set its $E870 timer to ten, and copy the parent's four coordinate bytes into its slot."
+  },
+  {
+   "address": 51660,
+   "type": "line",
+   "text": "If $1F is set, increment actor state and set flag bit 6. Test the active player or both players in a two-player game, using $1D to gate the overlap test. On success call $216F and mark the actor for removal."
+  },
+  {
+   "address": 51706,
+   "type": "line",
+   "text": "A carry from $22E5 advances the actor a row and updates the map. The $E840 timer either ends the actor or changes it to type $1A plus the timer, after which the routine updates its flags and checks for player contact."
+  },
+  {
+   "address": 51799,
+   "type": "line",
+   "text": "Call the shared update and count down $E840. On underflow, spawn the four-actor burst and mark this slot for removal."
+  },
+  {
+   "address": 51814,
+   "type": "line",
+   "text": "Count down the timer at $E870. Underflow removes the slot. Otherwise toggle bit 2 of $EB10 and run the shared update."
+  },
+  {
+   "address": 51833,
+   "type": "line",
+   "text": "Run the shared update. Remove the slot when flag bit 2 is clear or when $E870 underflows. Otherwise preserve bit 2."
+  },
+  {
    "address": 51860,
    "type": "line",
-   "text": "Return immediately from the actor callback. The corresponding descriptor slot passes control through $15EB and this RTS returns to the engine."
+   "text": "The callback at the end of the LEVELA actor routines returns immediately. The separate stage update starts at $CA95."
+  },
+  {
+   "address": 51861,
+   "type": "line",
+   "text": "Decrement the timer at $CB24. When it underflows, reload $0A and advance the phase at $CB25 modulo four. Copy 32 bytes backwards into $78D8\u2013$78F7, replacing glyphs $1B\u2013$1E in the playfield character set."
+  },
+  {
+   "address": 51904,
+   "type": "line",
+   "text": "The four phase offsets $1F, $3F, $5F and $3F point to the last byte of each 32-byte animation frame relative to $CAC4. The copying loop counts down from the selected end."
+  },
+  {
+   "address": 51908,
+   "type": "line",
+   "text": "Four consecutive eight-byte glyph bitmaps for animation phase 0. This frame replaces playfield glyphs $1B\u2013$1E."
+  },
+  {
+   "address": 51940,
+   "type": "line",
+   "text": "Four consecutive eight-byte glyph bitmaps for animation phase 1 and 3. This frame replaces playfield glyphs $1B\u2013$1E."
+  },
+  {
+   "address": 51972,
+   "type": "line",
+   "text": "Four consecutive eight-byte glyph bitmaps for animation phase 2. This frame replaces playfield glyphs $1B\u2013$1E."
+  },
+  {
+   "address": 52004,
+   "type": "line",
+   "text": "Countdown in calls to the stage update. Underflow reloads it with $0A and advances the animation phase."
+  },
+  {
+   "address": 52005,
+   "type": "line",
+   "text": "The update increments this value modulo four and uses it to index the backwards-copy offsets at $CAC0."
   }
  ]
 }

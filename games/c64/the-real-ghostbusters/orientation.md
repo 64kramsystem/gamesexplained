@@ -9,8 +9,8 @@ directory and file chains. It extracted directory files to `work/disk/`.
 ## Boot
 
 1. Start the installed VICE MCP v3.14.0 macOS arm64 headless build with dummy
-   audio. Use the assigned MCP port 23032 and monitor port 23033. The kit's
-   emulator check reported 56 passes and two failures. Host key names failed,
+   audio. The restored worktree uses MCP port 23040 and monitor port 23041.
+   The original emulator check reported 56 passes and two failures. Host key names failed,
    and the quirks probe hit a missing `checkpoints` result. Matrix keys,
    stopping execute and store checkpoints, stepping and snapshots passed.
 2. Autostart `R. GHOSTBUSTERS+` by name from the disk. Wait for the blue
@@ -35,8 +35,8 @@ The handler at `$0C31` acknowledges the VIC raster interrupt at
 | File | Evidence |
 | --- | --- |
 | R. GHOSTBUSTERS+ | The boot program is not present as a contiguous image in title or play. A 16-byte chunk search found four matches at the best alignment of each snapshot. |
-| LEVELA | The in-progress LOAD snapshot, `work/round1.vsf`, matches 8,203 of the 9,399 file payload bytes at `$6000`. The play snapshot no longer contains the packed file at that address. |
-| LEVELB–LEVELK, pictures, disk extras | Their directory entries are in `media.json`. The snapshot chunk search did not establish a mapping for these files. |
+| LEVELA–LEVELK | The eleven KERNAL-return snapshots `work/stage1-packed.vsf` through `work/stage11-packed.vsf` hold each complete disk payload at `$6000`. The stage expansion snapshots hold the decoded overlays. |
+| Picture and demo extras | Separate BASIC-startable files on the same disk. The directory entries and load evidence are in `media.json`. |
 
 During the first level load the CPU was in the KERNAL serial receive code
 with a return stack through `$5610` and `$3367`. The KERNAL filename
