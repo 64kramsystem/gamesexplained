@@ -6,7 +6,7 @@
 | Select Hyde Park, the Ice Caverns of Freezia, the Forests of Vegetablia, or the Atomic Mud Mines | live | Level selection screen and initial gameplay snapshots. |
 | The Fat Guy's headquarters | traced | Fresh menu shows the locked entry in blue. $0A66 enables it, and $14AD writes that flag on the campaign continuation path after the Mines. The fifth overlay was captured with a directed loader argument. |
 | Story panels entered between disk load and Hyde Park gameplay | live | Fire advanced the panels one at a time. |
-| Score, ammunition and lives displayed below the playfield | live | The Hyde Park screenshot shows a six-digit display and three icon groups. The exact assignment of the groups awaits code evidence. |
+| Score, ammunition and lives displayed below the playfield | live | The Hyde Park screenshot shows a six-digit display and three icon groups. The score redraw at $50A1 expands three packed decimal bytes into six glyphs. The counter paths at $50F1–$5154 redraw lives and both ammunition types. |
 | Movement, climbing, jumping and ducking | open | Joystick controls described in the manual. |
 | Shoot and use a charge | confirmed | Fire plus up and fire plus down hit separate ammunition-store instructions in Hyde Park. Exact traces are in facts.md. |
 | Slide a charge and attack at close range | open | Manual. |

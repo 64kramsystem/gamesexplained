@@ -101,11 +101,21 @@
   },
   {
    "start": 36536,
+   "end": 36559,
+   "type": "Byte"
+  },
+  {
+   "start": 36560,
    "end": 36828,
-   "type": "Undefined"
+   "type": "Byte"
   },
   {
    "start": 36829,
+   "end": 36830,
+   "type": "Byte"
+  },
+  {
+   "start": 36831,
    "end": 36863,
    "type": "Byte"
   },
@@ -1325,8 +1335,26 @@
    "kind": "user"
   },
   {
+   "address": 36536,
+   "name": "last_room_redraw_lookahead",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 36560,
+   "name": "headquarters_planar_pattern",
+   "type": "Data",
+   "kind": "user"
+  },
+  {
    "address": 36829,
-   "name": "zero_run_8fdd",
+   "name": "headquarters_last_pattern_masks",
+   "type": "Data",
+   "kind": "user"
+  },
+  {
+   "address": 36831,
+   "name": "zero_run_8fdf",
    "type": "Data",
    "kind": "user"
   },
@@ -2782,9 +2810,24 @@
    "text": "Room metatile IDs. At $5056 the expansion routine reads eight IDs per metatile column, one for each four-character strip down the playfield. This traced span occupies $8E00\u2013$8EB7."
   },
   {
+   "address": 36536,
+   "type": "line",
+   "text": "Three extra columns of eight metatile IDs as read by $5056. The final room transfer can enter at a camera origin beyond the regular scroll limit, and its redraw expands these additional columns into the lookahead buffer."
+  },
+  {
+   "address": 36560,
+   "type": "line",
+   "text": "Tail of a planar pattern in five-byte records aligned from $8EA4. Read the corresponding bit of each of the first four bytes as a four-bit index, most significant pixel first. The first three masks together cover all eight positions in each record. The fifth byte is zero, including the one at $8ED0 which completes the record starting at $8ECC. The last record starts at $8FDA and ends with two zero bytes at $8FDD\u2013$8FDE."
+  },
+  {
    "address": 36829,
    "type": "line",
-   "text": "Initial zero fill in the decompressed level image at $8FDD\u2013$8FFF. The write trace visits this entire run."
+   "text": "Two zero bytes complete the planar record at $8FDA. These are the fourth mask and the zero fifth byte."
+  },
+  {
+   "address": 36831,
+   "type": "line",
+   "text": "Initial zero fill in the decompressed level image after the final five-byte planar record."
   },
   {
    "address": 36864,
@@ -3479,7 +3522,7 @@
   {
    "address": 42048,
    "type": "line",
-   "text": "Exit list for directory entry 0, with 1 four-byte records before the zero terminator. The exit matcher at $1A79 tests the type and position and reads the destination fields from the matched record."
+   "text": "Exit list for directory entry 0, with 1 four-byte records before the zero terminator. The exit matcher at $1A79 tests the type and position. A matching room exit supplies a destination room and column."
   },
   {
    "address": 42053,
@@ -3489,7 +3532,7 @@
   {
    "address": 42262,
    "type": "line",
-   "text": "Exit list for directory entry 1, with 1 four-byte records before the zero terminator. The exit matcher at $1A79 tests the type and position and reads the destination fields from the matched record."
+   "text": "Exit list for directory entry 1, with 1 four-byte records before the zero terminator. The exit matcher at $1A79 tests the type and position. A matching room exit supplies a destination room and column."
   },
   {
    "address": 42267,
@@ -3499,7 +3542,7 @@
   {
    "address": 42352,
    "type": "line",
-   "text": "Exit list for directory entry 2, with 2 four-byte records before the zero terminator. The exit matcher at $1A79 tests the type and position and reads the destination fields from the matched record."
+   "text": "Exit list for directory entry 2, with 2 four-byte records before the zero terminator. The exit matcher at $1A79 tests the type and position. A matching room exit supplies a destination room and column."
   },
   {
    "address": 42361,
@@ -3509,7 +3552,7 @@
   {
    "address": 42566,
    "type": "line",
-   "text": "Exit list for directory entry 3, with 1 four-byte records before the zero terminator. The exit matcher at $1A79 tests the type and position and reads the destination fields from the matched record."
+   "text": "Exit list for directory entry 3, with 1 four-byte records before the zero terminator. The exit matcher at $1A79 tests the type and position. A matching room exit supplies a destination room and column."
   },
   {
    "address": 42571,
@@ -3519,7 +3562,7 @@
   {
    "address": 42716,
    "type": "line",
-   "text": "Exit list for directory entry 4, with 1 four-byte records before the zero terminator. The exit matcher at $1A79 tests the type and position and reads the destination fields from the matched record."
+   "text": "Exit list for directory entry 4, with 1 four-byte records before the zero terminator. The exit matcher at $1A79 tests the type and position. A matching room exit supplies a destination room and column."
   },
   {
    "address": 42721,
@@ -3529,7 +3572,7 @@
   {
    "address": 42802,
    "type": "line",
-   "text": "Exit list for directory entry 5, with 1 four-byte records before the zero terminator. The exit matcher at $1A79 tests the type and position and reads the destination fields from the matched record."
+   "text": "Exit list for directory entry 5, with 1 four-byte records before the zero terminator. The exit matcher at $1A79 tests the type and position. A matching room exit supplies a destination room and column."
   },
   {
    "address": 42807,
@@ -3539,7 +3582,7 @@
   {
    "address": 42904,
    "type": "line",
-   "text": "Exit list for directory entry 6, with 2 four-byte records before the zero terminator. The exit matcher at $1A79 tests the type and position and reads the destination fields from the matched record."
+   "text": "Exit list for directory entry 6, with 2 four-byte records before the zero terminator. The exit matcher at $1A79 tests the type and position. A matching room exit supplies a destination room and column."
   },
   {
    "address": 42913,
@@ -3549,7 +3592,7 @@
   {
    "address": 43214,
    "type": "line",
-   "text": "Exit list for directory entry 7, with 1 four-byte records before the zero terminator. The exit matcher at $1A79 tests the type and position and reads the destination fields from the matched record."
+   "text": "Exit list for directory entry 7, with 1 four-byte records before the zero terminator. The exit matcher at $1A79 tests the type and position. A matching record with bit seven set finishes the level at $143B."
   },
   {
    "address": 43219,

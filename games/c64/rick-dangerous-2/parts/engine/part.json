@@ -8,6 +8,11 @@
   "coverage": {
     "exclude": [
       [
+        "$0000",
+        "$00FF",
+        "The resident entry writes the two CPU port registers at $0D49 and clears all 254 remaining zero-page bytes at $0D3F before reading any of them. The level loader temporarily borrows this runtime page and restores it from the engine save buffer."
+      ],
+      [
         "$C400",
         "$C7E7",
         "Alternate screen page built by the room renderer. All 1000 cells are zero at the resident handover and cleared by $52C9\u2013$52D5 before being drawn."
@@ -22,137 +27,137 @@
       [
         "$C800",
         "$D7FF",
-        "Resident VIC shape data and sprite workspace"
+        "Resident VIC shapes, the gameplay panel and its sprite pointers."
       ],
       [
         "$0660",
         "$06C9",
-        "Present at the $0400 entry and unchanged in the Hyde Park gameplay snapshot. Function pending."
+        "Display records for the high-score name entry."
       ],
       [
         "$104A",
         "$106F",
-        "Present at the $0400 entry and unchanged in the Hyde Park gameplay snapshot. Function pending."
+        "Raster interrupt path that stages lower sprites."
       ],
       [
         "$2E0A",
         "$2E14",
-        "Present at the $0400 entry and unchanged in the Hyde Park gameplay snapshot. Function pending."
+        "Routine that marks the object slots active."
       ],
       [
         "$48B1",
         "$48E7",
-        "Present at the $0400 entry and unchanged in the Hyde Park gameplay snapshot. Function pending."
+        "Animation sequences for the placed explosive and explosion."
       ],
       [
         "$4930",
         "$496E",
-        "Present at the $0400 entry and unchanged in the Hyde Park gameplay snapshot. Function pending."
+        "Special encounter motion and sprite sequences."
       ],
       [
         "$49B4",
         "$49FB",
-        "Present at the $0400 entry and unchanged in the Hyde Park gameplay snapshot. Function pending."
+        "Motion sequences followed by the special object slots."
       ],
       [
         "$4A3F",
         "$4BDE",
-        "Present at the $0400 entry and unchanged in the Hyde Park gameplay snapshot. Function pending."
+        "Character-code rows for the title, high scores and selection display."
       ],
       [
         "$4BE7",
         "$4F3B",
-        "Byte-for-byte match in the entry snapshot at $E808-$EB5C. Transfer path and purpose pending."
+        "Glyph exchange buffer used by $0C8E and paired with $E800 in the resident image."
       ],
       [
         "$593C",
         "$5951",
-        "Present at the $0400 entry and unchanged in the Hyde Park gameplay snapshot. Function pending."
+        "Title screen fire prompt."
       ],
       [
         "$5A51",
         "$5AFC",
-        "Present at the $0400 entry and unchanged in the Hyde Park gameplay snapshot. Function pending."
+        "Display records behind the high-score names and values."
       ],
       [
         "$5B65",
         "$5B94",
-        "Present at the $0400 entry and unchanged in the Hyde Park gameplay snapshot. Function pending."
+        "Saved high-score name records."
       ],
       [
         "$5F38",
         "$5F43",
-        "Present at the $0400 entry and unchanged in the Hyde Park gameplay snapshot. Function pending."
+        "Jump entries for the playlist command dispatcher."
       ],
       [
         "$6405",
         "$6412",
-        "Present at the $0400 entry and unchanged in the Hyde Park gameplay snapshot. Function pending."
+        "Playlist handler that changes a channel instrument-map entry."
       ],
       [
         "$6FE6",
         "$7005",
-        "Present at the $0400 entry and unchanged in the Hyde Park gameplay snapshot. Function pending."
+        "High frequency bytes used by the effect driver."
       ],
       [
         "$7046",
         "$7065",
-        "Present at the $0400 entry and unchanged in the Hyde Park gameplay snapshot. Function pending."
+        "Low frequency bytes used by the effect driver."
       ],
       [
         "$76AE",
         "$76D4",
-        "Present at the $0400 entry and unchanged in the Hyde Park gameplay snapshot. Function pending."
+        "Screen and colour continuation selectors in the scroll scheduler."
       ],
       [
         "$76E2",
         "$7708",
-        "Present at the $0400 entry and unchanged in the Hyde Park gameplay snapshot. Function pending."
+        "Second set of continuation selectors in the scroll scheduler."
       ],
       [
         "$771A",
         "$7740",
-        "Present at the $0400 entry and unchanged in the Hyde Park gameplay snapshot. Function pending."
+        "Third set of continuation selectors in the scroll scheduler."
       ],
       [
         "$774E",
         "$77CC",
-        "Present at the $0400 entry and unchanged in the Hyde Park gameplay snapshot. Function pending."
+        "Scroll scheduling and screen-copy continuations."
       ],
       [
         "$780D",
         "$79E9",
-        "Present at the $0400 entry and unchanged in the Hyde Park gameplay snapshot. Function pending."
+        "Further screen-copy continuations entered through the scroll dispatch tables."
       ],
       [
         "$7D39",
         "$7D47",
-        "Present at the $0400 entry and unchanged in the Hyde Park gameplay snapshot. Function pending."
+        "Fixed suffix appended to the level number for the streamed disk filename."
       ],
       [
         "$7D97",
         "$7DAC",
-        "Present at the $0400 entry and unchanged in the Hyde Park gameplay snapshot. Function pending."
+        "Bytes before the duplicate finish path and the duplicate loader exit."
       ],
       [
         "$7DD8",
         "$7ECB",
-        "Present at the $0400 entry and unchanged in the Hyde Park gameplay snapshot. Function pending."
+        "Tape load prompt, KERNAL tape workspace setup and level filename data."
       ],
       [
         "$84F2",
         "$85B1",
-        "Present at the $0400 entry and unchanged in the Hyde Park gameplay snapshot. Function pending."
+        "Per-picture colours for the story display."
       ],
       [
         "$86C6",
         "$86EE",
-        "Present at the $0400 entry and unchanged in the Hyde Park gameplay snapshot. Function pending."
+        "Resident image end message."
       ],
       [
         "$C7E8",
         "$C7F7",
-        "Present at the $0400 entry and unchanged in the Hyde Park gameplay snapshot. Function pending."
+        "Resident screen-page tail before the VIC sprite pointer bytes."
       ]
     ],
     "include": [
