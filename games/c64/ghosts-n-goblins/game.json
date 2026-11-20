@@ -1,0 +1,140 @@
+{
+  "schema": 1,
+  "platform": "c64",
+  "slug": "ghosts-n-goblins",
+  "title": "Ghosts 'n Goblins",
+  "year": 1986,
+  "publisher": "Elite Systems",
+  "developer": "Chris Butler",
+  "title_image": "reference/title.png",
+  "build": "PAL retail disk",
+  "tier": "bronze",
+  "coverage_percent": 100.0,
+  "copy": "agent-draft",
+  "steward": "",
+  "credits": [],
+  "tools": {
+    "emulator": "VICE v3.14.0 macOS arm64 headless, dummy audio",
+    "disassembler": "regenerator2000"
+  },
+  "model": "gpt-6.2-sol",
+  "step_models": {
+    "50-coverage": [
+      "gpt-6.2-sol"
+    ],
+    "60-verify": [
+      "gpt-6.2-sol"
+    ]
+  },
+  "accuracy": [
+    {
+      "step": "research",
+      "web": true,
+      "models": [
+        "gpt-6.2-sol"
+      ]
+    },
+    {
+      "step": "annotate",
+      "models": [
+        "gpt-6.2-sol"
+      ]
+    },
+    {
+      "step": "sample",
+      "size": 60,
+      "wrong": 18,
+      "fixed": 18,
+      "seed": 54221,
+      "models": [
+        "gpt-6.2-sol"
+      ]
+    }
+  ],
+  "kit_version": "0.0.360",
+  "created": "2026-11-20",
+  "video": {
+    "screen": "$F400",
+    "charset": ""
+  },
+  "coverage": {
+    "extra": [
+      [
+        "$0850",
+        "$3FFF",
+        "Main program and tables from file .5 at the loader handoff"
+      ],
+      [
+        "$4000",
+        "$CFFF",
+        "Resident map, program and tables from file .4"
+      ],
+      [
+        "$D000",
+        "$F3FF",
+        "Relocated graphics from file .3"
+      ],
+      [
+        "$F800",
+        "$FFF7",
+        "Relocated playfield glyphs and alternate animation image from file .3"
+      ]
+    ],
+    "include": [
+      [
+        "$D000",
+        "$DFFF",
+        "VIC-II graphics in the underlying RAM, copied by the loader at $7148"
+      ]
+    ],
+    "exclude": [
+      [
+        "$0000",
+        "$00FF",
+        "Processor port and runtime scratch. Disk payloads .3, .4 and .5 load elsewhere."
+      ],
+      [
+        "$0400",
+        "$07FF",
+        "BASIC system output on the loader snapshot, including the autostart load message."
+      ],
+      [
+        "$2C1F",
+        "$2C22",
+        "Four gap bytes after the unconditional ladder-path jump. Neither table reference can index this high, and no exec, load or store watchpoint hit during the four stage-start probes."
+      ],
+      [
+        "$35AA",
+        "$37FF",
+        "Filled workspace tail after the name selector. RAM fill repeats across pages; the bounded actor, encounter and name arrays end before this range. No execute, load or store was observed in the four stage-start probes."
+      ],
+      [
+        "$3FE9",
+        "$3FFF",
+        "Load-tail bytes after the last score phrase terminates at $3FE7. No phrase pointer addresses this range."
+      ],
+      [
+        "$CFD0",
+        "$CFFF",
+        "Load-tail bytes after the paired terminator of the last gameplay sound effect at $CFCE-$CFCF. The decoder stops at the first $FF."
+      ],
+      [
+        "$F400",
+        "$F7FF",
+        "Generated character screen and sprite pointers. The loader copy carries alternating $FF/$00 fill in this page block; startup writes every displayed row and the raster writes sprite pointers."
+      ]
+    ]
+  },
+  "io": [],
+  "regions": [],
+  "links": {
+    "wiki": {
+      "title": "Ghosts'n Goblins — C64-Wiki",
+      "url": "https://www.c64-wiki.com/wiki/Ghosts%27n_Goblins"
+    },
+    "manual": {
+      "title": "Ghosts 'n' Goblins — Elite instructions",
+      "url": "https://www.c64games.de/hugo.php?helpfiles=/g/ghosts_n_goblins_anl.zip"
+    }
+  }
+}

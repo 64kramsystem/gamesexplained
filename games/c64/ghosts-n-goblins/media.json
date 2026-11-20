@@ -1,0 +1,14 @@
+{"schema": 1,
+ "images": [
+  {"name": "pal", "file": "Ghosts'n_Goblins_(PAL).d64", "what": "disk side", "sha256": "b04f4ce4edb9ab729795b63bb297cbcfa8bbfcc63f1a067fc0309f60cd9416e3"}
+ ],
+ "items": [
+  {"image": "pal", "label": "GHOSTS N GOBLINS", "place": {"file": "GHOSTS N GOBLINS", "type": "PRG", "track": 12, "sector": 1}, "load": "$01F8", "bytes": 268, "sha256": "0db89d73c89176e5c0aa6f383d2456fd1d3815de11e15f97cc0b0d3e0657d495", "answer": "loader", "why": "Boot program at $01F8–$0303, with the numbered-file KERNAL LOAD helper at $02E5."},
+  {"image": "pal", "label": ".4", "place": {"file": ".4", "type": "PRG", "track": 19, "sector": 0}, "load": "$4000", "bytes": 36865, "sha256": "f6d9f2d82281384923ed78bba20131d387f56638fb5cf8b161618508e7580a0f", "answer": "part", "at": "$4000", "matched": 36817},
+  {"image": "pal", "label": ".5", "place": {"file": ".5", "type": "PRG", "track": 15, "sector": 0}, "load": "$0850", "bytes": 14256, "sha256": "00e339c71020d2d998a013be5ed2f8436e0166905d7e7b826ab391f6ef398dc4", "answer": "part", "at": "$0850", "matched": 13631},
+  {"image": "pal", "label": ".3", "place": {"file": ".3", "type": "PRG", "track": 10, "sector": 5}, "load": "$4000", "bytes": 12687, "sha256": "c5049bd7d91ce3a9b8114795b22e5460e5fb8d0cb8bbea7cd099644fd71c85ca", "answer": "part", "at": "$D000", "why": "Execute checkpoint at $7148 hit once. That routine copies $4000–$6FF7 to $D000–$FFF7, where all 12,280 bytes match at handoff. Its source also contains the copy routine and trailing bytes above $6FF7."},
+  {"image": "pal", "label": ".2", "place": {"file": ".2", "type": "PRG", "track": 9, "sector": 2}, "load": "$D800", "bytes": 1002, "sha256": "7c0c1cbb6bdeb2635ee232fe78816413d79bfb92a86b571e229ee2d6148b0d6b", "answer": "data", "why": "Colour RAM data for the loading picture, loaded to I/O at $D800."},
+  {"image": "pal", "label": ".1", "place": {"file": ".1", "type": "PRG", "track": 9, "sector": 7}, "load": "$0C00", "bytes": 13312, "sha256": "709cd58cdb4bd41bd75e6654cd4c9ad60fbcfefc851aa49235af70e2a9594610", "answer": "data", "why": "Bitmap and screen bytes for the loading picture. The loader selects bitmap mode and $D018=$39 before loading .3."},
+  {"image": "pal", "label": "track 12, sector 3", "place": {"track": 12, "sectors": [3, 3]}, "bytes": 256, "sha256": "5aa7ec546529d6d9ede3b17b3cf8ec4f19de6162b283afc500aafb5275297a77", "answer": "unused", "why": "First sector of an orphan two-sector bootstrap copy. It links to 12/13. The active directory entry instead follows 12/1 and 12/11; the active loader names .1 through .5."},
+  {"image": "pal", "label": "track 12, sector 13", "place": {"track": 12, "sectors": [13, 13]}, "bytes": 256, "sha256": "eff02fb05936bc3b5508c2344c49560b2e04ec486da6f68adc225884ec7db4f4", "answer": "unused", "why": "Terminal sector of the orphan bootstrap chain beginning at 12/3. Its payload ends in a duplicate numbered-file load stub; the active file chain excludes this sector."}
+ ]}
