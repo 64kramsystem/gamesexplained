@@ -1,0 +1,73 @@
+{
+  "title": "Resident engine and title",
+  "order": 1,
+  "video": {
+    "screen": "",
+    "charset": ""
+  },
+  "coverage": {
+    "exclude": [
+      [
+        "$CDB0",
+        "$CF12",
+        "X-Ray trainer during startup. An instruction breakpoint at $CDB0 reached it before the five N replies led to the $084C hand-over."
+      ],
+      [
+        "$0000",
+        "$07FF",
+        "Runtime workspace. VICE recorded no instruction fetches here in the sampled title and gameplay. The title temporarily holds the authored C800-CBFF tables at 0400-07FF before clearing that workspace."
+      ],
+      [
+        "$EA58",
+        "$EBFF",
+        "HUD display cells and sprite pointers. $84FD regenerates the screen from $E158 and $E200 and $8329 installs the sprite pointers. The authored templates are tracked at their original addresses."
+      ],
+      [
+        "$FFC0",
+        "$FFF7",
+        "X-Ray bootstrap bytes observed intact in the crack intro before engine depacking. The $0816/$0819 loader copy wrote the identical 56-byte sequence from $96AA-$96E1. The Censor release has different RAM here and the loader call at $FFC0 enters KERNAL ROM."
+      ]
+    ],
+    "extra": [],
+    "include": [
+      [
+        "$D000",
+        "$DFFF",
+        "VIC graphics in RAM beneath I/O. The title selects $D000 and uses sprites at $D300-$D4FF. The forest status panel selects $D800."
+      ]
+    ]
+  },
+  "io": [
+    [
+      "$0962",
+      "$098C",
+      "ram",
+      "Copy into RAM under the chips with the processor port set to $32."
+    ],
+    [
+      "$0859",
+      "$08F0",
+      "registers",
+      "Stage prompt VIC and CIA access with the port set to $35."
+    ],
+    [
+      "$098F",
+      "$0AFF",
+      "registers",
+      "Disk configuration and display writes with I/O visible."
+    ],
+    [
+      "$8000",
+      "$C15C",
+      "registers",
+      "The engine writes $35 at $800D and keeps I/O in view for gameplay and title."
+    ],
+    [
+      "$CD98",
+      "$CD9C",
+      "registers",
+      "Border writes while the KERNAL and I/O are banked in to read the disk."
+    ]
+  ],
+  "regions": []
+}
