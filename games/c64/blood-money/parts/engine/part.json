@@ -8,9 +8,74 @@
   "coverage": {
     "exclude": [
       [
+        "$0DAB",
+        "$0DEA",
+        "Runtime sprite cache free-list ring initialized at $CD85"
+      ],
+      [
+        "$0DEB",
+        "$0FEA",
+        "Runtime sprite frame slot and reference count arrays cleared at $CDA4 and $CDA7"
+      ],
+      [
+        "$10EA",
+        "$11D9",
+        "Runtime title animation countdowns copied from $16DE–$17CD at $C757"
+      ],
+      [
         "$4400",
         "$47FF",
         "Second VIC screen matrix and sprite pointers, selected at runtime"
+      ],
+      [
+        "$5C00",
+        "$5FFF",
+        "Runtime scroll staging buffer. Load and store watchpoints from the handover first hit the initialization stores at $CB60, $CB63, $CB66 and $CB69."
+      ],
+      [
+        "$059F",
+        "$05BE",
+        "Sprite slot occupancy and current command arrays cleared at $CD23 and $CD47. The range watchpoint first hit on the occupancy store at $CD23."
+      ],
+      [
+        "$0952",
+        "$0A5F",
+        "Runtime projectile state arrays. The initialization loop at $CCC4 writes every entry. The range watchpoint first hit at that store."
+      ],
+      [
+        "$0AE4",
+        "$0B43",
+        "Runtime tile-object state arrays. The level initialization loop at $CCE6 writes every entry. The range watchpoint first hit at that store."
+      ],
+      [
+        "$0D00",
+        "$0D23",
+        "Runtime small tile-slot occupancy and position arrays. The initialization loop at $CD05 writes every entry. The range watchpoint first hit at that store."
+      ],
+      [
+        "$0D48",
+        "$0D5F",
+        "Two runtime tile-slot character arrays cleared at $CD0E and $CD11. The range watchpoint first hit at $CD0E."
+      ],
+      [
+        "$0DA8",
+        "$0DA8",
+        "Runtime hostile-shot count initialized to zero. The watchpoint first hit on its store at $CD17."
+      ],
+      [
+        "$0002",
+        "$00FF",
+        "Zero-page workspace cleared at startup by the loop at $1CE8. A combined watchpoint from the resident handover first hit on that store instruction."
+      ],
+      [
+        "$0314",
+        "$0333",
+        "KERNAL RAM vectors. All 32 bytes exactly match the 901227-03 ROM table at $FD30."
+      ],
+      [
+        "$0D24",
+        "$0D2F",
+        "Editor template residue between 12-slot game arrays. Both release snapshots contain matching fragments of the for, do and switch templates. Read and write checkpoints at startup and all four level entries did not fire in the probe."
       ]
     ],
     "extra": [
@@ -35,28 +100,8 @@
         "Present at handover, attribution pending"
       ],
       [
-        "$0E2B",
-        "$0EE8",
-        "Present at handover, attribution pending"
-      ],
-      [
-        "$0EE9",
-        "$0EEA",
-        "Present at handover, attribution pending"
-      ],
-      [
-        "$0F2B",
-        "$0FEA",
-        "Present at handover, attribution pending"
-      ],
-      [
         "$1000",
         "$1000",
-        "Present at handover, attribution pending"
-      ],
-      [
-        "$1129",
-        "$11D9",
         "Present at handover, attribution pending"
       ],
       [

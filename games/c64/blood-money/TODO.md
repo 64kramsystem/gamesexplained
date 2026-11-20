@@ -1,18 +1,20 @@
 # Blood Money analysis handoff
 
-Step 50 is incomplete. The exported symbol maps and rebuilt listings give these exact ledger figures.
+The exact coverage ledger passes for the engine and all four overlays. The rebuilt listings report zero uncounted stretches.
 
-| Part | Explained bytes | Tracked bytes | Bare bytes |
-|---|---:|---:|---:|
-| Resident engine | 10,904 | 33,873 | 22,969 |
-| Level 1 | 14,723 | 21,469 | 6,746 |
-| Level 2 | 14,724 | 21,469 | 6,745 |
-| Level 3 | 13,373 | 21,470 | 8,097 |
-| Level 4 | 14,401 | 21,469 | 7,068 |
-| Total | 68,125 | 119,750 | 51,625 |
+| Part | Explained bytes | Tracked bytes |
+|---|---:|---:|
+| Resident engine | 31,749 | 31,749 |
+| Level 1 | 21,469 | 21,469 |
+| Level 2 | 21,469 | 21,469 |
+| Level 3 | 21,470 | 21,470 |
+| Level 4 | 21,469 | 21,469 |
+| Total | 117,626 | 117,626 |
 
-The largest engine gaps include the graphics around `$6F43`, the sound code around `$E44B`, and the routines and tables at `$2765` and `$38E0`. In the overlays, the remaining LEVEL bytes include commands and data after the event terminator and bytes after the sprite pointer tables. The DATA tails past the last indexed sprite record also remain bare. A file's disk load proves where its bytes go. Additional consumers must be traced before assigning meanings or excluding any tail.
+The engine and levels 1 through 3 use their part's `work/entry.vsf`. Level 4 uses `work/menu-entry.vsf`. The exported projects matching the listings are in each part's `work/resume-coverage.regen2000proj`. The disks, play snapshots, instruction watchpoint logs and independent sample are in the ignored work folders. The local rebuild command is `bash games/c64/blood-money/work/rebuild_analysis.sh`.
 
-The Syntax disk supplied the complete fourth-level load. Its separate boot PRG and picture remain open in `media.json`. The Accept disk and the two level 4 routes are documented in [orientation.md](orientation.md). The exact code and data work queues are reproducible with `coverage.py` on each part folder.
+The written routes in [orientation.md](orientation.md) reproduce the loader handovers. The verification probes start from saved states and test individual routines. The scoped analysis uses those routes and probes as its evidence, so 65-inputs did not require a recording.
 
-The analysis stopped at Step 50. Step 60 verification and the independent listing sample remain pending. The handoff has written reproduction routes and no replay recording. The model gate requires a proven-model check before any Silver designation.
+A listing audit is recommended. The first sample verified seven errors in 60 comments before corrections. [Facts and sample results](facts.md)
+
+The game remains Bronze pending a proven-model check and the minisite and reader review required for Silver. Score persistence and the consumer of the two extra hull mask banks at $5A00 and $5A80 remain open.
