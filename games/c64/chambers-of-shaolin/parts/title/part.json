@@ -1,0 +1,47 @@
+{
+  "title": "Thalion intro and title",
+  "order": 1,
+  "video": {
+    "screen": "",
+    "charset": ""
+  },
+  "coverage": {
+    "exclude": [
+      [
+        "$0334",
+        "$07FF",
+        "Residual packed stream copied by the depacker through ($FE),Y before the destination data is unpacked through ($FA),Y. The authored output starts at $0800."
+      ],
+      [
+        "$2000",
+        "$3FE0",
+        "The hand-over holds an exact copy of $4000-$5FE0. The title blanks the display and replaces the copy from a selected bitmap source before setting $D011 to show it."
+      ]
+    ],
+    "extra": [
+      [
+        "$0800",
+        "$CFFF",
+        "Depacker output from disk file LABLE, retained in full pending classification"
+      ],
+      [
+        "$E000",
+        "$FFFF",
+        "Depacker output from disk file LABLE, retained in full pending classification"
+      ]
+    ],
+    "include": []
+  },
+  "io": [],
+  "regions": [],
+  "ranges": [
+    [
+      "$0800",
+      "$CFFF"
+    ],
+    [
+      "$E000",
+      "$FFFF"
+    ]
+  ]
+}

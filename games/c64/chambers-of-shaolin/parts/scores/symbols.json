@@ -1,0 +1,940 @@
+{
+ "schema": 1,
+ "platform": "c64",
+ "game": "chambers-of-shaolin",
+ "part": "scores",
+ "build": "Overdrive disk release",
+ "source": "regen2000proj",
+ "regions": {
+  "exclude": [
+   [
+    256,
+    511,
+    "stack"
+   ],
+   [
+    53248,
+    57343,
+    "I/O and colour RAM"
+   ],
+   [
+    820,
+    2047,
+    "Residual packed stream copied by the depacker through ($FE),Y before the destination data is unpacked through ($FA),Y. The authored output starts at $0800."
+   ],
+   [
+    5120,
+    40959,
+    "Zero-filled gap between the score backdrop and the RAM under BASIC ROM. The score program has no display, code or data in this region. A watch from hand-over through the reload request saw no stores or execution and caught only two KERNAL BIT skip operands at $2009 and $3FA9."
+   ],
+   [
+    59087,
+    59176,
+    "Runtime music player state cleared in full by $E003 before the score IRQ is enabled."
+   ],
+   [
+    2816,
+    4095,
+    "Zero-filled region after the glyphs. In both score insertion cases the displayed matrix used codes through $4D, and read, write and execution watches saw no accesses between entry and the next LOAD."
+   ],
+   [
+    40961,
+    49663,
+    "Zero-filled region before the score program. Read, write and execution watches from entry to the next LOAD saw no accesses with either a bottom or top score."
+   ],
+   [
+    0,
+    2047,
+    "Thalion intro and title"
+   ],
+   [
+    51712,
+    57343,
+    "Thalion intro and title"
+   ],
+   [
+    61440,
+    65535,
+    "Thalion intro and title"
+   ]
+  ],
+  "extra": [
+   [
+    2048,
+    51711,
+    "Depacker output from disk file HIGH, retained in full pending classification"
+   ],
+   [
+    57344,
+    61439,
+    "Depacker output from disk file HIGH, retained in full pending classification"
+   ]
+  ],
+  "edges": [
+   0,
+   256,
+   512,
+   1024,
+   2048,
+   4096,
+   16384,
+   32768,
+   40960,
+   49152,
+   53248,
+   57344
+  ],
+  "elsewhere": [
+   [
+    0,
+    2047,
+    "Thalion intro and title"
+   ],
+   [
+    51712,
+    57343,
+    "Thalion intro and title"
+   ],
+   [
+    61440,
+    65535,
+    "Thalion intro and title"
+   ]
+  ]
+ },
+ "blocks": [
+  {
+   "start": 2048,
+   "end": 2815,
+   "type": "Byte"
+  },
+  {
+   "start": 2816,
+   "end": 4095,
+   "type": "Undefined"
+  },
+  {
+   "start": 4096,
+   "end": 5119,
+   "type": "Screencode"
+  },
+  {
+   "start": 5120,
+   "end": 49663,
+   "type": "Undefined"
+  },
+  {
+   "start": 49664,
+   "end": 49735,
+   "type": "Code"
+  },
+  {
+   "start": 49736,
+   "end": 49767,
+   "type": "Code"
+  },
+  {
+   "start": 49768,
+   "end": 50027,
+   "type": "Code"
+  },
+  {
+   "start": 50028,
+   "end": 50157,
+   "type": "Code"
+  },
+  {
+   "start": 50158,
+   "end": 50199,
+   "type": "Code"
+  },
+  {
+   "start": 50200,
+   "end": 50225,
+   "type": "Code"
+  },
+  {
+   "start": 50226,
+   "end": 50257,
+   "type": "Code"
+  },
+  {
+   "start": 50258,
+   "end": 50303,
+   "type": "Code"
+  },
+  {
+   "start": 50304,
+   "end": 50410,
+   "type": "Code"
+  },
+  {
+   "start": 50411,
+   "end": 50450,
+   "type": "Code"
+  },
+  {
+   "start": 50451,
+   "end": 50571,
+   "type": "Code"
+  },
+  {
+   "start": 50572,
+   "end": 50614,
+   "type": "Code"
+  },
+  {
+   "start": 50615,
+   "end": 50684,
+   "type": "Code"
+  },
+  {
+   "start": 50685,
+   "end": 50847,
+   "type": "Undefined"
+  },
+  {
+   "start": 50848,
+   "end": 50879,
+   "type": "Address"
+  },
+  {
+   "start": 50880,
+   "end": 50911,
+   "type": "Address"
+  },
+  {
+   "start": 50912,
+   "end": 50943,
+   "type": "Address"
+  },
+  {
+   "start": 50944,
+   "end": 50975,
+   "type": "Address"
+  },
+  {
+   "start": 50976,
+   "end": 51055,
+   "type": "PETSCII"
+  },
+  {
+   "start": 51056,
+   "end": 51135,
+   "type": "PETSCII"
+  },
+  {
+   "start": 51136,
+   "end": 51215,
+   "type": "PETSCII"
+  },
+  {
+   "start": 51216,
+   "end": 51295,
+   "type": "PETSCII"
+  },
+  {
+   "start": 51296,
+   "end": 51299,
+   "type": "Undefined"
+  },
+  {
+   "start": 51300,
+   "end": 51303,
+   "type": "PETSCII"
+  },
+  {
+   "start": 51304,
+   "end": 51363,
+   "type": "Byte"
+  },
+  {
+   "start": 51364,
+   "end": 51455,
+   "type": "Undefined"
+  },
+  {
+   "start": 51456,
+   "end": 51499,
+   "type": "Code"
+  },
+  {
+   "start": 51500,
+   "end": 51711,
+   "type": "Undefined"
+  },
+  {
+   "start": 57344,
+   "end": 57346,
+   "type": "Code"
+  },
+  {
+   "start": 57347,
+   "end": 57411,
+   "type": "Code"
+  },
+  {
+   "start": 57412,
+   "end": 57518,
+   "type": "Code"
+  },
+  {
+   "start": 57519,
+   "end": 57552,
+   "type": "Code"
+  },
+  {
+   "start": 57553,
+   "end": 58622,
+   "type": "Code"
+  },
+  {
+   "start": 58623,
+   "end": 59176,
+   "type": "Undefined"
+  },
+  {
+   "start": 59177,
+   "end": 59208,
+   "type": "Address"
+  },
+  {
+   "start": 59209,
+   "end": 59214,
+   "type": "Byte"
+  },
+  {
+   "start": 59215,
+   "end": 59215,
+   "type": "Byte"
+  },
+  {
+   "start": 59216,
+   "end": 59515,
+   "type": "Undefined"
+  },
+  {
+   "start": 59516,
+   "end": 59518,
+   "type": "Byte"
+  },
+  {
+   "start": 59519,
+   "end": 59558,
+   "type": "Byte"
+  },
+  {
+   "start": 59559,
+   "end": 59589,
+   "type": "Byte"
+  },
+  {
+   "start": 59590,
+   "end": 59595,
+   "type": "Byte"
+  },
+  {
+   "start": 59596,
+   "end": 59666,
+   "type": "Byte"
+  },
+  {
+   "start": 59667,
+   "end": 59697,
+   "type": "Byte"
+  },
+  {
+   "start": 59698,
+   "end": 59770,
+   "type": "Byte"
+  },
+  {
+   "start": 59771,
+   "end": 59800,
+   "type": "Byte"
+  },
+  {
+   "start": 59801,
+   "end": 59829,
+   "type": "Byte"
+  },
+  {
+   "start": 59830,
+   "end": 59835,
+   "type": "Byte"
+  },
+  {
+   "start": 59836,
+   "end": 59910,
+   "type": "Byte"
+  },
+  {
+   "start": 59911,
+   "end": 59946,
+   "type": "Byte"
+  },
+  {
+   "start": 59947,
+   "end": 59991,
+   "type": "Byte"
+  },
+  {
+   "start": 59992,
+   "end": 60065,
+   "type": "Byte"
+  },
+  {
+   "start": 60066,
+   "end": 60116,
+   "type": "Byte"
+  },
+  {
+   "start": 60117,
+   "end": 61439,
+   "type": "Undefined"
+  }
+ ],
+ "symbols": [
+  {
+   "address": 2048,
+   "name": "score_font",
+   "type": "Data",
+   "kind": "user"
+  },
+  {
+   "address": 4096,
+   "name": "score_backdrop",
+   "type": "Data",
+   "kind": "user"
+  },
+  {
+   "address": 49664,
+   "name": "score_screen_entry",
+   "type": "Subroutine",
+   "kind": "user"
+  },
+  {
+   "address": 49736,
+   "name": "restore_vic_preset",
+   "type": "Subroutine",
+   "kind": "user"
+  },
+  {
+   "address": 49768,
+   "name": "locate_score_insertion",
+   "type": "Subroutine",
+   "kind": "user"
+  },
+  {
+   "address": 50028,
+   "name": "format_score_decimal",
+   "type": "Subroutine",
+   "kind": "user"
+  },
+  {
+   "address": 50158,
+   "name": "add_decimal_contribution",
+   "type": "Subroutine",
+   "kind": "user"
+  },
+  {
+   "address": 50200,
+   "name": "read_score_file",
+   "type": "Subroutine",
+   "kind": "user"
+  },
+  {
+   "address": 50226,
+   "name": "save_score_file",
+   "type": "Subroutine",
+   "kind": "user"
+  },
+  {
+   "address": 50258,
+   "name": "blank_screen",
+   "type": "Subroutine",
+   "kind": "user"
+  },
+  {
+   "address": 50304,
+   "name": "draw_score_backdrop",
+   "type": "Subroutine",
+   "kind": "user"
+  },
+  {
+   "address": 50411,
+   "name": "draw_score_text",
+   "type": "Subroutine",
+   "kind": "user"
+  },
+  {
+   "address": 50451,
+   "name": "draw_score_message",
+   "type": "Subroutine",
+   "kind": "user"
+  },
+  {
+   "address": 50572,
+   "name": "install_score_irq",
+   "type": "Subroutine",
+   "kind": "user"
+  },
+  {
+   "address": 50615,
+   "name": "run_score_irq",
+   "type": "Subroutine",
+   "kind": "user"
+  },
+  {
+   "address": 50848,
+   "name": "score_units_pointers",
+   "type": "Data",
+   "kind": "user"
+  },
+  {
+   "address": 50880,
+   "name": "score_sixteens_pointers",
+   "type": "Data",
+   "kind": "user"
+  },
+  {
+   "address": 50912,
+   "name": "score_256s_pointers",
+   "type": "Data",
+   "kind": "user"
+  },
+  {
+   "address": 50944,
+   "name": "score_4096s_pointers",
+   "type": "Data",
+   "kind": "user"
+  },
+  {
+   "address": 50976,
+   "name": "score_units_strings",
+   "type": "Data",
+   "kind": "user"
+  },
+  {
+   "address": 51056,
+   "name": "score_sixteens_strings",
+   "type": "Data",
+   "kind": "user"
+  },
+  {
+   "address": 51136,
+   "name": "score_256s_strings",
+   "type": "Data",
+   "kind": "user"
+  },
+  {
+   "address": 51216,
+   "name": "score_4096s_strings",
+   "type": "Data",
+   "kind": "user"
+  },
+  {
+   "address": 51300,
+   "name": "score_filenames",
+   "type": "Data",
+   "kind": "user"
+  },
+  {
+   "address": 51304,
+   "name": "score_records",
+   "type": "Data",
+   "kind": "user"
+  },
+  {
+   "address": 51456,
+   "name": "leave_scores",
+   "type": "Subroutine",
+   "kind": "user"
+  },
+  {
+   "address": 57344,
+   "name": "play_score_music",
+   "type": "Subroutine",
+   "kind": "user"
+  },
+  {
+   "address": 57347,
+   "name": "initialize_score_music",
+   "type": "Subroutine",
+   "kind": "user"
+  },
+  {
+   "address": 57412,
+   "name": "read_score_track_command",
+   "type": "Subroutine",
+   "kind": "user"
+  },
+  {
+   "address": 57519,
+   "name": "update_score_voices",
+   "type": "Subroutine",
+   "kind": "user"
+  },
+  {
+   "address": 57553,
+   "name": "read_score_phrase_byte",
+   "type": "Subroutine",
+   "kind": "user"
+  },
+  {
+   "address": 59177,
+   "name": "score_music_phrase_pointers",
+   "type": "Data",
+   "kind": "user"
+  },
+  {
+   "address": 59209,
+   "name": "score_music_voice_start",
+   "type": "Data",
+   "kind": "user"
+  },
+  {
+   "address": 59215,
+   "name": "score_music_tempo",
+   "type": "Data",
+   "kind": "user"
+  },
+  {
+   "address": 59516,
+   "name": "score_phrase_e87c",
+   "type": "Data",
+   "kind": "user"
+  },
+  {
+   "address": 59519,
+   "name": "score_phrase_e87f",
+   "type": "Data",
+   "kind": "user"
+  },
+  {
+   "address": 59559,
+   "name": "score_phrase_e8a7",
+   "type": "Data",
+   "kind": "user"
+  },
+  {
+   "address": 59590,
+   "name": "score_phrase_e8c6",
+   "type": "Data",
+   "kind": "user"
+  },
+  {
+   "address": 59596,
+   "name": "score_phrase_e8cc",
+   "type": "Data",
+   "kind": "user"
+  },
+  {
+   "address": 59667,
+   "name": "score_phrase_e913",
+   "type": "Data",
+   "kind": "user"
+  },
+  {
+   "address": 59698,
+   "name": "score_phrase_e932",
+   "type": "Data",
+   "kind": "user"
+  },
+  {
+   "address": 59771,
+   "name": "score_phrase_e97b",
+   "type": "Data",
+   "kind": "user"
+  },
+  {
+   "address": 59801,
+   "name": "score_phrase_e999",
+   "type": "Data",
+   "kind": "user"
+  },
+  {
+   "address": 59830,
+   "name": "score_phrase_e9b6",
+   "type": "Data",
+   "kind": "user"
+  },
+  {
+   "address": 59836,
+   "name": "score_phrase_e9bc",
+   "type": "Data",
+   "kind": "user"
+  },
+  {
+   "address": 59911,
+   "name": "score_phrase_ea07",
+   "type": "Data",
+   "kind": "user"
+  },
+  {
+   "address": 59947,
+   "name": "score_phrase_ea2b",
+   "type": "Data",
+   "kind": "user"
+  },
+  {
+   "address": 59992,
+   "name": "score_phrase_ea58",
+   "type": "Data",
+   "kind": "user"
+  },
+  {
+   "address": 60066,
+   "name": "score_phrase_eaa2",
+   "type": "Data",
+   "kind": "user"
+  }
+ ],
+ "comments": [
+  {
+   "address": 2048,
+   "type": "line",
+   "text": "Three pages of glyphs beginning at $0800. The score screen selects this character RAM through $D018."
+  },
+  {
+   "address": 4096,
+   "type": "line",
+   "text": "Four pages of authored score-screen cells copied to $0400 before the name and number overlays."
+  },
+  {
+   "address": 49664,
+   "type": "line",
+   "text": "Installs a VIC-II preset, selects the $0800 character generator, and runs score insertion before drawing the scores and starting the screen's sound. Waits on a CIA1 port A reading of $6F before muting the SID and leaving via $C900."
+  },
+  {
+   "address": 49736,
+   "type": "line",
+   "text": "Sets the KERNAL input and output device numbers to 0 and 3. Copies the VIC-II preset from $ECB9, leaving display control, border and background colour unchanged."
+  },
+  {
+   "address": 49768,
+   "type": "line",
+   "text": "Starts with five entries and a twelve-byte stride. Compares the high score byte at $CE20 against $C869 plus the table index before consulting the low byte at $CE1F."
+  },
+  {
+   "address": 50028,
+   "type": "line",
+   "text": "Splits the two-byte binary score in $C699/$C69A into four nibbles. Uses each nibble to choose a decimal place contribution and adds them into the five output digits."
+  },
+  {
+   "address": 50158,
+   "type": "line",
+   "text": "Adds the five digits addressed by the patched operand at $C3F1 to the output at $C69B. On a sum of ten or more, writes the digit modulo ten and carries one into the next position."
+  },
+  {
+   "address": 50200,
+   "type": "line",
+   "text": "Calls the KERNAL with device 8, secondary address zero and the name H. Requests the destination $C868 in X and Y."
+  },
+  {
+   "address": 50226,
+   "type": "line",
+   "text": "Saves the five 12-byte score records from $C868 through $C8A3. Supplies the replacement filename @:H and the exclusive end address $C8A4."
+  },
+  {
+   "address": 50258,
+   "type": "line",
+   "text": "At raster $FF, sets border and background to black and blanks the display. Returns after 100 successful reads of raster line zero."
+  },
+  {
+   "address": 50304,
+   "type": "line",
+   "text": "Copies the four-page score matrix from $1000 into screen RAM. Sets colour RAM based on the copied character codes and selects multicolour character mode."
+  },
+  {
+   "address": 50411,
+   "type": "line",
+   "text": "Indexes the message sequence list, drawing each entry through $C513 until $FF."
+  },
+  {
+   "address": 50451,
+   "type": "line",
+   "text": "Uses row and column from the selected message to address screen RAM, converts its letters to screen codes and handles $FE for another row and $FF for the end."
+  },
+  {
+   "address": 50572,
+   "type": "line",
+   "text": "Masks CIA1 interrupt sources and selects RAM under the KERNAL. Calls $E003 to initialize the tune and installs the hardware IRQ vector at $C5B7."
+  },
+  {
+   "address": 50615,
+   "type": "line",
+   "text": "Acknowledges the VIC-II raster IRQ, preserves A, X, Y and the sound player scratch at $FA\u2013$FF, and calls the player at $E000. Restores the compare to line zero."
+  },
+  {
+   "address": 50848,
+   "type": "line",
+   "text": "Lookup for the low nibble of the low score byte, with 16 pointers to five-digit decimal strings."
+  },
+  {
+   "address": 50880,
+   "type": "line",
+   "text": "Lookup for the high nibble of the low score byte, indexing its decimal contribution in multiples of 16."
+  },
+  {
+   "address": 50912,
+   "type": "line",
+   "text": "Lookup for the low nibble of the high score byte, indexing its decimal contribution in multiples of 256."
+  },
+  {
+   "address": 50944,
+   "type": "line",
+   "text": "Lookup for the high nibble of the high score byte, indexing its decimal contribution in multiples of 4096."
+  },
+  {
+   "address": 50976,
+   "type": "line",
+   "text": "Sixteen five-digit decimal strings for values zero through fifteen."
+  },
+  {
+   "address": 51056,
+   "type": "line",
+   "text": "Sixteen five-digit decimal strings for values zero through 240 in steps of 16."
+  },
+  {
+   "address": 51136,
+   "type": "line",
+   "text": "Sixteen five-digit decimal strings for values zero through 3840 in steps of 256."
+  },
+  {
+   "address": 51216,
+   "type": "line",
+   "text": "Sixteen five-digit decimal strings for values zero through 61440 in steps of 4096."
+  },
+  {
+   "address": 51300,
+   "type": "line",
+   "text": "The three-byte replacement name @:H used for SAVE, followed by the one-byte name H used for LOAD."
+  },
+  {
+   "address": 51304,
+   "type": "line",
+   "text": "Five records of 12 bytes. Each holds a ten-character name and a two-byte score, compared most-significant byte first before insertion."
+  },
+  {
+   "address": 51456,
+   "type": "line",
+   "text": "Blanks the screen, restores the ROM mapping, installs the RAM LOAD vector and calls SETLFS for device 8 before choosing the next file."
+  },
+  {
+   "address": 57344,
+   "type": "line",
+   "text": "IRQ entry for the score music. Jumps to $E0AF to service the voices."
+  },
+  {
+   "address": 57347,
+   "type": "line",
+   "text": "Clears the voice runtime state at $E6CF\u2013$E728 and resets the SID register set. Uses the tune index in A to install six initial voice pointers and the tempo byte."
+  },
+  {
+   "address": 57412,
+   "type": "line",
+   "text": "Decodes negative values fetched from a voice sequence. $FF replaces the sequence pointer from the next two bytes. Other command ranges write per-voice properties at $E714, $E717 or $E70B."
+  },
+  {
+   "address": 57519,
+   "type": "line",
+   "text": "Starts with voice index 2 and checks the voice timers before fetching the next note or command. Uses the sign bit of the initializer-patched operand at $E0B2 to force the sequence-fetch path."
+  },
+  {
+   "address": 57553,
+   "type": "line",
+   "text": "Uses the phrase index for this voice to select a pointer from $E729, then reads the byte at the current phrase position. For values below $60, adds the voice offset at $E714 and stores the resulting note index."
+  },
+  {
+   "address": 59177,
+   "type": "line",
+   "text": "Sixteen pointers to song phrases. The doubled pattern number held in the current voice position at $E70E selects the pointer."
+  },
+  {
+   "address": 59209,
+   "type": "line",
+   "text": "The score song supplies three low and three high bytes of voice sequence addresses. Initialization copies them into the current pointers at $E705\u2013$E70A."
+  },
+  {
+   "address": 59215,
+   "type": "line",
+   "text": "The tune setup copies this byte to the immediate operand at $E22E."
+  },
+  {
+   "address": 59516,
+   "type": "line",
+   "text": "Music phrase data at the pointer for pattern 0. The phrase reader at $E0D1 fetches these note and control bytes through a zero-page pointer."
+  },
+  {
+   "address": 59519,
+   "type": "line",
+   "text": "Music phrase data at the pointer for pattern 1. The phrase reader at $E0D1 fetches these note and control bytes through a zero-page pointer."
+  },
+  {
+   "address": 59559,
+   "type": "line",
+   "text": "Music phrase data at the pointer for pattern 2. The phrase reader at $E0D1 fetches these note and control bytes through a zero-page pointer."
+  },
+  {
+   "address": 59590,
+   "type": "line",
+   "text": "Music phrase data at the pointer for pattern 4. The phrase reader at $E0D1 fetches these note and control bytes through a zero-page pointer."
+  },
+  {
+   "address": 59596,
+   "type": "line",
+   "text": "Music phrase data at the pointer for pattern 5. The phrase reader at $E0D1 fetches these note and control bytes through a zero-page pointer."
+  },
+  {
+   "address": 59667,
+   "type": "line",
+   "text": "Music phrase data at the pointer for pattern 7. The phrase reader at $E0D1 fetches these note and control bytes through a zero-page pointer."
+  },
+  {
+   "address": 59698,
+   "type": "line",
+   "text": "Music phrase data at the pointer for pattern 8. The phrase reader at $E0D1 fetches these note and control bytes through a zero-page pointer."
+  },
+  {
+   "address": 59771,
+   "type": "line",
+   "text": "Music phrase data at the pointer for pattern 9. The phrase reader at $E0D1 fetches these note and control bytes through a zero-page pointer."
+  },
+  {
+   "address": 59801,
+   "type": "line",
+   "text": "Music phrase data at the pointer for pattern 10. The phrase reader at $E0D1 fetches these note and control bytes through a zero-page pointer."
+  },
+  {
+   "address": 59830,
+   "type": "line",
+   "text": "Music phrase data at the pointer for pattern 11. The phrase reader at $E0D1 fetches these note and control bytes through a zero-page pointer."
+  },
+  {
+   "address": 59836,
+   "type": "line",
+   "text": "Music phrase data at the pointer for pattern 6. The phrase reader at $E0D1 fetches these note and control bytes through a zero-page pointer."
+  },
+  {
+   "address": 59911,
+   "type": "line",
+   "text": "Music phrase data at the pointer for pattern 3. The phrase reader at $E0D1 fetches these note and control bytes through a zero-page pointer."
+  },
+  {
+   "address": 59947,
+   "type": "line",
+   "text": "Music phrase data at the pointer for pattern 12. The phrase reader at $E0D1 fetches these note and control bytes through a zero-page pointer."
+  },
+  {
+   "address": 59992,
+   "type": "line",
+   "text": "Music phrase data at the pointer for pattern 13. The phrase reader at $E0D1 fetches these note and control bytes through a zero-page pointer."
+  },
+  {
+   "address": 60066,
+   "type": "line",
+   "text": "Music phrase data at the pointer for pattern 14. The phrase reader at $E0D1 fetches these note and control bytes through a zero-page pointer."
+  }
+ ]
+}

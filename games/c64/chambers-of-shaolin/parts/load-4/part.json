@@ -1,0 +1,68 @@
+{
+  "title": "Combat",
+  "order": 5,
+  "video": {
+    "screen": "",
+    "charset": ""
+  },
+  "coverage": {
+    "exclude": [
+      [
+        "$0334",
+        "$07FF",
+        "Residual packed stream copied by the depacker through ($FE),Y before the destination data is unpacked through ($FA),Y. The authored output starts at $0800."
+      ]
+    ],
+    "extra": [
+      [
+        "$0800",
+        "$CDFE",
+        "Depacker output from disk file 4, retained in full pending classification"
+      ],
+      [
+        "$D000",
+        "$FFFF",
+        "Depacker output from disk file 4, retained in full pending classification"
+      ]
+    ],
+    "include": [
+      [
+        "$D000",
+        "$DFFF",
+        "Depacker writes the RAM beneath I/O"
+      ]
+    ]
+  },
+  "io": [
+    [
+      "$1F21",
+      "$1F21",
+      "ram",
+      "The decoder reads the stored scene bytes with I/O banked out."
+    ],
+    [
+      "$1F3F",
+      "$1F3F",
+      "ram",
+      "The decoder writes its destination with I/O banked out."
+    ],
+    [
+      "$EDB2",
+      "$EDBE",
+      "ram",
+      "I/O is banked out while the Combat introduction reads the three glyph pages."
+    ]
+  ],
+  "regions": [],
+  "over": "title",
+  "ranges": [
+    [
+      "$0800",
+      "$CDFE"
+    ],
+    [
+      "$D000",
+      "$FFFF"
+    ]
+  ]
+}

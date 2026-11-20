@@ -1,0 +1,49 @@
+{
+  "title": "Test of Speed",
+  "order": 3,
+  "video": {
+    "screen": "",
+    "charset": ""
+  },
+  "coverage": {
+    "exclude": [
+      [
+        "$0334",
+        "$07FF",
+        "Residual packed stream copied by the depacker through ($FE),Y before the destination data is unpacked through ($FA),Y. The authored output starts at $0800."
+      ]
+    ],
+    "extra": [
+      [
+        "$0800",
+        "$CDFE",
+        "Depacker output from disk file 2, retained in full pending classification"
+      ],
+      [
+        "$D000",
+        "$FFFF",
+        "Depacker output from disk file 2, retained in full pending classification"
+      ]
+    ],
+    "include": [
+      [
+        "$D000",
+        "$DFFF",
+        "Depacker writes the RAM beneath I/O"
+      ]
+    ]
+  },
+  "io": [],
+  "regions": [],
+  "over": "title",
+  "ranges": [
+    [
+      "$0800",
+      "$CDFE"
+    ],
+    [
+      "$D000",
+      "$FFFF"
+    ]
+  ]
+}

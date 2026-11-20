@@ -1,0 +1,63 @@
+{
+  "title": "High scores",
+  "order": 6,
+  "video": {
+    "screen": "",
+    "charset": ""
+  },
+  "coverage": {
+    "exclude": [
+      [
+        "$0334",
+        "$07FF",
+        "Residual packed stream copied by the depacker through ($FE),Y before the destination data is unpacked through ($FA),Y. The authored output starts at $0800."
+      ],
+      [
+        "$1400",
+        "$9FFF",
+        "Zero-filled gap between the score backdrop and the RAM under BASIC ROM. The score program has no display, code or data in this region. A watch from hand-over through the reload request saw no stores or execution and caught only two KERNAL BIT skip operands at $2009 and $3FA9."
+      ],
+      [
+        "$E6CF",
+        "$E728",
+        "Runtime music player state cleared in full by $E003 before the score IRQ is enabled."
+      ],
+      [
+        "$0B00",
+        "$0FFF",
+        "Zero-filled region after the glyphs. In both score insertion cases the displayed matrix used codes through $4D, and read, write and execution watches saw no accesses between entry and the next LOAD."
+      ],
+      [
+        "$A001",
+        "$C1FF",
+        "Zero-filled region before the score program. Read, write and execution watches from entry to the next LOAD saw no accesses with either a bottom or top score."
+      ]
+    ],
+    "extra": [
+      [
+        "$0800",
+        "$C9FF",
+        "Depacker output from disk file HIGH, retained in full pending classification"
+      ],
+      [
+        "$E000",
+        "$EFFF",
+        "Depacker output from disk file HIGH, retained in full pending classification"
+      ]
+    ],
+    "include": []
+  },
+  "io": [],
+  "regions": [],
+  "over": "title",
+  "ranges": [
+    [
+      "$0800",
+      "$C9FF"
+    ],
+    [
+      "$E000",
+      "$EFFF"
+    ]
+  ]
+}
