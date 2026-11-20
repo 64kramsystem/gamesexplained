@@ -1,0 +1,210 @@
+{
+  "schema": 1,
+  "platform": "c64",
+  "slug": "rygar",
+  "title": "Rygar",
+  "year": 1987,
+  "publisher": "U.S. Gold",
+  "developer": "Probe Software",
+  "title_image": "reference/title.png",
+  "build": "Softrambo and The Wanderer Group D64",
+  "tier": "bronze",
+  "coverage_percent": 100.0,
+  "copy": "agent-draft",
+  "steward": "",
+  "credits": [],
+  "tools": {
+    "emulator": "release v3.14.0, v3.14.0-macos-arm64-headless.zip with dummy audio",
+    "disassembler": "regenerator2000 0.9.18"
+  },
+  "model": "gpt-6.2-sol",
+  "step_models": {
+    "10-orient": [
+      "gpt-6.2-sol"
+    ],
+    "12-media": [
+      "gpt-6.2-sol"
+    ],
+    "20-features": [
+      "gpt-6.2-sol"
+    ],
+    "30-text": [
+      "gpt-6.2-sol"
+    ],
+    "40-sweep": [
+      "gpt-6.2-sol"
+    ],
+    "50-coverage": [
+      "gpt-6.2-sol"
+    ],
+    "60-verify": [
+      "gpt-6.2-sol"
+    ]
+  },
+  "accuracy": [
+    {
+      "step": "research",
+      "web": true,
+      "models": [
+        "gpt-6.2-sol"
+      ]
+    },
+    {
+      "step": "annotate",
+      "models": [
+        "gpt-6.2-sol"
+      ]
+    },
+    {
+      "step": "sample",
+      "size": 80,
+      "wrong": 12,
+      "fixed": 12,
+      "seed": 812,
+      "models": [
+        "gpt-6.2-sol"
+      ]
+    }
+  ],
+  "kit_version": "0.0.360",
+  "created": "2026-11-20",
+  "video": {
+    "screen": "$4400",
+    "charset": "$7800"
+  },
+  "coverage": {
+    "exclude": [
+      [
+        "$0000",
+        "$00FF",
+        "CPU port, runtime zero-page pointers and counters, and scratch left by the loader"
+      ],
+      [
+        "$0200",
+        "$03FF",
+        "KERNAL work area and final depacker relocated from $08D0 by $081D"
+      ],
+      [
+        "$0400",
+        "$07FF",
+        "Boot screen and the old VIC-bank sprite pointers touched at $0A1B and $0A1E"
+      ],
+      [
+        "$2B8B",
+        "$2BDA",
+        "Working copy of the current round event seed, loaded by $0ACA"
+      ],
+      [
+        "$4300",
+        "$43FF",
+        "Runtime sprite records, status arrays, active object queue and mirror cache initialised at $0AA8 and $0ADC"
+      ],
+      [
+        "$4400",
+        "$47E7",
+        "Runtime panel and playfield populated by $0A55, $0A68 and the terrain renderer"
+      ],
+      [
+        "$47F8",
+        "$47FF",
+        "Hardware sprite pointer cells overwritten by $1FDD and $25AA"
+      ],
+      [
+        "$7000",
+        "$77FF",
+        "Generated terrain or panel glyph destination built by $11AA and $17C6 from the counted source banks"
+      ],
+      [
+        "$80C3",
+        "$8135",
+        "Runtime SID voice records and player registers set by $8000 and $8A6F"
+      ],
+      [
+        "$8A56",
+        "$8A6E",
+        "Runtime effect record and frequency accumulators set by $86D0"
+      ],
+      [
+        "$9200",
+        "$93FF",
+        "Runtime sprite reversal and opacity tables generated at $2436"
+      ],
+      [
+        "$FFFA",
+        "$FFFF",
+        "Hardware vector words written at $0E44 through $0E59, which overlay the end of the fourth terrain glyph set"
+      ]
+    ],
+    "extra": [],
+    "include": [
+      [
+        "$47E8",
+        "$47F7",
+        "Map-shaped authored bytes immediately after the displayed 1000 character cells"
+      ]
+    ]
+  },
+  "io": [],
+  "regions": [
+    [
+      "$3000",
+      "$357F",
+      "levels",
+      "Round event seeds and object queues"
+    ],
+    [
+      "$4CC0",
+      "$6FFF",
+      "graphics",
+      "Object sprite shapes"
+    ],
+    [
+      "$7000",
+      "$77FF",
+      "graphics",
+      "Generated terrain character buffer"
+    ],
+    [
+      "$7800",
+      "$7D77",
+      "graphics",
+      "Title and panel glyphs"
+    ],
+    [
+      "$8000",
+      "$8E77",
+      "sound",
+      "SID driver, effect presets and music data"
+    ],
+    [
+      "$9000",
+      "$91DF",
+      "graphics",
+      "Panel cells and colours"
+    ],
+    [
+      "$9800",
+      "$9BFF",
+      "graphics",
+      "Terrain glyph colours"
+    ],
+    [
+      "$9C00",
+      "$BFFF",
+      "levels",
+      "Terrain maps and metatile definitions"
+    ],
+    [
+      "$E000",
+      "$FFF9",
+      "graphics",
+      "Four source terrain character sets"
+    ]
+  ],
+  "links": {
+    "manual": {
+      "title": "Rygar (U.S. Gold) computer instructions",
+      "url": "https://frameadvance.net/sources/rygar-c64-manual/"
+    }
+  }
+}
