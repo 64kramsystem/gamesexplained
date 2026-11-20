@@ -1,0 +1,238 @@
+{
+  "schema": 1,
+  "platform": "c64",
+  "slug": "kendo-warrior",
+  "title": "Kendo Warrior",
+  "year": 1989,
+  "publisher": "Byte Back",
+  "developer": "M.C. Lothlorien",
+  "title_image": "reference/title.png",
+  "build": "Hokuto Force 2004 D64",
+  "tier": "bronze",
+  "coverage_percent": 100.0,
+  "copy": "agent-draft",
+  "steward": "",
+  "credits": [],
+  "tools": {
+    "emulator": "VICE-MCP v3.14.0 macOS arm64 headless with dummy audio",
+    "disassembler": "regenerator2000 0.9.18"
+  },
+  "model": "gpt-6.2-sol",
+  "step_models": {
+    "10-orient": [
+      "gpt-6.2-sol"
+    ],
+    "12-media": [
+      "gpt-6.2-sol"
+    ],
+    "20-features": [
+      "gpt-6.2-sol"
+    ],
+    "30-text": [
+      "gpt-6.2-sol"
+    ],
+    "40-sweep": [
+      "gpt-6.2-sol"
+    ],
+    "50-coverage": [
+      "gpt-6.2-sol"
+    ],
+    "60-verify": [
+      "gpt-6.2-sol"
+    ]
+  },
+  "accuracy": [
+    {
+      "step": "research",
+      "web": true,
+      "models": [
+        "gpt-6.2-sol"
+      ]
+    },
+    {
+      "step": "annotate",
+      "models": [
+        "gpt-6.2-sol"
+      ]
+    },
+    {
+      "step": "sample",
+      "size": 85,
+      "wrong": 9,
+      "fixed": 9,
+      "seed": 641989,
+      "models": [
+        "gpt-6.2-sol"
+      ]
+    }
+  ],
+  "kit_version": "0.0.360",
+  "created": "2026-11-20",
+  "video": {
+    "screen": "$4400",
+    "charset": ""
+  },
+  "coverage": {
+    "exclude": [
+      [
+        "$0000",
+        "$03FF",
+        "Processor work RAM, stack and sprite and object state. Startup and scene setup initialize the live fields."
+      ],
+      [
+        "$0400",
+        "$087F",
+        "Release screen and startup remnants. The independent DCS handover shows different contents here, and the game moves the VIC to $4400."
+      ],
+      [
+        "$0BB6",
+        "$0BDD",
+        "Runtime permutation of the eight sprite slots, populated by $0BE6."
+      ],
+      [
+        "$4800",
+        "$4FFF",
+        "Character buffer populated from $E800 or $F000 by $3D78 and $3DAE."
+      ],
+      [
+        "$5600",
+        "$57FF",
+        "Animation buffer. $14B7, $14DB, $1508 and $1548 copy its frames from $E000 through $E7FF."
+      ],
+      [
+        "$4400",
+        "$47FF",
+        "The room, message panel and VIC sprite pointer cells. $0B7F blanks the whole range, and the active scene is drawn into it."
+      ],
+      [
+        "$7680",
+        "$7FFF",
+        "Shared sprite transfer destination. $3CB6 installs the selected actor graphics from the reserve sheets before the actor is displayed."
+      ],
+      [
+        "$FF00",
+        "$FFF9",
+        "Hokuto Force release residue. At the same handover PC the DCS release holds zero here and uses the same engine vectors."
+      ],
+      [
+        "$BC02",
+        "$BCD2",
+        "Audio request, voice registers and stream playback state modified by the SID driver."
+      ]
+    ],
+    "extra": [],
+    "include": [
+      [
+        "$BC42",
+        "$BC42",
+        "Authored mask for the voice-specific SID filter routing logic"
+      ],
+      [
+        "$BC72",
+        "$BC72",
+        "Authored mask for the voice-specific SID filter routing logic"
+      ],
+      [
+        "$BCA2",
+        "$BCA2",
+        "Authored mask for the voice-specific SID filter routing logic"
+      ],
+      [
+        "$BCD2",
+        "$BCD2",
+        "Authored mask for the voice-specific SID filter routing logic"
+      ]
+    ]
+  },
+  "io": [],
+  "regions": [
+    [
+      "$1B2B",
+      "$2059",
+      "text",
+      "Panel line directory and messages"
+    ],
+    [
+      "$4000",
+      "$43FF",
+      "graphics",
+      "Low-numbered VIC sprite shapes"
+    ],
+    [
+      "$5000",
+      "$55FF",
+      "graphics",
+      "Fixed playfield character rows"
+    ],
+    [
+      "$5800",
+      "$5D7F",
+      "graphics",
+      "Alternate playfield character rows"
+    ],
+    [
+      "$5D80",
+      "$767F",
+      "graphics",
+      "Common VIC sprite shapes"
+    ],
+    [
+      "$8010",
+      "$920F",
+      "graphics",
+      "Two reserve actor shape sets"
+    ],
+    [
+      "$9400",
+      "$9660",
+      "graphics",
+      "Panel and title character rectangles"
+    ],
+    [
+      "$A000",
+      "$A63F",
+      "levels",
+      "Four-by-four room tile definitions"
+    ],
+    [
+      "$B000",
+      "$B9FF",
+      "levels",
+      "Sixty-four room tile maps"
+    ],
+    [
+      "$E000",
+      "$E7FF",
+      "graphics",
+      "Animated room character frames"
+    ],
+    [
+      "$E800",
+      "$EFFF",
+      "graphics",
+      "Title character source"
+    ],
+    [
+      "$F000",
+      "$F7FF",
+      "graphics",
+      "Gameplay panel character source"
+    ],
+    [
+      "$F800",
+      "$FEFF",
+      "graphics",
+      "Default actor shape set"
+    ]
+  ],
+  "links": {
+    "wiki": {
+      "title": "",
+      "url": ""
+    },
+    "manual": {
+      "title": "Kendo Warrior - Documentation",
+      "url": "https://www.lemon64.com/doc/kendo-warrior/1024"
+    }
+  }
+}
