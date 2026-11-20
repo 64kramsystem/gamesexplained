@@ -32,3 +32,7 @@ This analysis uses the PAL tape edition. The five part folders carry the annotat
 | $DD0D/$DD0F | $A971 sets up CIA2 timer B for speech playback and enables its timer interrupt. |
 
 The complete mechanical register census and string sweep are in ignored `work/census.txt` and `work/strings.txt`. Unattributed accesses are still open.
+
+## The listing's error rate
+
+An independent gpt-6.2-sol checker sampled 60 of 1,890 comments using seed 1120. Six of 60 had incorrect details, an estimated 10.0% with a 95% Wilson interval of 4.7% to 20.1%. The checker may have missed errors. The six findings concerned the melody panel's colour override and row count, the redraw column stride, actor state selection, an indexed actor coordinate, a repeated wall tile motif and an alternate title pitch path. All six comments were corrected, along with related actor coordinate and movement comments. The sample describes the listing before these edits.

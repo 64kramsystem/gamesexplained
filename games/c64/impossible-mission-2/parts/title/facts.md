@@ -11,3 +11,5 @@ The first voice's control write at $1501 patches the immediate operand at $14DA.
 The speech NMI uses the low byte of the RAM NMI vector to switch between wave phases. The path at $A583 walks the wave buffer forward and $A5A4 walks it backward. $A5C3 writes the hold amplitude and $A5D9 acknowledges the following timer interrupts until the hold count runs out. $A5F2 loads the next phase and its counters. The timer-stop path at $A5E1 writes $90 to $DD0F and seven to $D418.
 
 Record 462 ends with a 160-byte duplicate of sprite data from record 267. The bytes at $AA7D–$AB1C match $C500–$C59F of the resident graphics at the same offsets within their respective tape records. The match covers two full 64-byte sprite slots and the first 32 bytes of the next slot.
+
+The SID initialization at $106D fills $A3–$DC with eight. Store watches on $00BA and $00D6 stopped just after this instruction. The pitch update at $10A7 has flag-controlled paths in addition to the ordinary comparison. With channel zero's flag byte at $03B7 set to one, a watch on $CD stopped after $1108 replaced the target low byte with $02.

@@ -215,6 +215,24 @@
    "kind": "user"
   },
   {
+   "address": 63296,
+   "name": "scene_repeated_words_first_slot",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 63360,
+   "name": "scene_repeated_words_second_slot",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 63424,
+   "name": "scene_repeated_words_third_slot",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
    "address": 63488,
    "name": "machine_sprite_image_one",
    "type": "UserDefined",
@@ -597,6 +615,21 @@
    "address": 63232,
    "type": "line",
    "text": "All 63 visible sprite bytes are zero. The trailing stride byte is $04."
+  },
+  {
+   "address": 63296,
+   "type": "line",
+   "text": "Record 315 offsets $340\u2013$37F. Fifteen four-byte groups begin with $04 $00 and the last begins with $04 $80. The third byte is normally $FF, except $7E at $F75E and $7F at $F77E. VICE wrote the first byte at $622B, completing the backward copy of these three slots."
+  },
+  {
+   "address": 63360,
+   "type": "line",
+   "text": "Record 315 offsets $380\u2013$3BF. Four-byte groups repeat $00 $04 $FB $FF, with $85 at $F785 and $16 at $F7BF. The latter falls on the stride byte of the second 64-byte slot."
+  },
+  {
+   "address": 63424,
+   "type": "line",
+   "text": "Record 315 offsets $3C0\u2013$3FF. This slot repeats $00 $04 $FB $FF, except $84 at $F7FD. The bytes through $F7FF are part of the near-identical stretch at record 267 offsets $1F90\u2013$1FFF, which begins within the preceding slot."
   },
   {
    "address": 63488,

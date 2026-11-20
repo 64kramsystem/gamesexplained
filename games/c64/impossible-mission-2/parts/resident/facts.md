@@ -2,7 +2,7 @@
 
 The listing is based on the snapshot immediately before the loader transfers to $0880. The played snapshot preserves the first elevator and the loaded first-tower resource at $A520. The hand-over retains initialization instructions at addresses that are rewritten after startup.
 
-$0AD4 bypasses the saved-game question when $A1D1 is nonzero. $A1D1 is one in this tape's hand-over. $0A4A would otherwise draw messages at $B9C2 and $BA12 and scan the keyboard for Y. The title and engine use different raster and sound setup. See the watchpoint results in [the game facts](../../facts.md).
+$0AD4 bypasses the saved-game question when $A1D1 is nonzero. $A1D1 is one in this tape's hand-over. $0A4A would otherwise draw messages at $B9C2 and $BA12 and scan the keyboard for Y. The same flag skips the random tower choice at $0A1B. A store watch stopped after $0A1E wrote tower index zero with the shipped flag value. The title and engine use different raster and sound setup. See the watchpoint results in [the game facts](../../facts.md).
 
 A separate load probe used the resident call at $0A0A to request record 315. All 3,120 tape bytes matched at $A520. A store watch at $F400 stopped after $6232 during the backward copy from that buffer. The natural opening checkpoints instead recorded requests 000, 130 and 328.
 
@@ -64,3 +64,33 @@ The stack-based drawing entries at $24D9, $24FA and $32BF were tested with seede
 Store watchpoints on the title instrument copier at $1795 confirmed three sixteen-byte transfers in controlled runs. The template at $268D reproduced $033C–$034B and $0354–$0363 byte for byte. The template at $2645 reproduced $036C–$037B. The surrounding $08 bytes lie in the workspace initialized by $1065. The engine also checks $0340 for the resume marker at $0AE1.
 
 The four raster dispatch entries at $2F6F, $2F74, $2F79 and $2F7E reached $302D with X equal to $00, $08, $10 and $18. These are offsets into the alternating sprite bands. In the coordinate setup loop, read watches stopped immediately after $40A3 read $A3EB, $A3E9 and $A3E7 with X equal to four, two and zero. A range watch on $A3ED–$A41F recorded no reads or writes before the loop finished at $40AC. Those 51 bytes are shipped in record 490 and their purpose remains open.
+
+## Rectangle sources and actor slots
+
+- Controlled entries into the room rectangle iterators at $1A60 and $1AD1 stopped after $33EB read their first tile from $927B and $9386 respectively. Their descriptors are $8944 and $894C. Mode two selects source zero and skips the descriptor colour byte. That matters at $8944, where the rectangle's origin shares the bytes reserved for mode-zero and mode-one colours in the preceding descriptor.
+- The tower-panel iterator at $249D followed its pointer at $23AC to descriptor $8906 and read tile $01 at $98A0. A separate entry into the second room iterator at $1C48 followed the word at $1C22 to $9B19 and read the first tile at $8F18. Both reads stopped after the blitter instruction at $33EB. Direct calls with descriptor $9C77 read $8DF8 in mode zero and $8DFC in mode one. The normal caller of that descriptor is open.
+- At $25DA in the elevator snapshot, the selection index at $11 was zero. Read watches after $25DD and $25E3 returned $5B and $DF from $9751 and $9759. The next instructions store those values in sprite three's X and Y registers.
+- With the actor record pointer set to $708B and field $12 set to two, a store watch stopped after $74D1 wrote offset $14 to $A1BD. Starting at $62EE with X equal to one, a read watch then stopped after $62F1 retrieved that offset with Y equal to two.
+- With KERNAL ROM visible, the screen editor's initialization at $E544 reached a store watch on $00DD after $E54D. The bytes generated at $00DD–$00F2 matched the resident hand-over snapshot. The initialization writes $FF at $00F3, where the hand-over snapshot has $80.
+
+### Search counters and actor display fields
+
+- Store watchpoints on $238F, $2391, $2393 and $2395 stopped after $66AD, $66A2, $21FC and $669B respectively. These are the increments on the melody-piece, carry-clear search, tower transition and completed-melody paths. The tests start at the increment instructions and check the destinations.
+- The actor conversion at $74C7 produced four watched stores from a test actor at $7077. $74E0 wrote the frame pointer to $A196. The next three stores wrote X low $20 to $A193, X high $00 to $A194 and Y $1A to $A195. The input coordinates were X $0148 and Y $B0.
+- Read watchpoints at $8E14 and $8E15 stopped after the loads at $1C02 and $1C0C. Those loads supply tiles $C5 and $C6 for the two-column door redraw on row five.
+- The eight bytes at $0334–$033B survive from the cassette reader and match bytes at $0939–$0940 in the title state. A controlled execution from $0334 stopped at $0339 on the store to $0335. The title instrument data begins at $033C.
+- Read watches at $0FC4 and $0FC5 stopped after $0FDE and $0FF1 returned offsets $14 and $1E for the panel redraws. A read watch on $66B8 stopped after $66CF selected mode three with Y set to two. The five coordinate pairs and trailing zero at $9A93 match the melody-match panel table suffix at $95BD. The five bytes at $4642 match the sprite Y offset table at $A3E7.
+
+The five rectangles selected by the descriptor list at $23A4 have a parallel set of fill tiles. After $20C1 advances the descriptor pointer, $24AB reads ten bytes beyond it and $24AF passes the result to the room cell fill. Read watches stopped after $24AB for $23B0, $23B2, $23B4, $23B6 and $23B8, with values 15, 16, 17, 0 and 0. The unused byte between each tile is zero in the entry snapshot.
+
+A controlled $302D entry with X zero caught the band writer staging per-sprite X and Y coordinates in $5E–$61, the X high-bit mask in $64 and the image pointers in $65–$66. The later stores at $307E–$30A6 send those values to the VIC registers and screen sprite pointer slots.
+
+## Score hand-off and data boundaries
+
+- The resident score call at $2C88 passes the bytes $17 $8C $23 $0F $19. The first byte is the final copy index, the next two identify the source at $238C, and the final pair supplies the scoreboard's resource restore indices. Entering the call with the loaded scoreboard in place stopped at $A67E after the final store to $B360. All 24 copied bytes matched the source. The callback addresses in the block are $37A2 for asset loads, $31DD for the raster change before name entry, and $2C98 for the final transfer.
+- Controlled actor encoding from $7D8B with indices 18 and 21 hit the class stores to $82CD and $82D0. In both cases, the two preceding bytes held the column and row. The room's cell grid begins at $82D1.
+- A call with descriptor $9578 hit its final matrix tile at $956D after the load at $33EB. The two authored bytes after it, $03 and $04, remain counted. Their consumer is open. A mode-one call with descriptor $9A32 read its final colour at $9A3B after the load at $33A4.
+- With X seeded to $40 in the hand-over snapshot, the watch on $9AE6 stopped after $094A read zero. The test establishes what the lookup reads at index $40. Ordinary startup's ability to select that index remains open.
+- The melody redraw at $1483 places the left tiles at columns $0C, $10, $14 and $18. At $14A0 the previous CPY leaves carry set, so ADC advances the column by four. A controlled entry at $12EB stopped after $12EF wrote descriptor byte $18 to the colour override at $7FD2.
+- Controlled entries at $7833 with bit two set and clear took the two fallback actor-field paths. A store watch on the record's field eight stopped after $7150 wrote $31 from field four and $37 from field five respectively.
+- Terminal dispatch at $692F first checks $9761 and then the low coordinate at $8DDF. With the flag set and the coordinate at $0F, a descriptor field-four value of three reached the final sequence call at $6943, while a value of two reached the dissolve at $6949. The coordinate $10 took the standard console path at $6966 with the same flag and value three. A separate execution breakpoint confirmed that $2953 reaches the scoreboard load entry at $2C65. These are controlled branches.
