@@ -1,0 +1,131 @@
+{
+  "schema": 1,
+  "platform": "c64",
+  "slug": "pit-stop-2",
+  "title": "Pitstop II",
+  "year": 1984,
+  "publisher": "Epyx",
+  "developer": "Stephen H. Landrum and Dennis Caswell",
+  "title_image": "reference/title.png",
+  "build": "ULB Production T64",
+  "tier": "bronze",
+  "coverage_percent": 100.0,
+  "copy": "agent-draft",
+  "steward": "",
+  "credits": [],
+  "tools": {
+    "emulator": "VICE v3.14.0 macos-arm64-headless, dummy sound",
+    "disassembler": "regenerator2000 0.9.18"
+  },
+  "model": "gpt-6.2-sol",
+  "step_models": {
+    "50-coverage": [
+      "gpt-6.2-sol"
+    ],
+    "20-features": [
+      "gpt-6.2-sol"
+    ],
+    "40-sweep": [
+      "gpt-6.2-sol"
+    ],
+    "60-verify": [
+      "gpt-6.2-sol"
+    ]
+  },
+  "accuracy": [
+    {
+      "step": "research",
+      "web": true,
+      "models": [
+        "gpt-6.2-sol"
+      ]
+    },
+    {
+      "step": "annotate",
+      "models": [
+        "gpt-6.2-sol"
+      ]
+    },
+    {
+      "step": "sample",
+      "size": 80,
+      "wrong": 4,
+      "fixed": 4,
+      "seed": 1984,
+      "models": [
+        "gpt-6.2-sol"
+      ]
+    }
+  ],
+  "kit_version": "0.0.360",
+  "created": "2026-11-20",
+  "video": {
+    "screen": "",
+    "charset": ""
+  },
+  "coverage": {
+    "exclude": [
+      [
+        "$0400",
+        "$07FF",
+        "KERNAL boot screen and sprite pointer space, confirmed by the BASIC and tape load messages in the handoff snapshot. Game display uses VIC bank C000."
+      ],
+      [
+        "$0800",
+        "$0FFF",
+        "Original BASIC loader and packed input at handoff. Race setup builds pixel, map and distance workspace here before their indexed consumers."
+      ],
+      [
+        "$C05F",
+        "$C7FF",
+        "Zero in decoder output. The setup menu clears and draws its C000 matrix here and the race builds its second matrix at C400."
+      ],
+      [
+        "$F000",
+        "$FFFF",
+        "Residue of relocating the compressed stream, exactly equal to its last 4096 bytes at handoff. Race copies or generates character data here and installs live interrupt vectors in the last page."
+      ],
+      [
+        "$0000",
+        "$03FF",
+        "CPU ports, KERNAL workspace and game runtime state initialized in RAM after handoff. The authored initial templates at $5306 and $94C5 remain in scope."
+      ],
+      [
+        "$8C00",
+        "$8EFF",
+        "Zero-filled mirror sprite workspace at handoff. $6D75 copies in the authored $8900\u2013$8BFF data, and $6D98 reverses each row before use."
+      ],
+      [
+        "$618D",
+        "$61E3",
+        "Live race workspace reset over all 87 bytes at $3328 before per-driver initialization. Entry and moving snapshots show the changing workspace at these addresses."
+      ]
+    ],
+    "extra": [
+      [
+        "$1000",
+        "$EFFF",
+        "Payload reproduced from the packed tape entry and matched against the handoff snapshot"
+      ]
+    ],
+    "include": [
+      [
+        "$D000",
+        "$DFFF",
+        "Authored RAM underneath I/O, matched against loader output"
+      ]
+    ]
+  },
+  "io": [],
+  "regions": [],
+  "links": {
+    "wiki": {
+      "title": "Pitstop II \u2013 C64-Wiki",
+      "url": "https://www.c64-wiki.com/wiki/Pitstop_II"
+    },
+    "manual": {
+      "title": "Pitstop II",
+      "url": "https://evercade.info/wp-content/uploads/2023/02/Pitstop_II_1984_Epyx_en-de.pdf"
+    }
+  }
+}
