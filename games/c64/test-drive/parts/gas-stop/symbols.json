@@ -4,7 +4,7 @@
  "game": "test-drive",
  "part": "gas-stop",
  "build": "Decibel and Eagle Soft Incorporated side A, Eagle Soft Incorporated side B",
- "source": "regenerator2000 live",
+ "source": "regen2000proj",
  "regions": {
   "exclude": [
    [
@@ -507,9 +507,15 @@
   },
   {
    "address": 47566,
-   "name": "a_B9CE",
-   "type": "AbsoluteAddress",
-   "kind": "auto"
+   "name": "result_scroll_delay_operand",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 47567,
+   "name": "wait_during_result_scroll",
+   "type": "UserDefined",
+   "kind": "user"
   },
   {
    "address": 47572,
@@ -531,9 +537,9 @@
   },
   {
    "address": 47590,
-   "name": "s_B9E6",
-   "type": "Subroutine",
-   "kind": "auto"
+   "name": "format_elapsed_digits",
+   "type": "UserDefined",
+   "kind": "user"
   },
   {
    "address": 47593,
@@ -596,28 +602,34 @@
    "kind": "auto"
   },
   {
+   "address": 47690,
+   "name": "result_irq_vector_tags",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
    "address": 47691,
-   "name": "a_BA4B",
-   "type": "AbsoluteAddress",
-   "kind": "auto"
+   "name": "result_irq_split_vector_lo",
+   "type": "UserDefined",
+   "kind": "user"
   },
   {
    "address": 47692,
-   "name": "a_BA4C",
-   "type": "AbsoluteAddress",
-   "kind": "auto"
+   "name": "result_irq_split_vector_hi",
+   "type": "UserDefined",
+   "kind": "user"
   },
   {
    "address": 47694,
-   "name": "a_BA4E",
-   "type": "AbsoluteAddress",
-   "kind": "auto"
+   "name": "result_irq_art_vector_lo",
+   "type": "UserDefined",
+   "kind": "user"
   },
   {
    "address": 47695,
-   "name": "a_BA4F",
-   "type": "AbsoluteAddress",
-   "kind": "auto"
+   "name": "result_irq_art_vector_hi",
+   "type": "UserDefined",
+   "kind": "user"
   },
   {
    "address": 47696,
@@ -640,6 +652,12 @@
   {
    "address": 47779,
    "name": "results_text_split_irq",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 47807,
+   "name": "apply_results_raster_mode",
    "type": "UserDefined",
    "kind": "user"
   },
@@ -669,9 +687,9 @@
   },
   {
    "address": 47871,
-   "name": "s_BAFF",
-   "type": "Subroutine",
-   "kind": "auto"
+   "name": "read_result_keyboard",
+   "type": "UserDefined",
+   "kind": "user"
   },
   {
    "address": 47889,
@@ -687,9 +705,9 @@
   },
   {
    "address": 47896,
-   "name": "j_BB18",
-   "type": "Jump",
-   "kind": "auto"
+   "name": "draw_gas_stop_artwork",
+   "type": "UserDefined",
+   "kind": "user"
   },
   {
    "address": 47946,
@@ -698,10 +716,28 @@
    "kind": "auto"
   },
   {
+   "address": 47995,
+   "name": "start_gas_stop_presentation",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
    "address": 48033,
    "name": "b_BBA1",
    "type": "Branch",
    "kind": "auto"
+  },
+  {
+   "address": 48053,
+   "name": "draw_gas_stop_text_and_overlay",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 48102,
+   "name": "wait_for_gas_stop_dismissal",
+   "type": "UserDefined",
+   "kind": "user"
   },
   {
    "address": 48106,
@@ -717,9 +753,9 @@
   },
   {
    "address": 48136,
-   "name": "s_BC08",
-   "type": "Subroutine",
-   "kind": "auto"
+   "name": "wait_for_result_input_or_tick",
+   "type": "UserDefined",
+   "kind": "user"
   },
   {
    "address": 48140,
@@ -758,94 +794,100 @@
    "kind": "auto"
   },
   {
+   "address": 48251,
+   "name": "result_text_address_tag",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
    "address": 48252,
-   "name": "a_BC7C",
-   "type": "AbsoluteAddress",
-   "kind": "auto"
+   "name": "result_summary_pointer_lo",
+   "type": "UserDefined",
+   "kind": "user"
   },
   {
    "address": 48253,
-   "name": "a_BC7D",
-   "type": "AbsoluteAddress",
-   "kind": "auto"
+   "name": "result_summary_pointer_hi",
+   "type": "UserDefined",
+   "kind": "user"
   },
   {
    "address": 48255,
-   "name": "a_BC7F",
-   "type": "AbsoluteAddress",
-   "kind": "auto"
+   "name": "average_speed_slot_lo",
+   "type": "UserDefined",
+   "kind": "user"
   },
   {
    "address": 48256,
-   "name": "a_BC80",
-   "type": "AbsoluteAddress",
-   "kind": "auto"
+   "name": "average_speed_slot_hi",
+   "type": "UserDefined",
+   "kind": "user"
   },
   {
    "address": 48258,
-   "name": "f_BC82",
-   "type": "Field",
-   "kind": "auto"
+   "name": "speed_feedback_pointer_table_lo",
+   "type": "UserDefined",
+   "kind": "user"
   },
   {
    "address": 48259,
-   "name": "f_BC83",
-   "type": "Field",
-   "kind": "auto"
+   "name": "speed_feedback_pointer_table_hi",
+   "type": "UserDefined",
+   "kind": "user"
   },
   {
    "address": 48303,
-   "name": "f_BCAF",
-   "type": "Field",
-   "kind": "auto"
+   "name": "results_extra_comment_pointer_lo",
+   "type": "UserDefined",
+   "kind": "user"
   },
   {
    "address": 48304,
-   "name": "f_BCB0",
-   "type": "Field",
-   "kind": "auto"
+   "name": "results_extra_comment_pointer_hi",
+   "type": "UserDefined",
+   "kind": "user"
   },
   {
    "address": 48312,
-   "name": "a_BCB8",
-   "type": "AbsoluteAddress",
-   "kind": "auto"
+   "name": "points_slot_lo",
+   "type": "UserDefined",
+   "kind": "user"
   },
   {
    "address": 48313,
-   "name": "a_BCB9",
-   "type": "AbsoluteAddress",
-   "kind": "auto"
+   "name": "points_slot_hi",
+   "type": "UserDefined",
+   "kind": "user"
   },
   {
    "address": 48315,
-   "name": "a_BCBB",
-   "type": "AbsoluteAddress",
-   "kind": "auto"
+   "name": "time_minutes_slot_lo",
+   "type": "UserDefined",
+   "kind": "user"
   },
   {
    "address": 48318,
-   "name": "a_BCBE",
-   "type": "AbsoluteAddress",
-   "kind": "auto"
+   "name": "time_seconds_slot_lo",
+   "type": "UserDefined",
+   "kind": "user"
   },
   {
    "address": 48319,
-   "name": "a_BCBF",
-   "type": "AbsoluteAddress",
-   "kind": "auto"
+   "name": "time_digits_slot_hi",
+   "type": "UserDefined",
+   "kind": "user"
   },
   {
    "address": 48321,
-   "name": "a_BCC1",
-   "type": "AbsoluteAddress",
-   "kind": "auto"
+   "name": "result_end_message_lo",
+   "type": "UserDefined",
+   "kind": "user"
   },
   {
    "address": 48322,
-   "name": "a_BCC2",
-   "type": "AbsoluteAddress",
-   "kind": "auto"
+   "name": "result_end_message_hi",
+   "type": "UserDefined",
+   "kind": "user"
   },
   {
    "address": 48323,
@@ -861,27 +903,45 @@
   },
   {
    "address": 48349,
-   "name": "a_BCDD",
-   "type": "AbsoluteAddress",
-   "kind": "auto"
+   "name": "packed_picture_release_id_x",
+   "type": "UserDefined",
+   "kind": "user"
   },
   {
    "address": 48351,
-   "name": "a_BCDF",
-   "type": "AbsoluteAddress",
-   "kind": "auto"
+   "name": "packed_picture_release_id_y",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 48355,
+   "name": "result_state_separator",
+   "type": "UserDefined",
+   "kind": "user"
   },
   {
    "address": 48356,
-   "name": "a_BCE4",
-   "type": "AbsoluteAddress",
-   "kind": "auto"
+   "name": "result_current_raster_phase",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 48357,
+   "name": "result_next_raster_phases",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 48359,
+   "name": "result_raster_compare_lines",
+   "type": "UserDefined",
+   "kind": "user"
   },
   {
    "address": 48361,
-   "name": "f_BCE9",
-   "type": "Field",
-   "kind": "auto"
+   "name": "result_raster_mode_bits",
+   "type": "UserDefined",
+   "kind": "user"
   },
   {
    "address": 48363,
@@ -909,9 +969,9 @@
   },
   {
    "address": 49102,
-   "name": "a_BFCE",
-   "type": "AbsoluteAddress",
-   "kind": "auto"
+   "name": "stage_points_award_hi",
+   "type": "UserDefined",
+   "kind": "user"
   },
   {
    "address": 49103,
@@ -951,9 +1011,9 @@
   },
   {
    "address": 49129,
-   "name": "f_BFE9",
-   "type": "Field",
-   "kind": "auto"
+   "name": "stage_time_adjustments_hi",
+   "type": "UserDefined",
+   "kind": "user"
   },
   {
    "address": 49138,
@@ -963,9 +1023,15 @@
   },
   {
    "address": 49139,
-   "name": "f_BFF3",
-   "type": "Field",
-   "kind": "auto"
+   "name": "stage_point_numerators_hi",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 49148,
+   "name": "stage_point_table_trailing_zeroes",
+   "type": "UserDefined",
+   "kind": "user"
   }
  ],
  "comments": [
@@ -1015,9 +1081,49 @@
    "text": "Read one zero-terminated message line. Skip high-bit bytes, stage remaining glyphs at $BFA4 and fill out the 40-cell line with spaces."
   },
   {
+   "address": 47566,
+   "type": "line",
+   "text": "Immediate tick delay in the LDA at $B9CD. The exit path at $B8F6 writes zero before drawing the last message."
+  },
+  {
+   "address": 47567,
+   "type": "line",
+   "text": "Skip the delay if the immediate at $B9CE is zero. Otherwise add it to the IRQ tick at $30 and wait for that tick before advancing to the next vertical offset."
+  },
+  {
+   "address": 47590,
+   "type": "line",
+   "text": "Enter the decimal formatter with carry clear so the minutes and seconds retain their leading zeros."
+  },
+  {
    "address": 47593,
    "type": "line",
    "text": "Convert the 16-bit value in A and X to five decimal digits by repeated subtraction. Put the digits in the results text, optionally replacing initial zeroes with $80."
+  },
+  {
+   "address": 47690,
+   "type": "line",
+   "text": "Tagged addresses of the two IRQ handlers. The pointer operands start at $BA4B and $BA4E."
+  },
+  {
+   "address": 47691,
+   "type": "line",
+   "text": "Low byte of the IRQ entry for the text split at $BAA3."
+  },
+  {
+   "address": 47692,
+   "type": "line",
+   "text": "High byte of the text-split IRQ entry, installed by $B849."
+  },
+  {
+   "address": 47694,
+   "type": "line",
+   "text": "Low byte of the unsplit artwork IRQ entry at $BA50."
+  },
+  {
+   "address": 47695,
+   "type": "line",
+   "text": "High byte of the artwork IRQ entry, installed by $B690, $B758 and $BB96."
   },
   {
    "address": 47696,
@@ -1035,9 +1141,124 @@
    "text": "Select the next raster phase using $BCE4-$BCE8, then combine the display-mode bits with its per-phase value."
   },
   {
+   "address": 47807,
+   "type": "line",
+   "text": "Merge the selected display mode into $D016. For a nonzero phase, wait for raster line $E2 and run a short delay before storing the mode, advancing the tick, servicing input and updating music."
+  },
+  {
+   "address": 47871,
+   "type": "line",
+   "text": "Read a queued key. M inverts the flag at $5A. Any other key sets bit 0 of the dismissal latch at $46."
+  },
+  {
+   "address": 47896,
+   "type": "line",
+   "text": "Have GP decode the $D4/$C4 bitmap, then release it and draw the bounded colour plane selected by $5F/$44. Clear 97 bytes of the target bitmap before the second GP call."
+  },
+  {
+   "address": 47995,
+   "type": "line",
+   "text": "Load S5 and pass its pointer to the music player. Install the IRQ from $BA4E, clear the input latch, drain the keyboard queue and call DP in mode 2 before the first timed wait."
+  },
+  {
+   "address": 48053,
+   "type": "line",
+   "text": "Draw the colour resource $5F/$45 and blit the bitmap resource $D4/$C5. Release each resource after use."
+  },
+  {
+   "address": 48102,
+   "type": "line",
+   "text": "Clear the input latch and flush pending keys, request a bank switch and wait with X equal to $78. Stop the music, release S5 and drain the keyboard queue before returning."
+  },
+  {
+   "address": 48136,
+   "type": "line",
+   "text": "Add X to the current $30 tick and wait until the tick reaches the sum or the dismissal latch at $46 becomes nonzero."
+  },
+  {
    "address": 48149,
    "type": "line",
    "text": "Read the packed bitmap width, height and position, skip the six-byte header and calculate the destination in the active bitmap bank."
+  },
+  {
+   "address": 48251,
+   "type": "line",
+   "text": "First tag in the table of opcode-tagged addresses into the text script. The caller reads the address bytes as data."
+  },
+  {
+   "address": 48252,
+   "type": "line",
+   "text": "Low byte of the text summary address that $B8CE loads for the results display."
+  },
+  {
+   "address": 48253,
+   "type": "line",
+   "text": "High byte of the same summary address, completing pointer $BCEF."
+  },
+  {
+   "address": 48255,
+   "type": "line",
+   "text": "Low byte of the insertion address $BD06 for the formatted average speed."
+  },
+  {
+   "address": 48256,
+   "type": "line",
+   "text": "High byte of the average speed field's insertion address, copied into $0F at $B858."
+  },
+  {
+   "address": 48258,
+   "type": "line",
+   "text": "The first low byte of fifteen message addresses. Entries have three-byte stride, with an opcode tag between adjacent address words."
+  },
+  {
+   "address": 48259,
+   "type": "line",
+   "text": "First high byte of the speed-feedback table. $B8BF reads it at a stride of three using the same offset as the low-byte read at $B8BA."
+  },
+  {
+   "address": 48303,
+   "type": "line",
+   "text": "First low byte of three tagged addresses for the additional comment shown after the summary."
+  },
+  {
+   "address": 48304,
+   "type": "line",
+   "text": "First high byte of the three additional comments. The random choice at $BFCF indexes offsets zero, three or six."
+  },
+  {
+   "address": 48312,
+   "type": "line",
+   "text": "Low byte of the address $BD45 where the points digits are inserted."
+  },
+  {
+   "address": 48313,
+   "type": "line",
+   "text": "High byte of the points insertion address, loaded by $B869."
+  },
+  {
+   "address": 48315,
+   "type": "line",
+   "text": "Low byte of the address $BD1A for the minutes digits. The high byte is taken from $BCBF."
+  },
+  {
+   "address": 48318,
+   "type": "line",
+   "text": "Low byte of the address $BD1D for the seconds digits."
+  },
+  {
+   "address": 48319,
+   "type": "line",
+   "text": "Shared high byte for the minutes and seconds insertion addresses. $B87E and $B891 both read this byte."
+  },
+  {
+   "address": 48321,
+   "type": "line",
+   "text": "Low byte of the pointer to $BFA0, used after the dismissal key."
+  },
+  {
+   "address": 48322,
+   "type": "line",
+   "text": "High byte of the pointer for the final message, stored into $0F at $B901."
   },
   {
    "address": 48323,
@@ -1048,6 +1269,41 @@
    "address": 48328,
    "type": "line",
    "text": "Invoke UJ using the supplied two-byte picture identifier and free that identifier's original packed item afterward."
+  },
+  {
+   "address": 48349,
+   "type": "line",
+   "text": "Immediate operand at $BCDC. $BCC8 patches it with the first byte of the resource ID before the free call."
+  },
+  {
+   "address": 48351,
+   "type": "line",
+   "text": "Immediate operand at $BCDE. $BCCB patches it with the second byte of the resource ID for the tail call to $0806."
+  },
+  {
+   "address": 48355,
+   "type": "line",
+   "text": "A zero byte separates the final jump in the UJ wrapper from the raster state at $BCE4."
+  },
+  {
+   "address": 48356,
+   "type": "line",
+   "text": "Phase index read by $BAB0. The handler overwrites it with the indexed successor."
+  },
+  {
+   "address": 48357,
+   "type": "line",
+   "text": "Phase zero advances to one. Phase one advances to zero."
+  },
+  {
+   "address": 48359,
+   "type": "line",
+   "text": "Raster compare values written to $D012 by $BABC, indexed by the outgoing phase."
+  },
+  {
+   "address": 48361,
+   "type": "line",
+   "text": "Two values indexed by the IRQ phase. The first sets bit 4 of $D016 and the second leaves both mode bits cleared after the common mask."
   },
   {
    "address": 48363,
@@ -1068,6 +1324,11 @@
    "address": 49101,
    "type": "line",
    "text": "Points award saved here before adding it to the running total."
+  },
+  {
+   "address": 49102,
+   "type": "line",
+   "text": "High byte of the points award. The formatter at $B871 takes this byte in X when inserting the points digits."
   },
   {
    "address": 49103,
@@ -1100,9 +1361,24 @@
    "text": "Five words indexed by twice $52. The time calculation subtracts the selected word at $B5D7."
   },
   {
+   "address": 49129,
+   "type": "line",
+   "text": "First high byte of the interleaved time words at $BFE8. $B5CC reads this base using twice the stage index."
+  },
+  {
    "address": 49138,
    "type": "line",
    "text": "Five words selected by stage and divided by the adjusted time to form the interlude's points."
+  },
+  {
+   "address": 49139,
+   "type": "line",
+   "text": "First high byte of the interleaved point numerator words at $BFF2. $B60E reads this base using twice the stage index."
+  },
+  {
+   "address": 49148,
+   "type": "line",
+   "text": "Four literal zero bytes follow the five stage point words. The documented road stages use indices zero through four into the preceding table."
   }
  ]
 }

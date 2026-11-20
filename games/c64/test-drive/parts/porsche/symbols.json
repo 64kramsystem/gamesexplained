@@ -4,7 +4,7 @@
  "game": "test-drive",
  "part": "porsche",
  "build": "Decibel and Eagle Soft Incorporated side A, Eagle Soft Incorporated side B",
- "source": "regenerator2000 live",
+ "source": "regen2000proj",
  "regions": {
   "exclude": [
    [
@@ -39,11 +39,11 @@
    ],
    [
     13447,
-    13457,
+    13823,
     "Driving engine"
    ],
    [
-    13458,
+    13824,
     16383,
     "Title and resident code"
    ],
@@ -69,11 +69,11 @@
    ],
    [
     58624,
-    61183,
+    61243,
     "Title and resident code"
    ],
    [
-    61184,
+    61244,
     65529,
     "Driving engine"
    ],
@@ -127,11 +127,11 @@
    ],
    [
     13447,
-    13457,
+    13823,
     "Driving engine"
    ],
    [
-    13458,
+    13824,
     16383,
     "Title and resident code"
    ],
@@ -157,11 +157,11 @@
    ],
    [
     58624,
-    61183,
+    61243,
     "Title and resident code"
    ],
    [
-    61184,
+    61244,
     65529,
     "Driving engine"
    ],
@@ -185,13 +185,28 @@
   },
   {
    "start": 12834,
+   "end": 12841,
+   "type": "Byte"
+  },
+  {
+   "start": 12842,
+   "end": 12842,
+   "type": "Byte"
+  },
+  {
+   "start": 12843,
    "end": 12868,
    "type": "Byte"
   },
   {
    "start": 12869,
+   "end": 12910,
+   "type": "Byte"
+  },
+  {
+   "start": 12911,
    "end": 12952,
-   "type": "Undefined"
+   "type": "Byte"
   },
   {
    "start": 12953,
@@ -201,7 +216,7 @@
   {
    "start": 12981,
    "end": 13160,
-   "type": "Undefined"
+   "type": "Byte"
   },
   {
    "start": 13161,
@@ -210,8 +225,28 @@
   },
   {
    "start": 13284,
+   "end": 13290,
+   "type": "Byte"
+  },
+  {
+   "start": 13291,
+   "end": 13297,
+   "type": "Byte"
+  },
+  {
+   "start": 13298,
+   "end": 13353,
+   "type": "Byte"
+  },
+  {
+   "start": 13354,
+   "end": 13358,
+   "type": "Byte"
+  },
+  {
+   "start": 13359,
    "end": 13446,
-   "type": "Undefined"
+   "type": "Byte"
   }
  ],
  "symbols": [
@@ -655,9 +690,27 @@
   },
   {
    "address": 12842,
-   "name": "a_322A",
-   "type": "AbsoluteAddress",
-   "kind": "auto"
+   "name": "road_cockpit_descriptor_address_hi",
+   "type": "Field",
+   "kind": "user"
+  },
+  {
+   "address": 12843,
+   "name": "road_cockpit_patch_descriptors",
+   "type": "Field",
+   "kind": "user"
+  },
+  {
+   "address": 12869,
+   "name": "steering_wheel_vertical_curve",
+   "type": "Field",
+   "kind": "user"
+  },
+  {
+   "address": 12911,
+   "name": "steering_wheel_horizontal_curve",
+   "type": "Field",
+   "kind": "user"
   },
   {
    "address": 12953,
@@ -686,6 +739,18 @@
   {
    "address": 12977,
    "name": "needle_source_row_offset",
+   "type": "Field",
+   "kind": "user"
+  },
+  {
+   "address": 12981,
+   "name": "needle_vertical_endpoints",
+   "type": "Field",
+   "kind": "user"
+  },
+  {
+   "address": 13071,
+   "name": "needle_horizontal_endpoints",
    "type": "Field",
    "kind": "user"
   },
@@ -799,15 +864,33 @@
   },
   {
    "address": 13284,
-   "name": "a_33E4",
-   "type": "AbsoluteAddress",
-   "kind": "auto"
+   "name": "gear_lever_x_by_position",
+   "type": "Field",
+   "kind": "user"
   },
   {
    "address": 13291,
-   "name": "a_33EB",
-   "type": "AbsoluteAddress",
-   "kind": "auto"
+   "name": "gear_lever_y_by_position",
+   "type": "Field",
+   "kind": "user"
+  },
+  {
+   "address": 13298,
+   "name": "alternate_shift_map",
+   "type": "Field",
+   "kind": "user"
+  },
+  {
+   "address": 13354,
+   "name": "road_gear_ratio",
+   "type": "Field",
+   "kind": "user"
+  },
+  {
+   "address": 13359,
+   "name": "engine_acceleration_curve",
+   "type": "Field",
+   "kind": "user"
   }
  ],
  "comments": [
@@ -837,14 +920,74 @@
    "text": "For A equal to 1, compare $42 with its copy at $33CA and run the instrument update only if they differ."
   },
   {
+   "address": 12142,
+   "type": "line",
+   "text": "Immediate subtrahend patched at $2F67 from the scaled engine speed plus $42. The difference, adjusted by $4C when subtraction borrows, selects the tachometer angle."
+  },
+  {
    "address": 12152,
    "type": "line",
    "text": "Compare speed $41 with its cached value, then scale it through $31F7, install the speed-specific tables and call the common needle renderer."
   },
   {
+   "address": 12224,
+   "type": "line",
+   "text": "Immediate subtrahend patched at $2FB9 from the scaled road speed. The subtraction and borrow adjustment select the speedometer angle. The path also sets $1F61 to $83."
+  },
+  {
    "address": 12239,
    "type": "line",
    "text": "Use $0E to select the gauge's picture source. Classify the input against $2D, $5A and $87, update the gauge sprite coordinates, and compute its line endpoint from the selected horizontal and vertical lookups."
+  },
+  {
+   "address": 12346,
+   "type": "line",
+   "text": "For quadrants 1 and 2, subtract the indexed horizontal table value from the maximum sprite column in $10."
+  },
+  {
+   "address": 12347,
+   "type": "line",
+   "text": "Low operand for the reflected horizontal lookup. Both gauge paths patch it from the descriptor at $3223."
+  },
+  {
+   "address": 12348,
+   "type": "line",
+   "text": "High operand for the horizontal subtraction. The other path at $3040 loads the same table value directly."
+  },
+  {
+   "address": 12353,
+   "type": "line",
+   "text": "Low operand for the unreflected horizontal lookup at $3040."
+  },
+  {
+   "address": 12354,
+   "type": "line",
+   "text": "High operand for the unreflected horizontal lookup. The resulting column goes to $1E before the routine chooses the vertical path."
+  },
+  {
+   "address": 12368,
+   "type": "line",
+   "text": "For quadrants 0 and 1, subtract the indexed vertical table value from the maximum sprite row in $11."
+  },
+  {
+   "address": 12369,
+   "type": "line",
+   "text": "Low operand for the reflected vertical lookup. It is patched from the descriptor at $3226."
+  },
+  {
+   "address": 12370,
+   "type": "line",
+   "text": "High operand for the vertical subtraction. Quadrants 2 and 3 load the row directly at $3056."
+  },
+  {
+   "address": 12375,
+   "type": "line",
+   "text": "Low operand for the unreflected vertical lookup at $3056."
+  },
+  {
+   "address": 12376,
+   "type": "line",
+   "text": "High operand for the unreflected vertical lookup. The selected row follows into $1F."
   },
   {
    "address": 12377,
@@ -867,6 +1010,21 @@
    "text": "Resolve the pixel's sprite byte from the row stride table at $3399 and X-byte table at $3369. Mask the picture source byte with $3381 and OR the result into the sprite."
   },
   {
+   "address": 12681,
+   "type": "line",
+   "text": "Indexed absolute read from the cockpit artwork used as a pixel mask. Gauge selection patches its two address bytes at $2FD7 and $2FDD."
+  },
+  {
+   "address": 12682,
+   "type": "line",
+   "text": "Low byte of the artwork base after the six-byte resource header is skipped."
+  },
+  {
+   "address": 12683,
+   "type": "line",
+   "text": "High byte of the source artwork pointer. The following instructions select the source pixel bit, OR it into the destination sprite byte and restore the shared pointer low byte."
+  },
+  {
    "address": 12697,
    "type": "line",
    "text": "Align the denominator by shifting, subtract it from the numerator when possible, and roll each resulting quotient bit into $2D and $2E. Return the fixed-point step in A and X."
@@ -877,9 +1035,69 @@
    "text": "Patch the two immediate arguments to the driving-engine call at $0200. Preserve $12, $13, $16 and $17 across the call, then return its result."
   },
   {
+   "address": 12810,
+   "type": "line",
+   "text": "Immediate A argument to the scaling call at $320D. The wrapper copies the original A here before saving its zero-page temporaries."
+  },
+  {
+   "address": 12812,
+   "type": "line",
+   "text": "Immediate X argument for the driving-engine scaling call. The wrapper restores four zero-page values after the call and temporarily saves the result in the return operand."
+  },
+  {
+   "address": 12832,
+   "type": "line",
+   "text": "Immediate return value patched at $3210 with the result from $0200 before the saved zero-page values are restored."
+  },
+  {
    "address": 12834,
    "type": "line",
    "text": "Tagged little-endian addresses for the gauge setup. The code uses the operands as data, including $3223 and $3226 for endpoint table pointers."
+  },
+  {
+   "address": 12835,
+   "type": "line",
+   "text": "Low address byte of the horizontal endpoint table, copied into both horizontal load operands."
+  },
+  {
+   "address": 12836,
+   "type": "line",
+   "text": "High address byte of the horizontal endpoint table followed by the tag for the next address record."
+  },
+  {
+   "address": 12838,
+   "type": "line",
+   "text": "Low address byte of the vertical endpoint table, copied into both vertical load operands."
+  },
+  {
+   "address": 12839,
+   "type": "line",
+   "text": "High address byte of the vertical endpoint table followed by the tag for the driving setup pointer."
+  },
+  {
+   "address": 12841,
+   "type": "line",
+   "text": "Low address byte of the driving setup descriptors at $322B. Cockpit initialization returns it in X."
+  },
+  {
+   "address": 12842,
+   "type": "line",
+   "text": "High byte of the descriptor list address returned in Y from the cockpit setup routine."
+  },
+  {
+   "address": 12843,
+   "type": "line",
+   "text": "Three-byte records used by the driving setup at $7307. The operand words give the gear ratio, acceleration curve, steering-wheel offsets, gear-lever coordinates and alternate shift map. The following immediate operands set the steering-wheel centre."
+  },
+  {
+   "address": 12869,
+   "type": "line",
+   "text": "Indexed by half the steering magnitude. The engine subtracts the entry from $6E and adds the cockpit vertical offset before updating the sprite Y coordinate."
+  },
+  {
+   "address": 12911,
+   "type": "line",
+   "text": "Horizontal offset magnitude indexed by half the steering magnitude. The engine applies the steering sign and adds the cockpit horizontal centre before updating the sprite X coordinate."
   },
   {
    "address": 12953,
@@ -905,6 +1123,16 @@
    "address": 12977,
    "type": "line",
    "text": "Per-quadrant adjustment added by the sprite pixel routine when it selects a source row."
+  },
+  {
+   "address": 12981,
+   "type": "line",
+   "text": "Ninety endpoint rows in the 21-pixel sprite. The loads patched at $3051 and $3057 use this table. Quadrants 0 and 1 subtract the selected row from 20."
+  },
+  {
+   "address": 13071,
+   "type": "line",
+   "text": "Ninety endpoint columns in the 24-pixel sprite. The loads patched at $303B and $3041 use this table. Quadrants 1 and 2 subtract the selected column from 23."
   },
   {
    "address": 13161,
@@ -957,6 +1185,11 @@
    "text": "Horizontal endpoint cache indexed by gauge, initialized by $2EB1 and compared by $305F."
   },
   {
+   "address": 13261,
+   "type": "line",
+   "text": "Second gauge horizontal endpoint cache. Gauge initialization sets it to $FF to force a first redraw."
+  },
+  {
    "address": 13262,
    "type": "line",
    "text": "Vertical endpoint cache selected by the same gauge index."
@@ -967,6 +1200,21 @@
    "text": "Two little-endian picture addresses, populated by skipping the six-byte resource headers during initialization."
   },
   {
+   "address": 13265,
+   "type": "line",
+   "text": "High address byte of the tachometer artwork source. Setup carries into it when skipping the six-byte header."
+  },
+  {
+   "address": 13266,
+   "type": "line",
+   "text": "Low address byte of the speedometer artwork source. The common plotter selects it for the second gauge."
+  },
+  {
+   "address": 13267,
+   "type": "line",
+   "text": "High address byte of the speedometer artwork source. The selection routine copies it to the indexed load at $3189."
+  },
+  {
    "address": 13268,
    "type": "line",
    "text": "Extra offset into the picture source chosen using the gauge quadrant."
@@ -975,6 +1223,31 @@
    "address": 13269,
    "type": "line",
    "text": "Fifteen authored sprite bytes copied to $E440 after the 64-byte allocation is cleared."
+  },
+  {
+   "address": 13284,
+   "type": "line",
+   "text": "Gear-lever sprite X targets indexed by the selected gear. The first value also seeds the idle target at $1F5C."
+  },
+  {
+   "address": 13291,
+   "type": "line",
+   "text": "Gear-lever sprite Y targets indexed by the selected gear. The first value supplies the intermediate row used while the X coordinate is changing."
+  },
+  {
+   "address": 13298,
+   "type": "line",
+   "text": "Eight directions per current gear for alternate shifting. The engine forms eight times the gear plus direction minus one and stores the selected result to $45."
+  },
+  {
+   "address": 13354,
+   "type": "line",
+   "text": "Fixed-point scaling factors indexed by gear at $9802. The engine uses the ratio and road speed to calculate engine speed."
+  },
+  {
+   "address": 13359,
+   "type": "line",
+   "text": "Cockpit module tail beginning with acceleration values indexed by engine speed. The driving engine scales the selected value by gear, subtracts the speed-dependent term, and adds the resulting nonnegative amount to the road-speed accumulator."
   }
  ]
 }

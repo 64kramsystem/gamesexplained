@@ -24,7 +24,7 @@
       "$E4FF"
     ],
     [
-      "$EF00",
+      "$EF3C",
       "$FFF9"
     ]
   ],
@@ -43,6 +43,16 @@
         "$4280",
         "$517F",
         "Generated windshield interior. All twelve character rows are zero in both bitmap buffers at engine entry, and the road drawing passes write this area during play."
+      ],
+      [
+        "$E000",
+        "$E3E7",
+        "Generated second bitmap colour matrix. A store watch at $E000 caught the selector row-copy loop at $3595. Both 1000-byte matrices match at the driving hand-over."
+      ],
+      [
+        "$2E00",
+        "$2E63",
+        "Unchanged tail of the selector DP module. These 100 bytes match the corresponding side B catalogue bytes and are counted in car-select."
       ]
     ],
     "extra": [
@@ -125,6 +135,11 @@
         "$EF3C",
         "$EF7D",
         "Lotus sprite resource selected by $71D5"
+      ],
+      [
+        "$2D95",
+        "$2DFF",
+        "Seven FX sound presets and their header, byte-matched to side B item $28/$C1"
       ]
     ],
     "include": []

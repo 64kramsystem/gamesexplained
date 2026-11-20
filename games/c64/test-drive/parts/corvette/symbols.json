@@ -3,8 +3,8 @@
  "platform": "c64",
  "game": "test-drive",
  "part": "corvette",
- "build": "",
- "source": "regenerator2000 live",
+ "build": "Decibel and Eagle Soft Incorporated side A, Eagle Soft Incorporated side B",
+ "source": "regen2000proj",
  "regions": {
   "exclude": [
    [
@@ -39,11 +39,11 @@
    ],
    [
     13037,
-    13457,
+    13823,
     "Driving engine"
    ],
    [
-    13458,
+    13824,
     16383,
     "Title and resident code"
    ],
@@ -69,11 +69,11 @@
    ],
    [
     58624,
-    61183,
+    61243,
     "Title and resident code"
    ],
    [
-    61184,
+    61244,
     65529,
     "Driving engine"
    ],
@@ -127,11 +127,11 @@
    ],
    [
     13037,
-    13457,
+    13823,
     "Driving engine"
    ],
    [
-    13458,
+    13824,
     16383,
     "Title and resident code"
    ],
@@ -157,11 +157,11 @@
    ],
    [
     58624,
-    61183,
+    61243,
     "Title and resident code"
    ],
    [
-    61184,
+    61244,
     65529,
     "Driving engine"
    ],
@@ -234,9 +234,9 @@
   },
   {
    "address": 12134,
-   "name": "s_2F66",
+   "name": "update_corvette_speedometer",
    "type": "Subroutine",
-   "kind": "auto"
+   "kind": "user"
   },
   {
    "address": 12158,
@@ -246,9 +246,9 @@
   },
   {
    "address": 12159,
-   "name": "s_2F7F",
+   "name": "update_corvette_tachometer",
    "type": "Subroutine",
-   "kind": "auto"
+   "kind": "user"
   },
   {
    "address": 12183,
@@ -258,9 +258,9 @@
   },
   {
    "address": 12189,
-   "name": "s_2F9D",
+   "name": "draw_corvette_gauge",
    "type": "Subroutine",
-   "kind": "auto"
+   "kind": "user"
   },
   {
    "address": 12209,
@@ -378,9 +378,9 @@
   },
   {
    "address": 12428,
-   "name": "s_308C",
+   "name": "advance_gauge_sprite_pointers",
    "type": "Subroutine",
-   "kind": "auto"
+   "kind": "user"
   },
   {
    "address": 12439,
@@ -396,9 +396,9 @@
   },
   {
    "address": 12451,
-   "name": "s_30A3",
+   "name": "mask_tachometer_sprite",
    "type": "Subroutine",
-   "kind": "auto"
+   "kind": "user"
   },
   {
    "address": 12457,
@@ -432,9 +432,9 @@
   },
   {
    "address": 12505,
-   "name": "s_30D9",
+   "name": "copy_speedometer_rows",
    "type": "Subroutine",
-   "kind": "auto"
+   "kind": "user"
   },
   {
    "address": 12507,
@@ -444,9 +444,15 @@
   },
   {
    "address": 12526,
-   "name": "s_30EE",
+   "name": "draw_corvette_digit",
    "type": "Subroutine",
-   "kind": "auto"
+   "kind": "user"
+  },
+  {
+   "address": 12585,
+   "name": "corvette_driving_patches",
+   "type": "Field",
+   "kind": "user"
   },
   {
    "address": 12586,
@@ -459,6 +465,18 @@
    "name": "a_312B",
    "type": "AbsoluteAddress",
    "kind": "auto"
+  },
+  {
+   "address": 12614,
+   "name": "corvette_steering_vertical",
+   "type": "Field",
+   "kind": "user"
+  },
+  {
+   "address": 12656,
+   "name": "corvette_steering_horizontal",
+   "type": "Field",
+   "kind": "user"
   },
   {
    "address": 12698,
@@ -504,9 +522,9 @@
   },
   {
    "address": 12707,
-   "name": "f_31A3",
+   "name": "corvette_digit_glyphs",
    "type": "Field",
-   "kind": "auto"
+   "kind": "user"
   },
   {
    "address": 12708,
@@ -546,9 +564,9 @@
   },
   {
    "address": 12787,
-   "name": "f_31F3",
+   "name": "corvette_gauge_masks",
    "type": "Field",
-   "kind": "auto"
+   "kind": "user"
   },
   {
    "address": 12788,
@@ -579,6 +597,24 @@
    "name": "a_3251",
    "type": "AbsoluteAddress",
    "kind": "auto"
+  },
+  {
+   "address": 12888,
+   "name": "corvette_alternate_shift",
+   "type": "Field",
+   "kind": "user"
+  },
+  {
+   "address": 12944,
+   "name": "corvette_gear_ratios",
+   "type": "Field",
+   "kind": "user"
+  },
+  {
+   "address": 12949,
+   "name": "corvette_acceleration_curve",
+   "type": "Field",
+   "kind": "user"
   }
  ],
  "comments": [
@@ -591,6 +627,221 @@
    "address": 11880,
    "type": "line",
    "text": "A value of zero starts Corvette setup. Nonzero arguments jump to the update dispatch."
+  },
+  {
+   "address": 12134,
+   "type": "line",
+   "text": "Compare road speed at $41 with the previous display value. On change, set the scale multiplier to $70 and redraw the two-column vertical bar and its digits."
+  },
+  {
+   "address": 12159,
+   "type": "line",
+   "text": "Compare engine speed at $42 with the previous display value. On change, set the scale multiplier to $90 and redraw its masked bars and digits. Set the sprite-enable shadow to $BF on both paths."
+  },
+  {
+   "address": 12189,
+   "type": "line",
+   "text": "Save the unscaled value and gauge selector, then clear all three output sprites using the destination tables at $319F and $31A1. Preserve the engine scaling routine\u2019s zero-page temporaries across the call."
+  },
+  {
+   "address": 12231,
+   "type": "line",
+   "text": "Patched immediate multiplier for the scale routine through $0200. The resulting bar extent selects how many bottom rows to copy for road speed or which horizontal masks to apply for engine speed. Convert the original value to decimal by repeated subtraction and draw its digits in the third sprite."
+  },
+  {
+   "address": 12428,
+   "type": "line",
+   "text": "Advance both the source and destination to the next 64-byte sprite slot."
+  },
+  {
+   "address": 12451,
+   "type": "line",
+   "text": "Choose a three-byte row mask from the gauge fill extent and patch the three AND immediates before blitting."
+  },
+  {
+   "address": 12457,
+   "type": "line",
+   "text": "Immediate bias patched with the clipped extent. Added to twice that extent to index the three-byte masks."
+  },
+  {
+   "address": 12482,
+   "type": "line",
+   "text": "Patched mask for the left byte of each of the 21 source rows."
+  },
+  {
+   "address": 12489,
+   "type": "line",
+   "text": "Patched mask for the middle byte of each of the 21 source rows."
+  },
+  {
+   "address": 12496,
+   "type": "line",
+   "text": "Patched mask for the right byte of each row. Finish after copying all 63 graphic bytes."
+  },
+  {
+   "address": 12505,
+   "type": "line",
+   "text": "Copy X rows of three bytes upward from the bottom of the source sprite to the gauge output."
+  },
+  {
+   "address": 12526,
+   "type": "line",
+   "text": "Multiply the decimal digit in X by eight and draw its seven rows at byte column Y of the output sprite."
+  },
+  {
+   "address": 12585,
+   "type": "line",
+   "text": "Start of the patch descriptor returned in X and Y. The first record points to the gear ratio table."
+  },
+  {
+   "address": 12586,
+   "type": "line",
+   "text": "Low byte of the gear ratio pointer in the descriptor."
+  },
+  {
+   "address": 12587,
+   "type": "line",
+   "text": "High byte of the first pointer, followed by descriptors for the engine acceleration curve, horizontal and vertical steering offsets, gear-lever Y and X positions, and alternate shift lookup. The last two immediate records supply steering coordinate biases."
+  },
+  {
+   "address": 12614,
+   "type": "line",
+   "text": "Vertical steering-wheel displacement indexed by the driving engine at $8DB0 after it patches the reference from the cockpit descriptor."
+  },
+  {
+   "address": 12656,
+   "type": "line",
+   "text": "Horizontal steering-wheel displacement indexed by the driving engine at $8DBB. The engine reflects the horizontal component according to the sign of $47."
+  },
+  {
+   "address": 12698,
+   "type": "line",
+   "text": "Low byte of the 5Z sprite source after skipping its two-byte header."
+  },
+  {
+   "address": 12699,
+   "type": "line",
+   "text": "High byte of the cockpit gauge graphics source pointer."
+  },
+  {
+   "address": 12700,
+   "type": "line",
+   "text": "Prior road-speed display value. Setup writes $FF to require a first redraw."
+  },
+  {
+   "address": 12701,
+   "type": "line",
+   "text": "Prior engine-speed display value. The update compares it before clearing and regenerating sprites."
+  },
+  {
+   "address": 12702,
+   "type": "line",
+   "text": "Negative when a more significant digit was already drawn, so an intervening zero must be shown."
+  },
+  {
+   "address": 12703,
+   "type": "line",
+   "text": "Two low bytes for the gauge sprite destinations, selected by Y."
+  },
+  {
+   "address": 12705,
+   "type": "line",
+   "text": "High bytes of the gauge destinations $E480 and $E540."
+  },
+  {
+   "address": 12707,
+   "type": "line",
+   "text": "First row of each eight-byte numeric glyph, indexed by eight times the displayed digit."
+  },
+  {
+   "address": 12708,
+   "type": "line",
+   "text": "Second row of each numeric glyph."
+  },
+  {
+   "address": 12709,
+   "type": "line",
+   "text": "Third row of each numeric glyph."
+  },
+  {
+   "address": 12710,
+   "type": "line",
+   "text": "Fourth row of the zero glyph and the base used at $310B to read the fourth row of any digit with an eight-byte stride."
+  },
+  {
+   "address": 12711,
+   "type": "line",
+   "text": "Fifth row of each numeric glyph."
+  },
+  {
+   "address": 12712,
+   "type": "line",
+   "text": "Sixth row of each numeric glyph."
+  },
+  {
+   "address": 12713,
+   "type": "line",
+   "text": "Seventh row of the numeric glyphs. The following byte in each record pads the stride to eight."
+  },
+  {
+   "address": 12777,
+   "type": "line",
+   "text": "Final row and padding of digit eight, then the last eight-byte glyph for digit nine."
+  },
+  {
+   "address": 12787,
+   "type": "line",
+   "text": "First byte of three-byte gauge masks that extend the filled area from the left."
+  },
+  {
+   "address": 12788,
+   "type": "line",
+   "text": "Middle byte of the gauge mask records."
+  },
+  {
+   "address": 12789,
+   "type": "line",
+   "text": "Right byte of the gauge mask records. Each step increases the number of set bits."
+  },
+  {
+   "address": 12853,
+   "type": "line",
+   "text": "Final two masks in the gauge table, with 22 and 23 consecutive bits set."
+  },
+  {
+   "address": 12859,
+   "type": "line",
+   "text": "Five three-byte rows for the gear-indicator sprite copied to $E440."
+  },
+  {
+   "address": 12874,
+   "type": "line",
+   "text": "Seven gear-lever X positions. Setup uses the first position and the road animator indexes the table by gear."
+  },
+  {
+   "address": 12881,
+   "type": "line",
+   "text": "Seven gear-lever Y positions for the current gear. The driving engine uses position zero while moving across the shift gate."
+  },
+  {
+   "address": 12888,
+   "type": "line",
+   "text": "Alternate shift lookup. The driving control handler uses the pointer from the cockpit descriptor at $313F."
+  },
+  {
+   "address": 12944,
+   "type": "line",
+   "text": "Gear ratio values used by the driving speed and engine update."
+  },
+  {
+   "address": 12949,
+   "type": "line",
+   "text": "Engine acceleration curve indexed by engine speed at $9839 via the cockpit descriptor."
+  },
+  {
+   "address": 13013,
+   "type": "line",
+   "text": "High-revolution tail of the engine acceleration curve. The table falls through $50, $46, $3C, $32 and $28 steps near the end."
   }
  ]
 }

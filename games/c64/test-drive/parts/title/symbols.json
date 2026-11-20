@@ -4,7 +4,7 @@
  "game": "test-drive",
  "part": "title",
  "build": "Decibel and Eagle Soft Incorporated side A, Eagle Soft Incorporated side B",
- "source": "regenerator2000 live",
+ "source": "regen2000proj",
  "regions": {
   "exclude": [
    [
@@ -18,14 +18,49 @@
     "I/O and colour RAM"
    ],
    [
+    26993,
+    27135,
+    "Zero-filled tail of the page copy beyond the last byte of the PM disk item"
+   ],
+   [
+    1696,
+    2023,
+    "Blank cells in the setup screen matrix at $0400. The earlier intro capture still has its message in these cells."
+   ],
+   [
+    2024,
+    2047,
+    "Remainder of the disk intro screen page outside its 1000 visible cells. The 24 bytes match the intro PRG and survive its handoff."
+   ],
+   [
+    8192,
+    8447,
+    "One-sector transfer buffer allocated at $17B9. The saved page matches side A track 22 sector 6, and a CPU read watchpoint caught the buffer being reused at $0DDB."
+   ],
+   [
+    58624,
+    59391,
+    "Disk intro payload copied under KERNAL by the self-modifying store at $082A. All 768 bytes were present before dismissing the intro and survive unchanged in the title, selector and first road snapshots."
+   ],
+   [
+    7842,
+    7935,
+    "Disk intro relocation residue after the end of DM at $1EA1. The $0389 store watchpoint caught the intro copying this tail, and all 94 bytes match the later title capture."
+   ],
+   [
+    7936,
+    8191,
+    "Runtime page initialized to zero at $173A. VICE store watchpoints at both ends caught the same clear loop. The page begins after the DM disk payload and its intro residue."
+   ],
+   [
     10684,
     11875,
     "Driving engine"
    ],
    [
-    13250,
+    13463,
     15534,
-    "10 parts: Driving engine, Porsche, Ferrari and others"
+    "7 parts: Driving engine, Car selection, Road stage 1 and others"
    ],
    [
     16384,
@@ -33,17 +68,27 @@
     "2 parts: Car selection, Driving engine"
    ],
    [
-    27136,
+    34941,
+    45539,
+    "Driving engine"
+   ],
+   [
+    48333,
+    48581,
+    "3 parts: Driving engine, Car selection, Gas stop"
+   ],
+   [
+    49152,
     58623,
-    "3 parts: Car selection, Driving engine, Gas stop"
+    "2 parts: Car selection, Driving engine"
    ],
    [
     59392,
-    60582,
+    59398,
     "High scores"
    ],
    [
-    61184,
+    65528,
     65529,
     "2 parts: Driving engine, Car selection"
    ]
@@ -55,9 +100,214 @@
     "DM program as loaded from its PRG header"
    ],
    [
+    9472,
+    10232,
+    "TD startup module, selected from the resident directory at $093C"
+   ],
+   [
+    10233,
+    10683,
+    "UJ resource decompressor, selected from the resident directory at $0943"
+   ],
+   [
     11876,
     13249,
     "Title state resident module with entry $2E68 and body length $055A"
+   ],
+   [
+    13250,
+    13462,
+    "DS sampled-audio playback module in the resident directory"
+   ],
+   [
+    27136,
+    30051,
+    "Packed title sample ID $C2/$30"
+   ],
+   [
+    30052,
+    34940,
+    "Packed title sample ID $C2/$31"
+   ],
+   [
+    64833,
+    65527,
+    "Title asset $D4/$C1 unpacked from $2A/$D4"
+   ],
+   [
+    64221,
+    64832,
+    "Title asset $D4/$C2 unpacked from $2A/$D4"
+   ],
+   [
+    63340,
+    64220,
+    "Title asset $D4/$C3 unpacked from $2A/$D4"
+   ],
+   [
+    62134,
+    63339,
+    "Title asset $D4/$42 unpacked from $2A/$D4"
+   ],
+   [
+    62022,
+    62133,
+    "Title asset $5F/$41 unpacked from $2A/$D4"
+   ],
+   [
+    61736,
+    62021,
+    "Title asset $5F/$42 unpacked from $2A/$D4"
+   ],
+   [
+    61522,
+    61735,
+    "Title asset $5F/$43 unpacked from $2A/$D4"
+   ],
+   [
+    59847,
+    61521,
+    "Title asset $C3/$D3 unpacked from $2A/$D4"
+   ],
+   [
+    59721,
+    59846,
+    "Title asset $5F/$53 unpacked from $2A/$D4"
+   ],
+   [
+    59679,
+    59720,
+    "Title asset $C3/$C1 unpacked from $2A/$D4"
+   ],
+   [
+    59489,
+    59678,
+    "Title asset $C3/$41 unpacked from $2A/$D4"
+   ],
+   [
+    48962,
+    49151,
+    "Title asset $C3/$42 unpacked from $2A/$D4"
+   ],
+   [
+    48772,
+    48961,
+    "Title asset $C3/$43 unpacked from $2A/$D4"
+   ],
+   [
+    48582,
+    48771,
+    "Title asset $C3/$44 unpacked from $2A/$D4"
+   ],
+   [
+    48143,
+    48332,
+    "Title asset $C3/$45 unpacked from $2A/$D4"
+   ],
+   [
+    47953,
+    48142,
+    "Title asset $C3/$46 unpacked from $2A/$D4"
+   ],
+   [
+    47763,
+    47952,
+    "Title asset $C3/$47 unpacked from $2A/$D4"
+   ],
+   [
+    47573,
+    47762,
+    "Title asset $C3/$48 unpacked from $2A/$D4"
+   ],
+   [
+    47383,
+    47572,
+    "Title asset $C3/$49 unpacked from $2A/$D4"
+   ],
+   [
+    47193,
+    47382,
+    "Title asset $C3/$4A unpacked from $2A/$D4"
+   ],
+   [
+    47003,
+    47192,
+    "Title asset $C3/$4B unpacked from $2A/$D4"
+   ],
+   [
+    25600,
+    26992,
+    "Resident PM payload copied from byte 53 of the disk module"
+   ],
+   [
+    46741,
+    47002,
+    "Title asset $CB/$31 unpacked from $2A/$CC"
+   ],
+   [
+    46479,
+    46740,
+    "Title asset $CB/$32 unpacked from $2A/$CC"
+   ],
+   [
+    46217,
+    46478,
+    "Title asset $CB/$33 unpacked from $2A/$CC"
+   ],
+   [
+    45955,
+    46216,
+    "Title asset $CB/$34 unpacked from $2A/$CC"
+   ],
+   [
+    45693,
+    45954,
+    "Title asset $CB/$35 unpacked from $2A/$CC"
+   ],
+   [
+    59445,
+    59488,
+    "Title asset $2D/$31 unpacked from $2A/$CC"
+   ],
+   [
+    59399,
+    59444,
+    "Title asset $2D/$32 unpacked from $2A/$CC"
+   ],
+   [
+    45639,
+    45692,
+    "Title asset $2D/$33 unpacked from $2A/$CC"
+   ],
+   [
+    45591,
+    45638,
+    "Title asset $2D/$34 unpacked from $2A/$CC"
+   ],
+   [
+    45540,
+    45590,
+    "Title asset $2D/$35 unpacked from $2A/$CC"
+   ],
+   [
+    8448,
+    8703,
+    "Side A private directory sector 3/0"
+   ],
+   [
+    8704,
+    8959,
+    "Side A private directory sector 3/1"
+   ],
+   [
+    8960,
+    9215,
+    "Side A private directory sector 3/2"
+   ],
+   [
+    9216,
+    9471,
+    "Side A private directory sector 3/3"
    ]
   ],
   "edges": [
@@ -81,9 +331,9 @@
     "Driving engine"
    ],
    [
-    13250,
+    13463,
     15534,
-    "10 parts: Driving engine, Porsche, Ferrari and others"
+    "7 parts: Driving engine, Car selection, Road stage 1 and others"
    ],
    [
     16384,
@@ -91,17 +341,27 @@
     "2 parts: Car selection, Driving engine"
    ],
    [
-    27136,
+    34941,
+    45539,
+    "Driving engine"
+   ],
+   [
+    48333,
+    48581,
+    "3 parts: Driving engine, Car selection, Gas stop"
+   ],
+   [
+    49152,
     58623,
-    "3 parts: Car selection, Driving engine, Gas stop"
+    "2 parts: Car selection, Driving engine"
    ],
    [
     59392,
-    60582,
+    59398,
     "High scores"
    ],
    [
-    61184,
+    65528,
     65529,
     "2 parts: Driving engine, Car selection"
    ]
@@ -110,8 +370,33 @@
  "blocks": [
   {
    "start": 0,
-   "end": 1023,
+   "end": 116,
    "type": "Undefined"
+  },
+  {
+   "start": 117,
+   "end": 117,
+   "type": "Byte"
+  },
+  {
+   "start": 118,
+   "end": 652,
+   "type": "Undefined"
+  },
+  {
+   "start": 653,
+   "end": 653,
+   "type": "Byte"
+  },
+  {
+   "start": 654,
+   "end": 1012,
+   "type": "Undefined"
+  },
+  {
+   "start": 1013,
+   "end": 1023,
+   "type": "Byte"
   },
   {
    "start": 1024,
@@ -130,8 +415,18 @@
   },
   {
    "start": 2096,
+   "end": 2146,
+   "type": "Byte"
+  },
+  {
+   "start": 2147,
+   "end": 2149,
+   "type": "Code"
+  },
+  {
+   "start": 2150,
    "end": 2248,
-   "type": "Undefined"
+   "type": "Byte"
   },
   {
    "start": 2249,
@@ -140,6 +435,21 @@
   },
   {
    "start": 2252,
+   "end": 2260,
+   "type": "Byte"
+  },
+  {
+   "start": 2261,
+   "end": 2263,
+   "type": "Code"
+  },
+  {
+   "start": 2264,
+   "end": 2303,
+   "type": "Byte"
+  },
+  {
+   "start": 2304,
    "end": 2775,
    "type": "Undefined"
   },
@@ -155,21 +465,21 @@
   },
   {
    "start": 3151,
-   "end": 3741,
-   "type": "Code"
-  },
-  {
-   "start": 3742,
-   "end": 3900,
-   "type": "Undefined"
-  },
-  {
-   "start": 3901,
    "end": 5016,
    "type": "Code"
   },
   {
    "start": 5017,
+   "end": 5058,
+   "type": "Code"
+  },
+  {
+   "start": 5059,
+   "end": 5074,
+   "type": "Byte"
+  },
+  {
+   "start": 5075,
    "end": 5081,
    "type": "Undefined"
   },
@@ -225,26 +535,16 @@
   },
   {
    "start": 5786,
-   "end": 5875,
+   "end": 5910,
    "type": "Code"
   },
   {
-   "start": 5876,
-   "end": 6097,
+   "start": 5911,
+   "end": 5942,
    "type": "Undefined"
   },
   {
-   "start": 6098,
-   "end": 6099,
-   "type": "Code"
-  },
-  {
-   "start": 6100,
-   "end": 6104,
-   "type": "Undefined"
-  },
-  {
-   "start": 6105,
+   "start": 5943,
    "end": 6184,
    "type": "Code"
   },
@@ -275,8 +575,23 @@
   },
   {
    "start": 7058,
-   "end": 7132,
+   "end": 7063,
    "type": "Undefined"
+  },
+  {
+   "start": 7064,
+   "end": 7120,
+   "type": "Code"
+  },
+  {
+   "start": 7121,
+   "end": 7121,
+   "type": "Undefined"
+  },
+  {
+   "start": 7122,
+   "end": 7132,
+   "type": "Code"
   },
   {
    "start": 7133,
@@ -295,8 +610,38 @@
   },
   {
    "start": 7823,
-   "end": 9475,
+   "end": 7841,
+   "type": "Code"
+  },
+  {
+   "start": 7842,
+   "end": 8447,
    "type": "Undefined"
+  },
+  {
+   "start": 8448,
+   "end": 8703,
+   "type": "Byte"
+  },
+  {
+   "start": 8704,
+   "end": 8959,
+   "type": "Byte"
+  },
+  {
+   "start": 8960,
+   "end": 9215,
+   "type": "Byte"
+  },
+  {
+   "start": 9216,
+   "end": 9471,
+   "type": "Byte"
+  },
+  {
+   "start": 9472,
+   "end": 9475,
+   "type": "Word"
   },
   {
    "start": 9476,
@@ -305,8 +650,23 @@
   },
   {
    "start": 10073,
-   "end": 10120,
+   "end": 10075,
    "type": "Undefined"
+  },
+  {
+   "start": 10076,
+   "end": 10096,
+   "type": "Code"
+  },
+  {
+   "start": 10097,
+   "end": 10099,
+   "type": "Undefined"
+  },
+  {
+   "start": 10100,
+   "end": 10120,
+   "type": "Code"
   },
   {
    "start": 10121,
@@ -315,8 +675,33 @@
   },
   {
    "start": 10153,
-   "end": 10683,
+   "end": 10153,
    "type": "Undefined"
+  },
+  {
+   "start": 10154,
+   "end": 10230,
+   "type": "Byte"
+  },
+  {
+   "start": 10231,
+   "end": 10236,
+   "type": "Word"
+  },
+  {
+   "start": 10237,
+   "end": 10666,
+   "type": "Code"
+  },
+  {
+   "start": 10667,
+   "end": 10667,
+   "type": "Undefined"
+  },
+  {
+   "start": 10668,
+   "end": 10683,
+   "type": "Byte"
   },
   {
    "start": 11876,
@@ -350,7 +735,27 @@
   },
   {
    "start": 13086,
+   "end": 13112,
+   "type": "Code"
+  },
+  {
+   "start": 13113,
    "end": 13249,
+   "type": "Undefined"
+  },
+  {
+   "start": 13250,
+   "end": 13253,
+   "type": "Word"
+  },
+  {
+   "start": 13254,
+   "end": 13461,
+   "type": "Code"
+  },
+  {
+   "start": 13462,
+   "end": 13462,
    "type": "Undefined"
   },
   {
@@ -385,13 +790,138 @@
   },
   {
    "start": 26476,
+   "end": 26494,
+   "type": "Undefined"
+  },
+  {
+   "start": 26495,
+   "end": 26587,
+   "type": "Byte"
+  },
+  {
+   "start": 26588,
+   "end": 26682,
+   "type": "Byte"
+  },
+  {
+   "start": 26683,
+   "end": 26856,
+   "type": "Byte"
+  },
+  {
+   "start": 26857,
    "end": 26861,
    "type": "Undefined"
   },
   {
    "start": 26862,
-   "end": 27135,
+   "end": 26989,
    "type": "Code"
+  },
+  {
+   "start": 26990,
+   "end": 26992,
+   "type": "Byte"
+  },
+  {
+   "start": 26993,
+   "end": 27135,
+   "type": "Undefined"
+  },
+  {
+   "start": 27136,
+   "end": 34940,
+   "type": "Byte"
+  },
+  {
+   "start": 45540,
+   "end": 45590,
+   "type": "Byte"
+  },
+  {
+   "start": 45591,
+   "end": 45638,
+   "type": "Byte"
+  },
+  {
+   "start": 45639,
+   "end": 45692,
+   "type": "Byte"
+  },
+  {
+   "start": 45693,
+   "end": 45954,
+   "type": "Byte"
+  },
+  {
+   "start": 45955,
+   "end": 46216,
+   "type": "Byte"
+  },
+  {
+   "start": 46217,
+   "end": 46478,
+   "type": "Byte"
+  },
+  {
+   "start": 46479,
+   "end": 46740,
+   "type": "Byte"
+  },
+  {
+   "start": 46741,
+   "end": 47002,
+   "type": "Byte"
+  },
+  {
+   "start": 47003,
+   "end": 47192,
+   "type": "Byte"
+  },
+  {
+   "start": 47193,
+   "end": 47382,
+   "type": "Byte"
+  },
+  {
+   "start": 47383,
+   "end": 47572,
+   "type": "Byte"
+  },
+  {
+   "start": 47573,
+   "end": 47762,
+   "type": "Byte"
+  },
+  {
+   "start": 47763,
+   "end": 47952,
+   "type": "Byte"
+  },
+  {
+   "start": 47953,
+   "end": 48142,
+   "type": "Byte"
+  },
+  {
+   "start": 48143,
+   "end": 48332,
+   "type": "Byte"
+  },
+  {
+   "start": 48582,
+   "end": 48771,
+   "type": "Byte"
+  },
+  {
+   "start": 48772,
+   "end": 48961,
+   "type": "Byte"
+  },
+  {
+   "start": 48962,
+   "end": 49151,
+   "type": "Byte"
   },
   {
    "start": 58624,
@@ -399,14 +929,74 @@
    "type": "Undefined"
   },
   {
-   "start": 60583,
-   "end": 61183,
-   "type": "Undefined"
+   "start": 59399,
+   "end": 59444,
+   "type": "Byte"
+  },
+  {
+   "start": 59445,
+   "end": 59488,
+   "type": "Byte"
+  },
+  {
+   "start": 59489,
+   "end": 59678,
+   "type": "Byte"
+  },
+  {
+   "start": 59679,
+   "end": 59720,
+   "type": "Byte"
+  },
+  {
+   "start": 59721,
+   "end": 59846,
+   "type": "Byte"
+  },
+  {
+   "start": 59847,
+   "end": 61521,
+   "type": "Byte"
+  },
+  {
+   "start": 61522,
+   "end": 61735,
+   "type": "Byte"
+  },
+  {
+   "start": 61736,
+   "end": 62021,
+   "type": "Byte"
+  },
+  {
+   "start": 62022,
+   "end": 62133,
+   "type": "Byte"
+  },
+  {
+   "start": 62134,
+   "end": 63339,
+   "type": "Byte"
+  },
+  {
+   "start": 63340,
+   "end": 64220,
+   "type": "Byte"
+  },
+  {
+   "start": 64221,
+   "end": 64832,
+   "type": "Byte"
+  },
+  {
+   "start": 64833,
+   "end": 65527,
+   "type": "Byte"
   },
   {
    "start": 65530,
    "end": 65535,
-   "type": "Code"
+   "type": "Word"
   }
  ],
  "symbols": [
@@ -515,6 +1105,18 @@
   {
    "address": 21,
    "name": "zpa_15",
+   "type": "ZeroPageAbsoluteAddress",
+   "kind": "auto"
+  },
+  {
+   "address": 26,
+   "name": "zpa_1A",
+   "type": "ZeroPageAbsoluteAddress",
+   "kind": "auto"
+  },
+  {
+   "address": 27,
+   "name": "zpa_1B",
    "type": "ZeroPageAbsoluteAddress",
    "kind": "auto"
   },
@@ -633,8 +1235,26 @@
    "kind": "auto"
   },
   {
-   "address": 160,
-   "name": "zpa_A0",
+   "address": 112,
+   "name": "zpa_70",
+   "type": "ZeroPageAbsoluteAddress",
+   "kind": "auto"
+  },
+  {
+   "address": 113,
+   "name": "zpa_71",
+   "type": "ZeroPageAbsoluteAddress",
+   "kind": "auto"
+  },
+  {
+   "address": 115,
+   "name": "zpa_73",
+   "type": "ZeroPageAbsoluteAddress",
+   "kind": "auto"
+  },
+  {
+   "address": 117,
+   "name": "zpa_75",
    "type": "ZeroPageAbsoluteAddress",
    "kind": "auto"
   },
@@ -742,8 +1362,8 @@
   },
   {
    "address": 788,
-   "name": "a_0314",
-   "type": "AbsoluteAddress",
+   "name": "p_0314",
+   "type": "Pointer",
    "kind": "auto"
   },
   {
@@ -761,6 +1381,18 @@
   {
    "address": 793,
    "name": "a_0319",
+   "type": "AbsoluteAddress",
+   "kind": "auto"
+  },
+  {
+   "address": 1013,
+   "name": "drive_startup_parameters",
+   "type": "Field",
+   "kind": "user"
+  },
+  {
+   "address": 1015,
+   "name": "a_03F7",
    "type": "AbsoluteAddress",
    "kind": "auto"
   },
@@ -783,6 +1415,24 @@
    "kind": "auto"
   },
   {
+   "address": 1148,
+   "name": "bitmap_row_offsets_low_124",
+   "type": "Field",
+   "kind": "user"
+  },
+  {
+   "address": 1212,
+   "name": "bitmap_row_offsets_low_188",
+   "type": "Field",
+   "kind": "user"
+  },
+  {
+   "address": 1276,
+   "name": "bitmap_row_offsets_low_252",
+   "type": "Field",
+   "kind": "user"
+  },
+  {
    "address": 1280,
    "name": "bitmap_row_offsets_hi",
    "type": "Field",
@@ -799,6 +1449,24 @@
    "name": "f_053C",
    "type": "Field",
    "kind": "auto"
+  },
+  {
+   "address": 1404,
+   "name": "bitmap_row_offsets_high_124",
+   "type": "Field",
+   "kind": "user"
+  },
+  {
+   "address": 1468,
+   "name": "bitmap_row_offsets_high_188",
+   "type": "Field",
+   "kind": "user"
+  },
+  {
+   "address": 1532,
+   "name": "bitmap_row_offsets_high_252",
+   "type": "Field",
+   "kind": "user"
   },
   {
    "address": 1536,
@@ -831,10 +1499,22 @@
    "kind": "user"
   },
   {
+   "address": 2051,
+   "name": "s_0803",
+   "type": "Subroutine",
+   "kind": "auto"
+  },
+  {
    "address": 2054,
    "name": "release_module",
    "type": "Subroutine",
    "kind": "user"
+  },
+  {
+   "address": 2057,
+   "name": "s_0809",
+   "type": "Subroutine",
+   "kind": "auto"
   },
   {
    "address": 2066,
@@ -867,10 +1547,76 @@
    "kind": "auto"
   },
   {
+   "address": 2096,
+   "name": "resident_zero_area_before_multiply",
+   "type": "Field",
+   "kind": "user"
+  },
+  {
+   "address": 2147,
+   "name": "multiply_unsigned_bytes",
+   "type": "Subroutine",
+   "kind": "user"
+  },
+  {
+   "address": 2150,
+   "name": "resident_zero_area_before_pointer_service",
+   "type": "Field",
+   "kind": "user"
+  },
+  {
    "address": 2249,
    "name": "s_08C9",
    "type": "Subroutine",
    "kind": "auto"
+  },
+  {
+   "address": 2252,
+   "name": "resident_zero_area_before_line_input",
+   "type": "Field",
+   "kind": "user"
+  },
+  {
+   "address": 2261,
+   "name": "read_kernal_line",
+   "type": "Subroutine",
+   "kind": "user"
+  },
+  {
+   "address": 2264,
+   "name": "resident_zero_area_before_directory",
+   "type": "Field",
+   "kind": "user"
+  },
+  {
+   "address": 2304,
+   "name": "f_0900",
+   "type": "Field",
+   "kind": "auto"
+  },
+  {
+   "address": 2368,
+   "name": "resident_directory_executable_records",
+   "type": "Field",
+   "kind": "user"
+  },
+  {
+   "address": 2432,
+   "name": "resident_audio_and_colour_records",
+   "type": "Field",
+   "kind": "user"
+  },
+  {
+   "address": 2455,
+   "name": "a_0997",
+   "type": "AbsoluteAddress",
+   "kind": "auto"
+  },
+  {
+   "address": 2519,
+   "name": "resident_directory_page_tail",
+   "type": "Field",
+   "kind": "user"
   },
   {
    "address": 2553,
@@ -881,6 +1627,12 @@
   {
    "address": 2554,
    "name": "a_09FA",
+   "type": "AbsoluteAddress",
+   "kind": "auto"
+  },
+  {
+   "address": 2555,
+   "name": "a_09FB",
    "type": "AbsoluteAddress",
    "kind": "auto"
   },
@@ -941,6 +1693,12 @@
   {
    "address": 2569,
    "name": "a_0A09",
+   "type": "AbsoluteAddress",
+   "kind": "auto"
+  },
+  {
+   "address": 2570,
+   "name": "a_0A0A",
    "type": "AbsoluteAddress",
    "kind": "auto"
   },
@@ -1251,6 +2009,12 @@
    "kind": "auto"
   },
   {
+   "address": 2720,
+   "name": "f_0AA0",
+   "type": "Field",
+   "kind": "auto"
+  },
+  {
    "address": 2773,
    "name": "a_0AD5",
    "type": "AbsoluteAddress",
@@ -1522,9 +2286,9 @@
   },
   {
    "address": 3387,
-   "name": "b_0D3B",
+   "name": "register_disk_payload",
    "type": "Branch",
-   "kind": "auto"
+   "kind": "user"
   },
   {
    "address": 3414,
@@ -1534,9 +2298,9 @@
   },
   {
    "address": 3442,
-   "name": "b_0D72",
+   "name": "read_initial_partial_sector",
    "type": "Branch",
-   "kind": "auto"
+   "kind": "user"
   },
   {
    "address": 3499,
@@ -1570,15 +2334,15 @@
   },
   {
    "address": 3561,
-   "name": "b_0DE9",
+   "name": "read_remaining_payload_sectors",
    "type": "Branch",
-   "kind": "auto"
+   "kind": "user"
   },
   {
    "address": 3664,
-   "name": "b_0E50",
+   "name": "read_final_partial_sector",
    "type": "Branch",
-   "kind": "auto"
+   "kind": "user"
   },
   {
    "address": 3695,
@@ -1606,14 +2370,38 @@
   },
   {
    "address": 3720,
-   "name": "j_0E88",
+   "name": "finish_disk_lookup",
    "type": "Jump",
-   "kind": "auto"
+   "kind": "user"
   },
   {
    "address": 3742,
-   "name": "j_0E9E",
+   "name": "allocate_empty_module",
    "type": "Jump",
+   "kind": "user"
+  },
+  {
+   "address": 3781,
+   "name": "b_0EC5",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 3853,
+   "name": "b_0F0D",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 3869,
+   "name": "report_empty_module_failure",
+   "type": "Branch",
+   "kind": "user"
+  },
+  {
+   "address": 3899,
+   "name": "b_0F3B",
+   "type": "Branch",
    "kind": "auto"
   },
   {
@@ -2079,6 +2867,18 @@
    "kind": "auto"
   },
   {
+   "address": 5052,
+   "name": "output_hex_digit",
+   "type": "Field",
+   "kind": "user"
+  },
+  {
+   "address": 5059,
+   "name": "hexadecimal_digit_table",
+   "type": "Field",
+   "kind": "user"
+  },
+  {
    "address": 5075,
    "name": "a_13D3",
    "type": "AbsoluteAddress",
@@ -2104,9 +2904,9 @@
   },
   {
    "address": 5082,
-   "name": "j_13DA",
-   "type": "Jump",
-   "kind": "auto"
+   "name": "print_with_quoted_text_state",
+   "type": "Subroutine",
+   "kind": "user"
   },
   {
    "address": 5122,
@@ -2416,9 +3216,9 @@
   },
   {
    "address": 5592,
-   "name": "s_15D8",
+   "name": "cache_sector_to_expansion",
    "type": "Subroutine",
-   "kind": "auto"
+   "kind": "user"
   },
   {
    "address": 5615,
@@ -2470,9 +3270,9 @@
   },
   {
    "address": 5695,
-   "name": "a_163F",
-   "type": "AbsoluteAddress",
-   "kind": "auto"
+   "name": "sector_stage_store_high",
+   "type": "Field",
+   "kind": "user"
   },
   {
    "address": 5705,
@@ -2589,15 +3389,69 @@
    "kind": "auto"
   },
   {
+   "address": 5876,
+   "name": "dispatch_banked_irq",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 5911,
+   "name": "dispatch_banked_nmi",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 5929,
+   "name": "return_from_banked_nmi",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 5934,
+   "name": "return_from_banked_irq",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
    "address": 5943,
-   "name": "j_1737",
+   "name": "initialize_resident_services",
    "type": "Jump",
+   "kind": "user"
+  },
+  {
+   "address": 5946,
+   "name": "b_173A",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 6039,
+   "name": "b_1797",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 6053,
+   "name": "b_17A5",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 6063,
+   "name": "b_17AF",
+   "type": "Branch",
    "kind": "auto"
   },
   {
    "address": 6098,
    "name": "s_17D2",
    "type": "Subroutine",
+   "kind": "auto"
+  },
+  {
+   "address": 6104,
+   "name": "r_17D8",
+   "type": "Return",
    "kind": "auto"
   },
   {
@@ -2644,9 +3498,9 @@
   },
   {
    "address": 6186,
-   "name": "f_182A",
+   "name": "translated_disk_sector_fields",
    "type": "Field",
-   "kind": "auto"
+   "kind": "user"
   },
   {
    "address": 6441,
@@ -2985,10 +3839,22 @@
    "kind": "auto"
   },
   {
+   "address": 7282,
+   "name": "cache_sector_bitmap_tail",
+   "type": "Field",
+   "kind": "user"
+  },
+  {
    "address": 7306,
    "name": "f_1C8A",
    "type": "Field",
    "kind": "auto"
+  },
+  {
+   "address": 7370,
+   "name": "secondary_cache_bitmap_tail",
+   "type": "Field",
+   "kind": "user"
   },
   {
    "address": 7394,
@@ -3171,6 +4037,18 @@
    "kind": "auto"
   },
   {
+   "address": 7823,
+   "name": "kernal_irq_wrapper",
+   "type": "Field",
+   "kind": "user"
+  },
+  {
+   "address": 7936,
+   "name": "f_1F00",
+   "type": "Field",
+   "kind": "auto"
+  },
+  {
    "address": 8096,
    "name": "a_1FA0",
    "type": "AbsoluteAddress",
@@ -3181,6 +4059,36 @@
    "name": "f_2000",
    "type": "Field",
    "kind": "auto"
+  },
+  {
+   "address": 8448,
+   "name": "side_a_catalogue_page_1",
+   "type": "Field",
+   "kind": "user"
+  },
+  {
+   "address": 8704,
+   "name": "side_a_catalogue_page_2",
+   "type": "Field",
+   "kind": "user"
+  },
+  {
+   "address": 8960,
+   "name": "side_a_catalogue_page_3",
+   "type": "Field",
+   "kind": "user"
+  },
+  {
+   "address": 9216,
+   "name": "side_a_catalogue_page_4",
+   "type": "Field",
+   "kind": "user"
+  },
+  {
+   "address": 9472,
+   "name": "title_startup_header",
+   "type": "UserDefined",
+   "kind": "user"
   },
   {
    "address": 9476,
@@ -3199,6 +4107,24 @@
    "name": "b_257D",
    "type": "Branch",
    "kind": "auto"
+  },
+  {
+   "address": 9600,
+   "name": "prepare_first_disk_title",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 9652,
+   "name": "unpack_first_disk_title_assets",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 9686,
+   "name": "run_title_and_release_assets",
+   "type": "UserDefined",
+   "kind": "user"
   },
   {
    "address": 9695,
@@ -3255,6 +4181,12 @@
    "kind": "auto"
   },
   {
+   "address": 10076,
+   "name": "startup_nmi_handler",
+   "type": "Field",
+   "kind": "user"
+  },
+  {
    "address": 10098,
    "name": "a_2772",
    "type": "AbsoluteAddress",
@@ -3267,6 +4199,12 @@
    "kind": "auto"
   },
   {
+   "address": 10100,
+   "name": "startup_raster_handler",
+   "type": "Field",
+   "kind": "user"
+  },
+  {
    "address": 10121,
    "name": "s_2789",
    "type": "Subroutine",
@@ -3274,9 +4212,9 @@
   },
   {
    "address": 10126,
-   "name": "s_278E",
+   "name": "unpack_startup_asset",
    "type": "Subroutine",
-   "kind": "auto"
+   "kind": "user"
   },
   {
    "address": 10147,
@@ -3292,9 +4230,9 @@
   },
   {
    "address": 10154,
-   "name": "f_27AA",
+   "name": "first_disk_title_release_ids",
    "type": "Field",
-   "kind": "auto"
+   "kind": "user"
   },
   {
    "address": 10155,
@@ -3303,14 +4241,266 @@
    "kind": "auto"
   },
   {
+   "address": 10219,
+   "name": "title_final_release_pairs",
+   "type": "Field",
+   "kind": "user"
+  },
+  {
    "address": 10231,
-   "name": "a_27F7",
+   "name": "prior_startup_irq_vector",
    "type": "AbsoluteAddress",
-   "kind": "auto"
+   "kind": "user"
   },
   {
    "address": 10232,
    "name": "a_27F8",
+   "type": "AbsoluteAddress",
+   "kind": "auto"
+  },
+  {
+   "address": 10233,
+   "name": "unpacker_module_header",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 10237,
+   "name": "unpack_resource",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 10284,
+   "name": "release_descriptor_buffer",
+   "type": "Branch",
+   "kind": "user"
+  },
+  {
+   "address": 10296,
+   "name": "check_packed_resource_header",
+   "type": "Branch",
+   "kind": "user"
+  },
+  {
+   "address": 10317,
+   "name": "b_284D",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 10394,
+   "name": "b_289A",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 10405,
+   "name": "decode_child_descriptors",
+   "type": "Branch",
+   "kind": "user"
+  },
+  {
+   "address": 10421,
+   "name": "j_28B5",
+   "type": "Jump",
+   "kind": "auto"
+  },
+  {
+   "address": 10422,
+   "name": "a_28B6",
+   "type": "AbsoluteAddress",
+   "kind": "auto"
+  },
+  {
+   "address": 10423,
+   "name": "a_28B7",
+   "type": "AbsoluteAddress",
+   "kind": "auto"
+  },
+  {
+   "address": 10432,
+   "name": "b_28C0",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 10444,
+   "name": "start_child_payloads",
+   "type": "Branch",
+   "kind": "user"
+  },
+  {
+   "address": 10450,
+   "name": "b_28D2",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 10468,
+   "name": "j_28E4",
+   "type": "Jump",
+   "kind": "auto"
+  },
+  {
+   "address": 10480,
+   "name": "allocate_child_payload",
+   "type": "Branch",
+   "kind": "user"
+  },
+  {
+   "address": 10534,
+   "name": "install_child_flags_and_decode",
+   "type": "Branch",
+   "kind": "user"
+  },
+  {
+   "address": 10554,
+   "name": "a_293A",
+   "type": "AbsoluteAddress",
+   "kind": "auto"
+  },
+  {
+   "address": 10555,
+   "name": "a_293B",
+   "type": "AbsoluteAddress",
+   "kind": "auto"
+  },
+  {
+   "address": 10564,
+   "name": "b_2944",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 10574,
+   "name": "b_294E",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 10587,
+   "name": "advance_to_next_child",
+   "type": "Branch",
+   "kind": "user"
+  },
+  {
+   "address": 10612,
+   "name": "next_resource_byte",
+   "type": "Subroutine",
+   "kind": "user"
+  },
+  {
+   "address": 10618,
+   "name": "b_297A",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 10630,
+   "name": "b_2986",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 10636,
+   "name": "b_298C",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 10658,
+   "name": "read_resource_token",
+   "type": "Subroutine",
+   "kind": "user"
+  },
+  {
+   "address": 10666,
+   "name": "r_29AA",
+   "type": "Return",
+   "kind": "auto"
+  },
+  {
+   "address": 10668,
+   "name": "packed_resource_header",
+   "type": "Field",
+   "kind": "user"
+  },
+  {
+   "address": 10671,
+   "name": "a_29AF",
+   "type": "AbsoluteAddress",
+   "kind": "auto"
+  },
+  {
+   "address": 10672,
+   "name": "a_29B0",
+   "type": "AbsoluteAddress",
+   "kind": "auto"
+  },
+  {
+   "address": 10673,
+   "name": "a_29B1",
+   "type": "AbsoluteAddress",
+   "kind": "auto"
+  },
+  {
+   "address": 10674,
+   "name": "a_29B2",
+   "type": "AbsoluteAddress",
+   "kind": "auto"
+  },
+  {
+   "address": 10675,
+   "name": "unpacker_resource_id",
+   "type": "AbsoluteAddress",
+   "kind": "user"
+  },
+  {
+   "address": 10676,
+   "name": "a_29B4",
+   "type": "AbsoluteAddress",
+   "kind": "auto"
+  },
+  {
+   "address": 10677,
+   "name": "unpacker_call_mode",
+   "type": "AbsoluteAddress",
+   "kind": "user"
+  },
+  {
+   "address": 10678,
+   "name": "unpacker_descriptor_count",
+   "type": "AbsoluteAddress",
+   "kind": "user"
+  },
+  {
+   "address": 10679,
+   "name": "unpacker_child_index",
+   "type": "AbsoluteAddress",
+   "kind": "user"
+  },
+  {
+   "address": 10680,
+   "name": "unpacker_child_bytes_remaining",
+   "type": "AbsoluteAddress",
+   "kind": "user"
+  },
+  {
+   "address": 10681,
+   "name": "a_29B9",
+   "type": "AbsoluteAddress",
+   "kind": "auto"
+  },
+  {
+   "address": 10682,
+   "name": "unpacker_repeat_state",
+   "type": "AbsoluteAddress",
+   "kind": "user"
+  },
+  {
+   "address": 10683,
+   "name": "a_29BB",
    "type": "AbsoluteAddress",
    "kind": "auto"
   },
@@ -3375,10 +4565,22 @@
    "kind": "auto"
   },
   {
+   "address": 12056,
+   "name": "play_first_title_sample",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
    "address": 12079,
    "name": "b_2F2F",
    "type": "Branch",
    "kind": "auto"
+  },
+  {
+   "address": 12128,
+   "name": "play_second_title_sample",
+   "type": "UserDefined",
+   "kind": "user"
   },
   {
    "address": 12153,
@@ -3454,9 +4656,9 @@
   },
   {
    "address": 12399,
-   "name": "b_306F",
+   "name": "begin_title_attract_graphics",
    "type": "Branch",
-   "kind": "auto"
+   "kind": "user"
   },
   {
    "address": 12416,
@@ -3466,21 +4668,21 @@
   },
   {
    "address": 12442,
-   "name": "b_309A",
+   "name": "present_title_attract_graphics",
    "type": "Branch",
-   "kind": "auto"
+   "kind": "user"
   },
   {
    "address": 12485,
-   "name": "b_30C5",
+   "name": "draw_title_overlay",
    "type": "Branch",
-   "kind": "auto"
+   "kind": "user"
   },
   {
    "address": 12527,
-   "name": "b_30EF",
+   "name": "copy_title_overlay_row",
    "type": "Branch",
-   "kind": "auto"
+   "kind": "user"
   },
   {
    "address": 12551,
@@ -3495,6 +4697,12 @@
    "kind": "auto"
   },
   {
+   "address": 12578,
+   "name": "wait_after_title_overlay",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
    "address": 12580,
    "name": "b_3124",
    "type": "Branch",
@@ -3502,15 +4710,27 @@
   },
   {
    "address": 12594,
-   "name": "b_3132",
+   "name": "show_attract_high_scores",
    "type": "Branch",
-   "kind": "auto"
+   "kind": "user"
+  },
+  {
+   "address": 12608,
+   "name": "prepare_title_text_panel",
+   "type": "UserDefined",
+   "kind": "user"
   },
   {
    "address": 12653,
    "name": "b_316D",
    "type": "Branch",
    "kind": "auto"
+  },
+  {
+   "address": 12680,
+   "name": "present_title_text_panel",
+   "type": "UserDefined",
+   "kind": "user"
   },
   {
    "address": 12713,
@@ -3699,6 +4919,18 @@
    "kind": "auto"
   },
   {
+   "address": 13086,
+   "name": "unpack_title_cleanup_resource",
+   "type": "Field",
+   "kind": "user"
+  },
+  {
+   "address": 13113,
+   "name": "title_picture_ids_prefix",
+   "type": "Field",
+   "kind": "user"
+  },
+  {
    "address": 13114,
    "name": "f_333A",
    "type": "Field",
@@ -3726,6 +4958,96 @@
    "address": 13193,
    "name": "f_3389",
    "type": "Field",
+   "kind": "auto"
+  },
+  {
+   "address": 13218,
+   "name": "title_first_bitmap_masks",
+   "type": "Field",
+   "kind": "user"
+  },
+  {
+   "address": 13234,
+   "name": "title_second_bitmap_masks",
+   "type": "Field",
+   "kind": "user"
+  },
+  {
+   "address": 13250,
+   "name": "sampled_sound_header",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 13254,
+   "name": "play_packed_title_sample",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 13258,
+   "name": "r_33CA",
+   "type": "Return",
+   "kind": "auto"
+  },
+  {
+   "address": 13259,
+   "name": "b_33CB",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 13315,
+   "name": "begin_timed_sample_output",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 13343,
+   "name": "decode_title_sample_byte",
+   "type": "Branch",
+   "kind": "user"
+  },
+  {
+   "address": 13371,
+   "name": "b_343B",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 13381,
+   "name": "b_3445",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 13390,
+   "name": "b_344E",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 13419,
+   "name": "b_346B",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 13432,
+   "name": "restore_after_title_sample",
+   "type": "Branch",
+   "kind": "user"
+  },
+  {
+   "address": 13451,
+   "name": "write_sample_nibble",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 13452,
+   "name": "b_348C",
+   "type": "Branch",
    "kind": "auto"
   },
   {
@@ -4408,21 +5730,27 @@
   },
   {
    "address": 26494,
-   "name": "a_677E",
-   "type": "AbsoluteAddress",
-   "kind": "auto"
+   "name": "music_fade_direction",
+   "type": "Field",
+   "kind": "user"
+  },
+  {
+   "address": 26495,
+   "name": "music_note_frequency_low",
+   "type": "Field",
+   "kind": "user"
   },
   {
    "address": 26588,
-   "name": "f_67DC",
+   "name": "music_note_frequency_high",
    "type": "Field",
-   "kind": "auto"
+   "kind": "user"
   },
   {
    "address": 26683,
-   "name": "f_683B",
+   "name": "music_source_patch_records",
    "type": "Field",
-   "kind": "auto"
+   "kind": "user"
   },
   {
    "address": 26857,
@@ -4510,9 +5838,9 @@
   },
   {
    "address": 26990,
-   "name": "a_696E",
-   "type": "AbsoluteAddress",
-   "kind": "auto"
+   "name": "music_module_trailing_bytes",
+   "type": "Field",
+   "kind": "user"
   },
   {
    "address": 26991,
@@ -4525,18 +5853,681 @@
    "name": "a_6970",
    "type": "AbsoluteAddress",
    "kind": "auto"
+  },
+  {
+   "address": 27136,
+   "name": "first_title_sample_header",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 27139,
+   "name": "first_title_sample_bytes_0003",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 28163,
+   "name": "first_title_sample_bytes_0403",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 28672,
+   "name": "first_title_sample_bytes_0600",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 29187,
+   "name": "first_title_sample_bytes_0803",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 30052,
+   "name": "second_title_sample_header",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 30055,
+   "name": "second_title_sample_bytes_0003",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 31079,
+   "name": "second_title_sample_bytes_0403",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 32103,
+   "name": "second_title_sample_bytes_0803",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 32768,
+   "name": "second_title_sample_bytes_0a9c",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 32937,
+   "name": "second_title_sample_stream_0b45",
+   "type": "Field",
+   "kind": "user"
+  },
+  {
+   "address": 33127,
+   "name": "second_title_sample_bytes_0c03",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 34151,
+   "name": "second_title_sample_bytes_1003",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 45540,
+   "name": "title_archive_asset_2d35",
+   "type": "Field",
+   "kind": "user"
+  },
+  {
+   "address": 45591,
+   "name": "title_archive_asset_2d34",
+   "type": "Field",
+   "kind": "user"
+  },
+  {
+   "address": 45639,
+   "name": "title_archive_asset_2d33",
+   "type": "Field",
+   "kind": "user"
+  },
+  {
+   "address": 45693,
+   "name": "title_archive_asset_cb35",
+   "type": "Field",
+   "kind": "user"
+  },
+  {
+   "address": 45955,
+   "name": "title_archive_asset_cb34",
+   "type": "Field",
+   "kind": "user"
+  },
+  {
+   "address": 46217,
+   "name": "title_archive_asset_cb33",
+   "type": "Field",
+   "kind": "user"
+  },
+  {
+   "address": 46479,
+   "name": "title_archive_asset_cb32",
+   "type": "Field",
+   "kind": "user"
+  },
+  {
+   "address": 46741,
+   "name": "title_archive_asset_cb31",
+   "type": "Field",
+   "kind": "user"
+  },
+  {
+   "address": 47003,
+   "name": "title_asset_c34b",
+   "type": "Field",
+   "kind": "user"
+  },
+  {
+   "address": 47193,
+   "name": "title_asset_c34a",
+   "type": "Field",
+   "kind": "user"
+  },
+  {
+   "address": 47383,
+   "name": "title_asset_c349",
+   "type": "Field",
+   "kind": "user"
+  },
+  {
+   "address": 47573,
+   "name": "title_asset_c348",
+   "type": "Field",
+   "kind": "user"
+  },
+  {
+   "address": 47763,
+   "name": "title_asset_c347",
+   "type": "Field",
+   "kind": "user"
+  },
+  {
+   "address": 47953,
+   "name": "title_asset_c346",
+   "type": "Field",
+   "kind": "user"
+  },
+  {
+   "address": 48143,
+   "name": "title_asset_c345",
+   "type": "Field",
+   "kind": "user"
+  },
+  {
+   "address": 48582,
+   "name": "title_asset_c344",
+   "type": "Field",
+   "kind": "user"
+  },
+  {
+   "address": 48772,
+   "name": "title_asset_c343",
+   "type": "Field",
+   "kind": "user"
+  },
+  {
+   "address": 48962,
+   "name": "title_asset_c342",
+   "type": "Field",
+   "kind": "user"
+  },
+  {
+   "address": 59399,
+   "name": "title_archive_asset_2d32",
+   "type": "Field",
+   "kind": "user"
+  },
+  {
+   "address": 59445,
+   "name": "title_archive_asset_2d31",
+   "type": "Field",
+   "kind": "user"
+  },
+  {
+   "address": 59489,
+   "name": "title_asset_c341",
+   "type": "Field",
+   "kind": "user"
+  },
+  {
+   "address": 59679,
+   "name": "title_asset_c3c1",
+   "type": "Field",
+   "kind": "user"
+  },
+  {
+   "address": 59721,
+   "name": "title_asset_5f53",
+   "type": "Field",
+   "kind": "user"
+  },
+  {
+   "address": 59847,
+   "name": "title_asset_c3d3",
+   "type": "Field",
+   "kind": "user"
+  },
+  {
+   "address": 60871,
+   "name": "title_asset_c3d3_continuation_0400",
+   "type": "Field",
+   "kind": "user"
+  },
+  {
+   "address": 61440,
+   "name": "title_asset_c3d3_continuation_0639",
+   "type": "Field",
+   "kind": "user"
+  },
+  {
+   "address": 61522,
+   "name": "title_asset_5f43",
+   "type": "Field",
+   "kind": "user"
+  },
+  {
+   "address": 61736,
+   "name": "title_asset_5f42",
+   "type": "Field",
+   "kind": "user"
+  },
+  {
+   "address": 62022,
+   "name": "title_asset_5f41",
+   "type": "Field",
+   "kind": "user"
+  },
+  {
+   "address": 62134,
+   "name": "title_asset_d442",
+   "type": "Field",
+   "kind": "user"
+  },
+  {
+   "address": 63158,
+   "name": "title_asset_d442_continuation_0400",
+   "type": "Field",
+   "kind": "user"
+  },
+  {
+   "address": 63340,
+   "name": "title_asset_d4c3",
+   "type": "Field",
+   "kind": "user"
+  },
+  {
+   "address": 64221,
+   "name": "title_asset_d4c2",
+   "type": "Field",
+   "kind": "user"
+  },
+  {
+   "address": 64833,
+   "name": "title_asset_d4c1",
+   "type": "Field",
+   "kind": "user"
+  },
+  {
+   "address": 65530,
+   "name": "ram_interrupt_vectors",
+   "type": "Field",
+   "kind": "user"
   }
  ],
  "comments": [
+  {
+   "address": 0,
+   "type": "line",
+   "text": "6510 data-direction register for the banking port. It selects which output bits can affect the map."
+  },
+  {
+   "address": 1,
+   "type": "line",
+   "text": "6510 banking port. Service wrappers preserve this byte while changing the KERNAL and I/O mapping."
+  },
+  {
+   "address": 4,
+   "type": "line",
+   "text": "Low byte of the resident payload or record pointer. Several bitmap routines reuse the same zero-page pair as a destination."
+  },
+  {
+   "address": 5,
+   "type": "line",
+   "text": "High byte paired with the resident pointer at $04."
+  },
+  {
+   "address": 6,
+   "type": "line",
+   "text": "Low byte of the module-relative operand calculated by the relocation pass."
+  },
+  {
+   "address": 7,
+   "type": "line",
+   "text": "High byte of the relative operand during relocation."
+  },
+  {
+   "address": 8,
+   "type": "line",
+   "text": "Low byte of the resident stack continuation pointer, exchanged with the patched jump operand by the dispatcher."
+  },
+  {
+   "address": 9,
+   "type": "line",
+   "text": "High byte of the continuation pointer exchanged by the resident dispatcher."
+  },
+  {
+   "address": 10,
+   "type": "line",
+   "text": "Shared low working byte for the loader and display service."
+  },
+  {
+   "address": 11,
+   "type": "line",
+   "text": "Shared high working byte paired with $0A."
+  },
+  {
+   "address": 12,
+   "type": "line",
+   "text": "Display and loader workspace byte used together with $0D."
+  },
+  {
+   "address": 13,
+   "type": "line",
+   "text": "High working byte in the title graphics path."
+  },
+  {
+   "address": 14,
+   "type": "line",
+   "text": "Low byte of the source pointer in the title matrix copy. Other title loops reuse it as a local counter."
+  },
+  {
+   "address": 15,
+   "type": "line",
+   "text": "High byte of the title matrix source pointer."
+  },
+  {
+   "address": 16,
+   "type": "line",
+   "text": "End scanline in the title bitmap span copier."
+  },
+  {
+   "address": 17,
+   "type": "line",
+   "text": "High byte of an incremented title scratch pointer used in the paired drawing loops."
+  },
+  {
+   "address": 20,
+   "type": "line",
+   "text": "Remaining descriptor fields or descriptor bytes in the unpacker."
+  },
+  {
+   "address": 21,
+   "type": "line",
+   "text": "Unpacker work byte for the child-allocation path."
+  },
+  {
+   "address": 26,
+   "type": "line",
+   "text": "Low byte of the current unpacked descriptor pointer."
+  },
+  {
+   "address": 27,
+   "type": "line",
+   "text": "High byte of the current child descriptor pointer in UJ."
+  },
+  {
+   "address": 37,
+   "type": "line",
+   "text": "Disk configuration used to select the second set of display colors when equal to three."
+  },
+  {
+   "address": 48,
+   "type": "line",
+   "text": "Raster tick count incremented by the title interrupt."
+  },
+  {
+   "address": 49,
+   "type": "line",
+   "text": "Pending title bitmap bank flip. The raster handler swaps the bank bases and decrements it."
+  },
+  {
+   "address": 50,
+   "type": "line",
+   "text": "Pending fine-scroll register update decremented by the title IRQ."
+  },
+  {
+   "address": 51,
+   "type": "line",
+   "text": "Scroll bits merged into the low nibble of VIC control 2."
+  },
+  {
+   "address": 52,
+   "type": "line",
+   "text": "One bitmap base high byte, exchanged with $35 on the title\u2019s bank flip."
+  },
+  {
+   "address": 53,
+   "type": "line",
+   "text": "Other bitmap base high byte for the title\u2019s double buffer."
+  },
+  {
+   "address": 54,
+   "type": "line",
+   "text": "High page of the destination matrix used by the title scroll copy."
+  },
+  {
+   "address": 55,
+   "type": "line",
+   "text": "Source matrix bank high byte in the title scroll path."
+  },
+  {
+   "address": 56,
+   "type": "line",
+   "text": "First resource ID byte passed by the title to GP or DS."
+  },
+  {
+   "address": 57,
+   "type": "line",
+   "text": "Second resource ID byte passed with $38."
+  },
+  {
+   "address": 58,
+   "type": "line",
+   "text": "First byte of GP\u2019s companion color resource ID."
+  },
+  {
+   "address": 59,
+   "type": "line",
+   "text": "Second byte of the companion color ID."
+  },
+  {
+   "address": 64,
+   "type": "line",
+   "text": "Startup flag checked before the alternative module call at $2570."
+  },
+  {
+   "address": 70,
+   "type": "line",
+   "text": "Title input latch, with joystick fire in bit four and the keyboard request in bit three."
+  },
+  {
+   "address": 75,
+   "type": "line",
+   "text": "Low byte of the saved raster vector restored on title exit."
+  },
+  {
+   "address": 76,
+   "type": "line",
+   "text": "High byte of the saved raster vector."
+  },
+  {
+   "address": 77,
+   "type": "line",
+   "text": "Selected car ID byte passed into the startup archive and car artwork lookups."
+  },
+  {
+   "address": 90,
+   "type": "line",
+   "text": "SID output mask toggled by the title\u2019s M key and applied to the music master mode byte."
+  },
+  {
+   "address": 112,
+   "type": "line",
+   "text": "Low byte of the sample length and then of the negated sample position counter."
+  },
+  {
+   "address": 113,
+   "type": "line",
+   "text": "High byte of the sample length and then of the negated position counter."
+  },
+  {
+   "address": 115,
+   "type": "line",
+   "text": "Pack run escape byte captured by DS from the sample header."
+  },
+  {
+   "address": 117,
+   "type": "line",
+   "text": "Repeat countdown used by the sampled audio output loop."
+  },
+  {
+   "address": 198,
+   "type": "line",
+   "text": "KERNAL keyboard buffer count tested by the title before GETIN."
+  },
+  {
+   "address": 204,
+   "type": "line",
+   "text": "KERNAL cursor blink state cleared on the TD exit path."
+  },
+  {
+   "address": 212,
+   "type": "line",
+   "text": "KERNAL quote-mode byte cleared after releasing startup assets."
+  },
+  {
+   "address": 216,
+   "type": "line",
+   "text": "KERNAL insert counter cleared on exit from TD."
+  },
+  {
+   "address": 217,
+   "type": "line",
+   "text": "Title scroll remainder accumulated across the step table."
+  },
+  {
+   "address": 218,
+   "type": "line",
+   "text": "Index into the title\u2019s sequence of scroll distances."
+  },
+  {
+   "address": 219,
+   "type": "line",
+   "text": "Title drawing workspace immediately below the matrix-copy scratch byte."
+  },
+  {
+   "address": 220,
+   "type": "line",
+   "text": "Adjusted low source offset added to the title scroll copy\u2019s row address."
+  },
+  {
+   "address": 227,
+   "type": "line",
+   "text": "First title workspace byte cleared at entry at $2E6C."
+  },
+  {
+   "address": 251,
+   "type": "line",
+   "text": "Low current pattern pointer loaded by the music player."
+  },
+  {
+   "address": 252,
+   "type": "line",
+   "text": "High current pattern pointer used by the note reader."
+  },
+  {
+   "address": 253,
+   "type": "line",
+   "text": "Low source pointer used while installing the tune."
+  },
+  {
+   "address": 254,
+   "type": "line",
+   "text": "High source pointer accompanying $FD."
+  },
+  {
+   "address": 255,
+   "type": "line",
+   "text": "High byte of the resident pointer used by the indexed banked helper."
+  },
+  {
+   "address": 512,
+   "type": "line",
+   "text": "Temporary CHRIN input buffer. The resident line reader at $1DA3 stores successive characters from offset zero through carriage return."
+  },
+  {
+   "address": 648,
+   "type": "line",
+   "text": "KERNAL screen page byte. TD sets it to $84 during its exit sequence."
+  },
+  {
+   "address": 653,
+   "type": "line",
+   "text": "KERNAL keyboard modifier state. TD tests this byte before choosing its alternate startup path."
+  },
+  {
+   "address": 789,
+   "type": "line",
+   "text": "High byte of the KERNAL IRQ vector at $0314\u2013$0315."
+  },
+  {
+   "address": 792,
+   "type": "line",
+   "text": "Low byte of the NMI vector set by the startup module."
+  },
+  {
+   "address": 793,
+   "type": "line",
+   "text": "High byte of the NMI vector installed by TD at $252E."
+  },
+  {
+   "address": 1013,
+   "type": "line",
+   "text": "First two bytes of the DRIVE startup parameter block. The next byte is the resident startup display flag."
+  },
+  {
+   "address": 1015,
+   "type": "line",
+   "text": "Startup display flag tested at $17CE. A nonzero value passes display command $D2."
+  },
+  {
+   "address": 1018,
+   "type": "line",
+   "text": "Startup parameter byte tested against the JMP opcode $4C by TD. Five bytes follow it in the DRIVE parameter block."
+  },
   {
    "address": 1024,
    "type": "line",
    "text": "Low byte of the C64 bitmap offset for each raster row. Entries use 320 times the character row plus the row within its eight-line band."
   },
   {
+   "address": 1084,
+   "type": "line",
+   "text": "Low byte of the relative bitmap address starting at scanline 60. The low byte wraps every four character rows."
+  },
+  {
+   "address": 1148,
+   "type": "line",
+   "text": "The low byte of the relative bitmap address for pixel rows 124\u2013187. The row formula is 320 times the character row plus the scanline within the cell. This slice continues the table at $0400."
+  },
+  {
+   "address": 1212,
+   "type": "line",
+   "text": "The low byte of the relative bitmap address for pixel rows 188\u2013251. The row formula is 320 times the character row plus the scanline within the cell. This slice continues the table at $0400."
+  },
+  {
+   "address": 1276,
+   "type": "line",
+   "text": "The low byte of the relative bitmap address for pixel rows 252\u2013255. The row formula is 320 times the character row plus the scanline within the cell. This slice continues the table at $0400."
+  },
+  {
    "address": 1280,
    "type": "line",
    "text": "High byte companion to the table at $0400. The renderer adds the chosen bitmap bank to this relative offset."
+  },
+  {
+   "address": 1281,
+   "type": "line",
+   "text": "High-byte bitmap row offsets starting at scanline one. Each eight-line band adds 320 bytes to the relative address."
+  },
+  {
+   "address": 1340,
+   "type": "line",
+   "text": "Continuation of the high-byte bitmap address table from scanline 60, ending just before scanline 124."
+  },
+  {
+   "address": 1404,
+   "type": "line",
+   "text": "The high byte of the relative bitmap address for pixel rows 124\u2013187. The row formula is 320 times the character row plus the scanline within the cell. This slice continues the table at $0500."
+  },
+  {
+   "address": 1468,
+   "type": "line",
+   "text": "The high byte of the relative bitmap address for pixel rows 188\u2013251. The row formula is 320 times the character row plus the scanline within the cell. This slice continues the table at $0500."
+  },
+  {
+   "address": 1532,
+   "type": "line",
+   "text": "The high byte of the relative bitmap address for pixel rows 252\u2013255. The row formula is 320 times the character row plus the scanline within the cell. This slice continues the table at $0500."
   },
   {
    "address": 1536,
@@ -4564,14 +6555,444 @@
    "text": "Resident jump table entry to $0C4F. This looks up the two-byte module ID in X and Y and arranges for the module to be present in memory."
   },
   {
+   "address": 2051,
+   "type": "line",
+   "text": "Resident entry for allocating an empty module from an ID and stack-supplied length."
+  },
+  {
    "address": 2054,
    "type": "line",
    "text": "Resident jump table entry to $1244, using the two-byte module ID in X and Y."
   },
   {
+   "address": 2057,
+   "type": "line",
+   "text": "Resident entry for finding an already loaded descriptor by its ID."
+  },
+  {
+   "address": 2066,
+   "type": "line",
+   "text": "Resident character output entry, including the quoted-text parser."
+  },
+  {
+   "address": 2072,
+   "type": "line",
+   "text": "Resident entry for the disk side transition handler."
+  },
+  {
    "address": 2078,
    "type": "line",
    "text": "Resident jump table entry to $1A3A. Callers select an executable module by its two-byte ID."
+  },
+  {
+   "address": 2093,
+   "type": "line",
+   "text": "Resident entry that returns a queued character or reads KERNAL input."
+  },
+  {
+   "address": 2096,
+   "type": "line",
+   "text": "Zero-filled space in the DM load after the main resident jump table. The driving overlay uses part of it at $0836\u2013$0844 for the five FX service jumps."
+  },
+  {
+   "address": 2147,
+   "type": "line",
+   "text": "Jump to $1DB3. Shift the factor in $37 and add successive multiples of $33 to the 16-bit result at $30. A returns the high byte and X the low byte."
+  },
+  {
+   "address": 2150,
+   "type": "line",
+   "text": "Zero bytes in DM from the end of the multiply jump through the byte before the pointer-adjustment entry at $08C9."
+  },
+  {
+   "address": 2249,
+   "type": "line",
+   "text": "Resident entry that advances the pointer at $04 by the unsigned byte in A."
+  },
+  {
+   "address": 2252,
+   "type": "line",
+   "text": "Zero-filled span in DM between the pointer adjustment jump and the line-input jump at $08D5."
+  },
+  {
+   "address": 2261,
+   "type": "line",
+   "text": "Jump to the resident line reader at $1D92. It enables the KERNAL, accepts characters into $0200 through the carriage return, then restores the port."
+  },
+  {
+   "address": 2264,
+   "type": "line",
+   "text": "Zero-filled end of the page before the module directory at $0900."
+  },
+  {
+   "address": 2304,
+   "type": "line",
+   "text": "First resident directory page. Its first word links to the next page and its seven-byte descriptors start at offset four. Each descriptor carries flags, two ID bytes, length and address."
+  },
+  {
+   "address": 2368,
+   "type": "line",
+   "text": "Crosses the end of TD\u2019s descriptor into UJ and the following loaded modules. Each entry records the payload size and address independently."
+  },
+  {
+   "address": 2432,
+   "type": "line",
+   "text": "Tail of the first sampled-audio descriptor, the second sample descriptor and the two color assets immediately preceding the entry at $0997."
+  },
+  {
+   "address": 2455,
+   "type": "line",
+   "text": "Resident directory entries for the allocated title bitmap and color objects. The first entry names the color object $2D/$33 at $B247."
+  },
+  {
+   "address": 2519,
+   "type": "line",
+   "text": "End of the first resident directory page. The final complete record names private sector buffer $21/$31. The page links to $BCCD in this snapshot."
+  },
+  {
+   "address": 2553,
+   "type": "line",
+   "text": "Low byte of the requested allocation length read from the caller\u2019s stack."
+  },
+  {
+   "address": 2554,
+   "type": "line",
+   "text": "High byte of the requested allocation length for the new directory record."
+  },
+  {
+   "address": 2555,
+   "type": "line",
+   "text": "Limit of the directory template copy at $179E."
+  },
+  {
+   "address": 2556,
+   "type": "line",
+   "text": "Directory-growth flag. A nonzero value triggers allocation of a linked page after writing a record."
+  },
+  {
+   "address": 2557,
+   "type": "line",
+   "text": "Low byte of the reserved payload address, written into the record and returned in $04."
+  },
+  {
+   "address": 2558,
+   "type": "line",
+   "text": "High byte of the new payload address, returned in $05."
+  },
+  {
+   "address": 2559,
+   "type": "line",
+   "text": "Low byte of the selected record slot address."
+  },
+  {
+   "address": 2560,
+   "type": "line",
+   "text": "High byte of the selected resident directory record address."
+  },
+  {
+   "address": 2561,
+   "type": "line",
+   "text": "Copy of the selected seven-byte resident descriptor. Flags and the two-byte ID precede the little-endian length and payload pointer."
+  },
+  {
+   "address": 2566,
+   "type": "line",
+   "text": "Low address byte of the matched module\u2019s payload."
+  },
+  {
+   "address": 2567,
+   "type": "line",
+   "text": "High address byte of the matched module\u2019s payload."
+  },
+  {
+   "address": 2568,
+   "type": "line",
+   "text": "Low address byte of the matched record itself, used by UJ to update the directory."
+  },
+  {
+   "address": 2569,
+   "type": "line",
+   "text": "High address byte of the matched directory record."
+  },
+  {
+   "address": 2570,
+   "type": "line",
+   "text": "First byte of the startup disk scratch area cleared at $17CB."
+  },
+  {
+   "address": 2573,
+   "type": "line",
+   "text": "Private disk side number. The side-change service XORs it with one and sends the resulting value to the drive."
+  },
+  {
+   "address": 2574,
+   "type": "line",
+   "text": "Logical track for the active sector transfer."
+  },
+  {
+   "address": 2575,
+   "type": "line",
+   "text": "Logical sector, wrapped across sixteen logical sectors per track."
+  },
+  {
+   "address": 2576,
+   "type": "line",
+   "text": "Low byte of the full-sector destination from the transfer descriptor."
+  },
+  {
+   "address": 2577,
+   "type": "line",
+   "text": "High destination page, adjusted as each sector is transferred."
+  },
+  {
+   "address": 2578,
+   "type": "line",
+   "text": "Transfer control byte supplied by the descriptor."
+  },
+  {
+   "address": 2579,
+   "type": "line",
+   "text": "Drive reply saved by the final command and returned to the requester."
+  },
+  {
+   "address": 2580,
+   "type": "line",
+   "text": "Remaining full sector count."
+  },
+  {
+   "address": 2581,
+   "type": "line",
+   "text": "First byte of the ID being looked up."
+  },
+  {
+   "address": 2582,
+   "type": "line",
+   "text": "Second byte of the private module ID."
+  },
+  {
+   "address": 2583,
+   "type": "line",
+   "text": "Saved A from the caller of the module invocation or allocation service."
+  },
+  {
+   "address": 2584,
+   "type": "line",
+   "text": "Saved caller X, also the first requested module ID byte."
+  },
+  {
+   "address": 2585,
+   "type": "line",
+   "text": "Saved caller Y, also the second requested module ID byte."
+  },
+  {
+   "address": 2586,
+   "type": "line",
+   "text": "Caller A saved on entry to resident directory lookup."
+  },
+  {
+   "address": 2587,
+   "type": "line",
+   "text": "Saved first ID byte restored to X on directory lookup exit."
+  },
+  {
+   "address": 2588,
+   "type": "line",
+   "text": "Saved second ID byte restored to Y on directory lookup exit."
+  },
+  {
+   "address": 2589,
+   "type": "line",
+   "text": "Low end of the range tested in the payload allocator."
+  },
+  {
+   "address": 2590,
+   "type": "line",
+   "text": "High end address byte for the allocation range test."
+  },
+  {
+   "address": 2591,
+   "type": "line",
+   "text": "Low byte of the neighboring allocated range used in the free-space calculation."
+  },
+  {
+   "address": 2592,
+   "type": "line",
+   "text": "High byte of the neighboring range used during allocation."
+  },
+  {
+   "address": 2593,
+   "type": "line",
+   "text": "Linked-directory page index, incremented when following a page link."
+  },
+  {
+   "address": 2594,
+   "type": "line",
+   "text": "Record insertion index within the selected page."
+  },
+  {
+   "address": 2595,
+   "type": "line",
+   "text": "Flags in the displaced seven-byte record saved during insertion."
+  },
+  {
+   "address": 2596,
+   "type": "line",
+   "text": "First ID byte of the displaced record. The insertion path checks both ID bytes for zero."
+  },
+  {
+   "address": 2597,
+   "type": "line",
+   "text": "Second ID byte followed by the old record\u2019s length and address."
+  },
+  {
+   "address": 2602,
+   "type": "line",
+   "text": "Seven-byte record waiting for insertion. When insertion displaces a populated record, that record becomes the next pending record."
+  },
+  {
+   "address": 2609,
+   "type": "line",
+   "text": "Index of the last directory page saved before extending the list."
+  },
+  {
+   "address": 2610,
+   "type": "line",
+   "text": "Low pointer byte of the last page in the directory."
+  },
+  {
+   "address": 2611,
+   "type": "line",
+   "text": "High pointer byte of the last directory page. The extension routine also writes it into the new page\u2019s backwards link."
+  },
+  {
+   "address": 2620,
+   "type": "line",
+   "text": "Logical track of the first sector containing the requested payload."
+  },
+  {
+   "address": 2621,
+   "type": "line",
+   "text": "Logical sector of the first request, incremented after its partial transfer."
+  },
+  {
+   "address": 2622,
+   "type": "line",
+   "text": "Low address byte of the allocated staging sector buffer."
+  },
+  {
+   "address": 2623,
+   "type": "line",
+   "text": "High address byte of the staging buffer. Its transfer descriptor has two following fields."
+  },
+  {
+   "address": 2626,
+   "type": "line",
+   "text": "Whole-sector transfer starting track, adjusted for crossing the logical track boundary."
+  },
+  {
+   "address": 2627,
+   "type": "line",
+   "text": "Whole-sector transfer starting sector masked to the range zero through fifteen."
+  },
+  {
+   "address": 2628,
+   "type": "line",
+   "text": "Low byte of the full-sector destination descriptor."
+  },
+  {
+   "address": 2629,
+   "type": "line",
+   "text": "High byte of the destination for a whole-sector transfer."
+  },
+  {
+   "address": 2630,
+   "type": "line",
+   "text": "Number of full sectors requested, followed by the remaining transfer control field."
+  },
+  {
+   "address": 2632,
+   "type": "line",
+   "text": "Byte offset of the requested item within its first disk sector."
+  },
+  {
+   "address": 2633,
+   "type": "line",
+   "text": "Number of bytes available in that first partial sector."
+  },
+  {
+   "address": 2634,
+   "type": "line",
+   "text": "Saved disk lookup result restored as A at the end of the operation."
+  },
+  {
+   "address": 2635,
+   "type": "line",
+   "text": "Directory scan page index advanced when the current page is exhausted."
+  },
+  {
+   "address": 2636,
+   "type": "line",
+   "text": "Directory record index used by the private catalogue lookup."
+  },
+  {
+   "address": 2637,
+   "type": "line",
+   "text": "Number of first-sector payload bytes already copied."
+  },
+  {
+   "address": 2638,
+   "type": "line",
+   "text": "Original entry low byte read from the module header. Subtracted from absolute instruction operands to obtain module-relative offsets."
+  },
+  {
+   "address": 2639,
+   "type": "line",
+   "text": "Original entry high byte used by the relocator for the high half of the subtraction."
+  },
+  {
+   "address": 2640,
+   "type": "line",
+   "text": "Low byte of the module body length used to bound operand relocation."
+  },
+  {
+   "address": 2641,
+   "type": "line",
+   "text": "High byte of the module body length that bounds relocated references."
+  },
+  {
+   "address": 2642,
+   "type": "line",
+   "text": "Low byte of the relocated entry vector used by the indirect jump at $1AD8."
+  },
+  {
+   "address": 2643,
+   "type": "line",
+   "text": "High byte of the relocated entry vector. The following 48 bytes are searched backwards for three-byte opcodes whose operands may need relocation."
+  },
+  {
+   "address": 2691,
+   "type": "line",
+   "text": "Final byte of the three-byte opcode list, followed by 28 one-byte opcodes. The second search at $1AE7 skips index zero of this base."
+  },
+  {
+   "address": 2720,
+   "type": "line",
+   "text": "Template for the initial populated records in the resident directory. Setup copies through the limit at $09FB before clearing the remaining slots."
+  },
+  {
+   "address": 2773,
+   "type": "line",
+   "text": "Most recently stored drive reply, with one byte of space before the active command field."
+  },
+  {
+   "address": 2775,
+   "type": "line",
+   "text": "Active serial drive command byte."
+  },
+  {
+   "address": 2776,
+   "type": "line",
+   "text": "Return the most recently stored drive reply in A."
   },
   {
    "address": 2780,
@@ -4594,6 +7015,11 @@
    "text": "Send the requested disk side command through the resident transfer path."
   },
   {
+   "address": 3150,
+   "type": "line",
+   "text": "Rolling XOR checksum for the active serial sector transfer."
+  },
+  {
    "address": 3151,
    "type": "line",
    "text": "Save the caller's module pointer and requested ID, search resident records through $131E, and consult the disk directory for a module missing from memory."
@@ -4602,6 +7028,61 @@
    "address": 3336,
    "type": "line",
    "text": "Read the two-byte payload length from the private directory, allocate a resident destination, then transfer the initial partial sector, whole sectors and final partial sector."
+  },
+  {
+   "address": 3387,
+   "type": "line",
+   "text": "Reserve a directory record, copy its flags, ID and length from the disk descriptor, then store the new allocation's address. Extend the directory if $09FC indicates that another block is required."
+  },
+  {
+   "address": 3442,
+   "type": "line",
+   "text": "Copy the starting track and sector into the transfer descriptor and use the disk item's byte offset to decide whether to read a partial sector. Limit the first copy to the payload length when it fits within the sector."
+  },
+  {
+   "address": 3548,
+   "type": "line",
+   "text": "Patched low address of the partial-sector read buffer."
+  },
+  {
+   "address": 3549,
+   "type": "line",
+   "text": "Patched high address of the partial-sector read. Copy the remaining bytes from the first sector before advancing the sector counter."
+  },
+  {
+   "address": 3561,
+   "type": "line",
+   "text": "Subtract the bytes already copied, advance the logical track and sector with 16 sectors per track, and transfer any whole sectors directly into the remaining payload area."
+  },
+  {
+   "address": 3664,
+   "type": "line",
+   "text": "Read a trailing sector when the low byte of the remaining payload length is nonzero. Patch the source operand from the sector transfer descriptor and copy only that many bytes."
+  },
+  {
+   "address": 3696,
+   "type": "line",
+   "text": "Low operand byte of the indexed sector buffer read used for the final partial transfer."
+  },
+  {
+   "address": 3697,
+   "type": "line",
+   "text": "High operand byte of the sector buffer read at $0E6F. Copy X remaining bytes to the payload and return its allocation address."
+  },
+  {
+   "address": 3720,
+   "type": "line",
+   "text": "Preserve the result in $0A4A while clearing the lookup's busy flag and restoring the requested ID and previous $06 pointer."
+  },
+  {
+   "address": 3742,
+   "type": "line",
+   "text": "Read a two-byte allocation size from the caller's stack and reject an ID already in the resident directory. Reserve payload storage and fill the new descriptor with flags $02, the requested ID, its length and its address. Return the address in $04 on success."
+  },
+  {
+   "address": 3869,
+   "type": "line",
+   "text": "If bit 7 of $1C29 is set, print the allocation error and requested ID. Return with carry set."
   },
   {
    "address": 3901,
@@ -4624,9 +7105,349 @@
    "text": "Search the loaded module directory from $0900 for the ID in X and Y, remove its record, and restore X and Y before returning."
   },
   {
+   "address": 4751,
+   "type": "line",
+   "text": "High address byte of the indexed deletion-compaction load. The following loop copies seven-byte records toward the freed slot."
+  },
+  {
+   "address": 4775,
+   "type": "line",
+   "text": "Low byte of the source page patched for final record compaction."
+  },
+  {
+   "address": 4776,
+   "type": "line",
+   "text": "High byte of the compaction copy source. Finish moving entries up to offset $F9, then patch both stores with the final vacancy address."
+  },
+  {
+   "address": 4829,
+   "type": "line",
+   "text": "Low operand byte of the seven-byte store into the final slot in the preceding page."
+  },
+  {
+   "address": 4830,
+   "type": "line",
+   "text": "High operand byte of the cross-page compaction store. Copy the next page\u2019s first record back into the slot and continue from that page."
+  },
+  {
+   "address": 4846,
+   "type": "line",
+   "text": "Low operand byte shared with the cross-page compaction path. The zeroing loop erases the final slot when there is no next page."
+  },
+  {
+   "address": 4847,
+   "type": "line",
+   "text": "High operand byte of the clearing store. If the remaining linked page is now empty, sever its link from the preceding page and release the page record."
+  },
+  {
    "address": 4894,
    "type": "line",
    "text": "Follow the directory list starting at $0900 and compare the packed two-byte IDs against X and Y. When found, copy the seven-byte descriptor to $0A01 and return its payload pointer in $04."
+  },
+  {
+   "address": 5017,
+   "type": "line",
+   "text": "Return immediately from the service jump at $080C."
+  },
+  {
+   "address": 5018,
+   "type": "line",
+   "text": "Save A, X and Y, then print the high and low nibbles of A using the hexadecimal character table at $13C3. Restore the original registers."
+  },
+  {
+   "address": 5052,
+   "type": "line",
+   "text": "Map the nibble in A through the hexadecimal glyph table, then jump to the resident character printer."
+  },
+  {
+   "address": 5059,
+   "type": "line",
+   "text": "PETSCII digits zero through nine followed by A through F, used by $13BC."
+  },
+  {
+   "address": 5075,
+   "type": "line",
+   "text": "Saved X argument for the resident text output wrapper."
+  },
+  {
+   "address": 5077,
+   "type": "line",
+   "text": "Original output character saved while updating the quoted-text flag."
+  },
+  {
+   "address": 5079,
+   "type": "line",
+   "text": "Saved Y argument restored when the character wrapper returns."
+  },
+  {
+   "address": 5081,
+   "type": "line",
+   "text": "Quoted-text flag. Toggle on a double quote and clear on carriage return."
+  },
+  {
+   "address": 5082,
+   "type": "line",
+   "text": "Save A, X and Y for character output. In unquoted state, byte $07 calls module $42/$21 with the bitmap pointer at $04 preserved. A double quote toggles the quote state, and carriage return clears it. Non-bell output goes through $16D2. Restore A, X and Y on return."
+  },
+  {
+   "address": 5186,
+   "type": "line",
+   "text": "Operand byte of the CPY immediate at $1441. The flag lookup at $1515 uses this as an indexed base, addressing later bytes for commands $D0 and $D1."
+  },
+  {
+   "address": 5210,
+   "type": "line",
+   "text": "Select the VIC banking, bitmap and screen mode registers from the display mode in Y. Preserve the unrelated bits in VIC control and CIA2 port A."
+  },
+  {
+   "address": 5250,
+   "type": "line",
+   "text": "Select the background color and screen fill byte. Disk configuration 3 selects the second six-entry group. Unless the display flag is negative, fill the chosen screen page and the four color RAM pages."
+  },
+  {
+   "address": 5304,
+   "type": "line",
+   "text": "First screen destination page patched from the display mode."
+  },
+  {
+   "address": 5307,
+   "type": "line",
+   "text": "Second screen destination page, one above the first."
+  },
+  {
+   "address": 5310,
+   "type": "line",
+   "text": "Third screen destination page for the current mode."
+  },
+  {
+   "address": 5313,
+   "type": "line",
+   "text": "Fourth screen destination page. Complete the 256-iteration screen fill, then fill all four color RAM pages with one."
+  },
+  {
+   "address": 5337,
+   "type": "line",
+   "text": "Saved Y value used when the display service repeats the prior mode."
+  },
+  {
+   "address": 5338,
+   "type": "line",
+   "text": "Saved display service X value for mode replay."
+  },
+  {
+   "address": 5339,
+   "type": "line",
+   "text": "Saved display service A argument, also used as the mode for the screen-only fill command."
+  },
+  {
+   "address": 5340,
+   "type": "line",
+   "text": "VIC control 1 bits to OR into the masked register value for each display mode."
+  },
+  {
+   "address": 5346,
+   "type": "line",
+   "text": "CIA2 low bank-select bits indexed by display mode."
+  },
+  {
+   "address": 5352,
+   "type": "line",
+   "text": "VIC memory pointer values indexed by display mode."
+  },
+  {
+   "address": 5358,
+   "type": "line",
+   "text": "VIC control 2 multicolor bit indexed by display mode."
+  },
+  {
+   "address": 5364,
+   "type": "line",
+   "text": "Screen fill bytes for the bank and display configuration selected by the mode."
+  },
+  {
+   "address": 5376,
+   "type": "line",
+   "text": "Starting high page for the four-page screen fill. A zero skips the screen-matrix write."
+  },
+  {
+   "address": 5382,
+   "type": "line",
+   "text": "VIC background color selected by display mode and disk configuration."
+  },
+  {
+   "address": 5396,
+   "type": "line",
+   "text": "Screen fill suppression flag, set from the key-value table at $1442."
+  },
+  {
+   "address": 5397,
+   "type": "line",
+   "text": "Copy the mapped value for $D0 or $D1 into the screen fill flag. The adjacent paths handle the saved mode, debug output toggle and pending key."
+  },
+  {
+   "address": 5465,
+   "type": "line",
+   "text": "Pending character byte returned ahead of another GETIN call."
+  },
+  {
+   "address": 5466,
+   "type": "line",
+   "text": "Saved processor port for the banked call to GETIN."
+  },
+  {
+   "address": 5467,
+   "type": "line",
+   "text": "Toggle the $40 bit in the input-service flags. The alternate entry uses a BIT skip to share the toggle."
+  },
+  {
+   "address": 5479,
+   "type": "line",
+   "text": "Resident service flags including the bit toggled by the $F3 input command."
+  },
+  {
+   "address": 5480,
+   "type": "line",
+   "text": "Consume a queued character when present. Otherwise bank the KERNAL in for GETIN and restore the processor port. Translate the left-arrow code $5F to $1B."
+  },
+  {
+   "address": 5523,
+   "type": "line",
+   "text": "Tail call to KERNAL GETIN while the ROM and I/O are mapped in."
+  },
+  {
+   "address": 5526,
+   "type": "line",
+   "text": "Nonzero when the expansion-register probe succeeds."
+  },
+  {
+   "address": 5527,
+   "type": "line",
+   "text": "Probe the RAM expansion register at $DF05 by writing and checking $FF and zero. On success set the presence flag and clear the sector bitmap."
+  },
+  {
+   "address": 5578,
+   "type": "line",
+   "text": "Clear the second 88-byte bitmap beginning at $1C8A."
+  },
+  {
+   "address": 5589,
+   "type": "line",
+   "text": "Enter the cache transfer path with expansion command $91 via a BIT skip."
+  },
+  {
+   "address": 5592,
+   "type": "line",
+   "text": "Begin the sector transfer with command $90. The shared path below checks the expansion flag at $1596, chooses a bitmap byte based on track and disk side, and selects the sector bit with $1C2A. A command $90 marks a cached sector; the alternate command requires the bit already set. Carry is set if the expansion is disabled or the required sector is absent."
+  },
+  {
+   "address": 5693,
+   "type": "line",
+   "text": "Opcode of the indexed staging write in the banked expansion transfer."
+  },
+  {
+   "address": 5694,
+   "type": "line",
+   "text": "Low address operand patched from the allocated staging page pointer."
+  },
+  {
+   "address": 5695,
+   "type": "line",
+   "text": "High byte of the store at $163D. When the sector buffer starts at or above $CF00, the $90 path banks out I/O, stages 256 bytes through the alternate address at $0A3E, then restores the processor port. The shared transfer at $1669 sends the command and length to the expansion registers."
+  },
+  {
+   "address": 5766,
+   "type": "line",
+   "text": "Beginning of the source read in the expansion-to-main-memory copy loop."
+  },
+  {
+   "address": 5767,
+   "type": "line",
+   "text": "Low source operand selected from the alternate transfer address."
+  },
+  {
+   "address": 5768,
+   "type": "line",
+   "text": "High source operand of the staging read. Copy a full page after a cached read, restore banking and return with carry clear."
+  },
+  {
+   "address": 5779,
+   "type": "line",
+   "text": "Nonzero when a cached read uses the staging page before copying to the requested banked destination."
+  },
+  {
+   "address": 5786,
+   "type": "line",
+   "text": "Write the C64 address supplied in X and Y to the expansion transfer address registers."
+  },
+  {
+   "address": 5793,
+   "type": "line",
+   "text": "Write the transfer length in X and Y, then issue the command in A to the expansion unit."
+  },
+  {
+   "address": 5803,
+   "type": "line",
+   "text": "Encode the logical track in expansion memory address bits. Subtract three, add $2C for the other side, multiply by sixteen and merge the sector number."
+  },
+  {
+   "address": 5832,
+   "type": "line",
+   "text": "Immediate logical sector patched from X before building the expansion address."
+  },
+  {
+   "address": 5842,
+   "type": "line",
+   "text": "Save the caller\u2019s A, X and Y into the return immediates. Temporarily enable the KERNAL and I/O, print the byte, then restore mapping and registers."
+  },
+  {
+   "address": 5867,
+   "type": "line",
+   "text": "Immediate return A saved before the KERNAL output call."
+  },
+  {
+   "address": 5869,
+   "type": "line",
+   "text": "Immediate return Y patched at $16D2."
+  },
+  {
+   "address": 5871,
+   "type": "line",
+   "text": "Immediate return X patched at $16D5."
+  },
+  {
+   "address": 5873,
+   "type": "line",
+   "text": "Tail call to KERNAL CHROUT."
+  },
+  {
+   "address": 5876,
+   "type": "line",
+   "text": "Save A, X, Y and the port at $01. Enable I/O, build a return frame for $172E, call $1DE0 with the original frame's stack index and dispatch through the IRQ vector at $0314."
+  },
+  {
+   "address": 5911,
+   "type": "line",
+   "text": "Save A and the port at $01, enable I/O and install a return frame for $1729 before dispatch through the NMI vector at $0318."
+  },
+  {
+   "address": 5929,
+   "type": "line",
+   "text": "Restore the processor port and A from the NMI wrapper's stack, then return to the interrupted program."
+  },
+  {
+   "address": 5934,
+   "type": "line",
+   "text": "Restore the processor port and Y, X and A from the IRQ wrapper's stack, then return to the interrupted program."
+  },
+  {
+   "address": 5943,
+   "type": "line",
+   "text": "Clear the page at $1F00, configure the display and interrupt vectors, copy the initial directory from $0AA0 to $0900 and zero the unused directory slots. Allocate a 256-byte sector buffer and store its address in the transfer descriptor at $0A3E."
+  },
+  {
+   "address": 6098,
+   "type": "line",
+   "text": "Branch operand before the resident startup display request. A nonzero boot flag sends display command $D2."
   },
   {
    "address": 6105,
@@ -4639,9 +7460,44 @@
    "text": "Interleaved physical track and sector pairs for logical tracks starting at $24. The sector routine at $19AD uses twice the combined logical track and sector index."
   },
   {
+   "address": 6186,
+   "type": "line",
+   "text": "The second byte of each track and sector pair. The transfer uses the same even index for the track at $1829 and the sector at $182A."
+  },
+  {
+   "address": 6441,
+   "type": "line",
+   "text": "Processor mapping with I/O visible during disk signalling."
+  },
+  {
+   "address": 6442,
+   "type": "line",
+   "text": "Alternate processor mapping used for the payload buffer access."
+  },
+  {
    "address": 6443,
    "type": "line",
    "text": "Copy the requested transfer descriptor into $0A0E and following bytes. Use logical sectors 0 through 15, translating higher logical tracks through $1829 before handing a physical position to the serial transfer."
+  },
+  {
+   "address": 6656,
+   "type": "line",
+   "text": "Issue the final sector request using the command byte at $0A12 minus one. Save the result and return the carry from comparing it with two."
+  },
+  {
+   "address": 6711,
+   "type": "line",
+   "text": "Disk lookup countdown tested before another catalogue scan."
+  },
+  {
+   "address": 6712,
+   "type": "line",
+   "text": "Physical track byte sent after the drive command."
+  },
+  {
+   "address": 6713,
+   "type": "line",
+   "text": "Physical sector byte sent after the track."
   },
   {
    "address": 6714,
@@ -4652,6 +7508,101 @@
    "address": 6863,
    "type": "line",
    "text": "Reload the calling registers saved at $0A17\u2013$0A19 and jump indirectly through the relocated address at $0A52."
+  },
+  {
+   "address": 7056,
+   "type": "line",
+   "text": "Patched continuation address low byte in the indirect handler jump."
+  },
+  {
+   "address": 7057,
+   "type": "line",
+   "text": "Patched continuation address high byte."
+  },
+  {
+   "address": 7058,
+   "type": "line",
+   "text": "Saved X register restored by the continuation dispatcher."
+  },
+  {
+   "address": 7059,
+   "type": "line",
+   "text": "Saved Y register restored before the continuation jump."
+  },
+  {
+   "address": 7060,
+   "type": "line",
+   "text": "Saved A register reloaded after restoring status flags."
+  },
+  {
+   "address": 7061,
+   "type": "line",
+   "text": "Saved processor status for the indirect handler transfer. The dispatcher pushes it, restores the flags and then reloads A."
+  },
+  {
+   "address": 7064,
+   "type": "line",
+   "text": "Preserve registers and the current module pointer. If the resident flag permits and MG resolves, invoke MG with the saved argument and then restore the caller\u2019s state."
+  },
+  {
+   "address": 7121,
+   "type": "line",
+   "text": "Saved argument read back after the MG service call."
+  },
+  {
+   "address": 7122,
+   "type": "line",
+   "text": "Set the high bit of A by addition, call the MG wrapper and restore the original A and processor status."
+  },
+  {
+   "address": 7133,
+   "type": "line",
+   "text": "Send the byte and then $28 over the parallel port. On timeout clear the debug enable bit and set the border to color one."
+  },
+  {
+   "address": 7162,
+   "type": "line",
+   "text": "Send the two-byte trailer $29 and $0D over the parallel port. Either send can branch to the timeout handler."
+  },
+  {
+   "address": 7177,
+   "type": "line",
+   "text": "Bank in I/O, send the byte through the parallel handshake with IRQs masked, then restore the processor port."
+  },
+  {
+   "address": 7209,
+   "type": "line",
+   "text": "Parallel output flags. The high bit enables diagnostic calls, and the toggle path at $1528 flips bit zero."
+  },
+  {
+   "address": 7210,
+   "type": "line",
+   "text": "One set bit per sector position within a sector-cache bitmap byte."
+  },
+  {
+   "address": 7218,
+   "type": "line",
+   "text": "Bitmap of sectors marked present in the RAM expansion cache. Each track takes two bytes and side B adds an $58-byte displacement."
+  },
+  {
+   "address": 7282,
+   "type": "line",
+   "text": "Upper portion of the first 88-byte sector-cache bitmap, extending through $1C89."
+  },
+  {
+   "address": 7306,
+   "type": "line",
+   "text": "Second 88-byte bitmap used by the expansion cache paths and cleared by $15CE."
+  },
+  {
+   "address": 7370,
+   "type": "line",
+   "text": "Final 24 bytes of the second bitmap, through the last index $57 of the clear routine."
+  },
+  {
+   "address": 7394,
+   "type": "line",
+   "text": "Prepare the parallel handshake: make port B input, set bit two of port A as output, raise it, and clear pending CIA2 state before enabling IRQs."
   },
   {
    "address": 7435,
@@ -4684,9 +7635,294 @@
    "text": "Check the external command flag, look for the $AA handshake byte, echo it through the send routine, then handle the requested command."
   },
   {
+   "address": 7823,
+   "type": "line",
+   "text": "KERNAL-side IRQ wrapper. Map in I/O, pass the adjusted stack position to $1DE0, restore the processor port and continue through $EA31."
+  },
+  {
+   "address": 8448,
+   "type": "line",
+   "text": "The boot group starts with the descriptors for directory pages $00/$01 through $00/$04. The same sector contains the first part of the private item directory."
+  },
+  {
+   "address": 8704,
+   "type": "line",
+   "text": "Further eight-byte item descriptors in the private disk directory. The length follows the two ID bytes, then come logical track, sector and the first payload byte offset."
+  },
+  {
+   "address": 8960,
+   "type": "line",
+   "text": "More private item descriptors. The loader resolves the logical position from each record before reading the actual disk sectors."
+  },
+  {
+   "address": 9216,
+   "type": "line",
+   "text": "Final private directory page. Trailing zero slots mark the end of the stored item records."
+  },
+  {
+   "address": 9472,
+   "type": "line",
+   "text": "Relocated entry address $2504 followed by the TD body length $02F5."
+  },
+  {
    "address": 9476,
    "type": "line",
    "text": "Look up UJ and save the existing IRQ vector. Install the startup NMI and IRQ vectors stored in this module."
+  },
+  {
+   "address": 9600,
+   "type": "line",
+   "text": "Load display, title, display-control, score and sound modules, then call PM to install the music player."
+  },
+  {
+   "address": 9652,
+   "type": "line",
+   "text": "Call UJ for the $2A/$D4 and $2A/$CC archives and load the $C2/0 and $C2/1 resources between them."
+  },
+  {
+   "address": 9686,
+   "type": "line",
+   "text": "Call TM, then walk the two-byte ID list at $27AA and release each entry through $0806 until the first zero ID byte."
+  },
+  {
+   "address": 10073,
+   "type": "line",
+   "text": "Tag preceding the startup NMI address word."
+  },
+  {
+   "address": 10074,
+   "type": "line",
+   "text": "Low byte of the startup NMI vector."
+  },
+  {
+   "address": 10075,
+   "type": "line",
+   "text": "High byte of the startup NMI vector installed at $0319."
+  },
+  {
+   "address": 10076,
+   "type": "line",
+   "text": "Save A and banking, disable CIA2 interrupt sources and read the interrupt register. Restore mapping and A before returning from NMI."
+  },
+  {
+   "address": 10097,
+   "type": "line",
+   "text": "Tag preceding the startup IRQ address word."
+  },
+  {
+   "address": 10098,
+   "type": "line",
+   "text": "Low byte of the startup IRQ vector."
+  },
+  {
+   "address": 10099,
+   "type": "line",
+   "text": "High byte of the startup IRQ vector."
+  },
+  {
+   "address": 10100,
+   "type": "line",
+   "text": "Map in I/O, acknowledge VIC IRQ status and increment the raster tick. Restore the processor port and continue to the KERNAL IRQ exit."
+  },
+  {
+   "address": 10121,
+   "type": "line",
+   "text": "Call the resident display service with Y equal to $F2."
+  },
+  {
+   "address": 10126,
+   "type": "line",
+   "text": "Put the resource ID and mode zero on the stack and invoke UJ. Then release the resource using the ID saved in the immediate operands at $27A3 and $27A5."
+  },
+  {
+   "address": 10147,
+   "type": "line",
+   "text": "First immediate ID byte of the second title archive release call."
+  },
+  {
+   "address": 10149,
+   "type": "line",
+   "text": "Second immediate ID byte of archive $2A/$CC before tail-calling the release service."
+  },
+  {
+   "address": 10153,
+   "type": "line",
+   "text": "Zero byte separating the archive-release code from the title asset ID pairs."
+  },
+  {
+   "address": 10154,
+   "type": "line",
+   "text": "Pairs of module and resource ID bytes used by the release loop at $25E1 after returning from TM. A zero first byte ends the list."
+  },
+  {
+   "address": 10155,
+   "type": "line",
+   "text": "Second byte of the first title release ID followed by the rest of the two-byte IDs. The list includes the title sample pair, artwork children and finally song S1."
+  },
+  {
+   "address": 10219,
+   "type": "line",
+   "text": "Final title release pairs, including $2D/$34, $2D/$35, the last bitmap and color assets, and S1, followed by the zero terminator."
+  },
+  {
+   "address": 10231,
+   "type": "line",
+   "text": "IRQ vector saved from $0314 at TD entry and put back before its exit."
+  },
+  {
+   "address": 10232,
+   "type": "line",
+   "text": "High byte of the IRQ vector saved on entering TD."
+  },
+  {
+   "address": 10233,
+   "type": "line",
+   "text": "Relocated entry address $27FD followed by the UJ body length $01BF."
+  },
+  {
+   "address": 10237,
+   "type": "line",
+   "text": "Save the return address and take the caller's resource mode and two-byte ID off the stack. Resolve the resource by ID and return the module lookup's error through the carry flag on failure."
+  },
+  {
+   "address": 10284,
+   "type": "line",
+   "text": "Release work item $0C/$10 while preserving A and the caller's status, including the carry result."
+  },
+  {
+   "address": 10296,
+   "type": "line",
+   "text": "Check directory flags against $37, copy the seven-byte header and require format $0C before allocating a temporary descriptor buffer."
+  },
+  {
+   "address": 10405,
+   "type": "line",
+   "text": "Decode five-byte child descriptors into the temporary buffer, bounded by the descriptor count check at $289D. A zero flag starts the terminating descriptor."
+  },
+  {
+   "address": 10422,
+   "type": "line",
+   "text": "Low operand byte of the current child-descriptor destination, advanced after each unpacked byte."
+  },
+  {
+   "address": 10423,
+   "type": "line",
+   "text": "High operand of the patched descriptor store. On low-byte overflow increment this byte before processing the rest of the descriptor."
+  },
+  {
+   "address": 10444,
+   "type": "line",
+   "text": "Read the four bytes after the terminal flag, then save the decoder byte and remaining repeat count for the first child."
+  },
+  {
+   "address": 10480,
+   "type": "line",
+   "text": "Extract the child's expected length and ID, release a prior item with that ID and reserve storage for the replacement."
+  },
+  {
+   "address": 10534,
+   "type": "line",
+   "text": "Patch the store target for the descriptor flags, then decode the child's declared number of bytes into its allocated address at $04."
+  },
+  {
+   "address": 10554,
+   "type": "line",
+   "text": "Low operand of the patched flag store after reading the next descriptor."
+  },
+  {
+   "address": 10555,
+   "type": "line",
+   "text": "High operand of the flag store. Restore the decoder repeat state and unpack the child bytes into the calculated output address."
+  },
+  {
+   "address": 10587,
+   "type": "line",
+   "text": "Preserve the current repeat byte and count, move the descriptor pointer ahead five bytes, and advance the child index."
+  },
+  {
+   "address": 10612,
+   "type": "line",
+   "text": "If X is nonzero, decrement it and return the repeat byte already in A. Otherwise decode a literal or one of four escape codes. The first escape reads a length from the stream and the others repeat their next byte three, four or five times."
+  },
+  {
+   "address": 10658,
+   "type": "line",
+   "text": "Read the next packed byte through $0E and advance that 16-bit pointer."
+  },
+  {
+   "address": 10667,
+   "type": "line",
+   "text": "Zero byte between the token reader and the unpacker\u2019s seven-byte resource header buffer."
+  },
+  {
+   "address": 10668,
+   "type": "line",
+   "text": "Seven bytes copied from the packed item by $284D. The first selects the format and offsets 3 through 6 hold the four escape codes."
+  },
+  {
+   "address": 10671,
+   "type": "line",
+   "text": "Variable-length run escape byte for the resource decoder."
+  },
+  {
+   "address": 10672,
+   "type": "line",
+   "text": "Escape byte that selects a three-byte run."
+  },
+  {
+   "address": 10673,
+   "type": "line",
+   "text": "Escape byte that selects a four-byte run."
+  },
+  {
+   "address": 10674,
+   "type": "line",
+   "text": "Escape byte that selects a five-byte run."
+  },
+  {
+   "address": 10675,
+   "type": "line",
+   "text": "Two bytes from the caller's stack that the unpacker sends to the module lookup in X and Y."
+  },
+  {
+   "address": 10676,
+   "type": "line",
+   "text": "Second ID byte saved for the requested packed resource."
+  },
+  {
+   "address": 10677,
+   "type": "line",
+   "text": "Mode byte saved from the caller's stack alongside the resource ID."
+  },
+  {
+   "address": 10678,
+   "type": "line",
+   "text": "Number of nonterminal descriptors decoded into the temporary buffer."
+  },
+  {
+   "address": 10679,
+   "type": "line",
+   "text": "Index of the descriptor whose payload is being written."
+  },
+  {
+   "address": 10680,
+   "type": "line",
+   "text": "Two-byte counter for the current child payload, tested before each decoded byte is written."
+  },
+  {
+   "address": 10681,
+   "type": "line",
+   "text": "High byte of the remaining child payload count."
+  },
+  {
+   "address": 10682,
+   "type": "line",
+   "text": "Saved output byte and repeat counter, restored between child allocations so a run can extend across a child boundary."
+  },
+  {
+   "address": 10683,
+   "type": "line",
+   "text": "Saved repeat count for a resource token that crosses a descriptor or child boundary."
   },
   {
    "address": 11876,
@@ -4699,9 +7935,79 @@
    "text": "Clear the input latch, install the title interrupt vector from $31D9 and start the DP and GP modules with display IDs in X and Y."
   },
   {
+   "address": 12056,
+   "type": "line",
+   "text": "Pass ID $C2/$30 to DS through $38-$39."
+  },
+  {
+   "address": 12128,
+   "type": "line",
+   "text": "Pass ID $C2/$31 to DS through $38-$39."
+  },
+  {
+   "address": 12399,
+   "type": "line",
+   "text": "Call DP with mode 1, set $33 to 8 and increment the pending display flag at $32. On the first visit, look up S1 and start its tune through $6400."
+  },
+  {
+   "address": 12416,
+   "type": "line",
+   "text": "Immediate startup counter incremented at $3083. Its nonzero value on subsequent visits skips the first music setup."
+  },
+  {
+   "address": 12442,
+   "type": "line",
+   "text": "Send resource IDs $D4/$C2 and $5F/$42 to GP through $38-$3B, call DP with mode 2, then wait for input with a limit of $40."
+  },
+  {
+   "address": 12485,
+   "type": "line",
+   "text": "Look up resource $D4/$42. Use header bytes 0 and 1 to derive copy width and row count and bytes 4 and 5 for the starting coordinates. Skip six header bytes before copying pixels to the bitmap selected by $34."
+  },
+  {
+   "address": 12527,
+   "type": "line",
+   "text": "Combine the row and column address tables at $0400, $0500, $0600 and $0628 with the bitmap bank at $34. Copy $0C bytes and advance the source and row index to the next row."
+  },
+  {
+   "address": 12578,
+   "type": "line",
+   "text": "Request the $31 display update and wait for it to clear before the timed input check with X set to $C0."
+  },
+  {
+   "address": 12594,
+   "type": "line",
+   "text": "Invoke HS with A set to zero. If the input wait returns carry clear, exit the title."
+  },
+  {
+   "address": 12608,
+   "type": "line",
+   "text": "Call DP mode 1, pass resource IDs $C3/$D3 and $5F/$53 to GP and clear four pages starting at the page in $37. Clear the display-mode bits selected by mask $CF in $D016."
+  },
+  {
+   "address": 12680,
+   "type": "line",
+   "text": "Call DP mode 2 and leave the title on input. Otherwise call mode 1, wait for raster line zero with interrupts masked, restore the $D016 mode bit and return to the title cycle."
+  },
+  {
    "address": 12732,
    "type": "line",
    "text": "Wait on $32, call the $6400 service with Y set to $FF, restore the earlier IRQ vector from $4B\u2013$4C and return."
+  },
+  {
+   "address": 12760,
+   "type": "line",
+   "text": "Tag preceding the title IRQ address word."
+  },
+  {
+   "address": 12761,
+   "type": "line",
+   "text": "Low byte of the title IRQ vector at $31DB."
+  },
+  {
+   "address": 12762,
+   "type": "line",
+   "text": "High byte of the title IRQ vector installed during title initialization."
   },
   {
    "address": 12763,
@@ -4709,14 +8015,134 @@
    "text": "Save the processor port, switch I/O in, acknowledge the VIC-II interrupt and service the display and input for the current title phase."
   },
   {
+   "address": 12866,
+   "type": "line",
+   "text": "If a buffered key is available, get it through $082D. M complements the SID output mask; another key sets bit three in the input latch."
+  },
+  {
    "address": 12891,
    "type": "line",
    "text": "Return carry clear when the input latch at $46 is nonzero. The entry at $3261 waits with a software countdown and returns carry set on timeout."
   },
   {
+   "address": 12897,
+   "type": "line",
+   "text": "Start the title input wait with the longest eight-bit outer countdown."
+  },
+  {
+   "address": 12899,
+   "type": "line",
+   "text": "Wait for the input latch with an X-sized outer countdown and nested delays. Return carry clear on input or set on expiry."
+  },
+  {
    "address": 12923,
    "type": "line",
    "text": "Two entries select different spans in X and Y. Form coordinates with the row tables at $0400/$0500 and the active bitmap bases at $34/$35 before copying."
+  },
+  {
+   "address": 13068,
+   "type": "line",
+   "text": "Queue a title bitmap bank flip by writing $31 and wait for the interrupt to decrement that flag to zero."
+  },
+  {
+   "address": 13075,
+   "type": "line",
+   "text": "Tag byte of the first of two three-byte address records selecting the title drawing masks."
+  },
+  {
+   "address": 13076,
+   "type": "line",
+   "text": "Low pointer byte for the first title mask table at $33A2."
+  },
+  {
+   "address": 13077,
+   "type": "line",
+   "text": "First pointer high byte, followed by the second tagged address pointing to $33B2."
+  },
+  {
+   "address": 13081,
+   "type": "line",
+   "text": "Call the resident display service with mode command $F2."
+  },
+  {
+   "address": 13086,
+   "type": "line",
+   "text": "Patch the resource release operands from X and Y. Invoke UJ on resource $4A/$55 with mode zero, then release the ID supplied on entry."
+  },
+  {
+   "address": 13113,
+   "type": "line",
+   "text": "Zero byte between the release wrapper and the image ID list."
+  },
+  {
+   "address": 13114,
+   "type": "line",
+   "text": "Thirteen low ID bytes used to select image objects with first ID byte $C3."
+  },
+  {
+   "address": 13127,
+   "type": "line",
+   "text": "Successive scroll increments for the title bitmap, ending in zero. The scroll loop combines each increment with the previous sub-row remainder to choose the copy distance."
+  },
+  {
+   "address": 13160,
+   "type": "line",
+   "text": "Fine-scroll register bits indexed by the title scroll position within the current eight-line cell."
+  },
+  {
+   "address": 13168,
+   "type": "line",
+   "text": "Low bytes of the 40-column matrix row offsets. The title transfer adds the current matrix bank to the high byte."
+  },
+  {
+   "address": 13193,
+   "type": "line",
+   "text": "High bytes of the 25 matrix row offsets through $33A1. The following bytes belong to the independent drawing mask data."
+  },
+  {
+   "address": 13218,
+   "type": "line",
+   "text": "First title mask table selected through the records at $3313. The drawing loop uses the resolved pointer at $10\u2013$11."
+  },
+  {
+   "address": 13234,
+   "type": "line",
+   "text": "Second title mask table with recurring three-byte $0F/$FF/$F0 fields."
+  },
+  {
+   "address": 13250,
+   "type": "line",
+   "text": "DS header after relocation. The entry word is $33C6 and the body length is $00D1."
+  },
+  {
+   "address": 13254,
+   "type": "line",
+   "text": "If the sound flag at $5A is set, resolve the ID at $38 and read a length and escape byte from the resource's three-byte header."
+  },
+  {
+   "address": 13315,
+   "type": "line",
+   "text": "Enable I/O and configure CIA1 Timer A with period $006C. Keep interrupts masked while polling and writing the sample."
+  },
+  {
+   "address": 13343,
+   "type": "line",
+   "text": "Emit the low then high nibble of each ordinary payload byte. For the escape byte, take the following length and emit the nibble pair from the third byte that many times."
+  },
+  {
+   "address": 13432,
+   "type": "line",
+   "text": "Stop the CIA timer, restore the music driver's $D418 value and the processor port, then enable interrupts."
+  },
+  {
+   "address": 13451,
+   "type": "line",
+   "text": "Wait for CIA1 Timer A's interrupt flag before writing the nibble to SID master volume at $D418."
+  },
+  {
+   "address": 13462,
+   "type": "line",
+   "text": "Zero byte at the end of the DS module after the final sample output routine."
   },
   {
    "address": 25600,
@@ -4729,9 +8155,49 @@
    "text": "Jump into the music servicing routine at $6448, used by the title and car-selection IRQs."
   },
   {
+   "address": 25606,
+   "type": "line",
+   "text": "Last masked SID mode and master volume byte written by the music driver."
+  },
+  {
    "address": 25607,
    "type": "line",
    "text": "A Y value of $FF queues a stop through $677B, $677C and $677E and waits for $677A to clear. The other path configures playback with the IRQ temporarily masked."
+  },
+  {
+   "address": 25637,
+   "type": "line",
+   "text": "Voice 1 pattern enable. Cleared when the pattern ends or its offset word has the sign bit set."
+  },
+  {
+   "address": 25638,
+   "type": "line",
+   "text": "Voice 2 pattern enable. The note pass skips the channel when this byte is zero."
+  },
+  {
+   "address": 25639,
+   "type": "line",
+   "text": "Voice 3 pattern enable. Pattern setup writes $80 after it resolves a usable stream."
+  },
+  {
+   "address": 25640,
+   "type": "line",
+   "text": "Shadow of the value written to the SID filter resonance and routing register."
+  },
+  {
+   "address": 25641,
+   "type": "line",
+   "text": "Wait for previous playback to stop, patch the driver from the music data, and queue the first playback tick with a fade-in."
+  },
+  {
+   "address": 25672,
+   "type": "line",
+   "text": "Skip the tick when playback is idle. For state 1, initialize the song cursor and enter pattern setup, otherwise advance the fade or note clock."
+  },
+  {
+   "address": 25692,
+   "type": "line",
+   "text": "Read the initial note delay. The music installer patches the table operand before playback."
   },
   {
    "address": 25709,
@@ -4749,9 +8215,644 @@
    "text": "Decrement the note timing counter. On expiry, reload it from the table for the selected music state and decide when to advance the pattern."
   },
   {
+   "address": 25817,
+   "type": "line",
+   "text": "Load the tick interval for the current song section and reset the tick countdown."
+  },
+  {
+   "address": 25826,
+   "type": "line",
+   "text": "Compare the current pattern number with the installed final pattern number for this section."
+  },
+  {
+   "address": 25837,
+   "type": "line",
+   "text": "In the final pattern of a section, test the note index against that section\u2019s final-pattern length."
+  },
+  {
+   "address": 25848,
+   "type": "line",
+   "text": "Test the note index against the regular pattern length. On completion reset the note index and move to the next pattern."
+  },
+  {
+   "address": 25879,
+   "type": "line",
+   "text": "Compare the incremented section index with the song\u2019s section limit for this entry."
+  },
+  {
+   "address": 25893,
+   "type": "line",
+   "text": "If the next song entry exists, initialize it. Otherwise stop the current voices and set state 1 to re-enter initial setup on a subsequent tick."
+  },
+  {
+   "address": 25917,
+   "type": "line",
+   "text": "Resolve the first section for the current song entry before setting up its timing, filter and pattern."
+  },
+  {
+   "address": 25920,
+   "type": "line",
+   "text": "Read the initial section number from the installed song entry table."
+  },
+  {
+   "address": 25926,
+   "type": "line",
+   "text": "Apply the section\u2019s timing and filter values, then install the starting note position and pattern number."
+  },
+  {
+   "address": 25929,
+   "type": "line",
+   "text": "First indexed load in the pattern setup sequence. Its accumulator value is replaced by the next load."
+  },
+  {
+   "address": 25932,
+   "type": "line",
+   "text": "Second indexed load in pattern setup. Its accumulator value is replaced by the delay loaded at $654F."
+  },
+  {
+   "address": 25935,
+   "type": "line",
+   "text": "Read the new section\u2019s initial note delay."
+  },
+  {
+   "address": 25944,
+   "type": "line",
+   "text": "Read the low portion of the SID filter cutoff for the selected section."
+  },
+  {
+   "address": 25950,
+   "type": "line",
+   "text": "Read the high portion of the SID filter cutoff for the selected section."
+  },
+  {
+   "address": 25956,
+   "type": "line",
+   "text": "Read the section\u2019s starting note index."
+  },
+  {
+   "address": 25962,
+   "type": "line",
+   "text": "Read the starting pattern number and pass it to voice setup."
+  },
+  {
+   "address": 25968,
+   "type": "line",
+   "text": "Configure envelopes and pulse widths on the enabled SID voices, then set the filter and resolve voice pattern pointers."
+  },
+  {
+   "address": 25977,
+   "type": "line",
+   "text": "Read voice 1 attack and decay settings for the section."
+  },
+  {
+   "address": 25983,
+   "type": "line",
+   "text": "Read voice 1 sustain and release settings for the section."
+  },
+  {
+   "address": 25989,
+   "type": "line",
+   "text": "Read the low byte of voice 1 pulse width."
+  },
+  {
+   "address": 25995,
+   "type": "line",
+   "text": "Read the high byte of voice 1 pulse width."
+  },
+  {
+   "address": 26006,
+   "type": "line",
+   "text": "Read voice 2 attack and decay settings."
+  },
+  {
+   "address": 26012,
+   "type": "line",
+   "text": "Read voice 2 sustain and release settings."
+  },
+  {
+   "address": 26018,
+   "type": "line",
+   "text": "Read the low byte of voice 2 pulse width."
+  },
+  {
+   "address": 26024,
+   "type": "line",
+   "text": "Read the high byte of voice 2 pulse width."
+  },
+  {
+   "address": 26035,
+   "type": "line",
+   "text": "Read voice 3 attack and decay settings."
+  },
+  {
+   "address": 26041,
+   "type": "line",
+   "text": "Read voice 3 sustain and release settings."
+  },
+  {
+   "address": 26047,
+   "type": "line",
+   "text": "Read the low byte of voice 3 pulse width."
+  },
+  {
+   "address": 26053,
+   "type": "line",
+   "text": "Read the high byte of voice 3 pulse width."
+  },
+  {
+   "address": 26059,
+   "type": "line",
+   "text": "Read the section filter resonance and routing value and store it in SID and its shadow."
+  },
+  {
+   "address": 26068,
+   "type": "line",
+   "text": "Write the section\u2019s mode and volume, using the fade volume during a ramp and applying the mask at $5A. Then double the pattern number to index pairs of offset bytes."
+  },
+  {
+   "address": 26103,
+   "type": "line",
+   "text": "Read the low byte of the first voice\u2019s pattern offset and add the low byte of the installed stream base."
+  },
+  {
+   "address": 26108,
+   "type": "line",
+   "text": "Patched low immediate for the base of the first voice\u2019s pattern stream. Preserve the carry for its high byte."
+  },
+  {
+   "address": 26112,
+   "type": "line",
+   "text": "Read the high byte of the voice 1 offset. A negative value disables its pattern."
+  },
+  {
+   "address": 26125,
+   "type": "line",
+   "text": "Patched high immediate that completes the first voice\u2019s pattern pointer. Mark the voice enabled after storing it."
+  },
+  {
+   "address": 26139,
+   "type": "line",
+   "text": "Resolve the low byte of the second voice\u2019s stream pointer from the installed base and pattern offset."
+  },
+  {
+   "address": 26144,
+   "type": "line",
+   "text": "Patched low immediate added to the second voice pattern offset."
+  },
+  {
+   "address": 26148,
+   "type": "line",
+   "text": "Read the high byte of voice 2\u2019s pattern offset and either complete its pointer or disable its pattern."
+  },
+  {
+   "address": 26161,
+   "type": "line",
+   "text": "Patched high immediate that completes the second voice pattern pointer and enables the voice."
+  },
+  {
+   "address": 26175,
+   "type": "line",
+   "text": "Resolve the low byte of the third voice\u2019s stream pointer."
+  },
+  {
+   "address": 26180,
+   "type": "line",
+   "text": "Patched low immediate added to the third voice pattern offset."
+  },
+  {
+   "address": 26184,
+   "type": "line",
+   "text": "Test the high byte of the third voice\u2019s pattern offset. A usable offset enables pattern reads after adding the stream base."
+  },
+  {
+   "address": 26197,
+   "type": "line",
+   "text": "Immediate high byte of the pattern stream base patched by the installer at $690D. After resolving the third pointer, clear the three per-voice end flags."
+  },
+  {
+   "address": 26217,
+   "type": "line",
+   "text": "Read voice 1\u2019s note at the current pattern index. A negative byte ends the stream, zero leaves the voice unchanged, and $64 releases the gate."
+  },
+  {
+   "address": 26263,
+   "type": "line",
+   "text": "Fetch the voice 1 waveform and clear its gate for a release token. For an ordinary note, write its frequency and retrigger the waveform."
+  },
+  {
+   "address": 26290,
+   "type": "line",
+   "text": "Load the section\u2019s voice 1 control byte. Write it with the gate off and then on. Follow with voice 2 note processing."
+  },
+  {
+   "address": 26349,
+   "type": "line",
+   "text": "Clear the voice 2 gate on a release token. For a pitched note, use the indexed frequency word before its gate transition."
+  },
+  {
+   "address": 26376,
+   "type": "line",
+   "text": "Load and retrigger voice 2\u2019s waveform, then evaluate the third voice\u2019s note, end marker or release token."
+  },
+  {
+   "address": 26435,
+   "type": "line",
+   "text": "Load voice 3\u2019s section waveform and clear its gate for a release. For other nonzero note tokens, write the indexed frequency first."
+  },
+  {
+   "address": 26462,
+   "type": "line",
+   "text": "Retrigger voice 3 by writing its waveform twice with the gate off and then on."
+  },
+  {
+   "address": 26476,
+   "type": "line",
+   "text": "Current song entry. Its table supplies the first section, and it advances once the section limit is reached."
+  },
+  {
+   "address": 26477,
+   "type": "line",
+   "text": "IRQ ticks remaining before the next note position."
+  },
+  {
+   "address": 26478,
+   "type": "line",
+   "text": "Current song section. It indexes timing, filter and voice setup tables."
+  },
+  {
+   "address": 26479,
+   "type": "line",
+   "text": "Current pattern number within the section."
+  },
+  {
+   "address": 26480,
+   "type": "line",
+   "text": "Current note position within the pattern, shared by the three active voices."
+  },
+  {
+   "address": 26481,
+   "type": "line",
+   "text": "Low pointer byte for voice 1\u2019s note stream."
+  },
+  {
+   "address": 26482,
+   "type": "line",
+   "text": "High pointer byte for voice 1\u2019s note stream."
+  },
+  {
+   "address": 26483,
+   "type": "line",
+   "text": "Low pointer byte for voice 2\u2019s note stream."
+  },
+  {
+   "address": 26484,
+   "type": "line",
+   "text": "High pointer byte for voice 2\u2019s note stream."
+  },
+  {
+   "address": 26485,
+   "type": "line",
+   "text": "Low pointer byte for voice 3\u2019s note stream."
+  },
+  {
+   "address": 26486,
+   "type": "line",
+   "text": "High pointer byte for voice 3\u2019s note stream."
+  },
+  {
+   "address": 26487,
+   "type": "line",
+   "text": "Voice 1 end flag, decremented from zero when the stream produces a negative byte."
+  },
+  {
+   "address": 26488,
+   "type": "line",
+   "text": "Voice 2 end flag, reset by pattern setup and tested at $66BF."
+  },
+  {
+   "address": 26489,
+   "type": "line",
+   "text": "Voice 3 end flag, reset by pattern setup and tested at $6715."
+  },
+  {
+   "address": 26490,
+   "type": "line",
+   "text": "Playback state. Zero is idle, one requests initialization, and initialization increments it before the first pattern."
+  },
+  {
+   "address": 26491,
+   "type": "line",
+   "text": "Master volume nibble used during the fade."
+  },
+  {
+   "address": 26492,
+   "type": "line",
+   "text": "Divider for fade steps, reloaded to eight after expiry."
+  },
+  {
+   "address": 26493,
+   "type": "line",
+   "text": "Saved filter mode and volume for combining the mode nibble with fade volume."
+  },
+  {
+   "address": 26494,
+   "type": "line",
+   "text": "Nonzero requests a volume ramp. The setup at $6441 writes one for fade-in; the stop path at $641C writes $FF. The frequency table indexed by note number starts one byte later."
+  },
+  {
+   "address": 26495,
+   "type": "line",
+   "text": "Low bytes of the SID frequency words for note indices 1 through 93. The indexed load uses $677E as its base, and $66A6 writes the selected low byte to voice 1."
+  },
+  {
+   "address": 26588,
+   "type": "line",
+   "text": "High bytes of the SID frequency words, indexed with the same note number as $677E. The three readers at $66A9, $66FF and $6755 feed the three SID frequency high registers."
+  },
+  {
+   "address": 26683,
+   "type": "line",
+   "text": "Record stream for $68EE, terminated by zero at $68E8. A positive count gives the number of little-endian instruction addresses whose operands receive the source pointer. Tag $10 instead copies one source byte to its target. High-bit tags advance the source pointer."
+  },
+  {
+   "address": 26857,
+   "type": "line",
+   "text": "Variable advance read by music source patch command $80."
+  },
+  {
+   "address": 26858,
+   "type": "line",
+   "text": "Variable advance for the other non-special negative music patch records."
+  },
+  {
+   "address": 26859,
+   "type": "line",
+   "text": "Remaining destination operands in the current music patch record."
+  },
+  {
+   "address": 26860,
+   "type": "line",
+   "text": "Size byte doubled and reduced by two for the $83 patch command. One byte separates it from the installer entry."
+  },
+  {
    "address": 26862,
    "type": "line",
    "text": "Walk patch records from $683B using the X/Y input as the source pointer. Positive records write addresses into the playback code, and high-bit records adjust the source pointer."
+  },
+  {
+   "address": 26990,
+   "type": "line",
+   "text": "Voice 1 setup flag copied by the music installer. A negative value skips voice 1 envelope and pattern pointer setup."
+  },
+  {
+   "address": 26991,
+   "type": "line",
+   "text": "Voice 2 setup flag tested when programming envelopes and resolving pattern pointers."
+  },
+  {
+   "address": 26992,
+   "type": "line",
+   "text": "Voice 3 setup flag tested during envelope and pattern pointer setup."
+  },
+  {
+   "address": 27136,
+   "type": "line",
+   "text": "Length word $0B64 covers this entire resource, including the three-byte header. The escape marker is $02."
+  },
+  {
+   "address": 27139,
+   "type": "line",
+   "text": "Packed first title sample at offset $0003. DS reads the stream at $341F and sends each decoded four-bit level to $D418."
+  },
+  {
+   "address": 28163,
+   "type": "line",
+   "text": "Packed first title sample at offset $0403. DS reads the stream at $341F and sends each decoded four-bit level to $D418."
+  },
+  {
+   "address": 28672,
+   "type": "line",
+   "text": "Packed first title sample at offset $0600. DS reads the stream at $341F and sends each decoded four-bit level to $D418."
+  },
+  {
+   "address": 29187,
+   "type": "line",
+   "text": "Packed first title sample at offset $0803. DS reads the stream at $341F and sends each decoded four-bit level to $D418."
+  },
+  {
+   "address": 30052,
+   "type": "line",
+   "text": "Length word $1319 covers this entire resource. $02 identifies a repeat packet and consumes the next two bytes as count and packed nibble pair."
+  },
+  {
+   "address": 30055,
+   "type": "line",
+   "text": "Packed second title sample at offset $0003. DS reads the stream at $341F and sends each decoded four-bit level to $D418."
+  },
+  {
+   "address": 31079,
+   "type": "line",
+   "text": "Packed second title sample at offset $0403. DS reads the stream at $341F and sends each decoded four-bit level to $D418."
+  },
+  {
+   "address": 32103,
+   "type": "line",
+   "text": "Packed second title sample at offset $0803. DS reads the stream at $341F and sends each decoded four-bit level to $D418."
+  },
+  {
+   "address": 32768,
+   "type": "line",
+   "text": "Packed second title sample at offset $0A9C. DS reads the stream at $341F and sends each decoded four-bit level to $D418."
+  },
+  {
+   "address": 32937,
+   "type": "line",
+   "text": "Packed title sample bytes at offset $0B45 in $C2/$31. DS consumes nibble pairs and repeat packets from the stream."
+  },
+  {
+   "address": 33127,
+   "type": "line",
+   "text": "Packed second title sample at offset $0C03. DS reads the stream at $341F and sends each decoded four-bit level to $D418."
+  },
+  {
+   "address": 34151,
+   "type": "line",
+   "text": "Packed second title sample at offset $1003. DS reads the stream at $341F and sends each decoded four-bit level to $D418."
+  },
+  {
+   "address": 45540,
+   "type": "line",
+   "text": "Title resource $2D/$35 from UJ archive $2A/$CC. Its eight-column, four-row colour header and ten escape values precede the packed colour nibbles at offset 17."
+  },
+  {
+   "address": 45591,
+   "type": "line",
+   "text": "Title resource $2D/$34 from UJ archive $2A/$CC. Its eight-column, four-row colour header and ten escape values precede the packed colour nibbles at offset 17."
+  },
+  {
+   "address": 45639,
+   "type": "line",
+   "text": "Title resource $2D/$33 from UJ archive $2A/$CC. Its eight-column, four-row colour header and ten escape values precede the packed colour nibbles at offset 17."
+  },
+  {
+   "address": 45693,
+   "type": "line",
+   "text": "Title resource $CB/$35 from UJ archive $2A/$CC. Its six-byte bitmap header precedes 32 rows of eight bitmap bytes."
+  },
+  {
+   "address": 45955,
+   "type": "line",
+   "text": "Title resource $CB/$34 from UJ archive $2A/$CC. Its six-byte bitmap header precedes 32 rows of eight bitmap bytes."
+  },
+  {
+   "address": 46217,
+   "type": "line",
+   "text": "Title resource $CB/$33 from UJ archive $2A/$CC. Its six-byte bitmap header precedes 32 rows of eight bitmap bytes."
+  },
+  {
+   "address": 46479,
+   "type": "line",
+   "text": "Title resource $CB/$32 from UJ archive $2A/$CC. Its six-byte bitmap header precedes 32 rows of eight bitmap bytes."
+  },
+  {
+   "address": 46741,
+   "type": "line",
+   "text": "Title resource $CB/$31 from UJ archive $2A/$CC. Its six-byte bitmap header precedes 32 rows of eight bitmap bytes."
+  },
+  {
+   "address": 47003,
+   "type": "line",
+   "text": "Bitmap resource $C3/$4B from archive $2A/$D4. The six-byte header specifies eight bytes per row and 23 rows. The following 184 bytes hold those rows."
+  },
+  {
+   "address": 47193,
+   "type": "line",
+   "text": "Bitmap resource $C3/$4A from archive $2A/$D4. The six-byte header specifies eight bytes per row and 23 rows. The following 184 bytes hold those rows."
+  },
+  {
+   "address": 47383,
+   "type": "line",
+   "text": "Bitmap resource $C3/$49 from archive $2A/$D4. The six-byte header specifies eight bytes per row and 23 rows. The following 184 bytes hold those rows."
+  },
+  {
+   "address": 47573,
+   "type": "line",
+   "text": "Bitmap resource $C3/$48 from archive $2A/$D4. The six-byte header specifies eight bytes per row and 23 rows. The following 184 bytes hold those rows."
+  },
+  {
+   "address": 47763,
+   "type": "line",
+   "text": "Bitmap resource $C3/$47 from archive $2A/$D4. The six-byte header specifies eight bytes per row and 23 rows. The following 184 bytes hold those rows."
+  },
+  {
+   "address": 47953,
+   "type": "line",
+   "text": "Bitmap resource $C3/$46 from archive $2A/$D4. The six-byte header specifies eight bytes per row and 23 rows. The following 184 bytes hold those rows."
+  },
+  {
+   "address": 48143,
+   "type": "line",
+   "text": "Bitmap resource $C3/$45 from archive $2A/$D4. The six-byte header specifies eight bytes per row and 23 rows. The following 184 bytes hold those rows."
+  },
+  {
+   "address": 48582,
+   "type": "line",
+   "text": "Bitmap resource $C3/$44 from archive $2A/$D4. The six-byte header specifies eight bytes per row and 23 rows. The following 184 bytes hold those rows."
+  },
+  {
+   "address": 48772,
+   "type": "line",
+   "text": "Bitmap resource $C3/$43 from archive $2A/$D4. The six-byte header specifies eight bytes per row and 23 rows. The following 184 bytes hold those rows."
+  },
+  {
+   "address": 48962,
+   "type": "line",
+   "text": "Bitmap resource $C3/$42 from archive $2A/$D4. The six-byte header specifies eight bytes per row and 23 rows. The following 184 bytes hold those rows."
+  },
+  {
+   "address": 59399,
+   "type": "line",
+   "text": "Title resource $2D/$32 from UJ archive $2A/$CC. Its eight-column, four-row colour header and ten escape values precede the packed colour nibbles at offset 17."
+  },
+  {
+   "address": 59445,
+   "type": "line",
+   "text": "Title resource $2D/$31 from UJ archive $2A/$CC. Its eight-column, four-row colour header and ten escape values precede the packed colour nibbles at offset 17."
+  },
+  {
+   "address": 59489,
+   "type": "line",
+   "text": "Bitmap resource $C3/$41 from archive $2A/$D4. The six-byte header specifies eight bytes per row and 23 rows. The following 184 bytes hold those rows."
+  },
+  {
+   "address": 59679,
+   "type": "line",
+   "text": "Packed colour resource $C3/$C1 from UJ archive $2A/$D4. The header gives a width of 8 and height of 4 cells. The stream starts after the header and escape table at offset $11."
+  },
+  {
+   "address": 59721,
+   "type": "line",
+   "text": "Packed colour resource $5F/$53 from UJ archive $2A/$D4. The header gives a width of 40 and height of 25 cells. The stream starts after the header and escape table at offset $11."
+  },
+  {
+   "address": 59847,
+   "type": "line",
+   "text": "GP bitmap resource $C3/$D3 from UJ archive $2A/$D4. The ten-byte header gives the traversal flag and nine escape values. The token stream supplies literal bytes and repeats for GP."
+  },
+  {
+   "address": 60871,
+   "type": "line",
+   "text": "Continuation of title resource $C3/$D3 at byte offset $0400. GP bitmap resource $C3/$D3 from UJ archive $2A/$D4. The ten-byte header gives the traversal flag and nine escape values. The token stream supplies literal bytes and repeats for GP."
+  },
+  {
+   "address": 61440,
+   "type": "line",
+   "text": "Continuation of title resource $C3/$D3 at byte offset $0639. GP bitmap resource $C3/$D3 from UJ archive $2A/$D4. The ten-byte header gives the traversal flag and nine escape values. The token stream supplies literal bytes and repeats for GP."
+  },
+  {
+   "address": 61522,
+   "type": "line",
+   "text": "Packed colour resource $5F/$43 from UJ archive $2A/$D4. The header gives a width of 40 and height of 25 cells. The stream starts after the header and escape table at offset $11."
+  },
+  {
+   "address": 61736,
+   "type": "line",
+   "text": "Packed colour resource $5F/$42 from UJ archive $2A/$D4. The header gives a width of 40 and height of 25 cells. The stream starts after the header and escape table at offset $11."
+  },
+  {
+   "address": 62022,
+   "type": "line",
+   "text": "Packed colour resource $5F/$41 from UJ archive $2A/$D4. The header gives a width of 40 and height of 25 cells. The stream starts after the header and escape table at offset $11."
+  },
+  {
+   "address": 62134,
+   "type": "line",
+   "text": "Title bitmap insert $D4/$42. The blitter at $30CC reads the width and height, then uses bytes 4 and 5 to place the uncompressed bytes that begin at offset 6."
+  },
+  {
+   "address": 63158,
+   "type": "line",
+   "text": "Continuation of title resource $D4/$42 at byte offset $0400. Title bitmap insert $D4/$42. The blitter at $30CC reads the width and height, then uses bytes 4 and 5 to place the uncompressed bytes that begin at offset 6."
+  },
+  {
+   "address": 63340,
+   "type": "line",
+   "text": "GP bitmap resource $D4/$C3 from UJ archive $2A/$D4. The ten-byte header gives the traversal flag and nine escape values. The token stream supplies literal bytes and repeats for GP."
+  },
+  {
+   "address": 64221,
+   "type": "line",
+   "text": "GP bitmap resource $D4/$C2 from UJ archive $2A/$D4. The ten-byte header gives the traversal flag and nine escape values. The token stream supplies literal bytes and repeats for GP."
+  },
+  {
+   "address": 64833,
+   "type": "line",
+   "text": "GP bitmap resource $D4/$C1 from UJ archive $2A/$D4. The ten-byte header gives the traversal flag and nine escape values. The token stream supplies literal bytes and repeats for GP."
+  },
+  {
+   "address": 65530,
+   "type": "line",
+   "text": "RAM vectors for NMI, reset and IRQ. The first word points to $1717 and the last to the resident banked IRQ dispatcher at $16F4."
   }
  ]
 }

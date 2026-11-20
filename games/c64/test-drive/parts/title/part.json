@@ -6,7 +6,43 @@
     "charset": ""
   },
   "coverage": {
-    "exclude": [],
+    "exclude": [
+      [
+        "$6971",
+        "$69FF",
+        "Zero-filled tail of the page copy beyond the last byte of the PM disk item"
+      ],
+      [
+        "$06A0",
+        "$07E7",
+        "Blank cells in the setup screen matrix at $0400. The earlier intro capture still has its message in these cells."
+      ],
+      [
+        "$07E8",
+        "$07FF",
+        "Remainder of the disk intro screen page outside its 1000 visible cells. The 24 bytes match the intro PRG and survive its handoff."
+      ],
+      [
+        "$2000",
+        "$20FF",
+        "One-sector transfer buffer allocated at $17B9. The saved page matches side A track 22 sector 6, and a CPU read watchpoint caught the buffer being reused at $0DDB."
+      ],
+      [
+        "$E500",
+        "$E7FF",
+        "Disk intro payload copied under KERNAL by the self-modifying store at $082A. All 768 bytes were present before dismissing the intro and survive unchanged in the title, selector and first road snapshots."
+      ],
+      [
+        "$1EA2",
+        "$1EFF",
+        "Disk intro relocation residue after the end of DM at $1EA1. The $0389 store watchpoint caught the intro copying this tail, and all 94 bytes match the later title capture."
+      ],
+      [
+        "$1F00",
+        "$1FFF",
+        "Runtime page initialized to zero at $173A. VICE store watchpoints at both ends caught the same clear loop. The page begins after the DM disk payload and its intro residue."
+      ]
+    ],
     "extra": [
       [
         "$0800",
@@ -14,9 +50,214 @@
         "DM program as loaded from its PRG header"
       ],
       [
+        "$2500",
+        "$27F8",
+        "TD startup module, selected from the resident directory at $093C"
+      ],
+      [
+        "$27F9",
+        "$29BB",
+        "UJ resource decompressor, selected from the resident directory at $0943"
+      ],
+      [
         "$2E64",
         "$33C1",
         "Title state resident module with entry $2E68 and body length $055A"
+      ],
+      [
+        "$33C2",
+        "$3496",
+        "DS sampled-audio playback module in the resident directory"
+      ],
+      [
+        "$6A00",
+        "$7563",
+        "Packed title sample ID $C2/$30"
+      ],
+      [
+        "$7564",
+        "$887C",
+        "Packed title sample ID $C2/$31"
+      ],
+      [
+        "$FD41",
+        "$FFF7",
+        "Title asset $D4/$C1 unpacked from $2A/$D4"
+      ],
+      [
+        "$FADD",
+        "$FD40",
+        "Title asset $D4/$C2 unpacked from $2A/$D4"
+      ],
+      [
+        "$F76C",
+        "$FADC",
+        "Title asset $D4/$C3 unpacked from $2A/$D4"
+      ],
+      [
+        "$F2B6",
+        "$F76B",
+        "Title asset $D4/$42 unpacked from $2A/$D4"
+      ],
+      [
+        "$F246",
+        "$F2B5",
+        "Title asset $5F/$41 unpacked from $2A/$D4"
+      ],
+      [
+        "$F128",
+        "$F245",
+        "Title asset $5F/$42 unpacked from $2A/$D4"
+      ],
+      [
+        "$F052",
+        "$F127",
+        "Title asset $5F/$43 unpacked from $2A/$D4"
+      ],
+      [
+        "$E9C7",
+        "$F051",
+        "Title asset $C3/$D3 unpacked from $2A/$D4"
+      ],
+      [
+        "$E949",
+        "$E9C6",
+        "Title asset $5F/$53 unpacked from $2A/$D4"
+      ],
+      [
+        "$E91F",
+        "$E948",
+        "Title asset $C3/$C1 unpacked from $2A/$D4"
+      ],
+      [
+        "$E861",
+        "$E91E",
+        "Title asset $C3/$41 unpacked from $2A/$D4"
+      ],
+      [
+        "$BF42",
+        "$BFFF",
+        "Title asset $C3/$42 unpacked from $2A/$D4"
+      ],
+      [
+        "$BE84",
+        "$BF41",
+        "Title asset $C3/$43 unpacked from $2A/$D4"
+      ],
+      [
+        "$BDC6",
+        "$BE83",
+        "Title asset $C3/$44 unpacked from $2A/$D4"
+      ],
+      [
+        "$BC0F",
+        "$BCCC",
+        "Title asset $C3/$45 unpacked from $2A/$D4"
+      ],
+      [
+        "$BB51",
+        "$BC0E",
+        "Title asset $C3/$46 unpacked from $2A/$D4"
+      ],
+      [
+        "$BA93",
+        "$BB50",
+        "Title asset $C3/$47 unpacked from $2A/$D4"
+      ],
+      [
+        "$B9D5",
+        "$BA92",
+        "Title asset $C3/$48 unpacked from $2A/$D4"
+      ],
+      [
+        "$B917",
+        "$B9D4",
+        "Title asset $C3/$49 unpacked from $2A/$D4"
+      ],
+      [
+        "$B859",
+        "$B916",
+        "Title asset $C3/$4A unpacked from $2A/$D4"
+      ],
+      [
+        "$B79B",
+        "$B858",
+        "Title asset $C3/$4B unpacked from $2A/$D4"
+      ],
+      [
+        "$6400",
+        "$6970",
+        "Resident PM payload copied from byte 53 of the disk module"
+      ],
+      [
+        "$B695",
+        "$B79A",
+        "Title asset $CB/$31 unpacked from $2A/$CC"
+      ],
+      [
+        "$B58F",
+        "$B694",
+        "Title asset $CB/$32 unpacked from $2A/$CC"
+      ],
+      [
+        "$B489",
+        "$B58E",
+        "Title asset $CB/$33 unpacked from $2A/$CC"
+      ],
+      [
+        "$B383",
+        "$B488",
+        "Title asset $CB/$34 unpacked from $2A/$CC"
+      ],
+      [
+        "$B27D",
+        "$B382",
+        "Title asset $CB/$35 unpacked from $2A/$CC"
+      ],
+      [
+        "$E835",
+        "$E860",
+        "Title asset $2D/$31 unpacked from $2A/$CC"
+      ],
+      [
+        "$E807",
+        "$E834",
+        "Title asset $2D/$32 unpacked from $2A/$CC"
+      ],
+      [
+        "$B247",
+        "$B27C",
+        "Title asset $2D/$33 unpacked from $2A/$CC"
+      ],
+      [
+        "$B217",
+        "$B246",
+        "Title asset $2D/$34 unpacked from $2A/$CC"
+      ],
+      [
+        "$B1E4",
+        "$B216",
+        "Title asset $2D/$35 unpacked from $2A/$CC"
+      ],
+      [
+        "$2100",
+        "$21FF",
+        "Side A private directory sector 3/0"
+      ],
+      [
+        "$2200",
+        "$22FF",
+        "Side A private directory sector 3/1"
+      ],
+      [
+        "$2300",
+        "$23FF",
+        "Side A private directory sector 3/2"
+      ],
+      [
+        "$2400",
+        "$24FF",
+        "Side A private directory sector 3/3"
       ]
     ],
     "include": []
@@ -29,12 +270,164 @@
       "$1EA1"
     ],
     [
+      "$2500",
+      "$29BB"
+    ],
+    [
       "$2E64",
       "$33C1"
     ],
     [
+      "$33C2",
+      "$3496"
+    ],
+    [
       "$6400",
-      "$6890"
+      "$6970"
+    ],
+    [
+      "$6A00",
+      "$887C"
+    ],
+    [
+      "$FD41",
+      "$FFF7"
+    ],
+    [
+      "$FADD",
+      "$FD40"
+    ],
+    [
+      "$F76C",
+      "$FADC"
+    ],
+    [
+      "$F2B6",
+      "$F76B"
+    ],
+    [
+      "$F246",
+      "$F2B5"
+    ],
+    [
+      "$F128",
+      "$F245"
+    ],
+    [
+      "$F052",
+      "$F127"
+    ],
+    [
+      "$E9C7",
+      "$F051"
+    ],
+    [
+      "$E949",
+      "$E9C6"
+    ],
+    [
+      "$E91F",
+      "$E948"
+    ],
+    [
+      "$E861",
+      "$E91E"
+    ],
+    [
+      "$BF42",
+      "$BFFF"
+    ],
+    [
+      "$BE84",
+      "$BF41"
+    ],
+    [
+      "$BDC6",
+      "$BE83"
+    ],
+    [
+      "$BC0F",
+      "$BCCC"
+    ],
+    [
+      "$BB51",
+      "$BC0E"
+    ],
+    [
+      "$BA93",
+      "$BB50"
+    ],
+    [
+      "$B9D5",
+      "$BA92"
+    ],
+    [
+      "$B917",
+      "$B9D4"
+    ],
+    [
+      "$B859",
+      "$B916"
+    ],
+    [
+      "$B79B",
+      "$B858"
+    ],
+    [
+      "$B695",
+      "$B79A"
+    ],
+    [
+      "$B58F",
+      "$B694"
+    ],
+    [
+      "$B489",
+      "$B58E"
+    ],
+    [
+      "$B383",
+      "$B488"
+    ],
+    [
+      "$B27D",
+      "$B382"
+    ],
+    [
+      "$E835",
+      "$E860"
+    ],
+    [
+      "$E807",
+      "$E834"
+    ],
+    [
+      "$B247",
+      "$B27C"
+    ],
+    [
+      "$B217",
+      "$B246"
+    ],
+    [
+      "$B1E4",
+      "$B216"
+    ],
+    [
+      "$2100",
+      "$21FF"
+    ],
+    [
+      "$2200",
+      "$22FF"
+    ],
+    [
+      "$2300",
+      "$23FF"
+    ],
+    [
+      "$2400",
+      "$24FF"
     ]
   ]
 }

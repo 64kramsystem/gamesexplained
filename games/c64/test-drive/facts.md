@@ -25,7 +25,21 @@ The renderer at `$7845` and driving update at `$9004` read the stage sequence. N
 
 A CPU load watchpoint on `$DC00` fired in the driving input routine. The stop PC was `$8EA8` immediately after the `LDA $DC00` at `$8EA5`. A released stick read $7F and selected direction row zero. Held up plus fire read $6E, selected row one and reached the store to $45 at $8EF4 with A equal to 1. The released case reached $8F0E with the fire mask still set. That path masks the direction nibble, searches `$9D53`, then rereads CIA1 port A at `$8EB9` and masks bit 4 for fire. The shift path reads the alternate-shift flag at `$5D` and can use the lookup at `$33F4` when it is set.
 
-The control path at `$6D1B` checks keyboard codes for P, D, M, S, O and V. It changes flags in zero page or waits for the next character. The precise in-game effects of each flag remain to be checked.
+The control path at `$6D1B` polls the resident keyboard service. In direct
+dispatch probes from the saved road, VICE stopped on these stores after
+each character was supplied in A. The probe starts at the first
+comparison at `$6D1E`.
+
+| Key | Store | Effect traced in the code |
+|---|---|---|
+| D | `$6D40` complements `$5C` | Changes the condition at `$86C5` that controls cockpit overlay visibility. |
+| M | `$6D4A` complements `$5A` | Switches the mask applied to the SID music mode and volume value at `$65E1`. |
+| S | `$6D54` complements `$5B` | Switches the mode and volume mask used when applying an effect at `$2B3C`. |
+| O | `$6D5E` complements `$5D` | Enables or disables the alternate shift lookup. |
+| V | `$6D72` complements `$5E` | Enables or disables the numeric speed and engine readouts drawn by `$98D6`. |
+| P | `$6D29` clears `$5B` | Suspends the usual driving pass while waiting for a character, then restores the previous mask. |
+
+The local store-watch results are in `work/resume-keyboard-watch.log`.
 
 ## Register census
 
@@ -65,3 +79,35 @@ The UJ module starts at `$27FD` in the captured selector. It takes the two-byte 
 `$2974` maintains a repeat count in X. A regular token is an immediate literal. The first escape code reads a byte count and a value. The three other escape codes have fixed counts of three, four and five. The first decoded data are five-byte descriptors containing flags, two ID bytes and a little-endian length. The first zero flag ends the descriptors. The child payloads follow in the same order.
 
 The local decoder `work/unpack_uj.py` reproduced every byte of the eight Lotus cockpit objects from side B resource `#1` and the six selector objects from resource `$2A/$C3`. The check read the live directory's flags, addresses and lengths, then compared the decoded data with the corresponding emulator snapshots. The checks and their byte counts are in `work/uj-match.log`.
+
+An instruction trace from the saved selector entry stopped at the decoder at $2974, the terminating descriptor branch at $28CC and the first payload store at $2951. At that store A held $28 and the destination pointer at $04 held $FED8, the address of the first selector object `_1`. This places the store after descriptor parsing and before the payload pointer increments. The trace is in `work/resume-uj.log`.
+
+The Lotus, Lamborghini, Porsche and Ferrari modules also share two
+90-entry needle endpoint tables. The vertical table begins at $32B5 and
+the horizontal table at $330F. The gauge routine patches its indexed load
+operands from the pointer words at $3226 and $3223. In each module, starting
+the tachometer update at $2F23 triggered read watchpoints in both tables.
+The horizontal read stopped at $3043 after the load at $3040. The vertical
+read stopped at $3053 after the subtraction at $3050. The trace is in
+`work/resume-needle-watch.log`.
+
+The cockpit setup returns the address of its patch descriptors to
+the driving engine. The engine installs their addresses in indexed
+instructions beginning at $7307. Separate CPU probes in the Lotus image
+stopped immediately after the steering-wheel table reads at $8DB0
+and $8DBB, the gear-lever reads at $8DD3 and $8DD8, the alternate-shift
+lookup at $8EE2, and the gear-ratio and acceleration reads at $9802
+and $9839. The four needle-driven cockpit modules share this descriptor
+format. The Porsche supplies shorter gear tables and different addresses
+for the acceleration curve and shift map. See `work/resume-cockpit-tables-watch.log`.
+
+
+## The listing's error rate
+
+An independent gpt-6.2-sol checker sampled 70 of 1,797 comments with
+seed 731. Four comments had wrong details. The fixes clarify the
+Corvette numeric font stride, the four first-byte choices for a road
+row template, and the final bytes outside the row data in two roadside
+bitmap records. The observed error rate was 5.7% with a 95% Wilson
+interval of 2.2% to 13.8%. Weighting the sampled strata by their sizes
+gives 6.2%. A full audit on a proven model remains open.

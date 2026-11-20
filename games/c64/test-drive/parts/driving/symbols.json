@@ -4,7 +4,7 @@
  "game": "test-drive",
  "part": "driving",
  "build": "Decibel and Eagle Soft Incorporated side A, Eagle Soft Incorporated side B",
- "source": "regenerator2000 live",
+ "source": "regen2000proj",
  "regions": {
   "exclude": [
    [
@@ -28,6 +28,16 @@
     "Generated windshield interior. All twelve character rows are zero in both bitmap buffers at engine entry, and the road drawing passes write this area during play."
    ],
    [
+    57344,
+    58343,
+    "Generated second bitmap colour matrix. A store watch at $E000 caught the selector row-copy loop at $3595. Both 1000-byte matrices match at the driving hand-over."
+   ],
+   [
+    11776,
+    11875,
+    "Unchanged tail of the selector DP module. These 100 bytes match the corresponding side B catalogue bytes and are counted in car-select."
+   ],
+   [
     0,
     2101,
     "Title and resident code"
@@ -49,7 +59,7 @@
    ],
    [
     58624,
-    61183,
+    61243,
     "Title and resident code"
    ],
    [
@@ -148,6 +158,11 @@
     61244,
     61309,
     "Lotus sprite resource selected by $71D5"
+   ],
+   [
+    11669,
+    11775,
+    "Seven FX sound presets and their header, byte-matched to side B item $28/$C1"
    ]
   ],
   "edges": [
@@ -187,7 +202,7 @@
    ],
    [
     58624,
-    61183,
+    61243,
     "Title and resident code"
    ],
    [
@@ -215,8 +230,13 @@
   },
   {
    "start": 10684,
-   "end": 10699,
+   "end": 10687,
    "type": "Undefined"
+  },
+  {
+   "start": 10688,
+   "end": 10699,
+   "type": "Code"
   },
   {
    "start": 10700,
@@ -225,6 +245,26 @@
   },
   {
    "start": 11502,
+   "end": 11516,
+   "type": "Code"
+  },
+  {
+   "start": 11517,
+   "end": 11668,
+   "type": "Undefined"
+  },
+  {
+   "start": 11669,
+   "end": 11670,
+   "type": "Byte"
+  },
+  {
+   "start": 11671,
+   "end": 11775,
+   "type": "Byte"
+  },
+  {
+   "start": 11776,
    "end": 11875,
    "type": "Undefined"
   },
@@ -240,13 +280,28 @@
   },
   {
    "start": 12834,
+   "end": 12841,
+   "type": "Byte"
+  },
+  {
+   "start": 12842,
+   "end": 12842,
+   "type": "Byte"
+  },
+  {
+   "start": 12843,
    "end": 12868,
    "type": "Byte"
   },
   {
    "start": 12869,
+   "end": 12910,
+   "type": "Byte"
+  },
+  {
+   "start": 12911,
    "end": 12952,
-   "type": "Undefined"
+   "type": "Byte"
   },
   {
    "start": 12953,
@@ -256,7 +311,7 @@
   {
    "start": 12981,
    "end": 13160,
-   "type": "Undefined"
+   "type": "Byte"
   },
   {
    "start": 13161,
@@ -265,8 +320,28 @@
   },
   {
    "start": 13284,
+   "end": 13291,
+   "type": "Byte"
+  },
+  {
+   "start": 13292,
+   "end": 13299,
+   "type": "Byte"
+  },
+  {
+   "start": 13300,
+   "end": 13363,
+   "type": "Byte"
+  },
+  {
+   "start": 13364,
+   "end": 13369,
+   "type": "Byte"
+  },
+  {
+   "start": 13370,
    "end": 13457,
-   "type": "Undefined"
+   "type": "Byte"
   },
   {
    "start": 13458,
@@ -336,7 +411,7 @@
   {
    "start": 39308,
    "end": 39323,
-   "type": "Undefined"
+   "type": "Code"
   },
   {
    "start": 39324,
@@ -356,7 +431,7 @@
   {
    "start": 39842,
    "end": 39862,
-   "type": "Undefined"
+   "type": "Byte"
   },
   {
    "start": 39863,
@@ -365,6 +440,56 @@
   },
   {
    "start": 39870,
+   "end": 39870,
+   "type": "Undefined"
+  },
+  {
+   "start": 39871,
+   "end": 39877,
+   "type": "Byte"
+  },
+  {
+   "start": 39878,
+   "end": 39933,
+   "type": "Byte"
+  },
+  {
+   "start": 39934,
+   "end": 39957,
+   "type": "Byte"
+  },
+  {
+   "start": 39958,
+   "end": 40005,
+   "type": "Byte"
+  },
+  {
+   "start": 40006,
+   "end": 40049,
+   "type": "Byte"
+  },
+  {
+   "start": 40050,
+   "end": 40109,
+   "type": "Byte"
+  },
+  {
+   "start": 40110,
+   "end": 40165,
+   "type": "Byte"
+  },
+  {
+   "start": 40166,
+   "end": 40209,
+   "type": "Byte"
+  },
+  {
+   "start": 40210,
+   "end": 40261,
+   "type": "Byte"
+  },
+  {
+   "start": 40262,
    "end": 40274,
    "type": "Undefined"
   },
@@ -414,11 +539,6 @@
    "type": "Undefined"
   },
   {
-   "start": 61184,
-   "end": 61243,
-   "type": "Undefined"
-  },
-  {
    "start": 61244,
    "end": 61245,
    "type": "Word"
@@ -437,39 +557,51 @@
  "symbols": [
   {
    "address": 2102,
-   "name": "s_0836",
+   "name": "reset_road_sound",
    "type": "Subroutine",
-   "kind": "auto"
+   "kind": "user"
   },
   {
    "address": 2105,
-   "name": "s_0839",
+   "name": "index_road_sound_presets",
    "type": "Subroutine",
-   "kind": "auto"
+   "kind": "user"
   },
   {
    "address": 2108,
-   "name": "s_083C",
+   "name": "request_road_sound",
    "type": "Subroutine",
-   "kind": "auto"
+   "kind": "user"
   },
   {
    "address": 2111,
-   "name": "s_083F",
+   "name": "control_road_sound",
    "type": "Subroutine",
-   "kind": "auto"
+   "kind": "user"
   },
   {
    "address": 2114,
-   "name": "s_0842",
+   "name": "tick_road_sound",
    "type": "Subroutine",
-   "kind": "auto"
+   "kind": "user"
+  },
+  {
+   "address": 10684,
+   "name": "road_sound_module_header",
+   "type": "Field",
+   "kind": "user"
+  },
+  {
+   "address": 10688,
+   "name": "install_road_sound_services",
+   "type": "Field",
+   "kind": "user"
   },
   {
    "address": 10700,
-   "name": "j_29CC",
+   "name": "build_effect_preset_pointers",
    "type": "Jump",
-   "kind": "auto"
+   "kind": "user"
   },
   {
    "address": 10707,
@@ -479,9 +611,9 @@
   },
   {
    "address": 10728,
-   "name": "j_29E8",
+   "name": "dispatch_effect_control",
    "type": "Jump",
-   "kind": "auto"
+   "kind": "user"
   },
   {
    "address": 10738,
@@ -533,9 +665,9 @@
   },
   {
    "address": 10830,
-   "name": "s_2A4E",
+   "name": "read_releasing_effect_priority",
    "type": "Subroutine",
-   "kind": "auto"
+   "kind": "user"
   },
   {
    "address": 10839,
@@ -551,9 +683,9 @@
   },
   {
    "address": 10843,
-   "name": "s_2A5B",
+   "name": "normalize_sound_channel",
    "type": "Subroutine",
-   "kind": "auto"
+   "kind": "user"
   },
   {
    "address": 10849,
@@ -563,9 +695,9 @@
   },
   {
    "address": 10851,
-   "name": "s_2A63",
+   "name": "zero_sid_voice",
    "type": "Subroutine",
-   "kind": "auto"
+   "kind": "user"
   },
   {
    "address": 10873,
@@ -575,21 +707,21 @@
   },
   {
    "address": 10884,
-   "name": "a_2A84",
+   "name": "zero_sid_voice_restore_y",
    "type": "AbsoluteAddress",
-   "kind": "auto"
+   "kind": "user"
   },
   {
    "address": 10886,
-   "name": "a_2A86",
+   "name": "zero_sid_voice_restore_x",
    "type": "AbsoluteAddress",
-   "kind": "auto"
+   "kind": "user"
   },
   {
    "address": 10889,
-   "name": "j_2A89",
+   "name": "choose_voice_for_effect",
    "type": "Jump",
-   "kind": "auto"
+   "kind": "user"
   },
   {
    "address": 10903,
@@ -623,9 +755,9 @@
   },
   {
    "address": 10991,
-   "name": "s_2AEF",
+   "name": "copy_effect_parameters",
    "type": "Subroutine",
-   "kind": "auto"
+   "kind": "user"
   },
   {
    "address": 11006,
@@ -635,9 +767,9 @@
   },
   {
    "address": 11020,
-   "name": "s_2B0C",
+   "name": "apply_sid_voice_preset",
    "type": "Subroutine",
-   "kind": "auto"
+   "kind": "user"
   },
   {
    "address": 11031,
@@ -653,15 +785,15 @@
   },
   {
    "address": 11091,
-   "name": "s_2B53",
+   "name": "split_effect_ramp_controls",
    "type": "Subroutine",
-   "kind": "auto"
+   "kind": "user"
   },
   {
    "address": 11155,
-   "name": "j_2B93",
+   "name": "advance_road_sound",
    "type": "Jump",
-   "kind": "auto"
+   "kind": "user"
   },
   {
    "address": 11171,
@@ -677,15 +809,15 @@
   },
   {
    "address": 11214,
-   "name": "s_2BCE",
+   "name": "set_sid_effect_mode_volume",
    "type": "Subroutine",
-   "kind": "auto"
+   "kind": "user"
   },
   {
    "address": 11218,
-   "name": "s_2BD2",
+   "name": "advance_effect_voice",
    "type": "Subroutine",
-   "kind": "auto"
+   "kind": "user"
   },
   {
    "address": 11226,
@@ -731,21 +863,21 @@
   },
   {
    "address": 11297,
-   "name": "j_2C21",
+   "name": "raise_effect_pitch",
    "type": "Jump",
-   "kind": "auto"
+   "kind": "user"
   },
   {
    "address": 11328,
-   "name": "j_2C40",
+   "name": "lower_effect_pitch",
    "type": "Jump",
-   "kind": "auto"
+   "kind": "user"
   },
   {
    "address": 11343,
-   "name": "j_2C4F",
+   "name": "hold_effect_gate",
    "type": "Jump",
-   "kind": "auto"
+   "kind": "user"
   },
   {
    "address": 11353,
@@ -755,27 +887,27 @@
   },
   {
    "address": 11354,
-   "name": "s_2C5A",
+   "name": "clear_effect_gate",
    "type": "Subroutine",
-   "kind": "auto"
+   "kind": "user"
   },
   {
    "address": 11366,
-   "name": "j_2C66",
+   "name": "lower_effect_release_pitch",
    "type": "Jump",
-   "kind": "auto"
+   "kind": "user"
   },
   {
    "address": 11381,
-   "name": "s_2C75",
+   "name": "subtract_effect_pitch_step",
    "type": "Subroutine",
-   "kind": "auto"
+   "kind": "user"
   },
   {
    "address": 11401,
-   "name": "s_2C89",
+   "name": "scale_effect_pitch_step",
    "type": "Subroutine",
-   "kind": "auto"
+   "kind": "user"
   },
   {
    "address": 11412,
@@ -791,15 +923,15 @@
   },
   {
    "address": 11427,
-   "name": "j_2CA3",
+   "name": "write_effect_frequency",
    "type": "Jump",
-   "kind": "auto"
+   "kind": "user"
   },
   {
    "address": 11443,
-   "name": "j_2CB3",
+   "name": "reset_effect_channels",
    "type": "Jump",
-   "kind": "auto"
+   "kind": "user"
   },
   {
    "address": 11447,
@@ -808,220 +940,238 @@
    "kind": "auto"
   },
   {
-   "address": 11517,
-   "name": "f_2CFD",
+   "address": 11502,
+   "name": "effect_service_jump_table",
    "type": "Field",
-   "kind": "auto"
+   "kind": "user"
+  },
+  {
+   "address": 11517,
+   "name": "fx_jump_table_end",
+   "type": "Field",
+   "kind": "user"
   },
   {
    "address": 11518,
-   "name": "f_2CFE",
+   "name": "effect_frequency_lo",
    "type": "Field",
-   "kind": "auto"
+   "kind": "user"
   },
   {
    "address": 11521,
-   "name": "f_2D01",
+   "name": "effect_frequency_hi",
    "type": "Field",
-   "kind": "auto"
+   "kind": "user"
   },
   {
    "address": 11527,
-   "name": "f_2D07",
+   "name": "effect_pulse_hi",
    "type": "Field",
-   "kind": "auto"
+   "kind": "user"
   },
   {
    "address": 11530,
-   "name": "f_2D0A",
+   "name": "effect_voice_control_shadow",
    "type": "Field",
-   "kind": "auto"
+   "kind": "user"
   },
   {
    "address": 11539,
-   "name": "f_2D13",
+   "name": "effect_attack_pitch_ticks",
    "type": "Field",
-   "kind": "auto"
+   "kind": "user"
   },
   {
    "address": 11542,
-   "name": "f_2D16",
+   "name": "effect_descent_pitch_ticks",
    "type": "Field",
-   "kind": "auto"
+   "kind": "user"
   },
   {
    "address": 11545,
-   "name": "f_2D19",
+   "name": "effect_gate_hold_ticks",
    "type": "Field",
-   "kind": "auto"
+   "kind": "user"
   },
   {
    "address": 11548,
-   "name": "f_2D1C",
+   "name": "effect_release_pitch_ticks",
    "type": "Field",
-   "kind": "auto"
+   "kind": "user"
   },
   {
    "address": 11551,
-   "name": "f_2D1F",
+   "name": "effect_pitch_step_exponent",
    "type": "Field",
-   "kind": "auto"
+   "kind": "user"
   },
   {
    "address": 11554,
-   "name": "f_2D22",
+   "name": "effect_filter_cutoff_lo",
    "type": "Field",
-   "kind": "auto"
+   "kind": "user"
   },
   {
    "address": 11557,
-   "name": "f_2D25",
+   "name": "effect_filter_cutoff_hi",
    "type": "Field",
-   "kind": "auto"
+   "kind": "user"
   },
   {
    "address": 11560,
-   "name": "f_2D28",
+   "name": "effect_repeat_count",
    "type": "Field",
-   "kind": "auto"
+   "kind": "user"
   },
   {
    "address": 11563,
-   "name": "f_2D2B",
+   "name": "effect_channel_state",
    "type": "Field",
-   "kind": "auto"
+   "kind": "user"
   },
   {
    "address": 11566,
-   "name": "f_2D2E",
+   "name": "effect_attack_pitch_step",
    "type": "Field",
-   "kind": "auto"
+   "kind": "user"
   },
   {
    "address": 11569,
-   "name": "f_2D31",
+   "name": "effect_descent_pitch_step",
    "type": "Field",
-   "kind": "auto"
+   "kind": "user"
   },
   {
    "address": 11572,
-   "name": "f_2D34",
+   "name": "effect_hold_step_field",
    "type": "Field",
-   "kind": "auto"
+   "kind": "user"
   },
   {
    "address": 11575,
-   "name": "f_2D37",
+   "name": "effect_release_pitch_step",
    "type": "Field",
-   "kind": "auto"
+   "kind": "user"
   },
   {
    "address": 11578,
-   "name": "f_2D3A",
+   "name": "effect_channel_priority",
    "type": "Field",
-   "kind": "auto"
+   "kind": "user"
   },
   {
    "address": 11581,
-   "name": "f_2D3D",
+   "name": "effect_channel_preset_id",
    "type": "Field",
-   "kind": "auto"
+   "kind": "user"
   },
   {
    "address": 11584,
-   "name": "a_2D40",
+   "name": "effect_current_voice",
    "type": "AbsoluteAddress",
-   "kind": "auto"
+   "kind": "user"
   },
   {
    "address": 11585,
-   "name": "a_2D41",
+   "name": "effect_arithmetic_scratch_lo",
    "type": "AbsoluteAddress",
-   "kind": "auto"
+   "kind": "user"
   },
   {
    "address": 11586,
-   "name": "a_2D42",
+   "name": "effect_arithmetic_scratch_hi",
    "type": "AbsoluteAddress",
-   "kind": "auto"
+   "kind": "user"
   },
   {
    "address": 11587,
-   "name": "a_2D43",
+   "name": "effect_incoming_id",
    "type": "AbsoluteAddress",
-   "kind": "auto"
+   "kind": "user"
   },
   {
    "address": 11588,
-   "name": "a_2D44",
+   "name": "effect_incoming_priority",
    "type": "AbsoluteAddress",
-   "kind": "auto"
+   "kind": "user"
   },
   {
    "address": 11589,
-   "name": "a_2D45",
+   "name": "effect_filter_owner",
    "type": "AbsoluteAddress",
-   "kind": "auto"
+   "kind": "user"
   },
   {
    "address": 11590,
-   "name": "a_2D46",
+   "name": "effect_filter_mode_bits",
    "type": "AbsoluteAddress",
-   "kind": "auto"
+   "kind": "user"
   },
   {
    "address": 11591,
-   "name": "a_2D47",
+   "name": "effect_master_volume",
    "type": "AbsoluteAddress",
-   "kind": "auto"
+   "kind": "user"
   },
   {
    "address": 11592,
-   "name": "f_2D48",
+   "name": "effect_gate_hold_flags",
    "type": "Field",
-   "kind": "auto"
+   "kind": "user"
   },
   {
    "address": 11595,
-   "name": "f_2D4B",
+   "name": "sid_channel_register_offsets",
    "type": "Field",
-   "kind": "auto"
+   "kind": "user"
   },
   {
    "address": 11598,
-   "name": "f_2D4E",
+   "name": "effect_ramp_pitch_delta_by_nibble",
    "type": "Field",
-   "kind": "auto"
+   "kind": "user"
   },
   {
    "address": 11614,
-   "name": "f_2D5E",
+   "name": "effect_ramp_duration_by_nibble",
    "type": "Field",
-   "kind": "auto"
+   "kind": "user"
   },
   {
    "address": 11630,
-   "name": "f_2D6E",
+   "name": "effect_filter_channel_masks",
    "type": "Field",
-   "kind": "auto"
+   "kind": "user"
   },
   {
    "address": 11636,
-   "name": "a_2D74",
+   "name": "pending_effect_priority",
    "type": "AbsoluteAddress",
-   "kind": "auto"
+   "kind": "user"
   },
   {
    "address": 11637,
-   "name": "f_2D75",
+   "name": "effect_preset_pointer_lo",
    "type": "Field",
-   "kind": "auto"
+   "kind": "user"
   },
   {
    "address": 11653,
-   "name": "f_2D85",
+   "name": "effect_preset_pointer_hi",
    "type": "Field",
-   "kind": "auto"
+   "kind": "user"
+  },
+  {
+   "address": 11669,
+   "name": "road_effect_preset_header",
+   "type": "Field",
+   "kind": "user"
+  },
+  {
+   "address": 11671,
+   "name": "road_effect_preset_records",
+   "type": "Field",
+   "kind": "user"
   },
   {
    "address": 11876,
@@ -1463,21 +1613,27 @@
   },
   {
    "address": 12842,
-   "name": "a_322A",
-   "type": "AbsoluteAddress",
-   "kind": "auto"
+   "name": "road_cockpit_descriptor_address_hi",
+   "type": "Field",
+   "kind": "user"
+  },
+  {
+   "address": 12843,
+   "name": "road_cockpit_patch_descriptors",
+   "type": "Field",
+   "kind": "user"
   },
   {
    "address": 12869,
-   "name": "f_3245",
+   "name": "steering_wheel_vertical_curve",
    "type": "Field",
-   "kind": "auto"
+   "kind": "user"
   },
   {
    "address": 12911,
-   "name": "f_326F",
+   "name": "steering_wheel_horizontal_curve",
    "type": "Field",
-   "kind": "auto"
+   "kind": "user"
   },
   {
    "address": 12953,
@@ -1506,6 +1662,18 @@
   {
    "address": 12977,
    "name": "needle_source_row_offset",
+   "type": "Field",
+   "kind": "user"
+  },
+  {
+   "address": 12981,
+   "name": "needle_vertical_endpoints",
+   "type": "Field",
+   "kind": "user"
+  },
+  {
+   "address": 13071,
+   "name": "needle_horizontal_endpoints",
    "type": "Field",
    "kind": "user"
   },
@@ -1619,33 +1787,33 @@
   },
   {
    "address": 13284,
-   "name": "a_33E4",
-   "type": "AbsoluteAddress",
-   "kind": "auto"
+   "name": "gear_lever_x_by_position",
+   "type": "Field",
+   "kind": "user"
   },
   {
    "address": 13292,
-   "name": "a_33EC",
-   "type": "AbsoluteAddress",
-   "kind": "auto"
+   "name": "gear_lever_y_by_position",
+   "type": "Field",
+   "kind": "user"
   },
   {
    "address": 13300,
-   "name": "f_33F4",
+   "name": "alternate_shift_map",
    "type": "Field",
-   "kind": "auto"
+   "kind": "user"
   },
   {
    "address": 13364,
-   "name": "f_3434",
+   "name": "road_gear_ratio",
    "type": "Field",
-   "kind": "auto"
+   "kind": "user"
   },
   {
    "address": 13370,
-   "name": "f_343A",
+   "name": "engine_acceleration_curve",
    "type": "Field",
-   "kind": "auto"
+   "kind": "user"
   },
   {
    "address": 13458,
@@ -1667,63 +1835,75 @@
   },
   {
    "address": 16385,
-   "name": "f_4001",
+   "name": "visor_pixel_row_1",
    "type": "Field",
-   "kind": "auto"
+   "kind": "user"
   },
   {
    "address": 16386,
-   "name": "f_4002",
+   "name": "visor_pixel_row_2",
    "type": "Field",
-   "kind": "auto"
+   "kind": "user"
   },
   {
    "address": 16387,
-   "name": "f_4003",
+   "name": "visor_pixel_row_3",
    "type": "Field",
-   "kind": "auto"
+   "kind": "user"
   },
   {
    "address": 16388,
-   "name": "f_4004",
+   "name": "visor_pixel_row_4",
    "type": "Field",
-   "kind": "auto"
+   "kind": "user"
   },
   {
    "address": 16389,
-   "name": "f_4005",
+   "name": "visor_pixel_row_5",
    "type": "Field",
-   "kind": "auto"
+   "kind": "user"
   },
   {
    "address": 16390,
-   "name": "f_4006",
+   "name": "visor_pixel_row_6",
    "type": "Field",
-   "kind": "auto"
+   "kind": "user"
   },
   {
    "address": 16391,
-   "name": "f_4007",
+   "name": "visor_top_left_final_scanline",
    "type": "Field",
-   "kind": "auto"
+   "kind": "user"
+  },
+  {
+   "address": 16455,
+   "name": "visor_row_00_middle",
+   "type": "Field",
+   "kind": "user"
   },
   {
    "address": 16536,
-   "name": "f_4098",
+   "name": "visor_speed_overlay_background",
    "type": "Field",
-   "kind": "auto"
+   "kind": "user"
+  },
+  {
+   "address": 16600,
+   "name": "visor_between_caption_fields",
+   "type": "Field",
+   "kind": "user"
   },
   {
    "address": 16608,
-   "name": "f_40E0",
+   "name": "visor_rpm_overlay_background",
    "type": "Field",
-   "kind": "auto"
+   "kind": "user"
   },
   {
    "address": 16640,
-   "name": "f_4100",
+   "name": "visor_row_00_final_cells",
    "type": "Field",
-   "kind": "auto"
+   "kind": "user"
   },
   {
    "address": 16704,
@@ -1757,9 +1937,15 @@
   },
   {
    "address": 22016,
-   "name": "f_5600",
+   "name": "dashboard_row_17_road_workspace",
    "type": "Field",
-   "kind": "auto"
+   "kind": "user"
+  },
+  {
+   "address": 22080,
+   "name": "dashboard_row_17_middle",
+   "type": "Field",
+   "kind": "user"
   },
   {
    "address": 22144,
@@ -1787,63 +1973,63 @@
   },
   {
    "address": 23216,
-   "name": "f_5AB0",
+   "name": "road_scale_pointer_lows",
    "type": "Field",
-   "kind": "auto"
+   "kind": "user"
   },
   {
    "address": 23232,
-   "name": "f_5AC0",
+   "name": "road_scale_pointer_highs",
    "type": "Field",
-   "kind": "auto"
+   "kind": "user"
   },
   {
    "address": 23247,
-   "name": "f_5ACF",
+   "name": "marker_pair_lo_index_bias",
    "type": "Field",
-   "kind": "auto"
+   "kind": "user"
   },
   {
    "address": 23248,
-   "name": "f_5AD0",
+   "name": "new_road_cell_pair_addresses_lo",
    "type": "Field",
-   "kind": "auto"
+   "kind": "user"
   },
   {
    "address": 23287,
-   "name": "f_5AF7",
+   "name": "marker_pair_hi_index_bias",
    "type": "Field",
-   "kind": "auto"
+   "kind": "user"
   },
   {
    "address": 23288,
-   "name": "f_5AF8",
+   "name": "new_road_cell_pair_addresses_hi",
    "type": "Field",
-   "kind": "auto"
+   "kind": "user"
   },
   {
    "address": 23327,
-   "name": "f_5B1F",
+   "name": "previous_road_cell_pair_addresses_lo",
    "type": "Field",
-   "kind": "auto"
+   "kind": "user"
   },
   {
    "address": 23367,
-   "name": "f_5B47",
+   "name": "previous_road_cell_pair_addresses_hi",
    "type": "Field",
-   "kind": "auto"
+   "kind": "user"
   },
   {
    "address": 23407,
-   "name": "f_5B6F",
+   "name": "left_sample_low_index_bias",
    "type": "Field",
-   "kind": "auto"
+   "kind": "user"
   },
   {
    "address": 23408,
-   "name": "f_5B70",
+   "name": "sampled_left_road_bound_lo",
    "type": "Field",
-   "kind": "auto"
+   "kind": "user"
   },
   {
    "address": 23424,
@@ -1853,87 +2039,87 @@
   },
   {
    "address": 23427,
-   "name": "a_5B83",
+   "name": "next_pass_bound_example_lo",
    "type": "AbsoluteAddress",
-   "kind": "auto"
+   "kind": "user"
   },
   {
    "address": 23437,
-   "name": "f_5B8D",
+   "name": "left_sample_high_index_bias",
    "type": "Field",
-   "kind": "auto"
+   "kind": "user"
   },
   {
    "address": 23438,
-   "name": "f_5B8E",
+   "name": "sampled_left_road_bound_hi",
    "type": "Field",
-   "kind": "auto"
+   "kind": "user"
   },
   {
    "address": 23457,
-   "name": "a_5BA1",
+   "name": "next_pass_bound_example_hi",
    "type": "AbsoluteAddress",
-   "kind": "auto"
+   "kind": "user"
   },
   {
    "address": 23467,
-   "name": "f_5BAB",
+   "name": "right_sample_low_index_bias",
    "type": "Field",
-   "kind": "auto"
+   "kind": "user"
   },
   {
    "address": 23468,
-   "name": "f_5BAC",
+   "name": "sampled_right_road_bound_lo",
    "type": "Field",
-   "kind": "auto"
+   "kind": "user"
   },
   {
    "address": 23497,
-   "name": "f_5BC9",
+   "name": "right_sample_high_index_bias",
    "type": "Field",
-   "kind": "auto"
+   "kind": "user"
   },
   {
    "address": 23498,
-   "name": "f_5BCA",
+   "name": "sampled_right_road_bound_hi",
    "type": "Field",
-   "kind": "auto"
+   "kind": "user"
   },
   {
    "address": 23528,
-   "name": "f_5BE8",
+   "name": "sampled_road_screen_rows",
    "type": "Field",
-   "kind": "auto"
+   "kind": "user"
   },
   {
    "address": 23558,
-   "name": "f_5C06",
+   "name": "sampled_road_center_lo",
    "type": "Field",
-   "kind": "auto"
+   "kind": "user"
   },
   {
    "address": 23588,
-   "name": "f_5C24",
+   "name": "sampled_road_center_hi",
    "type": "Field",
-   "kind": "auto"
+   "kind": "user"
   },
   {
    "address": 23618,
-   "name": "f_5C42",
+   "name": "sampled_road_element_flags",
    "type": "Field",
-   "kind": "auto"
+   "kind": "user"
   },
   {
    "address": 23648,
-   "name": "f_5C60",
+   "name": "sampled_road_grade",
    "type": "Field",
-   "kind": "auto"
+   "kind": "user"
   },
   {
    "address": 23678,
-   "name": "f_5C7E",
+   "name": "visor_restore_first_page",
    "type": "Field",
-   "kind": "auto"
+   "kind": "user"
   },
   {
    "address": 23744,
@@ -1943,15 +2129,15 @@
   },
   {
    "address": 23934,
-   "name": "f_5D7E",
+   "name": "visor_restore_final_cells",
    "type": "Field",
-   "kind": "auto"
+   "kind": "user"
   },
   {
    "address": 23998,
-   "name": "f_5DBE",
+   "name": "visor_restore_color_cells",
    "type": "Field",
-   "kind": "auto"
+   "kind": "user"
   },
   {
    "address": 24064,
@@ -2003,9 +2189,9 @@
   },
   {
    "address": 24832,
-   "name": "f_6100",
+   "name": "cockpit_matrix_page_one",
    "type": "Field",
-   "kind": "auto"
+   "kind": "user"
   },
   {
    "address": 24856,
@@ -2045,9 +2231,9 @@
   },
   {
    "address": 25088,
-   "name": "f_6200",
+   "name": "cockpit_matrix_page_two",
    "type": "Field",
-   "kind": "auto"
+   "kind": "user"
   },
   {
    "address": 25096,
@@ -2093,9 +2279,9 @@
   },
   {
    "address": 25344,
-   "name": "f_6300",
+   "name": "cockpit_matrix_page_three",
    "type": "Field",
-   "kind": "auto"
+   "kind": "user"
   },
   {
    "address": 25376,
@@ -2129,9 +2315,9 @@
   },
   {
    "address": 25592,
-   "name": "f_63F8",
+   "name": "first_bank_road_sprite_pointers",
    "type": "Field",
-   "kind": "auto"
+   "kind": "user"
   },
   {
    "address": 27136,
@@ -2561,9 +2747,9 @@
   },
   {
    "address": 28748,
-   "name": "s_704C",
+   "name": "restore_visor_art",
    "type": "Subroutine",
-   "kind": "auto"
+   "kind": "user"
   },
   {
    "address": 28750,
@@ -2585,9 +2771,9 @@
   },
   {
    "address": 28797,
-   "name": "s_707D",
+   "name": "refresh_both_road_buffers",
    "type": "Subroutine",
-   "kind": "auto"
+   "kind": "user"
   },
   {
    "address": 28864,
@@ -2609,15 +2795,15 @@
   },
   {
    "address": 28936,
-   "name": "s_7108",
+   "name": "reload_interlude_services",
    "type": "Subroutine",
-   "kind": "auto"
+   "kind": "user"
   },
   {
    "address": 28975,
-   "name": "s_712F",
+   "name": "prepare_visible_road_rectangle",
    "type": "Subroutine",
-   "kind": "auto"
+   "kind": "user"
   },
   {
    "address": 28996,
@@ -2663,9 +2849,9 @@
   },
   {
    "address": 29230,
-   "name": "s_722E",
+   "name": "reset_driving_controls_and_events",
    "type": "Subroutine",
-   "kind": "auto"
+   "kind": "user"
   },
   {
    "address": 29266,
@@ -2765,9 +2951,9 @@
   },
   {
    "address": 29944,
-   "name": "s_74F8",
+   "name": "snapshot_road_pass_state",
    "type": "Subroutine",
-   "kind": "auto"
+   "kind": "user"
   },
   {
    "address": 29956,
@@ -3304,6 +3490,12 @@
    "kind": "auto"
   },
   {
+   "address": 32074,
+   "name": "road_fill_right_loop_offset",
+   "type": "Field",
+   "kind": "user"
+  },
+  {
    "address": 32075,
    "name": "b_7D4B",
    "type": "Branch",
@@ -3329,9 +3521,9 @@
   },
   {
    "address": 32099,
-   "name": "s_7D63",
+   "name": "fill_multicolour_span",
    "type": "Subroutine",
-   "kind": "auto"
+   "kind": "user"
   },
   {
    "address": 32152,
@@ -3377,9 +3569,9 @@
   },
   {
    "address": 32245,
-   "name": "s_7DF5",
+   "name": "exchange_projected_objects",
    "type": "Subroutine",
-   "kind": "auto"
+   "kind": "user"
   },
   {
    "address": 32255,
@@ -3521,9 +3713,9 @@
   },
   {
    "address": 32812,
-   "name": "a_802C",
+   "name": "project_object_sprite_coordinates",
    "type": "AbsoluteAddress",
-   "kind": "auto"
+   "kind": "user"
   },
   {
    "address": 32838,
@@ -3557,9 +3749,9 @@
   },
   {
    "address": 32937,
-   "name": "a_80A9",
+   "name": "advance_projected_object_index",
    "type": "AbsoluteAddress",
-   "kind": "auto"
+   "kind": "user"
   },
   {
    "address": 32947,
@@ -3569,15 +3761,15 @@
   },
   {
    "address": 32948,
-   "name": "s_80B4",
+   "name": "advance_two_projected_sprite_slots",
    "type": "Subroutine",
-   "kind": "auto"
+   "kind": "user"
   },
   {
    "address": 32951,
-   "name": "s_80B7",
+   "name": "lower_projected_sprite_rows",
    "type": "Subroutine",
-   "kind": "auto"
+   "kind": "user"
   },
   {
    "address": 32965,
@@ -3587,21 +3779,21 @@
   },
   {
    "address": 32967,
-   "name": "f_80C7",
+   "name": "lower_sprite_patch_site",
    "type": "Field",
-   "kind": "auto"
+   "kind": "user"
   },
   {
    "address": 32968,
-   "name": "a_80C8",
+   "name": "lower_sprite_destination_lo",
    "type": "AbsoluteAddress",
-   "kind": "auto"
+   "kind": "user"
   },
   {
    "address": 32969,
-   "name": "a_80C9",
+   "name": "lower_sprite_destination_hi",
    "type": "AbsoluteAddress",
-   "kind": "auto"
+   "kind": "user"
   },
   {
    "address": 32978,
@@ -3617,9 +3809,9 @@
   },
   {
    "address": 32995,
-   "name": "s_80E3",
+   "name": "clip_projected_sprite_height",
    "type": "Subroutine",
-   "kind": "auto"
+   "kind": "user"
   },
   {
    "address": 33008,
@@ -3635,9 +3827,9 @@
   },
   {
    "address": 33016,
-   "name": "a_80F8",
+   "name": "sprite_top_clear_bias",
    "type": "AbsoluteAddress",
-   "kind": "auto"
+   "kind": "user"
   },
   {
    "address": 33021,
@@ -3653,9 +3845,9 @@
   },
   {
    "address": 33043,
-   "name": "a_8113",
+   "name": "sprite_bottom_clear_bias",
    "type": "AbsoluteAddress",
-   "kind": "auto"
+   "kind": "user"
   },
   {
    "address": 33047,
@@ -3671,9 +3863,9 @@
   },
   {
    "address": 33056,
-   "name": "s_8120",
+   "name": "clip_projected_sprite_width",
    "type": "Subroutine",
-   "kind": "auto"
+   "kind": "user"
   },
   {
    "address": 33069,
@@ -3689,9 +3881,9 @@
   },
   {
    "address": 33077,
-   "name": "a_8135",
+   "name": "sprite_left_clip_index_bias",
    "type": "AbsoluteAddress",
-   "kind": "auto"
+   "kind": "user"
   },
   {
    "address": 33099,
@@ -3701,21 +3893,21 @@
   },
   {
    "address": 33102,
-   "name": "a_814E",
+   "name": "sprite_left_mask_column_zero",
    "type": "AbsoluteAddress",
-   "kind": "auto"
+   "kind": "user"
   },
   {
    "address": 33109,
-   "name": "a_8155",
+   "name": "sprite_left_mask_column_one",
    "type": "AbsoluteAddress",
-   "kind": "auto"
+   "kind": "user"
   },
   {
    "address": 33116,
-   "name": "a_815C",
+   "name": "sprite_left_mask_column_two",
    "type": "AbsoluteAddress",
-   "kind": "auto"
+   "kind": "user"
   },
   {
    "address": 33124,
@@ -3725,9 +3917,9 @@
   },
   {
    "address": 33143,
-   "name": "a_8177",
+   "name": "sprite_right_clip_index_bias",
    "type": "AbsoluteAddress",
-   "kind": "auto"
+   "kind": "user"
   },
   {
    "address": 33171,
@@ -3737,21 +3929,21 @@
   },
   {
    "address": 33174,
-   "name": "a_8196",
+   "name": "sprite_right_mask_column_zero",
    "type": "AbsoluteAddress",
-   "kind": "auto"
+   "kind": "user"
   },
   {
    "address": 33181,
-   "name": "a_819D",
+   "name": "sprite_right_mask_column_one",
    "type": "AbsoluteAddress",
-   "kind": "auto"
+   "kind": "user"
   },
   {
    "address": 33188,
-   "name": "a_81A4",
+   "name": "sprite_right_mask_column_two",
    "type": "AbsoluteAddress",
-   "kind": "auto"
+   "kind": "user"
   },
   {
    "address": 33196,
@@ -3767,9 +3959,9 @@
   },
   {
    "address": 33201,
-   "name": "s_81B1",
+   "name": "record_projected_sprite",
    "type": "Subroutine",
-   "kind": "auto"
+   "kind": "user"
   },
   {
    "address": 33271,
@@ -3779,21 +3971,21 @@
   },
   {
    "address": 33285,
-   "name": "a_8205",
+   "name": "object_sprite_color_operand",
    "type": "AbsoluteAddress",
-   "kind": "auto"
+   "kind": "user"
   },
   {
    "address": 33306,
-   "name": "a_821A",
+   "name": "sprite_width_expand_mask",
    "type": "AbsoluteAddress",
-   "kind": "auto"
+   "kind": "user"
   },
   {
    "address": 33317,
-   "name": "a_8225",
+   "name": "sprite_height_expand_mask",
    "type": "AbsoluteAddress",
-   "kind": "auto"
+   "kind": "user"
   },
   {
    "address": 33327,
@@ -3809,9 +4001,9 @@
   },
   {
    "address": 33377,
-   "name": "s_8261",
+   "name": "decode_sprite_with_zero_prefix",
    "type": "Subroutine",
-   "kind": "auto"
+   "kind": "user"
   },
   {
    "address": 33384,
@@ -3827,27 +4019,27 @@
   },
   {
    "address": 33409,
-   "name": "f_8281",
+   "name": "read_compact_sprite_payload",
    "type": "Field",
-   "kind": "auto"
+   "kind": "user"
   },
   {
    "address": 33410,
-   "name": "a_8282",
+   "name": "compact_sprite_payload_lo",
    "type": "AbsoluteAddress",
-   "kind": "auto"
+   "kind": "user"
   },
   {
    "address": 33411,
-   "name": "a_8283",
+   "name": "compact_sprite_payload_hi",
    "type": "AbsoluteAddress",
-   "kind": "auto"
+   "kind": "user"
   },
   {
    "address": 33434,
-   "name": "s_829A",
+   "name": "draw_projected_sprite_group",
    "type": "Subroutine",
-   "kind": "auto"
+   "kind": "user"
   },
   {
    "address": 33462,
@@ -3881,9 +4073,9 @@
   },
   {
    "address": 33542,
-   "name": "s_8306",
+   "name": "plot_road_marker_pixel",
    "type": "Subroutine",
-   "kind": "auto"
+   "kind": "user"
   },
   {
    "address": 33664,
@@ -3899,9 +4091,9 @@
   },
   {
    "address": 33666,
-   "name": "s_8382",
+   "name": "animate_cockpit_steering_art",
    "type": "Subroutine",
-   "kind": "auto"
+   "kind": "user"
   },
   {
    "address": 33684,
@@ -3977,9 +4169,9 @@
   },
   {
    "address": 33861,
-   "name": "a_8445",
+   "name": "cockpit_bitmap_bank_bias",
    "type": "AbsoluteAddress",
-   "kind": "auto"
+   "kind": "user"
   },
   {
    "address": 33870,
@@ -3989,15 +4181,15 @@
   },
   {
    "address": 33872,
-   "name": "a_8450",
+   "name": "cockpit_bitmap_row_copy_inner",
    "type": "AbsoluteAddress",
-   "kind": "auto"
+   "kind": "user"
   },
   {
    "address": 33881,
-   "name": "a_8459",
+   "name": "cockpit_bitmap_group_tail",
    "type": "AbsoluteAddress",
-   "kind": "auto"
+   "kind": "user"
   },
   {
    "address": 33896,
@@ -4169,15 +4361,15 @@
   },
   {
    "address": 34428,
-   "name": "s_867C",
+   "name": "scale_subpixel_road_span",
    "type": "Subroutine",
-   "kind": "auto"
+   "kind": "user"
   },
   {
    "address": 34441,
-   "name": "s_8689",
+   "name": "clamp_road_viewport_edges",
    "type": "Subroutine",
-   "kind": "auto"
+   "kind": "user"
   },
   {
    "address": 34453,
@@ -4229,9 +4421,9 @@
   },
   {
    "address": 34496,
-   "name": "s_86C0",
+   "name": "update_cockpit_overlay_visibility",
    "type": "Subroutine",
-   "kind": "auto"
+   "kind": "user"
   },
   {
    "address": 34513,
@@ -4259,9 +4451,9 @@
   },
   {
    "address": 34555,
-   "name": "s_86FB",
+   "name": "place_sampled_roadside_art",
    "type": "Subroutine",
-   "kind": "auto"
+   "kind": "user"
   },
   {
    "address": 34557,
@@ -4391,9 +4583,9 @@
   },
   {
    "address": 34960,
-   "name": "s_8890",
+   "name": "restore_road_cell_pairs",
    "type": "Subroutine",
-   "kind": "auto"
+   "kind": "user"
   },
   {
    "address": 34966,
@@ -4421,9 +4613,9 @@
   },
   {
    "address": 35009,
-   "name": "s_88C1",
+   "name": "restore_single_road_marker_cells",
    "type": "Subroutine",
-   "kind": "auto"
+   "kind": "user"
   },
   {
    "address": 35015,
@@ -4582,16 +4774,22 @@
    "kind": "auto"
   },
   {
+   "address": 35504,
+   "name": "road_interrupt_vector_prefix",
+   "type": "Field",
+   "kind": "user"
+  },
+  {
    "address": 35505,
-   "name": "a_8AB1",
+   "name": "road_interrupt_vector_lo",
    "type": "AbsoluteAddress",
-   "kind": "auto"
+   "kind": "user"
   },
   {
    "address": 35506,
-   "name": "a_8AB2",
+   "name": "road_interrupt_vector_hi",
    "type": "AbsoluteAddress",
-   "kind": "auto"
+   "kind": "user"
   },
   {
    "address": 35507,
@@ -4673,9 +4871,9 @@
   },
   {
    "address": 35962,
-   "name": "a_8C7A",
+   "name": "road_irq_sprite_loop_operand",
    "type": "AbsoluteAddress",
-   "kind": "auto"
+   "kind": "user"
   },
   {
    "address": 35988,
@@ -4691,21 +4889,21 @@
   },
   {
    "address": 36055,
-   "name": "s_8CD7",
+   "name": "call_road_raster_phase",
    "type": "Subroutine",
-   "kind": "auto"
+   "kind": "user"
   },
   {
    "address": 36056,
-   "name": "a_8CD8",
+   "name": "road_irq_phase_handler_lo",
    "type": "AbsoluteAddress",
-   "kind": "auto"
+   "kind": "user"
   },
   {
    "address": 36057,
-   "name": "a_8CD9",
+   "name": "road_irq_phase_handler_hi",
    "type": "AbsoluteAddress",
-   "kind": "auto"
+   "kind": "user"
   },
   {
    "address": 36081,
@@ -4739,21 +4937,21 @@
   },
   {
    "address": 36130,
-   "name": "a_8D22",
+   "name": "road_irq_music_patch_site",
    "type": "AbsoluteAddress",
-   "kind": "auto"
+   "kind": "user"
   },
   {
    "address": 36133,
-   "name": "a_8D25",
+   "name": "service_sound_and_finish_irq",
    "type": "AbsoluteAddress",
-   "kind": "auto"
+   "kind": "user"
   },
   {
    "address": 36142,
-   "name": "s_8D2E",
+   "name": "update_engine_pitch",
    "type": "Subroutine",
-   "kind": "auto"
+   "kind": "user"
   },
   {
    "address": 36160,
@@ -4768,40 +4966,52 @@
    "kind": "auto"
   },
   {
-   "address": 36212,
-   "name": "f_8D74",
+   "address": 36211,
+   "name": "road_irq_phase_jump_opcode",
    "type": "Field",
-   "kind": "auto"
+   "kind": "user"
+  },
+  {
+   "address": 36212,
+   "name": "road_irq_phase_first_target_lo",
+   "type": "Field",
+   "kind": "user"
   },
   {
    "address": 36213,
-   "name": "f_8D75",
+   "name": "road_irq_phase_targets",
    "type": "Field",
-   "kind": "auto"
+   "kind": "user"
+  },
+  {
+   "address": 36226,
+   "name": "draw_road_speedometer_phase",
+   "type": "Field",
+   "kind": "user"
   },
   {
    "address": 36239,
-   "name": "a_8D8F",
+   "name": "saved_cockpit_enable_operand",
    "type": "AbsoluteAddress",
-   "kind": "auto"
+   "kind": "user"
   },
   {
    "address": 36250,
-   "name": "s_8D9A",
+   "name": "invoke_cockpit_update",
    "type": "Subroutine",
-   "kind": "auto"
+   "kind": "user"
   },
   {
    "address": 36251,
-   "name": "a_8D9B",
+   "name": "cockpit_update_entry_lo",
    "type": "AbsoluteAddress",
-   "kind": "auto"
+   "kind": "user"
   },
   {
    "address": 36252,
-   "name": "a_8D9C",
+   "name": "cockpit_update_entry_hi",
    "type": "AbsoluteAddress",
-   "kind": "auto"
+   "kind": "user"
   },
   {
    "address": 36266,
@@ -4811,33 +5021,33 @@
   },
   {
    "address": 36273,
-   "name": "a_8DB1",
+   "name": "wheel_vertical_curve_lo",
    "type": "AbsoluteAddress",
-   "kind": "auto"
+   "kind": "user"
   },
   {
    "address": 36274,
-   "name": "a_8DB2",
+   "name": "wheel_vertical_curve_hi",
    "type": "AbsoluteAddress",
-   "kind": "auto"
+   "kind": "user"
   },
   {
    "address": 36277,
-   "name": "a_8DB5",
+   "name": "wheel_vertical_bias",
    "type": "AbsoluteAddress",
-   "kind": "auto"
+   "kind": "user"
   },
   {
    "address": 36284,
-   "name": "a_8DBC",
+   "name": "wheel_horizontal_curve_lo",
    "type": "AbsoluteAddress",
-   "kind": "auto"
+   "kind": "user"
   },
   {
    "address": 36285,
-   "name": "a_8DBD",
+   "name": "wheel_horizontal_curve_hi",
    "type": "AbsoluteAddress",
-   "kind": "auto"
+   "kind": "user"
   },
   {
    "address": 36295,
@@ -4847,45 +5057,45 @@
   },
   {
    "address": 36297,
-   "name": "a_8DC9",
+   "name": "wheel_horizontal_bias",
    "type": "AbsoluteAddress",
-   "kind": "auto"
+   "kind": "user"
   },
   {
    "address": 36308,
-   "name": "a_8DD4",
+   "name": "gear_lever_y_table_lo",
    "type": "AbsoluteAddress",
-   "kind": "auto"
+   "kind": "user"
   },
   {
    "address": 36309,
-   "name": "a_8DD5",
+   "name": "gear_lever_y_table_hi",
    "type": "AbsoluteAddress",
-   "kind": "auto"
+   "kind": "user"
   },
   {
    "address": 36313,
-   "name": "a_8DD9",
+   "name": "gear_lever_x_table_lo",
    "type": "AbsoluteAddress",
-   "kind": "auto"
+   "kind": "user"
   },
   {
    "address": 36314,
-   "name": "a_8DDA",
+   "name": "gear_lever_x_table_hi",
    "type": "AbsoluteAddress",
-   "kind": "auto"
+   "kind": "user"
   },
   {
    "address": 36323,
-   "name": "a_8DE3",
+   "name": "gear_lever_neutral_y_load_lo",
    "type": "AbsoluteAddress",
-   "kind": "auto"
+   "kind": "user"
   },
   {
    "address": 36324,
-   "name": "a_8DE4",
+   "name": "gear_lever_neutral_y_load_hi",
    "type": "AbsoluteAddress",
-   "kind": "auto"
+   "kind": "user"
   },
   {
    "address": 36327,
@@ -4895,15 +5105,15 @@
   },
   {
    "address": 36331,
-   "name": "a_8DEB",
+   "name": "gear_lever_neutral_y_cmp_lo",
    "type": "AbsoluteAddress",
-   "kind": "auto"
+   "kind": "user"
   },
   {
    "address": 36332,
-   "name": "a_8DEC",
+   "name": "gear_lever_neutral_y_hi",
    "type": "AbsoluteAddress",
-   "kind": "auto"
+   "kind": "user"
   },
   {
    "address": 36358,
@@ -5009,9 +5219,9 @@
   },
   {
    "address": 36579,
-   "name": "a_8EE3",
+   "name": "alternate_shift_table_lo",
    "type": "AbsoluteAddress",
-   "kind": "auto"
+   "kind": "user"
   },
   {
    "address": 36580,
@@ -5705,15 +5915,15 @@
   },
   {
    "address": 38569,
-   "name": "s_96A9",
+   "name": "check_road_object_contact",
    "type": "Subroutine",
-   "kind": "auto"
+   "kind": "user"
   },
   {
    "address": 38610,
-   "name": "a_96D2",
+   "name": "road_event_branch_operand",
    "type": "AbsoluteAddress",
-   "kind": "auto"
+   "kind": "user"
   },
   {
    "address": 38621,
@@ -5771,9 +5981,9 @@
   },
   {
    "address": 38753,
-   "name": "s_9761",
+   "name": "initialize_lateral_thresholds",
    "type": "Subroutine",
-   "kind": "auto"
+   "kind": "user"
   },
   {
    "address": 38776,
@@ -5807,9 +6017,9 @@
   },
   {
    "address": 38819,
-   "name": "s_97A3",
+   "name": "apply_throttle_and_gear",
    "type": "Subroutine",
-   "kind": "auto"
+   "kind": "user"
   },
   {
    "address": 38857,
@@ -5837,15 +6047,15 @@
   },
   {
    "address": 38915,
-   "name": "a_9803",
+   "name": "first_gear_ratio_table_lo",
    "type": "AbsoluteAddress",
-   "kind": "auto"
+   "kind": "user"
   },
   {
    "address": 38916,
-   "name": "a_9804",
+   "name": "first_gear_ratio_table_hi",
    "type": "AbsoluteAddress",
-   "kind": "auto"
+   "kind": "user"
   },
   {
    "address": 38947,
@@ -5867,15 +6077,15 @@
   },
   {
    "address": 38970,
-   "name": "a_983A",
+   "name": "acceleration_curve_lo",
    "type": "AbsoluteAddress",
-   "kind": "auto"
+   "kind": "user"
   },
   {
    "address": 38971,
-   "name": "a_983B",
+   "name": "acceleration_curve_hi",
    "type": "AbsoluteAddress",
-   "kind": "auto"
+   "kind": "user"
   },
   {
    "address": 38972,
@@ -5885,15 +6095,15 @@
   },
   {
    "address": 38976,
-   "name": "a_9840",
+   "name": "selected_gear_ratio_lo",
    "type": "AbsoluteAddress",
-   "kind": "auto"
+   "kind": "user"
   },
   {
    "address": 38977,
-   "name": "a_9841",
+   "name": "selected_gear_ratio_hi",
    "type": "AbsoluteAddress",
-   "kind": "auto"
+   "kind": "user"
   },
   {
    "address": 38999,
@@ -5909,15 +6119,15 @@
   },
   {
    "address": 39060,
-   "name": "a_9894",
+   "name": "engine_speed_ratio_lo",
    "type": "AbsoluteAddress",
-   "kind": "auto"
+   "kind": "user"
   },
   {
    "address": 39061,
-   "name": "a_9895",
+   "name": "engine_speed_ratio_hi",
    "type": "AbsoluteAddress",
-   "kind": "auto"
+   "kind": "user"
   },
   {
    "address": 39105,
@@ -5957,9 +6167,9 @@
   },
   {
    "address": 39234,
-   "name": "s_9942",
+   "name": "draw_decimal_cockpit_debug_value",
    "type": "Subroutine",
-   "kind": "auto"
+   "kind": "user"
   },
   {
    "address": 39246,
@@ -6004,10 +6214,16 @@
    "kind": "auto"
   },
   {
+   "address": 39308,
+   "name": "draw_two_hex_glyphs",
+   "type": "Field",
+   "kind": "user"
+  },
+  {
    "address": 39324,
-   "name": "s_999C",
+   "name": "blit_cockpit_glyph_to_both_banks",
    "type": "Subroutine",
-   "kind": "auto"
+   "kind": "user"
   },
   {
    "address": 39405,
@@ -6017,9 +6233,9 @@
   },
   {
    "address": 39406,
-   "name": "s_99EE",
+   "name": "draw_distance_digits",
    "type": "Subroutine",
-   "kind": "auto"
+   "kind": "user"
   },
   {
    "address": 39422,
@@ -6077,9 +6293,9 @@
   },
   {
    "address": 39515,
-   "name": "s_9A5B",
+   "name": "blit_inverted_distance_glyph",
    "type": "Subroutine",
-   "kind": "auto"
+   "kind": "user"
   },
   {
    "address": 39525,
@@ -6101,21 +6317,21 @@
   },
   {
    "address": 39549,
-   "name": "a_9A7D",
+   "name": "road_scaling_jump_target_lo",
    "type": "AbsoluteAddress",
-   "kind": "auto"
+   "kind": "user"
   },
   {
    "address": 39550,
-   "name": "a_9A7E",
+   "name": "road_scaling_jump_target_hi",
    "type": "AbsoluteAddress",
-   "kind": "auto"
+   "kind": "user"
   },
   {
    "address": 39551,
-   "name": "s_9A7F",
+   "name": "draw_windscreen_cracks",
    "type": "Subroutine",
-   "kind": "auto"
+   "kind": "user"
   },
   {
    "address": 39553,
@@ -6125,9 +6341,9 @@
   },
   {
    "address": 39574,
-   "name": "s_9A96",
+   "name": "draw_crack_group",
    "type": "Subroutine",
-   "kind": "auto"
+   "kind": "user"
   },
   {
    "address": 39605,
@@ -6137,9 +6353,9 @@
   },
   {
    "address": 39611,
-   "name": "a_9ABB",
+   "name": "crack_endpoint_format",
    "type": "AbsoluteAddress",
-   "kind": "auto"
+   "kind": "user"
   },
   {
    "address": 39644,
@@ -6161,9 +6377,9 @@
   },
   {
    "address": 39679,
-   "name": "s_9AFF",
+   "name": "subdivide_crack_segment",
    "type": "Subroutine",
-   "kind": "auto"
+   "kind": "user"
   },
   {
    "address": 39700,
@@ -6209,27 +6425,33 @@
   },
   {
    "address": 39831,
-   "name": "a_9B97",
+   "name": "crack_bitmap_pixel_index",
    "type": "AbsoluteAddress",
-   "kind": "auto"
+   "kind": "user"
+  },
+  {
+   "address": 39842,
+   "name": "crack_group_pointer_records",
+   "type": "Field",
+   "kind": "user"
   },
   {
    "address": 39843,
-   "name": "f_9BA3",
+   "name": "crack_group_pointer_low",
    "type": "Field",
-   "kind": "auto"
+   "kind": "user"
   },
   {
    "address": 39844,
-   "name": "f_9BA4",
+   "name": "crack_group_pointer_high",
    "type": "Field",
-   "kind": "auto"
+   "kind": "user"
   },
   {
    "address": 39863,
-   "name": "s_9BB7",
+   "name": "wait_for_road_raster_update",
    "type": "Subroutine",
-   "kind": "auto"
+   "kind": "user"
   },
   {
    "address": 39865,
@@ -6238,64 +6460,112 @@
    "kind": "auto"
   },
   {
-   "address": 39871,
-   "name": "f_9BBF",
+   "address": 39870,
+   "name": "windshield_tables_separator",
    "type": "Field",
-   "kind": "auto"
+   "kind": "user"
+  },
+  {
+   "address": 39871,
+   "name": "crack_group_segment_counts",
+   "type": "Field",
+   "kind": "user"
   },
   {
    "address": 39878,
-   "name": "f_9BC6",
+   "name": "crack_schedule_group",
    "type": "Field",
-   "kind": "auto"
+   "kind": "user"
   },
   {
    "address": 39879,
-   "name": "f_9BC7",
+   "name": "crack_schedule_spacing",
    "type": "Field",
-   "kind": "auto"
+   "kind": "user"
+  },
+  {
+   "address": 39934,
+   "name": "crack_group_0_endpoints",
+   "type": "Field",
+   "kind": "user"
+  },
+  {
+   "address": 39958,
+   "name": "crack_group_1_endpoints",
+   "type": "Field",
+   "kind": "user"
+  },
+  {
+   "address": 40006,
+   "name": "crack_group_2_endpoints",
+   "type": "Field",
+   "kind": "user"
+  },
+  {
+   "address": 40050,
+   "name": "crack_group_3_endpoints",
+   "type": "Field",
+   "kind": "user"
+  },
+  {
+   "address": 40110,
+   "name": "crack_group_4_endpoints",
+   "type": "Field",
+   "kind": "user"
+  },
+  {
+   "address": 40166,
+   "name": "crack_group_5_endpoints",
+   "type": "Field",
+   "kind": "user"
+  },
+  {
+   "address": 40210,
+   "name": "crack_group_6_endpoints",
+   "type": "Field",
+   "kind": "user"
   },
   {
    "address": 40262,
-   "name": "a_9D46",
+   "name": "crack_max_positive_delta",
    "type": "AbsoluteAddress",
-   "kind": "auto"
+   "kind": "user"
   },
   {
    "address": 40263,
-   "name": "a_9D47",
+   "name": "crack_min_negative_delta",
    "type": "AbsoluteAddress",
-   "kind": "auto"
+   "kind": "user"
   },
   {
    "address": 40264,
-   "name": "a_9D48",
+   "name": "stacked_crack_subsegments",
    "type": "AbsoluteAddress",
-   "kind": "auto"
+   "kind": "user"
   },
   {
    "address": 40265,
-   "name": "a_9D49",
+   "name": "crack_subdivision_distance",
    "type": "AbsoluteAddress",
-   "kind": "auto"
+   "kind": "user"
   },
   {
    "address": 40266,
-   "name": "a_9D4A",
+   "name": "crack_segment_cursor",
    "type": "AbsoluteAddress",
-   "kind": "auto"
+   "kind": "user"
   },
   {
    "address": 40267,
-   "name": "f_9D4B",
+   "name": "road_template_first_span_head",
    "type": "Field",
-   "kind": "auto"
+   "kind": "user"
   },
   {
    "address": 40271,
-   "name": "f_9D4F",
+   "name": "road_template_second_span_head",
    "type": "Field",
-   "kind": "auto"
+   "kind": "user"
   },
   {
    "address": 40275,
@@ -6305,69 +6575,69 @@
   },
   {
    "address": 40284,
-   "name": "f_9D5C",
+   "name": "alternate_shift_direction_index",
    "type": "Field",
-   "kind": "auto"
+   "kind": "user"
   },
   {
    "address": 40293,
-   "name": "f_9D65",
+   "name": "positive_road_grade_limit",
    "type": "Field",
-   "kind": "auto"
+   "kind": "user"
   },
   {
    "address": 40323,
-   "name": "f_9D83",
+   "name": "negative_road_grade_limit",
    "type": "Field",
-   "kind": "auto"
+   "kind": "user"
   },
   {
    "address": 40353,
-   "name": "f_9DA1",
+   "name": "road_center_offset_curve",
    "type": "Field",
-   "kind": "auto"
+   "kind": "user"
   },
   {
    "address": 40399,
-   "name": "f_9DCF",
+   "name": "road_template_span_width",
    "type": "Field",
-   "kind": "auto"
+   "kind": "user"
   },
   {
    "address": 40418,
-   "name": "a_9DE2",
+   "name": "road_transition_width_boundary",
    "type": "AbsoluteAddress",
-   "kind": "auto"
+   "kind": "user"
   },
   {
    "address": 40429,
-   "name": "f_9DED",
+   "name": "road_sample_projection_scale",
    "type": "Field",
-   "kind": "auto"
+   "kind": "user"
   },
   {
    "address": 40459,
-   "name": "f_9E0B",
+   "name": "road_grade_scale_hi",
    "type": "Field",
-   "kind": "auto"
+   "kind": "user"
   },
   {
    "address": 40489,
-   "name": "f_9E29",
+   "name": "road_grade_scale_lo",
    "type": "Field",
-   "kind": "auto"
+   "kind": "user"
   },
   {
    "address": 40519,
-   "name": "f_9E47",
+   "name": "road_marker_set_masks",
    "type": "Field",
-   "kind": "auto"
+   "kind": "user"
   },
   {
    "address": 40523,
-   "name": "f_9E4B",
+   "name": "road_marker_keep_masks",
    "type": "Field",
-   "kind": "auto"
+   "kind": "user"
   },
   {
    "address": 40527,
@@ -6377,9 +6647,9 @@
   },
   {
    "address": 40530,
-   "name": "a_9E52",
+   "name": "road_irq_raster_phase_index",
    "type": "AbsoluteAddress",
-   "kind": "auto"
+   "kind": "user"
   },
   {
    "address": 40531,
@@ -6395,9 +6665,9 @@
   },
   {
    "address": 40535,
-   "name": "a_9E57",
+   "name": "second_raster_vic_bank",
    "type": "AbsoluteAddress",
-   "kind": "auto"
+   "kind": "user"
   },
   {
    "address": 40537,
@@ -6407,489 +6677,501 @@
   },
   {
    "address": 40538,
-   "name": "a_9E5A",
+   "name": "second_raster_background_colour",
    "type": "AbsoluteAddress",
-   "kind": "auto"
+   "kind": "user"
   },
   {
    "address": 40540,
-   "name": "f_9E5C",
+   "name": "steering_by_direction",
    "type": "Field",
-   "kind": "auto"
+   "kind": "user"
   },
   {
    "address": 40549,
-   "name": "f_9E65",
+   "name": "throttle_by_direction",
    "type": "Field",
-   "kind": "auto"
+   "kind": "user"
   },
   {
    "address": 40558,
-   "name": "f_9E6E",
+   "name": "road_warning_flash_colours",
    "type": "Field",
-   "kind": "auto"
+   "kind": "user"
   },
   {
    "address": 40574,
-   "name": "f_9E7E",
+   "name": "vic_sprite_flag_bits",
    "type": "Field",
-   "kind": "auto"
+   "kind": "user"
   },
   {
    "address": 40582,
-   "name": "f_9E86",
+   "name": "cockpit_glyph_rows",
    "type": "Field",
-   "kind": "auto"
+   "kind": "user"
   },
   {
    "address": 40583,
-   "name": "f_9E87",
+   "name": "cockpit_glyph_second_row",
    "type": "Field",
-   "kind": "auto"
+   "kind": "user"
   },
   {
    "address": 40584,
-   "name": "f_9E88",
+   "name": "cockpit_glyph_third_row",
    "type": "Field",
-   "kind": "auto"
+   "kind": "user"
   },
   {
    "address": 40585,
-   "name": "f_9E89",
+   "name": "cockpit_glyph_fourth_row",
    "type": "Field",
-   "kind": "auto"
+   "kind": "user"
   },
   {
    "address": 40586,
-   "name": "f_9E8A",
+   "name": "cockpit_glyph_fifth_row",
    "type": "Field",
-   "kind": "auto"
+   "kind": "user"
   },
   {
    "address": 40587,
-   "name": "f_9E8B",
+   "name": "cockpit_glyph_sixth_row",
    "type": "Field",
-   "kind": "auto"
+   "kind": "user"
   },
   {
    "address": 40588,
-   "name": "f_9E8C",
+   "name": "cockpit_glyph_seventh_row",
    "type": "Field",
-   "kind": "auto"
+   "kind": "user"
   },
   {
    "address": 40589,
-   "name": "f_9E8D",
+   "name": "cockpit_glyph_final_row",
    "type": "Field",
-   "kind": "auto"
+   "kind": "user"
+  },
+  {
+   "address": 40653,
+   "name": "cockpit_glyph_final_rows",
+   "type": "Field",
+   "kind": "user"
+  },
+  {
+   "address": 40717,
+   "name": "glass_dashboard_blank_glyph_tail",
+   "type": "Field",
+   "kind": "user"
   },
   {
    "address": 40718,
-   "name": "f_9F0E",
+   "name": "speed_overlay_bitmap_caption",
    "type": "Field",
-   "kind": "auto"
+   "kind": "user"
   },
   {
    "address": 40750,
-   "name": "f_9F2E",
+   "name": "rpm_overlay_bitmap_caption",
    "type": "Field",
-   "kind": "auto"
+   "kind": "user"
   },
   {
    "address": 40782,
-   "name": "f_9F4E",
+   "name": "distance_fixed_glyph_indices",
    "type": "Field",
-   "kind": "auto"
+   "kind": "user"
   },
   {
    "address": 40788,
-   "name": "f_9F54",
+   "name": "distance_decimal_glyph_indices",
    "type": "Field",
-   "kind": "auto"
+   "kind": "user"
   },
   {
    "address": 40793,
-   "name": "f_9F59",
+   "name": "interlude_road_workspace_save",
    "type": "Field",
-   "kind": "auto"
+   "kind": "user"
   },
   {
    "address": 40834,
-   "name": "f_9F82",
+   "name": "roadside_scale_selectors",
    "type": "Field",
-   "kind": "auto"
+   "kind": "user"
   },
   {
    "address": 40854,
-   "name": "f_9F96",
+   "name": "roadside_bitmap_subindex",
    "type": "Field",
-   "kind": "auto"
+   "kind": "user"
   },
   {
    "address": 40874,
-   "name": "f_9FAA",
+   "name": "roadside_bitmap_index_bias",
    "type": "Field",
-   "kind": "auto"
+   "kind": "user"
   },
   {
    "address": 40894,
-   "name": "f_9FBE",
+   "name": "roadside_bitmap_column_extent",
    "type": "Field",
-   "kind": "auto"
+   "kind": "user"
   },
   {
    "address": 40914,
-   "name": "f_9FD2",
+   "name": "marker_matrix_cell_lo",
    "type": "Field",
-   "kind": "auto"
+   "kind": "user"
   },
   {
    "address": 40934,
-   "name": "f_9FE6",
+   "name": "marker_matrix_cell_hi",
    "type": "Field",
-   "kind": "auto"
+   "kind": "user"
   },
   {
    "address": 40953,
-   "name": "f_9FF9",
+   "name": "road_span_left_keep",
    "type": "Field",
-   "kind": "auto"
+   "kind": "user"
   },
   {
    "address": 40956,
-   "name": "f_9FFC",
+   "name": "road_span_right_keep",
    "type": "Field",
-   "kind": "auto"
+   "kind": "user"
   },
   {
    "address": 40960,
-   "name": "f_A000",
+   "name": "road_span_same_byte_masks",
    "type": "Field",
-   "kind": "auto"
+   "kind": "user"
   },
   {
    "address": 40972,
-   "name": "f_A00C",
+   "name": "roadside_sprite_variation_index",
    "type": "Field",
-   "kind": "auto"
+   "kind": "user"
   },
   {
    "address": 40992,
-   "name": "f_A020",
+   "name": "windscreen_crack_pixel_masks",
    "type": "Field",
-   "kind": "auto"
+   "kind": "user"
   },
   {
    "address": 40996,
-   "name": "f_A024",
+   "name": "road_event_spawn_lateral_offset",
    "type": "Field",
-   "kind": "auto"
+   "kind": "user"
   },
   {
    "address": 40999,
-   "name": "f_A027",
+   "name": "projected_object_sprite_size",
    "type": "Field",
-   "kind": "auto"
+   "kind": "user"
   },
   {
    "address": 41029,
-   "name": "f_A045",
+   "name": "near_object_sprite_size",
    "type": "Field",
-   "kind": "auto"
+   "kind": "user"
   },
   {
    "address": 41039,
-   "name": "f_A04F",
+   "name": "projected_object_sprite_spacing",
    "type": "Field",
-   "kind": "auto"
+   "kind": "user"
   },
   {
    "address": 41069,
-   "name": "f_A06D",
+   "name": "road_template_repeat_counts",
    "type": "Field",
-   "kind": "auto"
+   "kind": "user"
   },
   {
    "address": 41077,
-   "name": "f_A075",
+   "name": "speed_resistance_curve",
    "type": "Field",
-   "kind": "auto"
+   "kind": "user"
   },
   {
    "address": 41125,
-   "name": "f_A0A5",
+   "name": "projected_road_half_width",
    "type": "Field",
-   "kind": "auto"
+   "kind": "user"
   },
   {
    "address": 41155,
-   "name": "a_A0C3",
+   "name": "current_speed_resistance",
    "type": "AbsoluteAddress",
-   "kind": "auto"
+   "kind": "user"
   },
   {
    "address": 41156,
-   "name": "f_A0C4",
+   "name": "road_slope_first_adjustment_hi",
    "type": "Field",
-   "kind": "auto"
+   "kind": "user"
   },
   {
    "address": 41186,
-   "name": "f_A0E2",
+   "name": "road_slope_first_adjustment_lo",
    "type": "Field",
-   "kind": "auto"
+   "kind": "user"
   },
   {
    "address": 41216,
-   "name": "f_A100",
+   "name": "road_slope_third_adjustment_hi",
    "type": "Field",
-   "kind": "auto"
+   "kind": "user"
   },
   {
    "address": 41246,
-   "name": "f_A11E",
+   "name": "road_slope_third_adjustment_lo",
    "type": "Field",
-   "kind": "auto"
+   "kind": "user"
   },
   {
    "address": 41276,
-   "name": "f_A13C",
+   "name": "road_scale_substep_factors",
    "type": "Field",
-   "kind": "auto"
+   "kind": "user"
   },
   {
    "address": 41292,
-   "name": "f_A14C",
+   "name": "right_clipping_mask_first_column",
    "type": "Field",
-   "kind": "auto"
+   "kind": "user"
   },
   {
    "address": 41293,
-   "name": "f_A14D",
+   "name": "right_clipping_mask_second_column",
    "type": "Field",
-   "kind": "auto"
+   "kind": "user"
   },
   {
    "address": 41294,
-   "name": "f_A14E",
+   "name": "right_clipping_mask_third_column",
    "type": "Field",
-   "kind": "auto"
+   "kind": "user"
   },
   {
    "address": 41295,
-   "name": "f_A14F",
+   "name": "left_clipping_mask_first_column",
    "type": "Field",
-   "kind": "auto"
+   "kind": "user"
   },
   {
    "address": 41296,
-   "name": "f_A150",
+   "name": "left_clipping_mask_second_column",
    "type": "Field",
-   "kind": "auto"
+   "kind": "user"
   },
   {
    "address": 41297,
-   "name": "f_A151",
+   "name": "left_clipping_mask_third_column",
    "type": "Field",
-   "kind": "auto"
+   "kind": "user"
   },
   {
    "address": 41328,
-   "name": "f_A170",
+   "name": "road_object_record_offsets",
    "type": "Field",
-   "kind": "auto"
+   "kind": "user"
   },
   {
    "address": 41331,
-   "name": "f_A173",
+   "name": "road_event_initial_phase",
    "type": "Field",
-   "kind": "auto"
+   "kind": "user"
   },
   {
    "address": 41334,
-   "name": "f_A176",
+   "name": "road_curve_delta_by_nibble",
    "type": "Field",
-   "kind": "auto"
+   "kind": "user"
   },
   {
    "address": 41350,
-   "name": "f_A186",
+   "name": "road_grade_delta_by_nibble",
    "type": "Field",
-   "kind": "auto"
+   "kind": "user"
   },
   {
    "address": 41363,
-   "name": "f_A193",
+   "name": "roadside_sprite_color_table",
    "type": "Field",
-   "kind": "auto"
+   "kind": "user"
   },
   {
    "address": 41377,
-   "name": "f_A1A1",
+   "name": "alternate_road_lateral_parameters",
    "type": "Field",
-   "kind": "auto"
+   "kind": "user"
   },
   {
    "address": 41380,
-   "name": "f_A1A4",
+   "name": "alternate_road_speed_parameters",
    "type": "Field",
-   "kind": "auto"
+   "kind": "user"
   },
   {
    "address": 41382,
-   "name": "a_A1A6",
+   "name": "initial_road_lateral_threshold",
    "type": "AbsoluteAddress",
-   "kind": "auto"
+   "kind": "user"
   },
   {
    "address": 41385,
-   "name": "a_A1A9",
+   "name": "initial_road_speed_threshold",
    "type": "AbsoluteAddress",
-   "kind": "auto"
+   "kind": "user"
   },
   {
    "address": 41386,
-   "name": "f_A1AA",
+   "name": "roadside_graphic_variant_colours",
    "type": "Field",
-   "kind": "auto"
+   "kind": "user"
   },
   {
    "address": 41399,
-   "name": "f_A1B7",
+   "name": "projected_sprite_slot_low",
    "type": "Field",
-   "kind": "auto"
+   "kind": "user"
   },
   {
    "address": 41407,
-   "name": "f_A1BF",
+   "name": "projected_sprite_slot_high",
    "type": "Field",
-   "kind": "auto"
+   "kind": "user"
   },
   {
    "address": 41415,
-   "name": "f_A1C7",
+   "name": "road_indicator_colour_first",
    "type": "Field",
-   "kind": "auto"
+   "kind": "user"
   },
   {
    "address": 41416,
-   "name": "f_A1C8",
+   "name": "road_indicator_colour_second",
    "type": "Field",
-   "kind": "auto"
+   "kind": "user"
   },
   {
    "address": 41417,
-   "name": "f_A1C9",
+   "name": "road_indicator_colour_third",
    "type": "Field",
-   "kind": "auto"
+   "kind": "user"
   },
   {
    "address": 41418,
-   "name": "f_A1CA",
+   "name": "road_indicator_colour_fourth",
    "type": "Field",
-   "kind": "auto"
+   "kind": "user"
   },
   {
    "address": 41431,
-   "name": "f_A1D7",
+   "name": "projected_sprite_color_table",
    "type": "Field",
-   "kind": "auto"
+   "kind": "user"
   },
   {
    "address": 41459,
-   "name": "f_A1F3",
+   "name": "projected_sprite_y_correction",
    "type": "Field",
-   "kind": "auto"
+   "kind": "user"
   },
   {
    "address": 41487,
-   "name": "f_A20F",
+   "name": "projected_sprite_x_correction",
    "type": "Field",
-   "kind": "auto"
+   "kind": "user"
   },
   {
    "address": 41515,
-   "name": "f_A22B",
+   "name": "edge_first_road_pattern",
    "type": "Field",
-   "kind": "auto"
+   "kind": "user"
   },
   {
    "address": 41519,
-   "name": "f_A22F",
+   "name": "edge_final_road_pattern",
    "type": "Field",
-   "kind": "auto"
+   "kind": "user"
   },
   {
    "address": 41523,
-   "name": "f_A233",
+   "name": "edge_final_road_keep_mask",
    "type": "Field",
-   "kind": "auto"
+   "kind": "user"
   },
   {
    "address": 41527,
-   "name": "f_A237",
+   "name": "road_rectangle_fill_patterns",
    "type": "Field",
-   "kind": "auto"
+   "kind": "user"
   },
   {
    "address": 41529,
-   "name": "f_A239",
+   "name": "road_event_longitudinal_offsets",
    "type": "Field",
-   "kind": "auto"
+   "kind": "user"
   },
   {
    "address": 41537,
-   "name": "f_A241",
+   "name": "road_contact_lane_masks",
    "type": "Field",
-   "kind": "auto"
+   "kind": "user"
   },
   {
    "address": 41540,
-   "name": "f_A244",
+   "name": "road_event_spawn_thresholds",
    "type": "Field",
-   "kind": "auto"
+   "kind": "user"
   },
   {
    "address": 41544,
-   "name": "f_A248",
+   "name": "roadside_sound_distance_min",
    "type": "Field",
-   "kind": "auto"
+   "kind": "user"
   },
   {
    "address": 41548,
-   "name": "f_A24C",
+   "name": "roadside_sound_distance_max",
    "type": "Field",
-   "kind": "auto"
+   "kind": "user"
   },
   {
    "address": 41552,
-   "name": "f_A250",
+   "name": "roadside_contact_lateral_steps",
    "type": "Field",
-   "kind": "auto"
+   "kind": "user"
   },
   {
    "address": 41568,
-   "name": "f_A260",
+   "name": "distance_decimal_divisor_hi",
    "type": "Field",
-   "kind": "auto"
+   "kind": "user"
   },
   {
    "address": 41573,
-   "name": "f_A265",
+   "name": "distance_decimal_divisor_lo",
    "type": "Field",
-   "kind": "auto"
+   "kind": "user"
   },
   {
    "address": 41578,
-   "name": "f_A26A",
+   "name": "ending_release_first_id_bytes",
    "type": "Field",
-   "kind": "auto"
+   "kind": "user"
   },
   {
    "address": 41579,
-   "name": "f_A26B",
+   "name": "ending_release_second_id_bytes",
    "type": "Field",
-   "kind": "auto"
+   "kind": "user"
   },
   {
    "address": 41606,
@@ -7223,7 +7505,7 @@
   },
   {
    "address": 44423,
-   "name": "road_graphic_054",
+   "name": "roadside_bitmap_record_54",
    "type": "UserDefined",
    "kind": "user"
   },
@@ -7301,7 +7583,7 @@
   },
   {
    "address": 44605,
-   "name": "road_graphic_067",
+   "name": "roadside_bitmap_record_67",
    "type": "UserDefined",
    "kind": "user"
   },
@@ -7925,15 +8207,27 @@
   },
   {
    "address": 58367,
-   "name": "a_E3FF",
+   "name": "cockpit_last_sprite_pointer",
    "type": "AbsoluteAddress",
-   "kind": "auto"
+   "kind": "user"
+  },
+  {
+   "address": 58368,
+   "name": "selected_car_overlay_sprite",
+   "type": "Field",
+   "kind": "user"
+  },
+  {
+   "address": 58431,
+   "name": "selected_car_overlay_slot_end",
+   "type": "Field",
+   "kind": "user"
   },
   {
    "address": 58432,
-   "name": "f_E440",
+   "name": "cockpit_gear_indicator_sprite",
    "type": "Field",
-   "kind": "auto"
+   "kind": "user"
   },
   {
    "address": 61244,
@@ -7997,9 +8291,9 @@
   },
   {
    "address": 62719,
-   "name": "a_F4FF",
+   "name": "lotus_cockpit_art_35_continuation",
    "type": "AbsoluteAddress",
-   "kind": "auto"
+   "kind": "user"
   },
   {
    "address": 63086,
@@ -8036,21 +8330,354 @@
    "name": "lotus_cockpit_asset_32",
    "type": "UserDefined",
    "kind": "user"
-  },
-  {
-   "address": 65490,
-   "name": "KERNAL_CHROUT",
-   "type": "Predefined",
-   "kind": "system"
-  },
-  {
-   "address": 65508,
-   "name": "KERNAL_GETIN",
-   "type": "Predefined",
-   "kind": "system"
   }
  ],
  "comments": [
+  {
+   "address": 2102,
+   "type": "line",
+   "text": "Jump to the FX reset at $2CB3 to clear channel state, turn off voice gates and reset the filter."
+  },
+  {
+   "address": 2105,
+   "type": "line",
+   "text": "Jump to $29CC, which computes the sixteen preset addresses relative to the current allocation."
+  },
+  {
+   "address": 2108,
+   "type": "line",
+   "text": "Jump to $2A89 to select a voice and load the requested sound preset."
+  },
+  {
+   "address": 2111,
+   "type": "line",
+   "text": "Jump to $29E8 to dispatch a sound control command by X."
+  },
+  {
+   "address": 2114,
+   "type": "line",
+   "text": "Jump to $2B93 to advance the active sounds and update the master volume and filter mode."
+  },
+  {
+   "address": 10684,
+   "type": "line",
+   "text": "Relocated FX entry $29C0 followed by the body length $03D5."
+  },
+  {
+   "address": 10688,
+   "type": "line",
+   "text": "Copy fifteen bytes from $2CEE into the five resident sound service jump slots at $0836."
+  },
+  {
+   "address": 10700,
+   "type": "line",
+   "text": "Advance the allocation pointer past the two leading bytes, then store sixteen addresses fifteen bytes apart in the split tables at $2D75 and $2D85."
+  },
+  {
+   "address": 10728,
+   "type": "line",
+   "text": "Use X to choose between cancelling effects, setting volume, changing the channel hold flag or reporting which effects are active."
+  },
+  {
+   "address": 10830,
+   "type": "line",
+   "text": "Return the stored channel priority when the channel state is negative, otherwise return $FF."
+  },
+  {
+   "address": 10843,
+   "type": "line",
+   "text": "Return channel zero in X for an A argument outside the three SID channels."
+  },
+  {
+   "address": 10851,
+   "type": "line",
+   "text": "Clear the selected SID voice\u2019s seven registers with I/O visible, then restore processor mapping and the saved A, X and Y."
+  },
+  {
+   "address": 10884,
+   "type": "line",
+   "text": "Immediate return Y patched on entry to the voice reset."
+  },
+  {
+   "address": 10886,
+   "type": "line",
+   "text": "Immediate return X patched before clearing the voice."
+  },
+  {
+   "address": 10889,
+   "type": "line",
+   "text": "Take the effect index from the low five bits of A and candidate channels from its upper bits. Prefer a free candidate, otherwise replace one whose priority is below the new priority in X."
+  },
+  {
+   "address": 10991,
+   "type": "line",
+   "text": "Resolve the preset indexed by Y through the split tables, then copy fourteen bytes into the selected voice state, stepping three bytes per parameter. The preset address remains in $04\u2013$05."
+  },
+  {
+   "address": 11020,
+   "type": "line",
+   "text": "Select the SID voice offset and write seven registers from the parallel preset columns. If the filter flag is nonnegative, also set master mode, cutoff and resonance for the selected effect."
+  },
+  {
+   "address": 11091,
+   "type": "line",
+   "text": "Translate four preset control bytes using $2D5E for the duration and $2D4E for the per-update pitch increment."
+  },
+  {
+   "address": 11155,
+   "type": "line",
+   "text": "Save the shared pointer at $04 and current channel temporaries. Advance each active voice and combine the configured volume with the filter mode before restoring the saved values."
+  },
+  {
+   "address": 11214,
+   "type": "line",
+   "text": "Write the prepared filter mode and master volume byte to SID."
+  },
+  {
+   "address": 11218,
+   "type": "line",
+   "text": "Walk the active voice through its upward pitch ramp, first descending ramp, gate hold, and final descending ramp. Reload the effect while it has repeats left, otherwise mark the voice free."
+  },
+  {
+   "address": 11297,
+   "type": "line",
+   "text": "Decrement the upward-ramp counter, scale the pitch step, add it to the cached frequency word and write the result to SID."
+  },
+  {
+   "address": 11328,
+   "type": "line",
+   "text": "Decrement the first downward-ramp counter and subtract its scaled step before updating the SID frequency."
+  },
+  {
+   "address": 11343,
+   "type": "line",
+   "text": "Leave the gate on while the channel hold flag is set. Otherwise count down and clear the gate when the counter reaches zero."
+  },
+  {
+   "address": 11354,
+   "type": "line",
+   "text": "Clear bit 0 of the selected voice control value and write the result to its SID control register."
+  },
+  {
+   "address": 11366,
+   "type": "line",
+   "text": "Decrement the final pitch-ramp counter and subtract its scaled step before writing the new frequency."
+  },
+  {
+   "address": 11381,
+   "type": "line",
+   "text": "Subtract the word at $2D41\u2013$2D42 from the frequency kept for voice X."
+  },
+  {
+   "address": 11401,
+   "type": "line",
+   "text": "Expand A to a word at $2D41\u2013$2D42 by shifting it one more time than the exponent stored for voice X."
+  },
+  {
+   "address": 11427,
+   "type": "line",
+   "text": "Select the SID register offset for voice X and write its cached low and high frequency bytes."
+  },
+  {
+   "address": 11443,
+   "type": "line",
+   "text": "Clear the voice state, set the master volume to 15 and clear all three SID gate bits and the filter resonance register. Restore the memory banking port before returning."
+  },
+  {
+   "address": 11502,
+   "type": "line",
+   "text": "Five absolute jumps copied to $0836 by the FX initializer. Their destinations implement reset, preset indexing, effect requests, sound controls and the sound update."
+  },
+  {
+   "address": 11517,
+   "type": "line",
+   "text": "The zero byte after the five three-byte jump entries and before the per-voice register shadows."
+  },
+  {
+   "address": 11518,
+   "type": "line",
+   "text": "Low frequency shadow for each of the three SID voices."
+  },
+  {
+   "address": 11521,
+   "type": "line",
+   "text": "Three high frequency shadows followed by three pulse-width low shadows. Preset values are stored in channel columns."
+  },
+  {
+   "address": 11527,
+   "type": "line",
+   "text": "High pulse-width register shadows. The preset loader also combines this field\u2019s high nibble with the filter routing mask."
+  },
+  {
+   "address": 11530,
+   "type": "line",
+   "text": "Three waveform and gate bytes, followed by the attack/decay and sustain/release shadows. The gate clear routine reads the waveform byte from this column."
+  },
+  {
+   "address": 11539,
+   "type": "line",
+   "text": "Countdown for the first pitch ramp, initialized from the preset\u2019s first ramp control."
+  },
+  {
+   "address": 11542,
+   "type": "line",
+   "text": "Countdown for the second pitch ramp."
+  },
+  {
+   "address": 11545,
+   "type": "line",
+   "text": "Ticks left before the effect gate is cleared, unless a channel hold is active."
+  },
+  {
+   "address": 11548,
+   "type": "line",
+   "text": "Countdown for the final descending pitch ramp."
+  },
+  {
+   "address": 11551,
+   "type": "line",
+   "text": "Per-voice exponent used to expand the pitch step into a word."
+  },
+  {
+   "address": 11554,
+   "type": "line",
+   "text": "Preset filter low field. A negative byte skips the filter setup for that voice."
+  },
+  {
+   "address": 11557,
+   "type": "line",
+   "text": "High filter cutoff field written to $D416."
+  },
+  {
+   "address": 11560,
+   "type": "line",
+   "text": "Remaining repeats. The sound ticker decrements this when the pitch and gate phases finish."
+  },
+  {
+   "address": 11563,
+   "type": "line",
+   "text": "Signed per-channel state used when releasing, starting and choosing a voice."
+  },
+  {
+   "address": 11566,
+   "type": "line",
+   "text": "Per-tick pitch increment for the first ramp, derived from the low nibble of the preset control."
+  },
+  {
+   "address": 11569,
+   "type": "line",
+   "text": "Per-tick pitch decrement for the second ramp."
+  },
+  {
+   "address": 11572,
+   "type": "line",
+   "text": "Low-nibble translation saved during the third stage setup. The gate-hold path uses this stage\u2019s duration."
+  },
+  {
+   "address": 11575,
+   "type": "line",
+   "text": "Per-tick pitch decrement in the final release ramp."
+  },
+  {
+   "address": 11578,
+   "type": "line",
+   "text": "Priority of the active request, used in arbitration and reloading."
+  },
+  {
+   "address": 11581,
+   "type": "line",
+   "text": "Preset ID for the selected effect on each voice."
+  },
+  {
+   "address": 11584,
+   "type": "line",
+   "text": "Selected voice index used by preset application and ramp initialization."
+  },
+  {
+   "address": 11585,
+   "type": "line",
+   "text": "Loop counter during preset writes and low byte of the pitch delta during ramp arithmetic."
+  },
+  {
+   "address": 11586,
+   "type": "line",
+   "text": "High byte of the expanded pitch step during ramp arithmetic."
+  },
+  {
+   "address": 11587,
+   "type": "line",
+   "text": "Incoming request bits saved before selecting a voice."
+  },
+  {
+   "address": 11588,
+   "type": "line",
+   "text": "Requested priority saved for candidate selection and installation."
+  },
+  {
+   "address": 11589,
+   "type": "line",
+   "text": "Voice index saved when programming the shared SID filter."
+  },
+  {
+   "address": 11590,
+   "type": "line",
+   "text": "Saved high mode bits of the filter byte for combining with the master volume."
+  },
+  {
+   "address": 11591,
+   "type": "line",
+   "text": "Volume nibble combined with the SID filter mode and the output mask."
+  },
+  {
+   "address": 11592,
+   "type": "line",
+   "text": "Channel flags that suppress the gate-off countdown while a hold is active."
+  },
+  {
+   "address": 11595,
+   "type": "line",
+   "text": "Register offsets zero, seven and fourteen for the three SID voices."
+  },
+  {
+   "address": 11598,
+   "type": "line",
+   "text": "Translate the low control nibble into a ramp pitch delta."
+  },
+  {
+   "address": 11614,
+   "type": "line",
+   "text": "Translate the high control nibble into one of sixteen ramp durations."
+  },
+  {
+   "address": 11630,
+   "type": "line",
+   "text": "Individual SID filter routing bits and their complements for the three channel positions."
+  },
+  {
+   "address": 11636,
+   "type": "line",
+   "text": "Priority copied from X before the voice-selection routine compares competing requests."
+  },
+  {
+   "address": 11637,
+   "type": "line",
+   "text": "Low bytes of sixteen preset pointers, built with a stride of fifteen by $29CC. The first seven point into the loaded $28/$C1 payload."
+  },
+  {
+   "address": 11653,
+   "type": "line",
+   "text": "High bytes paired with the low bytes at $2D75. The supplied preset payload ends before the address computed for index seven."
+  },
+  {
+   "address": 11669,
+   "type": "line",
+   "text": "Two leading bytes of catalogue item $28/$C1, with values $00 and $07. The preset indexing entry advances past both bytes."
+  },
+  {
+   "address": 11671,
+   "type": "line",
+   "text": "Seven fifteen-byte road effect presets in catalogue item $28/$C1. The reader at $2AEF copies fourteen bytes per preset to the SID voice state."
+  },
   {
    "address": 11876,
    "type": "line",
@@ -8072,14 +8699,74 @@
    "text": "On A equal to 1, compare the value at $42 with its cache. If it changed, load the tachometer table pointers and scale the input through $31F7."
   },
   {
+   "address": 12142,
+   "type": "line",
+   "text": "Immediate subtrahend patched at $2F67 from the scaled engine speed plus $42. The difference, adjusted by $4C when subtraction borrows, selects the tachometer angle."
+  },
+  {
    "address": 12152,
    "type": "line",
    "text": "Compare speed $41 with its cached value, then scale it through $31F7, install the speed-specific tables and call the common needle renderer."
   },
   {
+   "address": 12224,
+   "type": "line",
+   "text": "Immediate subtrahend patched at $2FB9 from the scaled road speed. The subtraction and borrow adjustment select the speedometer angle. The path also sets $1F61 to $83."
+  },
+  {
    "address": 12239,
    "type": "line",
    "text": "Use $0E to select the gauge's picture source. Classify the input against $2D, $5A and $87, update the gauge sprite coordinates, and compute its line endpoint from the selected horizontal and vertical lookups."
+  },
+  {
+   "address": 12346,
+   "type": "line",
+   "text": "For quadrants 1 and 2, subtract the indexed horizontal table value from the maximum sprite column in $10."
+  },
+  {
+   "address": 12347,
+   "type": "line",
+   "text": "Low operand for the reflected horizontal lookup. Both gauge paths patch it from the descriptor at $3223."
+  },
+  {
+   "address": 12348,
+   "type": "line",
+   "text": "High operand for the horizontal subtraction. The other path at $3040 loads the same table value directly."
+  },
+  {
+   "address": 12353,
+   "type": "line",
+   "text": "Low operand for the unreflected horizontal lookup at $3040."
+  },
+  {
+   "address": 12354,
+   "type": "line",
+   "text": "High operand for the unreflected horizontal lookup. The resulting column goes to $1E before the routine chooses the vertical path."
+  },
+  {
+   "address": 12368,
+   "type": "line",
+   "text": "For quadrants 0 and 1, subtract the indexed vertical table value from the maximum sprite row in $11."
+  },
+  {
+   "address": 12369,
+   "type": "line",
+   "text": "Low operand for the reflected vertical lookup. It is patched from the descriptor at $3226."
+  },
+  {
+   "address": 12370,
+   "type": "line",
+   "text": "High operand for the vertical subtraction. Quadrants 2 and 3 load the row directly at $3056."
+  },
+  {
+   "address": 12375,
+   "type": "line",
+   "text": "Low operand for the unreflected vertical lookup at $3056."
+  },
+  {
+   "address": 12376,
+   "type": "line",
+   "text": "High operand for the unreflected vertical lookup. The selected row follows into $1F."
   },
   {
    "address": 12377,
@@ -8102,6 +8789,21 @@
    "text": "Resolve the pixel's sprite byte from the row stride table at $3399 and X-byte table at $3369. Mask the picture source byte with $3381 and OR the result into the sprite."
   },
   {
+   "address": 12681,
+   "type": "line",
+   "text": "Indexed absolute read from the cockpit artwork used as a pixel mask. Gauge selection patches its two address bytes at $2FD7 and $2FDD."
+  },
+  {
+   "address": 12682,
+   "type": "line",
+   "text": "Low byte of the artwork base after the six-byte resource header is skipped."
+  },
+  {
+   "address": 12683,
+   "type": "line",
+   "text": "High byte of the source artwork pointer. The following instructions select the source pixel bit, OR it into the destination sprite byte and restore the shared pointer low byte."
+  },
+  {
    "address": 12697,
    "type": "line",
    "text": "Align the denominator by shifting, subtract it from the numerator when possible, and roll each resulting quotient bit into $2D and $2E. Return the fixed-point step in A and X."
@@ -8112,9 +8814,69 @@
    "text": "Patch the two immediate arguments to the driving-engine call at $0200. Preserve $12, $13, $16 and $17 across the call, then return its result."
   },
   {
+   "address": 12810,
+   "type": "line",
+   "text": "Immediate A argument to the scaling call at $320D. The wrapper copies the original A here before saving its zero-page temporaries."
+  },
+  {
+   "address": 12812,
+   "type": "line",
+   "text": "Immediate X argument for the driving-engine scaling call. The wrapper restores four zero-page values after the call and temporarily saves the result in the return operand."
+  },
+  {
+   "address": 12832,
+   "type": "line",
+   "text": "Immediate return value patched at $3210 with the result from $0200 before the saved zero-page values are restored."
+  },
+  {
    "address": 12834,
    "type": "line",
    "text": "Tagged little-endian addresses for the gauge setup. The code uses the operands as data, including $3223 and $3226 for endpoint table pointers."
+  },
+  {
+   "address": 12835,
+   "type": "line",
+   "text": "Low address byte of the horizontal endpoint table, copied into both horizontal load operands."
+  },
+  {
+   "address": 12836,
+   "type": "line",
+   "text": "High address byte of the horizontal endpoint table followed by the tag for the next address record."
+  },
+  {
+   "address": 12838,
+   "type": "line",
+   "text": "Low address byte of the vertical endpoint table, copied into both vertical load operands."
+  },
+  {
+   "address": 12839,
+   "type": "line",
+   "text": "High address byte of the vertical endpoint table followed by the tag for the driving setup pointer."
+  },
+  {
+   "address": 12841,
+   "type": "line",
+   "text": "Low address byte of the driving setup descriptors at $322B. Cockpit initialization returns it in X."
+  },
+  {
+   "address": 12842,
+   "type": "line",
+   "text": "High byte of the descriptor list address returned in Y from the cockpit setup routine."
+  },
+  {
+   "address": 12843,
+   "type": "line",
+   "text": "Three-byte records used by the driving setup at $7307. The operand words give the gear ratio, acceleration curve, steering-wheel offsets, gear-lever coordinates and alternate shift map. The following immediate operands set the steering-wheel centre."
+  },
+  {
+   "address": 12869,
+   "type": "line",
+   "text": "Indexed by half the steering magnitude. The engine subtracts the entry from $6E and adds the cockpit vertical offset before updating the sprite Y coordinate."
+  },
+  {
+   "address": 12911,
+   "type": "line",
+   "text": "Horizontal offset magnitude indexed by half the steering magnitude. The engine applies the steering sign and adds the cockpit horizontal centre before updating the sprite X coordinate."
   },
   {
    "address": 12953,
@@ -8140,6 +8902,16 @@
    "address": 12977,
    "type": "line",
    "text": "Per-quadrant adjustment added by the sprite pixel routine when it selects a source row."
+  },
+  {
+   "address": 12981,
+   "type": "line",
+   "text": "Ninety endpoint rows in the 21-pixel sprite. The loads patched at $3051 and $3057 use this table. Quadrants 0 and 1 subtract the selected row from 20."
+  },
+  {
+   "address": 13071,
+   "type": "line",
+   "text": "Ninety endpoint columns in the 24-pixel sprite. The loads patched at $303B and $3041 use this table. Quadrants 1 and 2 subtract the selected column from 23."
   },
   {
    "address": 13161,
@@ -8192,6 +8964,11 @@
    "text": "Horizontal endpoint cache indexed by gauge, initialized by $2EB1 and compared by $305F."
   },
   {
+   "address": 13261,
+   "type": "line",
+   "text": "Second gauge horizontal endpoint cache. Gauge initialization sets it to $FF to force a first redraw."
+  },
+  {
    "address": 13262,
    "type": "line",
    "text": "Vertical endpoint cache selected by the same gauge index."
@@ -8202,6 +8979,21 @@
    "text": "Two little-endian picture addresses, populated by skipping the six-byte resource headers during initialization."
   },
   {
+   "address": 13265,
+   "type": "line",
+   "text": "High address byte of the tachometer artwork source. Setup carries into it when skipping the six-byte header."
+  },
+  {
+   "address": 13266,
+   "type": "line",
+   "text": "Low address byte of the speedometer artwork source. The common plotter selects it for the second gauge."
+  },
+  {
+   "address": 13267,
+   "type": "line",
+   "text": "High address byte of the speedometer artwork source. The selection routine copies it to the indexed load at $3189."
+  },
+  {
    "address": 13268,
    "type": "line",
    "text": "Extra offset into the picture source chosen using the gauge quadrant."
@@ -8210,6 +9002,31 @@
    "address": 13269,
    "type": "line",
    "text": "Fifteen authored sprite bytes copied to $E440 after the 64-byte allocation is cleared."
+  },
+  {
+   "address": 13284,
+   "type": "line",
+   "text": "Gear-lever sprite X targets indexed by the selected gear. The first value also seeds the idle target at $1F5C."
+  },
+  {
+   "address": 13292,
+   "type": "line",
+   "text": "Gear-lever sprite Y targets indexed by the selected gear. The first value supplies the intermediate row used while the X coordinate is changing."
+  },
+  {
+   "address": 13300,
+   "type": "line",
+   "text": "Eight directions per current gear for alternate shifting. The engine forms eight times the gear plus direction minus one and stores the selected result to $45."
+  },
+  {
+   "address": 13364,
+   "type": "line",
+   "text": "Fixed-point scaling factors indexed by gear at $9802. The engine uses the ratio and road speed to calculate engine speed."
+  },
+  {
+   "address": 13370,
+   "type": "line",
+   "text": "Cockpit module tail beginning with acceleration values indexed by engine speed. The driving engine scales the selected value by gear, subtracts the speed-dependent term, and adds the resulting nonnegative amount to the road-speed accumulator."
   },
   {
    "address": 13458,
@@ -8225,6 +9042,66 @@
    "address": 16384,
    "type": "line",
    "text": "Cockpit visor bitmap, character row 0, 320 bytes."
+  },
+  {
+   "address": 16385,
+   "type": "line",
+   "text": "Scanline 1 of the first visor cell in the initial bitmap. The glyph blitter can overwrite that scanline at the selected numeric overlay offset."
+  },
+  {
+   "address": 16386,
+   "type": "line",
+   "text": "Scanline 2 of the first visor cell in the initial bitmap. The glyph blitter can overwrite that scanline at the selected numeric overlay offset."
+  },
+  {
+   "address": 16387,
+   "type": "line",
+   "text": "Scanline 3 of the first visor cell in the initial bitmap. The glyph blitter can overwrite that scanline at the selected numeric overlay offset."
+  },
+  {
+   "address": 16388,
+   "type": "line",
+   "text": "Scanline 4 of the first visor cell in the initial bitmap. The glyph blitter can overwrite that scanline at the selected numeric overlay offset."
+  },
+  {
+   "address": 16389,
+   "type": "line",
+   "text": "Scanline 5 of the first visor cell in the initial bitmap. The glyph blitter can overwrite that scanline at the selected numeric overlay offset."
+  },
+  {
+   "address": 16390,
+   "type": "line",
+   "text": "Scanline 6 of the first visor cell in the initial bitmap. The glyph blitter can overwrite that scanline at the selected numeric overlay offset."
+  },
+  {
+   "address": 16391,
+   "type": "line",
+   "text": "Scanline seven of the first visor cell, followed by the next cells of the top visor row. The overlay glyph blitter can replace this scanline in selected cells."
+  },
+  {
+   "address": 16455,
+   "type": "line",
+   "text": "Continuation of the first visor character row. Bitmap byte $4047 is scanline seven in cell eight."
+  },
+  {
+   "address": 16536,
+   "type": "line",
+   "text": "Top visor cells starting at column 19. With the numeric overlay enabled, its caption is written here from $9F0E."
+  },
+  {
+   "address": 16600,
+   "type": "line",
+   "text": "One visor cell between the first numeric field and the caption at $40E0. Its eight scanlines follow the speed field."
+  },
+  {
+   "address": 16608,
+   "type": "line",
+   "text": "Top visor cells beginning at column 28, where the RPM caption is blitted from $9F2E."
+  },
+  {
+   "address": 16640,
+   "type": "line",
+   "text": "Final eight cells of the top visor row. The 64-byte restoration loop starts here after copying the preceding 256 bytes."
   },
   {
    "address": 16704,
@@ -8252,6 +9129,16 @@
    "text": "Dashboard bitmap, character row 17, 320 bytes."
   },
   {
+   "address": 22016,
+   "type": "line",
+   "text": "Start of character row 17 in the initial cockpit bitmap. The driving loop reuses the beginning of this span as scratch for road row templates."
+  },
+  {
+   "address": 22080,
+   "type": "line",
+   "text": "Initial dashboard bitmap at cell eight of character row 17. This portion lies in the road workspace cleared by the pass setup."
+  },
+  {
    "address": 22144,
    "type": "line",
    "text": "Dashboard bitmap, character row 18, 320 bytes."
@@ -8272,14 +9159,144 @@
    "text": "Dashboard bitmap, character row 21, 320 bytes."
   },
   {
+   "address": 23216,
+   "type": "line",
+   "text": "Sixteen low pointer bytes for the generated scale arrays. The roadside bitmap routine uses one of these arrays to adjust its row."
+  },
+  {
+   "address": 23232,
+   "type": "line",
+   "text": "High pointer bytes paired with $5AB0, installed as the startup loop builds each scale array."
+  },
+  {
+   "address": 23247,
+   "type": "line",
+   "text": "Base one byte before the destination address array. The restore loop indexes it from one. The address itself is the last high pointer byte in the preceding scale array."
+  },
+  {
+   "address": 23248,
+   "type": "line",
+   "text": "Lowest stored entry of the current pair-of-cells destination list. The restore pass reads the list with one-based indexing at $5ACF."
+  },
+  {
+   "address": 23287,
+   "type": "line",
+   "text": "Biased address one byte before the current high-byte list. The transfer at $88B7 reads it with a positive index."
+  },
+  {
+   "address": 23288,
+   "type": "line",
+   "text": "First high byte of the current two-cell highlight list. The address base used at $88B7 is $5AF7."
+  },
+  {
+   "address": 23327,
+   "type": "line",
+   "text": "Low bytes of saved two-cell road highlight destinations, indexed in reverse by the restore pass."
+  },
+  {
+   "address": 23367,
+   "type": "line",
+   "text": "High bytes paired with $5B1F. The restore pass writes $9F at each resolved address and its successor."
+  },
+  {
+   "address": 23407,
+   "type": "line",
+   "text": "Biased base one byte before the left low-byte sample table. The subtraction at $79DF uses a positive sample index."
+  },
+  {
+   "address": 23408,
+   "type": "line",
+   "text": "Low byte of the left road bound for each projection sample, saved from $82."
+  },
+  {
    "address": 23424,
    "type": "line",
    "text": "Dashboard bitmap, character row 22, 320 bytes."
   },
   {
+   "address": 23427,
+   "type": "line",
+   "text": "Projected left edge low byte for sample nineteen. The next pass uses it as the initial bound for comparison."
+  },
+  {
+   "address": 23437,
+   "type": "line",
+   "text": "Biased base for the high byte of the preceding sample in the left-edge calculation."
+  },
+  {
+   "address": 23438,
+   "type": "line",
+   "text": "High byte of the left road bound, saved from $83."
+  },
+  {
+   "address": 23457,
+   "type": "line",
+   "text": "Projected left edge high byte for sample nineteen, tested after subtracting the sample width."
+  },
+  {
+   "address": 23467,
+   "type": "line",
+   "text": "Address one byte before the right low-byte sample table. The edge calculation accesses it at $796A."
+  },
+  {
+   "address": 23468,
+   "type": "line",
+   "text": "Low byte of the right road bound for each projection sample, saved from $84."
+  },
+  {
+   "address": 23497,
+   "type": "line",
+   "text": "Addressing base paired with $5BAB for the high byte of the right edge."
+  },
+  {
+   "address": 23498,
+   "type": "line",
+   "text": "High byte of the right road bound, saved from $85 and later used in roadside bitmap placement."
+  },
+  {
+   "address": 23528,
+   "type": "line",
+   "text": "Projected screen row for each road sample, copied from $76 and used to place roadside graphics."
+  },
+  {
+   "address": 23558,
+   "type": "line",
+   "text": "Low byte of the projected road center, copied from $78."
+  },
+  {
+   "address": 23588,
+   "type": "line",
+   "text": "High byte of the projected road center, copied from $79."
+  },
+  {
+   "address": 23618,
+   "type": "line",
+   "text": "Road element flags saved in sample order. The sprite pass tests the top two bits before placing graphics."
+  },
+  {
+   "address": 23648,
+   "type": "line",
+   "text": "Whole byte of the accumulated grade at each sample, copied from $7B."
+  },
+  {
+   "address": 23678,
+   "type": "line",
+   "text": "First 256 bytes of the saved visor used when the road transition restores the top row in both bitmap banks. In the initial bitmap layout this storage overlaps cockpit artwork."
+  },
+  {
    "address": 23744,
    "type": "line",
    "text": "Dashboard bitmap, character row 23, 320 bytes."
+  },
+  {
+   "address": 23934,
+   "type": "line",
+   "text": "Last 64 bytes of the saved visor bitmap copied into both display buffers at offset $100."
+  },
+  {
+   "address": 23998,
+   "type": "line",
+   "text": "The next 40 bytes restore the top row of color RAM when the visor is reset. Cockpit bitmap bytes resume after this working area."
   },
   {
    "address": 24064,
@@ -8322,6 +9339,11 @@
    "text": "Colours selected for the initial bitmap, character row 6, 40 bytes."
   },
   {
+   "address": 24832,
+   "type": "line",
+   "text": "Bitmap color-selection cells starting at row six, column sixteen. In the initial road image these cells use the high and low nibbles to select bitmap colors."
+  },
+  {
    "address": 24856,
    "type": "line",
    "text": "Colours selected for the initial bitmap, character row 7, 40 bytes."
@@ -8350,6 +9372,11 @@
    "address": 25056,
    "type": "line",
    "text": "Colours selected for the initial bitmap, character row 12, 40 bytes."
+  },
+  {
+   "address": 25088,
+   "type": "line",
+   "text": "Bitmap color-selection cells starting at row twelve, column thirty-two, near the lower edge of the windshield."
   },
   {
    "address": 25096,
@@ -8387,6 +9414,11 @@
    "text": "Colours selected for the initial bitmap, character row 19, 40 bytes."
   },
   {
+   "address": 25344,
+   "type": "line",
+   "text": "Bitmap color-selection cells starting at row nineteen, column eight, within the dashboard."
+  },
+  {
    "address": 25376,
    "type": "line",
    "text": "Colours selected for the initial bitmap, character row 20, 40 bytes."
@@ -8410,6 +9442,11 @@
    "address": 25536,
    "type": "line",
    "text": "Colours selected for the initial bitmap, character row 24, 40 bytes."
+  },
+  {
+   "address": 25592,
+   "type": "line",
+   "text": "Eight VIC sprite pointers in the first display buffer. The raster handler writes prepared sprite slot addresses here."
   },
   {
    "address": 27136,
@@ -8447,6 +9484,26 @@
    "text": "Release the high-score and display modules by ID, invoke HS with A set to 1, and start the JU module with a return address pushed on the stack."
   },
   {
+   "address": 28748,
+   "type": "line",
+   "text": "Copy 320 bytes of saved visor from $5C7E to the start of each bitmap and restore the first forty color RAM cells from $5DBE."
+  },
+  {
+   "address": 28797,
+   "type": "line",
+   "text": "Refresh the background color and run the same display preparation in both buffers. If the initial bitmap is outside bank $C000, copy its first 20 pages to its partner. Also copy ten pages starting at offset $1600 and reset the row workspace counters."
+  },
+  {
+   "address": 28936,
+   "type": "line",
+   "text": "Release the road graphics and $D4/$C7 assets, reload GP and DP, then invoke PM."
+  },
+  {
+   "address": 28975,
+   "type": "line",
+   "text": "Put rectangle bounds $00, $10, $28 and $60 into $0A\u2013$0D before entering the bitmap service at $8A3F with A zero."
+  },
+  {
    "address": 28996,
    "type": "line",
    "text": "Resolve the directory ID ## and store its base in $DB-$DC. Calculate the offset subtable at base plus $88 and cache four of the module's source addresses in zero page."
@@ -8467,6 +9524,11 @@
    "text": "Clear the course cursors, elapsed time, accumulated speed, input and event flags, and restore the starting gear and speed state."
   },
   {
+   "address": 29230,
+   "type": "line",
+   "text": "Clear speed, selected and previous gear, steering, event flags and the active event records. Reset sound, request preset $20, and initialize the engine speed to eight."
+  },
+  {
    "address": 29300,
    "type": "line",
    "text": "Set the starting chance counter and clear the stage counter, input latch, raster phase and per-bank state."
@@ -8475,6 +9537,11 @@
    "address": 29694,
    "type": "line",
    "text": "Allocate row pointers into $56F0 onward and fill the road drawing sources with the two groups of four base patterns selected from $9D4B and $9D4F."
+  },
+  {
+   "address": 29944,
+   "type": "line",
+   "text": "Reset projection temporaries and snapshot position, road stream state, the three six-byte object records and the auxiliary work arrays. Retry if $0361 changes during the copy. Return carry set for stage state 2, otherwise initialize the projection pass inputs."
   },
   {
    "address": 30065,
@@ -8497,9 +9564,139 @@
    "text": "Check the row bounds and height difference, then calculate the delta between consecutive samples in $5BAB and $5BC9 for the interpolation."
   },
   {
+   "address": 32074,
+   "type": "line",
+   "text": "Final operand byte before the $55 span fill loop. The loop writes at strides of eight and continues through the remaining scanlines."
+  },
+  {
+   "address": 32099,
+   "type": "line",
+   "text": "Fill the half-open pixel span from X to Y in the row workspace at $06A0, using A as the repeated two-bit pattern. Divide the endpoints by four, mask a single containing byte or the two partial edges, and fill any complete interior bytes."
+  },
+  {
+   "address": 32245,
+   "type": "line",
+   "text": "Compare the first two fields of the records at $033C plus Y and plus X. Swap all six fields when the high-byte and low-byte comparison paths call for exchange, keeping the projection parameters together."
+  },
+  {
    "address": 32353,
    "type": "line",
    "text": "Seed the projected object pass from three calls to $7DF5. Iterate active records at $033C, read the object's state and class, and locate it relative to the current road position $D7-$D8."
+  },
+  {
+   "address": 32812,
+   "type": "line",
+   "text": "Finish projecting the current object, with a separate path that derives coordinates from $76 and $78. Reject it when the projection tests set carry, otherwise pass its coordinates and sprite slot to $81B1. Then move backward through the prepared sprite slots."
+  },
+  {
+   "address": 32937,
+   "type": "line",
+   "text": "Step to the next of the three object records, or return when the index reaches three."
+  },
+  {
+   "address": 32948,
+   "type": "line",
+   "text": "Call the sprite shifter and fall through to it a second time."
+  },
+  {
+   "address": 32951,
+   "type": "line",
+   "text": "Patch the destination in the indexed store with the active sprite address. Shift sprite bytes toward the bottom, clear the uncovered first eighteen bytes and advance one sprite slot."
+  },
+  {
+   "address": 32967,
+   "type": "line",
+   "text": "The indexed store writes each shifted sprite byte to the current destination slot."
+  },
+  {
+   "address": 32968,
+   "type": "line",
+   "text": "Low byte of the store operand patched from the sprite destination pointer."
+  },
+  {
+   "address": 32969,
+   "type": "line",
+   "text": "High byte of the store destination, followed by the loop that clears the vacated top rows."
+  },
+  {
+   "address": 32995,
+   "type": "line",
+   "text": "Compare the projected Y with the two clipping bounds. Return carry set for a fully clipped sprite. For an overlapping top boundary, patch the number of initial bytes to clear."
+  },
+  {
+   "address": 33016,
+   "type": "line",
+   "text": "Immediate operand patched with the top clipping distance. It combines with twice the distance to choose the first byte cleared from the top."
+  },
+  {
+   "address": 33043,
+   "type": "line",
+   "text": "Immediate operand patched from the bottom clipping distance. The loop clears from the calculated offset through byte $63."
+  },
+  {
+   "address": 33056,
+   "type": "line",
+   "text": "Compare the projected X with the left and right bounds. Return carry set when the whole width falls beyond a clipping edge, otherwise mask the partial rows."
+  },
+  {
+   "address": 33077,
+   "type": "line",
+   "text": "Patched immediate third copy of the left clipping distance. The resulting index selects three AND masks from the sprite row mask table."
+  },
+  {
+   "address": 33102,
+   "type": "line",
+   "text": "Patched AND mask for the left byte of the sprite row, used when clipping its left boundary."
+  },
+  {
+   "address": 33109,
+   "type": "line",
+   "text": "Patched AND mask for the middle row byte in the left-boundary pass."
+  },
+  {
+   "address": 33116,
+   "type": "line",
+   "text": "Patched last AND mask in the left-boundary pass. After processing 63 graphic bytes, test the right edge."
+  },
+  {
+   "address": 33143,
+   "type": "line",
+   "text": "Patched immediate third copy of the right clipping distance. Complement the selected masks before applying them to the sprite rows."
+  },
+  {
+   "address": 33174,
+   "type": "line",
+   "text": "Patched right-boundary AND mask for the first byte of each graphic row."
+  },
+  {
+   "address": 33181,
+   "type": "line",
+   "text": "Patched right-boundary AND mask for the middle byte of each graphic row."
+  },
+  {
+   "address": 33188,
+   "type": "line",
+   "text": "Patched mask for the last row byte. Stop after the 63rd graphic byte and return carry clear."
+  },
+  {
+   "address": 33201,
+   "type": "line",
+   "text": "For one of the eight hardware slots, write projected Y plus $32 and twice the projected X plus its bias to the sprite shadows. Set the corresponding ninth X bit if needed, then store pointer and color."
+  },
+  {
+   "address": 33285,
+   "type": "line",
+   "text": "Immediate color for the current road sprite. Store it and set the slot\u2019s bit in the active sprite mask."
+  },
+  {
+   "address": 33306,
+   "type": "line",
+   "text": "Patched AND immediate that decides whether the current sprite slot enters the horizontal expansion mask."
+  },
+  {
+   "address": 33317,
+   "type": "line",
+   "text": "Patched AND immediate for the slot\u2019s vertical expansion bit. Then advance the active sprite count."
   },
   {
    "address": 33334,
@@ -8507,9 +9704,59 @@
    "text": "Resolve a graphic offset from the address at $DB. Select the target 64-byte sprite allocation by the slot at $D9 and render its prefix and packed graphic bytes."
   },
   {
+   "address": 33377,
+   "type": "line",
+   "text": "Read the number of leading zero bytes and clear them in the destination sprite. Copy the following bytes up to a total of 63 and advance the source pointer to the next record."
+  },
+  {
+   "address": 33409,
+   "type": "line",
+   "text": "Read the next non-prefix sprite byte from the pointer installed in the indexed load."
+  },
+  {
+   "address": 33410,
+   "type": "line",
+   "text": "Patched low address byte of the sprite payload, one past the prefix length."
+  },
+  {
+   "address": 33411,
+   "type": "line",
+   "text": "Patched high address byte of the source. Advance the original record pointer by the consumed byte count, including the prefix byte."
+  },
+  {
+   "address": 33434,
+   "type": "line",
+   "text": "Select a graphic offset from the secondary table at $F2. Form its index from 20 times A plus X, with a ten-byte offset when $13 is nonnegative. Decode successive sprite records until the negative terminator, the fourth record, or the eighth slot. Return the number used."
+  },
+  {
+   "address": 33542,
+   "type": "line",
+   "text": "Apply road sample and viewport tests, then mark the chosen multicolour pixel using the masks at $9E47 and $9E4B. For cell rows below 14, write $7F to the color-selection matrix and record the cell address."
+  },
+  {
+   "address": 33666,
+   "type": "line",
+   "text": "Quantize signed steering at $97 into five positions with extremes at magnitude 30. Compare with the displayed position in $B4 and choose the next transition and its bitmap from the pointers at $AC. Blit the artwork into the $C000 bitmap."
+  },
+  {
    "address": 33794,
    "type": "line",
    "text": "Read the six-byte bitmap header from $8A. The first byte is a width in eight-byte groups, the second is the pixel height, and bytes four and five give the position. Advance past the header and visit the bitmap in eight-line bands."
+  },
+  {
+   "address": 33861,
+   "type": "line",
+   "text": "Patched immediate high byte for the chosen bitmap base. Add it and the column offset to the row address."
+  },
+  {
+   "address": 33872,
+   "type": "line",
+   "text": "Write the indexed bitmap byte while Y counts down toward zero within this eight-line group."
+  },
+  {
+   "address": 33881,
+   "type": "line",
+   "text": "Write the byte at index zero, advance the source by the row width and move the destination down eight scanlines."
   },
   {
    "address": 33909,
@@ -8522,9 +9769,39 @@
    "text": "Clear the forty-byte workspace, test the sample against the drawing limits, and draw the clipped span with pattern $AA. Save the leftmost observed sample and its source row."
   },
   {
+   "address": 34428,
+   "type": "line",
+   "text": "Divide both endpoints by four before entering the multicolor span filler, preserving the fill pattern in A."
+  },
+  {
+   "address": 34441,
+   "type": "line",
+   "text": "Clamp the projected edges in $82:$83 and $84:$85 to the $A0-pixel viewport. A negative right edge marks the current bank\u2019s empty span and writes the $A1 sentinel."
+  },
+  {
+   "address": 34496,
+   "type": "line",
+   "text": "Derive the sprite enable bit from $5C, $58 and $AA. Keep the patched enable operand synchronized. When the overlay state changes, draw the $C7\u2013$C8 bitmap into the cockpit bank."
+  },
+  {
+   "address": 34555,
+   "type": "line",
+   "text": "Visit up to twenty road samples. For each index below $93, obtain a horizontal position and vertical row from the projection arrays, subtract eight from the row, and draw its graphic through $8722."
+  },
+  {
    "address": 34594,
    "type": "line",
    "text": "Use the projected row and column to select a record from the road graphic directory. Read the height byte at $8795 and copy one or two bitmap columns when the sampled destination permits it."
+  },
+  {
+   "address": 34960,
+   "type": "line",
+   "text": "Restore each previously marked pair of matrix cells to $9F. Copy the new low and high cell addresses into the saved arrays at $5B1F and $5B47."
+  },
+  {
+   "address": 35009,
+   "type": "line",
+   "text": "Restore the previous pass\u2019s single-cell marker colors, then save the current list of marker cell addresses for the next pass."
   },
   {
    "address": 35054,
@@ -8532,9 +9809,169 @@
    "text": "Work against the current bank's saved drawing bounds. Clear the parts removed since the bank's last draw, then obtain the bitmap paint and mask rows using $E1-$E4."
   },
   {
+   "address": 35504,
+   "type": "line",
+   "text": "One byte immediately before the two-byte driving IRQ vector."
+  },
+  {
+   "address": 35505,
+   "type": "line",
+   "text": "Low byte of the IRQ entry $8AB3 installed after the interlude."
+  },
+  {
+   "address": 35506,
+   "type": "line",
+   "text": "High byte of the driving IRQ entry installed at $0315."
+  },
+  {
    "address": 35507,
    "type": "line",
    "text": "Save the 6510 port and enable I/O. Acknowledge the VIC-II IRQ, select the video bank and next raster line from tables indexed by $9E52, and use raster phase zero for the counters and colour updates."
+  },
+  {
+   "address": 35962,
+   "type": "line",
+   "text": "High operand byte of the store to the active bank\u2019s sprite pointer table at $63F8 in this capture. The neighboring store sets individual sprite colors."
+  },
+  {
+   "address": 36055,
+   "type": "line",
+   "text": "Call the current phase handler through the address patched by the raster interrupt."
+  },
+  {
+   "address": 36056,
+   "type": "line",
+   "text": "Patched low address byte of the raster phase call, fetched from the selected phase record."
+  },
+  {
+   "address": 36057,
+   "type": "line",
+   "text": "Patched high address byte of the raster phase call. The handler comes from the table at $8D73, indexed by three times $D6. Hold off the same phase with $AB across the call and restore the processor port afterwards."
+  },
+  {
+   "address": 36130,
+   "type": "line",
+   "text": "BIT instruction at the resident music tick address in the road snapshot. The following call services driving sound."
+  },
+  {
+   "address": 36133,
+   "type": "line",
+   "text": "Tick the road sound engine, restore the memory-mapping port and return via $EA7B."
+  },
+  {
+   "address": 36142,
+   "type": "line",
+   "text": "Apply the signed fixed-point increment in $60\u2013$61 to engine speed in $42:$59. Clamp the whole part to the range from eight to the car\u2019s limit at $66, flagging the upper limit in $B8. Subtract eight, shift down three positions and add $96 to form the SID voice 1 frequency."
+  },
+  {
+   "address": 36211,
+   "type": "line",
+   "text": "First opcode byte in the sequence of five three-byte raster phase records."
+  },
+  {
+   "address": 36212,
+   "type": "line",
+   "text": "Low address byte of the first raster phase target. The interrupt reads this column with a stride of three."
+  },
+  {
+   "address": 36213,
+   "type": "line",
+   "text": "High byte of the first phase address followed by the remaining three-byte JMP records. The IRQ copies each target word into its phase call operand."
+  },
+  {
+   "address": 36226,
+   "type": "line",
+   "text": "Map RAM in, invoke the selected car\u2019s gauge update with A equal to two and merge the patched sprite-enable mask."
+  },
+  {
+   "address": 36239,
+   "type": "line",
+   "text": "Patched mask combined with the gauge update\u2019s sprite-enable state. The next phase starts by selecting gauge command one."
+  },
+  {
+   "address": 36250,
+   "type": "line",
+   "text": "Tail dispatch to the selected car\u2019s relocated cockpit entry."
+  },
+  {
+   "address": 36251,
+   "type": "line",
+   "text": "Patched low address byte of the selected car\u2019s cockpit entry."
+  },
+  {
+   "address": 36252,
+   "type": "line",
+   "text": "Patched high entry byte. The code after the jump starts the independent steering and lever update, taking the magnitude of $47 for the wheel lookup."
+  },
+  {
+   "address": 36273,
+   "type": "line",
+   "text": "Patched low address of the wheel\u2019s vertical displacement lookup."
+  },
+  {
+   "address": 36274,
+   "type": "line",
+   "text": "Patched high address of the vertical displacement table from the selected car."
+  },
+  {
+   "address": 36277,
+   "type": "line",
+   "text": "Immediate center bias added after subtracting the vertical displacement."
+  },
+  {
+   "address": 36284,
+   "type": "line",
+   "text": "Patched low address of the wheel\u2019s horizontal displacement table."
+  },
+  {
+   "address": 36285,
+   "type": "line",
+   "text": "Patched high address of the horizontal displacement lookup. Negate its result when the steering state is negative."
+  },
+  {
+   "address": 36297,
+   "type": "line",
+   "text": "Immediate horizontal center added to the signed displacement. The subsequent gear animation takes its index from $45."
+  },
+  {
+   "address": 36308,
+   "type": "line",
+   "text": "Patched low operand of the gear-lever Y lookup."
+  },
+  {
+   "address": 36309,
+   "type": "line",
+   "text": "Patched high operand of the gear-lever Y table. Save the desired Y in $05."
+  },
+  {
+   "address": 36313,
+   "type": "line",
+   "text": "Patched low operand of the gear-lever X lookup."
+  },
+  {
+   "address": 36314,
+   "type": "line",
+   "text": "Patched high operand of the gear-lever X table. If the current X differs from the target, select neutral Y for movement between columns."
+  },
+  {
+   "address": 36323,
+   "type": "line",
+   "text": "Patched low address of the neutral gear row used during horizontal lever travel."
+  },
+  {
+   "address": 36324,
+   "type": "line",
+   "text": "Patched high address of the neutral row. Its current target Y is written to $05."
+  },
+  {
+   "address": 36331,
+   "type": "line",
+   "text": "Patched low address in the comparison against the neutral gear row."
+  },
+  {
+   "address": 36332,
+   "type": "line",
+   "text": "Patched high address byte in the gear animator\u2019s comparison against neutral Y. While at the neutral row, move toward the target column in steps of six and clamp at the destination."
   },
   {
    "address": 36428,
@@ -8545,6 +9982,11 @@
    "address": 36497,
    "type": "line",
    "text": "Increment $0361 and test driving state flags. Read CIA1 port A for direction and fire, match the direction nibble against $9D53, and use fire and the alternate-shift flag at $5D to choose how to update $45."
+  },
+  {
+   "address": 36579,
+   "type": "line",
+   "text": "Patched low byte of the alternate-shift lookup operand."
   },
   {
    "address": 36580,
@@ -8582,6 +10024,91 @@
    "text": "Dispatch the road event according to A. In state 2, compare the player position with the event at $034E-$034F and advance its state after passing it by at least four road units."
   },
   {
+   "address": 38569,
+   "type": "line",
+   "text": "Skip empty or ineligible road records. Compare the whole road position and then test the occupancy mask for the selected lane, or branch to the proximity path for state one."
+  },
+  {
+   "address": 38610,
+   "type": "line",
+   "text": "The operand byte before the event branch at $96D3. The following handlers either mark a collision outcome and return carry set or measure proximity to the first event and request sound while an alert is active."
+  },
+  {
+   "address": 38753,
+   "type": "line",
+   "text": "Copy A into $9D, $9E and $A0. Store thresholds one quarter above and below A at $9F and $9C."
+  },
+  {
+   "address": 38819,
+   "type": "line",
+   "text": "Clear the engine increment. Branch to idle or out-of-drive handling for disabled input, neutral or a gear at or beyond the car limit. For a shift from neutral into first at sufficient engine speed, raise road speed to at least 25 and request effect $86. Negative throttle input reduces speed before the ratio calculation."
+  },
+  {
+   "address": 38915,
+   "type": "line",
+   "text": "Patched low address of the gear ratio lookup before the first speed-to-engine calculation."
+  },
+  {
+   "address": 38916,
+   "type": "line",
+   "text": "Patched high address of the gear ratio table. Scale road speed and double the result, then compare it against the car\u2019s limit and select the engine acceleration curve for positive throttle."
+  },
+  {
+   "address": 38970,
+   "type": "line",
+   "text": "Patched low address of the engine acceleration curve."
+  },
+  {
+   "address": 38971,
+   "type": "line",
+   "text": "Patched high address of the engine curve followed by the scaling path using the current gear ratio."
+  },
+  {
+   "address": 38976,
+   "type": "line",
+   "text": "Patched low address byte of the ratio table used to apply this gear\u2019s acceleration."
+  },
+  {
+   "address": 38977,
+   "type": "line",
+   "text": "Patched high byte of the gear ratio lookup used to scale the acceleration term. First gear adds half again to the scaled term. Multiply by four, subtract the speed-indexed resistance and apply the nonnegative result to $41:$49."
+  },
+  {
+   "address": 39060,
+   "type": "line",
+   "text": "Patched low address byte of the gear ratio lookup used to refresh engine speed."
+  },
+  {
+   "address": 39061,
+   "type": "line",
+   "text": "Patched high byte of the gear ratio lookup used after road speed changes. Scale both halves of the fixed-point speed, double the result, and clamp the engine value between eight and the selected car\u2019s upper bound."
+  },
+  {
+   "address": 39234,
+   "type": "line",
+   "text": "Convert the supplied byte into decimal digits by repeated subtraction. X selects whether to show a hundreds position. Pass glyph $10 for suppressed leading positions and draw the ones digit even for zero."
+  },
+  {
+   "address": 39308,
+   "type": "line",
+   "text": "Draw the high nibble using the shared glyph blitter, then mask the saved byte to its low nibble and tail-call the blitter for the second cell."
+  },
+  {
+   "address": 39324,
+   "type": "line",
+   "text": "Index the glyph table at $9E86 by eight times A. Copy the eight rows into the bitmaps at $4000 and $C000 with offset Y, then advance Y to the next cell."
+  },
+  {
+   "address": 39406,
+   "type": "line",
+   "text": "Convert the nonzero word at $43\u2013$44 using five decimal divisors. Mark leading zeros as blank, then draw the visible glyphs and separators into the selected bitmap at offset $0E30."
+  },
+  {
+   "address": 39515,
+   "type": "line",
+   "text": "Read eight rows of the selected glyph, invert them and mask with $AA before writing to the distance field. Restore the caller\u2019s glyph-slot index in X."
+  },
+  {
    "address": 39543,
    "type": "line",
    "text": "Call the resident $0824 entry with Y set to $F2."
@@ -8592,14 +10119,219 @@
    "text": "Three-byte JMP to $78A9 copied to $0200 at driving entry."
   },
   {
+   "address": 39549,
+   "type": "line",
+   "text": "Low address byte of the jump to fixed-point scaling installed in zero-page-adjacent RAM at $0200."
+  },
+  {
+   "address": 39550,
+   "type": "line",
+   "text": "High address byte of the $0200 jump template."
+  },
+  {
+   "address": 39551,
+   "type": "line",
+   "text": "Run the 28 steps at $9BC6. Each names an endpoint group and a subdivision distance to use when drawing its segments into the cockpit bitmap."
+  },
+  {
+   "address": 39574,
+   "type": "line",
+   "text": "Resolve the group pointer through the entries at $9BA2 and count at $9BBF. Group zero uses one shared start point. The other groups store two endpoints for each segment."
+  },
+  {
+   "address": 39611,
+   "type": "line",
+   "text": "Patched group number in the immediate load at $9ABA. Group zero selects a shared origin plus indexed endpoints. Other groups select four independent coordinate bytes per segment."
+  },
+  {
+   "address": 39679,
+   "type": "line",
+   "text": "Compare the differences in both axes with the requested subdivision distance. Split long segments at the average of their endpoints and stack the halves. Plot a point when both differences are small enough."
+  },
+  {
+   "address": 39831,
+   "type": "line",
+   "text": "Immediate operand patched at $9B7B with the low two bits of the X coordinate. The following OR uses that index to choose the bitmap mask from $A020."
+  },
+  {
+   "address": 39842,
+   "type": "line",
+   "text": "Seven records with a jump opcode followed by a little-endian pointer. The renderer extracts the address bytes indexed by three times the group number."
+  },
+  {
+   "address": 39843,
+   "type": "line",
+   "text": "First pointer low byte. The load at $9AA3 uses this base and a stride of three bytes."
+  },
+  {
+   "address": 39844,
+   "type": "line",
+   "text": "First pointer high byte. The paired load at $9AA8 uses the same stride."
+  },
+  {
+   "address": 39863,
+   "type": "line",
+   "text": "Increment the IRQ work flag at $31 and wait for the interrupt to clear it."
+  },
+  {
+   "address": 39870,
+   "type": "line",
+   "text": "One zero byte between the raster wait helper and the seven crack group counts."
+  },
+  {
+   "address": 39871,
+   "type": "line",
+   "text": "Seven segment counts, indexed by the endpoint group selected by the draw schedule."
+  },
+  {
+   "address": 39878,
+   "type": "line",
+   "text": "First group number in the 28 pairs. The draw loop reads group numbers at two-byte intervals."
+  },
+  {
+   "address": 39879,
+   "type": "line",
+   "text": "First subdivision spacing in the group schedule. Lower values cause the same geometry to be drawn with closer points."
+  },
+  {
+   "address": 39934,
+   "type": "line",
+   "text": "Group 0 begins with one shared X/Y pair, followed by 11 X/Y endpoints. The renderer joins each endpoint to the shared point."
+  },
+  {
+   "address": 39958,
+   "type": "line",
+   "text": "Group 1 holds 12 line segments in the windscreen coordinates. Each four-byte record supplies start X, start Y, end X and end Y."
+  },
+  {
+   "address": 40006,
+   "type": "line",
+   "text": "Group 2 holds 11 line segments in the windscreen coordinates. Each four-byte record supplies start X, start Y, end X and end Y."
+  },
+  {
+   "address": 40050,
+   "type": "line",
+   "text": "Group 3 holds 15 line segments in the windscreen coordinates. Each four-byte record supplies start X, start Y, end X and end Y."
+  },
+  {
+   "address": 40110,
+   "type": "line",
+   "text": "Group 4 holds 14 line segments in the windscreen coordinates. Each four-byte record supplies start X, start Y, end X and end Y."
+  },
+  {
+   "address": 40166,
+   "type": "line",
+   "text": "Group 5 holds 11 line segments in the windscreen coordinates. Each four-byte record supplies start X, start Y, end X and end Y."
+  },
+  {
+   "address": 40210,
+   "type": "line",
+   "text": "Group 6 holds 13 line segments in the windscreen coordinates. Each four-byte record supplies start X, start Y, end X and end Y."
+  },
+  {
+   "address": 40262,
+   "type": "line",
+   "text": "Subdivision distance plus one, the exclusive upper bound for a terminal segment\u2019s positive axis difference."
+  },
+  {
+   "address": 40263,
+   "type": "line",
+   "text": "Negated subdivision distance, used as the inclusive lower bound for a terminal segment\u2019s negative axis difference."
+  },
+  {
+   "address": 40264,
+   "type": "line",
+   "text": "Count of pending halves of the line segment stored on the CPU stack."
+  },
+  {
+   "address": 40265,
+   "type": "line",
+   "text": "Threshold saved from X on entry to the group renderer and passed to each segment."
+  },
+  {
+   "address": 40266,
+   "type": "line",
+   "text": "Reverse index into the current group of endpoints. It starts at the group\u2019s count and is decremented before each segment."
+  },
+  {
+   "address": 40267,
+   "type": "line",
+   "text": "Starting byte for one set of generated row templates, selected by the fringe index."
+  },
+  {
+   "address": 40271,
+   "type": "line",
+   "text": "Four possible first bytes for template samples at indices $14 and higher, selected by the fringe index in $0A. The other three seed bytes use $AA."
+  },
+  {
    "address": 40275,
    "type": "line",
    "text": "Nine active-low directional nibbles searched by the input routine. A value absent from the table leaves X at nine."
   },
   {
+   "address": 40284,
+   "type": "line",
+   "text": "Direction-row translation used to select the alternate shift input."
+  },
+  {
+   "address": 40293,
+   "type": "line",
+   "text": "Maximum positive whole part of the accumulated projection grade at each road sample. The clamp also clears the fractional byte."
+  },
+  {
+   "address": 40323,
+   "type": "line",
+   "text": "Signed negative bound for the accumulated projection grade, indexed by sample."
+  },
+  {
+   "address": 40353,
+   "type": "line",
+   "text": "Lookup indexed by the absolute lateral offset divided by four. Scale the result by four before adding or subtracting it from the projected road center."
+  },
+  {
+   "address": 40399,
+   "type": "line",
+   "text": "Per-sample width added to the starting pixel when building the $FF span in each row template."
+  },
+  {
+   "address": 40418,
+   "type": "line",
+   "text": "Width subtracted from the sampled road bound during selection of the next transition row."
+  },
+  {
+   "address": 40429,
+   "type": "line",
+   "text": "Projection factors indexed by road sample. The setup also multiplies each of the first twenty factors by the sixteen factors at $A13C."
+  },
+  {
+   "address": 40459,
+   "type": "line",
+   "text": "High byte of the per-sample grade scaling factor loaded into $8D."
+  },
+  {
+   "address": 40489,
+   "type": "line",
+   "text": "Low byte of the same per-sample grade scaling factor loaded into $8C."
+  },
+  {
+   "address": 40519,
+   "type": "line",
+   "text": "Pixel pattern to OR into the road bitmap for each of the four multicolor pixel columns in a byte."
+  },
+  {
+   "address": 40523,
+   "type": "line",
+   "text": "Masks for preserving the three other pixels when the road marker is written."
+  },
+  {
    "address": 40527,
    "type": "line",
    "text": "Next phase indices written back to $9E52 by the driving interrupt."
+  },
+  {
+   "address": 40530,
+   "type": "line",
+   "text": "Index selecting the next raster phase and register values."
   },
   {
    "address": 40531,
@@ -8612,9 +10344,429 @@
    "text": "CIA2 port A bank bits for the driving raster phases. The handler preserves bits 2 to 7 of the port read before combining them."
   },
   {
+   "address": 40535,
+   "type": "line",
+   "text": "Second raster bank select byte and the neighboring phase bank entry. The interlude return updates the byte from CIA2 port A."
+  },
+  {
    "address": 40537,
    "type": "line",
    "text": "Background register values selected by the IRQ phase and compared with the cached value at $0360."
+  },
+  {
+   "address": 40538,
+   "type": "line",
+   "text": "Background color for the second raster phase, followed by the color for the third phase."
+  },
+  {
+   "address": 40540,
+   "type": "line",
+   "text": "Joystick direction values examined by the non-shift path before combining steering and lateral motion."
+  },
+  {
+   "address": 40549,
+   "type": "line",
+   "text": "Signed throttle commands indexed by joystick direction and passed to the gear and throttle update."
+  },
+  {
+   "address": 40558,
+   "type": "line",
+   "text": "Sixteen colors indexed by bits two through five of $D1. The raster handler writes them to color cell $D82E."
+  },
+  {
+   "address": 40574,
+   "type": "line",
+   "text": "One bit for each of the eight sprite slots. The object renderer uses it to set active and extension masks."
+  },
+  {
+   "address": 40582,
+   "type": "line",
+   "text": "The first row of the zero glyph. Glyphs occupy eight bytes each and are drawn by the numeric overlay and distance display."
+  },
+  {
+   "address": 40583,
+   "type": "line",
+   "text": "Second pixel row addressed by the unrolled numeric glyph blitter."
+  },
+  {
+   "address": 40584,
+   "type": "line",
+   "text": "Third pixel row addressed with eight times the glyph number in X."
+  },
+  {
+   "address": 40585,
+   "type": "line",
+   "text": "Fourth pixel row copied into both bitmap banks for a numeric overlay glyph."
+  },
+  {
+   "address": 40586,
+   "type": "line",
+   "text": "Fifth pixel row read by the unrolled glyph blitter."
+  },
+  {
+   "address": 40587,
+   "type": "line",
+   "text": "Sixth pixel row at offset five in each eight-byte glyph."
+  },
+  {
+   "address": 40588,
+   "type": "line",
+   "text": "Seventh pixel row read before the final row of each glyph."
+  },
+  {
+   "address": 40589,
+   "type": "line",
+   "text": "Last pixel row of the zero glyph followed by the glyphs for one through eight. The blitter indexes the table every eight bytes."
+  },
+  {
+   "address": 40653,
+   "type": "line",
+   "text": "Last row of glyph eight and the remaining glyphs nine through $10. Glyph $10 is blank in the masked distance display."
+  },
+  {
+   "address": 40717,
+   "type": "line",
+   "text": "Eighth byte of the blank numeric glyph at index $10."
+  },
+  {
+   "address": 40718,
+   "type": "line",
+   "text": "Four bitmap cells copied into both banks at offset $98 before the speed digits are drawn."
+  },
+  {
+   "address": 40750,
+   "type": "line",
+   "text": "Four bitmap cells copied into both banks at offset $E0 before the engine speed digits are drawn."
+  },
+  {
+   "address": 40782,
+   "type": "line",
+   "text": "The six fixed character slots drawn ahead of the five converted digits in the distance field."
+  },
+  {
+   "address": 40788,
+   "type": "line",
+   "text": "Five glyph indices computed from the distance word, with suppressed leading zeros replaced by $80 to skip blitting."
+  },
+  {
+   "address": 40793,
+   "type": "line",
+   "text": "Forty-one bytes used to save zero page $70\u2013$98 while GS owns the machine. The driving path restores them at $6E1E."
+  },
+  {
+   "address": 40834,
+   "type": "line",
+   "text": "Twenty seeds copied to $0203 during pass setup. Event updates replace one seed at a time with the low nibble of the XOR of CIA1 timer A\u2019s two bytes."
+  },
+  {
+   "address": 40854,
+   "type": "line",
+   "text": "Offset into the packed graphic directory indexed by the roadside sample number."
+  },
+  {
+   "address": 40874,
+   "type": "line",
+   "text": "Base for the bitmap graphic index, combined with the sample offset and $68."
+  },
+  {
+   "address": 40894,
+   "type": "line",
+   "text": "Sample-dependent clipping bound saved before resolving the graphic pointer."
+  },
+  {
+   "address": 40914,
+   "type": "line",
+   "text": "Low byte of the marker color-row address before adding the character column."
+  },
+  {
+   "address": 40934,
+   "type": "line",
+   "text": "High byte paired with $9FD2. The marker writer adds the selected matrix base to it."
+  },
+  {
+   "address": 40953,
+   "type": "line",
+   "text": "Partial-byte pattern masks used for the starting pixel column of a road span crossing a byte boundary."
+  },
+  {
+   "address": 40956,
+   "type": "line",
+   "text": "Partial-byte pattern masks used for the exclusive end pixel column of a road span."
+  },
+  {
+   "address": 40960,
+   "type": "line",
+   "text": "Mask matrix indexed by four times the starting pixel column plus the end column. Used when both span endpoints lie within one byte."
+  },
+  {
+   "address": 40972,
+   "type": "line",
+   "text": "Sample-dependent offset added to the selected roadside graphic group."
+  },
+  {
+   "address": 40992,
+   "type": "line",
+   "text": "One bitmap bit pattern per multicolor column, ORed into the windscreen by the crack plotter."
+  },
+  {
+   "address": 40996,
+   "type": "line",
+   "text": "Initial lateral field at $0352 for each category of new road event."
+  },
+  {
+   "address": 40999,
+   "type": "line",
+   "text": "Graphic size selection indexed by the object\u2019s sampled distance. The selected entry goes to X before drawing a sprite group."
+  },
+  {
+   "address": 41029,
+   "type": "line",
+   "text": "Size table for the separate close-object drawing path. Its value becomes X for the secondary directory lookup."
+  },
+  {
+   "address": 41039,
+   "type": "line",
+   "text": "Sample-dependent byte placed in $17 before drawing a sprite group from the road graphics."
+  },
+  {
+   "address": 41069,
+   "type": "line",
+   "text": "Number of inner rows before resetting the template repeat index, selected by the low three bits of road position."
+  },
+  {
+   "address": 41077,
+   "type": "line",
+   "text": "Resistance values indexed by road speed divided by four and subtracted from the engine acceleration term."
+  },
+  {
+   "address": 41125,
+   "type": "line",
+   "text": "Sample-dependent half-width, subtracted from and added to the projected center to form the left and right bounds."
+  },
+  {
+   "address": 41155,
+   "type": "line",
+   "text": "Resistance read from $A075 for the current road speed and saved for the fixed-point subtraction."
+  },
+  {
+   "address": 41156,
+   "type": "line",
+   "text": "High byte of the first replacement for the signed interpolation slope, indexed by the original whole part."
+  },
+  {
+   "address": 41186,
+   "type": "line",
+   "text": "Low byte paired with $A0C4, stored in the fractional slope byte $95."
+  },
+  {
+   "address": 41216,
+   "type": "line",
+   "text": "High byte of the replacement slope selected by the third adjustment path."
+  },
+  {
+   "address": 41246,
+   "type": "line",
+   "text": "Low byte of the third slope adjustment, stored just before restoring the curve direction."
+  },
+  {
+   "address": 41276,
+   "type": "line",
+   "text": "Sixteen multipliers for the startup scale table, one per outer iteration at $74A7."
+  },
+  {
+   "address": 41292,
+   "type": "line",
+   "text": "Indexed base used to select the first column mask at the right sprite boundary. The reader complements the byte."
+  },
+  {
+   "address": 41293,
+   "type": "line",
+   "text": "Indexed base providing the second column\u2019s right-boundary mask."
+  },
+  {
+   "address": 41294,
+   "type": "line",
+   "text": "Indexed base providing the third column\u2019s right-boundary mask."
+  },
+  {
+   "address": 41295,
+   "type": "line",
+   "text": "Indexed base supplying the first of three AND operands for left-side sprite clipping."
+  },
+  {
+   "address": 41296,
+   "type": "line",
+   "text": "Indexed base supplying the middle AND operand for left-side sprite clipping."
+  },
+  {
+   "address": 41297,
+   "type": "line",
+   "text": "Indexed base for the last AND operand. The adjacent bases share the same interleaved table of three-byte pixel masks."
+  },
+  {
+   "address": 41328,
+   "type": "line",
+   "text": "Three offsets into the array of six-byte road-object records."
+  },
+  {
+   "address": 41331,
+   "type": "line",
+   "text": "Phase byte written to $0353 when the event is placed ahead of the car."
+  },
+  {
+   "address": 41334,
+   "type": "line",
+   "text": "Signed steering increments indexed by the high nibble of the road element. The accumulator is clamped to the range from minus 90 to 90."
+  },
+  {
+   "address": 41350,
+   "type": "line",
+   "text": "Signed projection increment selected from the low nibble of the element byte, with a separate group of entries when $90 is set."
+  },
+  {
+   "address": 41363,
+   "type": "line",
+   "text": "Sprite colors used by the road renderer, including the graphic IDs between $18 and $23."
+  },
+  {
+   "address": 41377,
+   "type": "line",
+   "text": "Indexed base for road elements five through seven. The selected values start at $A1A6 and update $5F and the lateral thresholds."
+  },
+  {
+   "address": 41380,
+   "type": "line",
+   "text": "Indexed base for the speed thresholds used with road elements five through seven. The values actually indexed start at $A1A9."
+  },
+  {
+   "address": 41382,
+   "type": "line",
+   "text": "First of the three lateral thresholds. Used at stage reset, and selected for element five by the indexed read at $9300."
+  },
+  {
+   "address": 41385,
+   "type": "line",
+   "text": "Speed threshold loaded into $4A at stage reset. The neighboring two entries are used with the alternate road elements."
+  },
+  {
+   "address": 41386,
+   "type": "line",
+   "text": "Sprite color by roadside graphic variant for the path at $6BA0."
+  },
+  {
+   "address": 41399,
+   "type": "line",
+   "text": "Low-byte offsets into a run of eight 64-byte sprite slots."
+  },
+  {
+   "address": 41407,
+   "type": "line",
+   "text": "High-byte offsets paired with $A1B7. The sprite loaders add these to the sprite page base."
+  },
+  {
+   "address": 41415,
+   "type": "line",
+   "text": "First color in each four-cell dashboard indicator palette, written to $D82F."
+  },
+  {
+   "address": 41416,
+   "type": "line",
+   "text": "Second dashboard indicator cell color, written to $D830."
+  },
+  {
+   "address": 41417,
+   "type": "line",
+   "text": "Third dashboard indicator cell color, written to $D831."
+  },
+  {
+   "address": 41418,
+   "type": "line",
+   "text": "Fourth dashboard indicator color, then the three remaining four-color records. The raster handler strides by four."
+  },
+  {
+   "address": 41431,
+   "type": "line",
+   "text": "Color values indexed by the road object\u2019s graphic class. The renderer patches the immediate operand at $8205."
+  },
+  {
+   "address": 41459,
+   "type": "line",
+   "text": "Vertical offsets subtracted from the sampled screen row. The table is indexed by four times the graphic group plus its sprite index."
+  },
+  {
+   "address": 41487,
+   "type": "line",
+   "text": "Horizontal offsets paired with $A1F3 and subtracted from the sampled screen column."
+  },
+  {
+   "address": 41515,
+   "type": "line",
+   "text": "First byte of the $55 fill span when it starts at each of four multicolor pixel positions."
+  },
+  {
+   "address": 41519,
+   "type": "line",
+   "text": "Road bits to OR into the last partial byte of the $55 span."
+  },
+  {
+   "address": 41523,
+   "type": "line",
+   "text": "Mask to preserve the neighboring pixels in the last byte of the fill span."
+  },
+  {
+   "address": 41527,
+   "type": "line",
+   "text": "Select zero or $55 as the fill byte for the clipped road rectangle path."
+  },
+  {
+   "address": 41529,
+   "type": "line",
+   "text": "Signed offsets added to the player position when placing or updating the active road record."
+  },
+  {
+   "address": 41537,
+   "type": "line",
+   "text": "Occupancy bit mask selected by Y for the road-event contact test at $96CE."
+  },
+  {
+   "address": 41540,
+   "type": "line",
+   "text": "Reject a candidate when the mixed timer, frame and speed byte reaches the threshold for its event group."
+  },
+  {
+   "address": 41544,
+   "type": "line",
+   "text": "Inclusive minimum distance for a roadside sound group, selected by the upper two bits of the element\u2019s second byte."
+  },
+  {
+   "address": 41548,
+   "type": "line",
+   "text": "Exclusive upper distance for the roadside sound trigger, paired with $A248."
+  },
+  {
+   "address": 41552,
+   "type": "line",
+   "text": "Sixteen adjustments to the lateral position during the countdown set after the roadside sound trigger."
+  },
+  {
+   "address": 41568,
+   "type": "line",
+   "text": "High bytes of the five place values subtracted from the distance word to count its decimal digits."
+  },
+  {
+   "address": 41573,
+   "type": "line",
+   "text": "Low bytes of the place values used in the distance field."
+  },
+  {
+   "address": 41578,
+   "type": "line",
+   "text": "First byte of each resource ID released after the high-score call. The release loop ends at a zero first byte."
+  },
+  {
+   "address": 41579,
+   "type": "line",
+   "text": "Second byte of the first release ID. Later ID pairs are read with a stride of two."
   },
   {
    "address": 41606,
@@ -8894,7 +11046,7 @@
   {
    "address": 44423,
    "type": "line",
-   "text": "Roadside bitmap record 54, 16 bytes. The leading byte supplies the row count for the renderer at $8795. The remaining bytes are the source for its one- or two-column bitmap writes."
+   "text": "Roadside bitmap record 54. The height byte is 14 and the renderer advances one byte per row. The final $FF at $AD96 lies after these rows."
   },
   {
    "address": 44439,
@@ -8959,7 +11111,7 @@
   {
    "address": 44605,
    "type": "line",
-   "text": "Roadside bitmap record 67, 22 bytes. The leading byte supplies the row count for the renderer at $8795. The remaining bytes are the source for its one- or two-column bitmap writes."
+   "text": "Roadside bitmap record 67. The height byte is 10 and the renderer advances two bytes per row. The final $4C at $AE52 lies after those rows."
   },
   {
    "address": 44627,
@@ -9262,6 +11414,26 @@
    "text": "Roadside sprite source 127, 25 bytes, indexed through the secondary base at $F2-$F3. Leading byte 40 is used when the $8261 copy path starts with a blank prefix."
   },
   {
+   "address": 58367,
+   "type": "line",
+   "text": "The eighth sprite pointer in the bank-three screen matrix. The 64-byte car overlay allocation follows at $E400."
+  },
+  {
+   "address": 58368,
+   "type": "line",
+   "text": "Car overlay sprite copied to this allocation by $71ED from the selected car\u2019s resource with second ID byte $DA."
+  },
+  {
+   "address": 58431,
+   "type": "line",
+   "text": "Last byte of the 64-byte overlay slot copied by $71ED. The VIC sprite bitmap occupies the preceding 63 bytes."
+  },
+  {
+   "address": 58432,
+   "type": "line",
+   "text": "Gear-indicator sprite constructed at $2F07 and $2F12. Setup clears the slot, then copies the first fifteen bytes from $33D5."
+  },
+  {
    "address": 61244,
    "type": "line",
    "text": "Two-byte prefix skipped by $71DE before the sprite copy."
@@ -9279,7 +11451,7 @@
   {
    "address": 61316,
    "type": "line",
-   "text": "252 packed bitmap bytes following the six-byte header."
+   "text": "Six bitmap bytes per row for the right-hand Lotus gauge. The plotter uses this source to mask the right gauge\u2019s needle sprite pixels."
   },
   {
    "address": 61568,
@@ -9289,7 +11461,7 @@
   {
    "address": 61574,
    "type": "line",
-   "text": "252 packed bitmap bytes following the six-byte header."
+   "text": "Left-hand Lotus gauge mask, 42 rows by six bytes. The needle plotter uses a three-byte half of each row according to the quadrant."
   },
   {
    "address": 61826,
@@ -9310,6 +11482,11 @@
    "address": 62286,
    "type": "line",
    "text": "800 packed bitmap bytes following the six-byte header."
+  },
+  {
+   "address": 62719,
+   "type": "line",
+   "text": "Continuation of the bitmap for resource $31/$35 from row 21, byte column 13, with zero-based coordinates. The resource row is 20 bytes wide."
   },
   {
    "address": 63086,

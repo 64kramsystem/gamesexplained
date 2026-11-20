@@ -36,7 +36,7 @@ The loader behind `$0800` accepts two-byte IDs in X and Y. The entry at `$081E` 
 |---|---|
 | TEST DRIVE!!/ESI | Initial PRG at `$0801`, BASIC SYS 2061, then cracker intro. A residue match survives elsewhere after boot. |
 | DM | 5,498 of 5,794 payload bytes match the title snapshot at `$0800`. The resident jump table and its serial disk code live here. |
-| DRIVE | Eleven bytes. The 16-byte comparison cannot establish a match. |
+| DRIVE | Eleven bytes match $03F5–$03FF in the title snapshot. A CPU read watchpoint caught the resident startup flag read at $17CE. |
 | CSET | 745 bytes. No distinctive 16-byte chunk matched the sampled title and selector captures. |
 | Directory decoration | The differently named 74-byte entries share content. The scans found no distinctive 16-byte match for these or the 506-byte unnamed entry. Their use remains open. |
 | CI, TS | Selector modules at `$2E64` and `$2FAC`. TS has a 1,811-byte executable body. |

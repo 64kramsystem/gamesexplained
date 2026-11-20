@@ -4,7 +4,7 @@
  "game": "test-drive",
  "part": "car-select",
  "build": "Decibel and Eagle Soft Incorporated side A, Eagle Soft Incorporated side B",
- "source": "regenerator2000 live",
+ "source": "regen2000proj",
  "regions": {
   "exclude": [
    [
@@ -13,13 +13,13 @@
     "stack"
    ],
    [
-    53248,
-    57343,
-    "I/O and colour RAM"
+    65529,
+    65529,
+    "Neighbouring byte left by the disk intro. The selector reaches the high nibble of $FFF8 and leaves the cursor on that byte before returning to its menu."
    ],
    [
     0,
-    11875,
+    10683,
     "Title and resident code"
    ],
    [
@@ -33,8 +33,13 @@
     "Title and resident code"
    ],
    [
+    31101,
+    34690,
+    "Title and resident code"
+   ],
+   [
     58368,
-    61439,
+    61591,
     "Title and resident code"
    ],
    [
@@ -48,6 +53,76 @@
     12204,
     14018,
     "TS executable module relocated from $2000"
+   ],
+   [
+    46489,
+    49151,
+    "GP bitmap resource ID $C3/$31"
+   ],
+   [
+    43082,
+    46488,
+    "GP bitmap resource ID $C3/$32"
+   ],
+   [
+    40272,
+    43081,
+    "GP bitmap resource ID $C3/$33"
+   ],
+   [
+    37394,
+    40271,
+    "GP bitmap resource ID $C3/$34"
+   ],
+   [
+    34691,
+    37393,
+    "GP bitmap resource ID $C3/$35"
+   ],
+   [
+    61592,
+    63902,
+    "GP bitmap resource ID $C3/$36"
+   ],
+   [
+    65240,
+    65527,
+    "GP colour resource ID _1"
+   ],
+   [
+    64869,
+    65239,
+    "GP colour resource ID _2"
+   ],
+   [
+    64570,
+    64868,
+    "GP colour resource ID _3"
+   ],
+   [
+    64258,
+    64569,
+    "GP colour resource ID _4"
+   ],
+   [
+    63903,
+    64257,
+    "GP colour resource ID _5"
+   ],
+   [
+    65528,
+    65528,
+    "The Lotus colour decoder reads the surviving intro byte beyond the end of _1"
+   ],
+   [
+    10684,
+    11322,
+    "GP module relocated to $29BC from the side B catalogue"
+   ],
+   [
+    11323,
+    11875,
+    "DP module relocated to $2C3B from the side B catalogue"
    ]
   ],
   "edges": [
@@ -64,10 +139,16 @@
    53248,
    57344
   ],
+  "beneath": [
+   [
+    53248,
+    57343
+   ]
+  ],
   "elsewhere": [
    [
     0,
-    11875,
+    10683,
     "Title and resident code"
    ],
    [
@@ -81,8 +162,13 @@
     "Title and resident code"
    ],
    [
+    31101,
+    34690,
+    "Title and resident code"
+   ],
+   [
     58368,
-    61439,
+    61591,
     "Title and resident code"
    ],
    [
@@ -93,6 +179,61 @@
   ]
  },
  "blocks": [
+  {
+   "start": 10684,
+   "end": 10687,
+   "type": "Byte"
+  },
+  {
+   "start": 10688,
+   "end": 11251,
+   "type": "Code"
+  },
+  {
+   "start": 11252,
+   "end": 11252,
+   "type": "Byte"
+  },
+  {
+   "start": 11253,
+   "end": 11277,
+   "type": "Byte"
+  },
+  {
+   "start": 11278,
+   "end": 11302,
+   "type": "Byte"
+  },
+  {
+   "start": 11303,
+   "end": 11304,
+   "type": "Byte"
+  },
+  {
+   "start": 11305,
+   "end": 11306,
+   "type": "Byte"
+  },
+  {
+   "start": 11307,
+   "end": 11322,
+   "type": "Byte"
+  },
+  {
+   "start": 11323,
+   "end": 11326,
+   "type": "Byte"
+  },
+  {
+   "start": 11327,
+   "end": 11568,
+   "type": "Code"
+  },
+  {
+   "start": 11569,
+   "end": 11875,
+   "type": "Byte"
+  },
   {
    "start": 11876,
    "end": 11879,
@@ -120,8 +261,18 @@
   },
   {
    "start": 13150,
+   "end": 13152,
+   "type": "Byte"
+  },
+  {
+   "start": 13153,
+   "end": 13255,
+   "type": "Code"
+  },
+  {
+   "start": 13256,
    "end": 13258,
-   "type": "Undefined"
+   "type": "Byte"
   },
   {
    "start": 13259,
@@ -131,7 +282,7 @@
   {
    "start": 13468,
    "end": 13563,
-   "type": "Undefined"
+   "type": "Code"
   },
   {
    "start": 13564,
@@ -141,7 +292,7 @@
   {
    "start": 13590,
    "end": 13595,
-   "type": "Undefined"
+   "type": "Code"
   },
   {
    "start": 13596,
@@ -166,40 +317,321 @@
   {
    "start": 17424,
    "end": 17436,
-   "type": "Code"
+   "type": "Byte"
   },
   {
    "start": 17437,
+   "end": 24575,
+   "type": "Undefined"
+  },
+  {
+   "start": 24576,
+   "end": 25575,
+   "type": "Byte"
+  },
+  {
+   "start": 25576,
    "end": 25599,
    "type": "Undefined"
   },
   {
    "start": 27136,
+   "end": 31100,
+   "type": "Undefined"
+  },
+  {
+   "start": 34691,
+   "end": 34700,
+   "type": "Byte"
+  },
+  {
+   "start": 34701,
+   "end": 37393,
+   "type": "Byte"
+  },
+  {
+   "start": 37394,
+   "end": 37403,
+   "type": "Byte"
+  },
+  {
+   "start": 37404,
+   "end": 40271,
+   "type": "Byte"
+  },
+  {
+   "start": 40272,
+   "end": 40281,
+   "type": "Byte"
+  },
+  {
+   "start": 40282,
+   "end": 43081,
+   "type": "Byte"
+  },
+  {
+   "start": 43082,
+   "end": 43091,
+   "type": "Byte"
+  },
+  {
+   "start": 43092,
+   "end": 46488,
+   "type": "Byte"
+  },
+  {
+   "start": 46489,
+   "end": 46498,
+   "type": "Byte"
+  },
+  {
+   "start": 46499,
+   "end": 49151,
+   "type": "Byte"
+  },
+  {
+   "start": 49152,
+   "end": 53247,
+   "type": "Undefined"
+  },
+  {
+   "start": 53248,
+   "end": 57343,
+   "type": "Byte"
+  },
+  {
+   "start": 57344,
    "end": 58367,
    "type": "Undefined"
   },
   {
-   "start": 61440,
-   "end": 65489,
-   "type": "Undefined"
+   "start": 61592,
+   "end": 61601,
+   "type": "Byte"
   },
   {
-   "start": 65490,
-   "end": 65496,
-   "type": "Code"
+   "start": 61602,
+   "end": 63902,
+   "type": "Byte"
   },
   {
-   "start": 65497,
-   "end": 65507,
-   "type": "Undefined"
+   "start": 63903,
+   "end": 63919,
+   "type": "Byte"
   },
   {
-   "start": 65508,
+   "start": 63920,
+   "end": 64257,
+   "type": "Byte"
+  },
+  {
+   "start": 64258,
+   "end": 64274,
+   "type": "Byte"
+  },
+  {
+   "start": 64275,
+   "end": 64569,
+   "type": "Byte"
+  },
+  {
+   "start": 64570,
+   "end": 64586,
+   "type": "Byte"
+  },
+  {
+   "start": 64587,
+   "end": 64868,
+   "type": "Byte"
+  },
+  {
+   "start": 64869,
+   "end": 64885,
+   "type": "Byte"
+  },
+  {
+   "start": 64886,
+   "end": 65239,
+   "type": "Byte"
+  },
+  {
+   "start": 65240,
+   "end": 65256,
+   "type": "Byte"
+  },
+  {
+   "start": 65257,
+   "end": 65527,
+   "type": "Byte"
+  },
+  {
+   "start": 65528,
+   "end": 65528,
+   "type": "Byte"
+  },
+  {
+   "start": 65529,
    "end": 65529,
-   "type": "Code"
+   "type": "Undefined"
   }
  ],
  "symbols": [
+  {
+   "address": 10684,
+   "name": "gp_module_header",
+   "type": "Field",
+   "kind": "user"
+  },
+  {
+   "address": 10688,
+   "name": "decode_selector_bitmap",
+   "type": "Subroutine",
+   "kind": "user"
+  },
+  {
+   "address": 10772,
+   "name": "expand_bitmap_tokens",
+   "type": "Subroutine",
+   "kind": "user"
+  },
+  {
+   "address": 10843,
+   "name": "advance_bitmap_destination",
+   "type": "Subroutine",
+   "kind": "user"
+  },
+  {
+   "address": 10913,
+   "name": "read_packed_bitmap_byte",
+   "type": "Subroutine",
+   "kind": "user"
+  },
+  {
+   "address": 10927,
+   "name": "decode_selector_colour",
+   "type": "Subroutine",
+   "kind": "user"
+  },
+  {
+   "address": 11048,
+   "name": "reset_colour_rectangle_cursor",
+   "type": "Subroutine",
+   "kind": "user"
+  },
+  {
+   "address": 11057,
+   "name": "read_colour_count_byte",
+   "type": "Subroutine",
+   "kind": "user"
+  },
+  {
+   "address": 11073,
+   "name": "read_packed_colour_nibble",
+   "type": "Subroutine",
+   "kind": "user"
+  },
+  {
+   "address": 11105,
+   "name": "read_colour_escape_table",
+   "type": "Subroutine",
+   "kind": "user"
+  },
+  {
+   "address": 11128,
+   "name": "write_decoded_colour",
+   "type": "Subroutine",
+   "kind": "user"
+  },
+  {
+   "address": 11252,
+   "name": "colour_writer_trailing_zero",
+   "type": "Field",
+   "kind": "user"
+  },
+  {
+   "address": 11253,
+   "name": "colour_row_offset_lo",
+   "type": "Field",
+   "kind": "user"
+  },
+  {
+   "address": 11278,
+   "name": "colour_row_offset_hi",
+   "type": "Field",
+   "kind": "user"
+  },
+  {
+   "address": 11303,
+   "name": "colour_nibble_mask_pair",
+   "type": "Field",
+   "kind": "user"
+  },
+  {
+   "address": 11305,
+   "name": "bitmap_compositing_opcodes",
+   "type": "Field",
+   "kind": "user"
+  },
+  {
+   "address": 11307,
+   "name": "colour_nibble_to_high_bits",
+   "type": "Field",
+   "kind": "user"
+  },
+  {
+   "address": 11323,
+   "name": "dp_module_header",
+   "type": "Field",
+   "kind": "user"
+  },
+  {
+   "address": 11327,
+   "name": "prepare_selector_transition",
+   "type": "Subroutine",
+   "kind": "user"
+  },
+  {
+   "address": 11394,
+   "name": "merge_selector_bitmap_pass",
+   "type": "Subroutine",
+   "kind": "user"
+  },
+  {
+   "address": 11480,
+   "name": "mask_selector_bitmap_pass",
+   "type": "Subroutine",
+   "kind": "user"
+  },
+  {
+   "address": 11569,
+   "name": "dp_post_code_byte",
+   "type": "Field",
+   "kind": "user"
+  },
+  {
+   "address": 11570,
+   "name": "transition_bitmap_page_order",
+   "type": "Field",
+   "kind": "user"
+  },
+  {
+   "address": 11602,
+   "name": "transition_bitmap_byte_order",
+   "type": "Field",
+   "kind": "user"
+  },
+  {
+   "address": 11858,
+   "name": "transition_bitmap_merge_masks",
+   "type": "Field",
+   "kind": "user"
+  },
+  {
+   "address": 11867,
+   "name": "transition_bitmap_clear_masks",
+   "type": "Field",
+   "kind": "user"
+  },
   {
    "address": 11876,
    "name": "selection_dispatch_header",
@@ -346,9 +778,9 @@
   },
   {
    "address": 12798,
-   "name": "a_31FE",
-   "type": "AbsoluteAddress",
-   "kind": "auto"
+   "name": "cockpit_transition_delay_operand",
+   "type": "UserDefined",
+   "kind": "user"
   },
   {
    "address": 12804,
@@ -364,9 +796,9 @@
   },
   {
    "address": 12806,
-   "name": "a_3206",
-   "type": "AbsoluteAddress",
-   "kind": "auto"
+   "name": "first_transition_asset_list_hi",
+   "type": "UserDefined",
+   "kind": "user"
   },
   {
    "address": 12817,
@@ -382,21 +814,27 @@
   },
   {
    "address": 12819,
-   "name": "a_3213",
-   "type": "AbsoluteAddress",
-   "kind": "auto"
+   "name": "first_transition_colour_list_hi",
+   "type": "UserDefined",
+   "kind": "user"
   },
   {
    "address": 12870,
-   "name": "b_3246",
-   "type": "Branch",
-   "kind": "auto"
+   "name": "wait_for_transition_pitch",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 12890,
+   "name": "read_second_transition_asset_lists",
+   "type": "UserDefined",
+   "kind": "user"
   },
   {
    "address": 12929,
-   "name": "j_3281",
-   "type": "Jump",
-   "kind": "auto"
+   "name": "animate_second_transition",
+   "type": "UserDefined",
+   "kind": "user"
   },
   {
    "address": 12968,
@@ -412,9 +850,9 @@
   },
   {
    "address": 12970,
-   "name": "a_32AA",
-   "type": "AbsoluteAddress",
-   "kind": "auto"
+   "name": "second_transition_asset_list_hi",
+   "type": "UserDefined",
+   "kind": "user"
   },
   {
    "address": 12977,
@@ -436,9 +874,9 @@
   },
   {
    "address": 12980,
-   "name": "a_32B4",
-   "type": "AbsoluteAddress",
-   "kind": "auto"
+   "name": "second_transition_companion_list_hi",
+   "type": "UserDefined",
+   "kind": "user"
   },
   {
    "address": 13007,
@@ -495,6 +933,12 @@
    "kind": "auto"
   },
   {
+   "address": 13150,
+   "name": "transition_irq_vector_tag",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
    "address": 13151,
    "name": "a_335F",
    "type": "AbsoluteAddress",
@@ -502,9 +946,21 @@
   },
   {
    "address": 13152,
-   "name": "a_3360",
-   "type": "AbsoluteAddress",
-   "kind": "auto"
+   "name": "transition_irq_vector_hi",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 13153,
+   "name": "selector_transition_irq",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 13212,
+   "name": "apply_transition_scroll",
+   "type": "UserDefined",
+   "kind": "user"
   },
   {
    "address": 13257,
@@ -574,21 +1030,27 @@
   },
   {
    "address": 13459,
-   "name": "a_3493",
-   "type": "AbsoluteAddress",
-   "kind": "auto"
+   "name": "transition_sound_call_gate",
+   "type": "UserDefined",
+   "kind": "user"
   },
   {
    "address": 13468,
-   "name": "a_349C",
-   "type": "AbsoluteAddress",
-   "kind": "auto"
+   "name": "transition_pitch_call_gate",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 13471,
+   "name": "update_transition_pitch",
+   "type": "UserDefined",
+   "kind": "user"
   },
   {
    "address": 13564,
-   "name": "s_34FC",
-   "type": "Subroutine",
-   "kind": "auto"
+   "name": "read_selector_music_key",
+   "type": "UserDefined",
+   "kind": "user"
   },
   {
    "address": 13581,
@@ -598,15 +1060,21 @@
   },
   {
    "address": 13582,
-   "name": "s_350E",
-   "type": "Subroutine",
-   "kind": "auto"
+   "name": "wait_selector_ticks",
+   "type": "UserDefined",
+   "kind": "user"
   },
   {
    "address": 13585,
    "name": "b_3511",
    "type": "Branch",
    "kind": "auto"
+  },
+  {
+   "address": 13590,
+   "name": "fixed_selector_bitmap_span",
+   "type": "UserDefined",
+   "kind": "user"
   },
   {
    "address": 13596,
@@ -658,9 +1126,9 @@
   },
   {
    "address": 13735,
-   "name": "s_35A7",
-   "type": "Subroutine",
-   "kind": "auto"
+   "name": "await_selector_display_request",
+   "type": "UserDefined",
+   "kind": "user"
   },
   {
    "address": 13737,
@@ -706,9 +1174,9 @@
   },
   {
    "address": 13869,
-   "name": "s_362D",
-   "type": "Subroutine",
-   "kind": "auto"
+   "name": "apply_selector_resident_mode",
+   "type": "UserDefined",
+   "kind": "user"
   },
   {
    "address": 13874,
@@ -718,69 +1186,69 @@
   },
   {
    "address": 13895,
-   "name": "a_3647",
-   "type": "AbsoluteAddress",
-   "kind": "auto"
+   "name": "packed_selector_archive_id_x",
+   "type": "UserDefined",
+   "kind": "user"
   },
   {
    "address": 13897,
-   "name": "a_3649",
-   "type": "AbsoluteAddress",
-   "kind": "auto"
+   "name": "packed_selector_archive_id_y",
+   "type": "UserDefined",
+   "kind": "user"
   },
   {
    "address": 13902,
-   "name": "f_364E",
-   "type": "Field",
-   "kind": "auto"
+   "name": "selector_transition_band_steps",
+   "type": "UserDefined",
+   "kind": "user"
   },
   {
    "address": 13935,
-   "name": "f_366F",
-   "type": "Field",
-   "kind": "auto"
+   "name": "selector_scroll_values",
+   "type": "UserDefined",
+   "kind": "user"
   },
   {
    "address": 13943,
-   "name": "f_3677",
-   "type": "Field",
-   "kind": "auto"
+   "name": "selector_matrix_row_offsets_lo",
+   "type": "UserDefined",
+   "kind": "user"
   },
   {
    "address": 13968,
-   "name": "f_3690",
-   "type": "Field",
-   "kind": "auto"
+   "name": "selector_matrix_row_offsets_hi",
+   "type": "UserDefined",
+   "kind": "user"
   },
   {
    "address": 13993,
-   "name": "f_36A9",
+   "name": "selector_irq_next_phase",
    "type": "Field",
-   "kind": "auto"
+   "kind": "user"
   },
   {
    "address": 13995,
-   "name": "f_36AB",
+   "name": "selector_irq_mode_bits",
    "type": "Field",
-   "kind": "auto"
+   "kind": "user"
   },
   {
    "address": 13997,
-   "name": "f_36AD",
+   "name": "selector_irq_raster_lines",
    "type": "Field",
-   "kind": "auto"
+   "kind": "user"
   },
   {
    "address": 13999,
-   "name": "f_36AF",
+   "name": "selector_irq_scroll_bits",
    "type": "Field",
-   "kind": "auto"
+   "kind": "user"
   },
   {
    "address": 14001,
-   "name": "f_36B1",
-   "type": "Field",
-   "kind": "auto"
+   "name": "selector_direction_changes",
+   "type": "UserDefined",
+   "kind": "user"
   },
   {
    "address": 14010,
@@ -789,58 +1257,202 @@
    "kind": "user"
   },
   {
-   "address": 24576,
-   "name": "f_6000",
+   "address": 17424,
+   "name": "selector_bitmap_at_4410",
    "type": "Field",
-   "kind": "auto"
+   "kind": "user"
+  },
+  {
+   "address": 24576,
+   "name": "selector_matrix_page_0",
+   "type": "Field",
+   "kind": "user"
   },
   {
    "address": 24832,
-   "name": "f_6100",
+   "name": "selector_matrix_page_1",
    "type": "Field",
-   "kind": "auto"
+   "kind": "user"
   },
   {
    "address": 25088,
-   "name": "f_6200",
+   "name": "selector_matrix_page_2",
    "type": "Field",
-   "kind": "auto"
+   "kind": "user"
   },
   {
    "address": 25344,
-   "name": "f_6300",
+   "name": "selector_matrix_page_3",
    "type": "Field",
-   "kind": "auto"
+   "kind": "user"
   },
   {
-   "address": 32937,
-   "name": "a_80A9",
-   "type": "AbsoluteAddress",
-   "kind": "auto"
+   "address": 34691,
+   "name": "corvette_selector_bitmap_header",
+   "type": "Field",
+   "kind": "user"
+  },
+  {
+   "address": 34701,
+   "name": "corvette_selector_bitmap_tokens_000a",
+   "type": "Field",
+   "kind": "user"
+  },
+  {
+   "address": 35725,
+   "name": "corvette_selector_bitmap_tokens_040a",
+   "type": "Field",
+   "kind": "user"
   },
   {
    "address": 36639,
-   "name": "f_8F1F",
+   "name": "corvette_selector_bitmap_tokens_079c",
    "type": "Field",
-   "kind": "auto"
+   "kind": "user"
+  },
+  {
+   "address": 36749,
+   "name": "corvette_selector_bitmap_tokens_080a",
+   "type": "Field",
+   "kind": "user"
   },
   {
    "address": 37033,
-   "name": "a_90A9",
-   "type": "AbsoluteAddress",
-   "kind": "auto"
+   "name": "corvette_selector_bitmap_tokens_0926",
+   "type": "Field",
+   "kind": "user"
+  },
+  {
+   "address": 37394,
+   "name": "ferrari_selector_bitmap_header",
+   "type": "Field",
+   "kind": "user"
+  },
+  {
+   "address": 37404,
+   "name": "ferrari_selector_bitmap_tokens_000a",
+   "type": "Field",
+   "kind": "user"
+  },
+  {
+   "address": 38428,
+   "name": "ferrari_selector_bitmap_tokens_040a",
+   "type": "Field",
+   "kind": "user"
+  },
+  {
+   "address": 39452,
+   "name": "ferrari_selector_bitmap_tokens_080a",
+   "type": "Field",
+   "kind": "user"
+  },
+  {
+   "address": 40272,
+   "name": "porsche_selector_bitmap_header",
+   "type": "Field",
+   "kind": "user"
+  },
+  {
+   "address": 40282,
+   "name": "porsche_selector_bitmap_tokens_000a",
+   "type": "Field",
+   "kind": "user"
+  },
+  {
+   "address": 40960,
+   "name": "porsche_selector_bitmap_tokens_02b0",
+   "type": "Field",
+   "kind": "user"
+  },
+  {
+   "address": 41306,
+   "name": "porsche_selector_bitmap_tokens_040a",
+   "type": "Field",
+   "kind": "user"
+  },
+  {
+   "address": 42330,
+   "name": "porsche_selector_bitmap_tokens_080a",
+   "type": "Field",
+   "kind": "user"
+  },
+  {
+   "address": 43082,
+   "name": "lamborghini_selector_bitmap_header",
+   "type": "Field",
+   "kind": "user"
+  },
+  {
+   "address": 43092,
+   "name": "lamborghini_selector_bitmap_tokens_000a",
+   "type": "Field",
+   "kind": "user"
+  },
+  {
+   "address": 44116,
+   "name": "lamborghini_selector_bitmap_tokens_040a",
+   "type": "Field",
+   "kind": "user"
+  },
+  {
+   "address": 45140,
+   "name": "lamborghini_selector_bitmap_tokens_080a",
+   "type": "Field",
+   "kind": "user"
+  },
+  {
+   "address": 46164,
+   "name": "lamborghini_selector_bitmap_tokens_0c0a",
+   "type": "Field",
+   "kind": "user"
+  },
+  {
+   "address": 46489,
+   "name": "lotus_selector_bitmap_header",
+   "type": "Field",
+   "kind": "user"
+  },
+  {
+   "address": 46499,
+   "name": "lotus_selector_bitmap_tokens_000a",
+   "type": "Field",
+   "kind": "user"
   },
   {
    "address": 47385,
-   "name": "f_B919",
+   "name": "lotus_selector_bitmap_tokens_0380",
    "type": "Field",
-   "kind": "auto"
+   "kind": "user"
+  },
+  {
+   "address": 47523,
+   "name": "lotus_selector_bitmap_tokens_040a",
+   "type": "Field",
+   "kind": "user"
+  },
+  {
+   "address": 48547,
+   "name": "lotus_selector_bitmap_tokens_080a",
+   "type": "Field",
+   "kind": "user"
+  },
+  {
+   "address": 53248,
+   "name": "selector_second_bitmap_under_io",
+   "type": "Field",
+   "kind": "user"
+  },
+  {
+   "address": 54272,
+   "name": "selector_second_bitmap_slice_1",
+   "type": "Field",
+   "kind": "user"
   },
   {
    "address": 55296,
-   "name": "f_D800",
+   "name": "selector_second_bitmap_slice_2",
    "type": "Field",
-   "kind": "auto"
+   "kind": "user"
   },
   {
    "address": 55552,
@@ -859,6 +1471,12 @@
    "name": "f_DB00",
    "type": "Field",
    "kind": "auto"
+  },
+  {
+   "address": 56320,
+   "name": "selector_second_bitmap_slice_3",
+   "type": "Field",
+   "kind": "user"
   },
   {
    "address": 57089,
@@ -909,25 +1527,233 @@
    "kind": "auto"
   },
   {
+   "address": 61592,
+   "name": "selector_shared_bitmap_header",
+   "type": "Field",
+   "kind": "user"
+  },
+  {
+   "address": 61602,
+   "name": "selector_shared_bitmap_tokens_000a",
+   "type": "Field",
+   "kind": "user"
+  },
+  {
+   "address": 62626,
+   "name": "selector_shared_bitmap_tokens_040a",
+   "type": "Field",
+   "kind": "user"
+  },
+  {
    "address": 62719,
-   "name": "a_F4FF",
-   "type": "AbsoluteAddress",
-   "kind": "auto"
+   "name": "selector_shared_bitmap_tokens_0467",
+   "type": "Field",
+   "kind": "user"
   },
   {
-   "address": 65490,
-   "name": "KERNAL_CHROUT",
-   "type": "Predefined",
-   "kind": "system"
+   "address": 63650,
+   "name": "selector_shared_bitmap_tokens_080a",
+   "type": "Field",
+   "kind": "user"
   },
   {
-   "address": 65508,
-   "name": "KERNAL_GETIN",
-   "type": "Predefined",
-   "kind": "system"
+   "address": 63903,
+   "name": "selector_colour_5_header",
+   "type": "Field",
+   "kind": "user"
+  },
+  {
+   "address": 63920,
+   "name": "selector_colour_5_tokens",
+   "type": "Field",
+   "kind": "user"
+  },
+  {
+   "address": 64258,
+   "name": "selector_colour_4_header",
+   "type": "Field",
+   "kind": "user"
+  },
+  {
+   "address": 64275,
+   "name": "selector_colour_4_tokens",
+   "type": "Field",
+   "kind": "user"
+  },
+  {
+   "address": 64570,
+   "name": "selector_colour_3_header",
+   "type": "Field",
+   "kind": "user"
+  },
+  {
+   "address": 64587,
+   "name": "selector_colour_3_tokens",
+   "type": "Field",
+   "kind": "user"
+  },
+  {
+   "address": 64869,
+   "name": "selector_colour_2_header",
+   "type": "Field",
+   "kind": "user"
+  },
+  {
+   "address": 64886,
+   "name": "selector_colour_2_tokens",
+   "type": "Field",
+   "kind": "user"
+  },
+  {
+   "address": 65240,
+   "name": "selector_colour_1_header",
+   "type": "Field",
+   "kind": "user"
+  },
+  {
+   "address": 65257,
+   "name": "selector_colour_1_tokens",
+   "type": "Field",
+   "kind": "user"
+  },
+  {
+   "address": 65528,
+   "name": "lotus_colour_token_overread",
+   "type": "Field",
+   "kind": "user"
   }
  ],
  "comments": [
+  {
+   "address": 10684,
+   "type": "line",
+   "text": "Relocated entry $29C0 followed by the $027B-byte GP body length."
+  },
+  {
+   "address": 10688,
+   "type": "line",
+   "text": "Look up the bitmap resource named by $38\u2013$39, set the bitmap base from $34, and read the traversal flag and nine escape tokens. A resource ID of $FFFF jumps into the colour path."
+  },
+  {
+   "address": 10772,
+   "type": "line",
+   "text": "Read literal bytes and repeat records through $2AA1. Escape index zero supplies its own count, while the other indices determine the count. Advance the bitmap destination through $2A5B after each output byte."
+  },
+  {
+   "address": 10843,
+   "type": "line",
+   "text": "Advance the bitmap position after a decoded byte. The flag read from the bitmap sets the order of columns and scanlines."
+  },
+  {
+   "address": 10913,
+   "type": "line",
+   "text": "Read the next packed bitmap byte through an absolute operand patched with the resource pointer and advance that operand."
+  },
+  {
+   "address": 10927,
+   "type": "line",
+   "text": "Resolve the colour resource, read its rectangle header and initialize the colour escape table. Feed decoded values and runs to $2B78 until the writer signals that the rectangle is complete."
+  },
+  {
+   "address": 11048,
+   "type": "line",
+   "text": "Zero the column, row and plane counters in $7E, $7F and $7D."
+  },
+  {
+   "address": 11057,
+   "type": "line",
+   "text": "Read two packed nibbles and combine them into one explicit repeat count by patching the immediate OR operand."
+  },
+  {
+   "address": 11073,
+   "type": "line",
+   "text": "Read through $04\u2013$05, return the high nibble first, then the low nibble. Advance the pointer after the low nibble."
+  },
+  {
+   "address": 11105,
+   "type": "line",
+   "text": "Reset the nibble phase, read ten colour escapes beginning at offset seven, then advance the source pointer 17 bytes to the packed colour stream."
+  },
+  {
+   "address": 11128,
+   "type": "line",
+   "text": "Write the decoded colour value into the current section of the rectangle and advance the destination. The placement and size derive from the loaded colour header."
+  },
+  {
+   "address": 11252,
+   "type": "line",
+   "text": "Zero byte after the return at $2BF3 and before the 25-entry row-offset low table that begins at $2BF5."
+  },
+  {
+   "address": 11253,
+   "type": "line",
+   "text": "Low bytes of 25 screen row offsets at forty bytes per row. The colour writer reads this at $2B9A."
+  },
+  {
+   "address": 11278,
+   "type": "line",
+   "text": "High bytes of the same row offsets, added to the base page of the selected screen or colour plane at $2BA1."
+  },
+  {
+   "address": 11303,
+   "type": "line",
+   "text": "Complementary high- and low-nibble bit masks between the row-offset high table and the bitmap compositor opcode table."
+  },
+  {
+   "address": 11305,
+   "type": "line",
+   "text": "The two GP opcodes are BIT zero page and EOR indirect indexed. GP patches the bitmap writer with one of them to select direct storage or an exclusive-OR merge."
+  },
+  {
+   "address": 11307,
+   "type": "line",
+   "text": "Nibble values shifted left by four bits. The second screen pass preserves the low nibble of the destination and uses this table for the new high nibble."
+  },
+  {
+   "address": 11323,
+   "type": "line",
+   "text": "Relocated entry $2C3F followed by the $0225-byte DP body length."
+  },
+  {
+   "address": 11327,
+   "type": "line",
+   "text": "Take a mode byte from the caller stack. Bit 1 requests a four-page copy using the high bytes in $36 and $37. Bit 0 chooses between the bitmap merge and mask-only paths."
+  },
+  {
+   "address": 11394,
+   "type": "line",
+   "text": "Visit the first bitmap using the page and byte permutations at $2D32 and $2D52. Mask each byte and merge it into the corresponding byte of the second bitmap."
+  },
+  {
+   "address": 11480,
+   "type": "line",
+   "text": "Visit the pages of the second bitmap in permuted order and clear selected bits through the mask table at $2E5B."
+  },
+  {
+   "address": 11569,
+   "type": "line",
+   "text": "Zero byte between the mask pass return and the start of the page permutation table."
+  },
+  {
+   "address": 11570,
+   "type": "line",
+   "text": "Permutation of the 32 bitmap page indices. The two loops at $2C8B and $2CEF OR each entry with a bitmap bank high byte."
+  },
+  {
+   "address": 11602,
+   "type": "line",
+   "text": "Permutation of the 256 offsets within a bitmap page. The loops at $2C84 and $2CE8 use the selected value as their byte index."
+  },
+  {
+   "address": 11858,
+   "type": "line",
+   "text": "Mask table indexed by the pass counter in the source bitmap merge at $2CA3."
+  },
+  {
+   "address": 11867,
+   "type": "line",
+   "text": "Mask table for the destination-only pass. The AND at $2CFF uses the current pass index."
+  },
   {
    "address": 11876,
    "type": "line",
@@ -984,9 +1810,129 @@
    "text": "Copy 32 pages between the bitmap buffers selected by $34 and $35. Invoke the graphics loader and look up the car-specific assets by the selected car's suffix."
   },
   {
+   "address": 12798,
+   "type": "line",
+   "text": "Immediate delay input to $350E. Its value comes from the second byte of the selected car's pair at $31F3."
+  },
+  {
+   "address": 12804,
+   "type": "line",
+   "text": "Load the first specification transition resource ID for index $DE. A zero ID ends this transition list."
+  },
+  {
+   "address": 12805,
+   "type": "line",
+   "text": "Low byte of the list address used by $3204. The selector patches it at $31C4 from the CI record selected by $40."
+  },
+  {
+   "address": 12806,
+   "type": "line",
+   "text": "High byte of the indexed load at $3204, patched from the CI table by $31CA."
+  },
+  {
+   "address": 12817,
+   "type": "line",
+   "text": "Load the second specification transition resource ID for the same index, then pass it to the colour overlay lookup."
+  },
+  {
+   "address": 12818,
+   "type": "line",
+   "text": "Low byte of the list address used by $3211. The selector patches it at $31D1 from the same CI record."
+  },
+  {
+   "address": 12819,
+   "type": "line",
+   "text": "High byte of the indexed load at $3211. The CI table supplies the target at $31D7. The remaining loop temporarily adjusts each colour resource's vertical origin for the GP blit and restores it afterward."
+  },
+  {
+   "address": 12870,
+   "type": "line",
+   "text": "Wait until $42 is below ten, then choose the next pitch step and reset the transition's resource cursor."
+  },
+  {
+   "address": 12890,
+   "type": "line",
+   "text": "Compute the selected car's CI record index and patch the two absolute loads at $32A8 and $32B2."
+  },
+  {
+   "address": 12929,
+   "type": "line",
+   "text": "Use the timing table at $364E to choose the next bitmap band. Draw the pair of resources at the current list index, then request a display update."
+  },
+  {
+   "address": 12968,
+   "type": "line",
+   "text": "Read the first resource ID for this transition frame. Zero resets the list index to zero before trying again."
+  },
+  {
+   "address": 12969,
+   "type": "line",
+   "text": "Low byte of the list address used by $32A8. The store at $3267 takes it from the selected car record."
+  },
+  {
+   "address": 12970,
+   "type": "line",
+   "text": "High operand byte of $32A8, populated from the selected CI record before its first lookup."
+  },
+  {
+   "address": 12978,
+   "type": "line",
+   "text": "Load the paired transition resource ID at the index that supplied the first ID at $32A8."
+  },
+  {
+   "address": 12979,
+   "type": "line",
+   "text": "Low byte of the paired list address, written at $3274 before the transition loop."
+  },
+  {
+   "address": 12980,
+   "type": "line",
+   "text": "High operand byte of $32B2, from the second pointer in the same record."
+  },
+  {
    "address": 13007,
    "type": "line",
    "text": "Synchronize the $D418 writes with the counter at $30 and lower the volume from 12 to zero."
+  },
+  {
+   "address": 13150,
+   "type": "line",
+   "text": "Opcode-tagged address of the IRQ entry at $3361. $333A and $3340 read the address bytes."
+  },
+  {
+   "address": 13151,
+   "type": "line",
+   "text": "Low byte of the first selector IRQ vector. Startup copies it to $0314 at $2FB8."
+  },
+  {
+   "address": 13152,
+   "type": "line",
+   "text": "High byte of the alternate selector IRQ vector, installed at $3343."
+  },
+  {
+   "address": 13153,
+   "type": "line",
+   "text": "Acknowledge the VIC interrupt and advance $30. Process pending bank and scroll changes, latch fire, check the keyboard and service music before resuming the KERNAL IRQ."
+  },
+  {
+   "address": 13212,
+   "type": "line",
+   "text": "If requested by $32, combine the upper bits of $D016 with the pending scroll value at $33. Test for port 2 fire before restoring the port and leaving the interrupt."
+  },
+  {
+   "address": 13256,
+   "type": "line",
+   "text": "Absolute-load opcode byte before the two-byte IRQ vector at $33C9. The setup at $300D reads the vector starting one byte later."
+  },
+  {
+   "address": 13257,
+   "type": "line",
+   "text": "Low byte of the second selector IRQ vector. Setup writes it to $0314 at $3010."
+  },
+  {
+   "address": 13258,
+   "type": "line",
+   "text": "High byte of the second selector IRQ vector. Setup writes it to $0315 at $3016."
   },
   {
    "address": 13259,
@@ -999,9 +1945,44 @@
    "text": "Find the active-low direction nibble in the table at $36BA and put its index in $E2. OR an active fire button into the confirmation latch at $46."
   },
   {
+   "address": 13459,
+   "type": "line",
+   "text": "Patched to JSR during transition sound and restored to BIT after the fade. The operand targets the second gate at $349C."
+  },
+  {
+   "address": 13468,
+   "type": "line",
+   "text": "A BIT instruction ordinarily skips the resident call at $0842. The transition patches its opcode to JSR while the effect is active."
+  },
+  {
+   "address": 13471,
+   "type": "line",
+   "text": "Advance the pitch accumulator and clamp it to the bounds checked at $34AF and $34BF before writing the scaled frequency to SID voice 1. Preserve the caller's $04 pointer."
+  },
+  {
+   "address": 13564,
+   "type": "line",
+   "text": "If the keyboard queue contains M, invert the flag at $5A."
+  },
+  {
+   "address": 13582,
+   "type": "line",
+   "text": "Add A to the running IRQ tick at $30 and wait for that value."
+  },
+  {
+   "address": 13590,
+   "type": "line",
+   "text": "Supply scanline bounds $78 and $C8 to the alternate entry into the bitmap copier."
+  },
+  {
    "address": 13596,
    "type": "line",
    "text": "Work with the selected offset and the visible bitmap addresses computed from the row and column tables."
+  },
+  {
+   "address": 13735,
+   "type": "line",
+   "text": "Set the display request at $31 from A and spin until the IRQ clears it."
   },
   {
    "address": 13742,
@@ -1009,14 +1990,329 @@
    "text": "Resolve the resource with the module lookup, read dimensions and position from its six-byte header, apply the current animation offsets, then draw the bitmap at the selected bank."
   },
   {
+   "address": 13869,
+   "type": "line",
+   "text": "Invoke the resident service at $0824 with Y equal to $F2."
+  },
+  {
    "address": 13874,
    "type": "line",
    "text": "Call UJ with the selected two-byte asset ID on the stack, then free the reusable graphic item identified by the self-modifying operands at $3647 and $3649."
   },
   {
+   "address": 13895,
+   "type": "line",
+   "text": "Immediate at $3646, patched with the first original archive ID byte before calling UJ."
+  },
+  {
+   "address": 13897,
+   "type": "line",
+   "text": "Immediate at $3648, patched with the second original archive ID byte for the tail call to $0806."
+  },
+  {
+   "address": 13901,
+   "type": "line",
+   "text": "Zero byte immediately before the transition band increments. The indexed load at $3283 starts at $364E."
+  },
+  {
+   "address": 13902,
+   "type": "line",
+   "text": "Values added to the fine scroll residue by $3288. A zero ends the band animation and enters the volume fade."
+  },
+  {
+   "address": 13935,
+   "type": "line",
+   "text": "Map the eight possible low scroll bits to the value written into $33 before the display request."
+  },
+  {
+   "address": 13943,
+   "type": "line",
+   "text": "Low bytes of row times 40, used by the matrix-copy loop at $3575."
+  },
+  {
+   "address": 13968,
+   "type": "line",
+   "text": "High bytes paired with $3677. The copy combines them with the screen page."
+  },
+  {
+   "address": 13993,
+   "type": "line",
+   "text": "Two next-phase values indexed by $DD. The IRQ at $33E9 alternates the phase between one and zero."
+  },
+  {
+   "address": 13995,
+   "type": "line",
+   "text": "Per-phase bits ORed with $36AF,X and sent to VIC-II $D016 at $33E0."
+  },
+  {
+   "address": 13997,
+   "type": "line",
+   "text": "Two raster compare values sent to $D012 at $33E6."
+  },
+  {
+   "address": 13999,
+   "type": "line",
+   "text": "Per-phase bits combined with $36AB,X at $33DD. The transition handler updates the first byte at $33FF."
+  },
+  {
+   "address": 14001,
+   "type": "line",
+   "text": "Indexed by the direction result from $E2. Zero leaves the current car and the signed entries advance or decrement the selection."
+  },
+  {
    "address": 14010,
    "type": "line",
    "text": "Nine active-low direction patterns read by the input loop at $3470."
+  },
+  {
+   "address": 17424,
+   "type": "line",
+   "text": "Generated selector bitmap bytes at offset $0410 of the bitmap at $4000. The range is zero at TS entry and is part of the Lotus image after GP runs."
+  },
+  {
+   "address": 24576,
+   "type": "line",
+   "text": "Selector bitmap colour matrix cells 0 through 255 in raster order, 40 cells per row. The packed colour writer at $2B78 combines the first two planes here."
+  },
+  {
+   "address": 24832,
+   "type": "line",
+   "text": "Selector bitmap colour matrix cells 256 through 511 in raster order, 40 cells per row. The packed colour writer at $2B78 combines the first two planes here."
+  },
+  {
+   "address": 25088,
+   "type": "line",
+   "text": "Selector bitmap colour matrix cells 512 through 767 in raster order, 40 cells per row. The packed colour writer at $2B78 combines the first two planes here."
+  },
+  {
+   "address": 25344,
+   "type": "line",
+   "text": "Selector bitmap colour matrix cells 768 through 999 in raster order, 40 cells per row. The packed colour writer at $2B78 combines the first two planes here."
+  },
+  {
+   "address": 34691,
+   "type": "line",
+   "text": "Packed bitmap for the Corvette. GP reads the traversal flag and nine escape tokens before decoding the bitmap stream."
+  },
+  {
+   "address": 34701,
+   "type": "line",
+   "text": "Packed Corvette bitmap stream at offset $000A in resource $C3/$35. GP at $2A14 reads literals and escape-coded runs in the traversal order chosen by the header."
+  },
+  {
+   "address": 35725,
+   "type": "line",
+   "text": "Packed Corvette bitmap stream at offset $040A in resource $C3/$35. GP at $2A14 reads literals and escape-coded runs in the traversal order chosen by the header."
+  },
+  {
+   "address": 36639,
+   "type": "line",
+   "text": "Packed Corvette bitmap stream at offset $079C in resource $C3/$35. GP at $2A14 reads literals and escape-coded runs in the traversal order chosen by the header."
+  },
+  {
+   "address": 36749,
+   "type": "line",
+   "text": "Packed Corvette bitmap stream at offset $080A in resource $C3/$35. GP at $2A14 reads literals and escape-coded runs in the traversal order chosen by the header."
+  },
+  {
+   "address": 37033,
+   "type": "line",
+   "text": "Packed Corvette bitmap stream at offset $0926 in resource $C3/$35. GP at $2A14 reads literals and escape-coded runs in the traversal order chosen by the header."
+  },
+  {
+   "address": 37394,
+   "type": "line",
+   "text": "Packed bitmap for the Ferrari. GP reads the traversal flag and nine escape tokens before decoding the bitmap stream."
+  },
+  {
+   "address": 37404,
+   "type": "line",
+   "text": "Packed Ferrari bitmap stream at offset $000A in resource $C3/$34. GP at $2A14 reads literals and escape-coded runs in the traversal order chosen by the header."
+  },
+  {
+   "address": 38428,
+   "type": "line",
+   "text": "Packed Ferrari bitmap stream at offset $040A in resource $C3/$34. GP at $2A14 reads literals and escape-coded runs in the traversal order chosen by the header."
+  },
+  {
+   "address": 39452,
+   "type": "line",
+   "text": "Packed Ferrari bitmap stream at offset $080A in resource $C3/$34. GP at $2A14 reads literals and escape-coded runs in the traversal order chosen by the header."
+  },
+  {
+   "address": 40272,
+   "type": "line",
+   "text": "Packed bitmap for the Porsche. GP reads the traversal flag and nine escape tokens before decoding the bitmap stream."
+  },
+  {
+   "address": 40282,
+   "type": "line",
+   "text": "Packed Porsche bitmap stream at offset $000A in resource $C3/$33. GP at $2A14 reads literals and escape-coded runs in the traversal order chosen by the header."
+  },
+  {
+   "address": 40960,
+   "type": "line",
+   "text": "Packed Porsche bitmap stream at offset $02B0 in resource $C3/$33. GP at $2A14 reads literals and escape-coded runs in the traversal order chosen by the header."
+  },
+  {
+   "address": 41306,
+   "type": "line",
+   "text": "Packed Porsche bitmap stream at offset $040A in resource $C3/$33. GP at $2A14 reads literals and escape-coded runs in the traversal order chosen by the header."
+  },
+  {
+   "address": 42330,
+   "type": "line",
+   "text": "Packed Porsche bitmap stream at offset $080A in resource $C3/$33. GP at $2A14 reads literals and escape-coded runs in the traversal order chosen by the header."
+  },
+  {
+   "address": 43082,
+   "type": "line",
+   "text": "Packed bitmap for the Lamborghini. GP reads the traversal flag and nine escape tokens before decoding the bitmap stream."
+  },
+  {
+   "address": 43092,
+   "type": "line",
+   "text": "Packed Lamborghini bitmap stream at offset $000A in resource $C3/$32. GP at $2A14 reads literals and escape-coded runs in the traversal order chosen by the header."
+  },
+  {
+   "address": 44116,
+   "type": "line",
+   "text": "Packed Lamborghini bitmap stream at offset $040A in resource $C3/$32. GP at $2A14 reads literals and escape-coded runs in the traversal order chosen by the header."
+  },
+  {
+   "address": 45140,
+   "type": "line",
+   "text": "Packed Lamborghini bitmap stream at offset $080A in resource $C3/$32. GP at $2A14 reads literals and escape-coded runs in the traversal order chosen by the header."
+  },
+  {
+   "address": 46164,
+   "type": "line",
+   "text": "Packed Lamborghini bitmap stream at offset $0C0A in resource $C3/$32. GP at $2A14 reads literals and escape-coded runs in the traversal order chosen by the header."
+  },
+  {
+   "address": 46489,
+   "type": "line",
+   "text": "Packed bitmap for the Lotus. GP reads the traversal flag and nine escape tokens before decoding the bitmap stream."
+  },
+  {
+   "address": 46499,
+   "type": "line",
+   "text": "Packed Lotus bitmap stream at offset $000A in resource $C3/$31. GP at $2A14 reads literals and escape-coded runs in the traversal order chosen by the header."
+  },
+  {
+   "address": 47385,
+   "type": "line",
+   "text": "Packed Lotus bitmap stream at offset $0380 in resource $C3/$31. GP at $2A14 reads literals and escape-coded runs in the traversal order chosen by the header."
+  },
+  {
+   "address": 47523,
+   "type": "line",
+   "text": "Packed Lotus bitmap stream at offset $040A in resource $C3/$31. GP at $2A14 reads literals and escape-coded runs in the traversal order chosen by the header."
+  },
+  {
+   "address": 48547,
+   "type": "line",
+   "text": "Packed Lotus bitmap stream at offset $080A in resource $C3/$31. GP at $2A14 reads literals and escape-coded runs in the traversal order chosen by the header."
+  },
+  {
+   "address": 53248,
+   "type": "line",
+   "text": "Upper 4096 bytes of the second selector bitmap at $C000. With I/O banked out, DP at $2CD8 masks the pixels and stores them to this RAM at $2D02 during its four passes."
+  },
+  {
+   "address": 54272,
+   "type": "line",
+   "text": "Second selector bitmap at offsets $1400 through $17FF from $C000. DP patches the high byte of the store at $2D02 to reach these four pages; the VIC reads the underlying RAM in bank 3."
+  },
+  {
+   "address": 55296,
+   "type": "line",
+   "text": "Second selector bitmap at offsets $1800 through $1BFF from $C000. DP patches the high byte of the store at $2D02 to reach these four pages; the VIC reads the underlying RAM in bank 3."
+  },
+  {
+   "address": 56320,
+   "type": "line",
+   "text": "Second selector bitmap at offsets $1C00 through $1FFF from $C000. DP patches the high byte of the store at $2D02 to reach these four pages; the VIC reads the underlying RAM in bank 3."
+  },
+  {
+   "address": 61592,
+   "type": "line",
+   "text": "Packed bitmap for the shared selector artwork. GP reads the traversal flag and nine escape tokens before decoding the bitmap stream."
+  },
+  {
+   "address": 61602,
+   "type": "line",
+   "text": "Packed shared selector artwork bitmap stream at offset $000A in resource $C3/$36. GP at $2A14 reads literals and escape-coded runs in the traversal order chosen by the header."
+  },
+  {
+   "address": 62626,
+   "type": "line",
+   "text": "Packed shared selector artwork bitmap stream at offset $040A in resource $C3/$36. GP at $2A14 reads literals and escape-coded runs in the traversal order chosen by the header."
+  },
+  {
+   "address": 62719,
+   "type": "line",
+   "text": "Packed shared selector artwork bitmap stream at offset $0467 in resource $C3/$36. GP at $2A14 reads literals and escape-coded runs in the traversal order chosen by the header."
+  },
+  {
+   "address": 63650,
+   "type": "line",
+   "text": "Packed shared selector artwork bitmap stream at offset $080A in resource $C3/$36. GP at $2A14 reads literals and escape-coded runs in the traversal order chosen by the header."
+  },
+  {
+   "address": 63903,
+   "type": "line",
+   "text": "Corvette colour planes begin at column and row zero. The header gives a width of 40 cells, a height of 25 and escape codes for the nibble reader at $2B41."
+  },
+  {
+   "address": 63920,
+   "type": "line",
+   "text": "Packed colour values for the Corvette selector screen. GP consumes the nibbles in order and writes the decoded planes through $2B78."
+  },
+  {
+   "address": 64258,
+   "type": "line",
+   "text": "Ferrari colour planes begin at column and row zero. The header gives a width of 40 cells, a height of 25 and escape codes for the nibble reader at $2B41."
+  },
+  {
+   "address": 64275,
+   "type": "line",
+   "text": "Packed colour values for the Ferrari selector screen. GP consumes the nibbles in order and writes the decoded planes through $2B78."
+  },
+  {
+   "address": 64570,
+   "type": "line",
+   "text": "Porsche colour planes begin at column and row zero. The header gives a width of 40 cells, a height of 25 and escape codes for the nibble reader at $2B41."
+  },
+  {
+   "address": 64587,
+   "type": "line",
+   "text": "Packed colour values for the Porsche selector screen. GP consumes the nibbles in order and writes the decoded planes through $2B78."
+  },
+  {
+   "address": 64869,
+   "type": "line",
+   "text": "Lamborghini colour planes begin at column and row zero. The header gives a width of 40 cells, a height of 25 and escape codes for the nibble reader at $2B41."
+  },
+  {
+   "address": 64886,
+   "type": "line",
+   "text": "Packed colour values for the Lamborghini selector screen. GP consumes the nibbles in order and writes the decoded planes through $2B78."
+  },
+  {
+   "address": 65240,
+   "type": "line",
+   "text": "Lotus colour planes begin at column and row zero. The header gives a width of 40 cells, a height of 25 and escape codes for the nibble reader at $2B41."
+  },
+  {
+   "address": 65257,
+   "type": "line",
+   "text": "Packed colour values for the Lotus selector screen. GP consumes the nibbles in order and writes the decoded planes through $2B78."
+  },
+  {
+   "address": 65528,
+   "type": "line",
+   "text": "The Lotus colour nibble reader reaches this byte just beyond the archived _1 payload. It takes the high nibble, 2, from the byte the disk intro left in RAM."
   }
  ]
 }

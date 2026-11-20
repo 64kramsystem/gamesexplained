@@ -4,7 +4,7 @@
   "over": "title",
   "ranges": [
     [
-      "$2E64",
+      "$29BC",
       "$36C2"
     ],
     [
@@ -13,6 +13,10 @@
     ],
     [
       "$6A00",
+      "$797C"
+    ],
+    [
+      "$8783",
       "$BFFF"
     ],
     [
@@ -20,7 +24,7 @@
       "$E3FF"
     ],
     [
-      "$F000",
+      "$F098",
       "$FFF9"
     ]
   ],
@@ -29,15 +33,97 @@
     "charset": ""
   },
   "coverage": {
-    "exclude": [],
+    "exclude": [
+      [
+        "$FFF9",
+        "$FFF9",
+        "Neighbouring byte left by the disk intro. The selector reaches the high nibble of $FFF8 and leaves the cursor on that byte before returning to its menu."
+      ]
+    ],
     "extra": [
       [
         "$2FAC",
         "$36C2",
         "TS executable module relocated from $2000"
+      ],
+      [
+        "$B599",
+        "$BFFF",
+        "GP bitmap resource ID $C3/$31"
+      ],
+      [
+        "$A84A",
+        "$B598",
+        "GP bitmap resource ID $C3/$32"
+      ],
+      [
+        "$9D50",
+        "$A849",
+        "GP bitmap resource ID $C3/$33"
+      ],
+      [
+        "$9212",
+        "$9D4F",
+        "GP bitmap resource ID $C3/$34"
+      ],
+      [
+        "$8783",
+        "$9211",
+        "GP bitmap resource ID $C3/$35"
+      ],
+      [
+        "$F098",
+        "$F99E",
+        "GP bitmap resource ID $C3/$36"
+      ],
+      [
+        "$FED8",
+        "$FFF7",
+        "GP colour resource ID _1"
+      ],
+      [
+        "$FD65",
+        "$FED7",
+        "GP colour resource ID _2"
+      ],
+      [
+        "$FC3A",
+        "$FD64",
+        "GP colour resource ID _3"
+      ],
+      [
+        "$FB02",
+        "$FC39",
+        "GP colour resource ID _4"
+      ],
+      [
+        "$F99F",
+        "$FB01",
+        "GP colour resource ID _5"
+      ],
+      [
+        "$FFF8",
+        "$FFF8",
+        "The Lotus colour decoder reads the surviving intro byte beyond the end of _1"
+      ],
+      [
+        "$29BC",
+        "$2C3A",
+        "GP module relocated to $29BC from the side B catalogue"
+      ],
+      [
+        "$2C3B",
+        "$2E63",
+        "DP module relocated to $2C3B from the side B catalogue"
       ]
     ],
-    "include": []
+    "include": [
+      [
+        "$D000",
+        "$DFFF",
+        "Second selector bitmap in bank 3, under I/O"
+      ]
+    ]
   },
   "io": [],
   "regions": []
