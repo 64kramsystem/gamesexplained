@@ -6,9 +6,31 @@
     "charset": ""
   },
   "coverage": {
-    "exclude": [],
+    "exclude": [
+      [
+        "$F800",
+        "$FFF7",
+        "Destination of the language glyphs at $7257\u2013$7A4E. The $1331 store writes this range and the full area matches at the selector keyboard loop."
+      ],
+      [
+        "$0400",
+        "$07E7",
+        "Trainer screen matrix. The trainer writes its text to $0400, $0540, $0590 and $05E0 after clearing the screen. The matrix matches the pre-F7 trainer capture."
+      ],
+      [
+        "$CA00",
+        "$F7FF",
+        "Packed source left by the release loader. Exactly matches $79B7\u2013$A7B6 immediately after the traced second depacker. This packed residue is unchanged at trainer exit, language entry and selector, and the setup access trace did not touch it. The following bitmap uses freshly copied pixels."
+      ]
+    ],
     "extra": [],
-    "include": []
+    "include": [
+      [
+        "$C000",
+        "$C44C",
+        "Host loader and its uploaded 1541 payload. The hand-over listing keeps the original bytes before the selector replaces part of this range with its screen matrix."
+      ]
+    ]
   },
   "io": [],
   "regions": []

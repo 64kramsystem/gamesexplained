@@ -6,7 +6,138 @@
     "charset": ""
   },
   "coverage": {
-    "exclude": [],
+    "exclude": [
+      [
+        "$C400",
+        "$C7FF",
+        "Generated matrix. $1BE7 copies the matrix into the first 1016 bytes and $135F\u2013$137B installs sprite pointers in the last eight bytes."
+      ],
+      [
+        "$E000",
+        "$FE7F",
+        "Generated bitmap. $1C2A clears the destination and $18B1 reveals the masked pixels. The displayed bytes in this range match the stored source."
+      ],
+      [
+        "$D000",
+        "$DFFF",
+        "Carried Castle sprite RAM. The WIN transition wrote none of these underlying RAM bytes, and the range matches Castle play at hand-over and on the ending screen. The ending points its sprites at slots $00\u2013$07."
+      ],
+      [
+        "$0741",
+        "$07F0",
+        "Castle voice-two effect records carried into WIN. No underlying RAM writes on the transition and identical in the Castle, WIN hand-over and WIN display captures."
+      ],
+      [
+        "$5E03",
+        "$685B",
+        "Castle terrain and character grid data carried into WIN. No underlying RAM writes on the transition and identical in the Castle, WIN hand-over and WIN display captures."
+      ],
+      [
+        "$685C",
+        "$7FFF",
+        "Castle metatile map carried into WIN. No underlying RAM writes on the transition and identical in the Castle, WIN hand-over and WIN display captures."
+      ],
+      [
+        "$8009",
+        "$965B",
+        "Castle metatile map past the WIN load header carried into WIN. No underlying RAM writes on the transition and identical in the Castle, WIN hand-over and WIN display captures."
+      ],
+      [
+        "$C000",
+        "$C1FF",
+        "Generated sprite slots. $134F and $1352 clear both pages, then $1917 merges pixel pairs from the stored sprite source at $4444."
+      ],
+      [
+        "$505B",
+        "$5D2C",
+        "Castle character colours, metatile atlas and start of the terrain offset table carried into WIN. No underlying RAM writes on the transition and identical in the Castle, WIN hand-over and WIN display captures."
+      ],
+      [
+        "$A9C0",
+        "$ABFF",
+        "Castle HUD spell icon sprites carried into WIN. No underlying RAM writes on the transition and identical in the Castle, WIN hand-over and WIN display captures."
+      ],
+      [
+        "$965C",
+        "$A9BF",
+        "Castle world data. Castle code reads its table at $965C. The transition to WIN left the underlying RAM unchanged, and the entire range matches in Castle, WIN hand-over and WIN display captures."
+      ],
+      [
+        "$C940",
+        "$C9A0",
+        "Castle loader-area bytes, including the address $C980 read by Castle code. The transition to WIN left the underlying RAM unchanged, and the entire range matches in Castle, WIN hand-over and WIN display captures."
+      ],
+      [
+        "$FE80",
+        "$FF7F",
+        "Destination copy of the page at $3AC4\u2013$3BC3. The ending display snapshot matches the full page, and single-stepping $1C20 and $1C23 confirms the read and store at offset $41."
+      ],
+      [
+        "$0405",
+        "$06FF",
+        "Castle sound-effect driver, state and parameter data. This range matches Castle play at WIN hand-over and on the ending screen. The transition write map records only two writes, to state bytes $058C and $0593."
+      ],
+      [
+        "$0810",
+        "$087F",
+        "Castle quest setup. No transition writes and identical in Castle play, the WIN hand-over and the ending display. The overwritten jump at $0880 is outside this range."
+      ],
+      [
+        "$CA01",
+        "$CDBE",
+        "RAM inherited from Castle. The load write map shows no writes to this range, and the bytes match before the load, at hand-over and on the displayed screen."
+      ],
+      [
+        "$CE0A",
+        "$CFFE",
+        "RAM inherited from Castle. The load write map shows no writes to this range, and the bytes match before the load, at hand-over and on the displayed screen."
+      ],
+      [
+        "$AC00",
+        "$B7BC",
+        "The preceding Castle quest matrix, character and working RAM. This range matches at the KERNAL LOAD checkpoint, at entry and on the displayed screen. The write map between LOAD and entry contains no addresses in it."
+      ],
+      [
+        "$B900",
+        "$BF3F",
+        "The preceding Castle quest HUD bitmap. This range matches at the KERNAL LOAD checkpoint, at entry and on the displayed screen. The write map between LOAD and entry contains no addresses in it."
+      ],
+      [
+        "$C200",
+        "$C3FF",
+        "The preceding Castle quest screen RAM. This range matches at the KERNAL LOAD checkpoint, at entry and on the displayed screen. The write map between LOAD and entry contains no addresses in it."
+      ],
+      [
+        "$4644",
+        "$5058",
+        "RAM carried over from Castle. The bytes are identical before KERNAL LOAD, at WIN entry and on the ending screen. The load write map has no stores in this interval."
+      ],
+      [
+        "$0700",
+        "$0740",
+        "Preceding quest sound-effect code and state. The ending reset loop clears this page. Identical before LOAD, at entry and on the ending screen, with no writes on the load trace."
+      ],
+      [
+        "$C800",
+        "$C83F",
+        "Preceding quest working RAM. The ending reads $C800,X with the value discarded and clears the page on reset. Identical before LOAD, at entry and on the ending screen, with no writes on the load trace."
+      ],
+      [
+        "$C900",
+        "$C93F",
+        "Preceding quest progress, score digits and high-score records. The ending reset loop clears this page. Identical before LOAD, at entry and on the ending screen, with no writes on the load trace."
+      ],
+      [
+        "$0002",
+        "$0041",
+        "Low zero-page workspace. The ending has no operands in this interval except the reset clear at $14D5."
+      ],
+      [
+        "$0316",
+        "$0354",
+        "System vectors and the preceding quest\u2019s low-RAM bytes. The transition leaves this interval byte-identical at KERNAL LOAD, entry and display."
+      ]
+    ],
     "extra": [],
     "include": []
   },

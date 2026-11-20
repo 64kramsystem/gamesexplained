@@ -6,10 +6,100 @@
     "charset": ""
   },
   "coverage": {
-    "exclude": [],
+    "exclude": [
+      [
+        "$D400",
+        "$D7FF",
+        "Generated VIC matrix and sprite pointers. The copy loop at $1D81 fills the first 1016 bytes, and $1A25\u2013$1A48 sets the last eight."
+      ],
+      [
+        "$E000",
+        "$FE7F",
+        "Generated bitmap. $1DC9 first clears the destination and $091C reveals the pixels from the stored bitmap. The running capture matches the corresponding source range byte for byte."
+      ],
+      [
+        "$0400",
+        "$06FF",
+        "Carried from the previous part, byte-identical before load, at entry and at the running screen. CPU fetch, read and write watches were silent for 160 frames after entry."
+      ],
+      [
+        "$4600",
+        "$7FFF",
+        "Carried from the previous part, byte-identical before load, at entry and at the running screen. CPU fetch, read and write watches were silent for 160 frames after entry."
+      ],
+      [
+        "$D000",
+        "$D1FF",
+        "Opening screen RAM carried into the interlude. The load left the underlying RAM unchanged. The disk prompt clears these sprite slots with I/O banked out before drawing glyphs."
+      ],
+      [
+        "$D200",
+        "$D3FF",
+        "Opening screen RAM carried into the interlude. No underlying RAM writes on the transition. The bytes match the selector, interlude entry and illustrated screen captures."
+      ],
+      [
+        "$D800",
+        "$DFFF",
+        "Opening screen RAM carried into the interlude. No underlying RAM writes on the transition. The colour copy at $1DA5 accesses the colour RAM chip with I/O visible."
+      ],
+      [
+        "$0741",
+        "$07F0",
+        "RAM inherited from Opening. The load write map shows no writes to this range, and the bytes match before the load, at hand-over and on the displayed screen."
+      ],
+      [
+        "$45E3",
+        "$45FF",
+        "RAM inherited from Opening. The load write map shows no writes to this range, and the bytes match before the load, at hand-over and on the displayed screen."
+      ],
+      [
+        "$8040",
+        "$81D8",
+        "RAM inherited from Opening. The load write map shows no writes to this range, and the bytes match before the load, at hand-over and on the displayed screen."
+      ],
+      [
+        "$C942",
+        "$C9A0",
+        "RAM inherited from Opening. The load write map shows no writes to this range, and the bytes match before the load, at hand-over and on the displayed screen."
+      ],
+      [
+        "$CA00",
+        "$CFFF",
+        "RAM inherited from Opening. The load write map shows no writes to this range, and the bytes match before the load, at hand-over and on the displayed screen."
+      ],
+      [
+        "$FE80",
+        "$FF7F",
+        "Generated destination of the bitmap tail copy at $1DC2. Its 256 bytes match the stored page at $3C63."
+      ],
+      [
+        "$C000",
+        "$C7FF",
+        "RAM carried from OPEN. The bytes match at the KERNAL LOAD checkpoint, the interlude entry and the illustrated screen. The load-only watch map recorded no writes in this range."
+      ]
+    ],
     "extra": [],
     "include": []
   },
-  "io": [],
+  "io": [
+    [
+      "$1D84",
+      "$1D9B",
+      "ram",
+      "$1D76 clears CHAREN before these stores to the display matrix under I/O."
+    ],
+    [
+      "$1A25",
+      "$1A48",
+      "ram",
+      "The prompt sprite pointers are written with CHAREN clear."
+    ],
+    [
+      "$1A7C",
+      "$1A81",
+      "ram",
+      "The prompt sprites are cleared with CHAREN clear."
+    ]
+  ],
   "regions": []
 }

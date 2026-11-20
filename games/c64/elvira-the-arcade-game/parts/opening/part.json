@@ -6,10 +6,73 @@
     "charset": ""
   },
   "coverage": {
-    "exclude": [],
+    "exclude": [
+      [
+        "$CC00",
+        "$CFFF",
+        "Generated matrix. The first 1016 bytes match the source installed by $1F47. The last eight become sprite pointers in $2025."
+      ],
+      [
+        "$E000",
+        "$FE7F",
+        "Generated globe bitmap written by $1F89. This portion matches the stored image byte for byte."
+      ],
+      [
+        "$0400",
+        "$07EF",
+        "RAM destination of the sound-effect image at $4DA5\u2013$5194. The indexed stores at $200C, $2012, $2018 and $201E create it and all bytes match the stored image in the selection capture."
+      ],
+      [
+        "$CA00",
+        "$CBFF",
+        "RAM carried from the language selector. The bytes match in the selector, at the OPEN hand-over and on the globe screen. The transition map recorded no underlying RAM accesses here."
+      ],
+      [
+        "$D000",
+        "$DFFF",
+        "RAM carried from the language selector. The bytes match in the selector, at the OPEN hand-over and on the globe screen. The transition map recorded no underlying RAM accesses here."
+      ],
+      [
+        "$FF83",
+        "$FFB7",
+        "RAM carried from the language selector. The bytes match in the selector, at the OPEN hand-over and on the globe screen. The transition map recorded no underlying RAM accesses here."
+      ],
+      [
+        "$8165",
+        "$81D8",
+        "Release trainer message and code. Identical at language selection, OPEN hand-over and globe selection, with no RAM accesses in the transition map."
+      ],
+      [
+        "$C971",
+        "$C97F",
+        "Resident RAM from the previous load. Identical at language selection, OPEN hand-over and globe selection, with no RAM accesses in the transition map."
+      ],
+      [
+        "$FFB8",
+        "$FFF9",
+        "Underlying RAM below the KERNAL ROM. Identical at language selection, OPEN hand-over and globe selection, with no RAM accesses in the transition map."
+      ],
+      [
+        "$FE80",
+        "$FF7F",
+        "Destination of the indexed copy at $1F82. All 256 bytes match the stored source at $77A5\u2013$78A4 in the globe capture."
+      ],
+      [
+        "$C000",
+        "$C7FF",
+        "Generated title sprite and caption workspace. The title copy writes eight pages from $51A5, then the caption renderer clears and replaces the active sprite columns."
+      ]
+    ],
     "extra": [],
     "include": []
   },
-  "io": [],
+  "io": [
+    [
+      "$146B",
+      "$1481",
+      "ram",
+      "This loop copies into RAM under I/O after selecting processor-port bits $03."
+    ]
+  ],
   "regions": []
 }
