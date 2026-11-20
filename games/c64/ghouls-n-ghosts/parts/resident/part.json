@@ -1,0 +1,42 @@
+{
+  "title": "Resident engine and title",
+  "order": 1,
+  "video": {
+    "screen": "",
+    "charset": ""
+  },
+  "coverage": {
+    "exclude": [
+      [
+        "$C000",
+        "$C7FF",
+        "runtime: two screen pages selected through $D018 and their sprite pointers"
+      ],
+      [
+        "$0300",
+        "$03FF",
+        "loader: work page and disk wrapper, copied by the bootstrap at $8A00"
+      ],
+      [
+        "$17E3",
+        "$18FF",
+        "runtime: zero-filled work space at entry, reused during play for map and sorted actor data"
+      ]
+    ],
+    "extra": [
+      [
+        "$0400",
+        "$86E8",
+        "Packed boot entry $0B decompressed to $0400-$8BFF. The stage overlays later replace $86E9 onward."
+      ],
+      [
+        "$F800",
+        "$FFBF",
+        "Packed boot entry $0C supplies the title and panel glyph page."
+      ]
+    ],
+    "include": []
+  },
+  "io": [],
+  "regions": []
+}

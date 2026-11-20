@@ -1,0 +1,43 @@
+{
+  "title": "Stage 1",
+  "order": 2,
+  "over": "resident",
+  "ranges": [
+    [
+      "$86E9",
+      "$BFFF"
+    ],
+    [
+      "$C800",
+      "$F7FF"
+    ]
+  ],
+  "video": {
+    "screen": "",
+    "charset": ""
+  },
+  "coverage": {
+    "exclude": [],
+    "extra": [
+      [
+        "$86E9",
+        "$BFFF",
+        "The first stage load reaches this window. Code, map data and any padding still need their exact boundaries."
+      ],
+      [
+        "$C800",
+        "$F7FF",
+        "Second stage payload loaded at $C800. Individual asset boundaries remain to be classified."
+      ]
+    ],
+    "include": [
+      [
+        "$D000",
+        "$DFFF",
+        "RAM under the I/O window contains data that changes on stage loads."
+      ]
+    ]
+  },
+  "io": [],
+  "regions": []
+}
