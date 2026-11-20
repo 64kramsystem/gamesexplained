@@ -1,0 +1,160 @@
+{
+  "title": "Driving engine",
+  "order": 3,
+  "over": "title",
+  "ranges": [
+    [
+      "$0836",
+      "$0844"
+    ],
+    [
+      "$29BC",
+      "$35FF"
+    ],
+    [
+      "$4000",
+      "$63FF"
+    ],
+    [
+      "$6A00",
+      "$BFFF"
+    ],
+    [
+      "$C000",
+      "$E4FF"
+    ],
+    [
+      "$EF00",
+      "$FFF9"
+    ]
+  ],
+  "video": {
+    "screen": "",
+    "charset": ""
+  },
+  "coverage": {
+    "exclude": [
+      [
+        "$C000",
+        "$DFFF",
+        "Initialization creates this second bitmap by copying $4000 to $C000 in the TS loop at $3128-$3134. Verified at its first store and by an 8192-byte match before driving."
+      ],
+      [
+        "$4280",
+        "$517F",
+        "Generated windshield interior. All twelve character rows are zero in both bitmap buffers at engine entry, and the road drawing passes write this area during play."
+      ]
+    ],
+    "extra": [
+      [
+        "$6A00",
+        "$A280",
+        "RD executable module relocated by $0500 from its disk header"
+      ],
+      [
+        "$29BC",
+        "$2D94",
+        "FX payload relocated from the side B directory"
+      ],
+      [
+        "$2E64",
+        "$3491",
+        "D1 payload relocated from the side B directory"
+      ],
+      [
+        "$A286",
+        "$BFFF",
+        "Exact match to the 7546-byte ## catalogue item in gameplay RAM"
+      ],
+      [
+        "$4000",
+        "$427F",
+        "Initial visor bitmap in rows 0 and 1 of the first VIC bitmap bank"
+      ],
+      [
+        "$5180",
+        "$5F3F",
+        "Initial cockpit artwork in rows 14 through 24 before any driving pass"
+      ],
+      [
+        "$6000",
+        "$63E7",
+        "Initial 40 by 25 bitmap-mode colour selection matrix"
+      ],
+      [
+        "$3492",
+        "$35FF",
+        "Loaded bitmap resource, 15 byte columns by 24 rows"
+      ],
+      [
+        "$EF7E",
+        "$F07F",
+        "Loaded bitmap resource, 6 byte columns by 42 rows"
+      ],
+      [
+        "$F080",
+        "$F181",
+        "Loaded bitmap resource, 6 byte columns by 42 rows"
+      ],
+      [
+        "$F182",
+        "$F347",
+        "Loaded bitmap resource, 8 byte columns by 56 rows"
+      ],
+      [
+        "$F348",
+        "$F66D",
+        "Loaded bitmap resource, 20 byte columns by 40 rows"
+      ],
+      [
+        "$F66E",
+        "$F953",
+        "Loaded bitmap resource, 23 byte columns by 32 rows"
+      ],
+      [
+        "$F954",
+        "$FCF1",
+        "Loaded bitmap resource, 23 byte columns by 40 rows"
+      ],
+      [
+        "$FCF2",
+        "$FFF7",
+        "Loaded bitmap resource, 24 byte columns by 32 rows"
+      ],
+      [
+        "$EF3C",
+        "$EF7D",
+        "Lotus sprite resource selected by $71D5"
+      ]
+    ],
+    "include": []
+  },
+  "io": [
+    [
+      "$8AB3",
+      "$8BFF",
+      "registers",
+      "The IRQ saves $01 and switches I/O in before using the VIC-II"
+    ]
+  ],
+  "regions": [
+    [
+      "$4000",
+      "$427F",
+      "graphics",
+      "Cockpit visor bitmap"
+    ],
+    [
+      "$5180",
+      "$5F3F",
+      "graphics",
+      "Cockpit dashboard bitmap"
+    ],
+    [
+      "$6000",
+      "$63E7",
+      "graphics",
+      "Initial bitmap colour matrix"
+    ]
+  ]
+}

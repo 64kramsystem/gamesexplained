@@ -1,0 +1,481 @@
+{
+ "schema": 1,
+ "platform": "c64",
+ "game": "test-drive",
+ "part": "stage-3",
+ "build": "",
+ "source": "regenerator2000 live",
+ "regions": {
+  "exclude": [
+   [
+    256,
+    511,
+    "stack"
+   ],
+   [
+    53248,
+    57343,
+    "I/O and colour RAM"
+   ],
+   [
+    0,
+    2101,
+    "Title and resident code"
+   ],
+   [
+    2102,
+    2116,
+    "Driving engine"
+   ],
+   [
+    2117,
+    10683,
+    "Title and resident code"
+   ],
+   [
+    10684,
+    13457,
+    "Driving engine"
+   ],
+   [
+    13458,
+    13823,
+    "Title and resident code"
+   ],
+   [
+    15443,
+    16383,
+    "Title and resident code"
+   ],
+   [
+    16384,
+    25599,
+    "Driving engine"
+   ],
+   [
+    25600,
+    27135,
+    "Title and resident code"
+   ],
+   [
+    27136,
+    49151,
+    "Driving engine"
+   ],
+   [
+    49152,
+    58623,
+    "Driving engine"
+   ],
+   [
+    58624,
+    61183,
+    "Title and resident code"
+   ],
+   [
+    61184,
+    65529,
+    "Driving engine"
+   ],
+   [
+    65530,
+    65535,
+    "Title and resident code"
+   ]
+  ],
+  "extra": [
+   [
+    13824,
+    15442,
+    "R3 executable and road data at the VICE loader return"
+   ]
+  ],
+  "edges": [
+   0,
+   256,
+   512,
+   1024,
+   2048,
+   4096,
+   16384,
+   32768,
+   40960,
+   49152,
+   53248,
+   57344
+  ],
+  "elsewhere": [
+   [
+    0,
+    2101,
+    "Title and resident code"
+   ],
+   [
+    2102,
+    2116,
+    "Driving engine"
+   ],
+   [
+    2117,
+    10683,
+    "Title and resident code"
+   ],
+   [
+    10684,
+    13457,
+    "Driving engine"
+   ],
+   [
+    13458,
+    13823,
+    "Title and resident code"
+   ],
+   [
+    15443,
+    16383,
+    "Title and resident code"
+   ],
+   [
+    16384,
+    25599,
+    "Driving engine"
+   ],
+   [
+    25600,
+    27135,
+    "Title and resident code"
+   ],
+   [
+    27136,
+    49151,
+    "Driving engine"
+   ],
+   [
+    49152,
+    58623,
+    "Driving engine"
+   ],
+   [
+    58624,
+    61183,
+    "Title and resident code"
+   ],
+   [
+    61184,
+    65529,
+    "Driving engine"
+   ],
+   [
+    65530,
+    65535,
+    "Title and resident code"
+   ]
+  ]
+ },
+ "blocks": [
+  {
+   "start": 13824,
+   "end": 13827,
+   "type": "Word"
+  },
+  {
+   "start": 13828,
+   "end": 13858,
+   "type": "Code"
+  },
+  {
+   "start": 13859,
+   "end": 14058,
+   "type": "Byte"
+  },
+  {
+   "start": 14059,
+   "end": 14084,
+   "type": "Word"
+  },
+  {
+   "start": 14085,
+   "end": 15442,
+   "type": "Byte"
+  }
+ ],
+ "symbols": [
+  {
+   "address": 13824,
+   "name": "stage_module_header",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 13828,
+   "name": "install_stage_data",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 13859,
+   "name": "stage_pointer_records",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 13860,
+   "name": "stage_sequence_pointer_lo",
+   "type": "AbsoluteAddress",
+   "kind": "user"
+  },
+  {
+   "address": 13861,
+   "name": "stage_sequence_pointer_hi",
+   "type": "AbsoluteAddress",
+   "kind": "user"
+  },
+  {
+   "address": 13863,
+   "name": "road_element_pointer_lo",
+   "type": "AbsoluteAddress",
+   "kind": "user"
+  },
+  {
+   "address": 13864,
+   "name": "road_element_pointer_hi",
+   "type": "AbsoluteAddress",
+   "kind": "user"
+  },
+  {
+   "address": 13866,
+   "name": "substream_table_pointer_lo",
+   "type": "AbsoluteAddress",
+   "kind": "user"
+  },
+  {
+   "address": 13867,
+   "name": "substream_table_pointer_hi",
+   "type": "AbsoluteAddress",
+   "kind": "user"
+  },
+  {
+   "address": 13869,
+   "name": "road_element_pairs",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 14059,
+   "name": "substream_offsets",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 14085,
+   "name": "road_substream_00",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 14096,
+   "name": "road_substream_01",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 14107,
+   "name": "road_substream_02",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 14178,
+   "name": "road_substream_03",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 14319,
+   "name": "road_substream_04",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 14450,
+   "name": "road_substream_05",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 14521,
+   "name": "road_substream_06",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 14607,
+   "name": "road_substream_07",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 14688,
+   "name": "road_substream_08",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 14829,
+   "name": "road_substream_09",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 14960,
+   "name": "road_substream_10",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 15031,
+   "name": "road_substream_11",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 15117,
+   "name": "road_substream_12",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 15198,
+   "name": "stage_sequence",
+   "type": "UserDefined",
+   "kind": "user"
+  }
+ ],
+ "comments": [
+  {
+   "address": 13824,
+   "type": "line",
+   "text": "Relocated entry $3604 and body length $064F for R3."
+  },
+  {
+   "address": 13828,
+   "type": "line",
+   "text": "Copy three pointers from $3624, $3627 and $362A into $4E-$51 and $6B-$6C. The driving engine consumes the three tables without copying them."
+  },
+  {
+   "address": 13859,
+   "type": "line",
+   "text": "Three tagged little-endian pointers select the stage sequence, two-byte element table, and shared substream offsets. The entry routine skips the tag in each record. Byte $362C follows the third pointer."
+  },
+  {
+   "address": 13860,
+   "type": "line",
+   "text": "Low byte of the pointer to the stage sequence."
+  },
+  {
+   "address": 13861,
+   "type": "line",
+   "text": "High byte of the pointer copied to $4F, followed by the second pointer record's tag at $3626."
+  },
+  {
+   "address": 13863,
+   "type": "line",
+   "text": "Low byte of the pointer to the two-byte element records."
+  },
+  {
+   "address": 13864,
+   "type": "line",
+   "text": "High byte of the pointer copied to $51, followed by the third pointer record's tag at $3629."
+  },
+  {
+   "address": 13866,
+   "type": "line",
+   "text": "Low byte of the pointer to the relative substream offsets."
+  },
+  {
+   "address": 13867,
+   "type": "line",
+   "text": "High byte of the offset-table pointer, followed by the byte at $362C before the paired records begin."
+  },
+  {
+   "address": 13869,
+   "type": "line",
+   "text": "Ninety-five pairs indexed by twice the decoded road element number. The driving engine at $91BE takes the upper nibble of the first byte to index its table at $A176. At $9073 it reads the second byte before dispatching the element event."
+  },
+  {
+   "address": 14059,
+   "type": "line",
+   "text": "Thirteen little-endian offsets relative to $36EB. A negative stage-sequence byte supplies the even byte offset within this table after masking bit 7, as at $7869."
+  },
+  {
+   "address": 14085,
+   "type": "line",
+   "text": "Substream 0 supplies 10 direct road element indices. The high bit at $370F returns decoding to the enclosing stage sequence."
+  },
+  {
+   "address": 14096,
+   "type": "line",
+   "text": "Substream 1 supplies 10 direct road element indices. The high bit at $371A returns decoding to the enclosing stage sequence."
+  },
+  {
+   "address": 14107,
+   "type": "line",
+   "text": "Substream 2 supplies 70 direct road element indices. The high bit at $3761 returns decoding to the enclosing stage sequence."
+  },
+  {
+   "address": 14178,
+   "type": "line",
+   "text": "Substream 3 supplies 140 direct road element indices. The high bit at $37EE returns decoding to the enclosing stage sequence."
+  },
+  {
+   "address": 14319,
+   "type": "line",
+   "text": "Substream 4 supplies 130 direct road element indices. The high bit at $3871 returns decoding to the enclosing stage sequence."
+  },
+  {
+   "address": 14450,
+   "type": "line",
+   "text": "Substream 5 supplies 70 direct road element indices. The high bit at $38B8 returns decoding to the enclosing stage sequence."
+  },
+  {
+   "address": 14521,
+   "type": "line",
+   "text": "Substream 6 supplies 85 direct road element indices. The high bit at $390E returns decoding to the enclosing stage sequence."
+  },
+  {
+   "address": 14607,
+   "type": "line",
+   "text": "Substream 7 supplies 80 direct road element indices. The high bit at $395F returns decoding to the enclosing stage sequence."
+  },
+  {
+   "address": 14688,
+   "type": "line",
+   "text": "Substream 8 supplies 140 direct road element indices. The high bit at $39EC returns decoding to the enclosing stage sequence."
+  },
+  {
+   "address": 14829,
+   "type": "line",
+   "text": "Substream 9 supplies 130 direct road element indices. The high bit at $3A6F returns decoding to the enclosing stage sequence."
+  },
+  {
+   "address": 14960,
+   "type": "line",
+   "text": "Substream 10 supplies 70 direct road element indices. The high bit at $3AB6 returns decoding to the enclosing stage sequence."
+  },
+  {
+   "address": 15031,
+   "type": "line",
+   "text": "Substream 11 supplies 85 direct road element indices. The high bit at $3B0C returns decoding to the enclosing stage sequence."
+  },
+  {
+   "address": 15117,
+   "type": "line",
+   "text": "Substream 12 supplies 80 direct road element indices. The high bit at $3B5D returns decoding to the enclosing stage sequence."
+  },
+  {
+   "address": 15198,
+   "type": "line",
+   "text": "Stage 3 has 244 sequence bytes before $FF. Bytes below $80 index the element pairs directly. High-bit entries refer to substreams through $36EB. The decoding pass at $9004 sets $A9 when it reads $FF."
+  }
+ ]
+}

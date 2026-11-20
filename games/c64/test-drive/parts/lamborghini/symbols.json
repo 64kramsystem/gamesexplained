@@ -1,0 +1,970 @@
+{
+ "schema": 1,
+ "platform": "c64",
+ "game": "test-drive",
+ "part": "lamborghini",
+ "build": "Decibel and Eagle Soft Incorporated side A, Eagle Soft Incorporated side B",
+ "source": "regenerator2000 live",
+ "regions": {
+  "exclude": [
+   [
+    256,
+    511,
+    "stack"
+   ],
+   [
+    53248,
+    57343,
+    "I/O and colour RAM"
+   ],
+   [
+    0,
+    2101,
+    "Title and resident code"
+   ],
+   [
+    2102,
+    2116,
+    "Driving engine"
+   ],
+   [
+    2117,
+    10683,
+    "Title and resident code"
+   ],
+   [
+    10684,
+    11875,
+    "Driving engine"
+   ],
+   [
+    13458,
+    16383,
+    "Title and resident code"
+   ],
+   [
+    16384,
+    25599,
+    "Driving engine"
+   ],
+   [
+    25600,
+    27135,
+    "Title and resident code"
+   ],
+   [
+    27136,
+    49151,
+    "Driving engine"
+   ],
+   [
+    49152,
+    58623,
+    "Driving engine"
+   ],
+   [
+    58624,
+    61183,
+    "Title and resident code"
+   ],
+   [
+    61184,
+    65529,
+    "Driving engine"
+   ],
+   [
+    65530,
+    65535,
+    "Title and resident code"
+   ]
+  ],
+  "extra": [
+   [
+    11876,
+    13457,
+    "D2 module matched to the private disk directory and captured in VICE"
+   ]
+  ],
+  "edges": [
+   0,
+   256,
+   512,
+   1024,
+   2048,
+   4096,
+   16384,
+   32768,
+   40960,
+   49152,
+   53248,
+   57344
+  ],
+  "elsewhere": [
+   [
+    0,
+    2101,
+    "Title and resident code"
+   ],
+   [
+    2102,
+    2116,
+    "Driving engine"
+   ],
+   [
+    2117,
+    10683,
+    "Title and resident code"
+   ],
+   [
+    10684,
+    11875,
+    "Driving engine"
+   ],
+   [
+    13458,
+    16383,
+    "Title and resident code"
+   ],
+   [
+    16384,
+    25599,
+    "Driving engine"
+   ],
+   [
+    25600,
+    27135,
+    "Title and resident code"
+   ],
+   [
+    27136,
+    49151,
+    "Driving engine"
+   ],
+   [
+    49152,
+    58623,
+    "Driving engine"
+   ],
+   [
+    58624,
+    61183,
+    "Title and resident code"
+   ],
+   [
+    61184,
+    65529,
+    "Driving engine"
+   ],
+   [
+    65530,
+    65535,
+    "Title and resident code"
+   ]
+  ]
+ },
+ "blocks": [
+  {
+   "start": 11876,
+   "end": 11879,
+   "type": "Word"
+  },
+  {
+   "start": 11880,
+   "end": 12833,
+   "type": "Code"
+  },
+  {
+   "start": 12834,
+   "end": 12868,
+   "type": "Byte"
+  },
+  {
+   "start": 12869,
+   "end": 12952,
+   "type": "Undefined"
+  },
+  {
+   "start": 12953,
+   "end": 12980,
+   "type": "Byte"
+  },
+  {
+   "start": 12981,
+   "end": 13160,
+   "type": "Undefined"
+  },
+  {
+   "start": 13161,
+   "end": 13283,
+   "type": "Byte"
+  },
+  {
+   "start": 13284,
+   "end": 13457,
+   "type": "Undefined"
+  }
+ ],
+ "symbols": [
+  {
+   "address": 11876,
+   "name": "module_header",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 11880,
+   "name": "cockpit_dispatch",
+   "type": "Jump",
+   "kind": "user"
+  },
+  {
+   "address": 11889,
+   "name": "release_car_display_data",
+   "type": "Branch",
+   "kind": "user"
+  },
+  {
+   "address": 11901,
+   "name": "init_car_display",
+   "type": "Branch",
+   "kind": "user"
+  },
+  {
+   "address": 12039,
+   "name": "b_2F07",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 12047,
+   "name": "b_2F0F",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 12063,
+   "name": "update_car_display",
+   "type": "Jump",
+   "kind": "user"
+  },
+  {
+   "address": 12142,
+   "name": "a_2F6E",
+   "type": "AbsoluteAddress",
+   "kind": "auto"
+  },
+  {
+   "address": 12148,
+   "name": "b_2F74",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 12151,
+   "name": "r_2F77",
+   "type": "Return",
+   "kind": "auto"
+  },
+  {
+   "address": 12152,
+   "name": "map_speed_to_needle",
+   "type": "Branch",
+   "kind": "user"
+  },
+  {
+   "address": 12224,
+   "name": "a_2FC0",
+   "type": "AbsoluteAddress",
+   "kind": "auto"
+  },
+  {
+   "address": 12230,
+   "name": "b_2FC6",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 12233,
+   "name": "b_2FC9",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 12239,
+   "name": "choose_needle_endpoints",
+   "type": "Subroutine",
+   "kind": "user"
+  },
+  {
+   "address": 12274,
+   "name": "b_2FF2",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 12331,
+   "name": "b_302B",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 12346,
+   "name": "f_303A",
+   "type": "Field",
+   "kind": "auto"
+  },
+  {
+   "address": 12347,
+   "name": "a_303B",
+   "type": "AbsoluteAddress",
+   "kind": "auto"
+  },
+  {
+   "address": 12348,
+   "name": "a_303C",
+   "type": "AbsoluteAddress",
+   "kind": "auto"
+  },
+  {
+   "address": 12352,
+   "name": "b_3040",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 12353,
+   "name": "a_3041",
+   "type": "AbsoluteAddress",
+   "kind": "auto"
+  },
+  {
+   "address": 12354,
+   "name": "a_3042",
+   "type": "AbsoluteAddress",
+   "kind": "auto"
+  },
+  {
+   "address": 12355,
+   "name": "j_3043",
+   "type": "Jump",
+   "kind": "auto"
+  },
+  {
+   "address": 12368,
+   "name": "f_3050",
+   "type": "Field",
+   "kind": "auto"
+  },
+  {
+   "address": 12369,
+   "name": "a_3051",
+   "type": "AbsoluteAddress",
+   "kind": "auto"
+  },
+  {
+   "address": 12370,
+   "name": "a_3052",
+   "type": "AbsoluteAddress",
+   "kind": "auto"
+  },
+  {
+   "address": 12374,
+   "name": "b_3056",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 12375,
+   "name": "a_3057",
+   "type": "AbsoluteAddress",
+   "kind": "auto"
+  },
+  {
+   "address": 12376,
+   "name": "a_3058",
+   "type": "AbsoluteAddress",
+   "kind": "auto"
+  },
+  {
+   "address": 12377,
+   "name": "draw_changed_needle",
+   "type": "Jump",
+   "kind": "user"
+  },
+  {
+   "address": 12396,
+   "name": "b_306C",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 12422,
+   "name": "b_3086",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 12430,
+   "name": "needle_line_steps",
+   "type": "Jump",
+   "kind": "user"
+  },
+  {
+   "address": 12450,
+   "name": "b_30A2",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 12461,
+   "name": "j_30AD",
+   "type": "Jump",
+   "kind": "auto"
+  },
+  {
+   "address": 12478,
+   "name": "b_30BE",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 12487,
+   "name": "b_30C7",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 12516,
+   "name": "b_30E4",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 12535,
+   "name": "b_30F7",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 12549,
+   "name": "plot_needle_scan",
+   "type": "Jump",
+   "kind": "user"
+  },
+  {
+   "address": 12568,
+   "name": "b_3118",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 12580,
+   "name": "b_3124",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 12586,
+   "name": "b_312A",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 12606,
+   "name": "b_313E",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 12619,
+   "name": "j_314B",
+   "type": "Jump",
+   "kind": "auto"
+  },
+  {
+   "address": 12639,
+   "name": "b_315F",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 12652,
+   "name": "j_316C",
+   "type": "Jump",
+   "kind": "auto"
+  },
+  {
+   "address": 12655,
+   "name": "r_316F",
+   "type": "Return",
+   "kind": "auto"
+  },
+  {
+   "address": 12656,
+   "name": "set_needle_sprite_pixel",
+   "type": "Subroutine",
+   "kind": "user"
+  },
+  {
+   "address": 12681,
+   "name": "f_3189",
+   "type": "Field",
+   "kind": "auto"
+  },
+  {
+   "address": 12682,
+   "name": "a_318A",
+   "type": "AbsoluteAddress",
+   "kind": "auto"
+  },
+  {
+   "address": 12683,
+   "name": "a_318B",
+   "type": "AbsoluteAddress",
+   "kind": "auto"
+  },
+  {
+   "address": 12697,
+   "name": "divide_needle_steps",
+   "type": "Subroutine",
+   "kind": "user"
+  },
+  {
+   "address": 12717,
+   "name": "j_31AD",
+   "type": "Jump",
+   "kind": "auto"
+  },
+  {
+   "address": 12733,
+   "name": "b_31BD",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 12743,
+   "name": "b_31C7",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 12744,
+   "name": "b_31C8",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 12748,
+   "name": "b_31CC",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 12762,
+   "name": "b_31DA",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 12778,
+   "name": "b_31EA",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 12779,
+   "name": "b_31EB",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 12790,
+   "name": "r_31F6",
+   "type": "Return",
+   "kind": "auto"
+  },
+  {
+   "address": 12791,
+   "name": "scale_gauge_value",
+   "type": "Subroutine",
+   "kind": "user"
+  },
+  {
+   "address": 12810,
+   "name": "a_320A",
+   "type": "AbsoluteAddress",
+   "kind": "auto"
+  },
+  {
+   "address": 12812,
+   "name": "a_320C",
+   "type": "AbsoluteAddress",
+   "kind": "auto"
+  },
+  {
+   "address": 12832,
+   "name": "a_3220",
+   "type": "AbsoluteAddress",
+   "kind": "auto"
+  },
+  {
+   "address": 12834,
+   "name": "gauge_table_descriptors",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 12835,
+   "name": "a_3223",
+   "type": "AbsoluteAddress",
+   "kind": "auto"
+  },
+  {
+   "address": 12836,
+   "name": "a_3224",
+   "type": "AbsoluteAddress",
+   "kind": "auto"
+  },
+  {
+   "address": 12838,
+   "name": "a_3226",
+   "type": "AbsoluteAddress",
+   "kind": "auto"
+  },
+  {
+   "address": 12839,
+   "name": "a_3227",
+   "type": "AbsoluteAddress",
+   "kind": "auto"
+  },
+  {
+   "address": 12841,
+   "name": "a_3229",
+   "type": "AbsoluteAddress",
+   "kind": "auto"
+  },
+  {
+   "address": 12842,
+   "name": "a_322A",
+   "type": "AbsoluteAddress",
+   "kind": "auto"
+  },
+  {
+   "address": 12953,
+   "name": "needle_sprite_horizontal",
+   "type": "Field",
+   "kind": "user"
+  },
+  {
+   "address": 12961,
+   "name": "needle_sprite_vertical",
+   "type": "Field",
+   "kind": "user"
+  },
+  {
+   "address": 12969,
+   "name": "needle_pivot_horizontal",
+   "type": "Field",
+   "kind": "user"
+  },
+  {
+   "address": 12973,
+   "name": "needle_pivot_vertical",
+   "type": "Field",
+   "kind": "user"
+  },
+  {
+   "address": 12977,
+   "name": "needle_source_row_offset",
+   "type": "Field",
+   "kind": "user"
+  },
+  {
+   "address": 13161,
+   "name": "needle_sprite_byte_columns",
+   "type": "Field",
+   "kind": "user"
+  },
+  {
+   "address": 13185,
+   "name": "needle_sprite_bit_masks",
+   "type": "Field",
+   "kind": "user"
+  },
+  {
+   "address": 13209,
+   "name": "sprite_row_stride_three",
+   "type": "Field",
+   "kind": "user"
+  },
+  {
+   "address": 13231,
+   "name": "source_row_stride_six",
+   "type": "Field",
+   "kind": "user"
+  },
+  {
+   "address": 13253,
+   "name": "needle_buffers_lo",
+   "type": "Field",
+   "kind": "user"
+  },
+  {
+   "address": 13255,
+   "name": "needle_buffers_hi",
+   "type": "Field",
+   "kind": "user"
+  },
+  {
+   "address": 13257,
+   "name": "needle_lookup_index",
+   "type": "AbsoluteAddress",
+   "kind": "user"
+  },
+  {
+   "address": 13258,
+   "name": "last_tachometer_value",
+   "type": "AbsoluteAddress",
+   "kind": "user"
+  },
+  {
+   "address": 13259,
+   "name": "last_speed_value",
+   "type": "AbsoluteAddress",
+   "kind": "user"
+  },
+  {
+   "address": 13260,
+   "name": "previous_needle_x",
+   "type": "AbsoluteAddress",
+   "kind": "user"
+  },
+  {
+   "address": 13261,
+   "name": "a_33CD",
+   "type": "AbsoluteAddress",
+   "kind": "auto"
+  },
+  {
+   "address": 13262,
+   "name": "previous_needle_y",
+   "type": "Field",
+   "kind": "user"
+  },
+  {
+   "address": 13264,
+   "name": "gauge_source_pointers",
+   "type": "AbsoluteAddress",
+   "kind": "user"
+  },
+  {
+   "address": 13265,
+   "name": "a_33D1",
+   "type": "AbsoluteAddress",
+   "kind": "auto"
+  },
+  {
+   "address": 13266,
+   "name": "a_33D2",
+   "type": "AbsoluteAddress",
+   "kind": "auto"
+  },
+  {
+   "address": 13267,
+   "name": "a_33D3",
+   "type": "AbsoluteAddress",
+   "kind": "auto"
+  },
+  {
+   "address": 13268,
+   "name": "quadrant_source_offset",
+   "type": "AbsoluteAddress",
+   "kind": "user"
+  },
+  {
+   "address": 13269,
+   "name": "cockpit_indicator_shape",
+   "type": "Field",
+   "kind": "user"
+  },
+  {
+   "address": 13284,
+   "name": "a_33E4",
+   "type": "AbsoluteAddress",
+   "kind": "auto"
+  },
+  {
+   "address": 13292,
+   "name": "a_33EC",
+   "type": "AbsoluteAddress",
+   "kind": "auto"
+  }
+ ],
+ "comments": [
+  {
+   "address": 11876,
+   "type": "line",
+   "text": "Relocated entry word $2E68 followed by body length $062A for D2."
+  },
+  {
+   "address": 11880,
+   "type": "line",
+   "text": "Test the argument in A. A negative value releases the two display items, zero prepares the cockpit, and a positive value enters the gauge update dispatch."
+  },
+  {
+   "address": 11889,
+   "type": "line",
+   "text": "Release the private disk resources with first ID byte ASCII 2 and second ID bytes $28 and $29."
+  },
+  {
+   "address": 11901,
+   "type": "line",
+   "text": "Resolve resource IDs 2/$28 and 2/$29, skip their six-byte headers, and store their data bases at $33D0 and $33D2 before setting up the instrument state."
+  },
+  {
+   "address": 12063,
+   "type": "line",
+   "text": "For A equal to 1, compare $42 with its copy at $33CA and run the instrument update only if they differ."
+  },
+  {
+   "address": 12152,
+   "type": "line",
+   "text": "Compare speed $41 with its cached value, then scale it through $31F7, install the speed-specific tables and call the common needle renderer."
+  },
+  {
+   "address": 12239,
+   "type": "line",
+   "text": "Use $0E to select the gauge's picture source. Classify the input against $2D, $5A and $87, update the gauge sprite coordinates, and compute its line endpoint from the selected horizontal and vertical lookups."
+  },
+  {
+   "address": 12377,
+   "type": "line",
+   "text": "Compare the endpoint pair against the saved coordinates for this gauge and return if unchanged. Otherwise clear its 64-byte sprite buffer before preparing the line."
+  },
+  {
+   "address": 12430,
+   "type": "line",
+   "text": "Take absolute coordinate differences and retain their signs in $29 and $2B. Choose the larger difference as the main step and calculate the other step as a fixed-point ratio through $3199."
+  },
+  {
+   "address": 12549,
+   "type": "line",
+   "text": "Draw at the current coordinates and, within the horizontal bound, at the next pixel. Update the fixed-point coordinates in the direction of the endpoint until the main coordinate matches."
+  },
+  {
+   "address": 12656,
+   "type": "line",
+   "text": "Resolve the pixel's sprite byte from the row stride table at $3399 and X-byte table at $3369. Mask the picture source byte with $3381 and OR the result into the sprite."
+  },
+  {
+   "address": 12697,
+   "type": "line",
+   "text": "Align the denominator by shifting, subtract it from the numerator when possible, and roll each resulting quotient bit into $2D and $2E. Return the fixed-point step in A and X."
+  },
+  {
+   "address": 12791,
+   "type": "line",
+   "text": "Patch the two immediate arguments to the driving-engine call at $0200. Preserve $12, $13, $16 and $17 across the call, then return its result."
+  },
+  {
+   "address": 12834,
+   "type": "line",
+   "text": "Tagged little-endian addresses for the gauge setup. The code uses the operands as data, including $3223 and $3226 for endpoint table pointers."
+  },
+  {
+   "address": 12953,
+   "type": "line",
+   "text": "Horizontal sprite coordinates indexed by quadrant and gauge at $3003."
+  },
+  {
+   "address": 12961,
+   "type": "line",
+   "text": "Vertical sprite coordinates written by $300C. The table index includes four entries per gauge."
+  },
+  {
+   "address": 12969,
+   "type": "line",
+   "text": "Horizontal pivot coordinate for the selected quadrant, copied to $1C."
+  },
+  {
+   "address": 12973,
+   "type": "line",
+   "text": "Vertical pivot coordinate used as the line origin in $1D."
+  },
+  {
+   "address": 12977,
+   "type": "line",
+   "text": "Per-quadrant adjustment added by the sprite pixel routine when it selects a source row."
+  },
+  {
+   "address": 13161,
+   "type": "line",
+   "text": "Twenty-four horizontal pixel indices mapped to the three sprite byte columns in groups of eight."
+  },
+  {
+   "address": 13185,
+   "type": "line",
+   "text": "The eight single-bit masks repeated for each of three sprite byte columns."
+  },
+  {
+   "address": 13209,
+   "type": "line",
+   "text": "Row offset multiplied by three. The plotter uses this to find the destination byte of the 24-pixel-wide sprite row."
+  },
+  {
+   "address": 13231,
+   "type": "line",
+   "text": "Row offset multiplied by six. The plotter combines this with the selected column and source offset to read the picture mask."
+  },
+  {
+   "address": 13253,
+   "type": "line",
+   "text": "Two low bytes locating the needle sprite buffers in RAM."
+  },
+  {
+   "address": 13255,
+   "type": "line",
+   "text": "High bytes paired with $33C5 to locate each 64-byte sprite allocation."
+  },
+  {
+   "address": 13257,
+   "type": "line",
+   "text": "Saved index after the quadrant-specific adjustment at $302C."
+  },
+  {
+   "address": 13258,
+   "type": "line",
+   "text": "Input cache used by the A-equals-one update path at $2F23."
+  },
+  {
+   "address": 13259,
+   "type": "line",
+   "text": "Speed last processed by the handler at $2F78."
+  },
+  {
+   "address": 13260,
+   "type": "line",
+   "text": "Horizontal endpoint cache indexed by gauge, initialized by $2EB1 and compared by $305F."
+  },
+  {
+   "address": 13262,
+   "type": "line",
+   "text": "Vertical endpoint cache selected by the same gauge index."
+  },
+  {
+   "address": 13264,
+   "type": "line",
+   "text": "Two little-endian picture addresses, populated by skipping the six-byte resource headers during initialization."
+  },
+  {
+   "address": 13268,
+   "type": "line",
+   "text": "Extra offset into the picture source chosen using the gauge quadrant."
+  },
+  {
+   "address": 13269,
+   "type": "line",
+   "text": "Fifteen authored sprite bytes copied to $E440 after the 64-byte allocation is cleared."
+  }
+ ]
+}

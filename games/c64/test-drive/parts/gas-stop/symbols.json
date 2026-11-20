@@ -1,0 +1,1108 @@
+{
+ "schema": 1,
+ "platform": "c64",
+ "game": "test-drive",
+ "part": "gas-stop",
+ "build": "Decibel and Eagle Soft Incorporated side A, Eagle Soft Incorporated side B",
+ "source": "regenerator2000 live",
+ "regions": {
+  "exclude": [
+   [
+    256,
+    511,
+    "stack"
+   ],
+   [
+    53248,
+    57343,
+    "I/O and colour RAM"
+   ],
+   [
+    0,
+    2101,
+    "Title and resident code"
+   ],
+   [
+    2102,
+    2116,
+    "Driving engine"
+   ],
+   [
+    2117,
+    10683,
+    "Title and resident code"
+   ],
+   [
+    10684,
+    13823,
+    "Driving engine"
+   ],
+   [
+    13824,
+    16383,
+    "Title and resident code"
+   ],
+   [
+    16384,
+    25599,
+    "Driving engine"
+   ],
+   [
+    25600,
+    27135,
+    "Title and resident code"
+   ],
+   [
+    27136,
+    46438,
+    "Driving engine"
+   ],
+   [
+    49152,
+    58623,
+    "Driving engine"
+   ],
+   [
+    58624,
+    61183,
+    "Title and resident code"
+   ],
+   [
+    61184,
+    65529,
+    "Driving engine"
+   ],
+   [
+    65530,
+    65535,
+    "Title and resident code"
+   ]
+  ],
+  "extra": [
+   [
+    46439,
+    49151,
+    "GS module matched to the private disk directory and captured in VICE"
+   ]
+  ],
+  "edges": [
+   0,
+   256,
+   512,
+   1024,
+   2048,
+   4096,
+   16384,
+   32768,
+   40960,
+   49152,
+   53248,
+   57344
+  ],
+  "elsewhere": [
+   [
+    0,
+    2101,
+    "Title and resident code"
+   ],
+   [
+    2102,
+    2116,
+    "Driving engine"
+   ],
+   [
+    2117,
+    10683,
+    "Title and resident code"
+   ],
+   [
+    10684,
+    13823,
+    "Driving engine"
+   ],
+   [
+    13824,
+    16383,
+    "Title and resident code"
+   ],
+   [
+    16384,
+    25599,
+    "Driving engine"
+   ],
+   [
+    25600,
+    27135,
+    "Title and resident code"
+   ],
+   [
+    27136,
+    46438,
+    "Driving engine"
+   ],
+   [
+    49152,
+    58623,
+    "Driving engine"
+   ],
+   [
+    58624,
+    61183,
+    "Title and resident code"
+   ],
+   [
+    61184,
+    65529,
+    "Driving engine"
+   ],
+   [
+    65530,
+    65535,
+    "Title and resident code"
+   ]
+  ]
+ },
+ "blocks": [
+  {
+   "start": 46439,
+   "end": 46442,
+   "type": "Word"
+  },
+  {
+   "start": 46443,
+   "end": 47689,
+   "type": "Code"
+  },
+  {
+   "start": 47690,
+   "end": 47733,
+   "type": "Undefined"
+  },
+  {
+   "start": 47734,
+   "end": 47778,
+   "type": "Code"
+  },
+  {
+   "start": 47779,
+   "end": 47806,
+   "type": "Undefined"
+  },
+  {
+   "start": 47807,
+   "end": 48250,
+   "type": "Code"
+  },
+  {
+   "start": 48251,
+   "end": 48322,
+   "type": "Undefined"
+  },
+  {
+   "start": 48323,
+   "end": 48354,
+   "type": "Code"
+  },
+  {
+   "start": 48355,
+   "end": 48362,
+   "type": "Undefined"
+  },
+  {
+   "start": 48363,
+   "end": 49099,
+   "type": "Byte"
+  },
+  {
+   "start": 49100,
+   "end": 49103,
+   "type": "Undefined"
+  },
+  {
+   "start": 49104,
+   "end": 49127,
+   "type": "Byte"
+  },
+  {
+   "start": 49128,
+   "end": 49147,
+   "type": "Word"
+  },
+  {
+   "start": 49148,
+   "end": 49151,
+   "type": "Undefined"
+  }
+ ],
+ "symbols": [
+  {
+   "address": 46439,
+   "name": "module_header",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 46443,
+   "name": "gas_stop_module",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 46447,
+   "name": "scale_interlude_counters",
+   "type": "Jump",
+   "kind": "user"
+  },
+  {
+   "address": 46464,
+   "name": "derive_average_speed",
+   "type": "Branch",
+   "kind": "user"
+  },
+  {
+   "address": 46470,
+   "name": "j_B586",
+   "type": "Jump",
+   "kind": "auto"
+  },
+  {
+   "address": 46480,
+   "name": "b_B590",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 46497,
+   "name": "b_B5A1",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 46500,
+   "name": "combine_stage_time",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 46516,
+   "name": "b_B5B4",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 46527,
+   "name": "b_B5BF",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 46531,
+   "name": "b_B5C3",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 46572,
+   "name": "b_B5EC",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 46597,
+   "name": "calculate_stage_points",
+   "type": "Branch",
+   "kind": "user"
+  },
+  {
+   "address": 46611,
+   "name": "j_B613",
+   "type": "Jump",
+   "kind": "auto"
+  },
+  {
+   "address": 46626,
+   "name": "b_B622",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 46636,
+   "name": "b_B62C",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 46660,
+   "name": "b_B644",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 46663,
+   "name": "b_B647",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 46682,
+   "name": "dispatch_stage_results",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 46691,
+   "name": "b_B663",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 46992,
+   "name": "j_B790",
+   "type": "Jump",
+   "kind": "auto"
+  },
+  {
+   "address": 47007,
+   "name": "b_B79F",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 47020,
+   "name": "b_B7AC",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 47064,
+   "name": "b_B7D8",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 47088,
+   "name": "wait_at_results",
+   "type": "Subroutine",
+   "kind": "user"
+  },
+  {
+   "address": 47126,
+   "name": "b_B816",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 47268,
+   "name": "b_B8A4",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 47278,
+   "name": "b_B8AE",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 47339,
+   "name": "b_B8EB",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 47343,
+   "name": "b_B8EF",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 47377,
+   "name": "r_B911",
+   "type": "Return",
+   "kind": "auto"
+  },
+  {
+   "address": 47378,
+   "name": "draw_results_text_line",
+   "type": "Subroutine",
+   "kind": "user"
+  },
+  {
+   "address": 47385,
+   "name": "b_B919",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 47389,
+   "name": "b_B91D",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 47399,
+   "name": "b_B927",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 47402,
+   "name": "b_B92A",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 47412,
+   "name": "b_B934",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 47414,
+   "name": "b_B936",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 47426,
+   "name": "j_B942",
+   "type": "Jump",
+   "kind": "auto"
+  },
+  {
+   "address": 47428,
+   "name": "b_B944",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 47456,
+   "name": "b_B960",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 47471,
+   "name": "b_B96F",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 47504,
+   "name": "b_B990",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 47552,
+   "name": "b_B9C0",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 47561,
+   "name": "b_B9C9",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 47566,
+   "name": "a_B9CE",
+   "type": "AbsoluteAddress",
+   "kind": "auto"
+  },
+  {
+   "address": 47572,
+   "name": "b_B9D4",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 47576,
+   "name": "b_B9D8",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 47587,
+   "name": "b_B9E3",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 47590,
+   "name": "s_B9E6",
+   "type": "Subroutine",
+   "kind": "auto"
+  },
+  {
+   "address": 47593,
+   "name": "compose_results_digits",
+   "type": "Subroutine",
+   "kind": "user"
+  },
+  {
+   "address": 47594,
+   "name": "b_B9EA",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 47603,
+   "name": "b_B9F3",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 47605,
+   "name": "b_B9F5",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 47616,
+   "name": "b_BA00",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 47623,
+   "name": "b_BA07",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 47641,
+   "name": "b_BA19",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 47657,
+   "name": "b_BA29",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 47674,
+   "name": "b_BA3A",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 47678,
+   "name": "b_BA3E",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 47691,
+   "name": "a_BA4B",
+   "type": "AbsoluteAddress",
+   "kind": "auto"
+  },
+  {
+   "address": 47692,
+   "name": "a_BA4C",
+   "type": "AbsoluteAddress",
+   "kind": "auto"
+  },
+  {
+   "address": 47694,
+   "name": "a_BA4E",
+   "type": "AbsoluteAddress",
+   "kind": "auto"
+  },
+  {
+   "address": 47695,
+   "name": "a_BA4F",
+   "type": "AbsoluteAddress",
+   "kind": "auto"
+  },
+  {
+   "address": 47696,
+   "name": "gas_stop_irq",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 47734,
+   "name": "swap_results_buffers",
+   "type": "Subroutine",
+   "kind": "user"
+  },
+  {
+   "address": 47778,
+   "name": "r_BAA2",
+   "type": "Return",
+   "kind": "auto"
+  },
+  {
+   "address": 47779,
+   "name": "results_text_split_irq",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 47819,
+   "name": "b_BACB",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 47828,
+   "name": "b_BAD4",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 47831,
+   "name": "b_BAD7",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 47865,
+   "name": "b_BAF9",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 47871,
+   "name": "s_BAFF",
+   "type": "Subroutine",
+   "kind": "auto"
+  },
+  {
+   "address": 47889,
+   "name": "b_BB11",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 47895,
+   "name": "r_BB17",
+   "type": "Return",
+   "kind": "auto"
+  },
+  {
+   "address": 47896,
+   "name": "j_BB18",
+   "type": "Jump",
+   "kind": "auto"
+  },
+  {
+   "address": 47946,
+   "name": "b_BB4A",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 48033,
+   "name": "b_BBA1",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 48106,
+   "name": "b_BBEA",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 48130,
+   "name": "b_BC02",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 48136,
+   "name": "s_BC08",
+   "type": "Subroutine",
+   "kind": "auto"
+  },
+  {
+   "address": 48140,
+   "name": "b_BC0C",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 48148,
+   "name": "r_BC14",
+   "type": "Return",
+   "kind": "auto"
+  },
+  {
+   "address": 48149,
+   "name": "results_bitmap_blitter",
+   "type": "Subroutine",
+   "kind": "user"
+  },
+  {
+   "address": 48195,
+   "name": "b_BC43",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 48219,
+   "name": "b_BC5B",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 48241,
+   "name": "b_BC71",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 48252,
+   "name": "a_BC7C",
+   "type": "AbsoluteAddress",
+   "kind": "auto"
+  },
+  {
+   "address": 48253,
+   "name": "a_BC7D",
+   "type": "AbsoluteAddress",
+   "kind": "auto"
+  },
+  {
+   "address": 48255,
+   "name": "a_BC7F",
+   "type": "AbsoluteAddress",
+   "kind": "auto"
+  },
+  {
+   "address": 48256,
+   "name": "a_BC80",
+   "type": "AbsoluteAddress",
+   "kind": "auto"
+  },
+  {
+   "address": 48258,
+   "name": "f_BC82",
+   "type": "Field",
+   "kind": "auto"
+  },
+  {
+   "address": 48259,
+   "name": "f_BC83",
+   "type": "Field",
+   "kind": "auto"
+  },
+  {
+   "address": 48303,
+   "name": "f_BCAF",
+   "type": "Field",
+   "kind": "auto"
+  },
+  {
+   "address": 48304,
+   "name": "f_BCB0",
+   "type": "Field",
+   "kind": "auto"
+  },
+  {
+   "address": 48312,
+   "name": "a_BCB8",
+   "type": "AbsoluteAddress",
+   "kind": "auto"
+  },
+  {
+   "address": 48313,
+   "name": "a_BCB9",
+   "type": "AbsoluteAddress",
+   "kind": "auto"
+  },
+  {
+   "address": 48315,
+   "name": "a_BCBB",
+   "type": "AbsoluteAddress",
+   "kind": "auto"
+  },
+  {
+   "address": 48318,
+   "name": "a_BCBE",
+   "type": "AbsoluteAddress",
+   "kind": "auto"
+  },
+  {
+   "address": 48319,
+   "name": "a_BCBF",
+   "type": "AbsoluteAddress",
+   "kind": "auto"
+  },
+  {
+   "address": 48321,
+   "name": "a_BCC1",
+   "type": "AbsoluteAddress",
+   "kind": "auto"
+  },
+  {
+   "address": 48322,
+   "name": "a_BCC2",
+   "type": "AbsoluteAddress",
+   "kind": "auto"
+  },
+  {
+   "address": 48323,
+   "name": "reset_interlude_loader_context",
+   "type": "Subroutine",
+   "kind": "user"
+  },
+  {
+   "address": 48328,
+   "name": "load_results_picture",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 48349,
+   "name": "a_BCDD",
+   "type": "AbsoluteAddress",
+   "kind": "auto"
+  },
+  {
+   "address": 48351,
+   "name": "a_BCDF",
+   "type": "AbsoluteAddress",
+   "kind": "auto"
+  },
+  {
+   "address": 48356,
+   "name": "a_BCE4",
+   "type": "AbsoluteAddress",
+   "kind": "auto"
+  },
+  {
+   "address": 48361,
+   "name": "f_BCE9",
+   "type": "Field",
+   "kind": "auto"
+  },
+  {
+   "address": 48363,
+   "name": "results_message_descriptors",
+   "type": "Field",
+   "kind": "user"
+  },
+  {
+   "address": 49060,
+   "name": "results_text_line_buffer",
+   "type": "Field",
+   "kind": "user"
+  },
+  {
+   "address": 49100,
+   "name": "results_average_speed",
+   "type": "AbsoluteAddress",
+   "kind": "user"
+  },
+  {
+   "address": 49101,
+   "name": "results_stage_points",
+   "type": "AbsoluteAddress",
+   "kind": "user"
+  },
+  {
+   "address": 49102,
+   "name": "a_BFCE",
+   "type": "AbsoluteAddress",
+   "kind": "auto"
+  },
+  {
+   "address": 49103,
+   "name": "results_message_choice",
+   "type": "AbsoluteAddress",
+   "kind": "user"
+  },
+  {
+   "address": 49104,
+   "name": "results_message_offsets",
+   "type": "Field",
+   "kind": "user"
+  },
+  {
+   "address": 49112,
+   "name": "results_digit_buffer",
+   "type": "Field",
+   "kind": "user"
+  },
+  {
+   "address": 49118,
+   "name": "results_decimal_places_lo",
+   "type": "Field",
+   "kind": "user"
+  },
+  {
+   "address": 49123,
+   "name": "results_decimal_places_hi",
+   "type": "Field",
+   "kind": "user"
+  },
+  {
+   "address": 49128,
+   "name": "stage_time_adjustments",
+   "type": "Field",
+   "kind": "user"
+  },
+  {
+   "address": 49129,
+   "name": "f_BFE9",
+   "type": "Field",
+   "kind": "auto"
+  },
+  {
+   "address": 49138,
+   "name": "stage_point_numerators",
+   "type": "Field",
+   "kind": "user"
+  },
+  {
+   "address": 49139,
+   "name": "f_BFF3",
+   "type": "Field",
+   "kind": "auto"
+  }
+ ],
+ "comments": [
+  {
+   "address": 46439,
+   "type": "line",
+   "text": "Relocated entry word $B56B followed by body length $0A95 for GS."
+  },
+  {
+   "address": 46443,
+   "type": "line",
+   "text": "Increment $63 twice before inspecting the two-byte counter at $53\u2013$54. The interlude is invoked by the road-completion path at $6DD1."
+  },
+  {
+   "address": 46447,
+   "type": "line",
+   "text": "Right-shift elapsed time $53-$54 and the accumulated speed $55-$57 together until the high time byte is zero."
+  },
+  {
+   "address": 46464,
+   "type": "line",
+   "text": "Repeatedly subtract the remaining byte of elapsed time from the speed subtotal. The quotient in X is written to $BFCC. A zero time bypasses the repeated subtraction."
+  },
+  {
+   "address": 46500,
+   "type": "line",
+   "text": "Add 60 per unit in $69 to the low time byte $68, subtract the per-stage constant from $BFE8 and clamp negative results to zero."
+  },
+  {
+   "address": 46597,
+   "type": "line",
+   "text": "Fetch the stage's word from $BFF2 and derive a points subtotal. The repeated subtraction increments the award by four. The result is written to $BFCD-$BFCE and added to $43-$44."
+  },
+  {
+   "address": 46682,
+   "type": "line",
+   "text": "Choose the final stage display when $52 is 4. Other stages prepare two picture IDs, run DP and GP, and set the interlude IRQ."
+  },
+  {
+   "address": 47088,
+   "type": "line",
+   "text": "Drain pending keyboard input and clear the fire latch. Copy the character ROM range $D800-$DBFF to $E400-$E7FF with I/O switched out, then use CIA timer bytes and the tick counter to select an interlude message."
+  },
+  {
+   "address": 47378,
+   "type": "line",
+   "text": "Read one zero-terminated message line. Skip high-bit bytes, stage remaining glyphs at $BFA4 and fill out the 40-cell line with spaces."
+  },
+  {
+   "address": 47593,
+   "type": "line",
+   "text": "Convert the 16-bit value in A and X to five decimal digits by repeated subtraction. Put the digits in the results text, optionally replacing initial zeroes with $80."
+  },
+  {
+   "address": 47696,
+   "type": "line",
+   "text": "Enable I/O and acknowledge the VIC interrupt, disable sprites, count a tick, then service a pending buffer swap, input and music before returning to the KERNAL IRQ."
+  },
+  {
+   "address": 47734,
+   "type": "line",
+   "text": "Toggle the VIC bank bit when the main program requests a swap. Exchange the bitmap base, matrix base and bank-dependent scratch fields before clearing one pending swap."
+  },
+  {
+   "address": 47779,
+   "type": "line",
+   "text": "Select the next raster phase using $BCE4-$BCE8, then combine the display-mode bits with its per-phase value."
+  },
+  {
+   "address": 48149,
+   "type": "line",
+   "text": "Read the packed bitmap width, height and position, skip the six-byte header and calculate the destination in the active bitmap bank."
+  },
+  {
+   "address": 48323,
+   "type": "line",
+   "text": "Use the resident $0824 service with Y set to $F2."
+  },
+  {
+   "address": 48328,
+   "type": "line",
+   "text": "Invoke UJ using the supplied two-byte picture identifier and free that identifier's original packed item afterward."
+  },
+  {
+   "address": 48363,
+   "type": "line",
+   "text": "The first three bytes precede the result text. Subsequent bytes encode message lines with indices $01-$1A for the alphabet and $20 for spaces. A zero ends a line and $FF separates message groups. The initial group has slots filled with the speed, time and points."
+  },
+  {
+   "address": 49060,
+   "type": "line",
+   "text": "Forty glyph slots copied and filled with spaces by $B912."
+  },
+  {
+   "address": 49100,
+   "type": "line",
+   "text": "Byte quotient produced by the average-speed loop at $B580."
+  },
+  {
+   "address": 49101,
+   "type": "line",
+   "text": "Points award saved here before adding it to the running total."
+  },
+  {
+   "address": 49103,
+   "type": "line",
+   "text": "Chosen message offset from $BFD0, selected by the timer and tick mix at $B82A."
+  },
+  {
+   "address": 49104,
+   "type": "line",
+   "text": "Eight choices from $00, $03 and $06. The interrupt setup stores the selected value in $BFCF."
+  },
+  {
+   "address": 49112,
+   "type": "line",
+   "text": "Workspace for five decimal glyphs. The conversion starts its digit writes at $BA1C."
+  },
+  {
+   "address": 49118,
+   "type": "line",
+   "text": "Low bytes of 10,000, 1,000, 100, 10 and 1. Used by the digit conversion at $BA0A."
+  },
+  {
+   "address": 49123,
+   "type": "line",
+   "text": "Companion high bytes for the repeated-subtraction digit routine."
+  },
+  {
+   "address": 49128,
+   "type": "line",
+   "text": "Five words indexed by twice $52. The time calculation subtracts the selected word at $B5D7."
+  },
+  {
+   "address": 49138,
+   "type": "line",
+   "text": "Five words selected by stage and divided by the adjusted time to form the interlude's points."
+  }
+ ]
+}

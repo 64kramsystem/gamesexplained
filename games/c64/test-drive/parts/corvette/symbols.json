@@ -1,0 +1,596 @@
+{
+ "schema": 1,
+ "platform": "c64",
+ "game": "test-drive",
+ "part": "corvette",
+ "build": "",
+ "source": "regenerator2000 live",
+ "regions": {
+  "exclude": [
+   [
+    256,
+    511,
+    "stack"
+   ],
+   [
+    53248,
+    57343,
+    "I/O and colour RAM"
+   ],
+   [
+    0,
+    2101,
+    "Title and resident code"
+   ],
+   [
+    2102,
+    2116,
+    "Driving engine"
+   ],
+   [
+    2117,
+    10683,
+    "Title and resident code"
+   ],
+   [
+    10684,
+    11875,
+    "Driving engine"
+   ],
+   [
+    13037,
+    13457,
+    "Driving engine"
+   ],
+   [
+    13458,
+    16383,
+    "Title and resident code"
+   ],
+   [
+    16384,
+    25599,
+    "Driving engine"
+   ],
+   [
+    25600,
+    27135,
+    "Title and resident code"
+   ],
+   [
+    27136,
+    49151,
+    "Driving engine"
+   ],
+   [
+    49152,
+    58623,
+    "Driving engine"
+   ],
+   [
+    58624,
+    61183,
+    "Title and resident code"
+   ],
+   [
+    61184,
+    65529,
+    "Driving engine"
+   ],
+   [
+    65530,
+    65535,
+    "Title and resident code"
+   ]
+  ],
+  "extra": [
+   [
+    11876,
+    13036,
+    "D5 module matched to the private disk directory and captured in VICE"
+   ]
+  ],
+  "edges": [
+   0,
+   256,
+   512,
+   1024,
+   2048,
+   4096,
+   16384,
+   32768,
+   40960,
+   49152,
+   53248,
+   57344
+  ],
+  "elsewhere": [
+   [
+    0,
+    2101,
+    "Title and resident code"
+   ],
+   [
+    2102,
+    2116,
+    "Driving engine"
+   ],
+   [
+    2117,
+    10683,
+    "Title and resident code"
+   ],
+   [
+    10684,
+    11875,
+    "Driving engine"
+   ],
+   [
+    13037,
+    13457,
+    "Driving engine"
+   ],
+   [
+    13458,
+    16383,
+    "Title and resident code"
+   ],
+   [
+    16384,
+    25599,
+    "Driving engine"
+   ],
+   [
+    25600,
+    27135,
+    "Title and resident code"
+   ],
+   [
+    27136,
+    49151,
+    "Driving engine"
+   ],
+   [
+    49152,
+    58623,
+    "Driving engine"
+   ],
+   [
+    58624,
+    61183,
+    "Title and resident code"
+   ],
+   [
+    61184,
+    65529,
+    "Driving engine"
+   ],
+   [
+    65530,
+    65535,
+    "Title and resident code"
+   ]
+  ]
+ },
+ "blocks": [
+  {
+   "start": 11876,
+   "end": 11879,
+   "type": "Word"
+  },
+  {
+   "start": 11880,
+   "end": 12584,
+   "type": "Code"
+  },
+  {
+   "start": 12585,
+   "end": 13036,
+   "type": "Undefined"
+  }
+ ],
+ "symbols": [
+  {
+   "address": 11876,
+   "name": "module_header",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 11880,
+   "name": "corvette_dispatch",
+   "type": "Jump",
+   "kind": "user"
+  },
+  {
+   "address": 11887,
+   "name": "b_2E6F",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 12067,
+   "name": "b_2F23",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 12075,
+   "name": "b_2F2B",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 12119,
+   "name": "j_2F57",
+   "type": "Jump",
+   "kind": "auto"
+  },
+  {
+   "address": 12130,
+   "name": "b_2F62",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 12134,
+   "name": "s_2F66",
+   "type": "Subroutine",
+   "kind": "auto"
+  },
+  {
+   "address": 12158,
+   "name": "r_2F7E",
+   "type": "Return",
+   "kind": "auto"
+  },
+  {
+   "address": 12159,
+   "name": "s_2F7F",
+   "type": "Subroutine",
+   "kind": "auto"
+  },
+  {
+   "address": 12183,
+   "name": "b_2F97",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 12189,
+   "name": "s_2F9D",
+   "type": "Subroutine",
+   "kind": "auto"
+  },
+  {
+   "address": 12209,
+   "name": "b_2FB1",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 12231,
+   "name": "a_2FC7",
+   "type": "AbsoluteAddress",
+   "kind": "auto"
+  },
+  {
+   "address": 12273,
+   "name": "b_2FF1",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 12284,
+   "name": "b_2FFC",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 12298,
+   "name": "b_300A",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 12304,
+   "name": "b_3010",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 12314,
+   "name": "b_301A",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 12320,
+   "name": "b_3020",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 12328,
+   "name": "b_3028",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 12336,
+   "name": "b_3030",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 12353,
+   "name": "b_3041",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 12356,
+   "name": "j_3044",
+   "type": "Jump",
+   "kind": "auto"
+  },
+  {
+   "address": 12361,
+   "name": "b_3049",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 12375,
+   "name": "b_3057",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 12387,
+   "name": "b_3063",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 12389,
+   "name": "b_3065",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 12403,
+   "name": "b_3073",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 12412,
+   "name": "b_307C",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 12420,
+   "name": "b_3084",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 12428,
+   "name": "s_308C",
+   "type": "Subroutine",
+   "kind": "auto"
+  },
+  {
+   "address": 12439,
+   "name": "b_3097",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 12450,
+   "name": "r_30A2",
+   "type": "Return",
+   "kind": "auto"
+  },
+  {
+   "address": 12451,
+   "name": "s_30A3",
+   "type": "Subroutine",
+   "kind": "auto"
+  },
+  {
+   "address": 12457,
+   "name": "a_30A9",
+   "type": "AbsoluteAddress",
+   "kind": "auto"
+  },
+  {
+   "address": 12479,
+   "name": "b_30BF",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 12482,
+   "name": "a_30C2",
+   "type": "AbsoluteAddress",
+   "kind": "auto"
+  },
+  {
+   "address": 12489,
+   "name": "a_30C9",
+   "type": "AbsoluteAddress",
+   "kind": "auto"
+  },
+  {
+   "address": 12496,
+   "name": "a_30D0",
+   "type": "AbsoluteAddress",
+   "kind": "auto"
+  },
+  {
+   "address": 12505,
+   "name": "s_30D9",
+   "type": "Subroutine",
+   "kind": "auto"
+  },
+  {
+   "address": 12507,
+   "name": "b_30DB",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 12526,
+   "name": "s_30EE",
+   "type": "Subroutine",
+   "kind": "auto"
+  },
+  {
+   "address": 12586,
+   "name": "a_312A",
+   "type": "AbsoluteAddress",
+   "kind": "auto"
+  },
+  {
+   "address": 12587,
+   "name": "a_312B",
+   "type": "AbsoluteAddress",
+   "kind": "auto"
+  },
+  {
+   "address": 12698,
+   "name": "a_319A",
+   "type": "AbsoluteAddress",
+   "kind": "auto"
+  },
+  {
+   "address": 12699,
+   "name": "a_319B",
+   "type": "AbsoluteAddress",
+   "kind": "auto"
+  },
+  {
+   "address": 12700,
+   "name": "a_319C",
+   "type": "AbsoluteAddress",
+   "kind": "auto"
+  },
+  {
+   "address": 12701,
+   "name": "a_319D",
+   "type": "AbsoluteAddress",
+   "kind": "auto"
+  },
+  {
+   "address": 12702,
+   "name": "a_319E",
+   "type": "AbsoluteAddress",
+   "kind": "auto"
+  },
+  {
+   "address": 12703,
+   "name": "f_319F",
+   "type": "Field",
+   "kind": "auto"
+  },
+  {
+   "address": 12705,
+   "name": "f_31A1",
+   "type": "Field",
+   "kind": "auto"
+  },
+  {
+   "address": 12707,
+   "name": "f_31A3",
+   "type": "Field",
+   "kind": "auto"
+  },
+  {
+   "address": 12708,
+   "name": "f_31A4",
+   "type": "Field",
+   "kind": "auto"
+  },
+  {
+   "address": 12709,
+   "name": "f_31A5",
+   "type": "Field",
+   "kind": "auto"
+  },
+  {
+   "address": 12710,
+   "name": "f_31A6",
+   "type": "Field",
+   "kind": "auto"
+  },
+  {
+   "address": 12711,
+   "name": "f_31A7",
+   "type": "Field",
+   "kind": "auto"
+  },
+  {
+   "address": 12712,
+   "name": "f_31A8",
+   "type": "Field",
+   "kind": "auto"
+  },
+  {
+   "address": 12713,
+   "name": "f_31A9",
+   "type": "Field",
+   "kind": "auto"
+  },
+  {
+   "address": 12787,
+   "name": "f_31F3",
+   "type": "Field",
+   "kind": "auto"
+  },
+  {
+   "address": 12788,
+   "name": "f_31F4",
+   "type": "Field",
+   "kind": "auto"
+  },
+  {
+   "address": 12789,
+   "name": "f_31F5",
+   "type": "Field",
+   "kind": "auto"
+  },
+  {
+   "address": 12859,
+   "name": "f_323B",
+   "type": "Field",
+   "kind": "auto"
+  },
+  {
+   "address": 12874,
+   "name": "a_324A",
+   "type": "AbsoluteAddress",
+   "kind": "auto"
+  },
+  {
+   "address": 12881,
+   "name": "a_3251",
+   "type": "AbsoluteAddress",
+   "kind": "auto"
+  }
+ ],
+ "comments": [
+  {
+   "address": 11876,
+   "type": "line",
+   "text": "Relocated entry word $2E68 followed by body length $0485 for D5."
+  },
+  {
+   "address": 11880,
+   "type": "line",
+   "text": "A value of zero starts Corvette setup. Nonzero arguments jump to the update dispatch."
+  }
+ ]
+}

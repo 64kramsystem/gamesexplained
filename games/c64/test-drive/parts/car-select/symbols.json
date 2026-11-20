@@ -1,0 +1,1022 @@
+{
+ "schema": 1,
+ "platform": "c64",
+ "game": "test-drive",
+ "part": "car-select",
+ "build": "Decibel and Eagle Soft Incorporated side A, Eagle Soft Incorporated side B",
+ "source": "regenerator2000 live",
+ "regions": {
+  "exclude": [
+   [
+    256,
+    511,
+    "stack"
+   ],
+   [
+    53248,
+    57343,
+    "I/O and colour RAM"
+   ],
+   [
+    0,
+    11875,
+    "Title and resident code"
+   ],
+   [
+    14019,
+    16383,
+    "Title and resident code"
+   ],
+   [
+    25600,
+    27135,
+    "Title and resident code"
+   ],
+   [
+    58368,
+    61439,
+    "Title and resident code"
+   ],
+   [
+    65530,
+    65535,
+    "Title and resident code"
+   ]
+  ],
+  "extra": [
+   [
+    12204,
+    14018,
+    "TS executable module relocated from $2000"
+   ]
+  ],
+  "edges": [
+   0,
+   256,
+   512,
+   1024,
+   2048,
+   4096,
+   16384,
+   32768,
+   40960,
+   49152,
+   53248,
+   57344
+  ],
+  "elsewhere": [
+   [
+    0,
+    11875,
+    "Title and resident code"
+   ],
+   [
+    14019,
+    16383,
+    "Title and resident code"
+   ],
+   [
+    25600,
+    27135,
+    "Title and resident code"
+   ],
+   [
+    58368,
+    61439,
+    "Title and resident code"
+   ],
+   [
+    65530,
+    65535,
+    "Title and resident code"
+   ]
+  ]
+ },
+ "blocks": [
+  {
+   "start": 11876,
+   "end": 11879,
+   "type": "Word"
+  },
+  {
+   "start": 11880,
+   "end": 11880,
+   "type": "Code"
+  },
+  {
+   "start": 11881,
+   "end": 12203,
+   "type": "Byte"
+  },
+  {
+   "start": 12204,
+   "end": 12207,
+   "type": "Word"
+  },
+  {
+   "start": 12208,
+   "end": 13149,
+   "type": "Code"
+  },
+  {
+   "start": 13150,
+   "end": 13258,
+   "type": "Undefined"
+  },
+  {
+   "start": 13259,
+   "end": 13467,
+   "type": "Code"
+  },
+  {
+   "start": 13468,
+   "end": 13563,
+   "type": "Undefined"
+  },
+  {
+   "start": 13564,
+   "end": 13589,
+   "type": "Code"
+  },
+  {
+   "start": 13590,
+   "end": 13595,
+   "type": "Undefined"
+  },
+  {
+   "start": 13596,
+   "end": 13900,
+   "type": "Code"
+  },
+  {
+   "start": 13901,
+   "end": 14009,
+   "type": "Undefined"
+  },
+  {
+   "start": 14010,
+   "end": 14018,
+   "type": "Byte"
+  },
+  {
+   "start": 16384,
+   "end": 17423,
+   "type": "Undefined"
+  },
+  {
+   "start": 17424,
+   "end": 17436,
+   "type": "Code"
+  },
+  {
+   "start": 17437,
+   "end": 25599,
+   "type": "Undefined"
+  },
+  {
+   "start": 27136,
+   "end": 58367,
+   "type": "Undefined"
+  },
+  {
+   "start": 61440,
+   "end": 65489,
+   "type": "Undefined"
+  },
+  {
+   "start": 65490,
+   "end": 65496,
+   "type": "Code"
+  },
+  {
+   "start": 65497,
+   "end": 65507,
+   "type": "Undefined"
+  },
+  {
+   "start": 65508,
+   "end": 65529,
+   "type": "Code"
+  }
+ ],
+ "symbols": [
+  {
+   "address": 11876,
+   "name": "selection_dispatch_header",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 11880,
+   "name": "init_selector_descriptors",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 11881,
+   "name": "car_bitmap_descriptor_tables",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 11959,
+   "name": "packed_car_scale_data",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 11970,
+   "name": "car_bitmap_tile_lists",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 12204,
+   "name": "car_selector_header",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 12208,
+   "name": "enter_car_selection",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 12257,
+   "name": "b_2FE1",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 12286,
+   "name": "b_2FFE",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 12318,
+   "name": "show_selected_car",
+   "type": "Jump",
+   "kind": "user"
+  },
+  {
+   "address": 12375,
+   "name": "wait_for_car_input",
+   "type": "Branch",
+   "kind": "user"
+  },
+  {
+   "address": 12416,
+   "name": "b_3080",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 12419,
+   "name": "b_3083",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 12432,
+   "name": "confirm_car",
+   "type": "Branch",
+   "kind": "user"
+  },
+  {
+   "address": 12446,
+   "name": "b_309E",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 12486,
+   "name": "j_30C6",
+   "type": "Jump",
+   "kind": "auto"
+  },
+  {
+   "address": 12503,
+   "name": "b_30D7",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 12518,
+   "name": "b_30E6",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 12561,
+   "name": "prepare_selected_cockpit",
+   "type": "Branch",
+   "kind": "user"
+  },
+  {
+   "address": 12584,
+   "name": "b_3128",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 12663,
+   "name": "b_3177",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 12679,
+   "name": "b_3187",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 12684,
+   "name": "b_318C",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 12792,
+   "name": "j_31F8",
+   "type": "Jump",
+   "kind": "auto"
+  },
+  {
+   "address": 12798,
+   "name": "a_31FE",
+   "type": "AbsoluteAddress",
+   "kind": "auto"
+  },
+  {
+   "address": 12804,
+   "name": "f_3204",
+   "type": "Field",
+   "kind": "auto"
+  },
+  {
+   "address": 12805,
+   "name": "a_3205",
+   "type": "AbsoluteAddress",
+   "kind": "auto"
+  },
+  {
+   "address": 12806,
+   "name": "a_3206",
+   "type": "AbsoluteAddress",
+   "kind": "auto"
+  },
+  {
+   "address": 12817,
+   "name": "f_3211",
+   "type": "Field",
+   "kind": "auto"
+  },
+  {
+   "address": 12818,
+   "name": "a_3212",
+   "type": "AbsoluteAddress",
+   "kind": "auto"
+  },
+  {
+   "address": 12819,
+   "name": "a_3213",
+   "type": "AbsoluteAddress",
+   "kind": "auto"
+  },
+  {
+   "address": 12870,
+   "name": "b_3246",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 12929,
+   "name": "j_3281",
+   "type": "Jump",
+   "kind": "auto"
+  },
+  {
+   "address": 12968,
+   "name": "f_32A8",
+   "type": "Field",
+   "kind": "auto"
+  },
+  {
+   "address": 12969,
+   "name": "a_32A9",
+   "type": "AbsoluteAddress",
+   "kind": "auto"
+  },
+  {
+   "address": 12970,
+   "name": "a_32AA",
+   "type": "AbsoluteAddress",
+   "kind": "auto"
+  },
+  {
+   "address": 12977,
+   "name": "b_32B1",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 12978,
+   "name": "f_32B2",
+   "type": "Field",
+   "kind": "auto"
+  },
+  {
+   "address": 12979,
+   "name": "a_32B3",
+   "type": "AbsoluteAddress",
+   "kind": "auto"
+  },
+  {
+   "address": 12980,
+   "name": "a_32B4",
+   "type": "AbsoluteAddress",
+   "kind": "auto"
+  },
+  {
+   "address": 13007,
+   "name": "fade_car_transition_audio",
+   "type": "Branch",
+   "kind": "user"
+  },
+  {
+   "address": 13016,
+   "name": "b_32D8",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 13021,
+   "name": "b_32DD",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 13073,
+   "name": "b_3311",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 13089,
+   "name": "b_3321",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 13094,
+   "name": "b_3326",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 13105,
+   "name": "b_3331",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 13109,
+   "name": "b_3335",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 13133,
+   "name": "b_334D",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 13151,
+   "name": "a_335F",
+   "type": "AbsoluteAddress",
+   "kind": "auto"
+  },
+  {
+   "address": 13152,
+   "name": "a_3360",
+   "type": "AbsoluteAddress",
+   "kind": "auto"
+  },
+  {
+   "address": 13257,
+   "name": "a_33C9",
+   "type": "AbsoluteAddress",
+   "kind": "auto"
+  },
+  {
+   "address": 13258,
+   "name": "a_33CA",
+   "type": "AbsoluteAddress",
+   "kind": "auto"
+  },
+  {
+   "address": 13259,
+   "name": "selector_raster_irq",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 13320,
+   "name": "b_3408",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 13350,
+   "name": "b_3426",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 13362,
+   "name": "b_3432",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 13365,
+   "name": "b_3435",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 13401,
+   "name": "b_3459",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 13417,
+   "name": "poll_selector_joystick",
+   "type": "Branch",
+   "kind": "user"
+  },
+  {
+   "address": 13424,
+   "name": "b_3470",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 13436,
+   "name": "b_347C",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 13459,
+   "name": "a_3493",
+   "type": "AbsoluteAddress",
+   "kind": "auto"
+  },
+  {
+   "address": 13468,
+   "name": "a_349C",
+   "type": "AbsoluteAddress",
+   "kind": "auto"
+  },
+  {
+   "address": 13564,
+   "name": "s_34FC",
+   "type": "Subroutine",
+   "kind": "auto"
+  },
+  {
+   "address": 13581,
+   "name": "r_350D",
+   "type": "Return",
+   "kind": "auto"
+  },
+  {
+   "address": 13582,
+   "name": "s_350E",
+   "type": "Subroutine",
+   "kind": "auto"
+  },
+  {
+   "address": 13585,
+   "name": "b_3511",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 13596,
+   "name": "write_selector_bitmap_band",
+   "type": "Subroutine",
+   "kind": "user"
+  },
+  {
+   "address": 13609,
+   "name": "j_3529",
+   "type": "Jump",
+   "kind": "auto"
+  },
+  {
+   "address": 13639,
+   "name": "b_3547",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 13657,
+   "name": "b_3559",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 13672,
+   "name": "b_3568",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 13679,
+   "name": "b_356F",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 13715,
+   "name": "b_3593",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 13732,
+   "name": "b_35A4",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 13735,
+   "name": "s_35A7",
+   "type": "Subroutine",
+   "kind": "auto"
+  },
+  {
+   "address": 13737,
+   "name": "b_35A9",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 13741,
+   "name": "r_35AD",
+   "type": "Return",
+   "kind": "auto"
+  },
+  {
+   "address": 13742,
+   "name": "draw_selector_bitmap_resource",
+   "type": "Subroutine",
+   "kind": "user"
+  },
+  {
+   "address": 13800,
+   "name": "b_35E8",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 13829,
+   "name": "b_3605",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 13844,
+   "name": "b_3614",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 13860,
+   "name": "b_3624",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 13869,
+   "name": "s_362D",
+   "type": "Subroutine",
+   "kind": "auto"
+  },
+  {
+   "address": 13874,
+   "name": "load_selection_picture",
+   "type": "Subroutine",
+   "kind": "user"
+  },
+  {
+   "address": 13895,
+   "name": "a_3647",
+   "type": "AbsoluteAddress",
+   "kind": "auto"
+  },
+  {
+   "address": 13897,
+   "name": "a_3649",
+   "type": "AbsoluteAddress",
+   "kind": "auto"
+  },
+  {
+   "address": 13902,
+   "name": "f_364E",
+   "type": "Field",
+   "kind": "auto"
+  },
+  {
+   "address": 13935,
+   "name": "f_366F",
+   "type": "Field",
+   "kind": "auto"
+  },
+  {
+   "address": 13943,
+   "name": "f_3677",
+   "type": "Field",
+   "kind": "auto"
+  },
+  {
+   "address": 13968,
+   "name": "f_3690",
+   "type": "Field",
+   "kind": "auto"
+  },
+  {
+   "address": 13993,
+   "name": "f_36A9",
+   "type": "Field",
+   "kind": "auto"
+  },
+  {
+   "address": 13995,
+   "name": "f_36AB",
+   "type": "Field",
+   "kind": "auto"
+  },
+  {
+   "address": 13997,
+   "name": "f_36AD",
+   "type": "Field",
+   "kind": "auto"
+  },
+  {
+   "address": 13999,
+   "name": "f_36AF",
+   "type": "Field",
+   "kind": "auto"
+  },
+  {
+   "address": 14001,
+   "name": "f_36B1",
+   "type": "Field",
+   "kind": "auto"
+  },
+  {
+   "address": 14010,
+   "name": "selector_direction_nibbles",
+   "type": "Field",
+   "kind": "user"
+  },
+  {
+   "address": 24576,
+   "name": "f_6000",
+   "type": "Field",
+   "kind": "auto"
+  },
+  {
+   "address": 24832,
+   "name": "f_6100",
+   "type": "Field",
+   "kind": "auto"
+  },
+  {
+   "address": 25088,
+   "name": "f_6200",
+   "type": "Field",
+   "kind": "auto"
+  },
+  {
+   "address": 25344,
+   "name": "f_6300",
+   "type": "Field",
+   "kind": "auto"
+  },
+  {
+   "address": 32937,
+   "name": "a_80A9",
+   "type": "AbsoluteAddress",
+   "kind": "auto"
+  },
+  {
+   "address": 36639,
+   "name": "f_8F1F",
+   "type": "Field",
+   "kind": "auto"
+  },
+  {
+   "address": 37033,
+   "name": "a_90A9",
+   "type": "AbsoluteAddress",
+   "kind": "auto"
+  },
+  {
+   "address": 47385,
+   "name": "f_B919",
+   "type": "Field",
+   "kind": "auto"
+  },
+  {
+   "address": 55296,
+   "name": "f_D800",
+   "type": "Field",
+   "kind": "auto"
+  },
+  {
+   "address": 55552,
+   "name": "f_D900",
+   "type": "Field",
+   "kind": "auto"
+  },
+  {
+   "address": 55808,
+   "name": "f_DA00",
+   "type": "Field",
+   "kind": "auto"
+  },
+  {
+   "address": 56064,
+   "name": "f_DB00",
+   "type": "Field",
+   "kind": "auto"
+  },
+  {
+   "address": 57089,
+   "name": "a_DF01",
+   "type": "AbsoluteAddress",
+   "kind": "auto"
+  },
+  {
+   "address": 57090,
+   "name": "a_DF02",
+   "type": "AbsoluteAddress",
+   "kind": "auto"
+  },
+  {
+   "address": 57091,
+   "name": "a_DF03",
+   "type": "AbsoluteAddress",
+   "kind": "auto"
+  },
+  {
+   "address": 57092,
+   "name": "a_DF04",
+   "type": "AbsoluteAddress",
+   "kind": "auto"
+  },
+  {
+   "address": 57093,
+   "name": "a_DF05",
+   "type": "AbsoluteAddress",
+   "kind": "auto"
+  },
+  {
+   "address": 57094,
+   "name": "a_DF06",
+   "type": "AbsoluteAddress",
+   "kind": "auto"
+  },
+  {
+   "address": 57095,
+   "name": "a_DF07",
+   "type": "AbsoluteAddress",
+   "kind": "auto"
+  },
+  {
+   "address": 57096,
+   "name": "a_DF08",
+   "type": "AbsoluteAddress",
+   "kind": "auto"
+  },
+  {
+   "address": 62719,
+   "name": "a_F4FF",
+   "type": "AbsoluteAddress",
+   "kind": "auto"
+  },
+  {
+   "address": 65490,
+   "name": "KERNAL_CHROUT",
+   "type": "Predefined",
+   "kind": "system"
+  },
+  {
+   "address": 65508,
+   "name": "KERNAL_GETIN",
+   "type": "Predefined",
+   "kind": "system"
+  }
+ ],
+ "comments": [
+  {
+   "address": 11876,
+   "type": "line",
+   "text": "Relocated entry $2E68 and body length $0144 for CI."
+  },
+  {
+   "address": 11880,
+   "type": "line",
+   "text": "Executable entry returns immediately. The selector reads the relocated address words following this byte as data."
+  },
+  {
+   "address": 11881,
+   "type": "line",
+   "text": "Tagged address records used through the CI base at $06-$07. The code selects one of five three-byte records at $30B5, then uses two six-byte-per-car groups for the bitmap lists at $3163 and $325F."
+  },
+  {
+   "address": 11959,
+   "type": "line",
+   "text": "Bytes addressed by the final descriptor at $2EB4. The selector reads car-specific pairs using the pointer loaded at $31DA."
+  },
+  {
+   "address": 11970,
+   "type": "line",
+   "text": "Five groups of selected asset suffixes. The selector's loop skips zero entries and exits on $FF. Each group contains the car-specific short attribute and bitmap lists referenced by the preceding address records."
+  },
+  {
+   "address": 12204,
+   "type": "line",
+   "text": "Relocated entry $2FB0 and body length $0713 for TS."
+  },
+  {
+   "address": 12208,
+   "type": "line",
+   "text": "Reset the input latch, install the temporary IRQ, locate the graphic and car descriptions, and initialize selection to car zero."
+  },
+  {
+   "address": 12318,
+   "type": "line",
+   "text": "Derive the disk item suffix from the selection at $40 plus ASCII '1'. Invoke GP and DP to prepare the selected car and wait for selector input."
+  },
+  {
+   "address": 12375,
+   "type": "line",
+   "text": "Check the confirmation latch at $46, otherwise use the joystick index at $E2 and the table at $36B1. Advance or decrement $40 and wrap within five entries."
+  },
+  {
+   "address": 12432,
+   "type": "line",
+   "text": "Stop the selector music through $6400 and release the car-select assets. Read the selected car's records through the module base $06 before preparing the driving display."
+  },
+  {
+   "address": 12561,
+   "type": "line",
+   "text": "Copy 32 pages between the bitmap buffers selected by $34 and $35. Invoke the graphics loader and look up the car-specific assets by the selected car's suffix."
+  },
+  {
+   "address": 13007,
+   "type": "line",
+   "text": "Synchronize the $D418 writes with the counter at $30 and lower the volume from 12 to zero."
+  },
+  {
+   "address": 13259,
+   "type": "line",
+   "text": "Enable I/O, acknowledge the VIC-II interrupt, select the next raster phase and update horizontal scroll. At phase zero, service bank changes, selector joystick input and music."
+  },
+  {
+   "address": 13417,
+   "type": "line",
+   "text": "Find the active-low direction nibble in the table at $36BA and put its index in $E2. OR an active fire button into the confirmation latch at $46."
+  },
+  {
+   "address": 13596,
+   "type": "line",
+   "text": "Work with the selected offset and the visible bitmap addresses computed from the row and column tables."
+  },
+  {
+   "address": 13742,
+   "type": "line",
+   "text": "Resolve the resource with the module lookup, read dimensions and position from its six-byte header, apply the current animation offsets, then draw the bitmap at the selected bank."
+  },
+  {
+   "address": 13874,
+   "type": "line",
+   "text": "Call UJ with the selected two-byte asset ID on the stack, then free the reusable graphic item identified by the self-modifying operands at $3647 and $3649."
+  },
+  {
+   "address": 14010,
+   "type": "line",
+   "text": "Nine active-low direction patterns read by the input loop at $3470."
+  }
+ ]
+}

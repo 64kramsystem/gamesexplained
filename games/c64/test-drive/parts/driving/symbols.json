@@ -1,0 +1,9345 @@
+{
+ "schema": 1,
+ "platform": "c64",
+ "game": "test-drive",
+ "part": "driving",
+ "build": "Decibel and Eagle Soft Incorporated side A, Eagle Soft Incorporated side B",
+ "source": "regenerator2000 live",
+ "regions": {
+  "exclude": [
+   [
+    256,
+    511,
+    "stack"
+   ],
+   [
+    53248,
+    57343,
+    "I/O and colour RAM"
+   ],
+   [
+    49152,
+    57343,
+    "Initialization creates this second bitmap by copying $4000 to $C000 in the TS loop at $3128-$3134. Verified at its first store and by an 8192-byte match before driving."
+   ],
+   [
+    17024,
+    20863,
+    "Generated windshield interior. All twelve character rows are zero in both bitmap buffers at engine entry, and the road drawing passes write this area during play."
+   ],
+   [
+    0,
+    2101,
+    "Title and resident code"
+   ],
+   [
+    2117,
+    10683,
+    "Title and resident code"
+   ],
+   [
+    13824,
+    16383,
+    "Title and resident code"
+   ],
+   [
+    25600,
+    27135,
+    "Title and resident code"
+   ],
+   [
+    58624,
+    61183,
+    "Title and resident code"
+   ],
+   [
+    65530,
+    65535,
+    "Title and resident code"
+   ],
+   [
+    13824,
+    15534,
+    "5 parts: Road stage 1, Road stage 2, Road stage 4 and others"
+   ],
+   [
+    59392,
+    60582,
+    "High scores"
+   ]
+  ],
+  "extra": [
+   [
+    27136,
+    41600,
+    "RD executable module relocated by $0500 from its disk header"
+   ],
+   [
+    10684,
+    11668,
+    "FX payload relocated from the side B directory"
+   ],
+   [
+    11876,
+    13457,
+    "D1 payload relocated from the side B directory"
+   ],
+   [
+    41606,
+    49151,
+    "Exact match to the 7546-byte ## catalogue item in gameplay RAM"
+   ],
+   [
+    16384,
+    17023,
+    "Initial visor bitmap in rows 0 and 1 of the first VIC bitmap bank"
+   ],
+   [
+    20864,
+    24383,
+    "Initial cockpit artwork in rows 14 through 24 before any driving pass"
+   ],
+   [
+    24576,
+    25575,
+    "Initial 40 by 25 bitmap-mode colour selection matrix"
+   ],
+   [
+    13458,
+    13823,
+    "Loaded bitmap resource, 15 byte columns by 24 rows"
+   ],
+   [
+    61310,
+    61567,
+    "Loaded bitmap resource, 6 byte columns by 42 rows"
+   ],
+   [
+    61568,
+    61825,
+    "Loaded bitmap resource, 6 byte columns by 42 rows"
+   ],
+   [
+    61826,
+    62279,
+    "Loaded bitmap resource, 8 byte columns by 56 rows"
+   ],
+   [
+    62280,
+    63085,
+    "Loaded bitmap resource, 20 byte columns by 40 rows"
+   ],
+   [
+    63086,
+    63827,
+    "Loaded bitmap resource, 23 byte columns by 32 rows"
+   ],
+   [
+    63828,
+    64753,
+    "Loaded bitmap resource, 23 byte columns by 40 rows"
+   ],
+   [
+    64754,
+    65527,
+    "Loaded bitmap resource, 24 byte columns by 32 rows"
+   ],
+   [
+    61244,
+    61309,
+    "Lotus sprite resource selected by $71D5"
+   ]
+  ],
+  "edges": [
+   0,
+   256,
+   512,
+   1024,
+   2048,
+   4096,
+   16384,
+   32768,
+   40960,
+   49152,
+   53248,
+   57344
+  ],
+  "elsewhere": [
+   [
+    0,
+    2101,
+    "Title and resident code"
+   ],
+   [
+    2117,
+    10683,
+    "Title and resident code"
+   ],
+   [
+    13824,
+    16383,
+    "Title and resident code"
+   ],
+   [
+    25600,
+    27135,
+    "Title and resident code"
+   ],
+   [
+    58624,
+    61183,
+    "Title and resident code"
+   ],
+   [
+    65530,
+    65535,
+    "Title and resident code"
+   ],
+   [
+    13824,
+    15534,
+    "5 parts: Road stage 1, Road stage 2, Road stage 4 and others"
+   ],
+   [
+    59392,
+    60582,
+    "High scores"
+   ]
+  ]
+ },
+ "blocks": [
+  {
+   "start": 2102,
+   "end": 2116,
+   "type": "Code"
+  },
+  {
+   "start": 10684,
+   "end": 10699,
+   "type": "Undefined"
+  },
+  {
+   "start": 10700,
+   "end": 11501,
+   "type": "Code"
+  },
+  {
+   "start": 11502,
+   "end": 11875,
+   "type": "Undefined"
+  },
+  {
+   "start": 11876,
+   "end": 11879,
+   "type": "Word"
+  },
+  {
+   "start": 11880,
+   "end": 12833,
+   "type": "Code"
+  },
+  {
+   "start": 12834,
+   "end": 12868,
+   "type": "Byte"
+  },
+  {
+   "start": 12869,
+   "end": 12952,
+   "type": "Undefined"
+  },
+  {
+   "start": 12953,
+   "end": 12980,
+   "type": "Byte"
+  },
+  {
+   "start": 12981,
+   "end": 13160,
+   "type": "Undefined"
+  },
+  {
+   "start": 13161,
+   "end": 13283,
+   "type": "Byte"
+  },
+  {
+   "start": 13284,
+   "end": 13457,
+   "type": "Undefined"
+  },
+  {
+   "start": 13458,
+   "end": 13823,
+   "type": "Byte"
+  },
+  {
+   "start": 16384,
+   "end": 17023,
+   "type": "Byte"
+  },
+  {
+   "start": 17024,
+   "end": 20863,
+   "type": "Undefined"
+  },
+  {
+   "start": 20864,
+   "end": 24383,
+   "type": "Byte"
+  },
+  {
+   "start": 24384,
+   "end": 24575,
+   "type": "Undefined"
+  },
+  {
+   "start": 24576,
+   "end": 25575,
+   "type": "Byte"
+  },
+  {
+   "start": 25576,
+   "end": 25599,
+   "type": "Undefined"
+  },
+  {
+   "start": 27136,
+   "end": 27139,
+   "type": "Byte"
+  },
+  {
+   "start": 27140,
+   "end": 35503,
+   "type": "Code"
+  },
+  {
+   "start": 35504,
+   "end": 35506,
+   "type": "Undefined"
+  },
+  {
+   "start": 35507,
+   "end": 36210,
+   "type": "Code"
+  },
+  {
+   "start": 36211,
+   "end": 36225,
+   "type": "Undefined"
+  },
+  {
+   "start": 36226,
+   "end": 39307,
+   "type": "Code"
+  },
+  {
+   "start": 39308,
+   "end": 39323,
+   "type": "Undefined"
+  },
+  {
+   "start": 39324,
+   "end": 39547,
+   "type": "Code"
+  },
+  {
+   "start": 39548,
+   "end": 39550,
+   "type": "Undefined"
+  },
+  {
+   "start": 39551,
+   "end": 39841,
+   "type": "Code"
+  },
+  {
+   "start": 39842,
+   "end": 39862,
+   "type": "Undefined"
+  },
+  {
+   "start": 39863,
+   "end": 39869,
+   "type": "Code"
+  },
+  {
+   "start": 39870,
+   "end": 40274,
+   "type": "Undefined"
+  },
+  {
+   "start": 40275,
+   "end": 40283,
+   "type": "Byte"
+  },
+  {
+   "start": 40284,
+   "end": 40526,
+   "type": "Undefined"
+  },
+  {
+   "start": 40527,
+   "end": 40529,
+   "type": "Byte"
+  },
+  {
+   "start": 40530,
+   "end": 40530,
+   "type": "Undefined"
+  },
+  {
+   "start": 40531,
+   "end": 40539,
+   "type": "Byte"
+  },
+  {
+   "start": 40540,
+   "end": 41605,
+   "type": "Undefined"
+  },
+  {
+   "start": 41606,
+   "end": 41861,
+   "type": "Word"
+  },
+  {
+   "start": 41862,
+   "end": 49151,
+   "type": "Byte"
+  },
+  {
+   "start": 49152,
+   "end": 58623,
+   "type": "Undefined"
+  },
+  {
+   "start": 61184,
+   "end": 61243,
+   "type": "Undefined"
+  },
+  {
+   "start": 61244,
+   "end": 61245,
+   "type": "Word"
+  },
+  {
+   "start": 61246,
+   "end": 65527,
+   "type": "Byte"
+  },
+  {
+   "start": 65528,
+   "end": 65529,
+   "type": "Undefined"
+  }
+ ],
+ "symbols": [
+  {
+   "address": 2102,
+   "name": "s_0836",
+   "type": "Subroutine",
+   "kind": "auto"
+  },
+  {
+   "address": 2105,
+   "name": "s_0839",
+   "type": "Subroutine",
+   "kind": "auto"
+  },
+  {
+   "address": 2108,
+   "name": "s_083C",
+   "type": "Subroutine",
+   "kind": "auto"
+  },
+  {
+   "address": 2111,
+   "name": "s_083F",
+   "type": "Subroutine",
+   "kind": "auto"
+  },
+  {
+   "address": 2114,
+   "name": "s_0842",
+   "type": "Subroutine",
+   "kind": "auto"
+  },
+  {
+   "address": 10700,
+   "name": "j_29CC",
+   "type": "Jump",
+   "kind": "auto"
+  },
+  {
+   "address": 10707,
+   "name": "b_29D3",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 10728,
+   "name": "j_29E8",
+   "type": "Jump",
+   "kind": "auto"
+  },
+  {
+   "address": 10738,
+   "name": "b_29F2",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 10757,
+   "name": "b_2A05",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 10767,
+   "name": "b_2A0F",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 10771,
+   "name": "b_2A13",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 10780,
+   "name": "b_2A1C",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 10784,
+   "name": "b_2A20",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 10796,
+   "name": "b_2A2C",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 10808,
+   "name": "b_2A38",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 10830,
+   "name": "s_2A4E",
+   "type": "Subroutine",
+   "kind": "auto"
+  },
+  {
+   "address": 10839,
+   "name": "b_2A57",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 10842,
+   "name": "r_2A5A",
+   "type": "Return",
+   "kind": "auto"
+  },
+  {
+   "address": 10843,
+   "name": "s_2A5B",
+   "type": "Subroutine",
+   "kind": "auto"
+  },
+  {
+   "address": 10849,
+   "name": "b_2A61",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 10851,
+   "name": "s_2A63",
+   "type": "Subroutine",
+   "kind": "auto"
+  },
+  {
+   "address": 10873,
+   "name": "b_2A79",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 10884,
+   "name": "a_2A84",
+   "type": "AbsoluteAddress",
+   "kind": "auto"
+  },
+  {
+   "address": 10886,
+   "name": "a_2A86",
+   "type": "AbsoluteAddress",
+   "kind": "auto"
+  },
+  {
+   "address": 10889,
+   "name": "j_2A89",
+   "type": "Jump",
+   "kind": "auto"
+  },
+  {
+   "address": 10903,
+   "name": "b_2A97",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 10913,
+   "name": "b_2AA1",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 10918,
+   "name": "b_2AA6",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 10931,
+   "name": "b_2AB3",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 10935,
+   "name": "b_2AB7",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 10991,
+   "name": "s_2AEF",
+   "type": "Subroutine",
+   "kind": "auto"
+  },
+  {
+   "address": 11006,
+   "name": "b_2AFE",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 11020,
+   "name": "s_2B0C",
+   "type": "Subroutine",
+   "kind": "auto"
+  },
+  {
+   "address": 11031,
+   "name": "b_2B17",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 11090,
+   "name": "r_2B52",
+   "type": "Return",
+   "kind": "auto"
+  },
+  {
+   "address": 11091,
+   "name": "s_2B53",
+   "type": "Subroutine",
+   "kind": "auto"
+  },
+  {
+   "address": 11155,
+   "name": "j_2B93",
+   "type": "Jump",
+   "kind": "auto"
+  },
+  {
+   "address": 11171,
+   "name": "b_2BA3",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 11182,
+   "name": "b_2BAE",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 11214,
+   "name": "s_2BCE",
+   "type": "Subroutine",
+   "kind": "auto"
+  },
+  {
+   "address": 11218,
+   "name": "s_2BD2",
+   "type": "Subroutine",
+   "kind": "auto"
+  },
+  {
+   "address": 11226,
+   "name": "b_2BDA",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 11234,
+   "name": "b_2BE2",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 11242,
+   "name": "b_2BEA",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 11253,
+   "name": "b_2BF5",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 11270,
+   "name": "b_2C06",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 11285,
+   "name": "b_2C15",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 11291,
+   "name": "j_2C1B",
+   "type": "Jump",
+   "kind": "auto"
+  },
+  {
+   "address": 11297,
+   "name": "j_2C21",
+   "type": "Jump",
+   "kind": "auto"
+  },
+  {
+   "address": 11328,
+   "name": "j_2C40",
+   "type": "Jump",
+   "kind": "auto"
+  },
+  {
+   "address": 11343,
+   "name": "j_2C4F",
+   "type": "Jump",
+   "kind": "auto"
+  },
+  {
+   "address": 11353,
+   "name": "r_2C59",
+   "type": "Return",
+   "kind": "auto"
+  },
+  {
+   "address": 11354,
+   "name": "s_2C5A",
+   "type": "Subroutine",
+   "kind": "auto"
+  },
+  {
+   "address": 11366,
+   "name": "j_2C66",
+   "type": "Jump",
+   "kind": "auto"
+  },
+  {
+   "address": 11381,
+   "name": "s_2C75",
+   "type": "Subroutine",
+   "kind": "auto"
+  },
+  {
+   "address": 11401,
+   "name": "s_2C89",
+   "type": "Subroutine",
+   "kind": "auto"
+  },
+  {
+   "address": 11412,
+   "name": "b_2C94",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 11423,
+   "name": "b_2C9F",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 11427,
+   "name": "j_2CA3",
+   "type": "Jump",
+   "kind": "auto"
+  },
+  {
+   "address": 11443,
+   "name": "j_2CB3",
+   "type": "Jump",
+   "kind": "auto"
+  },
+  {
+   "address": 11447,
+   "name": "b_2CB7",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 11517,
+   "name": "f_2CFD",
+   "type": "Field",
+   "kind": "auto"
+  },
+  {
+   "address": 11518,
+   "name": "f_2CFE",
+   "type": "Field",
+   "kind": "auto"
+  },
+  {
+   "address": 11521,
+   "name": "f_2D01",
+   "type": "Field",
+   "kind": "auto"
+  },
+  {
+   "address": 11527,
+   "name": "f_2D07",
+   "type": "Field",
+   "kind": "auto"
+  },
+  {
+   "address": 11530,
+   "name": "f_2D0A",
+   "type": "Field",
+   "kind": "auto"
+  },
+  {
+   "address": 11539,
+   "name": "f_2D13",
+   "type": "Field",
+   "kind": "auto"
+  },
+  {
+   "address": 11542,
+   "name": "f_2D16",
+   "type": "Field",
+   "kind": "auto"
+  },
+  {
+   "address": 11545,
+   "name": "f_2D19",
+   "type": "Field",
+   "kind": "auto"
+  },
+  {
+   "address": 11548,
+   "name": "f_2D1C",
+   "type": "Field",
+   "kind": "auto"
+  },
+  {
+   "address": 11551,
+   "name": "f_2D1F",
+   "type": "Field",
+   "kind": "auto"
+  },
+  {
+   "address": 11554,
+   "name": "f_2D22",
+   "type": "Field",
+   "kind": "auto"
+  },
+  {
+   "address": 11557,
+   "name": "f_2D25",
+   "type": "Field",
+   "kind": "auto"
+  },
+  {
+   "address": 11560,
+   "name": "f_2D28",
+   "type": "Field",
+   "kind": "auto"
+  },
+  {
+   "address": 11563,
+   "name": "f_2D2B",
+   "type": "Field",
+   "kind": "auto"
+  },
+  {
+   "address": 11566,
+   "name": "f_2D2E",
+   "type": "Field",
+   "kind": "auto"
+  },
+  {
+   "address": 11569,
+   "name": "f_2D31",
+   "type": "Field",
+   "kind": "auto"
+  },
+  {
+   "address": 11572,
+   "name": "f_2D34",
+   "type": "Field",
+   "kind": "auto"
+  },
+  {
+   "address": 11575,
+   "name": "f_2D37",
+   "type": "Field",
+   "kind": "auto"
+  },
+  {
+   "address": 11578,
+   "name": "f_2D3A",
+   "type": "Field",
+   "kind": "auto"
+  },
+  {
+   "address": 11581,
+   "name": "f_2D3D",
+   "type": "Field",
+   "kind": "auto"
+  },
+  {
+   "address": 11584,
+   "name": "a_2D40",
+   "type": "AbsoluteAddress",
+   "kind": "auto"
+  },
+  {
+   "address": 11585,
+   "name": "a_2D41",
+   "type": "AbsoluteAddress",
+   "kind": "auto"
+  },
+  {
+   "address": 11586,
+   "name": "a_2D42",
+   "type": "AbsoluteAddress",
+   "kind": "auto"
+  },
+  {
+   "address": 11587,
+   "name": "a_2D43",
+   "type": "AbsoluteAddress",
+   "kind": "auto"
+  },
+  {
+   "address": 11588,
+   "name": "a_2D44",
+   "type": "AbsoluteAddress",
+   "kind": "auto"
+  },
+  {
+   "address": 11589,
+   "name": "a_2D45",
+   "type": "AbsoluteAddress",
+   "kind": "auto"
+  },
+  {
+   "address": 11590,
+   "name": "a_2D46",
+   "type": "AbsoluteAddress",
+   "kind": "auto"
+  },
+  {
+   "address": 11591,
+   "name": "a_2D47",
+   "type": "AbsoluteAddress",
+   "kind": "auto"
+  },
+  {
+   "address": 11592,
+   "name": "f_2D48",
+   "type": "Field",
+   "kind": "auto"
+  },
+  {
+   "address": 11595,
+   "name": "f_2D4B",
+   "type": "Field",
+   "kind": "auto"
+  },
+  {
+   "address": 11598,
+   "name": "f_2D4E",
+   "type": "Field",
+   "kind": "auto"
+  },
+  {
+   "address": 11614,
+   "name": "f_2D5E",
+   "type": "Field",
+   "kind": "auto"
+  },
+  {
+   "address": 11630,
+   "name": "f_2D6E",
+   "type": "Field",
+   "kind": "auto"
+  },
+  {
+   "address": 11636,
+   "name": "a_2D74",
+   "type": "AbsoluteAddress",
+   "kind": "auto"
+  },
+  {
+   "address": 11637,
+   "name": "f_2D75",
+   "type": "Field",
+   "kind": "auto"
+  },
+  {
+   "address": 11653,
+   "name": "f_2D85",
+   "type": "Field",
+   "kind": "auto"
+  },
+  {
+   "address": 11876,
+   "name": "lotus_cockpit_header",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 11880,
+   "name": "lotus_cockpit_dispatch",
+   "type": "Jump",
+   "kind": "user"
+  },
+  {
+   "address": 11889,
+   "name": "b_2E71",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 11901,
+   "name": "init_lotus_cockpit",
+   "type": "Branch",
+   "kind": "user"
+  },
+  {
+   "address": 12039,
+   "name": "b_2F07",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 12047,
+   "name": "b_2F0F",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 12063,
+   "name": "update_lotus_rpm_needle",
+   "type": "Jump",
+   "kind": "user"
+  },
+  {
+   "address": 12142,
+   "name": "a_2F6E",
+   "type": "AbsoluteAddress",
+   "kind": "auto"
+  },
+  {
+   "address": 12148,
+   "name": "b_2F74",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 12151,
+   "name": "r_2F77",
+   "type": "Return",
+   "kind": "auto"
+  },
+  {
+   "address": 12152,
+   "name": "map_speed_to_needle",
+   "type": "Branch",
+   "kind": "user"
+  },
+  {
+   "address": 12224,
+   "name": "a_2FC0",
+   "type": "AbsoluteAddress",
+   "kind": "auto"
+  },
+  {
+   "address": 12230,
+   "name": "b_2FC6",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 12233,
+   "name": "b_2FC9",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 12239,
+   "name": "choose_needle_endpoints",
+   "type": "Subroutine",
+   "kind": "user"
+  },
+  {
+   "address": 12274,
+   "name": "b_2FF2",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 12331,
+   "name": "b_302B",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 12346,
+   "name": "f_303A",
+   "type": "Field",
+   "kind": "auto"
+  },
+  {
+   "address": 12347,
+   "name": "a_303B",
+   "type": "AbsoluteAddress",
+   "kind": "auto"
+  },
+  {
+   "address": 12348,
+   "name": "a_303C",
+   "type": "AbsoluteAddress",
+   "kind": "auto"
+  },
+  {
+   "address": 12352,
+   "name": "b_3040",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 12353,
+   "name": "a_3041",
+   "type": "AbsoluteAddress",
+   "kind": "auto"
+  },
+  {
+   "address": 12354,
+   "name": "a_3042",
+   "type": "AbsoluteAddress",
+   "kind": "auto"
+  },
+  {
+   "address": 12355,
+   "name": "j_3043",
+   "type": "Jump",
+   "kind": "auto"
+  },
+  {
+   "address": 12368,
+   "name": "f_3050",
+   "type": "Field",
+   "kind": "auto"
+  },
+  {
+   "address": 12369,
+   "name": "a_3051",
+   "type": "AbsoluteAddress",
+   "kind": "auto"
+  },
+  {
+   "address": 12370,
+   "name": "a_3052",
+   "type": "AbsoluteAddress",
+   "kind": "auto"
+  },
+  {
+   "address": 12374,
+   "name": "b_3056",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 12375,
+   "name": "a_3057",
+   "type": "AbsoluteAddress",
+   "kind": "auto"
+  },
+  {
+   "address": 12376,
+   "name": "a_3058",
+   "type": "AbsoluteAddress",
+   "kind": "auto"
+  },
+  {
+   "address": 12377,
+   "name": "draw_changed_needle",
+   "type": "Jump",
+   "kind": "user"
+  },
+  {
+   "address": 12396,
+   "name": "b_306C",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 12422,
+   "name": "b_3086",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 12430,
+   "name": "needle_line_steps",
+   "type": "Jump",
+   "kind": "user"
+  },
+  {
+   "address": 12450,
+   "name": "b_30A2",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 12461,
+   "name": "j_30AD",
+   "type": "Jump",
+   "kind": "auto"
+  },
+  {
+   "address": 12478,
+   "name": "b_30BE",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 12487,
+   "name": "b_30C7",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 12516,
+   "name": "b_30E4",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 12535,
+   "name": "b_30F7",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 12549,
+   "name": "plot_needle_scan",
+   "type": "Jump",
+   "kind": "user"
+  },
+  {
+   "address": 12568,
+   "name": "b_3118",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 12580,
+   "name": "b_3124",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 12586,
+   "name": "b_312A",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 12606,
+   "name": "b_313E",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 12619,
+   "name": "j_314B",
+   "type": "Jump",
+   "kind": "auto"
+  },
+  {
+   "address": 12639,
+   "name": "b_315F",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 12652,
+   "name": "j_316C",
+   "type": "Jump",
+   "kind": "auto"
+  },
+  {
+   "address": 12655,
+   "name": "r_316F",
+   "type": "Return",
+   "kind": "auto"
+  },
+  {
+   "address": 12656,
+   "name": "set_needle_sprite_pixel",
+   "type": "Subroutine",
+   "kind": "user"
+  },
+  {
+   "address": 12681,
+   "name": "f_3189",
+   "type": "Field",
+   "kind": "auto"
+  },
+  {
+   "address": 12682,
+   "name": "a_318A",
+   "type": "AbsoluteAddress",
+   "kind": "auto"
+  },
+  {
+   "address": 12683,
+   "name": "a_318B",
+   "type": "AbsoluteAddress",
+   "kind": "auto"
+  },
+  {
+   "address": 12697,
+   "name": "divide_needle_steps",
+   "type": "Subroutine",
+   "kind": "user"
+  },
+  {
+   "address": 12717,
+   "name": "j_31AD",
+   "type": "Jump",
+   "kind": "auto"
+  },
+  {
+   "address": 12733,
+   "name": "b_31BD",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 12743,
+   "name": "b_31C7",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 12744,
+   "name": "b_31C8",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 12748,
+   "name": "b_31CC",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 12762,
+   "name": "b_31DA",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 12778,
+   "name": "b_31EA",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 12779,
+   "name": "b_31EB",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 12790,
+   "name": "r_31F6",
+   "type": "Return",
+   "kind": "auto"
+  },
+  {
+   "address": 12791,
+   "name": "scale_gauge_value",
+   "type": "Subroutine",
+   "kind": "user"
+  },
+  {
+   "address": 12810,
+   "name": "a_320A",
+   "type": "AbsoluteAddress",
+   "kind": "auto"
+  },
+  {
+   "address": 12812,
+   "name": "a_320C",
+   "type": "AbsoluteAddress",
+   "kind": "auto"
+  },
+  {
+   "address": 12832,
+   "name": "a_3220",
+   "type": "AbsoluteAddress",
+   "kind": "auto"
+  },
+  {
+   "address": 12834,
+   "name": "gauge_table_descriptors",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 12835,
+   "name": "a_3223",
+   "type": "AbsoluteAddress",
+   "kind": "auto"
+  },
+  {
+   "address": 12836,
+   "name": "a_3224",
+   "type": "AbsoluteAddress",
+   "kind": "auto"
+  },
+  {
+   "address": 12838,
+   "name": "a_3226",
+   "type": "AbsoluteAddress",
+   "kind": "auto"
+  },
+  {
+   "address": 12839,
+   "name": "a_3227",
+   "type": "AbsoluteAddress",
+   "kind": "auto"
+  },
+  {
+   "address": 12841,
+   "name": "a_3229",
+   "type": "AbsoluteAddress",
+   "kind": "auto"
+  },
+  {
+   "address": 12842,
+   "name": "a_322A",
+   "type": "AbsoluteAddress",
+   "kind": "auto"
+  },
+  {
+   "address": 12869,
+   "name": "f_3245",
+   "type": "Field",
+   "kind": "auto"
+  },
+  {
+   "address": 12911,
+   "name": "f_326F",
+   "type": "Field",
+   "kind": "auto"
+  },
+  {
+   "address": 12953,
+   "name": "needle_sprite_horizontal",
+   "type": "Field",
+   "kind": "user"
+  },
+  {
+   "address": 12961,
+   "name": "needle_sprite_vertical",
+   "type": "Field",
+   "kind": "user"
+  },
+  {
+   "address": 12969,
+   "name": "needle_pivot_horizontal",
+   "type": "Field",
+   "kind": "user"
+  },
+  {
+   "address": 12973,
+   "name": "needle_pivot_vertical",
+   "type": "Field",
+   "kind": "user"
+  },
+  {
+   "address": 12977,
+   "name": "needle_source_row_offset",
+   "type": "Field",
+   "kind": "user"
+  },
+  {
+   "address": 13161,
+   "name": "needle_sprite_byte_columns",
+   "type": "Field",
+   "kind": "user"
+  },
+  {
+   "address": 13185,
+   "name": "needle_sprite_bit_masks",
+   "type": "Field",
+   "kind": "user"
+  },
+  {
+   "address": 13209,
+   "name": "sprite_row_stride_three",
+   "type": "Field",
+   "kind": "user"
+  },
+  {
+   "address": 13231,
+   "name": "source_row_stride_six",
+   "type": "Field",
+   "kind": "user"
+  },
+  {
+   "address": 13253,
+   "name": "needle_buffers_lo",
+   "type": "Field",
+   "kind": "user"
+  },
+  {
+   "address": 13255,
+   "name": "needle_buffers_hi",
+   "type": "Field",
+   "kind": "user"
+  },
+  {
+   "address": 13257,
+   "name": "needle_lookup_index",
+   "type": "AbsoluteAddress",
+   "kind": "user"
+  },
+  {
+   "address": 13258,
+   "name": "last_tachometer_value",
+   "type": "AbsoluteAddress",
+   "kind": "user"
+  },
+  {
+   "address": 13259,
+   "name": "last_speed_value",
+   "type": "AbsoluteAddress",
+   "kind": "user"
+  },
+  {
+   "address": 13260,
+   "name": "previous_needle_x",
+   "type": "AbsoluteAddress",
+   "kind": "user"
+  },
+  {
+   "address": 13261,
+   "name": "a_33CD",
+   "type": "AbsoluteAddress",
+   "kind": "auto"
+  },
+  {
+   "address": 13262,
+   "name": "previous_needle_y",
+   "type": "Field",
+   "kind": "user"
+  },
+  {
+   "address": 13264,
+   "name": "gauge_source_pointers",
+   "type": "AbsoluteAddress",
+   "kind": "user"
+  },
+  {
+   "address": 13265,
+   "name": "a_33D1",
+   "type": "AbsoluteAddress",
+   "kind": "auto"
+  },
+  {
+   "address": 13266,
+   "name": "a_33D2",
+   "type": "AbsoluteAddress",
+   "kind": "auto"
+  },
+  {
+   "address": 13267,
+   "name": "a_33D3",
+   "type": "AbsoluteAddress",
+   "kind": "auto"
+  },
+  {
+   "address": 13268,
+   "name": "quadrant_source_offset",
+   "type": "AbsoluteAddress",
+   "kind": "user"
+  },
+  {
+   "address": 13269,
+   "name": "cockpit_indicator_shape",
+   "type": "Field",
+   "kind": "user"
+  },
+  {
+   "address": 13284,
+   "name": "a_33E4",
+   "type": "AbsoluteAddress",
+   "kind": "auto"
+  },
+  {
+   "address": 13292,
+   "name": "a_33EC",
+   "type": "AbsoluteAddress",
+   "kind": "auto"
+  },
+  {
+   "address": 13300,
+   "name": "f_33F4",
+   "type": "Field",
+   "kind": "auto"
+  },
+  {
+   "address": 13364,
+   "name": "f_3434",
+   "type": "Field",
+   "kind": "auto"
+  },
+  {
+   "address": 13370,
+   "name": "f_343A",
+   "type": "Field",
+   "kind": "auto"
+  },
+  {
+   "address": 13458,
+   "name": "crash_picture_header",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 13464,
+   "name": "crash_picture",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 16384,
+   "name": "visor_row_00",
+   "type": "Field",
+   "kind": "user"
+  },
+  {
+   "address": 16385,
+   "name": "f_4001",
+   "type": "Field",
+   "kind": "auto"
+  },
+  {
+   "address": 16386,
+   "name": "f_4002",
+   "type": "Field",
+   "kind": "auto"
+  },
+  {
+   "address": 16387,
+   "name": "f_4003",
+   "type": "Field",
+   "kind": "auto"
+  },
+  {
+   "address": 16388,
+   "name": "f_4004",
+   "type": "Field",
+   "kind": "auto"
+  },
+  {
+   "address": 16389,
+   "name": "f_4005",
+   "type": "Field",
+   "kind": "auto"
+  },
+  {
+   "address": 16390,
+   "name": "f_4006",
+   "type": "Field",
+   "kind": "auto"
+  },
+  {
+   "address": 16391,
+   "name": "f_4007",
+   "type": "Field",
+   "kind": "auto"
+  },
+  {
+   "address": 16536,
+   "name": "f_4098",
+   "type": "Field",
+   "kind": "auto"
+  },
+  {
+   "address": 16608,
+   "name": "f_40E0",
+   "type": "Field",
+   "kind": "auto"
+  },
+  {
+   "address": 16640,
+   "name": "f_4100",
+   "type": "Field",
+   "kind": "auto"
+  },
+  {
+   "address": 16704,
+   "name": "visor_row_01",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 20864,
+   "name": "dashboard_row_14",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 21184,
+   "name": "dashboard_row_15",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 21504,
+   "name": "dashboard_row_16",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 21824,
+   "name": "dashboard_row_17",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 22016,
+   "name": "f_5600",
+   "type": "Field",
+   "kind": "auto"
+  },
+  {
+   "address": 22144,
+   "name": "dashboard_row_18",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 22464,
+   "name": "dashboard_row_19",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 22784,
+   "name": "dashboard_row_20",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 23104,
+   "name": "dashboard_row_21",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 23216,
+   "name": "f_5AB0",
+   "type": "Field",
+   "kind": "auto"
+  },
+  {
+   "address": 23232,
+   "name": "f_5AC0",
+   "type": "Field",
+   "kind": "auto"
+  },
+  {
+   "address": 23247,
+   "name": "f_5ACF",
+   "type": "Field",
+   "kind": "auto"
+  },
+  {
+   "address": 23248,
+   "name": "f_5AD0",
+   "type": "Field",
+   "kind": "auto"
+  },
+  {
+   "address": 23287,
+   "name": "f_5AF7",
+   "type": "Field",
+   "kind": "auto"
+  },
+  {
+   "address": 23288,
+   "name": "f_5AF8",
+   "type": "Field",
+   "kind": "auto"
+  },
+  {
+   "address": 23327,
+   "name": "f_5B1F",
+   "type": "Field",
+   "kind": "auto"
+  },
+  {
+   "address": 23367,
+   "name": "f_5B47",
+   "type": "Field",
+   "kind": "auto"
+  },
+  {
+   "address": 23407,
+   "name": "f_5B6F",
+   "type": "Field",
+   "kind": "auto"
+  },
+  {
+   "address": 23408,
+   "name": "f_5B70",
+   "type": "Field",
+   "kind": "auto"
+  },
+  {
+   "address": 23424,
+   "name": "dashboard_row_22",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 23427,
+   "name": "a_5B83",
+   "type": "AbsoluteAddress",
+   "kind": "auto"
+  },
+  {
+   "address": 23437,
+   "name": "f_5B8D",
+   "type": "Field",
+   "kind": "auto"
+  },
+  {
+   "address": 23438,
+   "name": "f_5B8E",
+   "type": "Field",
+   "kind": "auto"
+  },
+  {
+   "address": 23457,
+   "name": "a_5BA1",
+   "type": "AbsoluteAddress",
+   "kind": "auto"
+  },
+  {
+   "address": 23467,
+   "name": "f_5BAB",
+   "type": "Field",
+   "kind": "auto"
+  },
+  {
+   "address": 23468,
+   "name": "f_5BAC",
+   "type": "Field",
+   "kind": "auto"
+  },
+  {
+   "address": 23497,
+   "name": "f_5BC9",
+   "type": "Field",
+   "kind": "auto"
+  },
+  {
+   "address": 23498,
+   "name": "f_5BCA",
+   "type": "Field",
+   "kind": "auto"
+  },
+  {
+   "address": 23528,
+   "name": "f_5BE8",
+   "type": "Field",
+   "kind": "auto"
+  },
+  {
+   "address": 23558,
+   "name": "f_5C06",
+   "type": "Field",
+   "kind": "auto"
+  },
+  {
+   "address": 23588,
+   "name": "f_5C24",
+   "type": "Field",
+   "kind": "auto"
+  },
+  {
+   "address": 23618,
+   "name": "f_5C42",
+   "type": "Field",
+   "kind": "auto"
+  },
+  {
+   "address": 23648,
+   "name": "f_5C60",
+   "type": "Field",
+   "kind": "auto"
+  },
+  {
+   "address": 23678,
+   "name": "f_5C7E",
+   "type": "Field",
+   "kind": "auto"
+  },
+  {
+   "address": 23744,
+   "name": "dashboard_row_23",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 23934,
+   "name": "f_5D7E",
+   "type": "Field",
+   "kind": "auto"
+  },
+  {
+   "address": 23998,
+   "name": "f_5DBE",
+   "type": "Field",
+   "kind": "auto"
+  },
+  {
+   "address": 24064,
+   "name": "dashboard_row_24",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 24576,
+   "name": "matrix_row_00",
+   "type": "Field",
+   "kind": "user"
+  },
+  {
+   "address": 24616,
+   "name": "matrix_row_01",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 24656,
+   "name": "matrix_row_02",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 24696,
+   "name": "matrix_row_03",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 24736,
+   "name": "matrix_row_04",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 24776,
+   "name": "matrix_row_05",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 24816,
+   "name": "matrix_row_06",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 24832,
+   "name": "f_6100",
+   "type": "Field",
+   "kind": "auto"
+  },
+  {
+   "address": 24856,
+   "name": "matrix_row_07",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 24896,
+   "name": "matrix_row_08",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 24936,
+   "name": "matrix_row_09",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 24976,
+   "name": "matrix_row_10",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 25016,
+   "name": "matrix_row_11",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 25056,
+   "name": "matrix_row_12",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 25088,
+   "name": "f_6200",
+   "type": "Field",
+   "kind": "auto"
+  },
+  {
+   "address": 25096,
+   "name": "matrix_row_13",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 25136,
+   "name": "matrix_row_14",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 25176,
+   "name": "matrix_row_15",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 25216,
+   "name": "matrix_row_16",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 25256,
+   "name": "matrix_row_17",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 25296,
+   "name": "matrix_row_18",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 25336,
+   "name": "matrix_row_19",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 25344,
+   "name": "f_6300",
+   "type": "Field",
+   "kind": "auto"
+  },
+  {
+   "address": 25376,
+   "name": "matrix_row_20",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 25416,
+   "name": "matrix_row_21",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 25456,
+   "name": "matrix_row_22",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 25496,
+   "name": "matrix_row_23",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 25536,
+   "name": "matrix_row_24",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 25592,
+   "name": "f_63F8",
+   "type": "Field",
+   "kind": "auto"
+  },
+  {
+   "address": 27136,
+   "name": "driving_module_header",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 27140,
+   "name": "enter_driving_module",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 27158,
+   "name": "j_6A16",
+   "type": "Jump",
+   "kind": "auto"
+  },
+  {
+   "address": 27163,
+   "name": "load_road_stage",
+   "type": "Jump",
+   "kind": "user"
+  },
+  {
+   "address": 27191,
+   "name": "start_driving_pass",
+   "type": "Jump",
+   "kind": "user"
+  },
+  {
+   "address": 27203,
+   "name": "b_6A43",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 27267,
+   "name": "b_6A83",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 27297,
+   "name": "b_6AA1",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 27301,
+   "name": "b_6AA5",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 27318,
+   "name": "b_6AB6",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 27326,
+   "name": "b_6ABE",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 27331,
+   "name": "b_6AC3",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 27341,
+   "name": "b_6ACD",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 27365,
+   "name": "b_6AE5",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 27368,
+   "name": "b_6AE8",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 27382,
+   "name": "j_6AF6",
+   "type": "Jump",
+   "kind": "auto"
+  },
+  {
+   "address": 27419,
+   "name": "b_6B1B",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 27422,
+   "name": "b_6B1E",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 27485,
+   "name": "b_6B5D",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 27513,
+   "name": "j_6B79",
+   "type": "Jump",
+   "kind": "auto"
+  },
+  {
+   "address": 27522,
+   "name": "b_6B82",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 27524,
+   "name": "j_6B84",
+   "type": "Jump",
+   "kind": "auto"
+  },
+  {
+   "address": 27590,
+   "name": "b_6BC6",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 27602,
+   "name": "b_6BD2",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 27640,
+   "name": "b_6BF8",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 27662,
+   "name": "j_6C0E",
+   "type": "Jump",
+   "kind": "auto"
+  },
+  {
+   "address": 27708,
+   "name": "j_6C3C",
+   "type": "Jump",
+   "kind": "auto"
+  },
+  {
+   "address": 27729,
+   "name": "b_6C51",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 27751,
+   "name": "b_6C67",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 27761,
+   "name": "j_6C71",
+   "type": "Jump",
+   "kind": "auto"
+  },
+  {
+   "address": 27783,
+   "name": "b_6C87",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 27804,
+   "name": "b_6C9C",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 27823,
+   "name": "b_6CAF",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 27835,
+   "name": "b_6CBB",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 27839,
+   "name": "b_6CBF",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 27846,
+   "name": "b_6CC6",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 27872,
+   "name": "b_6CE0",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 27876,
+   "name": "b_6CE4",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 27884,
+   "name": "b_6CEC",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 27911,
+   "name": "b_6D07",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 27916,
+   "name": "b_6D0C",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 27920,
+   "name": "j_6D10",
+   "type": "Jump",
+   "kind": "auto"
+  },
+  {
+   "address": 27928,
+   "name": "b_6D18",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 27931,
+   "name": "read_driving_key",
+   "type": "Jump",
+   "kind": "user"
+  },
+  {
+   "address": 27947,
+   "name": "b_6D2B",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 27960,
+   "name": "b_6D38",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 27970,
+   "name": "b_6D42",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 27980,
+   "name": "b_6D4C",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 27990,
+   "name": "b_6D56",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 28010,
+   "name": "b_6D6A",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 28027,
+   "name": "b_6D7B",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 28039,
+   "name": "j_6D87",
+   "type": "Jump",
+   "kind": "auto"
+  },
+  {
+   "address": 28048,
+   "name": "b_6D90",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 28051,
+   "name": "finish_road_stage",
+   "type": "Jump",
+   "kind": "user"
+  },
+  {
+   "address": 28072,
+   "name": "b_6DA8",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 28101,
+   "name": "b_6DC5",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 28190,
+   "name": "b_6E1E",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 28216,
+   "name": "b_6E38",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 28219,
+   "name": "b_6E3B",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 28224,
+   "name": "j_6E40",
+   "type": "Jump",
+   "kind": "auto"
+  },
+  {
+   "address": 28232,
+   "name": "j_6E48",
+   "type": "Jump",
+   "kind": "auto"
+  },
+  {
+   "address": 28343,
+   "name": "b_6EB7",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 28345,
+   "name": "b_6EB9",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 28361,
+   "name": "b_6EC9",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 28391,
+   "name": "finish_drive",
+   "type": "Jump",
+   "kind": "user"
+  },
+  {
+   "address": 28402,
+   "name": "j_6EF2",
+   "type": "Jump",
+   "kind": "auto"
+  },
+  {
+   "address": 28487,
+   "name": "b_6F47",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 28508,
+   "name": "b_6F5C",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 28513,
+   "name": "b_6F61",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 28645,
+   "name": "b_6FE5",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 28691,
+   "name": "b_7013",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 28748,
+   "name": "s_704C",
+   "type": "Subroutine",
+   "kind": "auto"
+  },
+  {
+   "address": 28750,
+   "name": "b_704E",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 28762,
+   "name": "b_705A",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 28785,
+   "name": "b_7071",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 28797,
+   "name": "s_707D",
+   "type": "Subroutine",
+   "kind": "auto"
+  },
+  {
+   "address": 28864,
+   "name": "b_70C0",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 28887,
+   "name": "b_70D7",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 28911,
+   "name": "b_70EF",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 28936,
+   "name": "s_7108",
+   "type": "Subroutine",
+   "kind": "auto"
+  },
+  {
+   "address": 28975,
+   "name": "s_712F",
+   "type": "Subroutine",
+   "kind": "auto"
+  },
+  {
+   "address": 28996,
+   "name": "prepare_road_graphics",
+   "type": "Subroutine",
+   "kind": "user"
+  },
+  {
+   "address": 29088,
+   "name": "b_71A0",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 29105,
+   "name": "load_sampled_road_row",
+   "type": "Subroutine",
+   "kind": "user"
+  },
+  {
+   "address": 29141,
+   "name": "copy_car_overlay_sprite",
+   "type": "Subroutine",
+   "kind": "user"
+  },
+  {
+   "address": 29163,
+   "name": "b_71EB",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 29171,
+   "name": "reset_stage_progress",
+   "type": "Subroutine",
+   "kind": "user"
+  },
+  {
+   "address": 29207,
+   "name": "b_7217",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 29230,
+   "name": "s_722E",
+   "type": "Subroutine",
+   "kind": "auto"
+  },
+  {
+   "address": 29266,
+   "name": "b_7252",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 29300,
+   "name": "reset_drive_state",
+   "type": "Subroutine",
+   "kind": "user"
+  },
+  {
+   "address": 29346,
+   "name": "b_72A2",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 29360,
+   "name": "b_72B0",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 29390,
+   "name": "b_72CE",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 29694,
+   "name": "build_road_pattern_buffers",
+   "type": "Subroutine",
+   "kind": "user"
+  },
+  {
+   "address": 29706,
+   "name": "b_740A",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 29722,
+   "name": "b_741A",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 29742,
+   "name": "b_742E",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 29765,
+   "name": "b_7445",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 29845,
+   "name": "b_7495",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 29861,
+   "name": "b_74A5",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 29885,
+   "name": "b_74BD",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 29903,
+   "name": "b_74CF",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 29912,
+   "name": "b_74D8",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 29932,
+   "name": "b_74EC",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 29944,
+   "name": "s_74F8",
+   "type": "Subroutine",
+   "kind": "auto"
+  },
+  {
+   "address": 29956,
+   "name": "b_7504",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 29991,
+   "name": "b_7527",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 30008,
+   "name": "b_7538",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 30030,
+   "name": "b_754E",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 30036,
+   "name": "b_7554",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 30065,
+   "name": "start_road_projection",
+   "type": "Subroutine",
+   "kind": "user"
+  },
+  {
+   "address": 30097,
+   "name": "b_7591",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 30106,
+   "name": "b_759A",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 30130,
+   "name": "j_75B2",
+   "type": "Jump",
+   "kind": "auto"
+  },
+  {
+   "address": 30149,
+   "name": "b_75C5",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 30158,
+   "name": "b_75CE",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 30165,
+   "name": "j_75D5",
+   "type": "Jump",
+   "kind": "auto"
+  },
+  {
+   "address": 30301,
+   "name": "b_765D",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 30338,
+   "name": "b_7682",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 30350,
+   "name": "b_768E",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 30414,
+   "name": "b_76CE",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 30447,
+   "name": "b_76EF",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 30454,
+   "name": "b_76F6",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 30541,
+   "name": "b_774D",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 30618,
+   "name": "j_779A",
+   "type": "Jump",
+   "kind": "auto"
+  },
+  {
+   "address": 30641,
+   "name": "b_77B1",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 30647,
+   "name": "b_77B7",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 30663,
+   "name": "b_77C7",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 30700,
+   "name": "b_77EC",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 30705,
+   "name": "j_77F1",
+   "type": "Jump",
+   "kind": "auto"
+  },
+  {
+   "address": 30717,
+   "name": "b_77FD",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 30738,
+   "name": "b_7812",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 30748,
+   "name": "b_781C",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 30774,
+   "name": "b_7836",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 30780,
+   "name": "j_783C",
+   "type": "Jump",
+   "kind": "auto"
+  },
+  {
+   "address": 30786,
+   "name": "b_7842",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 30789,
+   "name": "decode_road_element",
+   "type": "Subroutine",
+   "kind": "user"
+  },
+  {
+   "address": 30822,
+   "name": "b_7866",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 30825,
+   "name": "b_7869",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 30872,
+   "name": "b_7898",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 30875,
+   "name": "b_789B",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 30888,
+   "name": "r_78A8",
+   "type": "Return",
+   "kind": "auto"
+  },
+  {
+   "address": 30889,
+   "name": "fixed_point_scale",
+   "type": "Subroutine",
+   "kind": "user"
+  },
+  {
+   "address": 30918,
+   "name": "b_78C6",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 30936,
+   "name": "b_78D8",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 30954,
+   "name": "b_78EA",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 30972,
+   "name": "b_78FC",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 30990,
+   "name": "b_790E",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 31008,
+   "name": "b_7920",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 31026,
+   "name": "b_7932",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 31044,
+   "name": "b_7944",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 31049,
+   "name": "r_7949",
+   "type": "Return",
+   "kind": "auto"
+  },
+  {
+   "address": 31050,
+   "name": "interpolate_road_edge",
+   "type": "Subroutine",
+   "kind": "user"
+  },
+  {
+   "address": 31076,
+   "name": "b_7964",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 31109,
+   "name": "b_7985",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 31128,
+   "name": "b_7998",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 31146,
+   "name": "b_79AA",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 31160,
+   "name": "b_79B8",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 31172,
+   "name": "j_79C4",
+   "type": "Jump",
+   "kind": "auto"
+  },
+  {
+   "address": 31193,
+   "name": "b_79D9",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 31226,
+   "name": "b_79FA",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 31245,
+   "name": "b_7A0D",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 31263,
+   "name": "b_7A1F",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 31277,
+   "name": "b_7A2D",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 31289,
+   "name": "j_7A39",
+   "type": "Jump",
+   "kind": "auto"
+  },
+  {
+   "address": 31310,
+   "name": "j_7A4E",
+   "type": "Jump",
+   "kind": "auto"
+  },
+  {
+   "address": 31337,
+   "name": "b_7A69",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 31350,
+   "name": "b_7A76",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 31364,
+   "name": "b_7A84",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 31378,
+   "name": "b_7A92",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 31424,
+   "name": "b_7AC0",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 31426,
+   "name": "b_7AC2",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 31451,
+   "name": "b_7ADB",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 31482,
+   "name": "b_7AFA",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 31494,
+   "name": "b_7B06",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 31506,
+   "name": "b_7B12",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 31511,
+   "name": "b_7B17",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 31541,
+   "name": "b_7B35",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 31575,
+   "name": "b_7B57",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 31598,
+   "name": "b_7B6E",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 31612,
+   "name": "j_7B7C",
+   "type": "Jump",
+   "kind": "auto"
+  },
+  {
+   "address": 31694,
+   "name": "b_7BCE",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 31710,
+   "name": "b_7BDE",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 31734,
+   "name": "b_7BF6",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 31763,
+   "name": "b_7C13",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 31774,
+   "name": "b_7C1E",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 31827,
+   "name": "b_7C53",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 31854,
+   "name": "b_7C6E",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 31863,
+   "name": "b_7C77",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 31874,
+   "name": "b_7C82",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 31890,
+   "name": "b_7C92",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 31909,
+   "name": "b_7CA5",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 31933,
+   "name": "b_7CBD",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 31959,
+   "name": "j_7CD7",
+   "type": "Jump",
+   "kind": "auto"
+  },
+  {
+   "address": 32075,
+   "name": "b_7D4B",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 32087,
+   "name": "j_7D57",
+   "type": "Jump",
+   "kind": "auto"
+  },
+  {
+   "address": 32095,
+   "name": "r_7D5F",
+   "type": "Return",
+   "kind": "auto"
+  },
+  {
+   "address": 32096,
+   "name": "b_7D60",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 32099,
+   "name": "s_7D63",
+   "type": "Subroutine",
+   "kind": "auto"
+  },
+  {
+   "address": 32152,
+   "name": "b_7D98",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 32173,
+   "name": "b_7DAD",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 32192,
+   "name": "b_7DC0",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 32217,
+   "name": "b_7DD9",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 32219,
+   "name": "b_7DDB",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 32226,
+   "name": "b_7DE2",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 32244,
+   "name": "r_7DF4",
+   "type": "Return",
+   "kind": "auto"
+  },
+  {
+   "address": 32245,
+   "name": "s_7DF5",
+   "type": "Subroutine",
+   "kind": "auto"
+  },
+  {
+   "address": 32255,
+   "name": "b_7DFF",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 32265,
+   "name": "b_7E09",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 32349,
+   "name": "r_7E5D",
+   "type": "Return",
+   "kind": "auto"
+  },
+  {
+   "address": 32350,
+   "name": "b_7E5E",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 32353,
+   "name": "project_active_road_objects",
+   "type": "Subroutine",
+   "kind": "user"
+  },
+  {
+   "address": 32372,
+   "name": "j_7E74",
+   "type": "Jump",
+   "kind": "auto"
+  },
+  {
+   "address": 32395,
+   "name": "b_7E8B",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 32488,
+   "name": "b_7EE8",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 32500,
+   "name": "b_7EF4",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 32515,
+   "name": "b_7F03",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 32529,
+   "name": "b_7F11",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 32547,
+   "name": "b_7F23",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 32550,
+   "name": "b_7F26",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 32568,
+   "name": "j_7F38",
+   "type": "Jump",
+   "kind": "auto"
+  },
+  {
+   "address": 32608,
+   "name": "b_7F60",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 32624,
+   "name": "b_7F70",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 32637,
+   "name": "b_7F7D",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 32651,
+   "name": "b_7F8B",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 32659,
+   "name": "b_7F93",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 32679,
+   "name": "b_7FA7",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 32715,
+   "name": "b_7FCB",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 32752,
+   "name": "b_7FF0",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 32770,
+   "name": "j_8002",
+   "type": "Jump",
+   "kind": "auto"
+  },
+  {
+   "address": 32812,
+   "name": "a_802C",
+   "type": "AbsoluteAddress",
+   "kind": "auto"
+  },
+  {
+   "address": 32838,
+   "name": "b_8046",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 32888,
+   "name": "b_8078",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 32902,
+   "name": "b_8086",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 32913,
+   "name": "b_8091",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 32921,
+   "name": "j_8099",
+   "type": "Jump",
+   "kind": "auto"
+  },
+  {
+   "address": 32937,
+   "name": "a_80A9",
+   "type": "AbsoluteAddress",
+   "kind": "auto"
+  },
+  {
+   "address": 32947,
+   "name": "r_80B3",
+   "type": "Return",
+   "kind": "auto"
+  },
+  {
+   "address": 32948,
+   "name": "s_80B4",
+   "type": "Subroutine",
+   "kind": "auto"
+  },
+  {
+   "address": 32951,
+   "name": "s_80B7",
+   "type": "Subroutine",
+   "kind": "auto"
+  },
+  {
+   "address": 32965,
+   "name": "b_80C5",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 32967,
+   "name": "f_80C7",
+   "type": "Field",
+   "kind": "auto"
+  },
+  {
+   "address": 32968,
+   "name": "a_80C8",
+   "type": "AbsoluteAddress",
+   "kind": "auto"
+  },
+  {
+   "address": 32969,
+   "name": "a_80C9",
+   "type": "AbsoluteAddress",
+   "kind": "auto"
+  },
+  {
+   "address": 32978,
+   "name": "b_80D2",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 32994,
+   "name": "r_80E2",
+   "type": "Return",
+   "kind": "auto"
+  },
+  {
+   "address": 32995,
+   "name": "s_80E3",
+   "type": "Subroutine",
+   "kind": "auto"
+  },
+  {
+   "address": 33008,
+   "name": "b_80F0",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 33010,
+   "name": "b_80F2",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 33016,
+   "name": "a_80F8",
+   "type": "AbsoluteAddress",
+   "kind": "auto"
+  },
+  {
+   "address": 33021,
+   "name": "b_80FD",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 33026,
+   "name": "b_8102",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 33043,
+   "name": "a_8113",
+   "type": "AbsoluteAddress",
+   "kind": "auto"
+  },
+  {
+   "address": 33047,
+   "name": "b_8117",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 33054,
+   "name": "b_811E",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 33056,
+   "name": "s_8120",
+   "type": "Subroutine",
+   "kind": "auto"
+  },
+  {
+   "address": 33069,
+   "name": "b_812D",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 33071,
+   "name": "b_812F",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 33077,
+   "name": "a_8135",
+   "type": "AbsoluteAddress",
+   "kind": "auto"
+  },
+  {
+   "address": 33099,
+   "name": "b_814B",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 33102,
+   "name": "a_814E",
+   "type": "AbsoluteAddress",
+   "kind": "auto"
+  },
+  {
+   "address": 33109,
+   "name": "a_8155",
+   "type": "AbsoluteAddress",
+   "kind": "auto"
+  },
+  {
+   "address": 33116,
+   "name": "a_815C",
+   "type": "AbsoluteAddress",
+   "kind": "auto"
+  },
+  {
+   "address": 33124,
+   "name": "b_8164",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 33143,
+   "name": "a_8177",
+   "type": "AbsoluteAddress",
+   "kind": "auto"
+  },
+  {
+   "address": 33171,
+   "name": "b_8193",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 33174,
+   "name": "a_8196",
+   "type": "AbsoluteAddress",
+   "kind": "auto"
+  },
+  {
+   "address": 33181,
+   "name": "a_819D",
+   "type": "AbsoluteAddress",
+   "kind": "auto"
+  },
+  {
+   "address": 33188,
+   "name": "a_81A4",
+   "type": "AbsoluteAddress",
+   "kind": "auto"
+  },
+  {
+   "address": 33196,
+   "name": "b_81AC",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 33198,
+   "name": "b_81AE",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 33201,
+   "name": "s_81B1",
+   "type": "Subroutine",
+   "kind": "auto"
+  },
+  {
+   "address": 33271,
+   "name": "b_81F7",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 33285,
+   "name": "a_8205",
+   "type": "AbsoluteAddress",
+   "kind": "auto"
+  },
+  {
+   "address": 33306,
+   "name": "a_821A",
+   "type": "AbsoluteAddress",
+   "kind": "auto"
+  },
+  {
+   "address": 33317,
+   "name": "a_8225",
+   "type": "AbsoluteAddress",
+   "kind": "auto"
+  },
+  {
+   "address": 33327,
+   "name": "j_822F",
+   "type": "Jump",
+   "kind": "auto"
+  },
+  {
+   "address": 33334,
+   "name": "copy_roadside_sprite",
+   "type": "Subroutine",
+   "kind": "user"
+  },
+  {
+   "address": 33377,
+   "name": "s_8261",
+   "type": "Subroutine",
+   "kind": "auto"
+  },
+  {
+   "address": 33384,
+   "name": "b_8268",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 33392,
+   "name": "b_8270",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 33409,
+   "name": "f_8281",
+   "type": "Field",
+   "kind": "auto"
+  },
+  {
+   "address": 33410,
+   "name": "a_8282",
+   "type": "AbsoluteAddress",
+   "kind": "auto"
+  },
+  {
+   "address": 33411,
+   "name": "a_8283",
+   "type": "AbsoluteAddress",
+   "kind": "auto"
+  },
+  {
+   "address": 33434,
+   "name": "s_829A",
+   "type": "Subroutine",
+   "kind": "auto"
+  },
+  {
+   "address": 33462,
+   "name": "b_82B6",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 33501,
+   "name": "b_82DD",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 33521,
+   "name": "b_82F1",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 33538,
+   "name": "b_8302",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 33541,
+   "name": "r_8305",
+   "type": "Return",
+   "kind": "auto"
+  },
+  {
+   "address": 33542,
+   "name": "s_8306",
+   "type": "Subroutine",
+   "kind": "auto"
+  },
+  {
+   "address": 33664,
+   "name": "r_8380",
+   "type": "Return",
+   "kind": "auto"
+  },
+  {
+   "address": 33665,
+   "name": "r_8381",
+   "type": "Return",
+   "kind": "auto"
+  },
+  {
+   "address": 33666,
+   "name": "s_8382",
+   "type": "Subroutine",
+   "kind": "auto"
+  },
+  {
+   "address": 33684,
+   "name": "b_8394",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 33692,
+   "name": "b_839C",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 33709,
+   "name": "b_83AD",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 33719,
+   "name": "b_83B7",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 33733,
+   "name": "b_83C5",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 33739,
+   "name": "b_83CB",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 33755,
+   "name": "b_83DB",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 33761,
+   "name": "b_83E1",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 33771,
+   "name": "b_83EB",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 33777,
+   "name": "b_83F1",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 33794,
+   "name": "blit_cockpit_bitmap",
+   "type": "Subroutine",
+   "kind": "user"
+  },
+  {
+   "address": 33846,
+   "name": "b_8436",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 33861,
+   "name": "a_8445",
+   "type": "AbsoluteAddress",
+   "kind": "auto"
+  },
+  {
+   "address": 33870,
+   "name": "b_844E",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 33872,
+   "name": "a_8450",
+   "type": "AbsoluteAddress",
+   "kind": "auto"
+  },
+  {
+   "address": 33881,
+   "name": "a_8459",
+   "type": "AbsoluteAddress",
+   "kind": "auto"
+  },
+  {
+   "address": 33896,
+   "name": "b_8468",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 33906,
+   "name": "b_8472",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 33909,
+   "name": "build_near_road_rows",
+   "type": "Subroutine",
+   "kind": "user"
+  },
+  {
+   "address": 33947,
+   "name": "b_849B",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 33957,
+   "name": "b_84A5",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 33987,
+   "name": "b_84C3",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 33991,
+   "name": "b_84C7",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 34030,
+   "name": "b_84EE",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 34035,
+   "name": "j_84F3",
+   "type": "Jump",
+   "kind": "auto"
+  },
+  {
+   "address": 34061,
+   "name": "j_850D",
+   "type": "Jump",
+   "kind": "auto"
+  },
+  {
+   "address": 34211,
+   "name": "b_85A3",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 34222,
+   "name": "b_85AE",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 34233,
+   "name": "b_85B9",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 34239,
+   "name": "b_85BF",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 34242,
+   "name": "fill_clipped_road_row",
+   "type": "Subroutine",
+   "kind": "user"
+  },
+  {
+   "address": 34246,
+   "name": "b_85C6",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 34267,
+   "name": "r_85DB",
+   "type": "Return",
+   "kind": "auto"
+  },
+  {
+   "address": 34268,
+   "name": "b_85DC",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 34291,
+   "name": "b_85F3",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 34302,
+   "name": "b_85FE",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 34311,
+   "name": "b_8607",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 34334,
+   "name": "b_861E",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 34344,
+   "name": "b_8628",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 34362,
+   "name": "b_863A",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 34385,
+   "name": "j_8651",
+   "type": "Jump",
+   "kind": "auto"
+  },
+  {
+   "address": 34389,
+   "name": "b_8655",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 34413,
+   "name": "b_866D",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 34427,
+   "name": "r_867B",
+   "type": "Return",
+   "kind": "auto"
+  },
+  {
+   "address": 34428,
+   "name": "s_867C",
+   "type": "Subroutine",
+   "kind": "auto"
+  },
+  {
+   "address": 34441,
+   "name": "s_8689",
+   "type": "Subroutine",
+   "kind": "auto"
+  },
+  {
+   "address": 34453,
+   "name": "b_8695",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 34457,
+   "name": "b_8699",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 34465,
+   "name": "b_86A1",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 34473,
+   "name": "b_86A9",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 34477,
+   "name": "b_86AD",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 34480,
+   "name": "b_86B0",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 34491,
+   "name": "b_86BB",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 34495,
+   "name": "r_86BF",
+   "type": "Return",
+   "kind": "auto"
+  },
+  {
+   "address": 34496,
+   "name": "s_86C0",
+   "type": "Subroutine",
+   "kind": "auto"
+  },
+  {
+   "address": 34513,
+   "name": "b_86D1",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 34515,
+   "name": "b_86D3",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 34533,
+   "name": "b_86E5",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 34538,
+   "name": "b_86EA",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 34555,
+   "name": "s_86FB",
+   "type": "Subroutine",
+   "kind": "auto"
+  },
+  {
+   "address": 34557,
+   "name": "b_86FD",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 34586,
+   "name": "b_871A",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 34594,
+   "name": "place_roadside_bitmap",
+   "type": "Subroutine",
+   "kind": "user"
+  },
+  {
+   "address": 34606,
+   "name": "b_872E",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 34641,
+   "name": "r_8751",
+   "type": "Return",
+   "kind": "auto"
+  },
+  {
+   "address": 34642,
+   "name": "b_8752",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 34718,
+   "name": "b_879E",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 34737,
+   "name": "b_87B1",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 34767,
+   "name": "b_87CF",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 34772,
+   "name": "b_87D4",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 34825,
+   "name": "b_8809",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 34836,
+   "name": "b_8814",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 34841,
+   "name": "b_8819",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 34848,
+   "name": "j_8820",
+   "type": "Jump",
+   "kind": "auto"
+  },
+  {
+   "address": 34874,
+   "name": "b_883A",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 34921,
+   "name": "b_8869",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 34926,
+   "name": "b_886E",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 34928,
+   "name": "b_8870",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 34936,
+   "name": "b_8878",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 34954,
+   "name": "b_888A",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 34959,
+   "name": "r_888F",
+   "type": "Return",
+   "kind": "auto"
+  },
+  {
+   "address": 34960,
+   "name": "s_8890",
+   "type": "Subroutine",
+   "kind": "auto"
+  },
+  {
+   "address": 34966,
+   "name": "b_8896",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 34987,
+   "name": "b_88AB",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 34993,
+   "name": "b_88B1",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 35008,
+   "name": "r_88C0",
+   "type": "Return",
+   "kind": "auto"
+  },
+  {
+   "address": 35009,
+   "name": "s_88C1",
+   "type": "Subroutine",
+   "kind": "auto"
+  },
+  {
+   "address": 35015,
+   "name": "b_88C7",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 35032,
+   "name": "b_88D8",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 35038,
+   "name": "b_88DE",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 35053,
+   "name": "r_88ED",
+   "type": "Return",
+   "kind": "auto"
+  },
+  {
+   "address": 35054,
+   "name": "draw_road_surface_span",
+   "type": "Subroutine",
+   "kind": "user"
+  },
+  {
+   "address": 35070,
+   "name": "b_88FE",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 35072,
+   "name": "b_8900",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 35120,
+   "name": "b_8930",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 35155,
+   "name": "b_8953",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 35173,
+   "name": "b_8965",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 35216,
+   "name": "b_8990",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 35229,
+   "name": "b_899D",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 35233,
+   "name": "j_89A1",
+   "type": "Jump",
+   "kind": "auto"
+  },
+  {
+   "address": 35286,
+   "name": "b_89D6",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 35289,
+   "name": "b_89D9",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 35318,
+   "name": "b_89F6",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 35329,
+   "name": "b_8A01",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 35340,
+   "name": "b_8A0C",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 35363,
+   "name": "b_8A23",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 35366,
+   "name": "b_8A26",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 35391,
+   "name": "j_8A3F",
+   "type": "Jump",
+   "kind": "auto"
+  },
+  {
+   "address": 35393,
+   "name": "b_8A41",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 35431,
+   "name": "b_8A67",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 35443,
+   "name": "b_8A73",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 35454,
+   "name": "b_8A7E",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 35484,
+   "name": "b_8A9C",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 35505,
+   "name": "a_8AB1",
+   "type": "AbsoluteAddress",
+   "kind": "auto"
+  },
+  {
+   "address": 35506,
+   "name": "a_8AB2",
+   "type": "AbsoluteAddress",
+   "kind": "auto"
+  },
+  {
+   "address": 35507,
+   "name": "driving_raster_irq",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 35554,
+   "name": "b_8AE2",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 35567,
+   "name": "b_8AEF",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 35579,
+   "name": "b_8AFB",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 35605,
+   "name": "b_8B15",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 35629,
+   "name": "b_8B2D",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 35694,
+   "name": "j_8B6E",
+   "type": "Jump",
+   "kind": "auto"
+  },
+  {
+   "address": 35710,
+   "name": "b_8B7E",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 35791,
+   "name": "b_8BCF",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 35794,
+   "name": "b_8BD2",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 35809,
+   "name": "b_8BE1",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 35939,
+   "name": "b_8C63",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 35951,
+   "name": "b_8C6F",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 35962,
+   "name": "a_8C7A",
+   "type": "AbsoluteAddress",
+   "kind": "auto"
+  },
+  {
+   "address": 35988,
+   "name": "j_8C94",
+   "type": "Jump",
+   "kind": "auto"
+  },
+  {
+   "address": 36027,
+   "name": "b_8CBB",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 36055,
+   "name": "s_8CD7",
+   "type": "Subroutine",
+   "kind": "auto"
+  },
+  {
+   "address": 36056,
+   "name": "a_8CD8",
+   "type": "AbsoluteAddress",
+   "kind": "auto"
+  },
+  {
+   "address": 36057,
+   "name": "a_8CD9",
+   "type": "AbsoluteAddress",
+   "kind": "auto"
+  },
+  {
+   "address": 36081,
+   "name": "b_8CF1",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 36087,
+   "name": "b_8CF7",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 36093,
+   "name": "b_8CFD",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 36118,
+   "name": "b_8D16",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 36128,
+   "name": "b_8D20",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 36130,
+   "name": "a_8D22",
+   "type": "AbsoluteAddress",
+   "kind": "auto"
+  },
+  {
+   "address": 36133,
+   "name": "a_8D25",
+   "type": "AbsoluteAddress",
+   "kind": "auto"
+  },
+  {
+   "address": 36142,
+   "name": "s_8D2E",
+   "type": "Subroutine",
+   "kind": "auto"
+  },
+  {
+   "address": 36160,
+   "name": "b_8D40",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 36172,
+   "name": "b_8D4C",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 36212,
+   "name": "f_8D74",
+   "type": "Field",
+   "kind": "auto"
+  },
+  {
+   "address": 36213,
+   "name": "f_8D75",
+   "type": "Field",
+   "kind": "auto"
+  },
+  {
+   "address": 36239,
+   "name": "a_8D8F",
+   "type": "AbsoluteAddress",
+   "kind": "auto"
+  },
+  {
+   "address": 36250,
+   "name": "s_8D9A",
+   "type": "Subroutine",
+   "kind": "auto"
+  },
+  {
+   "address": 36251,
+   "name": "a_8D9B",
+   "type": "AbsoluteAddress",
+   "kind": "auto"
+  },
+  {
+   "address": 36252,
+   "name": "a_8D9C",
+   "type": "AbsoluteAddress",
+   "kind": "auto"
+  },
+  {
+   "address": 36266,
+   "name": "b_8DAA",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 36273,
+   "name": "a_8DB1",
+   "type": "AbsoluteAddress",
+   "kind": "auto"
+  },
+  {
+   "address": 36274,
+   "name": "a_8DB2",
+   "type": "AbsoluteAddress",
+   "kind": "auto"
+  },
+  {
+   "address": 36277,
+   "name": "a_8DB5",
+   "type": "AbsoluteAddress",
+   "kind": "auto"
+  },
+  {
+   "address": 36284,
+   "name": "a_8DBC",
+   "type": "AbsoluteAddress",
+   "kind": "auto"
+  },
+  {
+   "address": 36285,
+   "name": "a_8DBD",
+   "type": "AbsoluteAddress",
+   "kind": "auto"
+  },
+  {
+   "address": 36295,
+   "name": "b_8DC7",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 36297,
+   "name": "a_8DC9",
+   "type": "AbsoluteAddress",
+   "kind": "auto"
+  },
+  {
+   "address": 36308,
+   "name": "a_8DD4",
+   "type": "AbsoluteAddress",
+   "kind": "auto"
+  },
+  {
+   "address": 36309,
+   "name": "a_8DD5",
+   "type": "AbsoluteAddress",
+   "kind": "auto"
+  },
+  {
+   "address": 36313,
+   "name": "a_8DD9",
+   "type": "AbsoluteAddress",
+   "kind": "auto"
+  },
+  {
+   "address": 36314,
+   "name": "a_8DDA",
+   "type": "AbsoluteAddress",
+   "kind": "auto"
+  },
+  {
+   "address": 36323,
+   "name": "a_8DE3",
+   "type": "AbsoluteAddress",
+   "kind": "auto"
+  },
+  {
+   "address": 36324,
+   "name": "a_8DE4",
+   "type": "AbsoluteAddress",
+   "kind": "auto"
+  },
+  {
+   "address": 36327,
+   "name": "b_8DE7",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 36331,
+   "name": "a_8DEB",
+   "type": "AbsoluteAddress",
+   "kind": "auto"
+  },
+  {
+   "address": 36332,
+   "name": "a_8DEC",
+   "type": "AbsoluteAddress",
+   "kind": "auto"
+  },
+  {
+   "address": 36358,
+   "name": "b_8E06",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 36364,
+   "name": "b_8E0C",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 36378,
+   "name": "b_8E1A",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 36381,
+   "name": "b_8E1D",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 36404,
+   "name": "b_8E34",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 36410,
+   "name": "b_8E3A",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 36424,
+   "name": "b_8E48",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 36427,
+   "name": "r_8E4B",
+   "type": "Return",
+   "kind": "auto"
+  },
+  {
+   "address": 36428,
+   "name": "coast_at_end_of_section",
+   "type": "Branch",
+   "kind": "user"
+  },
+  {
+   "address": 36450,
+   "name": "b_8E62",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 36464,
+   "name": "b_8E70",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 36496,
+   "name": "r_8E90",
+   "type": "Return",
+   "kind": "auto"
+  },
+  {
+   "address": 36497,
+   "name": "poll_driving_controls",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 36515,
+   "name": "b_8EA3",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 36522,
+   "name": "b_8EAA",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 36532,
+   "name": "b_8EB4",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 36551,
+   "name": "j_8EC7",
+   "type": "Jump",
+   "kind": "auto"
+  },
+  {
+   "address": 36579,
+   "name": "a_8EE3",
+   "type": "AbsoluteAddress",
+   "kind": "auto"
+  },
+  {
+   "address": 36580,
+   "name": "alternate_shift_table_hi",
+   "type": "AbsoluteAddress",
+   "kind": "user"
+  },
+  {
+   "address": 36586,
+   "name": "b_8EEA",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 36601,
+   "name": "b_8EF9",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 36619,
+   "name": "b_8F0B",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 36622,
+   "name": "update_non_shift_controls",
+   "type": "Branch",
+   "kind": "user"
+  },
+  {
+   "address": 36642,
+   "name": "b_8F22",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 36650,
+   "name": "b_8F2A",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 36712,
+   "name": "b_8F68",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 36730,
+   "name": "b_8F7A",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 36732,
+   "name": "b_8F7C",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 36751,
+   "name": "b_8F8F",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 36767,
+   "name": "b_8F9F",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 36783,
+   "name": "b_8FAF",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 36798,
+   "name": "b_8FBE",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 36800,
+   "name": "j_8FC0",
+   "type": "Jump",
+   "kind": "auto"
+  },
+  {
+   "address": 36806,
+   "name": "j_8FC6",
+   "type": "Jump",
+   "kind": "auto"
+  },
+  {
+   "address": 36814,
+   "name": "accumulate_drive_time_and_speed",
+   "type": "Branch",
+   "kind": "user"
+  },
+  {
+   "address": 36825,
+   "name": "b_8FD9",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 36840,
+   "name": "b_8FE8",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 36868,
+   "name": "advance_road_element",
+   "type": "Branch",
+   "kind": "user"
+  },
+  {
+   "address": 36895,
+   "name": "b_901F",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 36901,
+   "name": "b_9025",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 36904,
+   "name": "b_9028",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 36951,
+   "name": "b_9057",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 36954,
+   "name": "j_905A",
+   "type": "Jump",
+   "kind": "auto"
+  },
+  {
+   "address": 36965,
+   "name": "b_9065",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 36983,
+   "name": "b_9077",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 36986,
+   "name": "b_907A",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 37011,
+   "name": "b_9093",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 37016,
+   "name": "b_9098",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 37033,
+   "name": "place_filtered_road_event",
+   "type": "AbsoluteAddress",
+   "kind": "user"
+  },
+  {
+   "address": 37085,
+   "name": "b_90DD",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 37091,
+   "name": "b_90E3",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 37151,
+   "name": "j_911F",
+   "type": "Jump",
+   "kind": "auto"
+  },
+  {
+   "address": 37157,
+   "name": "b_9125",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 37168,
+   "name": "b_9130",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 37170,
+   "name": "b_9132",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 37183,
+   "name": "b_913F",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 37187,
+   "name": "b_9143",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 37194,
+   "name": "b_914A",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 37200,
+   "name": "b_9150",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 37211,
+   "name": "j_915B",
+   "type": "Jump",
+   "kind": "auto"
+  },
+  {
+   "address": 37238,
+   "name": "b_9176",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 37241,
+   "name": "b_9179",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 37288,
+   "name": "b_91A8",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 37291,
+   "name": "j_91AB",
+   "type": "Jump",
+   "kind": "auto"
+  },
+  {
+   "address": 37339,
+   "name": "b_91DB",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 37361,
+   "name": "b_91F1",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 37369,
+   "name": "b_91F9",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 37394,
+   "name": "b_9212",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 37401,
+   "name": "b_9219",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 37435,
+   "name": "b_923B",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 37493,
+   "name": "b_9275",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 37522,
+   "name": "b_9292",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 37529,
+   "name": "b_9299",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 37550,
+   "name": "b_92AE",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 37567,
+   "name": "b_92BF",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 37593,
+   "name": "b_92D9",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 37605,
+   "name": "b_92E5",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 37612,
+   "name": "j_92EC",
+   "type": "Jump",
+   "kind": "auto"
+  },
+  {
+   "address": 37643,
+   "name": "b_930B",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 37686,
+   "name": "b_9336",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 37708,
+   "name": "b_934C",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 37720,
+   "name": "j_9358",
+   "type": "Jump",
+   "kind": "auto"
+  },
+  {
+   "address": 37734,
+   "name": "b_9366",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 37777,
+   "name": "b_9391",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 37781,
+   "name": "b_9395",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 37804,
+   "name": "b_93AC",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 37808,
+   "name": "b_93B0",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 37819,
+   "name": "j_93BB",
+   "type": "Jump",
+   "kind": "auto"
+  },
+  {
+   "address": 37827,
+   "name": "b_93C3",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 37843,
+   "name": "r_93D3",
+   "type": "Return",
+   "kind": "auto"
+  },
+  {
+   "address": 37844,
+   "name": "b_93D4",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 37847,
+   "name": "b_93D7",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 37850,
+   "name": "update_road_events",
+   "type": "Subroutine",
+   "kind": "user"
+  },
+  {
+   "address": 37856,
+   "name": "j_93E0",
+   "type": "Jump",
+   "kind": "auto"
+  },
+  {
+   "address": 37878,
+   "name": "b_93F6",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 37960,
+   "name": "b_9448",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 37977,
+   "name": "b_9459",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 37998,
+   "name": "b_946E",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 38001,
+   "name": "b_9471",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 38023,
+   "name": "b_9487",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 38063,
+   "name": "b_94AF",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 38107,
+   "name": "j_94DB",
+   "type": "Jump",
+   "kind": "auto"
+  },
+  {
+   "address": 38118,
+   "name": "b_94E6",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 38121,
+   "name": "update_event_phase",
+   "type": "Subroutine",
+   "kind": "user"
+  },
+  {
+   "address": 38146,
+   "name": "b_9502",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 38148,
+   "name": "b_9504",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 38151,
+   "name": "b_9507",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 38163,
+   "name": "b_9513",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 38219,
+   "name": "b_954B",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 38224,
+   "name": "b_9550",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 38226,
+   "name": "b_9552",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 38237,
+   "name": "b_955D",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 38261,
+   "name": "b_9575",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 38263,
+   "name": "b_9577",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 38297,
+   "name": "b_9599",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 38305,
+   "name": "b_95A1",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 38307,
+   "name": "b_95A3",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 38317,
+   "name": "j_95AD",
+   "type": "Jump",
+   "kind": "auto"
+  },
+  {
+   "address": 38334,
+   "name": "b_95BE",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 38351,
+   "name": "b_95CF",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 38380,
+   "name": "b_95EC",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 38382,
+   "name": "b_95EE",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 38402,
+   "name": "b_9602",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 38404,
+   "name": "b_9604",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 38409,
+   "name": "b_9609",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 38450,
+   "name": "b_9632",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 38471,
+   "name": "b_9647",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 38475,
+   "name": "b_964B",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 38495,
+   "name": "b_965F",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 38497,
+   "name": "b_9661",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 38505,
+   "name": "b_9669",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 38522,
+   "name": "b_967A",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 38567,
+   "name": "b_96A7",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 38569,
+   "name": "s_96A9",
+   "type": "Subroutine",
+   "kind": "auto"
+  },
+  {
+   "address": 38610,
+   "name": "a_96D2",
+   "type": "AbsoluteAddress",
+   "kind": "auto"
+  },
+  {
+   "address": 38621,
+   "name": "b_96DD",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 38625,
+   "name": "b_96E1",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 38627,
+   "name": "b_96E3",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 38661,
+   "name": "b_9705",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 38687,
+   "name": "b_971F",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 38709,
+   "name": "b_9735",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 38711,
+   "name": "b_9737",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 38721,
+   "name": "b_9741",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 38751,
+   "name": "b_975F",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 38753,
+   "name": "s_9761",
+   "type": "Subroutine",
+   "kind": "auto"
+  },
+  {
+   "address": 38776,
+   "name": "b_9778",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 38793,
+   "name": "b_9789",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 38802,
+   "name": "b_9792",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 38804,
+   "name": "b_9794",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 38810,
+   "name": "b_979A",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 38819,
+   "name": "s_97A3",
+   "type": "Subroutine",
+   "kind": "auto"
+  },
+  {
+   "address": 38857,
+   "name": "b_97C9",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 38882,
+   "name": "b_97E2",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 38894,
+   "name": "b_97EE",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 38898,
+   "name": "b_97F2",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 38915,
+   "name": "a_9803",
+   "type": "AbsoluteAddress",
+   "kind": "auto"
+  },
+  {
+   "address": 38916,
+   "name": "a_9804",
+   "type": "AbsoluteAddress",
+   "kind": "auto"
+  },
+  {
+   "address": 38947,
+   "name": "b_9823",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 38953,
+   "name": "b_9829",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 38969,
+   "name": "b_9839",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 38970,
+   "name": "a_983A",
+   "type": "AbsoluteAddress",
+   "kind": "auto"
+  },
+  {
+   "address": 38971,
+   "name": "a_983B",
+   "type": "AbsoluteAddress",
+   "kind": "auto"
+  },
+  {
+   "address": 38972,
+   "name": "b_983C",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 38976,
+   "name": "a_9840",
+   "type": "AbsoluteAddress",
+   "kind": "auto"
+  },
+  {
+   "address": 38977,
+   "name": "a_9841",
+   "type": "AbsoluteAddress",
+   "kind": "auto"
+  },
+  {
+   "address": 38999,
+   "name": "b_9857",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 39044,
+   "name": "b_9884",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 39060,
+   "name": "a_9894",
+   "type": "AbsoluteAddress",
+   "kind": "auto"
+  },
+  {
+   "address": 39061,
+   "name": "a_9895",
+   "type": "AbsoluteAddress",
+   "kind": "auto"
+  },
+  {
+   "address": 39105,
+   "name": "b_98C1",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 39111,
+   "name": "b_98C7",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 39113,
+   "name": "j_98C9",
+   "type": "Jump",
+   "kind": "auto"
+  },
+  {
+   "address": 39125,
+   "name": "r_98D5",
+   "type": "Return",
+   "kind": "auto"
+  },
+  {
+   "address": 39137,
+   "name": "b_98E1",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 39215,
+   "name": "b_992F",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 39234,
+   "name": "s_9942",
+   "type": "Subroutine",
+   "kind": "auto"
+  },
+  {
+   "address": 39246,
+   "name": "b_994E",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 39256,
+   "name": "b_9958",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 39265,
+   "name": "b_9961",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 39270,
+   "name": "b_9966",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 39274,
+   "name": "b_996A",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 39284,
+   "name": "b_9974",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 39299,
+   "name": "b_9983",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 39324,
+   "name": "s_999C",
+   "type": "Subroutine",
+   "kind": "auto"
+  },
+  {
+   "address": 39405,
+   "name": "r_99ED",
+   "type": "Return",
+   "kind": "auto"
+  },
+  {
+   "address": 39406,
+   "name": "s_99EE",
+   "type": "Subroutine",
+   "kind": "auto"
+  },
+  {
+   "address": 39422,
+   "name": "b_99FE",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 39424,
+   "name": "b_9A00",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 39435,
+   "name": "b_9A0B",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 39442,
+   "name": "b_9A12",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 39460,
+   "name": "b_9A24",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 39471,
+   "name": "b_9A2F",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 39486,
+   "name": "b_9A3E",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 39501,
+   "name": "b_9A4D",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 39509,
+   "name": "b_9A55",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 39515,
+   "name": "s_9A5B",
+   "type": "Subroutine",
+   "kind": "auto"
+  },
+  {
+   "address": 39525,
+   "name": "b_9A65",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 39543,
+   "name": "reload_module_context",
+   "type": "Subroutine",
+   "kind": "user"
+  },
+  {
+   "address": 39548,
+   "name": "driving_jump_template",
+   "type": "AbsoluteAddress",
+   "kind": "user"
+  },
+  {
+   "address": 39549,
+   "name": "a_9A7D",
+   "type": "AbsoluteAddress",
+   "kind": "auto"
+  },
+  {
+   "address": 39550,
+   "name": "a_9A7E",
+   "type": "AbsoluteAddress",
+   "kind": "auto"
+  },
+  {
+   "address": 39551,
+   "name": "s_9A7F",
+   "type": "Subroutine",
+   "kind": "auto"
+  },
+  {
+   "address": 39553,
+   "name": "b_9A81",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 39574,
+   "name": "s_9A96",
+   "type": "Subroutine",
+   "kind": "auto"
+  },
+  {
+   "address": 39605,
+   "name": "j_9AB5",
+   "type": "Jump",
+   "kind": "auto"
+  },
+  {
+   "address": 39611,
+   "name": "a_9ABB",
+   "type": "AbsoluteAddress",
+   "kind": "auto"
+  },
+  {
+   "address": 39644,
+   "name": "b_9ADC",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 39669,
+   "name": "j_9AF5",
+   "type": "Jump",
+   "kind": "auto"
+  },
+  {
+   "address": 39678,
+   "name": "r_9AFE",
+   "type": "Return",
+   "kind": "auto"
+  },
+  {
+   "address": 39679,
+   "name": "s_9AFF",
+   "type": "Subroutine",
+   "kind": "auto"
+  },
+  {
+   "address": 39700,
+   "name": "b_9B14",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 39706,
+   "name": "b_9B1A",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 39732,
+   "name": "b_9B34",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 39737,
+   "name": "b_9B39",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 39751,
+   "name": "b_9B47",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 39756,
+   "name": "b_9B4C",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 39796,
+   "name": "b_9B74",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 39831,
+   "name": "a_9B97",
+   "type": "AbsoluteAddress",
+   "kind": "auto"
+  },
+  {
+   "address": 39843,
+   "name": "f_9BA3",
+   "type": "Field",
+   "kind": "auto"
+  },
+  {
+   "address": 39844,
+   "name": "f_9BA4",
+   "type": "Field",
+   "kind": "auto"
+  },
+  {
+   "address": 39863,
+   "name": "s_9BB7",
+   "type": "Subroutine",
+   "kind": "auto"
+  },
+  {
+   "address": 39865,
+   "name": "b_9BB9",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 39871,
+   "name": "f_9BBF",
+   "type": "Field",
+   "kind": "auto"
+  },
+  {
+   "address": 39878,
+   "name": "f_9BC6",
+   "type": "Field",
+   "kind": "auto"
+  },
+  {
+   "address": 39879,
+   "name": "f_9BC7",
+   "type": "Field",
+   "kind": "auto"
+  },
+  {
+   "address": 40262,
+   "name": "a_9D46",
+   "type": "AbsoluteAddress",
+   "kind": "auto"
+  },
+  {
+   "address": 40263,
+   "name": "a_9D47",
+   "type": "AbsoluteAddress",
+   "kind": "auto"
+  },
+  {
+   "address": 40264,
+   "name": "a_9D48",
+   "type": "AbsoluteAddress",
+   "kind": "auto"
+  },
+  {
+   "address": 40265,
+   "name": "a_9D49",
+   "type": "AbsoluteAddress",
+   "kind": "auto"
+  },
+  {
+   "address": 40266,
+   "name": "a_9D4A",
+   "type": "AbsoluteAddress",
+   "kind": "auto"
+  },
+  {
+   "address": 40267,
+   "name": "f_9D4B",
+   "type": "Field",
+   "kind": "auto"
+  },
+  {
+   "address": 40271,
+   "name": "f_9D4F",
+   "type": "Field",
+   "kind": "auto"
+  },
+  {
+   "address": 40275,
+   "name": "joystick_patterns",
+   "type": "Field",
+   "kind": "user"
+  },
+  {
+   "address": 40284,
+   "name": "f_9D5C",
+   "type": "Field",
+   "kind": "auto"
+  },
+  {
+   "address": 40293,
+   "name": "f_9D65",
+   "type": "Field",
+   "kind": "auto"
+  },
+  {
+   "address": 40323,
+   "name": "f_9D83",
+   "type": "Field",
+   "kind": "auto"
+  },
+  {
+   "address": 40353,
+   "name": "f_9DA1",
+   "type": "Field",
+   "kind": "auto"
+  },
+  {
+   "address": 40399,
+   "name": "f_9DCF",
+   "type": "Field",
+   "kind": "auto"
+  },
+  {
+   "address": 40418,
+   "name": "a_9DE2",
+   "type": "AbsoluteAddress",
+   "kind": "auto"
+  },
+  {
+   "address": 40429,
+   "name": "f_9DED",
+   "type": "Field",
+   "kind": "auto"
+  },
+  {
+   "address": 40459,
+   "name": "f_9E0B",
+   "type": "Field",
+   "kind": "auto"
+  },
+  {
+   "address": 40489,
+   "name": "f_9E29",
+   "type": "Field",
+   "kind": "auto"
+  },
+  {
+   "address": 40519,
+   "name": "f_9E47",
+   "type": "Field",
+   "kind": "auto"
+  },
+  {
+   "address": 40523,
+   "name": "f_9E4B",
+   "type": "Field",
+   "kind": "auto"
+  },
+  {
+   "address": 40527,
+   "name": "raster_successors",
+   "type": "Field",
+   "kind": "user"
+  },
+  {
+   "address": 40530,
+   "name": "a_9E52",
+   "type": "AbsoluteAddress",
+   "kind": "auto"
+  },
+  {
+   "address": 40531,
+   "name": "driving_raster_lines",
+   "type": "Field",
+   "kind": "user"
+  },
+  {
+   "address": 40534,
+   "name": "driving_vic_banks",
+   "type": "AbsoluteAddress",
+   "kind": "user"
+  },
+  {
+   "address": 40535,
+   "name": "a_9E57",
+   "type": "AbsoluteAddress",
+   "kind": "auto"
+  },
+  {
+   "address": 40537,
+   "name": "driving_background_colours",
+   "type": "AbsoluteAddress",
+   "kind": "user"
+  },
+  {
+   "address": 40538,
+   "name": "a_9E5A",
+   "type": "AbsoluteAddress",
+   "kind": "auto"
+  },
+  {
+   "address": 40540,
+   "name": "f_9E5C",
+   "type": "Field",
+   "kind": "auto"
+  },
+  {
+   "address": 40549,
+   "name": "f_9E65",
+   "type": "Field",
+   "kind": "auto"
+  },
+  {
+   "address": 40558,
+   "name": "f_9E6E",
+   "type": "Field",
+   "kind": "auto"
+  },
+  {
+   "address": 40574,
+   "name": "f_9E7E",
+   "type": "Field",
+   "kind": "auto"
+  },
+  {
+   "address": 40582,
+   "name": "f_9E86",
+   "type": "Field",
+   "kind": "auto"
+  },
+  {
+   "address": 40583,
+   "name": "f_9E87",
+   "type": "Field",
+   "kind": "auto"
+  },
+  {
+   "address": 40584,
+   "name": "f_9E88",
+   "type": "Field",
+   "kind": "auto"
+  },
+  {
+   "address": 40585,
+   "name": "f_9E89",
+   "type": "Field",
+   "kind": "auto"
+  },
+  {
+   "address": 40586,
+   "name": "f_9E8A",
+   "type": "Field",
+   "kind": "auto"
+  },
+  {
+   "address": 40587,
+   "name": "f_9E8B",
+   "type": "Field",
+   "kind": "auto"
+  },
+  {
+   "address": 40588,
+   "name": "f_9E8C",
+   "type": "Field",
+   "kind": "auto"
+  },
+  {
+   "address": 40589,
+   "name": "f_9E8D",
+   "type": "Field",
+   "kind": "auto"
+  },
+  {
+   "address": 40718,
+   "name": "f_9F0E",
+   "type": "Field",
+   "kind": "auto"
+  },
+  {
+   "address": 40750,
+   "name": "f_9F2E",
+   "type": "Field",
+   "kind": "auto"
+  },
+  {
+   "address": 40782,
+   "name": "f_9F4E",
+   "type": "Field",
+   "kind": "auto"
+  },
+  {
+   "address": 40788,
+   "name": "f_9F54",
+   "type": "Field",
+   "kind": "auto"
+  },
+  {
+   "address": 40793,
+   "name": "f_9F59",
+   "type": "Field",
+   "kind": "auto"
+  },
+  {
+   "address": 40834,
+   "name": "f_9F82",
+   "type": "Field",
+   "kind": "auto"
+  },
+  {
+   "address": 40854,
+   "name": "f_9F96",
+   "type": "Field",
+   "kind": "auto"
+  },
+  {
+   "address": 40874,
+   "name": "f_9FAA",
+   "type": "Field",
+   "kind": "auto"
+  },
+  {
+   "address": 40894,
+   "name": "f_9FBE",
+   "type": "Field",
+   "kind": "auto"
+  },
+  {
+   "address": 40914,
+   "name": "f_9FD2",
+   "type": "Field",
+   "kind": "auto"
+  },
+  {
+   "address": 40934,
+   "name": "f_9FE6",
+   "type": "Field",
+   "kind": "auto"
+  },
+  {
+   "address": 40953,
+   "name": "f_9FF9",
+   "type": "Field",
+   "kind": "auto"
+  },
+  {
+   "address": 40956,
+   "name": "f_9FFC",
+   "type": "Field",
+   "kind": "auto"
+  },
+  {
+   "address": 40960,
+   "name": "f_A000",
+   "type": "Field",
+   "kind": "auto"
+  },
+  {
+   "address": 40972,
+   "name": "f_A00C",
+   "type": "Field",
+   "kind": "auto"
+  },
+  {
+   "address": 40992,
+   "name": "f_A020",
+   "type": "Field",
+   "kind": "auto"
+  },
+  {
+   "address": 40996,
+   "name": "f_A024",
+   "type": "Field",
+   "kind": "auto"
+  },
+  {
+   "address": 40999,
+   "name": "f_A027",
+   "type": "Field",
+   "kind": "auto"
+  },
+  {
+   "address": 41029,
+   "name": "f_A045",
+   "type": "Field",
+   "kind": "auto"
+  },
+  {
+   "address": 41039,
+   "name": "f_A04F",
+   "type": "Field",
+   "kind": "auto"
+  },
+  {
+   "address": 41069,
+   "name": "f_A06D",
+   "type": "Field",
+   "kind": "auto"
+  },
+  {
+   "address": 41077,
+   "name": "f_A075",
+   "type": "Field",
+   "kind": "auto"
+  },
+  {
+   "address": 41125,
+   "name": "f_A0A5",
+   "type": "Field",
+   "kind": "auto"
+  },
+  {
+   "address": 41155,
+   "name": "a_A0C3",
+   "type": "AbsoluteAddress",
+   "kind": "auto"
+  },
+  {
+   "address": 41156,
+   "name": "f_A0C4",
+   "type": "Field",
+   "kind": "auto"
+  },
+  {
+   "address": 41186,
+   "name": "f_A0E2",
+   "type": "Field",
+   "kind": "auto"
+  },
+  {
+   "address": 41216,
+   "name": "f_A100",
+   "type": "Field",
+   "kind": "auto"
+  },
+  {
+   "address": 41246,
+   "name": "f_A11E",
+   "type": "Field",
+   "kind": "auto"
+  },
+  {
+   "address": 41276,
+   "name": "f_A13C",
+   "type": "Field",
+   "kind": "auto"
+  },
+  {
+   "address": 41292,
+   "name": "f_A14C",
+   "type": "Field",
+   "kind": "auto"
+  },
+  {
+   "address": 41293,
+   "name": "f_A14D",
+   "type": "Field",
+   "kind": "auto"
+  },
+  {
+   "address": 41294,
+   "name": "f_A14E",
+   "type": "Field",
+   "kind": "auto"
+  },
+  {
+   "address": 41295,
+   "name": "f_A14F",
+   "type": "Field",
+   "kind": "auto"
+  },
+  {
+   "address": 41296,
+   "name": "f_A150",
+   "type": "Field",
+   "kind": "auto"
+  },
+  {
+   "address": 41297,
+   "name": "f_A151",
+   "type": "Field",
+   "kind": "auto"
+  },
+  {
+   "address": 41328,
+   "name": "f_A170",
+   "type": "Field",
+   "kind": "auto"
+  },
+  {
+   "address": 41331,
+   "name": "f_A173",
+   "type": "Field",
+   "kind": "auto"
+  },
+  {
+   "address": 41334,
+   "name": "f_A176",
+   "type": "Field",
+   "kind": "auto"
+  },
+  {
+   "address": 41350,
+   "name": "f_A186",
+   "type": "Field",
+   "kind": "auto"
+  },
+  {
+   "address": 41363,
+   "name": "f_A193",
+   "type": "Field",
+   "kind": "auto"
+  },
+  {
+   "address": 41377,
+   "name": "f_A1A1",
+   "type": "Field",
+   "kind": "auto"
+  },
+  {
+   "address": 41380,
+   "name": "f_A1A4",
+   "type": "Field",
+   "kind": "auto"
+  },
+  {
+   "address": 41382,
+   "name": "a_A1A6",
+   "type": "AbsoluteAddress",
+   "kind": "auto"
+  },
+  {
+   "address": 41385,
+   "name": "a_A1A9",
+   "type": "AbsoluteAddress",
+   "kind": "auto"
+  },
+  {
+   "address": 41386,
+   "name": "f_A1AA",
+   "type": "Field",
+   "kind": "auto"
+  },
+  {
+   "address": 41399,
+   "name": "f_A1B7",
+   "type": "Field",
+   "kind": "auto"
+  },
+  {
+   "address": 41407,
+   "name": "f_A1BF",
+   "type": "Field",
+   "kind": "auto"
+  },
+  {
+   "address": 41415,
+   "name": "f_A1C7",
+   "type": "Field",
+   "kind": "auto"
+  },
+  {
+   "address": 41416,
+   "name": "f_A1C8",
+   "type": "Field",
+   "kind": "auto"
+  },
+  {
+   "address": 41417,
+   "name": "f_A1C9",
+   "type": "Field",
+   "kind": "auto"
+  },
+  {
+   "address": 41418,
+   "name": "f_A1CA",
+   "type": "Field",
+   "kind": "auto"
+  },
+  {
+   "address": 41431,
+   "name": "f_A1D7",
+   "type": "Field",
+   "kind": "auto"
+  },
+  {
+   "address": 41459,
+   "name": "f_A1F3",
+   "type": "Field",
+   "kind": "auto"
+  },
+  {
+   "address": 41487,
+   "name": "f_A20F",
+   "type": "Field",
+   "kind": "auto"
+  },
+  {
+   "address": 41515,
+   "name": "f_A22B",
+   "type": "Field",
+   "kind": "auto"
+  },
+  {
+   "address": 41519,
+   "name": "f_A22F",
+   "type": "Field",
+   "kind": "auto"
+  },
+  {
+   "address": 41523,
+   "name": "f_A233",
+   "type": "Field",
+   "kind": "auto"
+  },
+  {
+   "address": 41527,
+   "name": "f_A237",
+   "type": "Field",
+   "kind": "auto"
+  },
+  {
+   "address": 41529,
+   "name": "f_A239",
+   "type": "Field",
+   "kind": "auto"
+  },
+  {
+   "address": 41537,
+   "name": "f_A241",
+   "type": "Field",
+   "kind": "auto"
+  },
+  {
+   "address": 41540,
+   "name": "f_A244",
+   "type": "Field",
+   "kind": "auto"
+  },
+  {
+   "address": 41544,
+   "name": "f_A248",
+   "type": "Field",
+   "kind": "auto"
+  },
+  {
+   "address": 41548,
+   "name": "f_A24C",
+   "type": "Field",
+   "kind": "auto"
+  },
+  {
+   "address": 41552,
+   "name": "f_A250",
+   "type": "Field",
+   "kind": "auto"
+  },
+  {
+   "address": 41568,
+   "name": "f_A260",
+   "type": "Field",
+   "kind": "auto"
+  },
+  {
+   "address": 41573,
+   "name": "f_A265",
+   "type": "Field",
+   "kind": "auto"
+  },
+  {
+   "address": 41578,
+   "name": "f_A26A",
+   "type": "Field",
+   "kind": "auto"
+  },
+  {
+   "address": 41579,
+   "name": "f_A26B",
+   "type": "Field",
+   "kind": "auto"
+  },
+  {
+   "address": 41606,
+   "name": "road_graphic_offsets",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 41862,
+   "name": "road_graphic_000",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 41875,
+   "name": "road_graphic_001",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 41894,
+   "name": "road_graphic_002",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 41916,
+   "name": "road_graphic_003",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 41944,
+   "name": "road_graphic_004",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 41969,
+   "name": "road_graphic_005",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 42006,
+   "name": "road_graphic_006",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 42058,
+   "name": "road_graphic_007",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 42123,
+   "name": "road_graphic_008",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 42148,
+   "name": "road_graphic_009",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 42185,
+   "name": "road_graphic_010",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 42237,
+   "name": "road_graphic_011",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 42302,
+   "name": "road_graphic_012",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 42327,
+   "name": "road_graphic_013",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 42364,
+   "name": "road_graphic_014",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 42416,
+   "name": "road_graphic_015",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 42481,
+   "name": "road_graphic_016",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 42506,
+   "name": "road_graphic_017",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 42543,
+   "name": "road_graphic_018",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 42595,
+   "name": "road_graphic_019",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 42660,
+   "name": "road_graphic_020",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 42685,
+   "name": "road_graphic_021",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 42722,
+   "name": "road_graphic_022",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 42774,
+   "name": "road_graphic_023",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 42839,
+   "name": "road_graphic_024",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 42864,
+   "name": "road_graphic_025",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 42901,
+   "name": "road_graphic_026",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 42953,
+   "name": "road_graphic_027",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 43018,
+   "name": "road_graphic_028",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 43043,
+   "name": "road_graphic_029",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 43081,
+   "name": "road_graphic_030",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 43134,
+   "name": "road_graphic_031",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 43199,
+   "name": "road_graphic_032",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 43212,
+   "name": "road_graphic_033",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 43228,
+   "name": "road_graphic_034",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 43244,
+   "name": "road_graphic_035",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 43266,
+   "name": "road_graphic_036",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 43279,
+   "name": "road_graphic_037",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 43295,
+   "name": "road_graphic_038",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 43311,
+   "name": "road_graphic_039",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 43328,
+   "name": "road_graphic_040",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 43341,
+   "name": "road_graphic_041",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 43357,
+   "name": "road_graphic_042",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 43374,
+   "name": "road_graphic_043",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 43391,
+   "name": "road_graphic_044",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 43404,
+   "name": "road_graphic_045",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 43420,
+   "name": "road_graphic_046",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 43437,
+   "name": "road_graphic_047",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 43456,
+   "name": "road_graphic_048",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 43698,
+   "name": "road_graphic_049",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 43940,
+   "name": "road_graphic_050",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 44172,
+   "name": "road_graphic_051",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 44404,
+   "name": "road_graphic_052",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 44412,
+   "name": "road_graphic_053",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 44423,
+   "name": "road_graphic_054",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 44439,
+   "name": "road_graphic_055",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 44459,
+   "name": "road_graphic_056",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 44467,
+   "name": "road_graphic_057",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 44478,
+   "name": "road_graphic_058",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 44494,
+   "name": "road_graphic_059",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 44514,
+   "name": "road_graphic_060",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 44522,
+   "name": "road_graphic_061",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 44533,
+   "name": "road_graphic_062",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 44549,
+   "name": "road_graphic_063",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 44569,
+   "name": "road_graphic_064",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 44577,
+   "name": "road_graphic_065",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 44589,
+   "name": "road_graphic_066",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 44605,
+   "name": "road_graphic_067",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 44627,
+   "name": "road_graphic_068",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 44646,
+   "name": "road_graphic_069",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 44684,
+   "name": "road_graphic_070",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 44787,
+   "name": "road_graphic_071",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 44934,
+   "name": "road_graphic_072",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 44962,
+   "name": "road_graphic_073",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 44981,
+   "name": "road_graphic_074",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 45019,
+   "name": "road_graphic_075",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 45122,
+   "name": "road_graphic_076",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 45269,
+   "name": "road_graphic_077",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 45297,
+   "name": "road_graphic_078",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 45334,
+   "name": "road_graphic_079",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 45399,
+   "name": "road_graphic_080",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 45587,
+   "name": "road_graphic_081",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 45842,
+   "name": "road_graphic_082",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 45895,
+   "name": "road_graphic_083",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 45932,
+   "name": "road_graphic_084",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 45994,
+   "name": "road_graphic_085",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 46182,
+   "name": "road_graphic_086",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 46437,
+   "name": "road_graphic_087",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 46490,
+   "name": "road_graphic_088",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 46509,
+   "name": "road_graphic_089",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 46549,
+   "name": "road_graphic_090",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 46658,
+   "name": "road_graphic_091",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 46822,
+   "name": "road_graphic_092",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 46850,
+   "name": "road_graphic_093",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 46869,
+   "name": "road_graphic_094",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 46909,
+   "name": "road_graphic_095",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 47018,
+   "name": "road_graphic_096",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 47182,
+   "name": "road_graphic_097",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 47210,
+   "name": "road_graphic_098",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 47235,
+   "name": "road_graphic_099",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 47282,
+   "name": "road_graphic_100",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 47397,
+   "name": "road_graphic_101",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 47581,
+   "name": "road_graphic_102",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 47618,
+   "name": "road_graphic_103",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 47643,
+   "name": "road_graphic_104",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 47690,
+   "name": "road_graphic_105",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 47805,
+   "name": "road_graphic_106",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 47989,
+   "name": "road_graphic_107",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 48026,
+   "name": "road_graphic_108",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 48042,
+   "name": "road_graphic_109",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 48071,
+   "name": "road_graphic_110",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 48150,
+   "name": "road_graphic_111",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 48272,
+   "name": "road_graphic_112",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 48294,
+   "name": "road_graphic_113",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 48310,
+   "name": "road_graphic_114",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 48339,
+   "name": "road_graphic_115",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 48418,
+   "name": "road_graphic_116",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 48540,
+   "name": "road_graphic_117",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 48562,
+   "name": "road_graphic_118",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 48578,
+   "name": "road_graphic_119",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 48613,
+   "name": "road_graphic_120",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 48704,
+   "name": "road_graphic_121",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 48832,
+   "name": "road_graphic_122",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 48857,
+   "name": "road_graphic_123",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 48873,
+   "name": "road_graphic_124",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 48908,
+   "name": "road_graphic_125",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 48999,
+   "name": "road_graphic_126",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 49127,
+   "name": "road_graphic_127",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 49152,
+   "name": "f_C000",
+   "type": "Field",
+   "kind": "auto"
+  },
+  {
+   "address": 49153,
+   "name": "f_C001",
+   "type": "Field",
+   "kind": "auto"
+  },
+  {
+   "address": 49154,
+   "name": "f_C002",
+   "type": "Field",
+   "kind": "auto"
+  },
+  {
+   "address": 49155,
+   "name": "f_C003",
+   "type": "Field",
+   "kind": "auto"
+  },
+  {
+   "address": 49156,
+   "name": "f_C004",
+   "type": "Field",
+   "kind": "auto"
+  },
+  {
+   "address": 49157,
+   "name": "f_C005",
+   "type": "Field",
+   "kind": "auto"
+  },
+  {
+   "address": 49158,
+   "name": "f_C006",
+   "type": "Field",
+   "kind": "auto"
+  },
+  {
+   "address": 49159,
+   "name": "f_C007",
+   "type": "Field",
+   "kind": "auto"
+  },
+  {
+   "address": 49304,
+   "name": "f_C098",
+   "type": "Field",
+   "kind": "auto"
+  },
+  {
+   "address": 49376,
+   "name": "a_C0E0",
+   "type": "AbsoluteAddress",
+   "kind": "auto"
+  },
+  {
+   "address": 49408,
+   "name": "f_C100",
+   "type": "Field",
+   "kind": "auto"
+  },
+  {
+   "address": 55296,
+   "name": "f_D800",
+   "type": "Field",
+   "kind": "auto"
+  },
+  {
+   "address": 55312,
+   "name": "a_D810",
+   "type": "AbsoluteAddress",
+   "kind": "auto"
+  },
+  {
+   "address": 55313,
+   "name": "a_D811",
+   "type": "AbsoluteAddress",
+   "kind": "auto"
+  },
+  {
+   "address": 55314,
+   "name": "a_D812",
+   "type": "AbsoluteAddress",
+   "kind": "auto"
+  },
+  {
+   "address": 55315,
+   "name": "a_D813",
+   "type": "AbsoluteAddress",
+   "kind": "auto"
+  },
+  {
+   "address": 55316,
+   "name": "a_D814",
+   "type": "AbsoluteAddress",
+   "kind": "auto"
+  },
+  {
+   "address": 55317,
+   "name": "a_D815",
+   "type": "AbsoluteAddress",
+   "kind": "auto"
+  },
+  {
+   "address": 55318,
+   "name": "a_D816",
+   "type": "AbsoluteAddress",
+   "kind": "auto"
+  },
+  {
+   "address": 55320,
+   "name": "a_D818",
+   "type": "AbsoluteAddress",
+   "kind": "auto"
+  },
+  {
+   "address": 55321,
+   "name": "a_D819",
+   "type": "AbsoluteAddress",
+   "kind": "auto"
+  },
+  {
+   "address": 55322,
+   "name": "a_D81A",
+   "type": "AbsoluteAddress",
+   "kind": "auto"
+  },
+  {
+   "address": 55323,
+   "name": "a_D81B",
+   "type": "AbsoluteAddress",
+   "kind": "auto"
+  },
+  {
+   "address": 55324,
+   "name": "a_D81C",
+   "type": "AbsoluteAddress",
+   "kind": "auto"
+  },
+  {
+   "address": 55325,
+   "name": "a_D81D",
+   "type": "AbsoluteAddress",
+   "kind": "auto"
+  },
+  {
+   "address": 55326,
+   "name": "a_D81E",
+   "type": "AbsoluteAddress",
+   "kind": "auto"
+  },
+  {
+   "address": 55327,
+   "name": "a_D81F",
+   "type": "AbsoluteAddress",
+   "kind": "auto"
+  },
+  {
+   "address": 55342,
+   "name": "a_D82E",
+   "type": "AbsoluteAddress",
+   "kind": "auto"
+  },
+  {
+   "address": 55343,
+   "name": "a_D82F",
+   "type": "AbsoluteAddress",
+   "kind": "auto"
+  },
+  {
+   "address": 55344,
+   "name": "a_D830",
+   "type": "AbsoluteAddress",
+   "kind": "auto"
+  },
+  {
+   "address": 55345,
+   "name": "a_D831",
+   "type": "AbsoluteAddress",
+   "kind": "auto"
+  },
+  {
+   "address": 55346,
+   "name": "a_D832",
+   "type": "AbsoluteAddress",
+   "kind": "auto"
+  },
+  {
+   "address": 55552,
+   "name": "f_D900",
+   "type": "Field",
+   "kind": "auto"
+  },
+  {
+   "address": 55808,
+   "name": "f_DA00",
+   "type": "Field",
+   "kind": "auto"
+  },
+  {
+   "address": 56064,
+   "name": "f_DB00",
+   "type": "Field",
+   "kind": "auto"
+  },
+  {
+   "address": 57089,
+   "name": "a_DF01",
+   "type": "AbsoluteAddress",
+   "kind": "auto"
+  },
+  {
+   "address": 57090,
+   "name": "a_DF02",
+   "type": "AbsoluteAddress",
+   "kind": "auto"
+  },
+  {
+   "address": 57091,
+   "name": "a_DF03",
+   "type": "AbsoluteAddress",
+   "kind": "auto"
+  },
+  {
+   "address": 57092,
+   "name": "a_DF04",
+   "type": "AbsoluteAddress",
+   "kind": "auto"
+  },
+  {
+   "address": 57093,
+   "name": "a_DF05",
+   "type": "AbsoluteAddress",
+   "kind": "auto"
+  },
+  {
+   "address": 57094,
+   "name": "a_DF06",
+   "type": "AbsoluteAddress",
+   "kind": "auto"
+  },
+  {
+   "address": 57095,
+   "name": "a_DF07",
+   "type": "AbsoluteAddress",
+   "kind": "auto"
+  },
+  {
+   "address": 57096,
+   "name": "a_DF08",
+   "type": "AbsoluteAddress",
+   "kind": "auto"
+  },
+  {
+   "address": 58367,
+   "name": "a_E3FF",
+   "type": "AbsoluteAddress",
+   "kind": "auto"
+  },
+  {
+   "address": 58432,
+   "name": "f_E440",
+   "type": "Field",
+   "kind": "auto"
+  },
+  {
+   "address": 61244,
+   "name": "lotus_sprite_header",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 61246,
+   "name": "lotus_overlay_sprite",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 61310,
+   "name": "gauge_right_mask_header",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 61316,
+   "name": "gauge_right_mask",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 61568,
+   "name": "gauge_left_mask_header",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 61574,
+   "name": "gauge_left_mask",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 61826,
+   "name": "cockpit_control_bitmap_header",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 61832,
+   "name": "cockpit_control_bitmap",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 62280,
+   "name": "lotus_cockpit_asset_35_header",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 62286,
+   "name": "lotus_cockpit_asset_35",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 62719,
+   "name": "a_F4FF",
+   "type": "AbsoluteAddress",
+   "kind": "auto"
+  },
+  {
+   "address": 63086,
+   "name": "lotus_cockpit_asset_34_header",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 63092,
+   "name": "lotus_cockpit_asset_34",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 63828,
+   "name": "lotus_cockpit_asset_33_header",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 63834,
+   "name": "lotus_cockpit_asset_33",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 64754,
+   "name": "lotus_cockpit_asset_32_header",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 64760,
+   "name": "lotus_cockpit_asset_32",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 65490,
+   "name": "KERNAL_CHROUT",
+   "type": "Predefined",
+   "kind": "system"
+  },
+  {
+   "address": 65508,
+   "name": "KERNAL_GETIN",
+   "type": "Predefined",
+   "kind": "system"
+  }
+ ],
+ "comments": [
+  {
+   "address": 11876,
+   "type": "line",
+   "text": "Relocated entry $2E68 followed by the length of the Lotus D1 module."
+  },
+  {
+   "address": 11880,
+   "type": "line",
+   "text": "A negative argument releases the two car display resources, zero prepares the instruments, and positive arguments select an update path."
+  },
+  {
+   "address": 11901,
+   "type": "line",
+   "text": "Look up the two private resources for car one, skip each six-byte header, store the resolved picture bases and prepare the sprite parameters."
+  },
+  {
+   "address": 12063,
+   "type": "line",
+   "text": "On A equal to 1, compare the value at $42 with its cache. If it changed, load the tachometer table pointers and scale the input through $31F7."
+  },
+  {
+   "address": 12152,
+   "type": "line",
+   "text": "Compare speed $41 with its cached value, then scale it through $31F7, install the speed-specific tables and call the common needle renderer."
+  },
+  {
+   "address": 12239,
+   "type": "line",
+   "text": "Use $0E to select the gauge's picture source. Classify the input against $2D, $5A and $87, update the gauge sprite coordinates, and compute its line endpoint from the selected horizontal and vertical lookups."
+  },
+  {
+   "address": 12377,
+   "type": "line",
+   "text": "Compare the endpoint pair against the saved coordinates for this gauge and return if unchanged. Otherwise clear its 64-byte sprite buffer before preparing the line."
+  },
+  {
+   "address": 12430,
+   "type": "line",
+   "text": "Take absolute coordinate differences and retain their signs in $29 and $2B. Choose the larger difference as the main step and calculate the other step as a fixed-point ratio through $3199."
+  },
+  {
+   "address": 12549,
+   "type": "line",
+   "text": "Draw at the current coordinates and, within the horizontal bound, at the next pixel. Update the fixed-point coordinates in the direction of the endpoint until the main coordinate matches."
+  },
+  {
+   "address": 12656,
+   "type": "line",
+   "text": "Resolve the pixel's sprite byte from the row stride table at $3399 and X-byte table at $3369. Mask the picture source byte with $3381 and OR the result into the sprite."
+  },
+  {
+   "address": 12697,
+   "type": "line",
+   "text": "Align the denominator by shifting, subtract it from the numerator when possible, and roll each resulting quotient bit into $2D and $2E. Return the fixed-point step in A and X."
+  },
+  {
+   "address": 12791,
+   "type": "line",
+   "text": "Patch the two immediate arguments to the driving-engine call at $0200. Preserve $12, $13, $16 and $17 across the call, then return its result."
+  },
+  {
+   "address": 12834,
+   "type": "line",
+   "text": "Tagged little-endian addresses for the gauge setup. The code uses the operands as data, including $3223 and $3226 for endpoint table pointers."
+  },
+  {
+   "address": 12953,
+   "type": "line",
+   "text": "Horizontal sprite coordinates indexed by quadrant and gauge at $3003."
+  },
+  {
+   "address": 12961,
+   "type": "line",
+   "text": "Vertical sprite coordinates written by $300C. The table index includes four entries per gauge."
+  },
+  {
+   "address": 12969,
+   "type": "line",
+   "text": "Horizontal pivot coordinate for the selected quadrant, copied to $1C."
+  },
+  {
+   "address": 12973,
+   "type": "line",
+   "text": "Vertical pivot coordinate used as the line origin in $1D."
+  },
+  {
+   "address": 12977,
+   "type": "line",
+   "text": "Per-quadrant adjustment added by the sprite pixel routine when it selects a source row."
+  },
+  {
+   "address": 13161,
+   "type": "line",
+   "text": "Twenty-four horizontal pixel indices mapped to the three sprite byte columns in groups of eight."
+  },
+  {
+   "address": 13185,
+   "type": "line",
+   "text": "The eight single-bit masks repeated for each of three sprite byte columns."
+  },
+  {
+   "address": 13209,
+   "type": "line",
+   "text": "Row offset multiplied by three. The plotter uses this to find the destination byte of the 24-pixel-wide sprite row."
+  },
+  {
+   "address": 13231,
+   "type": "line",
+   "text": "Row offset multiplied by six. The plotter combines this with the selected column and source offset to read the picture mask."
+  },
+  {
+   "address": 13253,
+   "type": "line",
+   "text": "Two low bytes locating the needle sprite buffers in RAM."
+  },
+  {
+   "address": 13255,
+   "type": "line",
+   "text": "High bytes paired with $33C5 to locate each 64-byte sprite allocation."
+  },
+  {
+   "address": 13257,
+   "type": "line",
+   "text": "Saved index after the quadrant-specific adjustment at $302C."
+  },
+  {
+   "address": 13258,
+   "type": "line",
+   "text": "Input cache used by the A-equals-one update path at $2F23."
+  },
+  {
+   "address": 13259,
+   "type": "line",
+   "text": "Speed last processed by the handler at $2F78."
+  },
+  {
+   "address": 13260,
+   "type": "line",
+   "text": "Horizontal endpoint cache indexed by gauge, initialized by $2EB1 and compared by $305F."
+  },
+  {
+   "address": 13262,
+   "type": "line",
+   "text": "Vertical endpoint cache selected by the same gauge index."
+  },
+  {
+   "address": 13264,
+   "type": "line",
+   "text": "Two little-endian picture addresses, populated by skipping the six-byte resource headers during initialization."
+  },
+  {
+   "address": 13268,
+   "type": "line",
+   "text": "Extra offset into the picture source chosen using the gauge quadrant."
+  },
+  {
+   "address": 13269,
+   "type": "line",
+   "text": "Fifteen authored sprite bytes copied to $E440 after the 64-byte allocation is cleared."
+  },
+  {
+   "address": 13458,
+   "type": "line",
+   "text": "$D4/$C7 bitmap selected by the crash path at $6CC6. The header gives 15 groups across and 24 raster rows."
+  },
+  {
+   "address": 13464,
+   "type": "line",
+   "text": "360 packed bitmap bytes following the six-byte header."
+  },
+  {
+   "address": 16384,
+   "type": "line",
+   "text": "Cockpit visor bitmap, character row 0, 320 bytes."
+  },
+  {
+   "address": 16704,
+   "type": "line",
+   "text": "Cockpit visor bitmap, character row 1, 320 bytes."
+  },
+  {
+   "address": 20864,
+   "type": "line",
+   "text": "Dashboard bitmap, character row 14, 320 bytes."
+  },
+  {
+   "address": 21184,
+   "type": "line",
+   "text": "Dashboard bitmap, character row 15, 320 bytes."
+  },
+  {
+   "address": 21504,
+   "type": "line",
+   "text": "Dashboard bitmap, character row 16, 320 bytes."
+  },
+  {
+   "address": 21824,
+   "type": "line",
+   "text": "Dashboard bitmap, character row 17, 320 bytes."
+  },
+  {
+   "address": 22144,
+   "type": "line",
+   "text": "Dashboard bitmap, character row 18, 320 bytes."
+  },
+  {
+   "address": 22464,
+   "type": "line",
+   "text": "Dashboard bitmap, character row 19, 320 bytes."
+  },
+  {
+   "address": 22784,
+   "type": "line",
+   "text": "Dashboard bitmap, character row 20, 320 bytes."
+  },
+  {
+   "address": 23104,
+   "type": "line",
+   "text": "Dashboard bitmap, character row 21, 320 bytes."
+  },
+  {
+   "address": 23424,
+   "type": "line",
+   "text": "Dashboard bitmap, character row 22, 320 bytes."
+  },
+  {
+   "address": 23744,
+   "type": "line",
+   "text": "Dashboard bitmap, character row 23, 320 bytes."
+  },
+  {
+   "address": 24064,
+   "type": "line",
+   "text": "Dashboard bitmap, character row 24, 320 bytes."
+  },
+  {
+   "address": 24576,
+   "type": "line",
+   "text": "Colours selected for the initial bitmap, character row 0, 40 bytes."
+  },
+  {
+   "address": 24616,
+   "type": "line",
+   "text": "Colours selected for the initial bitmap, character row 1, 40 bytes."
+  },
+  {
+   "address": 24656,
+   "type": "line",
+   "text": "Colours selected for the initial bitmap, character row 2, 40 bytes."
+  },
+  {
+   "address": 24696,
+   "type": "line",
+   "text": "Colours selected for the initial bitmap, character row 3, 40 bytes."
+  },
+  {
+   "address": 24736,
+   "type": "line",
+   "text": "Colours selected for the initial bitmap, character row 4, 40 bytes."
+  },
+  {
+   "address": 24776,
+   "type": "line",
+   "text": "Colours selected for the initial bitmap, character row 5, 40 bytes."
+  },
+  {
+   "address": 24816,
+   "type": "line",
+   "text": "Colours selected for the initial bitmap, character row 6, 40 bytes."
+  },
+  {
+   "address": 24856,
+   "type": "line",
+   "text": "Colours selected for the initial bitmap, character row 7, 40 bytes."
+  },
+  {
+   "address": 24896,
+   "type": "line",
+   "text": "Colours selected for the initial bitmap, character row 8, 40 bytes."
+  },
+  {
+   "address": 24936,
+   "type": "line",
+   "text": "Colours selected for the initial bitmap, character row 9, 40 bytes."
+  },
+  {
+   "address": 24976,
+   "type": "line",
+   "text": "Colours selected for the initial bitmap, character row 10, 40 bytes."
+  },
+  {
+   "address": 25016,
+   "type": "line",
+   "text": "Colours selected for the initial bitmap, character row 11, 40 bytes."
+  },
+  {
+   "address": 25056,
+   "type": "line",
+   "text": "Colours selected for the initial bitmap, character row 12, 40 bytes."
+  },
+  {
+   "address": 25096,
+   "type": "line",
+   "text": "Colours selected for the initial bitmap, character row 13, 40 bytes."
+  },
+  {
+   "address": 25136,
+   "type": "line",
+   "text": "Colours selected for the initial bitmap, character row 14, 40 bytes."
+  },
+  {
+   "address": 25176,
+   "type": "line",
+   "text": "Colours selected for the initial bitmap, character row 15, 40 bytes."
+  },
+  {
+   "address": 25216,
+   "type": "line",
+   "text": "Colours selected for the initial bitmap, character row 16, 40 bytes."
+  },
+  {
+   "address": 25256,
+   "type": "line",
+   "text": "Colours selected for the initial bitmap, character row 17, 40 bytes."
+  },
+  {
+   "address": 25296,
+   "type": "line",
+   "text": "Colours selected for the initial bitmap, character row 18, 40 bytes."
+  },
+  {
+   "address": 25336,
+   "type": "line",
+   "text": "Colours selected for the initial bitmap, character row 19, 40 bytes."
+  },
+  {
+   "address": 25376,
+   "type": "line",
+   "text": "Colours selected for the initial bitmap, character row 20, 40 bytes."
+  },
+  {
+   "address": 25416,
+   "type": "line",
+   "text": "Colours selected for the initial bitmap, character row 21, 40 bytes."
+  },
+  {
+   "address": 25456,
+   "type": "line",
+   "text": "Colours selected for the initial bitmap, character row 22, 40 bytes."
+  },
+  {
+   "address": 25496,
+   "type": "line",
+   "text": "Colours selected for the initial bitmap, character row 23, 40 bytes."
+  },
+  {
+   "address": 25536,
+   "type": "line",
+   "text": "Colours selected for the initial bitmap, character row 24, 40 bytes."
+  },
+  {
+   "address": 27136,
+   "type": "line",
+   "text": "Relocated entry word $6A04 and body length $387D for the RD module."
+  },
+  {
+   "address": 27140,
+   "type": "line",
+   "text": "Install the JMP instruction from $9A7C at $0200 and call $7274 before entering road-stage setup."
+  },
+  {
+   "address": 27163,
+   "type": "line",
+   "text": "Run the preparation calls and invoke the disk module named by $52 plus ASCII '1' with X set to 'R'. Rebuild the road state for the selected stage."
+  },
+  {
+   "address": 27191,
+   "type": "line",
+   "text": "Reset the frame counter, call $74F8 to initialize pass state, then enter the driving path or branch to the interlude at $6D93 if carry is set."
+  },
+  {
+   "address": 27931,
+   "type": "line",
+   "text": "Poll the resident keyboard service. The handlers for P, D, M, S, O and V pause or change the driving option flags."
+  },
+  {
+   "address": 28051,
+   "type": "line",
+   "text": "Free the R module for the completed stage and save the road's $70-$98 workspace around the interlude. Call GS for the interlude, restore the driving IRQ and workspace, then advance the stage index or dispatch the ending."
+  },
+  {
+   "address": 28391,
+   "type": "line",
+   "text": "Release the high-score and display modules by ID, invoke HS with A set to 1, and start the JU module with a return address pushed on the stack."
+  },
+  {
+   "address": 28996,
+   "type": "line",
+   "text": "Resolve the directory ID ## and store its base in $DB-$DC. Calculate the offset subtable at base plus $88 and cache four of the module's source addresses in zero page."
+  },
+  {
+   "address": 29105,
+   "type": "line",
+   "text": "Populate the row parameters from seven parallel tables at $5B70 through $5C24 using the same X index."
+  },
+  {
+   "address": 29141,
+   "type": "line",
+   "text": "Resolve the selected car asset with second ID byte $DA and copy 64 bytes starting at its data pointer to $E400."
+  },
+  {
+   "address": 29171,
+   "type": "line",
+   "text": "Clear the course cursors, elapsed time, accumulated speed, input and event flags, and restore the starting gear and speed state."
+  },
+  {
+   "address": 29300,
+   "type": "line",
+   "text": "Set the starting chance counter and clear the stage counter, input latch, raster phase and per-bank state."
+  },
+  {
+   "address": 29694,
+   "type": "line",
+   "text": "Allocate row pointers into $56F0 onward and fill the road drawing sources with the two groups of four base patterns selected from $9D4B and $9D4F."
+  },
+  {
+   "address": 30065,
+   "type": "line",
+   "text": "Set the initial projection row and counters and derive the starting coordinate in $78-$79 from twice the signed offset at $87 plus $50."
+  },
+  {
+   "address": 30789,
+   "type": "line",
+   "text": "Add the stream cursor at $DD-$DE to the stage stream base $4E-$4F. Read a direct element or expand the high-bit reference through the relative offsets at $6B-$6C, then return a pointer into the two-byte element table at $50-$51."
+  },
+  {
+   "address": 30889,
+   "type": "line",
+   "text": "Accumulate a 16-bit product in $12-$13 by shifting the original A in $16 and adding the adjusted X factor from $17 on each set bit. An X input of zero returns with the accumulator bytes cleared."
+  },
+  {
+   "address": 31050,
+   "type": "line",
+   "text": "Check the row bounds and height difference, then calculate the delta between consecutive samples in $5BAB and $5BC9 for the interpolation."
+  },
+  {
+   "address": 32353,
+   "type": "line",
+   "text": "Seed the projected object pass from three calls to $7DF5. Iterate active records at $033C, read the object's state and class, and locate it relative to the current road position $D7-$D8."
+  },
+  {
+   "address": 33334,
+   "type": "line",
+   "text": "Resolve a graphic offset from the address at $DB. Select the target 64-byte sprite allocation by the slot at $D9 and render its prefix and packed graphic bytes."
+  },
+  {
+   "address": 33794,
+   "type": "line",
+   "text": "Read the six-byte bitmap header from $8A. The first byte is a width in eight-byte groups, the second is the pixel height, and bytes four and five give the position. Advance past the header and visit the bitmap in eight-line bands."
+  },
+  {
+   "address": 33909,
+   "type": "line",
+   "text": "Reject rows outside the current draw bounds. Contribute row templates from the $5600 scratch area, assembling the next row in the workspace at $06A0."
+  },
+  {
+   "address": 34242,
+   "type": "line",
+   "text": "Clear the forty-byte workspace, test the sample against the drawing limits, and draw the clipped span with pattern $AA. Save the leftmost observed sample and its source row."
+  },
+  {
+   "address": 34594,
+   "type": "line",
+   "text": "Use the projected row and column to select a record from the road graphic directory. Read the height byte at $8795 and copy one or two bitmap columns when the sampled destination permits it."
+  },
+  {
+   "address": 35054,
+   "type": "line",
+   "text": "Work against the current bank's saved drawing bounds. Clear the parts removed since the bank's last draw, then obtain the bitmap paint and mask rows using $E1-$E4."
+  },
+  {
+   "address": 35507,
+   "type": "line",
+   "text": "Save the 6510 port and enable I/O. Acknowledge the VIC-II IRQ, select the video bank and next raster line from tables indexed by $9E52, and use raster phase zero for the counters and colour updates."
+  },
+  {
+   "address": 36428,
+   "type": "line",
+   "text": "Clear $47, apply the control state through $97A3, decrease speed by two each call down to zero, and downshift while the engine value is below $1E."
+  },
+  {
+   "address": 36497,
+   "type": "line",
+   "text": "Increment $0361 and test driving state flags. Read CIA1 port A for direction and fire, match the direction nibble against $9D53, and use fire and the alternate-shift flag at $5D to choose how to update $45."
+  },
+  {
+   "address": 36580,
+   "type": "line",
+   "text": "High operand byte in the alternate shift table load at $8EE2. The setup at $7377 patches this operand from the selected car's descriptor."
+  },
+  {
+   "address": 36622,
+   "type": "line",
+   "text": "Skip the rest of the direction path while fire is active. Otherwise read the per-direction input parameter and combine the four signed values at $0218 before updating movement state."
+  },
+  {
+   "address": 36814,
+   "type": "line",
+   "text": "Once $0220 is set, increment the two-byte time counter at $53 and add speed $41 to the three-byte total at $55. Accumulate four times speed into the road phase at $70."
+  },
+  {
+   "address": 36868,
+   "type": "line",
+   "text": "Walk the stage stream at $4E-$4F with cursor $D2-$D3. Expand an indexed substream using $D4 and the table at $6B-$6C. Write 1 to $A9 when the decoded byte is $FF."
+  },
+  {
+   "address": 37033,
+   "type": "line",
+   "text": "Mix timing and speed into the candidate event test. Compare the event position with the active slot and place a new event ahead at distance $3C when that slot can be reused."
+  },
+  {
+   "address": 37850,
+   "type": "line",
+   "text": "Iterate the live event slots using the saved positions and flags, and update the per-event state and graphics by event type."
+  },
+  {
+   "address": 38121,
+   "type": "line",
+   "text": "Dispatch the road event according to A. In state 2, compare the player position with the event at $034E-$034F and advance its state after passing it by at least four road units."
+  },
+  {
+   "address": 39543,
+   "type": "line",
+   "text": "Call the resident $0824 entry with Y set to $F2."
+  },
+  {
+   "address": 39548,
+   "type": "line",
+   "text": "Three-byte JMP to $78A9 copied to $0200 at driving entry."
+  },
+  {
+   "address": 40275,
+   "type": "line",
+   "text": "Nine active-low directional nibbles searched by the input routine. A value absent from the table leaves X at nine."
+  },
+  {
+   "address": 40527,
+   "type": "line",
+   "text": "Next phase indices written back to $9E52 by the driving interrupt."
+  },
+  {
+   "address": 40531,
+   "type": "line",
+   "text": "VIC-II raster compare low byte for each phase of the driving display."
+  },
+  {
+   "address": 40534,
+   "type": "line",
+   "text": "CIA2 port A bank bits for the driving raster phases. The handler preserves bits 2 to 7 of the port read before combining them."
+  },
+  {
+   "address": 40537,
+   "type": "line",
+   "text": "Background register values selected by the IRQ phase and compared with the cached value at $0360."
+  },
+  {
+   "address": 41606,
+   "type": "line",
+   "text": "The ## module starts with 128 offsets from $A286. $7144 loads the module base into $DB-$DC and computes the cache pointers used by the renderer."
+  },
+  {
+   "address": 41862,
+   "type": "line",
+   "text": "Sprite source 0, 13 bytes. Its initial byte is 52, the blank prefix count applied by the sprite copy."
+  },
+  {
+   "address": 41875,
+   "type": "line",
+   "text": "Sprite source 1, 19 bytes. Its initial byte is 46, the blank prefix count applied by the sprite copy."
+  },
+  {
+   "address": 41894,
+   "type": "line",
+   "text": "Sprite source 2, 22 bytes. Its initial byte is 43, the blank prefix count applied by the sprite copy."
+  },
+  {
+   "address": 41916,
+   "type": "line",
+   "text": "Sprite source 3, 28 bytes. Its initial byte is 37, the blank prefix count applied by the sprite copy."
+  },
+  {
+   "address": 41944,
+   "type": "line",
+   "text": "Sprite source 4, 25 bytes. Its initial byte is 40, the blank prefix count applied by the sprite copy."
+  },
+  {
+   "address": 41969,
+   "type": "line",
+   "text": "Sprite source 5, 37 bytes. Its initial byte is 28, the blank prefix count applied by the sprite copy."
+  },
+  {
+   "address": 42006,
+   "type": "line",
+   "text": "Sprite source 6, 52 bytes. Its initial byte is 13, the blank prefix count applied by the sprite copy."
+  },
+  {
+   "address": 42058,
+   "type": "line",
+   "text": "Sprite source 7, 65 bytes. Its initial byte is 0, the blank prefix count applied by the sprite copy."
+  },
+  {
+   "address": 42123,
+   "type": "line",
+   "text": "Sprite source 8, 25 bytes. Its initial byte is 40, the blank prefix count applied by the sprite copy."
+  },
+  {
+   "address": 42148,
+   "type": "line",
+   "text": "Sprite source 9, 37 bytes. Its initial byte is 28, the blank prefix count applied by the sprite copy."
+  },
+  {
+   "address": 42185,
+   "type": "line",
+   "text": "Sprite source 10, 52 bytes. Its initial byte is 13, the blank prefix count applied by the sprite copy."
+  },
+  {
+   "address": 42237,
+   "type": "line",
+   "text": "Sprite source 11, 65 bytes. Its initial byte is 0, the blank prefix count applied by the sprite copy."
+  },
+  {
+   "address": 42302,
+   "type": "line",
+   "text": "Sprite source 12, 25 bytes. Its initial byte is 40, the blank prefix count applied by the sprite copy."
+  },
+  {
+   "address": 42327,
+   "type": "line",
+   "text": "Sprite source 13, 37 bytes. Its initial byte is 28, the blank prefix count applied by the sprite copy."
+  },
+  {
+   "address": 42364,
+   "type": "line",
+   "text": "Sprite source 14, 52 bytes. Its initial byte is 13, the blank prefix count applied by the sprite copy."
+  },
+  {
+   "address": 42416,
+   "type": "line",
+   "text": "Sprite source 15, 65 bytes. Its initial byte is 0, the blank prefix count applied by the sprite copy."
+  },
+  {
+   "address": 42481,
+   "type": "line",
+   "text": "Sprite source 16, 25 bytes. Its initial byte is 40, the blank prefix count applied by the sprite copy."
+  },
+  {
+   "address": 42506,
+   "type": "line",
+   "text": "Sprite source 17, 37 bytes. Its initial byte is 28, the blank prefix count applied by the sprite copy."
+  },
+  {
+   "address": 42543,
+   "type": "line",
+   "text": "Sprite source 18, 52 bytes. Its initial byte is 13, the blank prefix count applied by the sprite copy."
+  },
+  {
+   "address": 42595,
+   "type": "line",
+   "text": "Sprite source 19, 65 bytes. Its initial byte is 0, the blank prefix count applied by the sprite copy."
+  },
+  {
+   "address": 42660,
+   "type": "line",
+   "text": "Sprite source 20, 25 bytes. Its initial byte is 40, the blank prefix count applied by the sprite copy."
+  },
+  {
+   "address": 42685,
+   "type": "line",
+   "text": "Sprite source 21, 37 bytes. Its initial byte is 28, the blank prefix count applied by the sprite copy."
+  },
+  {
+   "address": 42722,
+   "type": "line",
+   "text": "Sprite source 22, 52 bytes. Its initial byte is 13, the blank prefix count applied by the sprite copy."
+  },
+  {
+   "address": 42774,
+   "type": "line",
+   "text": "Sprite source 23, 65 bytes. Its initial byte is 0, the blank prefix count applied by the sprite copy."
+  },
+  {
+   "address": 42839,
+   "type": "line",
+   "text": "Sprite source 24, 25 bytes. Its initial byte is 40, the blank prefix count applied by the sprite copy."
+  },
+  {
+   "address": 42864,
+   "type": "line",
+   "text": "Sprite source 25, 37 bytes. Its initial byte is 28, the blank prefix count applied by the sprite copy."
+  },
+  {
+   "address": 42901,
+   "type": "line",
+   "text": "Sprite source 26, 52 bytes. Its initial byte is 13, the blank prefix count applied by the sprite copy."
+  },
+  {
+   "address": 42953,
+   "type": "line",
+   "text": "Sprite source 27, 65 bytes. Its initial byte is 0, the blank prefix count applied by the sprite copy."
+  },
+  {
+   "address": 43018,
+   "type": "line",
+   "text": "Sprite source 28, 25 bytes. Its initial byte is 40, the blank prefix count applied by the sprite copy."
+  },
+  {
+   "address": 43043,
+   "type": "line",
+   "text": "Sprite source 29, 38 bytes. Its initial byte is 27, the blank prefix count applied by the sprite copy."
+  },
+  {
+   "address": 43081,
+   "type": "line",
+   "text": "Sprite source 30, 53 bytes. Its initial byte is 12, the blank prefix count applied by the sprite copy."
+  },
+  {
+   "address": 43134,
+   "type": "line",
+   "text": "Sprite source 31, 65 bytes. Its initial byte is 0, the blank prefix count applied by the sprite copy."
+  },
+  {
+   "address": 43199,
+   "type": "line",
+   "text": "Sprite source 32, 13 bytes. Its initial byte is 52, the blank prefix count applied by the sprite copy."
+  },
+  {
+   "address": 43212,
+   "type": "line",
+   "text": "Sprite source 33, 16 bytes. Its initial byte is 49, the blank prefix count applied by the sprite copy."
+  },
+  {
+   "address": 43228,
+   "type": "line",
+   "text": "Sprite source 34, 16 bytes. Its initial byte is 49, the blank prefix count applied by the sprite copy."
+  },
+  {
+   "address": 43244,
+   "type": "line",
+   "text": "Sprite source 35, 22 bytes. Its initial byte is 43, the blank prefix count applied by the sprite copy."
+  },
+  {
+   "address": 43266,
+   "type": "line",
+   "text": "Sprite source 36, 13 bytes. Its initial byte is 52, the blank prefix count applied by the sprite copy."
+  },
+  {
+   "address": 43279,
+   "type": "line",
+   "text": "Sprite source 37, 16 bytes. Its initial byte is 49, the blank prefix count applied by the sprite copy."
+  },
+  {
+   "address": 43295,
+   "type": "line",
+   "text": "Sprite source 38, 16 bytes. Its initial byte is 49, the blank prefix count applied by the sprite copy."
+  },
+  {
+   "address": 43311,
+   "type": "line",
+   "text": "Sprite source 39, 17 bytes. Its initial byte is 48, the blank prefix count applied by the sprite copy."
+  },
+  {
+   "address": 43328,
+   "type": "line",
+   "text": "Sprite source 40, 13 bytes. Its initial byte is 52, the blank prefix count applied by the sprite copy."
+  },
+  {
+   "address": 43341,
+   "type": "line",
+   "text": "Sprite source 41, 16 bytes. Its initial byte is 49, the blank prefix count applied by the sprite copy."
+  },
+  {
+   "address": 43357,
+   "type": "line",
+   "text": "Sprite source 42, 17 bytes. Its initial byte is 48, the blank prefix count applied by the sprite copy."
+  },
+  {
+   "address": 43374,
+   "type": "line",
+   "text": "Sprite source 43, 17 bytes. Its initial byte is 48, the blank prefix count applied by the sprite copy."
+  },
+  {
+   "address": 43391,
+   "type": "line",
+   "text": "Sprite source 44, 13 bytes. Its initial byte is 52, the blank prefix count applied by the sprite copy."
+  },
+  {
+   "address": 43404,
+   "type": "line",
+   "text": "Sprite source 45, 16 bytes. Its initial byte is 49, the blank prefix count applied by the sprite copy."
+  },
+  {
+   "address": 43420,
+   "type": "line",
+   "text": "Sprite source 46, 17 bytes. Its initial byte is 48, the blank prefix count applied by the sprite copy."
+  },
+  {
+   "address": 43437,
+   "type": "line",
+   "text": "Sprite source 47, 19 bytes. Its initial byte is 46, the blank prefix count applied by the sprite copy."
+  },
+  {
+   "address": 43456,
+   "type": "line",
+   "text": "Bitmap source 48, 242 bytes. Its relocated address is copied into $EB-$EC by the setup at $7144."
+  },
+  {
+   "address": 43698,
+   "type": "line",
+   "text": "Bitmap source 49, 242 bytes. Its relocated address is copied into $E9-$EA by the setup at $7144."
+  },
+  {
+   "address": 43940,
+   "type": "line",
+   "text": "Bitmap row data beginning with $73. $7194 reads that byte into the width-related state at $E5 and advances the source pointer to the following 231 bytes."
+  },
+  {
+   "address": 44172,
+   "type": "line",
+   "text": "Bitmap masking source paired with record 50. $71A2 resolves its offset into $E3-$E4, and $897F uses that base to form the masking pointer."
+  },
+  {
+   "address": 44404,
+   "type": "line",
+   "text": "Roadside bitmap record 52, 8 bytes. The leading byte supplies the row count for the renderer at $8795. The remaining bytes are the source for its one- or two-column bitmap writes."
+  },
+  {
+   "address": 44412,
+   "type": "line",
+   "text": "Roadside bitmap record 53, 11 bytes. The leading byte supplies the row count for the renderer at $8795. The remaining bytes are the source for its one- or two-column bitmap writes."
+  },
+  {
+   "address": 44423,
+   "type": "line",
+   "text": "Roadside bitmap record 54, 16 bytes. The leading byte supplies the row count for the renderer at $8795. The remaining bytes are the source for its one- or two-column bitmap writes."
+  },
+  {
+   "address": 44439,
+   "type": "line",
+   "text": "Roadside bitmap record 55, 20 bytes. The leading byte supplies the row count for the renderer at $8795. The remaining bytes are the source for its one- or two-column bitmap writes."
+  },
+  {
+   "address": 44459,
+   "type": "line",
+   "text": "Roadside bitmap record 56, 8 bytes. The leading byte supplies the row count for the renderer at $8795. The remaining bytes are the source for its one- or two-column bitmap writes."
+  },
+  {
+   "address": 44467,
+   "type": "line",
+   "text": "Roadside bitmap record 57, 11 bytes. The leading byte supplies the row count for the renderer at $8795. The remaining bytes are the source for its one- or two-column bitmap writes."
+  },
+  {
+   "address": 44478,
+   "type": "line",
+   "text": "Roadside bitmap record 58, 16 bytes. The leading byte supplies the row count for the renderer at $8795. The remaining bytes are the source for its one- or two-column bitmap writes."
+  },
+  {
+   "address": 44494,
+   "type": "line",
+   "text": "Roadside bitmap record 59, 20 bytes. The leading byte supplies the row count for the renderer at $8795. The remaining bytes are the source for its one- or two-column bitmap writes."
+  },
+  {
+   "address": 44514,
+   "type": "line",
+   "text": "Roadside bitmap record 60, 8 bytes. The leading byte supplies the row count for the renderer at $8795. The remaining bytes are the source for its one- or two-column bitmap writes."
+  },
+  {
+   "address": 44522,
+   "type": "line",
+   "text": "Roadside bitmap record 61, 11 bytes. The leading byte supplies the row count for the renderer at $8795. The remaining bytes are the source for its one- or two-column bitmap writes."
+  },
+  {
+   "address": 44533,
+   "type": "line",
+   "text": "Roadside bitmap record 62, 16 bytes. The leading byte supplies the row count for the renderer at $8795. The remaining bytes are the source for its one- or two-column bitmap writes."
+  },
+  {
+   "address": 44549,
+   "type": "line",
+   "text": "Roadside bitmap record 63, 20 bytes. The leading byte supplies the row count for the renderer at $8795. The remaining bytes are the source for its one- or two-column bitmap writes."
+  },
+  {
+   "address": 44569,
+   "type": "line",
+   "text": "Roadside bitmap record 64, 8 bytes. The leading byte supplies the row count for the renderer at $8795. The remaining bytes are the source for its one- or two-column bitmap writes."
+  },
+  {
+   "address": 44577,
+   "type": "line",
+   "text": "Roadside bitmap record 65, 12 bytes. The leading byte supplies the row count for the renderer at $8795. The remaining bytes are the source for its one- or two-column bitmap writes."
+  },
+  {
+   "address": 44589,
+   "type": "line",
+   "text": "Roadside bitmap record 66, 16 bytes. The leading byte supplies the row count for the renderer at $8795. The remaining bytes are the source for its one- or two-column bitmap writes."
+  },
+  {
+   "address": 44605,
+   "type": "line",
+   "text": "Roadside bitmap record 67, 22 bytes. The leading byte supplies the row count for the renderer at $8795. The remaining bytes are the source for its one- or two-column bitmap writes."
+  },
+  {
+   "address": 44627,
+   "type": "line",
+   "text": "Roadside sprite source 68, 19 bytes, indexed through the secondary base at $F2-$F3. Leading byte 46 is used when the $8261 copy path starts with a blank prefix."
+  },
+  {
+   "address": 44646,
+   "type": "line",
+   "text": "Roadside sprite source 69, 38 bytes, indexed through the secondary base at $F2-$F3. Leading byte 27 is used when the $8261 copy path starts with a blank prefix."
+  },
+  {
+   "address": 44684,
+   "type": "line",
+   "text": "Roadside sprite source 70, 103 bytes, indexed through the secondary base at $F2-$F3. Leading byte 14 is used when the $8261 copy path starts with a blank prefix."
+  },
+  {
+   "address": 44787,
+   "type": "line",
+   "text": "Roadside sprite source 71, 147 bytes, indexed through the secondary base at $F2-$F3. Leading byte 55 is used when the $8261 copy path starts with a blank prefix."
+  },
+  {
+   "address": 44934,
+   "type": "line",
+   "text": "Roadside sprite source 72, 28 bytes, indexed through the secondary base at $F2-$F3. Leading byte 37 is used when the $8261 copy path starts with a blank prefix."
+  },
+  {
+   "address": 44962,
+   "type": "line",
+   "text": "Roadside sprite source 73, 19 bytes, indexed through the secondary base at $F2-$F3. Leading byte 46 is used when the $8261 copy path starts with a blank prefix."
+  },
+  {
+   "address": 44981,
+   "type": "line",
+   "text": "Roadside sprite source 74, 38 bytes, indexed through the secondary base at $F2-$F3. Leading byte 27 is used when the $8261 copy path starts with a blank prefix."
+  },
+  {
+   "address": 45019,
+   "type": "line",
+   "text": "Roadside sprite source 75, 103 bytes, indexed through the secondary base at $F2-$F3. Leading byte 14 is used when the $8261 copy path starts with a blank prefix."
+  },
+  {
+   "address": 45122,
+   "type": "line",
+   "text": "Roadside sprite source 76, 147 bytes, indexed through the secondary base at $F2-$F3. Leading byte 55 is used when the $8261 copy path starts with a blank prefix."
+  },
+  {
+   "address": 45269,
+   "type": "line",
+   "text": "Roadside sprite source 77, 28 bytes, indexed through the secondary base at $F2-$F3. Leading byte 37 is used when the $8261 copy path starts with a blank prefix."
+  },
+  {
+   "address": 45297,
+   "type": "line",
+   "text": "Roadside sprite source 78, 37 bytes, indexed through the secondary base at $F2-$F3. Leading byte 28 is used when the $8261 copy path starts with a blank prefix."
+  },
+  {
+   "address": 45334,
+   "type": "line",
+   "text": "Roadside sprite source 79, 65 bytes, indexed through the secondary base at $F2-$F3. Leading byte 0 is used when the $8261 copy path starts with a blank prefix."
+  },
+  {
+   "address": 45399,
+   "type": "line",
+   "text": "Roadside sprite source 80, 188 bytes, indexed through the secondary base at $F2-$F3. Leading byte 34 is used when the $8261 copy path starts with a blank prefix."
+  },
+  {
+   "address": 45587,
+   "type": "line",
+   "text": "Roadside sprite source 81, 255 bytes, indexed through the secondary base at $F2-$F3. Leading byte 0 is used when the $8261 copy path starts with a blank prefix."
+  },
+  {
+   "address": 45842,
+   "type": "line",
+   "text": "Roadside sprite source 82, 53 bytes, indexed through the secondary base at $F2-$F3. Leading byte 12 is used when the $8261 copy path starts with a blank prefix."
+  },
+  {
+   "address": 45895,
+   "type": "line",
+   "text": "Roadside sprite source 83, 37 bytes, indexed through the secondary base at $F2-$F3. Leading byte 28 is used when the $8261 copy path starts with a blank prefix."
+  },
+  {
+   "address": 45932,
+   "type": "line",
+   "text": "Roadside sprite source 84, 62 bytes, indexed through the secondary base at $F2-$F3. Leading byte 3 is used when the $8261 copy path starts with a blank prefix."
+  },
+  {
+   "address": 45994,
+   "type": "line",
+   "text": "Roadside sprite source 85, 188 bytes, indexed through the secondary base at $F2-$F3. Leading byte 34 is used when the $8261 copy path starts with a blank prefix."
+  },
+  {
+   "address": 46182,
+   "type": "line",
+   "text": "Roadside sprite source 86, 255 bytes, indexed through the secondary base at $F2-$F3. Leading byte 0 is used when the $8261 copy path starts with a blank prefix."
+  },
+  {
+   "address": 46437,
+   "type": "line",
+   "text": "Roadside sprite source 87, 53 bytes, indexed through the secondary base at $F2-$F3. Leading byte 12 is used when the $8261 copy path starts with a blank prefix."
+  },
+  {
+   "address": 46490,
+   "type": "line",
+   "text": "Roadside sprite source 88, 19 bytes, indexed through the secondary base at $F2-$F3. Leading byte 46 is used when the $8261 copy path starts with a blank prefix."
+  },
+  {
+   "address": 46509,
+   "type": "line",
+   "text": "Roadside sprite source 89, 40 bytes, indexed through the secondary base at $F2-$F3. Leading byte 25 is used when the $8261 copy path starts with a blank prefix."
+  },
+  {
+   "address": 46549,
+   "type": "line",
+   "text": "Roadside sprite source 90, 109 bytes, indexed through the secondary base at $F2-$F3. Leading byte 11 is used when the $8261 copy path starts with a blank prefix."
+  },
+  {
+   "address": 46658,
+   "type": "line",
+   "text": "Roadside sprite source 91, 164 bytes, indexed through the secondary base at $F2-$F3. Leading byte 47 is used when the $8261 copy path starts with a blank prefix."
+  },
+  {
+   "address": 46822,
+   "type": "line",
+   "text": "Roadside sprite source 92, 28 bytes, indexed through the secondary base at $F2-$F3. Leading byte 37 is used when the $8261 copy path starts with a blank prefix."
+  },
+  {
+   "address": 46850,
+   "type": "line",
+   "text": "Roadside sprite source 93, 19 bytes, indexed through the secondary base at $F2-$F3. Leading byte 46 is used when the $8261 copy path starts with a blank prefix."
+  },
+  {
+   "address": 46869,
+   "type": "line",
+   "text": "Roadside sprite source 94, 40 bytes, indexed through the secondary base at $F2-$F3. Leading byte 25 is used when the $8261 copy path starts with a blank prefix."
+  },
+  {
+   "address": 46909,
+   "type": "line",
+   "text": "Roadside sprite source 95, 109 bytes, indexed through the secondary base at $F2-$F3. Leading byte 11 is used when the $8261 copy path starts with a blank prefix."
+  },
+  {
+   "address": 47018,
+   "type": "line",
+   "text": "Roadside sprite source 96, 164 bytes, indexed through the secondary base at $F2-$F3. Leading byte 47 is used when the $8261 copy path starts with a blank prefix."
+  },
+  {
+   "address": 47182,
+   "type": "line",
+   "text": "Roadside sprite source 97, 28 bytes, indexed through the secondary base at $F2-$F3. Leading byte 37 is used when the $8261 copy path starts with a blank prefix."
+  },
+  {
+   "address": 47210,
+   "type": "line",
+   "text": "Roadside sprite source 98, 25 bytes, indexed through the secondary base at $F2-$F3. Leading byte 40 is used when the $8261 copy path starts with a blank prefix."
+  },
+  {
+   "address": 47235,
+   "type": "line",
+   "text": "Roadside sprite source 99, 47 bytes, indexed through the secondary base at $F2-$F3. Leading byte 18 is used when the $8261 copy path starts with a blank prefix."
+  },
+  {
+   "address": 47282,
+   "type": "line",
+   "text": "Roadside sprite source 100, 115 bytes, indexed through the secondary base at $F2-$F3. Leading byte 8 is used when the $8261 copy path starts with a blank prefix."
+  },
+  {
+   "address": 47397,
+   "type": "line",
+   "text": "Roadside sprite source 101, 184 bytes, indexed through the secondary base at $F2-$F3. Leading byte 37 is used when the $8261 copy path starts with a blank prefix."
+  },
+  {
+   "address": 47581,
+   "type": "line",
+   "text": "Roadside sprite source 102, 37 bytes, indexed through the secondary base at $F2-$F3. Leading byte 28 is used when the $8261 copy path starts with a blank prefix."
+  },
+  {
+   "address": 47618,
+   "type": "line",
+   "text": "Roadside sprite source 103, 25 bytes, indexed through the secondary base at $F2-$F3. Leading byte 40 is used when the $8261 copy path starts with a blank prefix."
+  },
+  {
+   "address": 47643,
+   "type": "line",
+   "text": "Roadside sprite source 104, 47 bytes, indexed through the secondary base at $F2-$F3. Leading byte 18 is used when the $8261 copy path starts with a blank prefix."
+  },
+  {
+   "address": 47690,
+   "type": "line",
+   "text": "Roadside sprite source 105, 115 bytes, indexed through the secondary base at $F2-$F3. Leading byte 8 is used when the $8261 copy path starts with a blank prefix."
+  },
+  {
+   "address": 47805,
+   "type": "line",
+   "text": "Roadside sprite source 106, 184 bytes, indexed through the secondary base at $F2-$F3. Leading byte 37 is used when the $8261 copy path starts with a blank prefix."
+  },
+  {
+   "address": 47989,
+   "type": "line",
+   "text": "Roadside sprite source 107, 37 bytes, indexed through the secondary base at $F2-$F3. Leading byte 28 is used when the $8261 copy path starts with a blank prefix."
+  },
+  {
+   "address": 48026,
+   "type": "line",
+   "text": "Roadside sprite source 108, 16 bytes, indexed through the secondary base at $F2-$F3. Leading byte 49 is used when the $8261 copy path starts with a blank prefix."
+  },
+  {
+   "address": 48042,
+   "type": "line",
+   "text": "Roadside sprite source 109, 29 bytes, indexed through the secondary base at $F2-$F3. Leading byte 36 is used when the $8261 copy path starts with a blank prefix."
+  },
+  {
+   "address": 48071,
+   "type": "line",
+   "text": "Roadside sprite source 110, 79 bytes, indexed through the secondary base at $F2-$F3. Leading byte 26 is used when the $8261 copy path starts with a blank prefix."
+  },
+  {
+   "address": 48150,
+   "type": "line",
+   "text": "Roadside sprite source 111, 122 bytes, indexed through the secondary base at $F2-$F3. Leading byte 4 is used when the $8261 copy path starts with a blank prefix."
+  },
+  {
+   "address": 48272,
+   "type": "line",
+   "text": "Roadside sprite source 112, 22 bytes, indexed through the secondary base at $F2-$F3. Leading byte 43 is used when the $8261 copy path starts with a blank prefix."
+  },
+  {
+   "address": 48294,
+   "type": "line",
+   "text": "Roadside sprite source 113, 16 bytes, indexed through the secondary base at $F2-$F3. Leading byte 49 is used when the $8261 copy path starts with a blank prefix."
+  },
+  {
+   "address": 48310,
+   "type": "line",
+   "text": "Roadside sprite source 114, 29 bytes, indexed through the secondary base at $F2-$F3. Leading byte 36 is used when the $8261 copy path starts with a blank prefix."
+  },
+  {
+   "address": 48339,
+   "type": "line",
+   "text": "Roadside sprite source 115, 79 bytes, indexed through the secondary base at $F2-$F3. Leading byte 26 is used when the $8261 copy path starts with a blank prefix."
+  },
+  {
+   "address": 48418,
+   "type": "line",
+   "text": "Roadside sprite source 116, 122 bytes, indexed through the secondary base at $F2-$F3. Leading byte 4 is used when the $8261 copy path starts with a blank prefix."
+  },
+  {
+   "address": 48540,
+   "type": "line",
+   "text": "Roadside sprite source 117, 22 bytes, indexed through the secondary base at $F2-$F3. Leading byte 43 is used when the $8261 copy path starts with a blank prefix."
+  },
+  {
+   "address": 48562,
+   "type": "line",
+   "text": "Roadside sprite source 118, 16 bytes, indexed through the secondary base at $F2-$F3. Leading byte 49 is used when the $8261 copy path starts with a blank prefix."
+  },
+  {
+   "address": 48578,
+   "type": "line",
+   "text": "Roadside sprite source 119, 35 bytes, indexed through the secondary base at $F2-$F3. Leading byte 30 is used when the $8261 copy path starts with a blank prefix."
+  },
+  {
+   "address": 48613,
+   "type": "line",
+   "text": "Roadside sprite source 120, 91 bytes, indexed through the secondary base at $F2-$F3. Leading byte 20 is used when the $8261 copy path starts with a blank prefix."
+  },
+  {
+   "address": 48704,
+   "type": "line",
+   "text": "Roadside sprite source 121, 128 bytes, indexed through the secondary base at $F2-$F3. Leading byte 1 is used when the $8261 copy path starts with a blank prefix."
+  },
+  {
+   "address": 48832,
+   "type": "line",
+   "text": "Roadside sprite source 122, 25 bytes, indexed through the secondary base at $F2-$F3. Leading byte 40 is used when the $8261 copy path starts with a blank prefix."
+  },
+  {
+   "address": 48857,
+   "type": "line",
+   "text": "Roadside sprite source 123, 16 bytes, indexed through the secondary base at $F2-$F3. Leading byte 49 is used when the $8261 copy path starts with a blank prefix."
+  },
+  {
+   "address": 48873,
+   "type": "line",
+   "text": "Roadside sprite source 124, 35 bytes, indexed through the secondary base at $F2-$F3. Leading byte 30 is used when the $8261 copy path starts with a blank prefix."
+  },
+  {
+   "address": 48908,
+   "type": "line",
+   "text": "Roadside sprite source 125, 91 bytes, indexed through the secondary base at $F2-$F3. Leading byte 20 is used when the $8261 copy path starts with a blank prefix."
+  },
+  {
+   "address": 48999,
+   "type": "line",
+   "text": "Roadside sprite source 126, 128 bytes, indexed through the secondary base at $F2-$F3. Leading byte 1 is used when the $8261 copy path starts with a blank prefix."
+  },
+  {
+   "address": 49127,
+   "type": "line",
+   "text": "Roadside sprite source 127, 25 bytes, indexed through the secondary base at $F2-$F3. Leading byte 40 is used when the $8261 copy path starts with a blank prefix."
+  },
+  {
+   "address": 61244,
+   "type": "line",
+   "text": "Two-byte prefix skipped by $71DE before the sprite copy."
+  },
+  {
+   "address": 61246,
+   "type": "line",
+   "text": "Sixty-four sprite bytes copied by the driving initialization at $71EB to $E400."
+  },
+  {
+   "address": 61310,
+   "type": "line",
+   "text": "Lotus gauge source with ID $31/$29. The instrument initialization at $2E95 skips the six-byte header before storing its pointer. The header gives 6 groups across and 42 raster rows."
+  },
+  {
+   "address": 61316,
+   "type": "line",
+   "text": "252 packed bitmap bytes following the six-byte header."
+  },
+  {
+   "address": 61568,
+   "type": "line",
+   "text": "Lotus gauge source with ID $31/$28. The lookup at $2E81 gives the base of this resource. The header gives 6 groups across and 42 raster rows."
+  },
+  {
+   "address": 61574,
+   "type": "line",
+   "text": "252 packed bitmap bytes following the six-byte header."
+  },
+  {
+   "address": 61826,
+   "type": "line",
+   "text": "Lotus dashboard update resource with ID $C9/$31 selected by $73A5. The renderer at $86EC passes it to $8402. The header gives 8 groups across and 56 raster rows."
+  },
+  {
+   "address": 61832,
+   "type": "line",
+   "text": "448 packed bitmap bytes following the six-byte header."
+  },
+  {
+   "address": 62280,
+   "type": "line",
+   "text": "Lotus bitmap resource with ID $31/$35 in the loaded directory. The header gives 20 groups across and 40 raster rows."
+  },
+  {
+   "address": 62286,
+   "type": "line",
+   "text": "800 packed bitmap bytes following the six-byte header."
+  },
+  {
+   "address": 63086,
+   "type": "line",
+   "text": "Lotus bitmap resource with ID $31/$34 in the loaded directory. The header gives 23 groups across and 32 raster rows."
+  },
+  {
+   "address": 63092,
+   "type": "line",
+   "text": "736 packed bitmap bytes following the six-byte header."
+  },
+  {
+   "address": 63828,
+   "type": "line",
+   "text": "Lotus bitmap resource with ID $31/$33 in the loaded directory. The header gives 23 groups across and 40 raster rows."
+  },
+  {
+   "address": 63834,
+   "type": "line",
+   "text": "920 packed bitmap bytes following the six-byte header."
+  },
+  {
+   "address": 64754,
+   "type": "line",
+   "text": "Lotus bitmap resource with ID $31/$32 in the loaded directory. The header gives 24 groups across and 32 raster rows."
+  },
+  {
+   "address": 64760,
+   "type": "line",
+   "text": "768 packed bitmap bytes following the six-byte header."
+  }
+ ]
+}
