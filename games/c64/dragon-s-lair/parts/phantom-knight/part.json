@@ -1,0 +1,52 @@
+{
+  "title": "Phantom Knight",
+  "order": 9,
+  "over": "resident",
+  "ranges": [
+    [
+      "$1E00",
+      "$2EBD"
+    ],
+    [
+      "$4000",
+      "$7FFF"
+    ],
+    [
+      "$8010",
+      "$A40F"
+    ]
+  ],
+  "video": {
+    "screen": "",
+    "charset": ""
+  },
+  "coverage": {
+    "exclude": [
+      [
+        "$8010",
+        "$A373",
+        "Disk staging for bytes copied to $1E00 and graphics decoded to $4000; disk tail remains in the queue."
+      ]
+    ],
+    "include": [],
+    "extra": [
+      [
+        "$1E00",
+        "$2EBD",
+        "Scene bytes copied by the runtime loader"
+      ],
+      [
+        "$4000",
+        "$7FFE",
+        "Scene graphics and supporting data"
+      ],
+      [
+        "$A374",
+        "$A40F",
+        "Tail of the file loaded at $8010, role unresolved"
+      ]
+    ]
+  },
+  "io": [],
+  "regions": []
+}

@@ -1,0 +1,52 @@
+{
+  "title": "Skull Hallway",
+  "order": 3,
+  "over": "resident",
+  "ranges": [
+    [
+      "$1E00",
+      "$31B3"
+    ],
+    [
+      "$4000",
+      "$7FFE"
+    ],
+    [
+      "$8010",
+      "$BF0F"
+    ]
+  ],
+  "video": {
+    "screen": "",
+    "charset": ""
+  },
+  "coverage": {
+    "exclude": [
+      [
+        "$8010",
+        "$BD20",
+        "Disk staging for bytes copied to $1E00 and graphics decoded to $4000; disk tail remains in the queue."
+      ]
+    ],
+    "include": [],
+    "extra": [
+      [
+        "$1E00",
+        "$31B3",
+        "Scene bytes copied by the runtime loader"
+      ],
+      [
+        "$4000",
+        "$7FFE",
+        "Scene graphics and supporting data"
+      ],
+      [
+        "$BD21",
+        "$BF0F",
+        "Tail of the file loaded at $8010, role unresolved"
+      ]
+    ]
+  },
+  "io": [],
+  "regions": []
+}

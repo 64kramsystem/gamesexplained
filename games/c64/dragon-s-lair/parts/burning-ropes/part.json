@@ -1,0 +1,52 @@
+{
+  "title": "Burning Ropes",
+  "order": 4,
+  "over": "resident",
+  "ranges": [
+    [
+      "$1E00",
+      "$2F76"
+    ],
+    [
+      "$4000",
+      "$7FFE"
+    ],
+    [
+      "$8010",
+      "$A80F"
+    ]
+  ],
+  "video": {
+    "screen": "",
+    "charset": ""
+  },
+  "coverage": {
+    "exclude": [
+      [
+        "$8010",
+        "$A7A1",
+        "Disk staging for bytes copied to $1E00 and graphics decoded to $4000; disk tail remains in the queue."
+      ]
+    ],
+    "include": [],
+    "extra": [
+      [
+        "$1E00",
+        "$2F76",
+        "Scene bytes copied by the runtime loader"
+      ],
+      [
+        "$4000",
+        "$7FFE",
+        "Scene graphics and supporting data"
+      ],
+      [
+        "$A7A2",
+        "$A80F",
+        "Tail of the file loaded at $8010, role unresolved"
+      ]
+    ]
+  },
+  "io": [],
+  "regions": []
+}

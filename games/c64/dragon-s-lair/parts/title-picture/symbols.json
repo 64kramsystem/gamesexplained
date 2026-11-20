@@ -1,0 +1,306 @@
+{
+ "schema": 1,
+ "platform": "c64",
+ "game": "dragon-s-lair",
+ "part": "title-picture",
+ "build": "Software Projects disk, alternate D64 with LA\u2013LJ files",
+ "source": "regen2000proj",
+ "regions": {
+  "exclude": [
+   [
+    256,
+    511,
+    "stack"
+   ],
+   [
+    53248,
+    57343,
+    "I/O and colour RAM"
+   ],
+   [
+    0,
+    40703,
+    "Resident game engine"
+   ],
+   [
+    40735,
+    49151,
+    "Resident game engine"
+   ],
+   [
+    49253,
+    49343,
+    "Resident game engine"
+   ],
+   [
+    50368,
+    52223,
+    "Resident game engine"
+   ],
+   [
+    53248,
+    57343,
+    "Resident game engine"
+   ],
+   [
+    65344,
+    65535,
+    "Resident game engine"
+   ]
+  ],
+  "extra": [],
+  "edges": [
+   0,
+   256,
+   512,
+   1024,
+   2048,
+   4096,
+   16384,
+   32768,
+   40960,
+   49152,
+   53248,
+   57344
+  ],
+  "elsewhere": [
+   [
+    0,
+    40703,
+    "Resident game engine"
+   ],
+   [
+    40735,
+    49151,
+    "Resident game engine"
+   ],
+   [
+    49253,
+    49343,
+    "Resident game engine"
+   ],
+   [
+    50368,
+    52223,
+    "Resident game engine"
+   ],
+   [
+    53248,
+    57343,
+    "Resident game engine"
+   ],
+   [
+    65344,
+    65535,
+    "Resident game engine"
+   ]
+  ]
+ },
+ "blocks": [
+  {
+   "start": 40704,
+   "end": 40734,
+   "type": "Code"
+  },
+  {
+   "start": 49152,
+   "end": 49252,
+   "type": "Code"
+  },
+  {
+   "start": 49344,
+   "end": 50367,
+   "type": "Byte"
+  },
+  {
+   "start": 52224,
+   "end": 53247,
+   "type": "Byte"
+  },
+  {
+   "start": 57344,
+   "end": 65343,
+   "type": "Byte"
+  }
+ ],
+ "symbols": [
+  {
+   "address": 40704,
+   "name": "relocate_game_high_half",
+   "type": "Subroutine",
+   "kind": "user"
+  },
+  {
+   "address": 49152,
+   "name": "show_title_picture",
+   "type": "Subroutine",
+   "kind": "user"
+  },
+  {
+   "address": 49235,
+   "name": "poll_title_fire",
+   "type": "Subroutine",
+   "kind": "user"
+  },
+  {
+   "address": 49344,
+   "name": "title_colour_page_c0c0",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 49600,
+   "name": "title_colour_page_c1c0",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 49856,
+   "name": "title_colour_page_c2c0",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 50112,
+   "name": "title_colour_page_c3c0",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 52224,
+   "name": "title_screen_colours",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 57344,
+   "name": "title_bitmap_e000",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 58368,
+   "name": "title_bitmap_e400",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 59392,
+   "name": "title_bitmap_e800",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 60416,
+   "name": "title_bitmap_ec00",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 61440,
+   "name": "title_bitmap_f000",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 62464,
+   "name": "title_bitmap_f400",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 63488,
+   "name": "title_bitmap_f800",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 64512,
+   "name": "title_bitmap_fc00",
+   "type": "UserDefined",
+   "kind": "user"
+  }
+ ],
+ "comments": [
+  {
+   "address": 40704,
+   "type": "line",
+   "text": "Bank out ROM and I/O with $01=$34. Copy pages $60 through $9F to $C0 through $FF by advancing the high bytes of the load and store operands. Restore $37 and jump to $4401."
+  },
+  {
+   "address": 49152,
+   "type": "line",
+   "text": "Select VIC bank $C000 with $D018=$3C and multicolour enabled. Set the background palette and copy four pages of colours from $C0C0. Enable the picture and then wait for fire."
+  },
+  {
+   "address": 49235,
+   "type": "line",
+   "text": "Wait for the exact port 1 value $EF at $DC01. After it arrives call the KERNAL and jump to the relocation loop."
+  },
+  {
+   "address": 49344,
+   "type": "line",
+   "text": "Title colour RAM source for page $D800. The loop at $C033 copies this page with Y running through all 256 values."
+  },
+  {
+   "address": 49600,
+   "type": "line",
+   "text": "Title colour RAM source for page $D900. The loop at $C033 copies this page with Y running through all 256 values."
+  },
+  {
+   "address": 49856,
+   "type": "line",
+   "text": "Title colour RAM source for page $DA00. The loop at $C033 copies this page with Y running through all 256 values."
+  },
+  {
+   "address": 50112,
+   "type": "line",
+   "text": "Title colour RAM source for page $DB00. The loop at $C033 copies this page with Y running through all 256 values."
+  },
+  {
+   "address": 52224,
+   "type": "line",
+   "text": "The screen matrix at $CC00 supplies two of the three non-background colours for each cell in the multicolour bitmap."
+  },
+  {
+   "address": 57344,
+   "type": "line",
+   "text": "Title bitmap data at offset $0000 within the image selected by the VIC. This segment supplies pixels for rows 0 onward; screen matrix and colour RAM supply palette indices."
+  },
+  {
+   "address": 58368,
+   "type": "line",
+   "text": "Title bitmap data at offset $0400 within the image selected by the VIC. This segment supplies pixels for rows 24 onward; screen matrix and colour RAM supply palette indices."
+  },
+  {
+   "address": 59392,
+   "type": "line",
+   "text": "Title bitmap data at offset $0800 within the image selected by the VIC. This segment supplies pixels for rows 48 onward; screen matrix and colour RAM supply palette indices."
+  },
+  {
+   "address": 60416,
+   "type": "line",
+   "text": "Title bitmap data at offset $0C00 within the image selected by the VIC. This segment supplies pixels for rows 72 onward; screen matrix and colour RAM supply palette indices."
+  },
+  {
+   "address": 61440,
+   "type": "line",
+   "text": "Title bitmap data at offset $1000 within the image selected by the VIC. This segment supplies pixels for rows 96 onward; screen matrix and colour RAM supply palette indices."
+  },
+  {
+   "address": 62464,
+   "type": "line",
+   "text": "Title bitmap data at offset $1400 within the image selected by the VIC. This segment supplies pixels for rows 128 onward; screen matrix and colour RAM supply palette indices."
+  },
+  {
+   "address": 63488,
+   "type": "line",
+   "text": "Title bitmap data at offset $1800 within the image selected by the VIC. This segment supplies pixels for rows 152 onward; screen matrix and colour RAM supply palette indices."
+  },
+  {
+   "address": 64512,
+   "type": "line",
+   "text": "Title bitmap data at offset $1C00 within the image selected by the VIC. This segment supplies pixels for rows 176 onward; screen matrix and colour RAM supply palette indices."
+  }
+ ]
+}

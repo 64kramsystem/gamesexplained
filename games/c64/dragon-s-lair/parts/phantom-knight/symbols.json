@@ -1,0 +1,898 @@
+{
+ "schema": 1,
+ "platform": "c64",
+ "game": "dragon-s-lair",
+ "part": "phantom-knight",
+ "build": "Software Projects disk, alternate D64 with LA\u2013LJ files",
+ "source": "regen2000proj",
+ "regions": {
+  "exclude": [
+   [
+    256,
+    511,
+    "stack"
+   ],
+   [
+    53248,
+    57343,
+    "I/O and colour RAM"
+   ],
+   [
+    32784,
+    41843,
+    "Disk staging for bytes copied to $1E00 and graphics decoded to $4000; disk tail remains in the queue."
+   ],
+   [
+    0,
+    7679,
+    "Resident game engine"
+   ],
+   [
+    11966,
+    16383,
+    "Resident game engine"
+   ],
+   [
+    32768,
+    32783,
+    "Resident game engine"
+   ],
+   [
+    42000,
+    65535,
+    "Resident game engine"
+   ]
+  ],
+  "extra": [
+   [
+    7680,
+    11965,
+    "Scene bytes copied by the runtime loader"
+   ],
+   [
+    16384,
+    32766,
+    "Scene graphics and supporting data"
+   ],
+   [
+    41844,
+    41999,
+    "Tail of the file loaded at $8010, role unresolved"
+   ]
+  ],
+  "edges": [
+   0,
+   256,
+   512,
+   1024,
+   2048,
+   4096,
+   16384,
+   32768,
+   40960,
+   49152,
+   53248,
+   57344
+  ],
+  "elsewhere": [
+   [
+    0,
+    7679,
+    "Resident game engine"
+   ],
+   [
+    11966,
+    16383,
+    "Resident game engine"
+   ],
+   [
+    32768,
+    32783,
+    "Resident game engine"
+   ],
+   [
+    42000,
+    65535,
+    "Resident game engine"
+   ]
+  ]
+ },
+ "blocks": [
+  {
+   "start": 7680,
+   "end": 7680,
+   "type": "Byte"
+  },
+  {
+   "start": 7681,
+   "end": 10730,
+   "type": "Code"
+  },
+  {
+   "start": 10731,
+   "end": 10731,
+   "type": "Undefined"
+  },
+  {
+   "start": 10732,
+   "end": 11511,
+   "type": "Code"
+  },
+  {
+   "start": 11512,
+   "end": 11954,
+   "type": "Undefined"
+  },
+  {
+   "start": 11955,
+   "end": 11965,
+   "type": "PETSCII"
+  },
+  {
+   "start": 16384,
+   "end": 17407,
+   "type": "Byte"
+  },
+  {
+   "start": 17408,
+   "end": 18431,
+   "type": "Byte"
+  },
+  {
+   "start": 18432,
+   "end": 19455,
+   "type": "Byte"
+  },
+  {
+   "start": 19456,
+   "end": 20479,
+   "type": "Byte"
+  },
+  {
+   "start": 20480,
+   "end": 21503,
+   "type": "Byte"
+  },
+  {
+   "start": 21504,
+   "end": 22527,
+   "type": "Byte"
+  },
+  {
+   "start": 22528,
+   "end": 23551,
+   "type": "Byte"
+  },
+  {
+   "start": 23552,
+   "end": 24383,
+   "type": "Byte"
+  },
+  {
+   "start": 24384,
+   "end": 24831,
+   "type": "Undefined"
+  },
+  {
+   "start": 24832,
+   "end": 25087,
+   "type": "Byte"
+  },
+  {
+   "start": 25088,
+   "end": 25215,
+   "type": "Byte"
+  },
+  {
+   "start": 25216,
+   "end": 25343,
+   "type": "Byte"
+  },
+  {
+   "start": 25344,
+   "end": 26367,
+   "type": "Byte"
+  },
+  {
+   "start": 26368,
+   "end": 27135,
+   "type": "Byte"
+  },
+  {
+   "start": 27136,
+   "end": 27775,
+   "type": "Undefined"
+  },
+  {
+   "start": 27776,
+   "end": 27839,
+   "type": "Byte"
+  },
+  {
+   "start": 27840,
+   "end": 27903,
+   "type": "Undefined"
+  },
+  {
+   "start": 27904,
+   "end": 28031,
+   "type": "Byte"
+  },
+  {
+   "start": 28032,
+   "end": 28415,
+   "type": "Undefined"
+  },
+  {
+   "start": 28416,
+   "end": 29439,
+   "type": "Byte"
+  },
+  {
+   "start": 29440,
+   "end": 29951,
+   "type": "Byte"
+  },
+  {
+   "start": 29952,
+   "end": 30463,
+   "type": "Byte"
+  },
+  {
+   "start": 30464,
+   "end": 30719,
+   "type": "Byte"
+  },
+  {
+   "start": 30720,
+   "end": 31743,
+   "type": "Undefined"
+  },
+  {
+   "start": 31744,
+   "end": 32767,
+   "type": "Byte"
+  },
+  {
+   "start": 32784,
+   "end": 41844,
+   "type": "Undefined"
+  },
+  {
+   "start": 41845,
+   "end": 41999,
+   "type": "Byte"
+  }
+ ],
+ "symbols": [
+  {
+   "address": 7680,
+   "name": "scene_identifier",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 7681,
+   "name": "enter_scene",
+   "type": "Subroutine",
+   "kind": "user"
+  },
+  {
+   "address": 7684,
+   "name": "initialize_knight_board",
+   "type": "Subroutine",
+   "kind": "user"
+  },
+  {
+   "address": 7947,
+   "name": "tick_knight_board",
+   "type": "Subroutine",
+   "kind": "user"
+  },
+  {
+   "address": 8017,
+   "name": "start_board_move",
+   "type": "Subroutine",
+   "kind": "user"
+  },
+  {
+   "address": 8036,
+   "name": "finish_knight_move",
+   "type": "Subroutine",
+   "kind": "user"
+  },
+  {
+   "address": 8078,
+   "name": "s_1F8E",
+   "type": "Subroutine",
+   "kind": "auto"
+  },
+  {
+   "address": 8198,
+   "name": "s_2006",
+   "type": "Subroutine",
+   "kind": "auto"
+  },
+  {
+   "address": 8293,
+   "name": "s_2065",
+   "type": "Subroutine",
+   "kind": "auto"
+  },
+  {
+   "address": 8364,
+   "name": "s_20AC",
+   "type": "Subroutine",
+   "kind": "auto"
+  },
+  {
+   "address": 8433,
+   "name": "s_20F1",
+   "type": "Subroutine",
+   "kind": "auto"
+  },
+  {
+   "address": 8523,
+   "name": "s_214B",
+   "type": "Subroutine",
+   "kind": "auto"
+  },
+  {
+   "address": 8593,
+   "name": "s_2191",
+   "type": "Subroutine",
+   "kind": "auto"
+  },
+  {
+   "address": 8694,
+   "name": "s_21F6",
+   "type": "Subroutine",
+   "kind": "auto"
+  },
+  {
+   "address": 8736,
+   "name": "s_2220",
+   "type": "Subroutine",
+   "kind": "auto"
+  },
+  {
+   "address": 8762,
+   "name": "choose_knight_board_target",
+   "type": "Subroutine",
+   "kind": "user"
+  },
+  {
+   "address": 8972,
+   "name": "s_230C",
+   "type": "Subroutine",
+   "kind": "auto"
+  },
+  {
+   "address": 8985,
+   "name": "s_2319",
+   "type": "Subroutine",
+   "kind": "auto"
+  },
+  {
+   "address": 9073,
+   "name": "s_2371",
+   "type": "Subroutine",
+   "kind": "auto"
+  },
+  {
+   "address": 9150,
+   "name": "s_23BE",
+   "type": "Subroutine",
+   "kind": "auto"
+  },
+  {
+   "address": 9202,
+   "name": "s_23F2",
+   "type": "Subroutine",
+   "kind": "auto"
+  },
+  {
+   "address": 9317,
+   "name": "s_2465",
+   "type": "Subroutine",
+   "kind": "auto"
+  },
+  {
+   "address": 9448,
+   "name": "s_24E8",
+   "type": "Subroutine",
+   "kind": "auto"
+  },
+  {
+   "address": 9576,
+   "name": "s_2568",
+   "type": "Subroutine",
+   "kind": "auto"
+  },
+  {
+   "address": 9601,
+   "name": "s_2581",
+   "type": "Subroutine",
+   "kind": "auto"
+  },
+  {
+   "address": 9686,
+   "name": "shift_knight_board_history",
+   "type": "Subroutine",
+   "kind": "user"
+  },
+  {
+   "address": 9868,
+   "name": "s_268C",
+   "type": "Subroutine",
+   "kind": "auto"
+  },
+  {
+   "address": 9869,
+   "name": "s_268D",
+   "type": "Subroutine",
+   "kind": "auto"
+  },
+  {
+   "address": 9977,
+   "name": "s_26F9",
+   "type": "Subroutine",
+   "kind": "auto"
+  },
+  {
+   "address": 9989,
+   "name": "s_2705",
+   "type": "Subroutine",
+   "kind": "auto"
+  },
+  {
+   "address": 10037,
+   "name": "s_2735",
+   "type": "Subroutine",
+   "kind": "auto"
+  },
+  {
+   "address": 10051,
+   "name": "s_2743",
+   "type": "Subroutine",
+   "kind": "auto"
+  },
+  {
+   "address": 10145,
+   "name": "s_27A1",
+   "type": "Subroutine",
+   "kind": "auto"
+  },
+  {
+   "address": 10171,
+   "name": "s_27BB",
+   "type": "Subroutine",
+   "kind": "auto"
+  },
+  {
+   "address": 10210,
+   "name": "s_27E2",
+   "type": "Subroutine",
+   "kind": "auto"
+  },
+  {
+   "address": 10245,
+   "name": "s_2805",
+   "type": "Subroutine",
+   "kind": "auto"
+  },
+  {
+   "address": 10261,
+   "name": "advance_board_player_pose",
+   "type": "Subroutine",
+   "kind": "user"
+  },
+  {
+   "address": 10462,
+   "name": "s_28DE",
+   "type": "Subroutine",
+   "kind": "auto"
+  },
+  {
+   "address": 10504,
+   "name": "choose_initial_board_move_sprites",
+   "type": "Subroutine",
+   "kind": "user"
+  },
+  {
+   "address": 10641,
+   "name": "s_2991",
+   "type": "Subroutine",
+   "kind": "auto"
+  },
+  {
+   "address": 10732,
+   "name": "choose_board_direction",
+   "type": "Subroutine",
+   "kind": "user"
+  },
+  {
+   "address": 10747,
+   "name": "s_29FB",
+   "type": "Subroutine",
+   "kind": "auto"
+  },
+  {
+   "address": 10836,
+   "name": "s_2A54",
+   "type": "Subroutine",
+   "kind": "auto"
+  },
+  {
+   "address": 10927,
+   "name": "s_2AAF",
+   "type": "Subroutine",
+   "kind": "auto"
+  },
+  {
+   "address": 10959,
+   "name": "s_2ACF",
+   "type": "Subroutine",
+   "kind": "auto"
+  },
+  {
+   "address": 10991,
+   "name": "s_2AEF",
+   "type": "Subroutine",
+   "kind": "auto"
+  },
+  {
+   "address": 11018,
+   "name": "s_2B0A",
+   "type": "Subroutine",
+   "kind": "auto"
+  },
+  {
+   "address": 11035,
+   "name": "s_2B1B",
+   "type": "Subroutine",
+   "kind": "auto"
+  },
+  {
+   "address": 11073,
+   "name": "s_2B41",
+   "type": "Subroutine",
+   "kind": "auto"
+  },
+  {
+   "address": 11099,
+   "name": "s_2B5B",
+   "type": "Subroutine",
+   "kind": "auto"
+  },
+  {
+   "address": 11212,
+   "name": "s_2BCC",
+   "type": "Subroutine",
+   "kind": "auto"
+  },
+  {
+   "address": 11278,
+   "name": "s_2C0E",
+   "type": "Subroutine",
+   "kind": "auto"
+  },
+  {
+   "address": 11288,
+   "name": "s_2C18",
+   "type": "Subroutine",
+   "kind": "auto"
+  },
+  {
+   "address": 11335,
+   "name": "s_2C47",
+   "type": "Subroutine",
+   "kind": "auto"
+  },
+  {
+   "address": 11461,
+   "name": "s_2CC5",
+   "type": "Subroutine",
+   "kind": "auto"
+  },
+  {
+   "address": 11955,
+   "name": "scene_end_marker",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 16384,
+   "name": "knight_bitmap_0000",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 17408,
+   "name": "knight_bitmap_0400",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 18432,
+   "name": "knight_bitmap_0800",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 19456,
+   "name": "knight_bitmap_0c00",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 20480,
+   "name": "knight_bitmap_1000",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 21504,
+   "name": "knight_bitmap_1400",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 22528,
+   "name": "knight_bitmap_1800",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 23552,
+   "name": "knight_bitmap_1c00",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 24832,
+   "name": "board_player_sprite_slots",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 25088,
+   "name": "knight_sprite_pair_first",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 25216,
+   "name": "knight_sprite_pair_second",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 25344,
+   "name": "board_player_pose_slots_8c_9b",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 26368,
+   "name": "board_player_pose_slots_9c_a7",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 27776,
+   "name": "board_sprite_five",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 27904,
+   "name": "board_sprite_six_seven",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 28416,
+   "name": "board_player_pose_slots_bc_cb",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 29440,
+   "name": "board_player_pose_slots_cc_d3",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 29952,
+   "name": "picture_initial_zero_7500",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 30464,
+   "name": "board_colour_remap",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 31744,
+   "name": "knight_room_matrix",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 41845,
+   "name": "disk_tail_fill_a375",
+   "type": "UserDefined",
+   "kind": "user"
+  }
+ ],
+ "comments": [
+  {
+   "address": 7680,
+   "type": "line",
+   "text": "The first copied byte in the scene record is $07. The caller starts executing one byte later."
+  },
+  {
+   "address": 7681,
+   "type": "line",
+   "text": "Save and reload the caller stack pointer, install raster target $2BFD at line $FA and select multicolour bitmap mode in the bank at $4000. Initialize board state and choose a value for $2DFA from $24."
+  },
+  {
+   "address": 7684,
+   "type": "line",
+   "text": "Reload the saved stack, select raster line $FA and set bitmap mode with the bitmap at $4000 and matrix at $7C00. Clear the board-related state bytes and choose the initial $2DFA value from $24."
+  },
+  {
+   "address": 7947,
+   "type": "line",
+   "text": "Sample the joystick, wait two CIA2 periods and call the board update routines. If the player is idle, use fire to start the path that sets $2DCC and requests sound $87."
+  },
+  {
+   "address": 8017,
+   "type": "line",
+   "text": "Clear the move timer $2D7E, set the busy flag $2D04 to $FF from zero, queue sound $83 and set $2D7F to 1."
+  },
+  {
+   "address": 8036,
+   "type": "line",
+   "text": "Update the board move and its timer. Return with a nonzero outcome after the thresholds on $2E72 and $2D7E are met while $2EB0 is set."
+  },
+  {
+   "address": 8762,
+   "type": "line",
+   "text": "Check the active board flags and timer. On timer expiry select a random nibble below nine for one coordinate and begin computing the other coordinate."
+  },
+  {
+   "address": 9686,
+   "type": "line",
+   "text": "Shift the sequences beginning at $2E74 and $2E8F by two and add the newest pointer pair and two position bytes at their heads."
+  },
+  {
+   "address": 10261,
+   "type": "line",
+   "text": "Select a six- or seven-step animation limit based on the chosen direction. Increment the pose step and clear the movement flag once it reaches the limit."
+  },
+  {
+   "address": 10504,
+   "type": "line",
+   "text": "Select the X offset and high-byte adjustment for the four possible directions, then initialize a four-sprite pose using that offset."
+  },
+  {
+   "address": 10732,
+   "type": "line",
+   "text": "Refresh the joystick. When a move can begin, check up, down, right and left in that order and store direction 0, 1, 2 or 3 in $2D05."
+  },
+  {
+   "address": 11955,
+   "type": "line",
+   "text": "This scene record ends with the eleven byte marker copied by the unpacker at $0DDE."
+  },
+  {
+   "address": 16384,
+   "type": "line",
+   "text": "The first $400 bytes of the character-cell-ordered board bitmap at $4000. Each cell occupies eight bytes."
+  },
+  {
+   "address": 17408,
+   "type": "line",
+   "text": "Board bitmap cell bytes at offsets $0400\u2013$07FF, in the region selected by the clear bitmap-base bit of $D018."
+  },
+  {
+   "address": 18432,
+   "type": "line",
+   "text": "Pixels in board bitmap cells 256 through 383. The VIC combines them with the colours at $7C00 and in colour RAM."
+  },
+  {
+   "address": 19456,
+   "type": "line",
+   "text": "Board bitmap cells 384 through 511, stored starting at $4C00 in the active VIC bank."
+  },
+  {
+   "address": 20480,
+   "type": "line",
+   "text": "Bitmap cells 512 through 639. The bitmap rows use 40 such eight-byte cells."
+  },
+  {
+   "address": 21504,
+   "type": "line",
+   "text": "Pixels for board bitmap cells 640 through 767. Two bits select each multicolour pixel."
+  },
+  {
+   "address": 22528,
+   "type": "line",
+   "text": "Board bitmap cells 768 through 895, in the bottom part of the screen."
+  },
+  {
+   "address": 23552,
+   "type": "line",
+   "text": "The final 104 board bitmap cells. The bitmap ends at $5F3F after 1000 cells."
+  },
+  {
+   "address": 24832,
+   "type": "line",
+   "text": "Four 64-byte image slots selected by sprites 0\u20133 in the board play capture, with pointers $84 to $87."
+  },
+  {
+   "address": 25088,
+   "type": "line",
+   "text": "Two consecutive sprite masks copied to $6D00\u2013$6D7F by $230E, selected by the first branch of the knight pose selector."
+  },
+  {
+   "address": 25216,
+   "type": "line",
+   "text": "Alternative pair of sprite masks copied into the same sprite slots by $231B."
+  },
+  {
+   "address": 25344,
+   "type": "line",
+   "text": "Sixteen 64-byte pose records. This part of the bitmap bank matches the same pose records in The Ramps."
+  },
+  {
+   "address": 26368,
+   "type": "line",
+   "text": "Twelve sprite fragments for later player poses. The bytes of these slots match the ramp scene records."
+  },
+  {
+   "address": 27776,
+   "type": "line",
+   "text": "The 64-byte image selected by sprite 5 at the Phantom Knight play capture."
+  },
+  {
+   "address": 27904,
+   "type": "line",
+   "text": "Two 64-byte image slots selected by sprites 6 and 7 in the Phantom Knight play capture."
+  },
+  {
+   "address": 28416,
+   "type": "line",
+   "text": "The upper bank of player fragments, with several blank slots around the start and visible limb masks in its later records. This range matches the ramp asset bank."
+  },
+  {
+   "address": 29440,
+   "type": "line",
+   "text": "Eight high sprite slots with additional movement and weapon silhouettes, byte-for-byte equal to the corresponding ramp shapes."
+  },
+  {
+   "address": 29952,
+   "type": "line",
+   "text": "The unpacked picture stream initializes $7500\u2013$76FF to zero. These bytes are still zero in the play capture."
+  },
+  {
+   "address": 30464,
+   "type": "line",
+   "text": "Lookup table for the colour RAM setup at $2C6B. The routine indexes it by the $7C00 screen matrix and substitutes 6 for $0E."
+  },
+  {
+   "address": 31744,
+   "type": "line",
+   "text": "The screen colour matrix begins at $7C00 because $D018 has high nibble $F. The final eight bytes also hold the sprite pointers."
+  },
+  {
+   "address": 41845,
+   "type": "line",
+   "text": "Repeated $08 bytes at $A375\u2013$A40F, after the input consumed by the scene picture decode."
+  }
+ ]
+}

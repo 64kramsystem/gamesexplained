@@ -1,0 +1,4421 @@
+{
+ "schema": 1,
+ "platform": "c64",
+ "game": "dragon-s-lair",
+ "part": "resident",
+ "build": "Software Projects disk, alternate D64 with LA\u2013LJ files",
+ "source": "regen2000proj",
+ "regions": {
+  "exclude": [
+   [
+    256,
+    511,
+    "stack"
+   ],
+   [
+    53264,
+    57343,
+    "I/O and colour RAM"
+   ],
+   [
+    1024,
+    2047,
+    "Live main screen and sprite pointers. The clear routine at $15EF writes this matrix."
+   ],
+   [
+    53264,
+    64826,
+    "Embedded first-descent source, copied to $1E00 and decoded to $4000. The second descent reads its graphics stream again."
+   ],
+   [
+    7680,
+    12118,
+    "9 parts: Phantom Knight, First falling platform, Burning Ropes and others"
+   ],
+   [
+    16384,
+    48911,
+    "10 parts: Burning Ropes, First falling platform, Skull Hallway and others"
+   ],
+   [
+    64827,
+    65343,
+    "Title picture"
+   ]
+  ],
+  "extra": [
+   [
+    2048,
+    7679,
+    "Resident code and initialized tables"
+   ],
+   [
+    12119,
+    16383,
+    "Resident snapshot bytes beyond the first scene even where other scenes later overwrite them"
+   ],
+   [
+    53248,
+    53263,
+    "Bytes beneath VIC registers preceding the embedded scene"
+   ],
+   [
+    49152,
+    53247,
+    "Resident SID player and tables"
+   ]
+  ],
+  "edges": [
+   0,
+   256,
+   512,
+   1024,
+   2048,
+   4096,
+   16384,
+   32768,
+   40960,
+   49152,
+   53248,
+   57344
+  ],
+  "beneath": [
+   [
+    53248,
+    53263
+   ]
+  ],
+  "elsewhere": [
+   [
+    7680,
+    12118,
+    "9 parts: Phantom Knight, First falling platform, Burning Ropes and others"
+   ],
+   [
+    16384,
+    48911,
+    "10 parts: Burning Ropes, First falling platform, Skull Hallway and others"
+   ],
+   [
+    64827,
+    65343,
+    "Title picture"
+   ]
+  ]
+ },
+ "blocks": [
+  {
+   "start": 0,
+   "end": 819,
+   "type": "Undefined"
+  },
+  {
+   "start": 820,
+   "end": 923,
+   "type": "Code"
+  },
+  {
+   "start": 924,
+   "end": 925,
+   "type": "PETSCII"
+  },
+  {
+   "start": 926,
+   "end": 926,
+   "type": "Undefined"
+  },
+  {
+   "start": 927,
+   "end": 934,
+   "type": "Code"
+  },
+  {
+   "start": 935,
+   "end": 2655,
+   "type": "Undefined"
+  },
+  {
+   "start": 2656,
+   "end": 2735,
+   "type": "Byte"
+  },
+  {
+   "start": 2736,
+   "end": 3071,
+   "type": "Undefined"
+  },
+  {
+   "start": 3072,
+   "end": 3457,
+   "type": "Code"
+  },
+  {
+   "start": 3458,
+   "end": 3495,
+   "type": "Undefined"
+  },
+  {
+   "start": 3496,
+   "end": 3788,
+   "type": "Code"
+  },
+  {
+   "start": 3789,
+   "end": 4226,
+   "type": "Undefined"
+  },
+  {
+   "start": 4227,
+   "end": 4233,
+   "type": "Code"
+  },
+  {
+   "start": 4234,
+   "end": 4242,
+   "type": "Undefined"
+  },
+  {
+   "start": 4243,
+   "end": 4581,
+   "type": "Code"
+  },
+  {
+   "start": 4582,
+   "end": 4669,
+   "type": "Undefined"
+  },
+  {
+   "start": 4670,
+   "end": 4721,
+   "type": "Code"
+  },
+  {
+   "start": 4722,
+   "end": 4788,
+   "type": "Undefined"
+  },
+  {
+   "start": 4789,
+   "end": 5378,
+   "type": "Code"
+  },
+  {
+   "start": 5379,
+   "end": 5399,
+   "type": "PETSCII"
+  },
+  {
+   "start": 5400,
+   "end": 5454,
+   "type": "PETSCII"
+  },
+  {
+   "start": 5455,
+   "end": 5466,
+   "type": "Undefined"
+  },
+  {
+   "start": 5467,
+   "end": 5486,
+   "type": "Code"
+  },
+  {
+   "start": 5487,
+   "end": 5487,
+   "type": "Undefined"
+  },
+  {
+   "start": 5488,
+   "end": 5515,
+   "type": "Code"
+  },
+  {
+   "start": 5516,
+   "end": 5521,
+   "type": "Undefined"
+  },
+  {
+   "start": 5522,
+   "end": 5768,
+   "type": "Code"
+  },
+  {
+   "start": 5769,
+   "end": 5769,
+   "type": "Undefined"
+  },
+  {
+   "start": 5770,
+   "end": 5798,
+   "type": "Code"
+  },
+  {
+   "start": 5799,
+   "end": 5803,
+   "type": "Undefined"
+  },
+  {
+   "start": 5804,
+   "end": 5811,
+   "type": "Code"
+  },
+  {
+   "start": 5812,
+   "end": 5902,
+   "type": "Undefined"
+  },
+  {
+   "start": 5903,
+   "end": 6248,
+   "type": "Code"
+  },
+  {
+   "start": 6249,
+   "end": 6260,
+   "type": "Undefined"
+  },
+  {
+   "start": 6261,
+   "end": 6301,
+   "type": "Code"
+  },
+  {
+   "start": 6302,
+   "end": 6315,
+   "type": "Undefined"
+  },
+  {
+   "start": 6316,
+   "end": 6346,
+   "type": "Code"
+  },
+  {
+   "start": 6347,
+   "end": 6347,
+   "type": "Undefined"
+  },
+  {
+   "start": 6348,
+   "end": 6627,
+   "type": "Code"
+  },
+  {
+   "start": 6628,
+   "end": 6640,
+   "type": "PETSCII"
+  },
+  {
+   "start": 6641,
+   "end": 6641,
+   "type": "Undefined"
+  },
+  {
+   "start": 6642,
+   "end": 6664,
+   "type": "PETSCII"
+  },
+  {
+   "start": 6665,
+   "end": 6666,
+   "type": "Undefined"
+  },
+  {
+   "start": 6667,
+   "end": 6695,
+   "type": "PETSCII"
+  },
+  {
+   "start": 6696,
+   "end": 6697,
+   "type": "Undefined"
+  },
+  {
+   "start": 6698,
+   "end": 6727,
+   "type": "PETSCII"
+  },
+  {
+   "start": 6728,
+   "end": 6729,
+   "type": "Undefined"
+  },
+  {
+   "start": 6730,
+   "end": 6763,
+   "type": "PETSCII"
+  },
+  {
+   "start": 6764,
+   "end": 6765,
+   "type": "Undefined"
+  },
+  {
+   "start": 6766,
+   "end": 6784,
+   "type": "PETSCII"
+  },
+  {
+   "start": 6785,
+   "end": 6786,
+   "type": "Undefined"
+  },
+  {
+   "start": 6787,
+   "end": 6816,
+   "type": "PETSCII"
+  },
+  {
+   "start": 6817,
+   "end": 6818,
+   "type": "Undefined"
+  },
+  {
+   "start": 6819,
+   "end": 6844,
+   "type": "PETSCII"
+  },
+  {
+   "start": 6845,
+   "end": 6845,
+   "type": "Undefined"
+  },
+  {
+   "start": 6846,
+   "end": 6901,
+   "type": "PETSCII"
+  },
+  {
+   "start": 6902,
+   "end": 6903,
+   "type": "Undefined"
+  },
+  {
+   "start": 6904,
+   "end": 6914,
+   "type": "PETSCII"
+  },
+  {
+   "start": 6915,
+   "end": 7109,
+   "type": "Undefined"
+  },
+  {
+   "start": 7110,
+   "end": 7126,
+   "type": "Byte"
+  },
+  {
+   "start": 7127,
+   "end": 7134,
+   "type": "Byte"
+  },
+  {
+   "start": 7135,
+   "end": 7142,
+   "type": "Byte"
+  },
+  {
+   "start": 7143,
+   "end": 7144,
+   "type": "Byte"
+  },
+  {
+   "start": 7145,
+   "end": 7231,
+   "type": "Undefined"
+  },
+  {
+   "start": 7232,
+   "end": 7242,
+   "type": "PETSCII"
+  },
+  {
+   "start": 7243,
+   "end": 7353,
+   "type": "PETSCII"
+  },
+  {
+   "start": 7354,
+   "end": 7362,
+   "type": "Byte"
+  },
+  {
+   "start": 7363,
+   "end": 7423,
+   "type": "Undefined"
+  },
+  {
+   "start": 7424,
+   "end": 7437,
+   "type": "Code"
+  },
+  {
+   "start": 7438,
+   "end": 7679,
+   "type": "Undefined"
+  },
+  {
+   "start": 12119,
+   "end": 12799,
+   "type": "Undefined"
+  },
+  {
+   "start": 12800,
+   "end": 12889,
+   "type": "Byte"
+  },
+  {
+   "start": 12890,
+   "end": 12979,
+   "type": "Byte"
+  },
+  {
+   "start": 12980,
+   "end": 13069,
+   "type": "Byte"
+  },
+  {
+   "start": 13070,
+   "end": 13159,
+   "type": "Byte"
+  },
+  {
+   "start": 13160,
+   "end": 13249,
+   "type": "Byte"
+  },
+  {
+   "start": 13250,
+   "end": 13339,
+   "type": "Byte"
+  },
+  {
+   "start": 13340,
+   "end": 13429,
+   "type": "Byte"
+  },
+  {
+   "start": 13430,
+   "end": 13519,
+   "type": "Byte"
+  },
+  {
+   "start": 13520,
+   "end": 13609,
+   "type": "Byte"
+  },
+  {
+   "start": 13610,
+   "end": 13699,
+   "type": "Byte"
+  },
+  {
+   "start": 13700,
+   "end": 13789,
+   "type": "Byte"
+  },
+  {
+   "start": 13790,
+   "end": 13879,
+   "type": "Byte"
+  },
+  {
+   "start": 13880,
+   "end": 13969,
+   "type": "Byte"
+  },
+  {
+   "start": 13970,
+   "end": 14059,
+   "type": "Byte"
+  },
+  {
+   "start": 14060,
+   "end": 14149,
+   "type": "Byte"
+  },
+  {
+   "start": 14150,
+   "end": 14239,
+   "type": "Byte"
+  },
+  {
+   "start": 14240,
+   "end": 14329,
+   "type": "Byte"
+  },
+  {
+   "start": 14330,
+   "end": 15359,
+   "type": "Undefined"
+  },
+  {
+   "start": 15360,
+   "end": 15423,
+   "type": "Byte"
+  },
+  {
+   "start": 15424,
+   "end": 15487,
+   "type": "Byte"
+  },
+  {
+   "start": 15488,
+   "end": 15551,
+   "type": "Byte"
+  },
+  {
+   "start": 15552,
+   "end": 15615,
+   "type": "Byte"
+  },
+  {
+   "start": 15616,
+   "end": 15679,
+   "type": "Byte"
+  },
+  {
+   "start": 15680,
+   "end": 15743,
+   "type": "Byte"
+  },
+  {
+   "start": 15744,
+   "end": 15807,
+   "type": "Byte"
+  },
+  {
+   "start": 15808,
+   "end": 15871,
+   "type": "Byte"
+  },
+  {
+   "start": 15872,
+   "end": 16383,
+   "type": "Undefined"
+  },
+  {
+   "start": 48912,
+   "end": 49155,
+   "type": "Undefined"
+  },
+  {
+   "start": 49156,
+   "end": 49609,
+   "type": "Code"
+  },
+  {
+   "start": 49610,
+   "end": 49614,
+   "type": "Byte"
+  },
+  {
+   "start": 49615,
+   "end": 49619,
+   "type": "Byte"
+  },
+  {
+   "start": 49620,
+   "end": 49624,
+   "type": "Byte"
+  },
+  {
+   "start": 49625,
+   "end": 49629,
+   "type": "Byte"
+  },
+  {
+   "start": 49630,
+   "end": 49634,
+   "type": "Byte"
+  },
+  {
+   "start": 49635,
+   "end": 49639,
+   "type": "Byte"
+  },
+  {
+   "start": 49640,
+   "end": 49659,
+   "type": "Byte"
+  },
+  {
+   "start": 49660,
+   "end": 49869,
+   "type": "Byte"
+  },
+  {
+   "start": 49870,
+   "end": 49897,
+   "type": "Word"
+  },
+  {
+   "start": 49898,
+   "end": 49925,
+   "type": "Word"
+  },
+  {
+   "start": 49926,
+   "end": 49953,
+   "type": "Word"
+  },
+  {
+   "start": 49954,
+   "end": 49973,
+   "type": "Word"
+  },
+  {
+   "start": 49974,
+   "end": 50003,
+   "type": "Word"
+  },
+  {
+   "start": 50004,
+   "end": 50008,
+   "type": "Byte"
+  },
+  {
+   "start": 50009,
+   "end": 50013,
+   "type": "Byte"
+  },
+  {
+   "start": 50014,
+   "end": 50035,
+   "type": "Byte"
+  },
+  {
+   "start": 50036,
+   "end": 50057,
+   "type": "Byte"
+  },
+  {
+   "start": 50058,
+   "end": 50060,
+   "type": "Byte"
+  },
+  {
+   "start": 50061,
+   "end": 50063,
+   "type": "Byte"
+  },
+  {
+   "start": 50064,
+   "end": 50067,
+   "type": "Byte"
+  },
+  {
+   "start": 50068,
+   "end": 50073,
+   "type": "Byte"
+  },
+  {
+   "start": 50074,
+   "end": 50076,
+   "type": "Byte"
+  },
+  {
+   "start": 50077,
+   "end": 50079,
+   "type": "Byte"
+  },
+  {
+   "start": 50080,
+   "end": 50082,
+   "type": "Byte"
+  },
+  {
+   "start": 50083,
+   "end": 50085,
+   "type": "Byte"
+  },
+  {
+   "start": 50086,
+   "end": 50089,
+   "type": "Byte"
+  },
+  {
+   "start": 50090,
+   "end": 50121,
+   "type": "Byte"
+  },
+  {
+   "start": 50122,
+   "end": 50131,
+   "type": "Byte"
+  },
+  {
+   "start": 50132,
+   "end": 50134,
+   "type": "Byte"
+  },
+  {
+   "start": 50135,
+   "end": 50142,
+   "type": "Byte"
+  },
+  {
+   "start": 50143,
+   "end": 50145,
+   "type": "Byte"
+  },
+  {
+   "start": 50146,
+   "end": 50153,
+   "type": "Byte"
+  },
+  {
+   "start": 50154,
+   "end": 50156,
+   "type": "Byte"
+  },
+  {
+   "start": 50157,
+   "end": 50165,
+   "type": "Byte"
+  },
+  {
+   "start": 50166,
+   "end": 50170,
+   "type": "Byte"
+  },
+  {
+   "start": 50171,
+   "end": 50180,
+   "type": "Byte"
+  },
+  {
+   "start": 50181,
+   "end": 50187,
+   "type": "Byte"
+  },
+  {
+   "start": 50188,
+   "end": 50194,
+   "type": "Byte"
+  },
+  {
+   "start": 50195,
+   "end": 50210,
+   "type": "Byte"
+  },
+  {
+   "start": 50211,
+   "end": 50234,
+   "type": "Byte"
+  },
+  {
+   "start": 50235,
+   "end": 50239,
+   "type": "Byte"
+  },
+  {
+   "start": 50240,
+   "end": 50253,
+   "type": "Byte"
+  },
+  {
+   "start": 50254,
+   "end": 50256,
+   "type": "Byte"
+  },
+  {
+   "start": 50257,
+   "end": 50268,
+   "type": "Byte"
+  },
+  {
+   "start": 50269,
+   "end": 50279,
+   "type": "Byte"
+  },
+  {
+   "start": 50280,
+   "end": 50290,
+   "type": "Byte"
+  },
+  {
+   "start": 50291,
+   "end": 50313,
+   "type": "Byte"
+  },
+  {
+   "start": 50314,
+   "end": 50369,
+   "type": "Word"
+  },
+  {
+   "start": 50370,
+   "end": 50415,
+   "type": "Word"
+  },
+  {
+   "start": 50416,
+   "end": 50461,
+   "type": "Word"
+  },
+  {
+   "start": 50462,
+   "end": 50481,
+   "type": "Word"
+  },
+  {
+   "start": 50482,
+   "end": 50511,
+   "type": "Word"
+  },
+  {
+   "start": 50512,
+   "end": 50514,
+   "type": "Byte"
+  },
+  {
+   "start": 50515,
+   "end": 50517,
+   "type": "Byte"
+  },
+  {
+   "start": 50518,
+   "end": 50528,
+   "type": "Byte"
+  },
+  {
+   "start": 50529,
+   "end": 50531,
+   "type": "Byte"
+  },
+  {
+   "start": 50532,
+   "end": 50534,
+   "type": "Byte"
+  },
+  {
+   "start": 50535,
+   "end": 50537,
+   "type": "Byte"
+  },
+  {
+   "start": 50538,
+   "end": 50540,
+   "type": "Byte"
+  },
+  {
+   "start": 50541,
+   "end": 50591,
+   "type": "Byte"
+  },
+  {
+   "start": 50592,
+   "end": 50689,
+   "type": "Byte"
+  },
+  {
+   "start": 50690,
+   "end": 50692,
+   "type": "Byte"
+  },
+  {
+   "start": 50693,
+   "end": 50700,
+   "type": "Byte"
+  },
+  {
+   "start": 50701,
+   "end": 50703,
+   "type": "Byte"
+  },
+  {
+   "start": 50704,
+   "end": 50748,
+   "type": "Byte"
+  },
+  {
+   "start": 50749,
+   "end": 50751,
+   "type": "Byte"
+  },
+  {
+   "start": 50752,
+   "end": 50755,
+   "type": "Byte"
+  },
+  {
+   "start": 50756,
+   "end": 50760,
+   "type": "Byte"
+  },
+  {
+   "start": 50761,
+   "end": 50767,
+   "type": "Byte"
+  },
+  {
+   "start": 50768,
+   "end": 50769,
+   "type": "Byte"
+  },
+  {
+   "start": 50770,
+   "end": 50825,
+   "type": "Byte"
+  },
+  {
+   "start": 50826,
+   "end": 50829,
+   "type": "Byte"
+  },
+  {
+   "start": 50830,
+   "end": 50834,
+   "type": "Byte"
+  },
+  {
+   "start": 50835,
+   "end": 50840,
+   "type": "Byte"
+  },
+  {
+   "start": 50841,
+   "end": 50969,
+   "type": "Byte"
+  },
+  {
+   "start": 50970,
+   "end": 50981,
+   "type": "Byte"
+  },
+  {
+   "start": 50982,
+   "end": 50984,
+   "type": "Byte"
+  },
+  {
+   "start": 50985,
+   "end": 51017,
+   "type": "Byte"
+  },
+  {
+   "start": 51018,
+   "end": 51066,
+   "type": "Byte"
+  },
+  {
+   "start": 51067,
+   "end": 51151,
+   "type": "Byte"
+  },
+  {
+   "start": 51152,
+   "end": 51155,
+   "type": "Byte"
+  },
+  {
+   "start": 51156,
+   "end": 51164,
+   "type": "Byte"
+  },
+  {
+   "start": 51165,
+   "end": 51328,
+   "type": "Byte"
+  },
+  {
+   "start": 51329,
+   "end": 51340,
+   "type": "Byte"
+  },
+  {
+   "start": 51341,
+   "end": 51343,
+   "type": "Byte"
+  },
+  {
+   "start": 51344,
+   "end": 51444,
+   "type": "Byte"
+  },
+  {
+   "start": 51445,
+   "end": 51458,
+   "type": "Byte"
+  },
+  {
+   "start": 51459,
+   "end": 51492,
+   "type": "Byte"
+  },
+  {
+   "start": 51493,
+   "end": 51556,
+   "type": "Byte"
+  },
+  {
+   "start": 51557,
+   "end": 51559,
+   "type": "Byte"
+  },
+  {
+   "start": 51560,
+   "end": 51572,
+   "type": "Byte"
+  },
+  {
+   "start": 51573,
+   "end": 51587,
+   "type": "Byte"
+  },
+  {
+   "start": 51588,
+   "end": 51714,
+   "type": "Byte"
+  },
+  {
+   "start": 51715,
+   "end": 51738,
+   "type": "Byte"
+  },
+  {
+   "start": 51739,
+   "end": 51755,
+   "type": "Byte"
+  },
+  {
+   "start": 51756,
+   "end": 51776,
+   "type": "Byte"
+  },
+  {
+   "start": 51777,
+   "end": 51792,
+   "type": "Byte"
+  },
+  {
+   "start": 51793,
+   "end": 51805,
+   "type": "Byte"
+  },
+  {
+   "start": 51806,
+   "end": 51808,
+   "type": "Byte"
+  },
+  {
+   "start": 51809,
+   "end": 51848,
+   "type": "Byte"
+  },
+  {
+   "start": 51849,
+   "end": 51851,
+   "type": "Byte"
+  },
+  {
+   "start": 51852,
+   "end": 51897,
+   "type": "Byte"
+  },
+  {
+   "start": 51898,
+   "end": 51900,
+   "type": "Byte"
+  },
+  {
+   "start": 51901,
+   "end": 51904,
+   "type": "Byte"
+  },
+  {
+   "start": 51905,
+   "end": 51907,
+   "type": "Byte"
+  },
+  {
+   "start": 51908,
+   "end": 51933,
+   "type": "Byte"
+  },
+  {
+   "start": 51934,
+   "end": 51936,
+   "type": "Byte"
+  },
+  {
+   "start": 51937,
+   "end": 51964,
+   "type": "Byte"
+  },
+  {
+   "start": 51965,
+   "end": 51967,
+   "type": "Byte"
+  },
+  {
+   "start": 51968,
+   "end": 51970,
+   "type": "Byte"
+  },
+  {
+   "start": 51971,
+   "end": 51973,
+   "type": "Byte"
+  },
+  {
+   "start": 51974,
+   "end": 52090,
+   "type": "Byte"
+  },
+  {
+   "start": 52091,
+   "end": 52093,
+   "type": "Byte"
+  },
+  {
+   "start": 52094,
+   "end": 52182,
+   "type": "Byte"
+  },
+  {
+   "start": 52183,
+   "end": 52185,
+   "type": "Byte"
+  },
+  {
+   "start": 52186,
+   "end": 52205,
+   "type": "Byte"
+  },
+  {
+   "start": 52206,
+   "end": 52210,
+   "type": "Byte"
+  },
+  {
+   "start": 52211,
+   "end": 52336,
+   "type": "Byte"
+  },
+  {
+   "start": 52337,
+   "end": 52364,
+   "type": "Byte"
+  },
+  {
+   "start": 52365,
+   "end": 52369,
+   "type": "Byte"
+  },
+  {
+   "start": 52370,
+   "end": 52419,
+   "type": "Byte"
+  },
+  {
+   "start": 52420,
+   "end": 52445,
+   "type": "Byte"
+  },
+  {
+   "start": 52446,
+   "end": 52447,
+   "type": "Byte"
+  },
+  {
+   "start": 52448,
+   "end": 52454,
+   "type": "Byte"
+  },
+  {
+   "start": 52455,
+   "end": 52457,
+   "type": "Byte"
+  },
+  {
+   "start": 52458,
+   "end": 52483,
+   "type": "Byte"
+  },
+  {
+   "start": 52484,
+   "end": 52488,
+   "type": "Byte"
+  },
+  {
+   "start": 52489,
+   "end": 52514,
+   "type": "Byte"
+  },
+  {
+   "start": 52515,
+   "end": 52532,
+   "type": "Byte"
+  },
+  {
+   "start": 52533,
+   "end": 52537,
+   "type": "Byte"
+  },
+  {
+   "start": 52538,
+   "end": 52579,
+   "type": "Byte"
+  },
+  {
+   "start": 52580,
+   "end": 52582,
+   "type": "Byte"
+  },
+  {
+   "start": 52583,
+   "end": 52587,
+   "type": "Byte"
+  },
+  {
+   "start": 52588,
+   "end": 52621,
+   "type": "Byte"
+  },
+  {
+   "start": 52622,
+   "end": 52626,
+   "type": "Byte"
+  },
+  {
+   "start": 52627,
+   "end": 52644,
+   "type": "Byte"
+  },
+  {
+   "start": 52645,
+   "end": 52649,
+   "type": "Byte"
+  },
+  {
+   "start": 52650,
+   "end": 52654,
+   "type": "Byte"
+  },
+  {
+   "start": 52655,
+   "end": 52665,
+   "type": "Byte"
+  },
+  {
+   "start": 52666,
+   "end": 52668,
+   "type": "Byte"
+  },
+  {
+   "start": 52669,
+   "end": 52677,
+   "type": "Byte"
+  },
+  {
+   "start": 52678,
+   "end": 52679,
+   "type": "Byte"
+  },
+  {
+   "start": 52680,
+   "end": 52693,
+   "type": "Byte"
+  },
+  {
+   "start": 52694,
+   "end": 52706,
+   "type": "Byte"
+  },
+  {
+   "start": 52707,
+   "end": 52715,
+   "type": "Byte"
+  },
+  {
+   "start": 52716,
+   "end": 52724,
+   "type": "Byte"
+  },
+  {
+   "start": 52725,
+   "end": 52726,
+   "type": "Byte"
+  },
+  {
+   "start": 52727,
+   "end": 52740,
+   "type": "Byte"
+  },
+  {
+   "start": 52741,
+   "end": 52753,
+   "type": "Byte"
+  },
+  {
+   "start": 52754,
+   "end": 52762,
+   "type": "Byte"
+  },
+  {
+   "start": 52763,
+   "end": 52773,
+   "type": "Byte"
+  },
+  {
+   "start": 52774,
+   "end": 52776,
+   "type": "Byte"
+  },
+  {
+   "start": 52777,
+   "end": 52784,
+   "type": "Byte"
+  },
+  {
+   "start": 52785,
+   "end": 52791,
+   "type": "Byte"
+  },
+  {
+   "start": 52792,
+   "end": 52800,
+   "type": "Byte"
+  },
+  {
+   "start": 52801,
+   "end": 52850,
+   "type": "Byte"
+  },
+  {
+   "start": 52851,
+   "end": 52988,
+   "type": "Byte"
+  },
+  {
+   "start": 52989,
+   "end": 53001,
+   "type": "Byte"
+  },
+  {
+   "start": 53002,
+   "end": 53014,
+   "type": "Byte"
+  },
+  {
+   "start": 53015,
+   "end": 53018,
+   "type": "Byte"
+  },
+  {
+   "start": 53019,
+   "end": 53114,
+   "type": "Byte"
+  },
+  {
+   "start": 53115,
+   "end": 53210,
+   "type": "Byte"
+  },
+  {
+   "start": 53211,
+   "end": 53232,
+   "type": "Byte"
+  },
+  {
+   "start": 53233,
+   "end": 64826,
+   "type": "Undefined"
+  },
+  {
+   "start": 65344,
+   "end": 65535,
+   "type": "Undefined"
+  }
+ ],
+ "symbols": [
+  {
+   "address": 820,
+   "name": "disk_load_numbered_file",
+   "type": "Subroutine",
+   "kind": "user"
+  },
+  {
+   "address": 924,
+   "name": "disk_filename",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 927,
+   "name": "wait_lower_raster",
+   "type": "Subroutine",
+   "kind": "user"
+  },
+  {
+   "address": 2656,
+   "name": "score_digit_glyphs",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 3072,
+   "name": "initialize_resident",
+   "type": "Subroutine",
+   "kind": "user"
+  },
+  {
+   "address": 3222,
+   "name": "call_scene",
+   "type": "Subroutine",
+   "kind": "user"
+  },
+  {
+   "address": 3247,
+   "name": "scene_return",
+   "type": "Subroutine",
+   "kind": "user"
+  },
+  {
+   "address": 3281,
+   "name": "load_selected_scene",
+   "type": "Subroutine",
+   "kind": "user"
+  },
+  {
+   "address": 3295,
+   "name": "wait_next_scene_fire",
+   "type": "Subroutine",
+   "kind": "user"
+  },
+  {
+   "address": 3370,
+   "name": "prepare_first_scene",
+   "type": "Subroutine",
+   "kind": "user"
+  },
+  {
+   "address": 3441,
+   "name": "s_0D71",
+   "type": "Subroutine",
+   "kind": "auto"
+  },
+  {
+   "address": 3496,
+   "name": "s_0DA8",
+   "type": "Subroutine",
+   "kind": "auto"
+  },
+  {
+   "address": 3515,
+   "name": "prepare_numbered_scene",
+   "type": "Subroutine",
+   "kind": "user"
+  },
+  {
+   "address": 3550,
+   "name": "unpack_scene",
+   "type": "Subroutine",
+   "kind": "user"
+  },
+  {
+   "address": 3560,
+   "name": "copy_scene_record_byte",
+   "type": "Subroutine",
+   "kind": "user"
+  },
+  {
+   "address": 3639,
+   "name": "decode_scene_graphics",
+   "type": "Subroutine",
+   "kind": "user"
+  },
+  {
+   "address": 3729,
+   "name": "check_picture_output_limit",
+   "type": "Subroutine",
+   "kind": "user"
+  },
+  {
+   "address": 3758,
+   "name": "blank_character_display",
+   "type": "Subroutine",
+   "kind": "user"
+  },
+  {
+   "address": 3767,
+   "name": "enable_character_display",
+   "type": "Subroutine",
+   "kind": "user"
+  },
+  {
+   "address": 3778,
+   "name": "s_0EC2",
+   "type": "Subroutine",
+   "kind": "auto"
+  },
+  {
+   "address": 4227,
+   "name": "s_1083",
+   "type": "Subroutine",
+   "kind": "auto"
+  },
+  {
+   "address": 4243,
+   "name": "draw_castle_interstitial",
+   "type": "Subroutine",
+   "kind": "user"
+  },
+  {
+   "address": 4670,
+   "name": "install_interstitial_sprite_tables",
+   "type": "Subroutine",
+   "kind": "user"
+  },
+  {
+   "address": 4789,
+   "name": "s_12B5",
+   "type": "Subroutine",
+   "kind": "auto"
+  },
+  {
+   "address": 4824,
+   "name": "s_12D8",
+   "type": "Subroutine",
+   "kind": "auto"
+  },
+  {
+   "address": 4837,
+   "name": "s_12E5",
+   "type": "Subroutine",
+   "kind": "auto"
+  },
+  {
+   "address": 4857,
+   "name": "s_12F9",
+   "type": "Subroutine",
+   "kind": "auto"
+  },
+  {
+   "address": 4869,
+   "name": "draw_high_score_table",
+   "type": "Subroutine",
+   "kind": "user"
+  },
+  {
+   "address": 5018,
+   "name": "insert_high_score",
+   "type": "Subroutine",
+   "kind": "user"
+  },
+  {
+   "address": 5208,
+   "name": "s_1458",
+   "type": "Subroutine",
+   "kind": "auto"
+  },
+  {
+   "address": 5213,
+   "name": "s_145D",
+   "type": "Subroutine",
+   "kind": "auto"
+  },
+  {
+   "address": 5338,
+   "name": "s_14DA",
+   "type": "Subroutine",
+   "kind": "auto"
+  },
+  {
+   "address": 5379,
+   "name": "highscore_heading",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 5400,
+   "name": "highscore_top_five",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 5467,
+   "name": "s_155B",
+   "type": "Subroutine",
+   "kind": "auto"
+  },
+  {
+   "address": 5478,
+   "name": "cia2_nmi",
+   "type": "Subroutine",
+   "kind": "user"
+  },
+  {
+   "address": 5488,
+   "name": "select_shared_raster_handler",
+   "type": "Subroutine",
+   "kind": "user"
+  },
+  {
+   "address": 5513,
+   "name": "wait_raster",
+   "type": "Subroutine",
+   "kind": "user"
+  },
+  {
+   "address": 5522,
+   "name": "read_joystick_two",
+   "type": "Subroutine",
+   "kind": "user"
+  },
+  {
+   "address": 5538,
+   "name": "wait_nmi_tick",
+   "type": "Subroutine",
+   "kind": "user"
+  },
+  {
+   "address": 5541,
+   "name": "wait_two_timer_periods",
+   "type": "Subroutine",
+   "kind": "user"
+  },
+  {
+   "address": 5553,
+   "name": "wait_one_timer_period",
+   "type": "Subroutine",
+   "kind": "user"
+  },
+  {
+   "address": 5582,
+   "name": "save_ax_y",
+   "type": "Subroutine",
+   "kind": "user"
+  },
+  {
+   "address": 5589,
+   "name": "wait_tick_trampoline",
+   "type": "Subroutine",
+   "kind": "user"
+  },
+  {
+   "address": 5592,
+   "name": "restore_ax_y",
+   "type": "Subroutine",
+   "kind": "user"
+  },
+  {
+   "address": 5599,
+   "name": "clear_screen_and_colour",
+   "type": "Subroutine",
+   "kind": "user"
+  },
+  {
+   "address": 5630,
+   "name": "interstitial_wait",
+   "type": "Subroutine",
+   "kind": "user"
+  },
+  {
+   "address": 5633,
+   "name": "update_cassette_motor_line",
+   "type": "Subroutine",
+   "kind": "user"
+  },
+  {
+   "address": 5668,
+   "name": "s_1624",
+   "type": "Subroutine",
+   "kind": "auto"
+  },
+  {
+   "address": 5669,
+   "name": "wait_cia2_nmi_change",
+   "type": "Subroutine",
+   "kind": "user"
+  },
+  {
+   "address": 5703,
+   "name": "raster_irq",
+   "type": "Subroutine",
+   "kind": "user"
+  },
+  {
+   "address": 5729,
+   "name": "apply_scene_colour_lookup",
+   "type": "Subroutine",
+   "kind": "user"
+  },
+  {
+   "address": 5770,
+   "name": "multiply_unsigned_bytes",
+   "type": "Subroutine",
+   "kind": "user"
+  },
+  {
+   "address": 5938,
+   "name": "seed_random_from_timer",
+   "type": "Subroutine",
+   "kind": "user"
+  },
+  {
+   "address": 5949,
+   "name": "advance_random_seed",
+   "type": "Subroutine",
+   "kind": "user"
+  },
+  {
+   "address": 6008,
+   "name": "play_transition_cue",
+   "type": "Subroutine",
+   "kind": "user"
+  },
+  {
+   "address": 6019,
+   "name": "service_sound_and_tape_port",
+   "type": "Subroutine",
+   "kind": "user"
+  },
+  {
+   "address": 6029,
+   "name": "add_bcd_points",
+   "type": "Subroutine",
+   "kind": "user"
+  },
+  {
+   "address": 6063,
+   "name": "service_resident_sound_state",
+   "type": "Subroutine",
+   "kind": "user"
+  },
+  {
+   "address": 6243,
+   "name": "s_1863",
+   "type": "Subroutine",
+   "kind": "auto"
+  },
+  {
+   "address": 6272,
+   "name": "copy_digit_glyphs",
+   "type": "Subroutine",
+   "kind": "user"
+  },
+  {
+   "address": 6316,
+   "name": "reset_vic_modes",
+   "type": "Subroutine",
+   "kind": "user"
+  },
+  {
+   "address": 6348,
+   "name": "show_attract_title",
+   "type": "Subroutine",
+   "kind": "user"
+  },
+  {
+   "address": 6382,
+   "name": "choose_attract_message",
+   "type": "Subroutine",
+   "kind": "user"
+  },
+  {
+   "address": 6628,
+   "name": "attract_title_text",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 6642,
+   "name": "credit_programming",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 6667,
+   "name": "credit_final_screen",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 6698,
+   "name": "credit_sound",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 6730,
+   "name": "credit_graphics",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 6766,
+   "name": "attract_fire_prompt",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 6787,
+   "name": "attract_publisher",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 6819,
+   "name": "attract_score_prompt",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 6846,
+   "name": "mission_failure_text",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 6904,
+   "name": "between_scene_fire_prompt",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 7110,
+   "name": "interstitial_position_table",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 7127,
+   "name": "interstitial_pointer_table",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 7135,
+   "name": "interstitial_colour_table",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 7143,
+   "name": "interstitial_expansion",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 7232,
+   "name": "scene_end_marker",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 7243,
+   "name": "cassette_messages",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 7354,
+   "name": "scene_rle_escapes",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 7424,
+   "name": "inter_scene_display",
+   "type": "Subroutine",
+   "kind": "user"
+  },
+  {
+   "address": 12800,
+   "name": "hallway_initial_state",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 12890,
+   "name": "dirk_pose_record_01",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 12980,
+   "name": "dirk_pose_record_02",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 13070,
+   "name": "dirk_pose_record_03",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 13160,
+   "name": "dirk_pose_record_04",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 13250,
+   "name": "dirk_pose_record_05",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 13340,
+   "name": "dirk_pose_record_06",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 13430,
+   "name": "dirk_pose_record_07",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 13520,
+   "name": "dirk_pose_record_08",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 13610,
+   "name": "dirk_pose_record_09",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 13700,
+   "name": "dirk_pose_record_0a",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 13790,
+   "name": "dirk_pose_record_0b",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 13880,
+   "name": "dirk_pose_record_0c",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 13970,
+   "name": "dirk_pose_record_0d",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 14060,
+   "name": "dirk_pose_record_0e",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 14150,
+   "name": "dirk_pose_record_0f",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 14240,
+   "name": "dirk_pose_record_10",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 15360,
+   "name": "interstitial_sprite_0",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 15424,
+   "name": "interstitial_sprite_1",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 15488,
+   "name": "interstitial_sprite_2",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 15552,
+   "name": "interstitial_sprite_7",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 15616,
+   "name": "interstitial_sprite_4",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 15680,
+   "name": "interstitial_sprite_5",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 15744,
+   "name": "interstitial_sprite_3",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 15808,
+   "name": "interstitial_sprite_6",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 49156,
+   "name": "advance_sound_player",
+   "type": "Subroutine",
+   "kind": "user"
+  },
+  {
+   "address": 49194,
+   "name": "s_C02A",
+   "type": "Subroutine",
+   "kind": "auto"
+  },
+  {
+   "address": 49259,
+   "name": "s_C06B",
+   "type": "Subroutine",
+   "kind": "auto"
+  },
+  {
+   "address": 49312,
+   "name": "s_C0A0",
+   "type": "Subroutine",
+   "kind": "auto"
+  },
+  {
+   "address": 49363,
+   "name": "service_sid_channel",
+   "type": "Subroutine",
+   "kind": "user"
+  },
+  {
+   "address": 49470,
+   "name": "advance_sid_cue",
+   "type": "Subroutine",
+   "kind": "user"
+  },
+  {
+   "address": 49509,
+   "name": "apply_sid_instrument",
+   "type": "Subroutine",
+   "kind": "user"
+  },
+  {
+   "address": 49541,
+   "name": "start_sid_note",
+   "type": "Subroutine",
+   "kind": "user"
+  },
+  {
+   "address": 49576,
+   "name": "reset_sound_player",
+   "type": "Subroutine",
+   "kind": "user"
+  },
+  {
+   "address": 49610,
+   "name": "cue_list_lo",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 49615,
+   "name": "cue_list_hi",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 49620,
+   "name": "sid_buffer_lo",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 49625,
+   "name": "sid_buffer_hi",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 49630,
+   "name": "pattern_list_lo",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 49635,
+   "name": "pattern_list_hi",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 49640,
+   "name": "playhead_state_records",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 49660,
+   "name": "sid_instruments",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 49870,
+   "name": "channel_0_cue_pointers",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 49898,
+   "name": "channel_1_cue_pointers",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 49926,
+   "name": "channel_2_cue_pointers",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 49954,
+   "name": "channel_3_cue_pointers",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 49974,
+   "name": "channel_4_cue_pointers",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 50004,
+   "name": "sid_cue_c354",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 50009,
+   "name": "sid_cue_c359",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 50014,
+   "name": "sid_pattern_c35e",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 50036,
+   "name": "sid_pattern_c374",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 50058,
+   "name": "sid_cue_c38a",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 50061,
+   "name": "sid_cue_c38d",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 50064,
+   "name": "sid_pattern_c390",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 50068,
+   "name": "sid_pattern_c394",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 50074,
+   "name": "sid_cue_c39a",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 50077,
+   "name": "sid_cue_c39d",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 50080,
+   "name": "sid_cue_c3a0",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 50083,
+   "name": "sid_cue_c3a3",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 50086,
+   "name": "sid_cue_c3a6",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 50090,
+   "name": "sid_pattern_c3aa",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 50122,
+   "name": "sid_pattern_c3ca",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 50132,
+   "name": "sid_cue_c3d4",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 50135,
+   "name": "sid_pattern_c3d7",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 50143,
+   "name": "sid_cue_c3df",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 50146,
+   "name": "sid_pattern_c3e2",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 50154,
+   "name": "sid_cue_c3ea",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 50157,
+   "name": "sid_cue_c3ed",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 50166,
+   "name": "sid_cue_c3f6",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 50171,
+   "name": "sid_pattern_c3fb",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 50181,
+   "name": "sid_cue_c405",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 50188,
+   "name": "sid_cue_c40c",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 50195,
+   "name": "sid_pattern_c413",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 50211,
+   "name": "sid_pattern_c423",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 50235,
+   "name": "sid_cue_c43b",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 50240,
+   "name": "sid_pattern_c440",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 50254,
+   "name": "sid_cue_c44e",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 50257,
+   "name": "sid_pattern_c451",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 50269,
+   "name": "sid_cue_c45d",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 50280,
+   "name": "sid_cue_c468",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 50291,
+   "name": "sid_cue_c473",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 50314,
+   "name": "channel_0_pattern_pointers",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 50370,
+   "name": "channel_1_pattern_pointers",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 50416,
+   "name": "channel_2_pattern_pointers",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 50462,
+   "name": "channel_3_pattern_pointers",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 50482,
+   "name": "channel_4_pattern_pointers",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 50512,
+   "name": "sid_cue_c550",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 50515,
+   "name": "sid_cue_c553",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 50518,
+   "name": "sid_cue_c556",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 50529,
+   "name": "sid_cue_c561",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 50532,
+   "name": "sid_cue_c564",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 50535,
+   "name": "sid_cue_c567",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 50538,
+   "name": "sid_cue_c56a",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 50541,
+   "name": "sid_pattern_c56d",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 50592,
+   "name": "sid_pattern_c5a0",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 50690,
+   "name": "sid_cue_c602",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 50693,
+   "name": "sid_pattern_c605",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 50701,
+   "name": "sid_cue_c60d",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 50704,
+   "name": "sid_pattern_c610",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 50749,
+   "name": "sid_cue_c63d",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 50752,
+   "name": "sid_pattern_c640",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 50756,
+   "name": "sid_cue_c644",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 50761,
+   "name": "sid_cue_c649",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 50768,
+   "name": "sid_pattern_c650",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 50770,
+   "name": "sid_pattern_c652",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 50826,
+   "name": "sid_pattern_c68a",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 50830,
+   "name": "sid_cue_c68e",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 50835,
+   "name": "sid_pattern_c693",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 50841,
+   "name": "sid_pattern_c699",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 50970,
+   "name": "sid_pattern_c71a",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 50982,
+   "name": "sid_pattern_c726",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 50985,
+   "name": "sid_pattern_c729",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 51018,
+   "name": "sid_pattern_c74a",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 51067,
+   "name": "sid_pattern_c77b",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 51152,
+   "name": "sid_pattern_c7d0",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 51156,
+   "name": "sid_pattern_c7d4",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 51165,
+   "name": "sid_pattern_c7dd",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 51329,
+   "name": "sid_pattern_c881",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 51341,
+   "name": "sid_pattern_c88d",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 51344,
+   "name": "sid_pattern_c890",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 51445,
+   "name": "sid_pattern_c8f5",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 51459,
+   "name": "sid_pattern_c903",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 51493,
+   "name": "sid_pattern_c925",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 51557,
+   "name": "sid_pattern_c965",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 51560,
+   "name": "sid_pattern_c968",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 51573,
+   "name": "sid_pattern_c975",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 51588,
+   "name": "sid_pattern_c984",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 51715,
+   "name": "sid_pattern_ca03",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 51739,
+   "name": "sid_pattern_ca1b",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 51756,
+   "name": "sid_pattern_ca2c",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 51777,
+   "name": "sid_pattern_ca41",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 51793,
+   "name": "sid_pattern_ca51",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 51806,
+   "name": "sid_cue_ca5e",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 51809,
+   "name": "sid_pattern_ca61",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 51849,
+   "name": "sid_cue_ca89",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 51852,
+   "name": "sid_pattern_ca8c",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 51898,
+   "name": "sid_cue_caba",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 51901,
+   "name": "sid_pattern_cabd",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 51905,
+   "name": "sid_cue_cac1",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 51908,
+   "name": "sid_pattern_cac4",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 51934,
+   "name": "sid_cue_cade",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 51937,
+   "name": "sid_pattern_cae1",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 51965,
+   "name": "sid_cue_cafd",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 51968,
+   "name": "sid_pattern_cb00",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 51971,
+   "name": "sid_cue_cb03",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 51974,
+   "name": "sid_pattern_cb06",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 52091,
+   "name": "sid_cue_cb7b",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 52094,
+   "name": "sid_pattern_cb7e",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 52183,
+   "name": "sid_cue_cbd7",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 52186,
+   "name": "sid_pattern_cbda",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 52206,
+   "name": "sid_cue_cbee",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 52211,
+   "name": "sid_pattern_cbf3",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 52337,
+   "name": "sid_pattern_cc71",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 52365,
+   "name": "sid_cue_cc8d",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 52370,
+   "name": "sid_pattern_cc92",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 52420,
+   "name": "sid_pattern_ccc4",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 52446,
+   "name": "sid_cue_ccde",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 52448,
+   "name": "sid_cue_cce0",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 52455,
+   "name": "sid_pattern_cce7",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 52458,
+   "name": "sid_pattern_ccea",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 52484,
+   "name": "sid_cue_cd04",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 52489,
+   "name": "sid_pattern_cd09",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 52515,
+   "name": "sid_pattern_cd23",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 52533,
+   "name": "sid_cue_cd35",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 52538,
+   "name": "sid_pattern_cd3a",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 52580,
+   "name": "sid_pattern_cd64",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 52583,
+   "name": "sid_cue_cd67",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 52588,
+   "name": "sid_pattern_cd6c",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 52622,
+   "name": "sid_cue_cd8e",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 52627,
+   "name": "sid_pattern_cd93",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 52645,
+   "name": "sid_cue_cda5",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 52650,
+   "name": "sid_cue_cdaa",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 52655,
+   "name": "sid_cue_cdaf",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 52666,
+   "name": "sid_pattern_cdba",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 52669,
+   "name": "sid_cue_cdbd",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 52678,
+   "name": "sid_pattern_cdc6",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 52680,
+   "name": "sid_pattern_cdc8",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 52694,
+   "name": "sid_pattern_cdd6",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 52707,
+   "name": "sid_pattern_cde3",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 52716,
+   "name": "sid_cue_cdec",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 52725,
+   "name": "sid_pattern_cdf5",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 52727,
+   "name": "sid_pattern_cdf7",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 52741,
+   "name": "sid_pattern_ce05",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 52754,
+   "name": "sid_pattern_ce12",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 52763,
+   "name": "sid_cue_ce1b",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 52774,
+   "name": "sid_pattern_ce26",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 52777,
+   "name": "sid_pattern_ce29",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 52785,
+   "name": "sid_pattern_ce31",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 52792,
+   "name": "sid_pattern_ce38",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 52801,
+   "name": "sid_pattern_ce41",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 52851,
+   "name": "sid_pattern_ce73",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 52989,
+   "name": "sid_pattern_cefd",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 53002,
+   "name": "sid_pattern_cf0a",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 53015,
+   "name": "sid_pattern_cf17",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 53019,
+   "name": "sid_frequency_lo",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 53115,
+   "name": "sid_frequency_hi",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 53211,
+   "name": "sid_pattern_cfdb",
+   "type": "UserDefined",
+   "kind": "user"
+  }
+ ],
+ "comments": [
+  {
+   "address": 820,
+   "type": "line",
+   "text": "Add $40 to A to form the filename suffix after the fixed L at $039C. Blank the screen and save the processor port, VIC interrupt state and tape/serial flag, then call SETLFS for device 8, secondary 1, SETNAM and LOAD. Restore the saved state and enable interrupts after the load."
+  },
+  {
+   "address": 924,
+   "type": "line",
+   "text": "Two PETSCII bytes passed to SETNAM. The loader writes the second byte before each request."
+  },
+  {
+   "address": 927,
+   "type": "line",
+   "text": "Disable interrupts while waiting for the high raster bit in $D011, then leave with interrupts enabled."
+  },
+  {
+   "address": 2656,
+   "type": "line",
+   "text": "Ten eight-byte glyphs in digit order 0 through 9. The copier at $1880 writes them to character codes $B0\u2013$B9 when A is $78."
+  },
+  {
+   "address": 3072,
+   "type": "line",
+   "text": "Reset the sound player, seed state from CIA1 timer A, set the score display pointers, bank out the ROMs, and set up the game interrupt vectors before entering the attract flow."
+  },
+  {
+   "address": 3222,
+   "type": "line",
+   "text": "Reset the stack to $DF, clear the sprite high-X register and call the unpacked scene entry at $1E01. For nonzero scenes clear $23 first."
+  },
+  {
+   "address": 3247,
+   "type": "line",
+   "text": "Disable all sprites. On a successful scene (nonzero $25), increment $26 and load that scene. Starting at scene index 4, increment $27 when it is below 4. A zero outcome instead calls $12D8 and restarts at $0C00."
+  },
+  {
+   "address": 3281,
+   "type": "line",
+   "text": "Pass the next scene number in $26 to the disk loader, then enter the inter-scene path at $1D00."
+  },
+  {
+   "address": 3295,
+   "type": "line",
+   "text": "Draw the eleven-cell fire prompt, wait for a CIA2 timer event, then poll port 2 fire at $DC00 bit 4. Restore SID volume to 15 and unpack the scene before returning to the shared caller."
+  },
+  {
+   "address": 3370,
+   "type": "line",
+   "text": "Reset the scene index to zero and set the source pointer to the boot payload at $D010 and its copy destination to $1E00. Pick the first escape byte from $1CBA and invoke the shared unpacker."
+  },
+  {
+   "address": 3515,
+   "type": "line",
+   "text": "Compare the scene identifier at $8010 against the requested index at $26. If they differ fall back to $0D2A. Otherwise use the requested number to look up the escape byte and unpack from $8010 to $1E00."
+  },
+  {
+   "address": 3550,
+   "type": "line",
+   "text": "Blank the display, install the shared raster handler, and copy bytes to $1E00 while looking for the eleven-byte marker at $1C40. Read input with I/O banked out, then use the page after the marker as the graphics stream and start output at $4000."
+  },
+  {
+   "address": 3560,
+   "type": "line",
+   "text": "Temporarily map RAM under I/O, read the next source byte through $2A/$2B, restore I/O and copy the byte through $2C/$2D. X counts consecutive matching bytes of END OF CODE."
+  },
+  {
+   "address": 3639,
+   "type": "line",
+   "text": "Copy ordinary bytes to the graphics destination. An escape byte introduces a repeated value and an eight-bit count, where zero yields up to 256 stores. Stop at the destination limit in $03EC/$03ED even inside a run."
+  },
+  {
+   "address": 3729,
+   "type": "line",
+   "text": "Compare the output pointer with the exclusive limit. Continue decoding below it. At the limit set the screen page and palette for the shared colour routine, then re-enable the screen."
+  },
+  {
+   "address": 3758,
+   "type": "line",
+   "text": "Clear bitmap and display-enable bits in $D011 and force the raster compare high bit to zero."
+  },
+  {
+   "address": 3767,
+   "type": "line",
+   "text": "Set the display-enable bit, 25-row selection and low scroll bits in $D011, with raster compare below line 256."
+  },
+  {
+   "address": 4243,
+   "type": "line",
+   "text": "Select character display in VIC bank zero with screen at $0400. Clear the display, fill nine pairs of brick rows from the alternating tables at $1B24/$1B28, set their colours and copy the decorative cell rows."
+  },
+  {
+   "address": 4670,
+   "type": "line",
+   "text": "Write the position and high-X register from the table at $1BC6, then install eight colours and sprite pointers from $1BDF and $1BD7. Set the X and Y expansion masks."
+  },
+  {
+   "address": 4869,
+   "type": "line",
+   "text": "Write the high-score heading and five 11-character rows in screen RAM, using a different character-code mapping for the initials and points. Set the colour RAM for both areas."
+  },
+  {
+   "address": 5018,
+   "type": "line",
+   "text": "Compare five new score digits with each table entry and find where the new score outranks a row. Shift 11-byte rows down, copy in the score and prepare the on-screen initials field."
+  },
+  {
+   "address": 5379,
+   "type": "line",
+   "text": "The ENEMIES OF THE DRAGON heading. $1307 maps its letters into the colour title alphabet."
+  },
+  {
+   "address": 5400,
+   "type": "line",
+   "text": "Five 11-byte high-score rows displayed from $131C. The insertion routine at $139A shifts rows and writes into this area."
+  },
+  {
+   "address": 5478,
+   "type": "line",
+   "text": "Preserve A, increment the byte at $156F and acknowledge CIA2 through $DD0D before returning from the interrupt."
+  },
+  {
+   "address": 5488,
+   "type": "line",
+   "text": "Wait for the lower part of the frame, then point $42/$43 to $16AC, set raster compare to $A0 and clear its high bit."
+  },
+  {
+   "address": 5513,
+   "type": "line",
+   "text": "Jump to the raster-high wait at $039F."
+  },
+  {
+   "address": 5522,
+   "type": "line",
+   "text": "Write $FF to CIA1 port A, latch the port value into $28, and restore $7F to the CIA port. The joystick pulls pressed bits low."
+  },
+  {
+   "address": 5538,
+   "type": "line",
+   "text": "Jump to the timer setup and NMI-counter wait at $1625."
+  },
+  {
+   "address": 5541,
+   "type": "line",
+   "text": "Set the period count to two, load CIA2 timer A with $5801 and poll its interrupt register. Decrement the count after each event."
+  },
+  {
+   "address": 5553,
+   "type": "line",
+   "text": "Use A as the upper byte of CIA2 timer A, set the repeat count to one and share the polling loop with the two-period wait."
+  },
+  {
+   "address": 5582,
+   "type": "line",
+   "text": "Save A, X and Y to the three zero-page locations starting at $0A."
+  },
+  {
+   "address": 5589,
+   "type": "line",
+   "text": "Jump to the shared CIA2 NMI-counter wait without pushing another return address."
+  },
+  {
+   "address": 5592,
+   "type": "line",
+   "text": "Reload A, X and Y from the scratch slots beginning at $0A."
+  },
+  {
+   "address": 5599,
+   "type": "line",
+   "text": "Treat A as the screen page and clear four pages there and four pages of colour RAM starting at $D800."
+  },
+  {
+   "address": 5630,
+   "type": "line",
+   "text": "Jump into the CIA2 tick wait immediately before the between-scenes fire poll."
+  },
+  {
+   "address": 5633,
+   "type": "line",
+   "text": "Use $23 to select the state of processor-port bit 5, keeping the data direction register at $2F."
+  },
+  {
+   "address": 5669,
+   "type": "line",
+   "text": "Enable CIA2 timer A interrupts, start the timer, write $010A to its latch, and wait for the NMI counter at $156F to change before clearing the CIA2 interrupt mask."
+  },
+  {
+   "address": 5703,
+   "type": "line",
+   "text": "Save the registers and clear decimal mode. For VIC raster IRQs acknowledge bit 0 and dispatch indirectly through $42/$43. Otherwise restore the registers and return with RTI."
+  },
+  {
+   "address": 5729,
+   "type": "line",
+   "text": "Read four pages of screen cell indices from the page named in $03D6. Look each one up in the table at the address patched into $1678 and write the result to colour RAM."
+  },
+  {
+   "address": 5770,
+   "type": "line",
+   "text": "Multiply the unsigned bytes in $05 and $06 with eight shift-and-add iterations, shifting $06 down to zero and returning the result in $07/$08."
+  },
+  {
+   "address": 5938,
+   "type": "line",
+   "text": "Fill five seed bytes at $03CC from CIA1 timer A low, then force the high bits of the fifth byte into the range $20 through $E0. The following entry doubles and advances the seed."
+  },
+  {
+   "address": 5949,
+   "type": "line",
+   "text": "Constrain the fifth seed byte, double the five-byte seed into $03D1 and add it back to the seed. Add a second contribution to the low three bytes and return the new low byte."
+  },
+  {
+   "address": 6008,
+   "type": "line",
+   "text": "Request sound $88 through $C000 and call $1083 with X=$50."
+  },
+  {
+   "address": 6019,
+   "type": "line",
+   "text": "Call $17AF, advance the sound player at $C004, then service the processor port at $1601."
+  },
+  {
+   "address": 6029,
+   "type": "line",
+   "text": "Add A to the three-byte packed-decimal score at $03B0\u2013$03B2 with carry propagation, leaving decimal mode clear."
+  },
+  {
+   "address": 6063,
+   "type": "line",
+   "text": "Read the resident sound state at $1B03 before the SID driver runs."
+  },
+  {
+   "address": 6272,
+   "type": "line",
+   "text": "For each of 80 bytes, copy the score glyph at $0A60 plus Y to the address from A plus five pages and offset $80."
+  },
+  {
+   "address": 6316,
+   "type": "line",
+   "text": "Clear sprite priority, multicolour and expansion masks. Clear the bitmap and raster high bits and keep only the low four bits of $D016."
+  },
+  {
+   "address": 6348,
+   "type": "line",
+   "text": "Prepare the attract display, request music $80, and place the thirteen title characters at screen position $072D with colour 7."
+  },
+  {
+   "address": 6382,
+   "type": "line",
+   "text": "Use $03F3 to choose an attract message. When $1CC4 is nonzero, also recolour the eleven-character fire prompt from the random generator and set a shorter display interval."
+  },
+  {
+   "address": 6628,
+   "type": "line",
+   "text": "The thirteen title characters rendered in the attract display by $18D6."
+  },
+  {
+   "address": 6642,
+   "type": "line",
+   "text": "Programming credit for John Darnell."
+  },
+  {
+   "address": 6667,
+   "type": "line",
+   "text": "Credit for final screen by Steve Birtles."
+  },
+  {
+   "address": 6698,
+   "type": "line",
+   "text": "Credit for music and sound by Colin Porch."
+  },
+  {
+   "address": 6730,
+   "type": "line",
+   "text": "Credit for graphics drawn by Nicole Baikaloff."
+  },
+  {
+   "address": 6766,
+   "type": "line",
+   "text": "Message telling the player to press fire to start."
+  },
+  {
+   "address": 6787,
+   "type": "line",
+   "text": "Software Projects presenter credit."
+  },
+  {
+   "address": 6819,
+   "type": "line",
+   "text": "Message telling the player to press space for the high score."
+  },
+  {
+   "address": 6846,
+   "type": "line",
+   "text": "Failure message about the attempt to rescue Princess Daphne."
+  },
+  {
+   "address": 6904,
+   "type": "line",
+   "text": "Eleven prompt characters loaded by $0CE1."
+  },
+  {
+   "address": 7110,
+   "type": "line",
+   "text": "Initial values copied to $D000\u2013$D010 by the interstitial sprite setup."
+  },
+  {
+   "address": 7127,
+   "type": "line",
+   "text": "Eight initial VIC sprite pointers copied to $07F8\u2013$07FF at $125F."
+  },
+  {
+   "address": 7135,
+   "type": "line",
+   "text": "Eight initial sprite colours copied to $D027\u2013$D02E at $1259."
+  },
+  {
+   "address": 7143,
+   "type": "line",
+   "text": "Two initial masks written to $D01D and $D017 after the sprite setup."
+  },
+  {
+   "address": 7232,
+   "type": "line",
+   "text": "Eleven bytes spelling END OF CODE. The unpacker copies through this marker and starts decoding picture bytes at the next page."
+  },
+  {
+   "address": 7243,
+   "type": "line",
+   "text": "Messages about pressing play and space and rewinding the tape, following the code delimiter."
+  },
+  {
+   "address": 7354,
+   "type": "line",
+   "text": "One escape byte per scene, indexed by $26. A match in the compressed picture stream changes the two following bytes from literals to value and run length."
+  },
+  {
+   "address": 7424,
+   "type": "line",
+   "text": "Call $1093 and $123E to prepare the inter-scene display, request sound $87 and jump into the fire wait at $0CDF."
+  },
+  {
+   "address": 12800,
+   "type": "line",
+   "text": "Ninety authored bytes copied in descending index order to $44\u2013$9D by the Skull Hallway initialization loop at $1E70."
+  },
+  {
+   "address": 12890,
+   "type": "line",
+   "text": "Pose record $01 for the shared character raster multiplexer. The scene copies 90 bytes to $44\u2013$9D. The first raster band selects sprite pointers $00, $00, $00."
+  },
+  {
+   "address": 12980,
+   "type": "line",
+   "text": "Pose record $02 for the shared character raster multiplexer. The scene copies 90 bytes to $44\u2013$9D. The first raster band selects sprite pointers $90, $22, $1F."
+  },
+  {
+   "address": 13070,
+   "type": "line",
+   "text": "Pose record $03 for the shared character raster multiplexer. The scene copies 90 bytes to $44\u2013$9D. The first raster band selects sprite pointers $00, $00, $00."
+  },
+  {
+   "address": 13160,
+   "type": "line",
+   "text": "Pose record $04 for the shared character raster multiplexer. The scene copies 90 bytes to $44\u2013$9D. The first raster band selects sprite pointers $00, $00, $00."
+  },
+  {
+   "address": 13250,
+   "type": "line",
+   "text": "Pose record $05 for the shared character raster multiplexer. The scene copies 90 bytes to $44\u2013$9D. The first raster band selects sprite pointers $00, $00, $00."
+  },
+  {
+   "address": 13340,
+   "type": "line",
+   "text": "Pose record $06 for the shared character raster multiplexer. The scene copies 90 bytes to $44\u2013$9D. The first raster band selects sprite pointers $00, $00, $00."
+  },
+  {
+   "address": 13430,
+   "type": "line",
+   "text": "Pose record $07 for the shared character raster multiplexer. The scene copies 90 bytes to $44\u2013$9D. The first raster band selects sprite pointers $00, $00, $00."
+  },
+  {
+   "address": 13520,
+   "type": "line",
+   "text": "Pose record $08 for the shared character raster multiplexer. The scene copies 90 bytes to $44\u2013$9D. The first raster band selects sprite pointers $00, $00, $00."
+  },
+  {
+   "address": 13610,
+   "type": "line",
+   "text": "Pose record $09 for the shared character raster multiplexer. The scene copies 90 bytes to $44\u2013$9D. The first raster band selects sprite pointers $00, $00, $00."
+  },
+  {
+   "address": 13700,
+   "type": "line",
+   "text": "Pose record $0A for the shared character raster multiplexer. The scene copies 90 bytes to $44\u2013$9D. The first raster band selects sprite pointers $00, $00, $00."
+  },
+  {
+   "address": 13790,
+   "type": "line",
+   "text": "Pose record $0B for the shared character raster multiplexer. The scene copies 90 bytes to $44\u2013$9D. The first raster band selects sprite pointers $00, $00, $00."
+  },
+  {
+   "address": 13880,
+   "type": "line",
+   "text": "Pose record $0C for the shared character raster multiplexer. The scene copies 90 bytes to $44\u2013$9D. The first raster band selects sprite pointers $00, $00, $00."
+  },
+  {
+   "address": 13970,
+   "type": "line",
+   "text": "Pose record $0D for the shared character raster multiplexer. The scene copies 90 bytes to $44\u2013$9D. The first raster band selects sprite pointers $00, $00, $00."
+  },
+  {
+   "address": 14060,
+   "type": "line",
+   "text": "Pose record $0E for the shared character raster multiplexer. The scene copies 90 bytes to $44\u2013$9D. The first raster band selects sprite pointers $00, $00, $00."
+  },
+  {
+   "address": 14150,
+   "type": "line",
+   "text": "Pose record $0F for the shared character raster multiplexer. The scene copies 90 bytes to $44\u2013$9D. The first raster band selects sprite pointers $00, $00, $00."
+  },
+  {
+   "address": 14240,
+   "type": "line",
+   "text": "Pose record $10 for the shared character raster multiplexer. The scene copies 90 bytes to $44\u2013$9D. The first raster band selects sprite pointers $00, $00, $00."
+  },
+  {
+   "address": 15360,
+   "type": "line",
+   "text": "64-byte source for interstitial sprite 0. The setup at $125F puts pointer $F0 into its entry of the $0400 screen matrix."
+  },
+  {
+   "address": 15424,
+   "type": "line",
+   "text": "64-byte source for interstitial sprite 1. The setup at $125F puts pointer $F1 into its entry of the $0400 screen matrix."
+  },
+  {
+   "address": 15488,
+   "type": "line",
+   "text": "64-byte source for interstitial sprite 2. The setup at $125F puts pointer $F2 into its entry of the $0400 screen matrix."
+  },
+  {
+   "address": 15552,
+   "type": "line",
+   "text": "64-byte source for interstitial sprite 7. The setup at $125F puts pointer $F3 into its entry of the $0400 screen matrix."
+  },
+  {
+   "address": 15616,
+   "type": "line",
+   "text": "64-byte source for interstitial sprite 4. The setup at $125F puts pointer $F4 into its entry of the $0400 screen matrix."
+  },
+  {
+   "address": 15680,
+   "type": "line",
+   "text": "64-byte source for interstitial sprite 5. The setup at $125F puts pointer $F5 into its entry of the $0400 screen matrix."
+  },
+  {
+   "address": 15744,
+   "type": "line",
+   "text": "64-byte source for interstitial sprite 3. The setup at $125F puts pointer $F6 into its entry of the $0400 screen matrix."
+  },
+  {
+   "address": 15808,
+   "type": "line",
+   "text": "64-byte source for interstitial sprite 6. The setup at $125F puts pointer $F7 into its entry of the $0400 screen matrix."
+  },
+  {
+   "address": 49156,
+   "type": "line",
+   "text": "Copy each of five channel state records into zero page, select a request byte, call the channel player and copy the changed records back. Clear the high bit of the three request slots after processing the channels."
+  },
+  {
+   "address": 49363,
+   "type": "line",
+   "text": "Select the channel cue and pattern tables. A request with bit 7 set begins a cue. Otherwise count down the current note, clear gate at count 2, and interpret the next pattern command when the count reaches zero."
+  },
+  {
+   "address": 49470,
+   "type": "line",
+   "text": "Read the cue repeat count and pattern index and load the pattern pointer. A high-bit terminator restarts the sequence for channels 0\u20132 or clears the corresponding request for channels 3\u20134."
+  },
+  {
+   "address": 49509,
+   "type": "line",
+   "text": "Mask the command to an instrument index, multiply by five and copy the five pulse, control and envelope settings to the channel register buffer."
+  },
+  {
+   "address": 49541,
+   "type": "line",
+   "text": "Load the duration and advance the pattern cursor. Translate the note index through the two frequency tables, then set the gate bit in the buffered control register."
+  },
+  {
+   "address": 49576,
+   "type": "line",
+   "text": "Clear the SID register range through $D41C, two request bytes and the player scratch variables."
+  },
+  {
+   "address": 49610,
+   "type": "line",
+   "text": "The low bytes of the five cue lookup table addresses, loaded by $C0D3 when X selects a logical channel."
+  },
+  {
+   "address": 49615,
+   "type": "line",
+   "text": "The high bytes of the five cue lookup table addresses, loaded by $C0D3 when X selects a logical channel."
+  },
+  {
+   "address": 49620,
+   "type": "line",
+   "text": "The low bytes of each channel register buffer pointer, loaded by $C0D3 when X selects a logical channel."
+  },
+  {
+   "address": 49625,
+   "type": "line",
+   "text": "The high bytes of each channel register buffer pointer, loaded by $C0D3 when X selects a logical channel."
+  },
+  {
+   "address": 49630,
+   "type": "line",
+   "text": "The low bytes of the five pattern pointer table addresses, loaded by $C0D3 when X selects a logical channel."
+  },
+  {
+   "address": 49635,
+   "type": "line",
+   "text": "The high bytes of the five pattern pointer table addresses, loaded by $C0D3 when X selects a logical channel."
+  },
+  {
+   "address": 49640,
+   "type": "line",
+   "text": "Five four-byte working records, holding cue pointer and pattern pointer for each channel. The sound service loads and stores these around the per-channel interpreter."
+  },
+  {
+   "address": 49660,
+   "type": "line",
+   "text": "42 five-byte instrument records. The low six bits of a pattern command with bit 7 set and bit 6 clear select pulse low, pulse high, control, attack/decay and sustain/release."
+  },
+  {
+   "address": 49870,
+   "type": "line",
+   "text": "Cue pointers for logical sound channel 0. A request with bit 7 set indexes this list with its low seven bits. A zero pointer has no score."
+  },
+  {
+   "address": 49898,
+   "type": "line",
+   "text": "Cue pointers for logical sound channel 1. A request with bit 7 set indexes this list with its low seven bits. A zero pointer has no score."
+  },
+  {
+   "address": 49926,
+   "type": "line",
+   "text": "Cue pointers for logical sound channel 2. A request with bit 7 set indexes this list with its low seven bits. A zero pointer has no score."
+  },
+  {
+   "address": 49954,
+   "type": "line",
+   "text": "Cue pointers for logical sound channel 3. A request with bit 7 set indexes this list with its low seven bits. A zero pointer has no score."
+  },
+  {
+   "address": 49974,
+   "type": "line",
+   "text": "Cue pointers for logical sound channel 4. A request with bit 7 set indexes this list with its low seven bits. A zero pointer has no score."
+  },
+  {
+   "address": 50004,
+   "type": "line",
+   "text": "Cue sequence at $C354, used by channel/cue 0/12. Repeat count and pattern index pairs: 1\u00d727, 127\u00d723. The high-bit byte ends the sequence."
+  },
+  {
+   "address": 50009,
+   "type": "line",
+   "text": "Cue sequence at $C359, used by channel/cue 1/12. Repeat count and pattern index pairs: 1\u00d722, 127\u00d711. The high-bit byte ends the sequence."
+  },
+  {
+   "address": 50014,
+   "type": "line",
+   "text": "SID pattern at $C35E, selected by channel/pattern 0/27. Contains 10 note-duration pairs and 1 inline instrument selections. The final opcode returns the interpreter to the cue counter."
+  },
+  {
+   "address": 50036,
+   "type": "line",
+   "text": "SID pattern at $C374, selected by channel/pattern 1/22. Contains 10 note-duration pairs and 1 inline instrument selections. The final opcode returns the interpreter to the cue counter."
+  },
+  {
+   "address": 50058,
+   "type": "line",
+   "text": "Cue sequence at $C38A, used by channel/cue 3/7. Repeat count and pattern index pairs: 1\u00d77. The high-bit byte ends the sequence."
+  },
+  {
+   "address": 50061,
+   "type": "line",
+   "text": "Cue sequence at $C38D, used by channel/cue 3/8. Repeat count and pattern index pairs: 1\u00d78. The high-bit byte ends the sequence."
+  },
+  {
+   "address": 50064,
+   "type": "line",
+   "text": "SID pattern at $C390, selected by channel/pattern 3/7. Contains 1 note-duration pairs and 1 inline instrument selections. The final opcode returns the interpreter to the cue counter."
+  },
+  {
+   "address": 50068,
+   "type": "line",
+   "text": "SID pattern at $C394, selected by channel/pattern 3/8. Contains 2 note-duration pairs and 1 inline instrument selections. The final opcode returns the interpreter to the cue counter."
+  },
+  {
+   "address": 50074,
+   "type": "line",
+   "text": "Cue sequence at $C39A, used by channel/cue 4/12. Repeat count and pattern index pairs: 127\u00d712. The high-bit byte ends the sequence."
+  },
+  {
+   "address": 50077,
+   "type": "line",
+   "text": "Cue sequence at $C39D, used by channel/cue 4/13. Repeat count and pattern index pairs: 1\u00d713. The high-bit byte ends the sequence."
+  },
+  {
+   "address": 50080,
+   "type": "line",
+   "text": "Cue sequence at $C3A0, used by channel/cue 4/1. Repeat count and pattern index pairs: 1\u00d70. The high-bit byte ends the sequence."
+  },
+  {
+   "address": 50083,
+   "type": "line",
+   "text": "Cue sequence at $C3A3, used by channel/cue 4/11. Repeat count and pattern index pairs: 1\u00d75. The high-bit byte ends the sequence."
+  },
+  {
+   "address": 50086,
+   "type": "line",
+   "text": "Cue sequence at $C3A6, used by channel/cue 4/6. Repeat count and pattern index pairs: 1\u00d75, 1\u00d711. The high-bit byte ends the sequence."
+  },
+  {
+   "address": 50090,
+   "type": "line",
+   "text": "SID pattern at $C3AA, selected by channel/pattern 4/5. Contains 15 note-duration pairs and 1 inline instrument selections. The final opcode returns the interpreter to the cue counter."
+  },
+  {
+   "address": 50122,
+   "type": "line",
+   "text": "SID pattern at $C3CA, selected by channel/pattern 4/11. Contains 4 note-duration pairs and 1 inline instrument selections. The final opcode returns the interpreter to the cue counter."
+  },
+  {
+   "address": 50132,
+   "type": "line",
+   "text": "Cue sequence at $C3D4, used by channel/cue 4/2. Repeat count and pattern index pairs: 1\u00d71. The high-bit byte ends the sequence."
+  },
+  {
+   "address": 50135,
+   "type": "line",
+   "text": "SID pattern at $C3D7, selected by channel/pattern 4/1. Contains 3 note-duration pairs and 1 inline instrument selections. The final opcode returns the interpreter to the cue counter."
+  },
+  {
+   "address": 50143,
+   "type": "line",
+   "text": "Cue sequence at $C3DF, used by channel/cue 3/6. Repeat count and pattern index pairs: 1\u00d76. The high-bit byte ends the sequence."
+  },
+  {
+   "address": 50146,
+   "type": "line",
+   "text": "SID pattern at $C3E2, selected by channel/pattern 3/6. Contains 3 note-duration pairs and 1 inline instrument selections. The final opcode returns the interpreter to the cue counter."
+  },
+  {
+   "address": 50154,
+   "type": "line",
+   "text": "Cue sequence at $C3EA, used by channel/cue 4/3. Repeat count and pattern index pairs: 1\u00d72. The high-bit byte ends the sequence."
+  },
+  {
+   "address": 50157,
+   "type": "line",
+   "text": "Cue sequence at $C3ED, used by channel/cue 4/4. Repeat count and pattern index pairs: 1\u00d73, 1\u00d72, 1\u00d73, 1\u00d72. The high-bit byte ends the sequence."
+  },
+  {
+   "address": 50166,
+   "type": "line",
+   "text": "Cue sequence at $C3F6, used by channel/cue 4/5. Repeat count and pattern index pairs: 1\u00d73, 1\u00d74. The high-bit byte ends the sequence."
+  },
+  {
+   "address": 50171,
+   "type": "line",
+   "text": "SID pattern at $C3FB, selected by channel/pattern 4/4. Contains 4 note-duration pairs and 1 inline instrument selections. The final opcode returns the interpreter to the cue counter."
+  },
+  {
+   "address": 50181,
+   "type": "line",
+   "text": "Cue sequence at $C405, used by channel/cue 3/4. Repeat count and pattern index pairs: 1\u00d70, 3\u00d71, 1\u00d72. The high-bit byte ends the sequence."
+  },
+  {
+   "address": 50188,
+   "type": "line",
+   "text": "Cue sequence at $C40C, used by channel/cue 3/1. Repeat count and pattern index pairs: 1\u00d70, 5\u00d71, 1\u00d72. The high-bit byte ends the sequence."
+  },
+  {
+   "address": 50195,
+   "type": "line",
+   "text": "SID pattern at $C413, selected by channel/pattern 3/1. Contains 7 note-duration pairs and 1 inline instrument selections. The final opcode returns the interpreter to the cue counter."
+  },
+  {
+   "address": 50211,
+   "type": "line",
+   "text": "SID pattern at $C423, selected by channel/pattern 3/2, 4/6. Contains 11 note-duration pairs and 1 inline instrument selections. The final opcode returns the interpreter to the cue counter."
+  },
+  {
+   "address": 50235,
+   "type": "line",
+   "text": "Cue sequence at $C43B, used by channel/cue 4/7. Repeat count and pattern index pairs: 1\u00d73, 1\u00d77. The high-bit byte ends the sequence."
+  },
+  {
+   "address": 50240,
+   "type": "line",
+   "text": "SID pattern at $C440, selected by channel/pattern 4/7. Contains 6 note-duration pairs and 1 inline instrument selections. The final opcode returns the interpreter to the cue counter."
+  },
+  {
+   "address": 50254,
+   "type": "line",
+   "text": "Cue sequence at $C44E, used by channel/cue 3/3. Repeat count and pattern index pairs: 32\u00d74. The high-bit byte ends the sequence."
+  },
+  {
+   "address": 50257,
+   "type": "line",
+   "text": "SID pattern at $C451, selected by channel/pattern 3/4. Contains 5 note-duration pairs and 1 inline instrument selections. The final opcode returns the interpreter to the cue counter."
+  },
+  {
+   "address": 50269,
+   "type": "line",
+   "text": "Cue sequence at $C45D, used by channel/cue 0/0. Repeat count and pattern index pairs: 40\u00d70, 1\u00d71, 16\u00d72, 1\u00d73, 1\u00d714. The high-bit byte ends the sequence."
+  },
+  {
+   "address": 50280,
+   "type": "line",
+   "text": "Cue sequence at $C468, used by channel/cue 1/0. Repeat count and pattern index pairs: 16\u00d70, 4\u00d71, 1\u00d72, 10\u00d73, 1\u00d74. The high-bit byte ends the sequence."
+  },
+  {
+   "address": 50291,
+   "type": "line",
+   "text": "Cue sequence at $C473, used by channel/cue 2/0. Repeat count and pattern index pairs: 4\u00d70, 1\u00d79, 3\u00d70, 5\u00d72, 1\u00d73, 8\u00d74, 1\u00d78, 1\u00d75, 2\u00d76, 3\u00d71, then 1 more. The high-bit byte ends the sequence."
+  },
+  {
+   "address": 50314,
+   "type": "line",
+   "text": "Pattern address list for channel 0. The second byte of each cue pair is doubled and used as an index here."
+  },
+  {
+   "address": 50370,
+   "type": "line",
+   "text": "Pattern address list for channel 1. The second byte of each cue pair is doubled and used as an index here."
+  },
+  {
+   "address": 50416,
+   "type": "line",
+   "text": "Pattern address list for channel 2. The second byte of each cue pair is doubled and used as an index here."
+  },
+  {
+   "address": 50462,
+   "type": "line",
+   "text": "Pattern address list for channel 3. The second byte of each cue pair is doubled and used as an index here."
+  },
+  {
+   "address": 50482,
+   "type": "line",
+   "text": "Pattern address list for channel 4. The second byte of each cue pair is doubled and used as an index here."
+  },
+  {
+   "address": 50512,
+   "type": "line",
+   "text": "Cue sequence at $C550, used by channel/cue 4/14. Repeat count and pattern index pairs: 1\u00d714. The high-bit byte ends the sequence."
+  },
+  {
+   "address": 50515,
+   "type": "line",
+   "text": "Cue sequence at $C553, used by channel/cue 0/13. Repeat count and pattern index pairs: 127\u00d723. The high-bit byte ends the sequence."
+  },
+  {
+   "address": 50518,
+   "type": "line",
+   "text": "Cue sequence at $C556, used by channel/cue 1/11. Repeat count and pattern index pairs: 1\u00d719, 3\u00d720, 1\u00d719, 2\u00d721, 1\u00d719. The high-bit byte ends the sequence."
+  },
+  {
+   "address": 50529,
+   "type": "line",
+   "text": "Cue sequence at $C561, used by channel/cue 3/9. Repeat count and pattern index pairs: 1\u00d79. The high-bit byte ends the sequence."
+  },
+  {
+   "address": 50532,
+   "type": "line",
+   "text": "Cue sequence at $C564, used by channel/cue 0/11. Repeat count and pattern index pairs: 1\u00d726. The high-bit byte ends the sequence."
+  },
+  {
+   "address": 50535,
+   "type": "line",
+   "text": "Cue sequence at $C567, used by channel/cue 4/10. Repeat count and pattern index pairs: 1\u00d710. The high-bit byte ends the sequence."
+  },
+  {
+   "address": 50538,
+   "type": "line",
+   "text": "Cue sequence at $C56A, used by channel/cue 3/5. Repeat count and pattern index pairs: 1\u00d75. The high-bit byte ends the sequence."
+  },
+  {
+   "address": 50541,
+   "type": "line",
+   "text": "SID pattern at $C56D, selected by channel/pattern 3/5. Contains 73 note-duration pairs and 2 inline instrument selections. The final opcode returns the interpreter to the cue counter."
+  },
+  {
+   "address": 50592,
+   "type": "line",
+   "text": "SID pattern at $C5A0, selected by channel/pattern 4/10. Contains 48 note-duration pairs and 1 inline instrument selections. The final opcode returns the interpreter to the cue counter."
+  },
+  {
+   "address": 50690,
+   "type": "line",
+   "text": "Cue sequence at $C602, used by channel/cue 4/9. Repeat count and pattern index pairs: 1\u00d79. The high-bit byte ends the sequence."
+  },
+  {
+   "address": 50693,
+   "type": "line",
+   "text": "SID pattern at $C605, selected by channel/pattern 4/9. Contains 3 note-duration pairs and 1 inline instrument selections. The final opcode returns the interpreter to the cue counter."
+  },
+  {
+   "address": 50701,
+   "type": "line",
+   "text": "Cue sequence at $C60D, used by channel/cue 4/8. Repeat count and pattern index pairs: 1\u00d78. The high-bit byte ends the sequence."
+  },
+  {
+   "address": 50704,
+   "type": "line",
+   "text": "SID pattern at $C610, selected by channel/pattern 4/8. Contains 21 note-duration pairs and 2 inline instrument selections. The final opcode returns the interpreter to the cue counter."
+  },
+  {
+   "address": 50749,
+   "type": "line",
+   "text": "Cue sequence at $C63D, used by channel/cue 3/2. Repeat count and pattern index pairs: 37\u00d73. The high-bit byte ends the sequence."
+  },
+  {
+   "address": 50752,
+   "type": "line",
+   "text": "SID pattern at $C640, selected by channel/pattern 3/3. Contains 1 note-duration pairs and 1 inline instrument selections. The final opcode returns the interpreter to the cue counter."
+  },
+  {
+   "address": 50756,
+   "type": "line",
+   "text": "Cue sequence at $C644, used by channel/cue 0/9. Repeat count and pattern index pairs: 1\u00d724, 127\u00d723. The high-bit byte ends the sequence."
+  },
+  {
+   "address": 50761,
+   "type": "line",
+   "text": "Cue sequence at $C649, used by channel/cue 0/10. Repeat count and pattern index pairs: 1\u00d721, 1\u00d722, 127\u00d723. The high-bit byte ends the sequence."
+  },
+  {
+   "address": 50768,
+   "type": "line",
+   "text": "SID pattern at $C650, selected by channel/pattern 0/21. Contains 28 note-duration pairs and 1 inline instrument selections. The final opcode returns the interpreter to the cue counter."
+  },
+  {
+   "address": 50770,
+   "type": "line",
+   "text": "SID pattern at $C652, selected by channel/pattern 0/24, 4/14. Contains 27 note-duration pairs and 1 inline instrument selections. The final opcode returns the interpreter to the cue counter."
+  },
+  {
+   "address": 50826,
+   "type": "line",
+   "text": "SID pattern at $C68A, selected by channel/pattern 0/22, 3/9, 4/0. Contains 1 note-duration pairs and 1 inline instrument selections. The final opcode returns the interpreter to the cue counter."
+  },
+  {
+   "address": 50830,
+   "type": "line",
+   "text": "Cue sequence at $C68E, used by channel/cue 1/9, 1/10, 1/13. Repeat count and pattern index pairs: 127\u00d711, 127\u00d711. The high-bit byte ends the sequence."
+  },
+  {
+   "address": 50835,
+   "type": "line",
+   "text": "SID pattern at $C693, selected by channel/pattern 0/0. Contains 2 note-duration pairs and 1 inline instrument selections. The final opcode returns the interpreter to the cue counter."
+  },
+  {
+   "address": 50841,
+   "type": "line",
+   "text": "SID pattern at $C699, selected by channel/pattern 0/1. Contains 68 note-duration pairs and 4 inline instrument selections. The final opcode returns the interpreter to the cue counter."
+  },
+  {
+   "address": 50970,
+   "type": "line",
+   "text": "SID pattern at $C71A, selected by channel/pattern 0/16. Contains 5 note-duration pairs and 1 inline instrument selections. The final opcode returns the interpreter to the cue counter."
+  },
+  {
+   "address": 50982,
+   "type": "line",
+   "text": "SID pattern at $C726, selected by channel/pattern 0/2. Contains 1 note-duration pairs and 0 inline instrument selections. The final opcode returns the interpreter to the cue counter."
+  },
+  {
+   "address": 50985,
+   "type": "line",
+   "text": "SID pattern at $C729, selected by channel/pattern 0/15. Contains 40 note-duration pairs and 1 inline instrument selections. The final opcode returns the interpreter to the cue counter."
+  },
+  {
+   "address": 51018,
+   "type": "line",
+   "text": "SID pattern at $C74A, selected by channel/pattern 0/3. Contains 24 note-duration pairs and 0 inline instrument selections. The final opcode returns the interpreter to the cue counter."
+  },
+  {
+   "address": 51067,
+   "type": "line",
+   "text": "SID pattern at $C77B, selected by channel/pattern 0/14. Contains 42 note-duration pairs and 0 inline instrument selections. The final opcode returns the interpreter to the cue counter."
+  },
+  {
+   "address": 51152,
+   "type": "line",
+   "text": "SID pattern at $C7D0, selected by channel/pattern 1/0. Contains 1 note-duration pairs and 1 inline instrument selections. The final opcode returns the interpreter to the cue counter."
+  },
+  {
+   "address": 51156,
+   "type": "line",
+   "text": "SID pattern at $C7D4, selected by channel/pattern 1/1. Contains 4 note-duration pairs and 0 inline instrument selections. The final opcode returns the interpreter to the cue counter."
+  },
+  {
+   "address": 51165,
+   "type": "line",
+   "text": "SID pattern at $C7DD, selected by channel/pattern 1/2. Contains 86 note-duration pairs and 3 inline instrument selections. The final opcode returns the interpreter to the cue counter."
+  },
+  {
+   "address": 51329,
+   "type": "line",
+   "text": "SID pattern at $C881, selected by channel/pattern 1/14. Contains 5 note-duration pairs and 1 inline instrument selections. The final opcode returns the interpreter to the cue counter."
+  },
+  {
+   "address": 51341,
+   "type": "line",
+   "text": "SID pattern at $C88D, selected by channel/pattern 0/4, 1/3, 2/1. Contains 1 note-duration pairs and 0 inline instrument selections. The final opcode returns the interpreter to the cue counter."
+  },
+  {
+   "address": 51344,
+   "type": "line",
+   "text": "SID pattern at $C890, selected by channel/pattern 1/4. Contains 50 note-duration pairs and 0 inline instrument selections. The final opcode returns the interpreter to the cue counter."
+  },
+  {
+   "address": 51445,
+   "type": "line",
+   "text": "SID pattern at $C8F5, selected by channel/pattern 2/0. Contains 6 note-duration pairs and 1 inline instrument selections. The final opcode returns the interpreter to the cue counter."
+  },
+  {
+   "address": 51459,
+   "type": "line",
+   "text": "SID pattern at $C903, selected by channel/pattern 2/2. Contains 16 note-duration pairs and 1 inline instrument selections. The final opcode returns the interpreter to the cue counter."
+  },
+  {
+   "address": 51493,
+   "type": "line",
+   "text": "SID pattern at $C925, selected by channel/pattern 2/3. Contains 31 note-duration pairs and 1 inline instrument selections. The final opcode returns the interpreter to the cue counter."
+  },
+  {
+   "address": 51557,
+   "type": "line",
+   "text": "SID pattern at $C965, selected by channel/pattern 2/4. Contains 1 note-duration pairs and 0 inline instrument selections. The final opcode returns the interpreter to the cue counter."
+  },
+  {
+   "address": 51560,
+   "type": "line",
+   "text": "SID pattern at $C968, selected by channel/pattern 1/13, 2/6. Contains 13 note-duration pairs and 1 inline instrument selections. The final opcode returns the interpreter to the cue counter."
+  },
+  {
+   "address": 51573,
+   "type": "line",
+   "text": "SID pattern at $C975, selected by channel/pattern 2/5. Contains 7 note-duration pairs and 0 inline instrument selections. The final opcode returns the interpreter to the cue counter."
+  },
+  {
+   "address": 51588,
+   "type": "line",
+   "text": "SID pattern at $C984, selected by channel/pattern 2/7. Contains 63 note-duration pairs and 0 inline instrument selections. The final opcode returns the interpreter to the cue counter."
+  },
+  {
+   "address": 51715,
+   "type": "line",
+   "text": "SID pattern at $CA03, selected by channel/pattern 2/8. Contains 11 note-duration pairs and 1 inline instrument selections. The final opcode returns the interpreter to the cue counter."
+  },
+  {
+   "address": 51739,
+   "type": "line",
+   "text": "SID pattern at $CA1B, selected by channel/pattern 2/9. Contains 8 note-duration pairs and 0 inline instrument selections. The final opcode returns the interpreter to the cue counter."
+  },
+  {
+   "address": 51756,
+   "type": "line",
+   "text": "SID pattern at $CA2C, selected by channel/pattern 2/10. Contains 10 note-duration pairs and 0 inline instrument selections. The final opcode returns the interpreter to the cue counter."
+  },
+  {
+   "address": 51777,
+   "type": "line",
+   "text": "SID pattern at $CA41, selected by channel/pattern 2/11, 4/2. Contains 7 note-duration pairs and 1 inline instrument selections. The final opcode returns the interpreter to the cue counter."
+  },
+  {
+   "address": 51793,
+   "type": "line",
+   "text": "SID pattern at $CA51, selected by channel/pattern 2/22. Contains 6 note-duration pairs and 0 inline instrument selections. The final opcode returns the interpreter to the cue counter."
+  },
+  {
+   "address": 51806,
+   "type": "line",
+   "text": "Cue sequence at $CA5E, used by channel/cue 0/1. Repeat count and pattern index pairs: 1\u00d75. The high-bit byte ends the sequence."
+  },
+  {
+   "address": 51809,
+   "type": "line",
+   "text": "SID pattern at $CA61, selected by channel/pattern 0/5. Contains 19 note-duration pairs and 1 inline instrument selections. The final opcode returns the interpreter to the cue counter."
+  },
+  {
+   "address": 51849,
+   "type": "line",
+   "text": "Cue sequence at $CA89, used by channel/cue 1/1. Repeat count and pattern index pairs: 6\u00d75. The high-bit byte ends the sequence."
+  },
+  {
+   "address": 51852,
+   "type": "line",
+   "text": "SID pattern at $CA8C, selected by channel/pattern 1/5. Contains 22 note-duration pairs and 1 inline instrument selections. The final opcode returns the interpreter to the cue counter."
+  },
+  {
+   "address": 51898,
+   "type": "line",
+   "text": "Cue sequence at $CABA, used by channel/cue 2/1. Repeat count and pattern index pairs: 6\u00d712. The high-bit byte ends the sequence."
+  },
+  {
+   "address": 51901,
+   "type": "line",
+   "text": "SID pattern at $CABD, selected by channel/pattern 2/12. Contains 1 note-duration pairs and 1 inline instrument selections. The final opcode returns the interpreter to the cue counter."
+  },
+  {
+   "address": 51905,
+   "type": "line",
+   "text": "Cue sequence at $CAC1, used by channel/cue 0/2. Repeat count and pattern index pairs: 1\u00d76. The high-bit byte ends the sequence."
+  },
+  {
+   "address": 51908,
+   "type": "line",
+   "text": "SID pattern at $CAC4, selected by channel/pattern 0/6. Contains 12 note-duration pairs and 1 inline instrument selections. The final opcode returns the interpreter to the cue counter."
+  },
+  {
+   "address": 51934,
+   "type": "line",
+   "text": "Cue sequence at $CADE, used by channel/cue 1/2. Repeat count and pattern index pairs: 1\u00d76. The high-bit byte ends the sequence."
+  },
+  {
+   "address": 51937,
+   "type": "line",
+   "text": "SID pattern at $CAE1, selected by channel/pattern 1/6. Contains 13 note-duration pairs and 1 inline instrument selections. The final opcode returns the interpreter to the cue counter."
+  },
+  {
+   "address": 51965,
+   "type": "line",
+   "text": "Cue sequence at $CAFD, used by channel/cue 2/2. Repeat count and pattern index pairs: 1\u00d713. The high-bit byte ends the sequence."
+  },
+  {
+   "address": 51968,
+   "type": "line",
+   "text": "SID pattern at $CB00, selected by channel/pattern 2/13. Contains 1 note-duration pairs and 0 inline instrument selections. The final opcode returns the interpreter to the cue counter."
+  },
+  {
+   "address": 51971,
+   "type": "line",
+   "text": "Cue sequence at $CB03, used by channel/cue 0/3. Repeat count and pattern index pairs: 1\u00d77. The high-bit byte ends the sequence."
+  },
+  {
+   "address": 51974,
+   "type": "line",
+   "text": "SID pattern at $CB06, selected by channel/pattern 0/7. Contains 55 note-duration pairs and 6 inline instrument selections. The final opcode returns the interpreter to the cue counter."
+  },
+  {
+   "address": 52091,
+   "type": "line",
+   "text": "Cue sequence at $CB7B, used by channel/cue 1/3. Repeat count and pattern index pairs: 1\u00d77. The high-bit byte ends the sequence."
+  },
+  {
+   "address": 52094,
+   "type": "line",
+   "text": "SID pattern at $CB7E, selected by channel/pattern 1/7. Contains 41 note-duration pairs and 6 inline instrument selections. The final opcode returns the interpreter to the cue counter."
+  },
+  {
+   "address": 52183,
+   "type": "line",
+   "text": "Cue sequence at $CBD7, used by channel/cue 2/3. Repeat count and pattern index pairs: 1\u00d714. The high-bit byte ends the sequence."
+  },
+  {
+   "address": 52186,
+   "type": "line",
+   "text": "SID pattern at $CBDA, selected by channel/pattern 2/14. Contains 9 note-duration pairs and 1 inline instrument selections. The final opcode returns the interpreter to the cue counter."
+  },
+  {
+   "address": 52206,
+   "type": "line",
+   "text": "Cue sequence at $CBEE, used by channel/cue 0/4. Repeat count and pattern index pairs: 1\u00d79, 127\u00d78. The high-bit byte ends the sequence."
+  },
+  {
+   "address": 52211,
+   "type": "line",
+   "text": "SID pattern at $CBF3, selected by channel/pattern 0/8. Contains 62 note-duration pairs and 1 inline instrument selections. The final opcode returns the interpreter to the cue counter."
+  },
+  {
+   "address": 52337,
+   "type": "line",
+   "text": "SID pattern at $CC71, selected by channel/pattern 0/9. Contains 13 note-duration pairs and 1 inline instrument selections. The final opcode returns the interpreter to the cue counter."
+  },
+  {
+   "address": 52365,
+   "type": "line",
+   "text": "Cue sequence at $CC8D, used by channel/cue 1/4. Repeat count and pattern index pairs: 1\u00d79, 127\u00d78. The high-bit byte ends the sequence."
+  },
+  {
+   "address": 52370,
+   "type": "line",
+   "text": "SID pattern at $CC92, selected by channel/pattern 1/8. Contains 24 note-duration pairs and 1 inline instrument selections. The final opcode returns the interpreter to the cue counter."
+  },
+  {
+   "address": 52420,
+   "type": "line",
+   "text": "SID pattern at $CCC4, selected by channel/pattern 1/9. Contains 12 note-duration pairs and 1 inline instrument selections. The final opcode returns the interpreter to the cue counter."
+  },
+  {
+   "address": 52446,
+   "type": "line",
+   "text": "Cue sequence at $CCDE, used by channel/cue 2/4. Repeat count and pattern index pairs: 1\u00d716, 127\u00d715, 127\u00d715, 127\u00d715. The high-bit byte ends the sequence."
+  },
+  {
+   "address": 52448,
+   "type": "line",
+   "text": "Cue sequence at $CCE0, used by channel/cue 2/5, 2/6, 2/9, 2/10, 2/11, 2/12, 2/13. Repeat count and pattern index pairs: 127\u00d715, 127\u00d715, 127\u00d715. The high-bit byte ends the sequence."
+  },
+  {
+   "address": 52455,
+   "type": "line",
+   "text": "SID pattern at $CCE7, selected by channel/pattern 0/23, 2/15. Contains 1 note-duration pairs and 0 inline instrument selections. The final opcode returns the interpreter to the cue counter."
+  },
+  {
+   "address": 52458,
+   "type": "line",
+   "text": "SID pattern at $CCEA, selected by channel/pattern 2/16. Contains 12 note-duration pairs and 1 inline instrument selections. The final opcode returns the interpreter to the cue counter."
+  },
+  {
+   "address": 52484,
+   "type": "line",
+   "text": "Cue sequence at $CD04, used by channel/cue 0/5. Repeat count and pattern index pairs: 1\u00d710, 127\u00d711. The high-bit byte ends the sequence."
+  },
+  {
+   "address": 52489,
+   "type": "line",
+   "text": "SID pattern at $CD09, selected by channel/pattern 0/10. Contains 12 note-duration pairs and 1 inline instrument selections. The final opcode returns the interpreter to the cue counter."
+  },
+  {
+   "address": 52515,
+   "type": "line",
+   "text": "SID pattern at $CD23, selected by channel/pattern 0/11. Contains 8 note-duration pairs and 1 inline instrument selections. The final opcode returns the interpreter to the cue counter."
+  },
+  {
+   "address": 52533,
+   "type": "line",
+   "text": "Cue sequence at $CD35, used by channel/cue 1/5. Repeat count and pattern index pairs: 1\u00d710, 127\u00d711. The high-bit byte ends the sequence."
+  },
+  {
+   "address": 52538,
+   "type": "line",
+   "text": "SID pattern at $CD3A, selected by channel/pattern 1/10. Contains 20 note-duration pairs and 1 inline instrument selections. The final opcode returns the interpreter to the cue counter."
+  },
+  {
+   "address": 52580,
+   "type": "line",
+   "text": "SID pattern at $CD64, selected by channel/pattern 0/13, 1/11. Contains 1 note-duration pairs and 0 inline instrument selections. The final opcode returns the interpreter to the cue counter."
+  },
+  {
+   "address": 52583,
+   "type": "line",
+   "text": "Cue sequence at $CD67, used by channel/cue 0/6. Repeat count and pattern index pairs: 1\u00d712, 127\u00d725. The high-bit byte ends the sequence."
+  },
+  {
+   "address": 52588,
+   "type": "line",
+   "text": "SID pattern at $CD6C, selected by channel/pattern 0/12. Contains 16 note-duration pairs and 1 inline instrument selections. The final opcode returns the interpreter to the cue counter."
+  },
+  {
+   "address": 52622,
+   "type": "line",
+   "text": "Cue sequence at $CD8E, used by channel/cue 1/6. Repeat count and pattern index pairs: 1\u00d712, 127\u00d711. The high-bit byte ends the sequence."
+  },
+  {
+   "address": 52627,
+   "type": "line",
+   "text": "SID pattern at $CD93, selected by channel/pattern 1/12. Contains 8 note-duration pairs and 1 inline instrument selections. The final opcode returns the interpreter to the cue counter."
+  },
+  {
+   "address": 52645,
+   "type": "line",
+   "text": "Cue sequence at $CDA5, used by channel/cue 0/7. Repeat count and pattern index pairs: 1\u00d716, 127\u00d715. The high-bit byte ends the sequence."
+  },
+  {
+   "address": 52650,
+   "type": "line",
+   "text": "Cue sequence at $CDAA, used by channel/cue 1/7. Repeat count and pattern index pairs: 1\u00d714, 127\u00d713. The high-bit byte ends the sequence."
+  },
+  {
+   "address": 52655,
+   "type": "line",
+   "text": "Cue sequence at $CDAF, used by channel/cue 2/7. Repeat count and pattern index pairs: 1\u00d78, 1\u00d717, 127\u00d715, 127\u00d715, 127\u00d715. The high-bit byte ends the sequence."
+  },
+  {
+   "address": 52666,
+   "type": "line",
+   "text": "SID pattern at $CDBA, selected by channel/pattern 2/17. Contains 1 note-duration pairs and 0 inline instrument selections. The final opcode returns the interpreter to the cue counter."
+  },
+  {
+   "address": 52669,
+   "type": "line",
+   "text": "Cue sequence at $CDBD, used by channel/cue 0/8. Repeat count and pattern index pairs: 1\u00d717, 1\u00d718, 1\u00d719, 1\u00d720. The high-bit byte ends the sequence."
+  },
+  {
+   "address": 52678,
+   "type": "line",
+   "text": "SID pattern at $CDC6, selected by channel/pattern 0/17. Contains 7 note-duration pairs and 1 inline instrument selections. The final opcode returns the interpreter to the cue counter."
+  },
+  {
+   "address": 52680,
+   "type": "line",
+   "text": "SID pattern at $CDC8, selected by channel/pattern 0/19. Contains 6 note-duration pairs and 1 inline instrument selections. The final opcode returns the interpreter to the cue counter."
+  },
+  {
+   "address": 52694,
+   "type": "line",
+   "text": "SID pattern at $CDD6, selected by channel/pattern 0/18. Contains 6 note-duration pairs and 0 inline instrument selections. The final opcode returns the interpreter to the cue counter."
+  },
+  {
+   "address": 52707,
+   "type": "line",
+   "text": "SID pattern at $CDE3, selected by channel/pattern 0/20. Contains 4 note-duration pairs and 0 inline instrument selections. The final opcode returns the interpreter to the cue counter."
+  },
+  {
+   "address": 52716,
+   "type": "line",
+   "text": "Cue sequence at $CDEC, used by channel/cue 1/8. Repeat count and pattern index pairs: 1\u00d715, 1\u00d716, 1\u00d717, 1\u00d718. The high-bit byte ends the sequence."
+  },
+  {
+   "address": 52725,
+   "type": "line",
+   "text": "SID pattern at $CDF5, selected by channel/pattern 1/15. Contains 7 note-duration pairs and 1 inline instrument selections. The final opcode returns the interpreter to the cue counter."
+  },
+  {
+   "address": 52727,
+   "type": "line",
+   "text": "SID pattern at $CDF7, selected by channel/pattern 1/17. Contains 6 note-duration pairs and 1 inline instrument selections. The final opcode returns the interpreter to the cue counter."
+  },
+  {
+   "address": 52741,
+   "type": "line",
+   "text": "SID pattern at $CE05, selected by channel/pattern 1/16. Contains 6 note-duration pairs and 0 inline instrument selections. The final opcode returns the interpreter to the cue counter."
+  },
+  {
+   "address": 52754,
+   "type": "line",
+   "text": "SID pattern at $CE12, selected by channel/pattern 1/18. Contains 4 note-duration pairs and 0 inline instrument selections. The final opcode returns the interpreter to the cue counter."
+  },
+  {
+   "address": 52763,
+   "type": "line",
+   "text": "Cue sequence at $CE1B, used by channel/cue 2/8. Repeat count and pattern index pairs: 1\u00d721, 2\u00d718, 2\u00d719, 2\u00d718, 1\u00d720. The high-bit byte ends the sequence."
+  },
+  {
+   "address": 52774,
+   "type": "line",
+   "text": "SID pattern at $CE26, selected by channel/pattern 2/21, 3/0, 4/3. Contains 1 note-duration pairs and 0 inline instrument selections. The final opcode returns the interpreter to the cue counter."
+  },
+  {
+   "address": 52777,
+   "type": "line",
+   "text": "SID pattern at $CE29, selected by channel/pattern 2/18. Contains 3 note-duration pairs and 1 inline instrument selections. The final opcode returns the interpreter to the cue counter."
+  },
+  {
+   "address": 52785,
+   "type": "line",
+   "text": "SID pattern at $CE31, selected by channel/pattern 2/19. Contains 3 note-duration pairs and 0 inline instrument selections. The final opcode returns the interpreter to the cue counter."
+  },
+  {
+   "address": 52792,
+   "type": "line",
+   "text": "SID pattern at $CE38, selected by channel/pattern 2/20. Contains 4 note-duration pairs and 0 inline instrument selections. The final opcode returns the interpreter to the cue counter."
+  },
+  {
+   "address": 52801,
+   "type": "line",
+   "text": "SID pattern at $CE41, selected by channel/pattern 0/25, 4/12. Contains 24 note-duration pairs and 1 inline instrument selections. The final opcode returns the interpreter to the cue counter."
+  },
+  {
+   "address": 52851,
+   "type": "line",
+   "text": "SID pattern at $CE73, selected by channel/pattern 0/26. Contains 68 note-duration pairs and 1 inline instrument selections. The final opcode returns the interpreter to the cue counter."
+  },
+  {
+   "address": 52989,
+   "type": "line",
+   "text": "SID pattern at $CEFD, selected by channel/pattern 1/20. Contains 6 note-duration pairs and 0 inline instrument selections. The final opcode returns the interpreter to the cue counter."
+  },
+  {
+   "address": 53002,
+   "type": "line",
+   "text": "SID pattern at $CF0A, selected by channel/pattern 1/21. Contains 6 note-duration pairs and 0 inline instrument selections. The final opcode returns the interpreter to the cue counter."
+  },
+  {
+   "address": 53015,
+   "type": "line",
+   "text": "SID pattern at $CF17, selected by channel/pattern 1/19. Contains 1 note-duration pairs and 1 inline instrument selections. The final opcode returns the interpreter to the cue counter."
+  },
+  {
+   "address": 53019,
+   "type": "line",
+   "text": "Low frequency-register bytes for note indices $00\u2013$5F. The pattern decoder combines this table with the corresponding high bytes at $CF7B."
+  },
+  {
+   "address": 53115,
+   "type": "line",
+   "text": "High frequency-register bytes for note indices $00\u2013$5F. Index zero pairs with the first low byte to give frequency word zero."
+  },
+  {
+   "address": 53211,
+   "type": "line",
+   "text": "SID pattern at $CFDB, selected by channel/pattern 4/13. Contains 10 note-duration pairs and 1 inline instrument selections. The final opcode returns the interpreter to the cue counter."
+  }
+ ]
+}

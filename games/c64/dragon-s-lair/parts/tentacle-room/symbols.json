@@ -1,0 +1,766 @@
+{
+ "schema": 1,
+ "platform": "c64",
+ "game": "dragon-s-lair",
+ "part": "tentacle-room",
+ "build": "Software Projects disk, alternate D64 with LA\u2013LJ files",
+ "source": "regen2000proj",
+ "regions": {
+  "exclude": [
+   [
+    256,
+    511,
+    "stack"
+   ],
+   [
+    53248,
+    57343,
+    "I/O and colour RAM"
+   ],
+   [
+    32784,
+    47027,
+    "Disk staging for bytes copied to $1E00 and graphics decoded to $4000; disk tail remains in the queue."
+   ],
+   [
+    0,
+    7679,
+    "Resident game engine"
+   ],
+   [
+    12384,
+    16383,
+    "Resident game engine"
+   ],
+   [
+    32767,
+    32783,
+    "Resident game engine"
+   ],
+   [
+    47120,
+    65535,
+    "Resident game engine"
+   ]
+  ],
+  "extra": [
+   [
+    7680,
+    12383,
+    "Scene bytes copied by the runtime loader"
+   ],
+   [
+    16384,
+    32766,
+    "Scene graphics and supporting data"
+   ],
+   [
+    47028,
+    47119,
+    "Tail of the file loaded at $8010, role unresolved"
+   ]
+  ],
+  "edges": [
+   0,
+   256,
+   512,
+   1024,
+   2048,
+   4096,
+   16384,
+   32768,
+   40960,
+   49152,
+   53248,
+   57344
+  ],
+  "elsewhere": [
+   [
+    0,
+    7679,
+    "Resident game engine"
+   ],
+   [
+    12384,
+    16383,
+    "Resident game engine"
+   ],
+   [
+    32767,
+    32783,
+    "Resident game engine"
+   ],
+   [
+    47120,
+    65535,
+    "Resident game engine"
+   ]
+  ]
+ },
+ "blocks": [
+  {
+   "start": 7680,
+   "end": 7680,
+   "type": "Byte"
+  },
+  {
+   "start": 7681,
+   "end": 10466,
+   "type": "Code"
+  },
+  {
+   "start": 10467,
+   "end": 10479,
+   "type": "Undefined"
+  },
+  {
+   "start": 10480,
+   "end": 10669,
+   "type": "Code"
+  },
+  {
+   "start": 10670,
+   "end": 10848,
+   "type": "Undefined"
+  },
+  {
+   "start": 10849,
+   "end": 11140,
+   "type": "Code"
+  },
+  {
+   "start": 11141,
+   "end": 11463,
+   "type": "Undefined"
+  },
+  {
+   "start": 11464,
+   "end": 11475,
+   "type": "Code"
+  },
+  {
+   "start": 11476,
+   "end": 11593,
+   "type": "Undefined"
+  },
+  {
+   "start": 11594,
+   "end": 11670,
+   "type": "Code"
+  },
+  {
+   "start": 11671,
+   "end": 12372,
+   "type": "Undefined"
+  },
+  {
+   "start": 12373,
+   "end": 12383,
+   "type": "PETSCII"
+  },
+  {
+   "start": 16384,
+   "end": 16639,
+   "type": "Byte"
+  },
+  {
+   "start": 16640,
+   "end": 16895,
+   "type": "Byte"
+  },
+  {
+   "start": 16896,
+   "end": 17151,
+   "type": "Byte"
+  },
+  {
+   "start": 17152,
+   "end": 17407,
+   "type": "Byte"
+  },
+  {
+   "start": 17408,
+   "end": 18431,
+   "type": "Byte"
+  },
+  {
+   "start": 18432,
+   "end": 19455,
+   "type": "Byte"
+  },
+  {
+   "start": 19456,
+   "end": 20479,
+   "type": "Byte"
+  },
+  {
+   "start": 20480,
+   "end": 21503,
+   "type": "Byte"
+  },
+  {
+   "start": 21504,
+   "end": 22527,
+   "type": "Byte"
+  },
+  {
+   "start": 22528,
+   "end": 23551,
+   "type": "Byte"
+  },
+  {
+   "start": 23552,
+   "end": 24575,
+   "type": "Byte"
+  },
+  {
+   "start": 24576,
+   "end": 25599,
+   "type": "Byte"
+  },
+  {
+   "start": 25600,
+   "end": 26623,
+   "type": "Byte"
+  },
+  {
+   "start": 26624,
+   "end": 27647,
+   "type": "Byte"
+  },
+  {
+   "start": 27648,
+   "end": 27775,
+   "type": "Undefined"
+  },
+  {
+   "start": 27776,
+   "end": 27967,
+   "type": "Byte"
+  },
+  {
+   "start": 27968,
+   "end": 28415,
+   "type": "Byte"
+  },
+  {
+   "start": 28416,
+   "end": 29439,
+   "type": "Byte"
+  },
+  {
+   "start": 29440,
+   "end": 30463,
+   "type": "Byte"
+  },
+  {
+   "start": 30464,
+   "end": 30719,
+   "type": "Byte"
+  },
+  {
+   "start": 30720,
+   "end": 31743,
+   "type": "Byte"
+  },
+  {
+   "start": 31744,
+   "end": 32766,
+   "type": "Byte"
+  },
+  {
+   "start": 32784,
+   "end": 47028,
+   "type": "Undefined"
+  },
+  {
+   "start": 47029,
+   "end": 47119,
+   "type": "Byte"
+  }
+ ],
+ "symbols": [
+  {
+   "address": 7680,
+   "name": "scene_identifier",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 7681,
+   "name": "enter_scene",
+   "type": "Subroutine",
+   "kind": "user"
+  },
+  {
+   "address": 7684,
+   "name": "initialize_tentacle_room",
+   "type": "Subroutine",
+   "kind": "user"
+  },
+  {
+   "address": 9581,
+   "name": "s_256D",
+   "type": "Subroutine",
+   "kind": "auto"
+  },
+  {
+   "address": 9658,
+   "name": "copy_tentacle_sprite_backwards",
+   "type": "Subroutine",
+   "kind": "user"
+  },
+  {
+   "address": 9864,
+   "name": "s_2688",
+   "type": "Subroutine",
+   "kind": "auto"
+  },
+  {
+   "address": 9907,
+   "name": "copy_tentacle_sprite_forwards",
+   "type": "Subroutine",
+   "kind": "user"
+  },
+  {
+   "address": 10139,
+   "name": "s_279B",
+   "type": "Subroutine",
+   "kind": "auto"
+  },
+  {
+   "address": 10163,
+   "name": "place_tentacle_sprite_group",
+   "type": "Subroutine",
+   "kind": "user"
+  },
+  {
+   "address": 10374,
+   "name": "s_2886",
+   "type": "Subroutine",
+   "kind": "auto"
+  },
+  {
+   "address": 10480,
+   "name": "restart_tentacle_scene",
+   "type": "Subroutine",
+   "kind": "user"
+  },
+  {
+   "address": 10482,
+   "name": "s_28F2",
+   "type": "Subroutine",
+   "kind": "auto"
+  },
+  {
+   "address": 10491,
+   "name": "delay_tentacle_scene",
+   "type": "Subroutine",
+   "kind": "user"
+  },
+  {
+   "address": 10516,
+   "name": "delay_and_update_tentacle_scene",
+   "type": "Subroutine",
+   "kind": "user"
+  },
+  {
+   "address": 10544,
+   "name": "timed_erase_tentacle_sprite",
+   "type": "Subroutine",
+   "kind": "user"
+  },
+  {
+   "address": 10562,
+   "name": "erase_random_tentacle_pixels",
+   "type": "Subroutine",
+   "kind": "user"
+  },
+  {
+   "address": 10597,
+   "name": "compare_tentacle_input",
+   "type": "Subroutine",
+   "kind": "user"
+  },
+  {
+   "address": 10614,
+   "name": "s_2976",
+   "type": "Subroutine",
+   "kind": "auto"
+  },
+  {
+   "address": 10658,
+   "name": "s_29A2",
+   "type": "Subroutine",
+   "kind": "auto"
+  },
+  {
+   "address": 10849,
+   "name": "load_tentacle_room_pose",
+   "type": "Subroutine",
+   "kind": "user"
+  },
+  {
+   "address": 10883,
+   "name": "s_2A83",
+   "type": "Subroutine",
+   "kind": "auto"
+  },
+  {
+   "address": 10965,
+   "name": "s_2AD5",
+   "type": "Subroutine",
+   "kind": "auto"
+  },
+  {
+   "address": 11464,
+   "name": "s_2CC8",
+   "type": "Subroutine",
+   "kind": "auto"
+  },
+  {
+   "address": 11594,
+   "name": "s_2D4A",
+   "type": "Subroutine",
+   "kind": "auto"
+  },
+  {
+   "address": 11620,
+   "name": "s_2D64",
+   "type": "Subroutine",
+   "kind": "auto"
+  },
+  {
+   "address": 11637,
+   "name": "s_2D75",
+   "type": "Subroutine",
+   "kind": "auto"
+  },
+  {
+   "address": 11654,
+   "name": "s_2D86",
+   "type": "Subroutine",
+   "kind": "auto"
+  },
+  {
+   "address": 12373,
+   "name": "scene_end_marker",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 16384,
+   "name": "scene_screen_cells",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 16640,
+   "name": "scene_screen_cells_middle",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 16896,
+   "name": "scene_screen_cells_lower",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 17152,
+   "name": "scene_screen_cells_tail",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 17408,
+   "name": "tentacle_pose_slots_10_1f",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 18432,
+   "name": "tentacle_pose_slots_20_2f",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 19456,
+   "name": "tentacle_pose_slots_30_3f",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 20480,
+   "name": "tentacle_pose_slots_40_4f",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 21504,
+   "name": "tentacle_pose_slots_50_5f",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 22528,
+   "name": "tentacle_pose_slots_60_6f",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 23552,
+   "name": "tentacle_pose_slots_70_7f",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 24576,
+   "name": "tentacle_pose_slots_80_8f",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 25600,
+   "name": "tentacle_pose_slots_90_9f",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 26624,
+   "name": "tentacle_pose_slots_a0_af",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 27776,
+   "name": "tentacle_erase_sprite_pixels",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 27968,
+   "name": "picture_initial_zero_6d40",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 28416,
+   "name": "tentacle_pose_slots_bc_cb",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 29440,
+   "name": "tentacle_shapes",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 30464,
+   "name": "tentacle_colour_lookup",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 30720,
+   "name": "scene_character_set",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 31744,
+   "name": "scene_character_set_upper",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 47029,
+   "name": "disk_tail_fill_b7b5",
+   "type": "UserDefined",
+   "kind": "user"
+  }
+ ],
+ "comments": [
+  {
+   "address": 7680,
+   "type": "line",
+   "text": "The first copied byte in the scene record is $05. The caller starts executing one byte later."
+  },
+  {
+   "address": 7681,
+   "type": "line",
+   "text": "Save and reload the caller stack pointer, set the room palette, install the raster handler and enable sprites 5\u20137 in the bank at $4000. Apply the colour lookup and initialize the tentacle state."
+  },
+  {
+   "address": 7684,
+   "type": "line",
+   "text": "Restore the stack and use the three room palette colours at $D021\u2013$D023. Fill the glyph and score pointers, install the room raster behaviour and enable sprites 5\u20137."
+  },
+  {
+   "address": 9658,
+   "type": "line",
+   "text": "Copy three bytes per row through the source and destination pointers and decrement each pointer by three. The row counter controls the extra step between 21-row sprite records."
+  },
+  {
+   "address": 9907,
+   "type": "line",
+   "text": "Copy three bytes per row and advance both pointers. After 21 rows advance again to skip the sprite record padding."
+  },
+  {
+   "address": 10163,
+   "type": "line",
+   "text": "Request sound $8A, multiply the selection by 20 and use a table from $29D8 to set sprite coordinates. The $2A5E mode changes which subset is written."
+  },
+  {
+   "address": 10480,
+   "type": "line",
+   "text": "Wait through the scene timing routine with count $32, call the shared routine at $0ECD and jump back to scene initialization."
+  },
+  {
+   "address": 10491,
+   "type": "line",
+   "text": "Count down A in $2DAF. Complement $2A5B on each iteration and wait and poll the joystick on the zero phase."
+  },
+  {
+   "address": 10516,
+   "type": "line",
+   "text": "Count down A in $2DAF and call $256D after each timer wait and joystick sample on alternate phases of $2A5B."
+  },
+  {
+   "address": 10544,
+   "type": "line",
+   "text": "Wait and sample the joystick A times, invoking $2942 after each timer delay."
+  },
+  {
+   "address": 10562,
+   "type": "line",
+   "text": "Every third call, AND bytes at $6C81\u2013$6D3F with a changing mask made by XORing CIA1 timer A low and the raster counter."
+  },
+  {
+   "address": 10597,
+   "type": "line",
+   "text": "Read CIA1 port A with all keyboard column outputs high, invert the active-low bits and compare with the previous sample at $2A60 before updating that byte."
+  },
+  {
+   "address": 10849,
+   "type": "line",
+   "text": "Multiply the pose index A by 90, add $3200 and copy the resulting record to $44\u2013$9D after synchronizing to raster."
+  },
+  {
+   "address": 12373,
+   "type": "line",
+   "text": "This scene record ends with the eleven byte marker copied by the unpacker at $0DDE."
+  },
+  {
+   "address": 16384,
+   "type": "line",
+   "text": "The first page of the screen matrix for the background in VIC bank $4000. Its character codes index the scene colour lookup when the display is initialized."
+  },
+  {
+   "address": 16640,
+   "type": "line",
+   "text": "Screen matrix offsets $100\u2013$1FF. The VIC reads these as character codes and the palette routine processes a page at a time."
+  },
+  {
+   "address": 16896,
+   "type": "line",
+   "text": "Screen matrix offsets $200\u2013$2FF. The screen maps into the glyph data at $7800."
+  },
+  {
+   "address": 17152,
+   "type": "line",
+   "text": "The last page of the screen matrix, including the hardware sprite pointers at $43F8\u2013$43FF."
+  },
+  {
+   "address": 17408,
+   "type": "line",
+   "text": "First sixteen sprite records after the room screen. The rendered pieces include curved and extended movement shapes."
+  },
+  {
+   "address": 18432,
+   "type": "line",
+   "text": "Sixteen shapes including bent limbs and head silhouettes, laid out in 64-byte records."
+  },
+  {
+   "address": 19456,
+   "type": "line",
+   "text": "A run of sprite fragments of legs and arms for the tentacle-room player animation."
+  },
+  {
+   "address": 20480,
+   "type": "line",
+   "text": "Sixteen shapes continuing the pose table, including several paired lower body figures."
+  },
+  {
+   "address": 21504,
+   "type": "line",
+   "text": "Middle bank of rendered movement fragments, with a long curved arm at pointer $59."
+  },
+  {
+   "address": 22528,
+   "type": "line",
+   "text": "Sixteen pieces of sprite movement and body posing in adjacent 64-byte slots."
+  },
+  {
+   "address": 23552,
+   "type": "line",
+   "text": "Tentacle-room sprite part masks for pointers $70\u2013$7F. The leg shapes change orientation between successive records."
+  },
+  {
+   "address": 24576,
+   "type": "line",
+   "text": "Sixteen records including the alternately curled and outstretched body pieces at the end of this range."
+  },
+  {
+   "address": 25600,
+   "type": "line",
+   "text": "Middle-to-high range of body-part masks, with some blank records between the visible pieces."
+  },
+  {
+   "address": 26624,
+   "type": "line",
+   "text": "Sprite parts around pointer $A9, which the scene writes to $43F8 at $2AE6."
+  },
+  {
+   "address": 27776,
+   "type": "line",
+   "text": "The scene filters bytes $6C81\u2013$6D3F at $295F, using the timer and raster as a mask during the sprite-erasure effect."
+  },
+  {
+   "address": 27968,
+   "type": "line",
+   "text": "The unpacked picture stream initializes $6D40\u2013$6EFF to zero. These bytes are still zero in the play capture."
+  },
+  {
+   "address": 28416,
+   "type": "line",
+   "text": "Sixteen extended and folded shapes near the end of the room sprite bank, spaced by $40 bytes."
+  },
+  {
+   "address": 29440,
+   "type": "line",
+   "text": "High sprite slots including claw-like, curved and extended tentacle shapes."
+  },
+  {
+   "address": 30464,
+   "type": "line",
+   "text": "Colour table whose entries are indexed by the bytes in the room screen matrix. The scene selects its page at $1E6D."
+  },
+  {
+   "address": 30720,
+   "type": "line",
+   "text": "The scene character glyph store for VIC bank $4000 and character-base bits 3\u20131 of $D018 set to 7. A character occupies eight consecutive bytes."
+  },
+  {
+   "address": 31744,
+   "type": "line",
+   "text": "The top half of this scene set, from character code $80. The eight-byte glyph slots are used for the scene-specific objects and screen details."
+  },
+  {
+   "address": 47029,
+   "type": "line",
+   "text": "Repeated $06 bytes at $B7B5\u2013$B80F, after the input consumed by the scene picture decode."
+  }
+ ]
+}

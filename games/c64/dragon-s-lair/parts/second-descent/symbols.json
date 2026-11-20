@@ -1,0 +1,471 @@
+{
+ "schema": 1,
+ "platform": "c64",
+ "game": "dragon-s-lair",
+ "part": "second-descent",
+ "build": "Software Projects disk, alternate D64 with LA\u2013LJ files",
+ "source": "regen2000proj",
+ "regions": {
+  "exclude": [
+   [
+    256,
+    511,
+    "stack"
+   ],
+   [
+    53248,
+    57343,
+    "I/O and colour RAM"
+   ],
+   [
+    32784,
+    37268,
+    "Source bytes copied to $1E00 by $0DDE"
+   ],
+   [
+    0,
+    7679,
+    "Resident game engine"
+   ],
+   [
+    12165,
+    16383,
+    "Resident game engine"
+   ],
+   [
+    16384,
+    32255,
+    "First falling platform"
+   ],
+   [
+    32768,
+    32783,
+    "Resident game engine"
+   ],
+   [
+    37392,
+    65535,
+    "Resident game engine"
+   ]
+  ],
+  "extra": [
+   [
+    7680,
+    12164,
+    "Scene bytes copied by the runtime loader"
+   ],
+   [
+    32256,
+    32767,
+    "Scene graphics and supporting data"
+   ],
+   [
+    37269,
+    37391,
+    "Tail of the file loaded at $8010, role unresolved"
+   ]
+  ],
+  "edges": [
+   0,
+   256,
+   512,
+   1024,
+   2048,
+   4096,
+   16384,
+   32768,
+   40960,
+   49152,
+   53248,
+   57344
+  ],
+  "elsewhere": [
+   [
+    0,
+    7679,
+    "Resident game engine"
+   ],
+   [
+    12165,
+    16383,
+    "Resident game engine"
+   ],
+   [
+    16384,
+    32255,
+    "First falling platform"
+   ],
+   [
+    32768,
+    32783,
+    "Resident game engine"
+   ],
+   [
+    37392,
+    65535,
+    "Resident game engine"
+   ]
+  ]
+ },
+ "blocks": [
+  {
+   "start": 7680,
+   "end": 7680,
+   "type": "Byte"
+  },
+  {
+   "start": 7681,
+   "end": 7734,
+   "type": "Code"
+  },
+  {
+   "start": 7735,
+   "end": 7735,
+   "type": "Undefined"
+  },
+  {
+   "start": 7736,
+   "end": 10147,
+   "type": "Code"
+  },
+  {
+   "start": 10148,
+   "end": 10148,
+   "type": "Undefined"
+  },
+  {
+   "start": 10149,
+   "end": 10498,
+   "type": "Code"
+  },
+  {
+   "start": 10499,
+   "end": 10500,
+   "type": "Undefined"
+  },
+  {
+   "start": 10501,
+   "end": 11043,
+   "type": "Code"
+  },
+  {
+   "start": 11044,
+   "end": 11633,
+   "type": "Undefined"
+  },
+  {
+   "start": 11634,
+   "end": 12153,
+   "type": "Code"
+  },
+  {
+   "start": 12154,
+   "end": 12164,
+   "type": "PETSCII"
+  },
+  {
+   "start": 32256,
+   "end": 32767,
+   "type": "Byte"
+  },
+  {
+   "start": 32784,
+   "end": 37375,
+   "type": "Undefined"
+  },
+  {
+   "start": 37376,
+   "end": 37391,
+   "type": "Byte"
+  }
+ ],
+ "symbols": [
+  {
+   "address": 7680,
+   "name": "scene_identifier",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 7681,
+   "name": "enter_scene",
+   "type": "Subroutine",
+   "kind": "user"
+  },
+  {
+   "address": 7702,
+   "name": "scan_shared_platform_marker",
+   "type": "Subroutine",
+   "kind": "user"
+  },
+  {
+   "address": 7736,
+   "name": "decode_second_platform_picture",
+   "type": "Subroutine",
+   "kind": "user"
+  },
+  {
+   "address": 7856,
+   "name": "s_1EB0",
+   "type": "Subroutine",
+   "kind": "auto"
+  },
+  {
+   "address": 8149,
+   "name": "s_1FD5",
+   "type": "Subroutine",
+   "kind": "auto"
+  },
+  {
+   "address": 8155,
+   "name": "s_1FDB",
+   "type": "Subroutine",
+   "kind": "auto"
+  },
+  {
+   "address": 8365,
+   "name": "s_20AD",
+   "type": "Subroutine",
+   "kind": "auto"
+  },
+  {
+   "address": 8430,
+   "name": "s_20EE",
+   "type": "Subroutine",
+   "kind": "auto"
+  },
+  {
+   "address": 8502,
+   "name": "s_2136",
+   "type": "Subroutine",
+   "kind": "auto"
+  },
+  {
+   "address": 8522,
+   "name": "update_descent_movement",
+   "type": "Subroutine",
+   "kind": "user"
+  },
+  {
+   "address": 8882,
+   "name": "s_22B2",
+   "type": "Subroutine",
+   "kind": "auto"
+  },
+  {
+   "address": 8912,
+   "name": "s_22D0",
+   "type": "Subroutine",
+   "kind": "auto"
+  },
+  {
+   "address": 8993,
+   "name": "s_2321",
+   "type": "Subroutine",
+   "kind": "auto"
+  },
+  {
+   "address": 9058,
+   "name": "s_2362",
+   "type": "Subroutine",
+   "kind": "auto"
+  },
+  {
+   "address": 9064,
+   "name": "s_2368",
+   "type": "Subroutine",
+   "kind": "auto"
+  },
+  {
+   "address": 9285,
+   "name": "s_2445",
+   "type": "Subroutine",
+   "kind": "auto"
+  },
+  {
+   "address": 9304,
+   "name": "s_2458",
+   "type": "Subroutine",
+   "kind": "auto"
+  },
+  {
+   "address": 9570,
+   "name": "s_2562",
+   "type": "Subroutine",
+   "kind": "auto"
+  },
+  {
+   "address": 9612,
+   "name": "s_258C",
+   "type": "Subroutine",
+   "kind": "auto"
+  },
+  {
+   "address": 9920,
+   "name": "s_26C0",
+   "type": "Subroutine",
+   "kind": "auto"
+  },
+  {
+   "address": 10234,
+   "name": "s_27FA",
+   "type": "Subroutine",
+   "kind": "auto"
+  },
+  {
+   "address": 10275,
+   "name": "s_2823",
+   "type": "Subroutine",
+   "kind": "auto"
+  },
+  {
+   "address": 10388,
+   "name": "s_2894",
+   "type": "Subroutine",
+   "kind": "auto"
+  },
+  {
+   "address": 10579,
+   "name": "s_2953",
+   "type": "Subroutine",
+   "kind": "auto"
+  },
+  {
+   "address": 10611,
+   "name": "s_2973",
+   "type": "Subroutine",
+   "kind": "auto"
+  },
+  {
+   "address": 10643,
+   "name": "s_2993",
+   "type": "Subroutine",
+   "kind": "auto"
+  },
+  {
+   "address": 10777,
+   "name": "s_2A19",
+   "type": "Subroutine",
+   "kind": "auto"
+  },
+  {
+   "address": 10797,
+   "name": "s_2A2D",
+   "type": "Subroutine",
+   "kind": "auto"
+  },
+  {
+   "address": 10827,
+   "name": "s_2A4B",
+   "type": "Subroutine",
+   "kind": "auto"
+  },
+  {
+   "address": 10832,
+   "name": "s_2A50",
+   "type": "Subroutine",
+   "kind": "auto"
+  },
+  {
+   "address": 10914,
+   "name": "s_2AA2",
+   "type": "Subroutine",
+   "kind": "auto"
+  },
+  {
+   "address": 11038,
+   "name": "s_2B1E",
+   "type": "Subroutine",
+   "kind": "auto"
+  },
+  {
+   "address": 11634,
+   "name": "play_descent_exit_sequence",
+   "type": "Subroutine",
+   "kind": "user"
+  },
+  {
+   "address": 11890,
+   "name": "s_2E72",
+   "type": "Subroutine",
+   "kind": "auto"
+  },
+  {
+   "address": 11910,
+   "name": "s_2E86",
+   "type": "Subroutine",
+   "kind": "auto"
+  },
+  {
+   "address": 12126,
+   "name": "s_2F5E",
+   "type": "Subroutine",
+   "kind": "auto"
+  },
+  {
+   "address": 12154,
+   "name": "scene_end_marker",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 32256,
+   "name": "second_descent_glyphs",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 37376,
+   "name": "disk_tail_fill_9200",
+   "type": "UserDefined",
+   "kind": "user"
+  }
+ ],
+ "comments": [
+  {
+   "address": 7680,
+   "type": "line",
+   "text": "The first copied byte in the scene record is $06. The caller starts executing one byte later."
+  },
+  {
+   "address": 7681,
+   "type": "line",
+   "text": "Save the caller stack pointer and scan the embedded source at $D010 again using escape $54. Replace the disk-load picture with that decoded image, then transform the glyph data at $7E00 and $7F00 for the second descent."
+  },
+  {
+   "address": 7702,
+   "type": "line",
+   "text": "Scan the original staged bytes at $D010 with I/O banked out to find the END OF CODE marker before reusing the first platform picture."
+  },
+  {
+   "address": 7736,
+   "type": "line",
+   "text": "Point output to $4000 and input to the page after the marker. Save the stream pointer at $2D70/$2D71, then call the shared decoder and transform the glyph bytes in the final two pages."
+  },
+  {
+   "address": 8522,
+   "type": "line",
+   "text": "Toggle between the sprite pose banks and select the base frame index. Test active-low up, down and horizontal input and use the corresponding four-piece frame tables."
+  },
+  {
+   "address": 11634,
+   "type": "line",
+   "text": "Clear the pending sound effect and cycle four sprite pointers over ten CIA2 waits. Select the fourth display matrix and its colour table for the follow-on animation."
+  },
+  {
+   "address": 12154,
+   "type": "line",
+   "text": "This scene record ends with the eleven byte marker copied by the unpacker at $0DDE."
+  },
+  {
+   "address": 32256,
+   "type": "line",
+   "text": "The second descent rewrites these 512 bytes of the shared character set using $170F. The remaining picture bytes $4000\u2013$7DFF match the first descent before play."
+  },
+  {
+   "address": 37376,
+   "type": "line",
+   "text": "Repeated $07 bytes at $9200\u2013$920F, after the input consumed by the scene picture decode."
+  }
+ ]
+}

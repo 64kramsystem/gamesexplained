@@ -1,0 +1,83 @@
+{
+  "title": "Resident game engine",
+  "order": 0,
+  "video": {
+    "screen": "",
+    "charset": ""
+  },
+  "coverage": {
+    "exclude": [
+      [
+        "$0400",
+        "$07FF",
+        "Live main screen and sprite pointers. The clear routine at $15EF writes this matrix."
+      ],
+      [
+        "$D010",
+        "$FD3A",
+        "Embedded first-descent source, copied to $1E00 and decoded to $4000. The second descent reads its graphics stream again."
+      ]
+    ],
+    "include": [
+      [
+        "$D000",
+        "$D00F",
+        "RAM below VIC registers, within the boot payload; purpose unresolved"
+      ]
+    ],
+    "extra": [
+      [
+        "$0800",
+        "$1DFF",
+        "Resident code and initialized tables"
+      ],
+      [
+        "$2F57",
+        "$3FFF",
+        "Resident snapshot bytes beyond the first scene even where other scenes later overwrite them"
+      ],
+      [
+        "$D000",
+        "$D00F",
+        "Bytes beneath VIC registers preceding the embedded scene"
+      ],
+      [
+        "$C000",
+        "$CFFF",
+        "Resident SID player and tables"
+      ]
+    ]
+  },
+  "io": [],
+  "regions": [],
+  "ranges": [
+    [
+      "$0334",
+      "$03A6"
+    ],
+    [
+      "$0400",
+      "$07FF"
+    ],
+    [
+      "$0800",
+      "$1DFF"
+    ],
+    [
+      "$2F57",
+      "$3FFF"
+    ],
+    [
+      "$BFFE",
+      "$CFFF"
+    ],
+    [
+      "$D000",
+      "$FD3A"
+    ],
+    [
+      "$FFFA",
+      "$FFFF"
+    ]
+  ]
+}

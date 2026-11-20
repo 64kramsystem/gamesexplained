@@ -1,0 +1,776 @@
+{
+ "schema": 1,
+ "platform": "c64",
+ "game": "dragon-s-lair",
+ "part": "burning-ropes",
+ "build": "Software Projects disk, alternate D64 with LA\u2013LJ files",
+ "source": "regen2000proj",
+ "regions": {
+  "exclude": [
+   [
+    256,
+    511,
+    "stack"
+   ],
+   [
+    53248,
+    57343,
+    "I/O and colour RAM"
+   ],
+   [
+    32784,
+    42913,
+    "Disk staging for bytes copied to $1E00 and graphics decoded to $4000; disk tail remains in the queue."
+   ],
+   [
+    0,
+    7679,
+    "Resident game engine"
+   ],
+   [
+    12151,
+    16383,
+    "Resident game engine"
+   ],
+   [
+    32767,
+    32783,
+    "Resident game engine"
+   ],
+   [
+    43024,
+    65535,
+    "Resident game engine"
+   ]
+  ],
+  "extra": [
+   [
+    7680,
+    12150,
+    "Scene bytes copied by the runtime loader"
+   ],
+   [
+    16384,
+    32766,
+    "Scene graphics and supporting data"
+   ],
+   [
+    42914,
+    43023,
+    "Tail of the file loaded at $8010, role unresolved"
+   ]
+  ],
+  "edges": [
+   0,
+   256,
+   512,
+   1024,
+   2048,
+   4096,
+   16384,
+   32768,
+   40960,
+   49152,
+   53248,
+   57344
+  ],
+  "elsewhere": [
+   [
+    0,
+    7679,
+    "Resident game engine"
+   ],
+   [
+    12151,
+    16383,
+    "Resident game engine"
+   ],
+   [
+    32767,
+    32783,
+    "Resident game engine"
+   ],
+   [
+    43024,
+    65535,
+    "Resident game engine"
+   ]
+  ]
+ },
+ "blocks": [
+  {
+   "start": 7680,
+   "end": 7680,
+   "type": "Byte"
+  },
+  {
+   "start": 7681,
+   "end": 10825,
+   "type": "Code"
+  },
+  {
+   "start": 10826,
+   "end": 10834,
+   "type": "Undefined"
+  },
+  {
+   "start": 10835,
+   "end": 10868,
+   "type": "Code"
+  },
+  {
+   "start": 10869,
+   "end": 11016,
+   "type": "Undefined"
+  },
+  {
+   "start": 11017,
+   "end": 11360,
+   "type": "Code"
+  },
+  {
+   "start": 11361,
+   "end": 12139,
+   "type": "Undefined"
+  },
+  {
+   "start": 12140,
+   "end": 12150,
+   "type": "PETSCII"
+  },
+  {
+   "start": 16384,
+   "end": 16639,
+   "type": "Byte"
+  },
+  {
+   "start": 16640,
+   "end": 16895,
+   "type": "Byte"
+  },
+  {
+   "start": 16896,
+   "end": 17151,
+   "type": "Byte"
+  },
+  {
+   "start": 17152,
+   "end": 17407,
+   "type": "Byte"
+  },
+  {
+   "start": 17408,
+   "end": 18367,
+   "type": "Byte"
+  },
+  {
+   "start": 18368,
+   "end": 18431,
+   "type": "Undefined"
+  },
+  {
+   "start": 18432,
+   "end": 18623,
+   "type": "Byte"
+  },
+  {
+   "start": 18624,
+   "end": 19455,
+   "type": "Byte"
+  },
+  {
+   "start": 19456,
+   "end": 20479,
+   "type": "Byte"
+  },
+  {
+   "start": 20480,
+   "end": 21311,
+   "type": "Byte"
+  },
+  {
+   "start": 21312,
+   "end": 22335,
+   "type": "Byte"
+  },
+  {
+   "start": 22336,
+   "end": 23359,
+   "type": "Byte"
+  },
+  {
+   "start": 23360,
+   "end": 24383,
+   "type": "Byte"
+  },
+  {
+   "start": 24384,
+   "end": 25407,
+   "type": "Byte"
+  },
+  {
+   "start": 25408,
+   "end": 26431,
+   "type": "Byte"
+  },
+  {
+   "start": 26432,
+   "end": 27455,
+   "type": "Byte"
+  },
+  {
+   "start": 27456,
+   "end": 28479,
+   "type": "Byte"
+  },
+  {
+   "start": 28480,
+   "end": 28671,
+   "type": "Byte"
+  },
+  {
+   "start": 28672,
+   "end": 29671,
+   "type": "Undefined"
+  },
+  {
+   "start": 29672,
+   "end": 30463,
+   "type": "Byte"
+  },
+  {
+   "start": 30464,
+   "end": 30719,
+   "type": "Byte"
+  },
+  {
+   "start": 30720,
+   "end": 31743,
+   "type": "Byte"
+  },
+  {
+   "start": 31744,
+   "end": 32766,
+   "type": "Byte"
+  },
+  {
+   "start": 32784,
+   "end": 42914,
+   "type": "Undefined"
+  },
+  {
+   "start": 42915,
+   "end": 43023,
+   "type": "Byte"
+  }
+ ],
+ "symbols": [
+  {
+   "address": 7680,
+   "name": "scene_identifier",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 7681,
+   "name": "enter_scene",
+   "type": "Subroutine",
+   "kind": "user"
+  },
+  {
+   "address": 7684,
+   "name": "initialize_rope_level",
+   "type": "Subroutine",
+   "kind": "user"
+  },
+  {
+   "address": 7723,
+   "name": "reset_rope_state",
+   "type": "Subroutine",
+   "kind": "user"
+  },
+  {
+   "address": 7936,
+   "name": "read_rope_move",
+   "type": "Subroutine",
+   "kind": "user"
+  },
+  {
+   "address": 7979,
+   "name": "s_1F2B",
+   "type": "Subroutine",
+   "kind": "auto"
+  },
+  {
+   "address": 8072,
+   "name": "s_1F88",
+   "type": "Subroutine",
+   "kind": "auto"
+  },
+  {
+   "address": 8169,
+   "name": "check_rope_horizontal_limit",
+   "type": "Subroutine",
+   "kind": "user"
+  },
+  {
+   "address": 8721,
+   "name": "check_rope_midpoint",
+   "type": "Subroutine",
+   "kind": "user"
+  },
+  {
+   "address": 8983,
+   "name": "check_rope_later_threshold",
+   "type": "Subroutine",
+   "kind": "user"
+  },
+  {
+   "address": 9222,
+   "name": "reset_rope_position_after_transition",
+   "type": "Subroutine",
+   "kind": "user"
+  },
+  {
+   "address": 9535,
+   "name": "test_rope_far_left",
+   "type": "Subroutine",
+   "kind": "user"
+  },
+  {
+   "address": 10007,
+   "name": "s_2717",
+   "type": "Subroutine",
+   "kind": "auto"
+  },
+  {
+   "address": 10064,
+   "name": "s_2750",
+   "type": "Subroutine",
+   "kind": "auto"
+  },
+  {
+   "address": 10088,
+   "name": "s_2768",
+   "type": "Subroutine",
+   "kind": "auto"
+  },
+  {
+   "address": 10166,
+   "name": "s_27B6",
+   "type": "Subroutine",
+   "kind": "auto"
+  },
+  {
+   "address": 10196,
+   "name": "s_27D4",
+   "type": "Subroutine",
+   "kind": "auto"
+  },
+  {
+   "address": 10222,
+   "name": "s_27EE",
+   "type": "Subroutine",
+   "kind": "auto"
+  },
+  {
+   "address": 10250,
+   "name": "s_280A",
+   "type": "Subroutine",
+   "kind": "auto"
+  },
+  {
+   "address": 10263,
+   "name": "s_2817",
+   "type": "Subroutine",
+   "kind": "auto"
+  },
+  {
+   "address": 10455,
+   "name": "s_28D7",
+   "type": "Subroutine",
+   "kind": "auto"
+  },
+  {
+   "address": 10468,
+   "name": "s_28E4",
+   "type": "Subroutine",
+   "kind": "auto"
+  },
+  {
+   "address": 10513,
+   "name": "select_rope_character_pose",
+   "type": "Subroutine",
+   "kind": "user"
+  },
+  {
+   "address": 10561,
+   "name": "s_2941",
+   "type": "Subroutine",
+   "kind": "auto"
+  },
+  {
+   "address": 10662,
+   "name": "s_29A6",
+   "type": "Subroutine",
+   "kind": "auto"
+  },
+  {
+   "address": 10679,
+   "name": "s_29B7",
+   "type": "Subroutine",
+   "kind": "auto"
+  },
+  {
+   "address": 10723,
+   "name": "s_29E3",
+   "type": "Subroutine",
+   "kind": "auto"
+  },
+  {
+   "address": 10835,
+   "name": "sample_rope_joystick",
+   "type": "Subroutine",
+   "kind": "user"
+  },
+  {
+   "address": 10851,
+   "name": "s_2A63",
+   "type": "Subroutine",
+   "kind": "auto"
+  },
+  {
+   "address": 11017,
+   "name": "s_2B09",
+   "type": "Subroutine",
+   "kind": "auto"
+  },
+  {
+   "address": 11061,
+   "name": "s_2B35",
+   "type": "Subroutine",
+   "kind": "auto"
+  },
+  {
+   "address": 11244,
+   "name": "s_2BEC",
+   "type": "Subroutine",
+   "kind": "auto"
+  },
+  {
+   "address": 12140,
+   "name": "scene_end_marker",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 16384,
+   "name": "rope_screen_first_page",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 16640,
+   "name": "rope_screen_second_page",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 16896,
+   "name": "rope_screen_third_page",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 17152,
+   "name": "rope_screen_final_page",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 17408,
+   "name": "picture_initial_zero_4400",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 18432,
+   "name": "rope_sprite_images",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 18624,
+   "name": "rope_swing_sprite_slots_23_2f",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 19456,
+   "name": "rope_swing_sprite_slots_30_3f",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 20480,
+   "name": "rope_sprite_slots_40_4c",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 21312,
+   "name": "picture_initial_zero_5340",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 22336,
+   "name": "picture_initial_zero_5740",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 23360,
+   "name": "picture_initial_zero_5b40",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 24384,
+   "name": "picture_initial_zero_5f40",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 25408,
+   "name": "picture_initial_zero_6340",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 26432,
+   "name": "picture_initial_zero_6740",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 27456,
+   "name": "picture_initial_zero_6b40",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 28480,
+   "name": "picture_initial_zero_6f40",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 29672,
+   "name": "picture_initial_zero_73e8",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 30464,
+   "name": "rope_scene_colour_lookup",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 30720,
+   "name": "scene_character_set",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 31744,
+   "name": "scene_character_set_upper",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 42915,
+   "name": "disk_tail_fill_a7a3",
+   "type": "UserDefined",
+   "kind": "user"
+  }
+ ],
+ "comments": [
+  {
+   "address": 7680,
+   "type": "line",
+   "text": "The first copied byte in the scene record is $02. The caller starts executing one byte later."
+  },
+  {
+   "address": 7681,
+   "type": "line",
+   "text": "Save the caller stack pointer, synchronize to raster and install the scene raster target at $2C1D. Initialize the rope scene sprites, score pointers and sound request $86."
+  },
+  {
+   "address": 7684,
+   "type": "line",
+   "text": "Set up raster dispatch, remember the stack and copy the digit glyphs to the active character bank. Initialize the score coordinates before entering the rope state reset."
+  },
+  {
+   "address": 7723,
+   "type": "line",
+   "text": "Request sound $86 and set $2F68/$2F6A to $64/$3C. Clear the level flags and expansion bits, then position sprite 0 at low X=$40 and Y=$C0."
+  },
+  {
+   "address": 7936,
+   "type": "line",
+   "text": "Refresh the input, then use active-low joystick bit 2 for the left path and bit 4 for the fire path. While $2EE0 is nonzero skip the initial input test."
+  },
+  {
+   "address": 8169,
+   "type": "line",
+   "text": "Test sprite 0 high X and whether low X has crossed $C0. Before the target is reached count down $2DC1. On timeout send failure code 3 to $27D4."
+  },
+  {
+   "address": 8721,
+   "type": "line",
+   "text": "Compare low X for sprite 0 with $66. The approach counts down $2DC1, while the crossed threshold with a pending action clears sprite 4 and restores the base Dirk pose."
+  },
+  {
+   "address": 8983,
+   "type": "line",
+   "text": "Wait until sprite 0 high X is clear and low X reaches $98. A pending action enters the approach at $233A. A timed-out attempt selects code 8 before the failure handling."
+  },
+  {
+   "address": 9222,
+   "type": "line",
+   "text": "Queue the shared cue, select state $0A, subtract two from $2F67 and clear the current rope movement flags. Reload sprite pointers and prepare the next segment."
+  },
+  {
+   "address": 9535,
+   "type": "line",
+   "text": "Look for sprite 0 low X below $10. If the timer expires first, use state $0B and follow the failure handler. With a pending action clear sprite 4 and continue the transition."
+  },
+  {
+   "address": 10513,
+   "type": "line",
+   "text": "Index four sprite pointers using four times $2E58, write them to $43F8\u2013$43FB and disable sprite 3 when its pointer is zero. Call the high-X sprite update afterward."
+  },
+  {
+   "address": 10835,
+   "type": "line",
+   "text": "The rope scene enters the common joystick reader through $158F, which updates $28 before callers test it."
+  },
+  {
+   "address": 12140,
+   "type": "line",
+   "text": "This scene record ends with the eleven byte marker copied by the unpacker at $0DDE."
+  },
+  {
+   "address": 16384,
+   "type": "line",
+   "text": "Character codes for the first 256 cells of the Burning Ropes screen, using VIC bank $4000 and $D018=$0F."
+  },
+  {
+   "address": 16640,
+   "type": "line",
+   "text": "Second page of Burning Ropes character cells, covering the middle of the rope rows."
+  },
+  {
+   "address": 16896,
+   "type": "line",
+   "text": "Third page of the Burning Ropes screen cells in the decompressed character matrix."
+  },
+  {
+   "address": 17152,
+   "type": "line",
+   "text": "Final page of cells includes the sprite pointer table written by the routine at $2911."
+  },
+  {
+   "address": 17408,
+   "type": "line",
+   "text": "The unpacked picture stream initializes $4400\u2013$47BF to zero. These bytes are still zero in the play capture."
+  },
+  {
+   "address": 18432,
+   "type": "line",
+   "text": "Three adjacent 64-byte sprite records, selected by sprites 1, 0 and 2 in the Burning Ropes play capture in that order."
+  },
+  {
+   "address": 18624,
+   "type": "line",
+   "text": "Thirteen sprite images showing body fragments in different swing poses, immediately following the three initial images selected for sprites 0\u20132."
+  },
+  {
+   "address": 19456,
+   "type": "line",
+   "text": "Sixteen sprite masks around the middle of the swinging-animation set, including stretched and angled legs."
+  },
+  {
+   "address": 20480,
+   "type": "line",
+   "text": "Thirteen sprite slots after the middle set. Slot $4C is selected for sprite 4 by the store at $212C."
+  },
+  {
+   "address": 21312,
+   "type": "line",
+   "text": "The unpacked picture stream initializes $5340\u2013$573F to zero. These bytes are still zero in the play capture."
+  },
+  {
+   "address": 22336,
+   "type": "line",
+   "text": "The unpacked picture stream initializes $5740\u2013$5B3F to zero. These bytes are still zero in the play capture."
+  },
+  {
+   "address": 23360,
+   "type": "line",
+   "text": "The unpacked picture stream initializes $5B40\u2013$5F3F to zero. These bytes are still zero in the play capture."
+  },
+  {
+   "address": 24384,
+   "type": "line",
+   "text": "The unpacked picture stream initializes $5F40\u2013$633F to zero. These bytes are still zero in the play capture."
+  },
+  {
+   "address": 25408,
+   "type": "line",
+   "text": "The unpacked picture stream initializes $6340\u2013$673F to zero. These bytes are still zero in the play capture."
+  },
+  {
+   "address": 26432,
+   "type": "line",
+   "text": "The unpacked picture stream initializes $6740\u2013$6B3F to zero. These bytes are still zero in the play capture."
+  },
+  {
+   "address": 27456,
+   "type": "line",
+   "text": "The unpacked picture stream initializes $6B40\u2013$6F3F to zero. These bytes are still zero in the play capture."
+  },
+  {
+   "address": 28480,
+   "type": "line",
+   "text": "The unpacked picture stream initializes $6F40\u2013$6FFF to zero. These bytes are still zero in the play capture."
+  },
+  {
+   "address": 29672,
+   "type": "line",
+   "text": "The unpacked picture stream initializes $73E8\u2013$76FF to zero. These bytes are still zero in the play capture."
+  },
+  {
+   "address": 30464,
+   "type": "line",
+   "text": "Character-to-colour table in page $77, selected by the store at $1ED4 and read by the resident colour loader."
+  },
+  {
+   "address": 30720,
+   "type": "line",
+   "text": "The scene character glyph store for VIC bank $4000 and character-base bits 3\u20131 of $D018 set to 7. A character occupies eight consecutive bytes."
+  },
+  {
+   "address": 31744,
+   "type": "line",
+   "text": "The top half of this scene set, from character code $80. The eight-byte glyph slots are used for the scene-specific objects and screen details."
+  },
+  {
+   "address": 42915,
+   "type": "line",
+   "text": "Repeated $03 bytes at $A7A3\u2013$A80F, after the input consumed by the scene picture decode."
+  }
+ ]
+}

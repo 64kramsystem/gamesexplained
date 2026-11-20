@@ -1,0 +1,812 @@
+{
+ "schema": 1,
+ "platform": "c64",
+ "game": "dragon-s-lair",
+ "part": "weapons-room",
+ "build": "Software Projects disk, alternate D64 with LA\u2013LJ files",
+ "source": "regen2000proj",
+ "regions": {
+  "exclude": [
+   [
+    256,
+    511,
+    "stack"
+   ],
+   [
+    53248,
+    57343,
+    "I/O and colour RAM"
+   ],
+   [
+    32784,
+    46609,
+    "Disk staging for bytes copied to $1E00 and graphics decoded to $4000; disk tail remains in the queue."
+   ],
+   [
+    0,
+    7679,
+    "Resident game engine"
+   ],
+   [
+    12768,
+    16383,
+    "Resident game engine"
+   ],
+   [
+    32767,
+    32783,
+    "Resident game engine"
+   ],
+   [
+    46864,
+    65535,
+    "Resident game engine"
+   ]
+  ],
+  "extra": [
+   [
+    7680,
+    12767,
+    "Scene bytes copied by the runtime loader"
+   ],
+   [
+    16384,
+    32766,
+    "Scene graphics and supporting data"
+   ],
+   [
+    46610,
+    46863,
+    "Tail of the file loaded at $8010, role unresolved"
+   ]
+  ],
+  "edges": [
+   0,
+   256,
+   512,
+   1024,
+   2048,
+   4096,
+   16384,
+   32768,
+   40960,
+   49152,
+   53248,
+   57344
+  ],
+  "elsewhere": [
+   [
+    0,
+    7679,
+    "Resident game engine"
+   ],
+   [
+    12768,
+    16383,
+    "Resident game engine"
+   ],
+   [
+    32767,
+    32783,
+    "Resident game engine"
+   ],
+   [
+    46864,
+    65535,
+    "Resident game engine"
+   ]
+  ]
+ },
+ "blocks": [
+  {
+   "start": 7680,
+   "end": 7680,
+   "type": "Byte"
+  },
+  {
+   "start": 7681,
+   "end": 10444,
+   "type": "Code"
+  },
+  {
+   "start": 10445,
+   "end": 10491,
+   "type": "Undefined"
+  },
+  {
+   "start": 10492,
+   "end": 10539,
+   "type": "Code"
+  },
+  {
+   "start": 10540,
+   "end": 10548,
+   "type": "Undefined"
+  },
+  {
+   "start": 10549,
+   "end": 11351,
+   "type": "Code"
+  },
+  {
+   "start": 11352,
+   "end": 11668,
+   "type": "Undefined"
+  },
+  {
+   "start": 11669,
+   "end": 11674,
+   "type": "Code"
+  },
+  {
+   "start": 11675,
+   "end": 11800,
+   "type": "Undefined"
+  },
+  {
+   "start": 11801,
+   "end": 11972,
+   "type": "Code"
+  },
+  {
+   "start": 11973,
+   "end": 12756,
+   "type": "Undefined"
+  },
+  {
+   "start": 12757,
+   "end": 12767,
+   "type": "PETSCII"
+  },
+  {
+   "start": 16384,
+   "end": 16639,
+   "type": "Byte"
+  },
+  {
+   "start": 16640,
+   "end": 16895,
+   "type": "Byte"
+  },
+  {
+   "start": 16896,
+   "end": 17151,
+   "type": "Byte"
+  },
+  {
+   "start": 17152,
+   "end": 17407,
+   "type": "Byte"
+  },
+  {
+   "start": 17408,
+   "end": 17535,
+   "type": "Byte"
+  },
+  {
+   "start": 17536,
+   "end": 17663,
+   "type": "Byte"
+  },
+  {
+   "start": 17664,
+   "end": 17919,
+   "type": "Byte"
+  },
+  {
+   "start": 17920,
+   "end": 18175,
+   "type": "Byte"
+  },
+  {
+   "start": 18176,
+   "end": 19199,
+   "type": "Byte"
+  },
+  {
+   "start": 19200,
+   "end": 20223,
+   "type": "Byte"
+  },
+  {
+   "start": 20224,
+   "end": 21247,
+   "type": "Byte"
+  },
+  {
+   "start": 21248,
+   "end": 22271,
+   "type": "Byte"
+  },
+  {
+   "start": 22272,
+   "end": 23295,
+   "type": "Byte"
+  },
+  {
+   "start": 23296,
+   "end": 24319,
+   "type": "Byte"
+  },
+  {
+   "start": 24320,
+   "end": 25343,
+   "type": "Byte"
+  },
+  {
+   "start": 25344,
+   "end": 26367,
+   "type": "Byte"
+  },
+  {
+   "start": 26368,
+   "end": 27391,
+   "type": "Byte"
+  },
+  {
+   "start": 27392,
+   "end": 28415,
+   "type": "Byte"
+  },
+  {
+   "start": 28416,
+   "end": 28479,
+   "type": "Byte"
+  },
+  {
+   "start": 28480,
+   "end": 28927,
+   "type": "Byte"
+  },
+  {
+   "start": 28928,
+   "end": 29695,
+   "type": "Byte"
+  },
+  {
+   "start": 29696,
+   "end": 30719,
+   "type": "Undefined"
+  },
+  {
+   "start": 30720,
+   "end": 31743,
+   "type": "Byte"
+  },
+  {
+   "start": 31744,
+   "end": 32766,
+   "type": "Byte"
+  },
+  {
+   "start": 32784,
+   "end": 46614,
+   "type": "Undefined"
+  },
+  {
+   "start": 46615,
+   "end": 46863,
+   "type": "Byte"
+  }
+ ],
+ "symbols": [
+  {
+   "address": 7680,
+   "name": "scene_identifier",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 7681,
+   "name": "enter_scene",
+   "type": "Subroutine",
+   "kind": "user"
+  },
+  {
+   "address": 7684,
+   "name": "initialize_weapon_room",
+   "type": "Subroutine",
+   "kind": "user"
+  },
+  {
+   "address": 7804,
+   "name": "set_expanded_weapon_sprite",
+   "type": "Subroutine",
+   "kind": "user"
+  },
+  {
+   "address": 10363,
+   "name": "s_287B",
+   "type": "Subroutine",
+   "kind": "auto"
+  },
+  {
+   "address": 10378,
+   "name": "s_288A",
+   "type": "Subroutine",
+   "kind": "auto"
+  },
+  {
+   "address": 10410,
+   "name": "s_28AA",
+   "type": "Subroutine",
+   "kind": "auto"
+  },
+  {
+   "address": 10430,
+   "name": "s_28BE",
+   "type": "Subroutine",
+   "kind": "auto"
+  },
+  {
+   "address": 10492,
+   "name": "match_weapon_room_action",
+   "type": "Subroutine",
+   "kind": "user"
+  },
+  {
+   "address": 10549,
+   "name": "s_2935",
+   "type": "Subroutine",
+   "kind": "auto"
+  },
+  {
+   "address": 10593,
+   "name": "s_2961",
+   "type": "Subroutine",
+   "kind": "auto"
+  },
+  {
+   "address": 10603,
+   "name": "s_296B",
+   "type": "Subroutine",
+   "kind": "auto"
+  },
+  {
+   "address": 10645,
+   "name": "s_2995",
+   "type": "Subroutine",
+   "kind": "auto"
+  },
+  {
+   "address": 10714,
+   "name": "s_29DA",
+   "type": "Subroutine",
+   "kind": "auto"
+  },
+  {
+   "address": 10785,
+   "name": "advance_weapon_sprite",
+   "type": "Subroutine",
+   "kind": "user"
+  },
+  {
+   "address": 10897,
+   "name": "s_2A91",
+   "type": "Subroutine",
+   "kind": "auto"
+  },
+  {
+   "address": 10898,
+   "name": "s_2A92",
+   "type": "Subroutine",
+   "kind": "auto"
+  },
+  {
+   "address": 10927,
+   "name": "s_2AAF",
+   "type": "Subroutine",
+   "kind": "auto"
+  },
+  {
+   "address": 10932,
+   "name": "s_2AB4",
+   "type": "Subroutine",
+   "kind": "auto"
+  },
+  {
+   "address": 10948,
+   "name": "s_2AC4",
+   "type": "Subroutine",
+   "kind": "auto"
+  },
+  {
+   "address": 10994,
+   "name": "step_weapons_room_animation",
+   "type": "Subroutine",
+   "kind": "user"
+  },
+  {
+   "address": 11011,
+   "name": "delay_and_poll_weapon_room",
+   "type": "Subroutine",
+   "kind": "user"
+  },
+  {
+   "address": 11029,
+   "name": "animate_weapon_room_sprite_one",
+   "type": "Subroutine",
+   "kind": "user"
+  },
+  {
+   "address": 11060,
+   "name": "load_weapon_room_pose",
+   "type": "Subroutine",
+   "kind": "user"
+  },
+  {
+   "address": 11094,
+   "name": "s_2B56",
+   "type": "Subroutine",
+   "kind": "auto"
+  },
+  {
+   "address": 11176,
+   "name": "place_weapon_sprite_and_companions",
+   "type": "Subroutine",
+   "kind": "user"
+  },
+  {
+   "address": 11801,
+   "name": "s_2E19",
+   "type": "Subroutine",
+   "kind": "auto"
+  },
+  {
+   "address": 11813,
+   "name": "s_2E25",
+   "type": "Subroutine",
+   "kind": "auto"
+  },
+  {
+   "address": 11887,
+   "name": "s_2E6F",
+   "type": "Subroutine",
+   "kind": "auto"
+  },
+  {
+   "address": 11931,
+   "name": "s_2E9B",
+   "type": "Subroutine",
+   "kind": "auto"
+  },
+  {
+   "address": 11957,
+   "name": "s_2EB5",
+   "type": "Subroutine",
+   "kind": "auto"
+  },
+  {
+   "address": 12757,
+   "name": "scene_end_marker",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 16384,
+   "name": "scene_screen_cells",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 16640,
+   "name": "scene_screen_cells_middle",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 16896,
+   "name": "scene_screen_cells_lower",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 17152,
+   "name": "scene_screen_cells_tail",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 17408,
+   "name": "weapons_pose_slots_10_11",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 17536,
+   "name": "weapons_room_dirk_images",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 17664,
+   "name": "weapons_pose_slots_14_17",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 17920,
+   "name": "weapons_room_colour_lookup",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 18176,
+   "name": "weapons_pose_slots_1c_2b",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 19200,
+   "name": "weapons_pose_slots_2c_3b",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 20224,
+   "name": "weapons_pose_slots_3c_4b",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 21248,
+   "name": "weapons_pose_slots_4c_5b",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 22272,
+   "name": "weapons_pose_slots_5c_6b",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 23296,
+   "name": "weapons_pose_slots_6c_7b",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 24320,
+   "name": "weapons_pose_slots_7c_8b",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 25344,
+   "name": "weapons_pose_slots_8c_9b",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 26368,
+   "name": "weapons_pose_slots_9c_ab",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 27392,
+   "name": "weapons_pose_slots_ac_bb",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 28416,
+   "name": "expanded_room_sprite",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 28480,
+   "name": "weapons_projectile_shapes",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 28928,
+   "name": "picture_initial_zero_7100",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 30720,
+   "name": "scene_character_set",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 31744,
+   "name": "scene_character_set_upper",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 46615,
+   "name": "disk_tail_fill_b617",
+   "type": "UserDefined",
+   "kind": "user"
+  }
+ ],
+ "comments": [
+  {
+   "address": 7680,
+   "type": "line",
+   "text": "The first copied byte in the scene record is $03. The caller starts executing one byte later."
+  },
+  {
+   "address": 7681,
+   "type": "line",
+   "text": "Save and reload the caller stack pointer, copy the score digits, set up screen and colour pointers, use sound request $87 and initialize expanded sprite 1 before applying the scene colour lookup."
+  },
+  {
+   "address": 7684,
+   "type": "line",
+   "text": "Restore the saved stack pointer, copy the digit characters and initialize score pointers. Select the room sprite configuration and start sound $87 before switching the VIC bank."
+  },
+  {
+   "address": 7804,
+   "type": "line",
+   "text": "Set sprite 1 to X=$9F and Y=$34. Expand it in both directions, put it behind the background and select its colour 7 before applying the room colour table."
+  },
+  {
+   "address": 10492,
+   "type": "line",
+   "text": "Save the expected action in $10 and read the joystick with active-low bits inverted. Return the expected mask on an exact match. No input returns $FF. An incorrect nonzero mask also requests sound $89 and starts a 20-call cooldown."
+  },
+  {
+   "address": 10785,
+   "type": "line",
+   "text": "Update sprite 2 on expiry of $31A4. Add the two velocity bytes, toggle the high X bit on a low-byte wrap and change its vertical behaviour at the $E0 threshold."
+  },
+  {
+   "address": 10994,
+   "type": "line",
+   "text": "Repeat the timed joystick and sprite updates using the initial count in A. Update the weapon-room animation on each iteration."
+  },
+  {
+   "address": 11011,
+   "type": "line",
+   "text": "Wait through two CIA2 timer intervals, poll the joystick and apply the sprite cycle update. Repeat with the count in A saved to $2EC6."
+  },
+  {
+   "address": 11029,
+   "type": "line",
+   "text": "Every three calls advance $31A2 down through 2, 1, 0 and write pointer $BA plus that index to sprite 1."
+  },
+  {
+   "address": 11060,
+   "type": "line",
+   "text": "Use the shared 90-byte record index at $3200. Wait for the lower raster and copy the record to the zero-page sprite work area."
+  },
+  {
+   "address": 11176,
+   "type": "line",
+   "text": "Use the animation index in A to look up sprite 0 coordinates and expansion bits. Set pointer $A9, enable the sprite and load the neighbouring sprite state from the same indexed family."
+  },
+  {
+   "address": 12757,
+   "type": "line",
+   "text": "This scene record ends with the eleven byte marker copied by the unpacker at $0DDE."
+  },
+  {
+   "address": 16384,
+   "type": "line",
+   "text": "The first page of the screen matrix for the background in VIC bank $4000. Its character codes index the scene colour lookup when the display is initialized."
+  },
+  {
+   "address": 16640,
+   "type": "line",
+   "text": "Screen matrix offsets $100\u2013$1FF. The VIC reads these as character codes and the palette routine processes a page at a time."
+  },
+  {
+   "address": 16896,
+   "type": "line",
+   "text": "Screen matrix offsets $200\u2013$2FF. The screen maps into the glyph data at $7800."
+  },
+  {
+   "address": 17152,
+   "type": "line",
+   "text": "The last page of the screen matrix, including the hardware sprite pointers at $43F8\u2013$43FF."
+  },
+  {
+   "address": 17408,
+   "type": "line",
+   "text": "The two sprite fragments before the active player pair at $4480."
+  },
+  {
+   "address": 17536,
+   "type": "line",
+   "text": "Two 64-byte sprite images for hardware sprites 5 and 6 at the Weapons Room capture."
+  },
+  {
+   "address": 17664,
+   "type": "line",
+   "text": "Four individual sprite shapes between the active player pair and the colour table."
+  },
+  {
+   "address": 17920,
+   "type": "line",
+   "text": "Table indexed by the room screen cells when the scene patches $167A to $46 and calls the shared colour routine."
+  },
+  {
+   "address": 18176,
+   "type": "line",
+   "text": "Sixteen 64-byte rendered fragments including torso, hand and bent-leg graphics."
+  },
+  {
+   "address": 19200,
+   "type": "line",
+   "text": "Animation parts with compact head and foot shapes in the low slots and angled limbs in the high slots."
+  },
+  {
+   "address": 20224,
+   "type": "line",
+   "text": "Sixteen mask fragments immediately before the row of compact leaning poses."
+  },
+  {
+   "address": 21248,
+   "type": "line",
+   "text": "Middle mask set for the player animation with varied angles of legs and armour."
+  },
+  {
+   "address": 22272,
+   "type": "line",
+   "text": "Another set of adjacent sprite fragments showing outlines of boots and legs."
+  },
+  {
+   "address": 23296,
+   "type": "line",
+   "text": "Sprite parts in the $6C\u2013$7B pointer range, including the separate pair of straight lower legs."
+  },
+  {
+   "address": 24320,
+   "type": "line",
+   "text": "Sixty-four-byte sprite pieces for mixed arm, head, and body animation frames."
+  },
+  {
+   "address": 25344,
+   "type": "line",
+   "text": "Rendered bank of fragments continuing the player motion set, including pointed foot and knee shapes."
+  },
+  {
+   "address": 26368,
+   "type": "line",
+   "text": "The 16 sprite records around the pointer $A9 selected for sprite 0 in the later room routine."
+  },
+  {
+   "address": 27392,
+   "type": "line",
+   "text": "Upper range of sprite masks before the expanded sprite, including a circular weapon silhouette at pointer $B8."
+  },
+  {
+   "address": 28416,
+   "type": "line",
+   "text": "The 64-byte image record selected by sprite 1 at the Weapons Room capture. Both expansion bits are set during initialization."
+  },
+  {
+   "address": 28480,
+   "type": "line",
+   "text": "Seven 64-byte slots with separate shapes such as a circular disk, star and fragments of weapons. The code writes pointer $C0 to sprite 2."
+  },
+  {
+   "address": 28928,
+   "type": "line",
+   "text": "The unpacked picture stream initializes $7100\u2013$73FF to zero. These bytes are still zero in the play capture."
+  },
+  {
+   "address": 30720,
+   "type": "line",
+   "text": "The scene character glyph store for VIC bank $4000 and character-base bits 3\u20131 of $D018 set to 7. A character occupies eight consecutive bytes."
+  },
+  {
+   "address": 31744,
+   "type": "line",
+   "text": "The top half of this scene set, from character code $80. The eight-byte glyph slots are used for the scene-specific objects and screen details."
+  },
+  {
+   "address": 46615,
+   "type": "line",
+   "text": "Repeated $04 bytes at $B617\u2013$B70F, after the input consumed by the scene picture decode."
+  }
+ ]
+}
