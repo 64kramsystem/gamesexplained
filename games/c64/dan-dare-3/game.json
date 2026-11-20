@@ -9,7 +9,7 @@
   "title_image": "reference/title.png",
   "build": "DDT +7",
   "tier": "bronze",
-  "coverage_percent": 45.3,
+  "coverage_percent": 100.0,
   "copy": "agent-draft",
   "steward": "",
   "credits": [],
@@ -40,6 +40,12 @@
     ],
     "verify": [
       "gpt-6.2-sol"
+    ],
+    "50-coverage": [
+      "gpt-6.2-sol"
+    ],
+    "60-verify": [
+      "gpt-6.2-sol"
     ]
   },
   "accuracy": [
@@ -52,6 +58,23 @@
       "models": [
         "gpt-6.2-sol"
       ]
+    },
+    {
+      "step": "annotate",
+      "models": [
+        "gpt-6.2-sol"
+      ],
+      "note": "Expanded the source listing to exact play coverage."
+    },
+    {
+      "step": "sample",
+      "size": 60,
+      "wrong": 7,
+      "fixed": 7,
+      "seed": 191136,
+      "models": [
+        "gpt-6.2-sol"
+      ]
     }
   ],
   "kit_version": "0.0.360",
@@ -61,12 +84,64 @@
     "charset": ""
   },
   "coverage": {
-    "exclude": [],
+    "exclude": [
+      [
+        "$9079",
+        "$91FF",
+        "DDT repeat-fill between queued SID priorities and the metatile tables. The $0071 write beginning at $9078 has 136 bytes left on that page. $9078 itself is a priority alias and is counted."
+      ],
+      [
+        "$A200",
+        "$A5FF",
+        "DDT repeat-fill $BC between the character staging ring and the expanded map. Confirmed at both boundaries at $0071."
+      ],
+      [
+        "$C800",
+        "$CBF7",
+        "First generated character screen matrix, filled by the title and room drawing routines. The sprite pointer bytes begin at $CBF8."
+      ],
+      [
+        "$CC00",
+        "$CFF7",
+        "Second generated character screen matrix. The renderer initializes the first eighteen rows and the remaining cells retain the hand-over fill. The sprite pointer bytes begin at $CFF8."
+      ]
+    ],
     "extra": [],
-    "include": []
+    "include": [
+      [
+        "$D000",
+        "$DFFF",
+        "VIC bank 3 sprite shape records in RAM beneath I/O"
+      ]
+    ]
   },
   "io": [],
-  "regions": [],
+  "regions": [
+    [
+      "$D000",
+      "$DFFF",
+      "graphics",
+      "VIC bank 3 sprite shapes for pointers $40–$7F"
+    ],
+    [
+      "$8F21",
+      "$8FB8",
+      "sound",
+      "Gameplay SID cue requests by effect, channel and priority"
+    ],
+    [
+      "$AC00",
+      "$B2CD",
+      "sound",
+      "The relocated gameplay SID effects driver and its parameter and modulation streams"
+    ],
+    [
+      "$BC00",
+      "$BFFF",
+      "sound",
+      "Title music note and command streams"
+    ]
+  ],
   "links": {
     "manual": {
       "title": "Dan Dare III La escapada",
