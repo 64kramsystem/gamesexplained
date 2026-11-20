@@ -1,0 +1,229 @@
+{
+  "schema": 1,
+  "platform": "c64",
+  "slug": "soldier-of-light",
+  "title": "Soldier of Light",
+  "year": 1988,
+  "publisher": "ACE",
+  "developer": "Reptilia Design",
+  "title_image": "reference/title.png",
+  "build": "F.S.N. disk release",
+  "tier": "bronze",
+  "coverage_percent": 100.0,
+  "copy": "agent-draft",
+  "steward": "",
+  "credits": [],
+  "tools": {
+    "emulator": "VICE MCP v3.14.0 macOS arm64 headless release, dummy audio",
+    "disassembler": "Regenerator2000"
+  },
+  "model": "gpt-6.2-sol",
+  "step_models": {
+    "10-orient": [
+      "gpt-6.2-sol"
+    ],
+    "20-features": [
+      "gpt-6.2-sol"
+    ],
+    "12-media": [
+      "gpt-6.2-sol"
+    ],
+    "30-text": [
+      "gpt-6.2-sol"
+    ],
+    "40-sweep": [
+      "gpt-6.2-sol"
+    ],
+    "50-coverage": [
+      "gpt-6.2-sol"
+    ],
+    "60-verify": [
+      "gpt-6.2-sol"
+    ]
+  },
+  "accuracy": [
+    {
+      "step": "research",
+      "web": true,
+      "models": [
+        "gpt-6.2-sol"
+      ]
+    },
+    {
+      "step": "annotate",
+      "models": [
+        "gpt-6.2-sol"
+      ]
+    },
+    {
+      "step": "sample",
+      "size": 80,
+      "wrong": 6,
+      "fixed": 6,
+      "seed": 112022,
+      "models": [
+        "gpt-6.2-sol"
+      ]
+    }
+  ],
+  "kit_version": "0.0.360",
+  "created": "2026-11-20",
+  "video": {
+    "screen": "$8400",
+    "charset": ""
+  },
+  "coverage": {
+    "exclude": [
+      [
+        "$4000",
+        "$7FFF",
+        "Tile-expanded map buffer filled by $1F50 using $1C00, also used by the space scene."
+      ],
+      [
+        "$B800",
+        "$BFFF",
+        "VIC terrain glyph buffer copied from the selected source by $1BA0."
+      ],
+      [
+        "$8400",
+        "$87FF",
+        "Live VIC matrix and sprite pointers. The title at $3F28 rebuilds its cells from the retained source pages."
+      ],
+      [
+        "$0004",
+        "$00B2",
+        "Per-planet zero-page state cleared at $8FCA across all 175 entries."
+      ],
+      [
+        "$0250",
+        "$0255",
+        "Runtime Y comparison thresholds computed from VIC sprite coordinates by $2D00, $9240 and $929A."
+      ],
+      [
+        "$0314",
+        "$0333",
+        "KERNAL RAM vectors, including the raster IRQ pointer changed by the game."
+      ],
+      [
+        "$0350",
+        "$03FE",
+        "Runtime actor and player state cleared by $8FCC."
+      ],
+      [
+        "$03FF",
+        "$03FF",
+        "Raster phase byte updated by the ground IRQ and observed with a store checkpoint."
+      ],
+      [
+        "$C79B",
+        "$C7A0",
+        "Three cue track pointers copied into these slots by $C031."
+      ],
+      [
+        "$FDB3",
+        "$FE11",
+        "SID driver runtime state initialised by the indexed clear at $C048."
+      ]
+    ],
+    "extra": [],
+    "include": [
+      [
+        "$D000",
+        "$DFFF",
+        "Terrain character sources read by $1BA0 with I/O banked out."
+      ]
+    ]
+  },
+  "io": [
+    [
+      "$1BA2",
+      "$1BA4",
+      "ram",
+      "Terrain character copy reads banked RAM under I/O and KERNAL."
+    ],
+    [
+      "$1C04",
+      "$1C06",
+      "ram",
+      "Tile expansion reads authored map bytes with KERNAL disabled when needed."
+    ]
+  ],
+  "regions": [
+    [
+      "$9000",
+      "$91FF",
+      "levels",
+      "Cleemalt metatile definitions"
+    ],
+    [
+      "$9300",
+      "$954F",
+      "levels",
+      "Lagto metatile definitions"
+    ],
+    [
+      "$9600",
+      "$98BF",
+      "levels",
+      "Cleedos metatile definitions"
+    ],
+    [
+      "$A000",
+      "$A57F",
+      "graphics",
+      "First group of VIC sprite patterns"
+    ],
+    [
+      "$A600",
+      "$AFFF",
+      "graphics",
+      "Second group of VIC sprite patterns"
+    ],
+    [
+      "$B000",
+      "$B2FF",
+      "graphics",
+      "Panel alphabet and graphics patterns"
+    ],
+    [
+      "$D000",
+      "$D7FF",
+      "graphics",
+      "Cleemalt terrain character source"
+    ],
+    [
+      "$D800",
+      "$DFFF",
+      "graphics",
+      "Lagto terrain character source"
+    ],
+    [
+      "$E000",
+      "$E4FF",
+      "graphics",
+      "Start of the Cleedos terrain character source"
+    ],
+    [
+      "$E500",
+      "$E5BB",
+      "text",
+      "Prompt and mission screen codes"
+    ],
+    [
+      "$F000",
+      "$FBFF",
+      "levels",
+      "Map source streams, including some title screen and executable bytes"
+    ]
+  ],
+  "links": {
+    "wiki": {
+      "title": "",
+      "url": ""
+    },
+    "manual": {
+      "title": "",
+      "url": ""
+    }
+  }
+}
