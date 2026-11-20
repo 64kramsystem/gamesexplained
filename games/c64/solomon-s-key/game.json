@@ -1,0 +1,171 @@
+{
+  "schema": 1,
+  "platform": "c64",
+  "slug": "solomon-s-key",
+  "title": "Solomon's Key",
+  "year": 1987,
+  "publisher": "U.S. Gold",
+  "developer": "Probe Software",
+  "title_image": "reference/title.png",
+  "build": "Scouse Cracking Group disk",
+  "tier": "bronze",
+  "coverage_percent": 100.0,
+  "copy": "agent-draft",
+  "steward": "",
+  "credits": [],
+  "tools": {
+    "emulator": "vice-mcp v3.14.0 macOS arm64 headless, dummy audio",
+    "disassembler": "regenerator2000 0.9.20"
+  },
+  "model": "gpt-6.2-sol",
+  "step_models": {
+    "10-orient": [
+      "gpt-6.2-sol"
+    ],
+    "12-media": [
+      "gpt-6.2-sol"
+    ],
+    "20-features": [
+      "gpt-6.2-sol"
+    ],
+    "30-text": [
+      "gpt-6.2-sol"
+    ],
+    "40-sweep": [
+      "gpt-6.2-sol"
+    ],
+    "50-coverage": [
+      "gpt-6.2-sol"
+    ],
+    "60-verify": [
+      "gpt-6.2-sol"
+    ]
+  },
+  "accuracy": [
+    {
+      "step": "research",
+      "web": true,
+      "models": [
+        "gpt-6.2-sol"
+      ]
+    },
+    {
+      "step": "annotate",
+      "models": [
+        "gpt-6.2-sol"
+      ]
+    },
+    {
+      "step": "sample",
+      "size": 60,
+      "wrong": 5,
+      "fixed": 5,
+      "seed": 2063,
+      "models": [
+        "gpt-6.2-sol"
+      ]
+    }
+  ],
+  "kit_version": "0.0.360",
+  "created": "2026-11-20",
+  "video": {
+    "screen": "$4000",
+    "charset": ""
+  },
+  "coverage": {
+    "exclude": [
+      [
+        "$0000",
+        "$03FF",
+        "Zero page, CPU stack and system workspace. The handover stack page still holds the SCG unpacker."
+      ],
+      [
+        "$0400",
+        "$0800",
+        "Former SCG boot workspace, replaced by actor lanes, room tiles and raster sprite buffers."
+      ],
+      [
+        "$6000",
+        "$7FFF",
+        "Bitmap draw destination, initialized to zero at handover and drawn by the room and text routines."
+      ],
+      [
+        "$D000",
+        "$DFFF",
+        "Uniform $DF from the SCG unpacker. A store watch caught $014C writing it with $01 = $34. Gameplay uses I/O here with $01 = $35."
+      ],
+      [
+        "$C0C4",
+        "$C134",
+        "Zero-filled sound workspace. C000 clears three 35-byte voice lanes and writes the stream pointers before replay."
+      ],
+      [
+        "$C254",
+        "$C255",
+        "Working voice and effect service countdowns."
+      ],
+      [
+        "$CBF4",
+        "$CC0C",
+        "Zero-filled effect workspace. CA95 copies the selected effect here before play."
+      ]
+    ],
+    "extra": [],
+    "include": []
+  },
+  "io": [],
+  "regions": [
+    [
+      "$4400",
+      "$5FFF",
+      "graphics",
+      "Multicolor sprite frames"
+    ],
+    [
+      "$8000",
+      "$941B",
+      "levels",
+      "Foreground grids for 36 physical slots"
+    ],
+    [
+      "$941C",
+      "$B6CB",
+      "graphics",
+      "Six-cell bitmap tiles"
+    ],
+    [
+      "$B6CC",
+      "$BB43",
+      "levels",
+      "Eight backdrop grids"
+    ],
+    [
+      "$BB44",
+      "$BF99",
+      "graphics",
+      "Per-tile screen color cells"
+    ],
+    [
+      "$EA00",
+      "$FBFF",
+      "levels",
+      "128-byte actor initialization records"
+    ],
+    [
+      "$FC00",
+      "$FF5F",
+      "graphics",
+      "Bitmap glyphs"
+    ]
+  ],
+  "links": {
+    "wiki": {
+      "title": "Solomon's Key \u2014 C64-Wiki",
+      "url": "https://www.c64-wiki.com/wiki/Solomon%27s_Key"
+    },
+    "manual": {
+      "title": "Solomon's Key \u2014 Documentation",
+      "url": "https://www.lemon64.com/doc/solomons-key/1232"
+    }
+  }
+}
