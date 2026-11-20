@@ -1,0 +1,73 @@
+{
+  "title": "Basketball match",
+  "order": 2,
+  "video": {
+    "screen": "$CC00",
+    "charset": ""
+  },
+  "coverage": {
+    "exclude": [
+      [
+        "$0400",
+        "$07E7",
+        "All 1000 cells are KERNAL screen spaces at match entry. Match setup replaces them with generated workspace."
+      ],
+      [
+        "$C8E9",
+        "$CFFF",
+        "Matches the pre-match menu byte for byte. Contains the tail of its draft text. The part uses the upper pages for generated screen cells and pointers."
+      ],
+      [
+        "$D000",
+        "$D6FF",
+        "Seven parked menu pages. Live pre-load capture matches $0800-$0EFF byte for byte after the swap at $FFCE. Menu-authored bytes count in the menu listing."
+      ],
+      [
+        "$F000",
+        "$F4FF",
+        "Remaining packed menu backdrop at match entry, identical to the pre-match snapshot. Match scroll code and the sprite compositor write the second screen and sprite workspace here."
+      ]
+    ],
+    "extra": [
+      [
+        "$0E00",
+        "$69FF",
+        "Full file B payload matched byte for byte in the match hand-over"
+      ],
+      [
+        "$C000",
+        "$C57F",
+        "File G school map and court data, matched byte for byte in the hand-over"
+      ],
+      [
+        "$D800",
+        "$EFFF",
+        "File C school character data copied here from $1800 before the game starts"
+      ],
+      [
+        "$FD80",
+        "$FEFF",
+        "File K payload matched byte for byte in the match hand-over"
+      ],
+      [
+        "$6A00",
+        "$BFFF",
+        "Authored file A material left after B overwrites RAM through $69FF. Includes both sprite catalogues and pose data."
+      ],
+      [
+        "$C580",
+        "$C8E8",
+        "File A material still present after the selected G-style court map covers $C000-$C57F."
+      ]
+    ],
+    "include": [
+      [
+        "$D800",
+        "$DFFF",
+        "First 2048 bytes of the selected court character data in RAM under I/O"
+      ]
+    ]
+  },
+  "io": [],
+  "regions": []
+}

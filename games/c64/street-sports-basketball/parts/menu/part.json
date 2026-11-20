@@ -1,0 +1,58 @@
+{
+  "title": "Court and team selection",
+  "order": 1,
+  "video": {
+    "screen": "$5C00",
+    "charset": ""
+  },
+  "coverage": {
+    "exclude": [
+      [
+        "$0400",
+        "$07E7",
+        "Default KERNAL 40-by-25 screen matrix, all $20 in the entry and title snapshots. The game selects VIC bank $4000."
+      ]
+    ],
+    "extra": [
+      [
+        "$0800",
+        "$1FFD",
+        "Menu startup, glyphs, UI routines and their interleaved tables"
+      ],
+      [
+        "$EC00",
+        "$EFE7",
+        "Screen colour source read by $0CE6"
+      ],
+      [
+        "$5C00",
+        "$5FE7",
+        "Authored screen-matrix colours for the title image. Identical at hand-over and while the title is up."
+      ],
+      [
+        "$6000",
+        "$7F3F",
+        "Authored title bitmap, identical at hand-over and while the title is up."
+      ]
+    ],
+    "include": [
+      [
+        "$D000",
+        "$D3FF",
+        "RAM source for the relocated disk routines at $0800"
+      ],
+      [
+        "$D800",
+        "$DFFF",
+        "RAM-backed colour tables copied by $0C86 and $0D13"
+      ],
+      [
+        "$5C00",
+        "$5FE7",
+        "Authored title colours in RAM that becomes screen output during selection."
+      ]
+    ]
+  },
+  "io": [],
+  "regions": []
+}
