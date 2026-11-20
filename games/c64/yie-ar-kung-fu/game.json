@@ -1,0 +1,134 @@
+{
+  "schema": 1,
+  "platform": "c64",
+  "slug": "yie-ar-kung-fu",
+  "title": "Yie Ar Kung-Fu",
+  "year": 1985,
+  "publisher": "Imagine Software",
+  "developer": "Dave Collier",
+  "title_image": "reference/title-screen.png",
+  "build": "PAL tape (C64Games Euro TAP, SHA-256 0f278e4efedc8af2051a696edd98bbfc88f3719b46c4b2feb706321c6085d423)",
+  "tier": "bronze",
+  "coverage_percent": null,
+  "copy": "agent-draft",
+  "steward": "",
+  "credits": [],
+  "tools": {
+    "emulator": "release v3.14.0, v3.14.0-macos-arm64-headless.zip (dummy audio)",
+    "disassembler": "regenerator2000 0.9.18",
+    "host": "macOS 26.6.2 arm64"
+  },
+  "model": "gpt-6.2-sol",
+  "step_models": {
+    "10-orient": [
+      "gpt-6.2-sol"
+    ],
+    "12-media": [
+      "gpt-6.2-sol"
+    ],
+    "20-features": [
+      "gpt-6.2-sol"
+    ],
+    "30-text": [
+      "gpt-6.2-sol"
+    ],
+    "40-sweep": [
+      "gpt-6.2-sol"
+    ],
+    "50-coverage": [
+      "gpt-6.2-sol"
+    ]
+  },
+  "accuracy": [
+    {
+      "step": "research",
+      "web": true,
+      "models": [
+        "gpt-6.2-sol"
+      ]
+    },
+    {
+      "step": "annotate",
+      "models": [
+        "gpt-6.2-sol"
+      ]
+    }
+  ],
+  "kit_version": "0.0.360",
+  "created": "2026-11-20",
+  "video": {
+    "screen": "$4000",
+    "charset": "$7000"
+  },
+  "coverage": {
+    "exclude": [
+      [
+        "$0000",
+        "$02FF",
+        "CPU port, zero-page working registers, stack and KERNAL work RAM. The tape bootstrap starts at $0316 and the game blocks supply no authored bytes here."
+      ],
+      [
+        "$0316",
+        "$033B",
+        "KERNAL vectors overwritten by the tape bootstrap."
+      ],
+      [
+        "$033C",
+        "$037F",
+        "KERNAL tape header and residual bootstrap workspace; no bytes here are part of the nine game blocks."
+      ],
+      [
+        "$0386",
+        "$03FF",
+        "Residual KERNAL tape header and bootstrap, up to the game payload at $0400."
+      ],
+      [
+        "$4000",
+        "$43FF",
+        "At hand-over this is the relocated tape loader and its workspace. The game overwrites it with generated screen cells and live sprite pointers."
+      ]
+    ],
+    "extra": [
+      [
+        "$0400",
+        "$3FFF",
+        "Game turbo block 6."
+      ],
+      [
+        "$4400",
+        "$9FFF",
+        "Game turbo block 7."
+      ],
+      [
+        "$A000",
+        "$CFFF",
+        "Game turbo block 8 after the loader copies it to $A000, and block 9."
+      ],
+      [
+        "$E000",
+        "$FFFF",
+        "Game turbo block 5, including the title picture."
+      ],
+      [
+        "$D000",
+        "$DFFF",
+        "Source image of turbo block 8 below I/O."
+      ]
+    ],
+    "include": [
+      [
+        "$D000",
+        "$DFFF",
+        "Physical RAM holds the source image for the loader copy to $A000. This source copy is retained in coverage."
+      ]
+    ]
+  },
+  "io": [],
+  "regions": [],
+  "links": {
+    "manual": {
+      "title": "Yie Ar Kung Fu \u2013 C64Games",
+      "url": "https://www.c64games.de/phpseiten/spieledetail.php?filnummer=206"
+    }
+  }
+}
