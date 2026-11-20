@@ -1,0 +1,499 @@
+{
+  "schema": 1,
+  "images": [
+    {
+      "name": "tape",
+      "file": "im2.tap",
+      "what": "tape",
+      "sha256": "3fcf532f08f01d4c9df52f331a0c5274bbd5e73949ac2fd5f01047d74983959e"
+    }
+  ],
+  "items": [
+    {
+      "image": "tape",
+      "label": "POSSIBLE",
+      "place": {
+        "file": "POSSIBLE",
+        "type": "program",
+        "pulse": 27316
+      },
+      "load": "$0801",
+      "bytes": 501,
+      "sha256": "8225baf51cd17e5a913416285e77dd66caee67bea79d008116643096fedce87a",
+      "answer": "loader",
+      "why": "KERNAL program that installs the first pulse reader at $0370 and waits at $02EB for that reader to finish."
+    },
+    {
+      "image": "tape",
+      "label": "G-LOADER",
+      "place": {
+        "file": "G-LOADER",
+        "type": "G-LOADER tape record",
+        "pulse": 61876
+      },
+      "bytes": 5120,
+      "sha256": "f885b19983ee2dfa6696a15dae2d7e80646a8ef8f1ee4dd001e18eb77b684434",
+      "answer": "part",
+      "load": "$9FC0",
+      "part": "title",
+      "at": "$AC00",
+      "why": "Initial tape driver and loading presentation. The program relocates its $9FC0\u2013$B3BF load up to $AC00\u2013$BFFF."
+    },
+    {
+      "image": "tape",
+      "label": "376",
+      "place": {
+        "file": "376",
+        "type": "G-LOADER tape record",
+        "pulse": 103525
+      },
+      "bytes": 6240,
+      "sha256": "0024701ec6f0ad29960760f02987edd048a8a278f000308a753ce528a0e2d203",
+      "answer": "data",
+      "load": "$1000",
+      "why": "RLE source at $1000 during loading. The unpacker at $AE94 expands 6,240 bytes to 10,002 bytes at $4000. Its first 8,000 bytes match the title bitmap at $E000."
+    },
+    {
+      "image": "tape",
+      "label": "462",
+      "place": {
+        "file": "462",
+        "type": "G-LOADER tape record",
+        "pulse": 154134
+      },
+      "bytes": 1440,
+      "sha256": "1a19f8a6cb0a28dbeb52ff9ce4f5ba17d13718f58f00a6d0041b665ee5f0bd59",
+      "answer": "part",
+      "load": "$A57D",
+      "part": "title",
+      "at": "$A57D",
+      "why": "The loading presentation calls its first entry at $AC86. The entry was matched in the resident hand-over before that buffer was reused."
+    },
+    {
+      "image": "tape",
+      "label": "468",
+      "place": {
+        "file": "468",
+        "type": "G-LOADER tape record",
+        "pulse": 166343
+      },
+      "bytes": 5280,
+      "sha256": "597854ab74d3c1fcfe7fe8fe34fb5064492acc52888d19bf49f1dd491ba82582",
+      "answer": "data",
+      "load": "$8000",
+      "why": "A 5,280-byte speech resource at $8000. The title snapshot matches it byte for byte; $AC86 calls the speech driver at $A57D."
+    },
+    {
+      "image": "tape",
+      "label": "448",
+      "place": {
+        "file": "448",
+        "type": "G-LOADER tape record",
+        "pulse": 209272
+      },
+      "bytes": 3360,
+      "sha256": "15b8929dfa0a4256fbde4653fed43dc7d2ec65be00c62d762dbb39ab13e5283d",
+      "answer": "data",
+      "load": "$7000",
+      "why": "Second segment of the packed title tune. $AF79 appends its 3,360 bytes from $7000 after the music data in G-LOADER, then $AFA3 expands the resulting stream to $1000."
+    },
+    {
+      "image": "tape",
+      "label": "267",
+      "place": {
+        "file": "267",
+        "type": "G-LOADER tape record",
+        "pulse": 236841
+      },
+      "bytes": 9360,
+      "sha256": "ff4cd5356cf7134f7ec995c34a786267fecfd12775d9a3833c4fdff156198cb4",
+      "answer": "data",
+      "load": "$C000",
+      "why": "The title loader requests this record at $ACF5. In the engine hand-over 9,218 of 9,360 bytes match at $C000, including the live VIC character data under I/O."
+    },
+    {
+      "image": "tape",
+      "label": "306",
+      "place": {
+        "file": "306",
+        "type": "G-LOADER tape record",
+        "pulse": 312410
+      },
+      "bytes": 2160,
+      "sha256": "6fc87c0cfd3032e3fb10370066c1e1a9469e7ded5c1f374fd2fb820317478ab4",
+      "answer": "data",
+      "load": "$E800",
+      "why": "The title loader requests this record at $ACF0. The whole 2,160 bytes match at $E800 in the engine hand-over."
+    },
+    {
+      "image": "tape",
+      "label": "490",
+      "place": {
+        "file": "490",
+        "type": "G-LOADER tape record",
+        "pulse": 330379
+      },
+      "bytes": 39840,
+      "sha256": "b2567608d2a7b659f3c638fa897f8eb59b1ab0c4474dc4b319b29acd2232e406",
+      "answer": "part",
+      "load": "$0880",
+      "part": "resident",
+      "at": "$0880",
+      "why": "All 39,840 bytes match at $0880 in the hand-over snapshot. The title loader jumps to its first instruction at $ACFD."
+    },
+    {
+      "image": "tape",
+      "label": "315",
+      "place": {
+        "file": "315",
+        "type": "G-LOADER tape record",
+        "pulse": 649788
+      },
+      "bytes": 3120,
+      "sha256": "34d577e1585ba4501fa594bf2d1a6f829118d3d7a294f8a82d0620006c396f2e",
+      "answer": "data",
+      "load": "$A520",
+      "why": "Display data requested by $39E4. With the original request forced at $0A0A, all 3,120 bytes matched at $A520. A store watch at $F400 caught the copy from this buffer at $6232."
+    },
+    {
+      "image": "tape",
+      "label": "000",
+      "place": {
+        "file": "000",
+        "type": "G-LOADER tape record",
+        "pulse": 675437
+      },
+      "bytes": 3840,
+      "sha256": "ecc557f45966c724e9f01c28342f6d944beefde9021b262241617d3d36096131",
+      "answer": "data",
+      "load": "$A500",
+      "why": "First template resource for tower 0. $399F uses the tower number times 16 for the three-digit file name. The opening request to 000 was observed at $37A2."
+    },
+    {
+      "image": "tape",
+      "label": "130",
+      "place": {
+        "file": "130",
+        "type": "G-LOADER tape record",
+        "pulse": 706846
+      },
+      "bytes": 3840,
+      "sha256": "f34286ed8aa1ceebf4188c833b3b8cfa62cbc914b175d82f291bd7860811d847",
+      "answer": "data",
+      "load": "$A520",
+      "why": "Second template resource for tower 0. $2C2A uses tower times 16 plus 130 for the filename. The opening request to 130 was observed at $37A2."
+    },
+    {
+      "image": "tape",
+      "label": "328",
+      "place": {
+        "file": "328",
+        "type": "G-LOADER tape record",
+        "pulse": 738255
+      },
+      "bytes": 960,
+      "sha256": "527fdde1ee54b97f3e90ddec82c9b1621bb03eff5d9fa74430028047dd81fd4e",
+      "answer": "data",
+      "load": "$F000",
+      "why": "Initial game screen resource requested by $0B0E. The entry in the table at $235A loads it at $F000."
+    },
+    {
+      "image": "tape",
+      "label": "016",
+      "place": {
+        "file": "016",
+        "type": "G-LOADER tape record",
+        "pulse": 746624
+      },
+      "bytes": 3840,
+      "sha256": "fbe598cd8d2f30fe0c23cefe9dfe25a636480db9a99c1dc9865ad4f02cbccbc6",
+      "answer": "data",
+      "load": "$A500",
+      "why": "First template resource for tower 1. $399F uses the tower number times 16 for the three-digit file name. The opening request to 000 was observed at $37A2."
+    },
+    {
+      "image": "tape",
+      "label": "146",
+      "place": {
+        "file": "146",
+        "type": "G-LOADER tape record",
+        "pulse": 778033
+      },
+      "bytes": 3840,
+      "sha256": "60ffc6fd0dd4f3d98f38d19d08c919baf30d840c5d19b96f4de3205d874a67a6",
+      "answer": "data",
+      "load": "$A520",
+      "why": "Second template resource for tower 1. $2C2A uses tower times 16 plus 130 for the filename. The opening request to 130 was observed at $37A2."
+    },
+    {
+      "image": "tape",
+      "label": "032",
+      "place": {
+        "file": "032",
+        "type": "G-LOADER tape record",
+        "pulse": 809442
+      },
+      "bytes": 3840,
+      "sha256": "9814b6b8354a0d5870c8241d97b5d47f73582f21247f06ba253e4f018cc2d98c",
+      "answer": "data",
+      "load": "$A500",
+      "why": "First template resource for tower 2. $399F uses the tower number times 16 for the three-digit file name. The opening request to 000 was observed at $37A2."
+    },
+    {
+      "image": "tape",
+      "label": "162",
+      "place": {
+        "file": "162",
+        "type": "G-LOADER tape record",
+        "pulse": 840851
+      },
+      "bytes": 3840,
+      "sha256": "151f7b1f731bc1596e21b63c0e5b1c7acf47623cdd54a461684627a3cf85c1e5",
+      "answer": "data",
+      "load": "$A520",
+      "why": "Second template resource for tower 2. $2C2A uses tower times 16 plus 130 for the filename. The opening request to 130 was observed at $37A2."
+    },
+    {
+      "image": "tape",
+      "label": "048",
+      "place": {
+        "file": "048",
+        "type": "G-LOADER tape record",
+        "pulse": 872260
+      },
+      "bytes": 3840,
+      "sha256": "a77e38baece7607411c87e5880ca9065c996ffd1213891e5f5aeb360bcec3f38",
+      "answer": "data",
+      "load": "$A500",
+      "why": "First template resource for tower 3. $399F uses the tower number times 16 for the three-digit file name. The opening request to 000 was observed at $37A2."
+    },
+    {
+      "image": "tape",
+      "label": "178",
+      "place": {
+        "file": "178",
+        "type": "G-LOADER tape record",
+        "pulse": 903669
+      },
+      "bytes": 3840,
+      "sha256": "225b39b9feba01394c4817e58b82f5d42e9dc3da07df795182745286e939440c",
+      "answer": "data",
+      "load": "$A520",
+      "why": "Second template resource for tower 3. $2C2A uses tower times 16 plus 130 for the filename. The opening request to 130 was observed at $37A2."
+    },
+    {
+      "image": "tape",
+      "label": "064",
+      "place": {
+        "file": "064",
+        "type": "G-LOADER tape record",
+        "pulse": 935078
+      },
+      "bytes": 3840,
+      "sha256": "35a6a6c76af501b7b1076f8a56a020baddf1a6a6f59ab888c1c468414a0e1c46",
+      "answer": "data",
+      "load": "$A500",
+      "why": "First template resource for tower 4. $399F uses the tower number times 16 for the three-digit file name. The opening request to 000 was observed at $37A2."
+    },
+    {
+      "image": "tape",
+      "label": "194",
+      "place": {
+        "file": "194",
+        "type": "G-LOADER tape record",
+        "pulse": 966487
+      },
+      "bytes": 3840,
+      "sha256": "e6bec507970de7102dbc52f0286a99ecbb8181cef3bfa97c34ae4bec6185fa4e",
+      "answer": "data",
+      "load": "$A520",
+      "why": "Second template resource for tower 4. $2C2A uses tower times 16 plus 130 for the filename. The opening request to 130 was observed at $37A2."
+    },
+    {
+      "image": "tape",
+      "label": "080",
+      "place": {
+        "file": "080",
+        "type": "G-LOADER tape record",
+        "pulse": 997896
+      },
+      "bytes": 3840,
+      "sha256": "bf1a10307b2cdafaf2a05a7ac39f37d8b59e5ed5019d7691f5ea8344d6306ed8",
+      "answer": "data",
+      "load": "$A500",
+      "why": "First template resource for tower 5. $399F uses the tower number times 16 for the three-digit file name. The opening request to 000 was observed at $37A2."
+    },
+    {
+      "image": "tape",
+      "label": "210",
+      "place": {
+        "file": "210",
+        "type": "G-LOADER tape record",
+        "pulse": 1029305
+      },
+      "bytes": 3840,
+      "sha256": "b34865d4365ad840bf0d795e7fee0860219b53eaa1409397c0acf59c7921f24d",
+      "answer": "data",
+      "load": "$A520",
+      "why": "Second template resource for tower 5. $2C2A uses tower times 16 plus 130 for the filename. The opening request to 130 was observed at $37A2."
+    },
+    {
+      "image": "tape",
+      "label": "096",
+      "place": {
+        "file": "096",
+        "type": "G-LOADER tape record",
+        "pulse": 1060714
+      },
+      "bytes": 3840,
+      "sha256": "337f8c7ccef79772f3f1cc7b4a08d110c31e06f1d9d6bd43f78a740b95ac5f64",
+      "answer": "data",
+      "load": "$A500",
+      "why": "First template resource for tower 6. $399F uses the tower number times 16 for the three-digit file name. The opening request to 000 was observed at $37A2."
+    },
+    {
+      "image": "tape",
+      "label": "226",
+      "place": {
+        "file": "226",
+        "type": "G-LOADER tape record",
+        "pulse": 1092123
+      },
+      "bytes": 3840,
+      "sha256": "0b18155373be6015dddd66a37cf7ddaee3e1a34ec562057652beb0e68666709e",
+      "answer": "data",
+      "load": "$A520",
+      "why": "Second template resource for tower 6. $2C2A uses tower times 16 plus 130 for the filename. The opening request to 130 was observed at $37A2."
+    },
+    {
+      "image": "tape",
+      "label": "112",
+      "place": {
+        "file": "112",
+        "type": "G-LOADER tape record",
+        "pulse": 1123532
+      },
+      "bytes": 3840,
+      "sha256": "16859580a3021ab39b017530385c88b26039223691bfe0a7071026bc7904c398",
+      "answer": "data",
+      "load": "$A500",
+      "why": "First template resource for tower 7. $399F uses the tower number times 16 for the three-digit file name. The opening request to 000 was observed at $37A2."
+    },
+    {
+      "image": "tape",
+      "label": "242",
+      "place": {
+        "file": "242",
+        "type": "G-LOADER tape record",
+        "pulse": 1154941
+      },
+      "bytes": 3840,
+      "sha256": "fac531a6ed7fe7423d43a578ccc84e1aebcb467f306d65e28a0f17462f5f090a",
+      "answer": "data",
+      "load": "$A520",
+      "why": "Second template resource for tower 7. $2C2A uses tower times 16 plus 130 for the filename. The opening request to 130 was observed at $37A2."
+    },
+    {
+      "image": "tape",
+      "label": "128",
+      "place": {
+        "file": "128",
+        "type": "G-LOADER tape record",
+        "pulse": 1186350
+      },
+      "bytes": 480,
+      "sha256": "4b38e929b200af551603d6152c3b9e5ae31043f7f8e364d6851a8c94f6640301",
+      "answer": "data",
+      "load": "$7FD3",
+      "why": "Special room data. $2204 calls $2C42 with $40, which doubles it to decimal 128 and requests it with table offset zero. $220F passes its output to the room installer."
+    },
+    {
+      "image": "tape",
+      "label": "402",
+      "place": {
+        "file": "402",
+        "type": "G-LOADER tape record",
+        "pulse": 1190879
+      },
+      "bytes": 1680,
+      "sha256": "7dc837761b78a05527f9c393785ddd214c51ab43bdfc814eb7cf7f25ce355619",
+      "answer": "part",
+      "load": "$7800",
+      "part": "ending",
+      "at": "$7800",
+      "why": "The final sequence calls its jump table after loading it. The whole record matches the snapshot stopped before the first call."
+    },
+    {
+      "image": "tape",
+      "label": "409",
+      "place": {
+        "file": "409",
+        "type": "G-LOADER tape record",
+        "pulse": 1205008
+      },
+      "bytes": 4560,
+      "sha256": "ed6a7f1400570ad4aeeab648a3a569c5ce4c4b868c312133a5caeab6d233390a",
+      "answer": "data",
+      "load": "$A800",
+      "why": "The final sequence loads 4,560 bytes into $A800, present before the first $7800 call."
+    },
+    {
+      "image": "tape",
+      "label": "428",
+      "place": {
+        "file": "428",
+        "type": "G-LOADER tape record",
+        "pulse": 1242177
+      },
+      "bytes": 4800,
+      "sha256": "49ace0971baa2050fa7c3187377a119c6cc8a1aee005813ce0015e1ceae28d44",
+      "answer": "data",
+      "load": "$A800",
+      "why": "Replaces record 409 at $A800 after $7800 returns. All 4,800 bytes match after the next call to the overlay."
+    },
+    {
+      "image": "tape",
+      "label": "664",
+      "place": {
+        "file": "664",
+        "type": "G-LOADER tape record",
+        "pulse": 1281266
+      },
+      "bytes": 4560,
+      "sha256": "80d7e1adb5353f6a24c809c153f7a8b8b22c08ec2bf0e22227ba10e317e86a88",
+      "answer": "part",
+      "load": "$A520",
+      "part": "scores",
+      "at": "$A520",
+      "why": "The resident code requests it at $2C80 and calls it at $2C88. The whole record is present before the call."
+    },
+    {
+      "image": "tape",
+      "label": "264",
+      "place": {
+        "file": "264",
+        "type": "G-LOADER tape record",
+        "pulse": 1318435
+      },
+      "bytes": 1024,
+      "sha256": "30f5d323ae64ccd2f82e1667c65e8f0b52bf27e11f7acd50ff857f1334a1bbc4",
+      "answer": "data",
+      "load": "$F000",
+      "why": "Static score display screen codes loaded into $F000. 740 of 1,024 bytes still match after the name-entry display writes the scores."
+    },
+    {
+      "image": "tape",
+      "label": "358",
+      "place": {
+        "file": "358",
+        "type": "G-LOADER tape record",
+        "pulse": 1327316
+      },
+      "bytes": 512,
+      "sha256": "456b0e1722bea8f84cddbe759021426fe2ee0fe96ea3dead9ff0b4c61f87b47f",
+      "answer": "data",
+      "load": "$C000",
+      "why": "The 512-byte score character set loaded into $C000. It matches byte for byte in the score name-entry snapshot."
+    }
+  ]
+}

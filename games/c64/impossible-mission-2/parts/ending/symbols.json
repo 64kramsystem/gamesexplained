@@ -1,0 +1,1297 @@
+{
+ "schema": 1,
+ "platform": "c64",
+ "game": "impossible-mission-2",
+ "part": "ending",
+ "build": "PAL cassette, POSSIBLE and G-LOADER",
+ "source": "regenerator2000 live",
+ "regions": {
+  "exclude": [
+   [
+    256,
+    511,
+    "stack"
+   ],
+   [
+    53248,
+    57343,
+    "I/O and colour RAM"
+   ],
+   [
+    0,
+    30719,
+    "Tower engine"
+   ],
+   [
+    32400,
+    43007,
+    "Tower engine"
+   ],
+   [
+    47568,
+    65535,
+    "Tower engine"
+   ]
+  ],
+  "extra": [
+   [
+    30720,
+    32399,
+    "Tape record 402 at hand-over."
+   ],
+   [
+    43008,
+    47567,
+    "Tape record 409 at hand-over."
+   ]
+  ],
+  "edges": [
+   0,
+   256,
+   512,
+   1024,
+   2048,
+   4096,
+   16384,
+   32768,
+   40960,
+   49152,
+   53248,
+   57344
+  ],
+  "elsewhere": [
+   [
+    0,
+    30719,
+    "Tower engine"
+   ],
+   [
+    32400,
+    43007,
+    "Tower engine"
+   ],
+   [
+    47568,
+    65535,
+    "Tower engine"
+   ]
+  ]
+ },
+ "blocks": [
+  {
+   "start": 30720,
+   "end": 30909,
+   "type": "Code"
+  },
+  {
+   "start": 30910,
+   "end": 30930,
+   "type": "Byte"
+  },
+  {
+   "start": 30931,
+   "end": 30988,
+   "type": "Code"
+  },
+  {
+   "start": 30989,
+   "end": 30995,
+   "type": "Byte"
+  },
+  {
+   "start": 30996,
+   "end": 31005,
+   "type": "Undefined"
+  },
+  {
+   "start": 31006,
+   "end": 31376,
+   "type": "Code"
+  },
+  {
+   "start": 31377,
+   "end": 31386,
+   "type": "Byte"
+  },
+  {
+   "start": 31387,
+   "end": 31496,
+   "type": "Code"
+  },
+  {
+   "start": 31497,
+   "end": 31514,
+   "type": "Byte"
+  },
+  {
+   "start": 31515,
+   "end": 31895,
+   "type": "Code"
+  },
+  {
+   "start": 31896,
+   "end": 32048,
+   "type": "Byte"
+  },
+  {
+   "start": 32049,
+   "end": 32180,
+   "type": "Code"
+  },
+  {
+   "start": 32181,
+   "end": 32399,
+   "type": "Undefined"
+  },
+  {
+   "start": 43008,
+   "end": 47567,
+   "type": "Byte"
+  }
+ ],
+ "symbols": [
+  {
+   "address": 30720,
+   "name": "start_final_picture",
+   "type": "Subroutine",
+   "kind": "user"
+  },
+  {
+   "address": 30723,
+   "name": "update_final_picture",
+   "type": "Subroutine",
+   "kind": "user"
+  },
+  {
+   "address": 30726,
+   "name": "start_final_animation",
+   "type": "Subroutine",
+   "kind": "user"
+  },
+  {
+   "address": 30729,
+   "name": "switch_final_bitmap",
+   "type": "Subroutine",
+   "kind": "user"
+  },
+  {
+   "address": 30732,
+   "name": "finish_final_display",
+   "type": "Subroutine",
+   "kind": "user"
+  },
+  {
+   "address": 30735,
+   "name": "initialize_final_bitmap",
+   "type": "Jump",
+   "kind": "user"
+  },
+  {
+   "address": 30767,
+   "name": "prepare_second_final_picture",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 30778,
+   "name": "display_final_bitmap",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 30858,
+   "name": "j_788A",
+   "type": "Jump",
+   "kind": "auto"
+  },
+  {
+   "address": 30860,
+   "name": "b_788C",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 30876,
+   "name": "b_789C",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 30880,
+   "name": "paint_final_text_background",
+   "type": "Branch",
+   "kind": "user"
+  },
+  {
+   "address": 30881,
+   "name": "ending_text_row_address_low",
+   "type": "AbsoluteAddress",
+   "kind": "user"
+  },
+  {
+   "address": 30910,
+   "name": "final_overlay_sprite_rows",
+   "type": "Field",
+   "kind": "user"
+  },
+  {
+   "address": 30931,
+   "name": "position_final_overlay_sprite",
+   "type": "Subroutine",
+   "kind": "user"
+  },
+  {
+   "address": 30962,
+   "name": "set_final_overlay_sprite_rows",
+   "type": "Subroutine",
+   "kind": "user"
+  },
+  {
+   "address": 30966,
+   "name": "b_78F6",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 30976,
+   "name": "b_7900",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 30989,
+   "name": "final_overlay_sparse_rows",
+   "type": "Field",
+   "kind": "user"
+  },
+  {
+   "address": 30996,
+   "name": "wait_ending_raster",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 31006,
+   "name": "copy_second_picture_attributes",
+   "type": "Subroutine",
+   "kind": "user"
+  },
+  {
+   "address": 31027,
+   "name": "preserve_bitmap_under_rom",
+   "type": "Subroutine",
+   "kind": "user"
+  },
+  {
+   "address": 31045,
+   "name": "install_final_colour_planes",
+   "type": "Subroutine",
+   "kind": "user"
+  },
+  {
+   "address": 31123,
+   "name": "unpack_ending_picture",
+   "type": "Subroutine",
+   "kind": "user"
+  },
+  {
+   "address": 31141,
+   "name": "b_79A5",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 31154,
+   "name": "b_79B2",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 31162,
+   "name": "b_79BA",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 31165,
+   "name": "b_79BD",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 31176,
+   "name": "put_ending_picture_byte",
+   "type": "Subroutine",
+   "kind": "user"
+  },
+  {
+   "address": 31184,
+   "name": "r_79D0",
+   "type": "Return",
+   "kind": "auto"
+  },
+  {
+   "address": 31185,
+   "name": "get_ending_packet_byte",
+   "type": "Subroutine",
+   "kind": "user"
+  },
+  {
+   "address": 31193,
+   "name": "r_79D9",
+   "type": "Return",
+   "kind": "auto"
+  },
+  {
+   "address": 31194,
+   "name": "tick_ending_animation",
+   "type": "Subroutine",
+   "kind": "user"
+  },
+  {
+   "address": 31213,
+   "name": "b_79ED",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 31232,
+   "name": "r_7A00",
+   "type": "Return",
+   "kind": "auto"
+  },
+  {
+   "address": 31233,
+   "name": "gate_ending_tick_on_raster",
+   "type": "Subroutine",
+   "kind": "user"
+  },
+  {
+   "address": 31243,
+   "name": "b_7A0B",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 31250,
+   "name": "r_7A12",
+   "type": "Return",
+   "kind": "auto"
+  },
+  {
+   "address": 31251,
+   "name": "reset_animation_state",
+   "type": "Subroutine",
+   "kind": "user"
+  },
+  {
+   "address": 31270,
+   "name": "run_final_animation",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 31282,
+   "name": "b_7A32",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 31293,
+   "name": "initialize_ending_sprites",
+   "type": "Subroutine",
+   "kind": "user"
+  },
+  {
+   "address": 31295,
+   "name": "b_7A3F",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 31324,
+   "name": "b_7A5C",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 31377,
+   "name": "ending_sprite_palette",
+   "type": "Field",
+   "kind": "user"
+  },
+  {
+   "address": 31381,
+   "name": "ending_sprite_zero_first_byte",
+   "type": "AbsoluteAddress",
+   "kind": "user"
+  },
+  {
+   "address": 31382,
+   "name": "ending_sprite_zero_second_byte",
+   "type": "AbsoluteAddress",
+   "kind": "user"
+  },
+  {
+   "address": 31383,
+   "name": "ending_sprite_zero_third_byte",
+   "type": "AbsoluteAddress",
+   "kind": "user"
+  },
+  {
+   "address": 31384,
+   "name": "ending_sprite_one_first_byte",
+   "type": "AbsoluteAddress",
+   "kind": "user"
+  },
+  {
+   "address": 31385,
+   "name": "ending_sprite_one_second_byte",
+   "type": "AbsoluteAddress",
+   "kind": "user"
+  },
+  {
+   "address": 31386,
+   "name": "ending_sprite_one_third_byte",
+   "type": "AbsoluteAddress",
+   "kind": "user"
+  },
+  {
+   "address": 31387,
+   "name": "initialize_ending_sprite_groups",
+   "type": "Subroutine",
+   "kind": "user"
+  },
+  {
+   "address": 31391,
+   "name": "b_7A9F",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 31437,
+   "name": "b_7ACD",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 31497,
+   "name": "ending_group_two_colours",
+   "type": "Field",
+   "kind": "user"
+  },
+  {
+   "address": 31500,
+   "name": "ending_group_two_positions",
+   "type": "Field",
+   "kind": "user"
+  },
+  {
+   "address": 31506,
+   "name": "ending_group_one_colours",
+   "type": "Field",
+   "kind": "user"
+  },
+  {
+   "address": 31509,
+   "name": "ending_group_one_positions",
+   "type": "Field",
+   "kind": "user"
+  },
+  {
+   "address": 31515,
+   "name": "ending_group_two_entry",
+   "type": "Return",
+   "kind": "user"
+  },
+  {
+   "address": 31516,
+   "name": "ending_group_two_motion",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 31536,
+   "name": "b_7B30",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 31561,
+   "name": "b_7B49",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 31563,
+   "name": "b_7B4B",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 31576,
+   "name": "j_7B58",
+   "type": "Jump",
+   "kind": "auto"
+  },
+  {
+   "address": 31621,
+   "name": "r_7B85",
+   "type": "Return",
+   "kind": "auto"
+  },
+  {
+   "address": 31622,
+   "name": "ending_group_one_motion",
+   "type": "Subroutine",
+   "kind": "user"
+  },
+  {
+   "address": 31652,
+   "name": "b_7BA4",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 31677,
+   "name": "b_7BBD",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 31679,
+   "name": "b_7BBF",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 31713,
+   "name": "j_7BE1",
+   "type": "Jump",
+   "kind": "auto"
+  },
+  {
+   "address": 31735,
+   "name": "b_7BF7",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 31748,
+   "name": "r_7C04",
+   "type": "Return",
+   "kind": "auto"
+  },
+  {
+   "address": 31749,
+   "name": "b_7C05",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 31775,
+   "name": "b_7C1F",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 31812,
+   "name": "ending_animation_sound_events",
+   "type": "Subroutine",
+   "kind": "user"
+  },
+  {
+   "address": 31835,
+   "name": "b_7C5B",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 31841,
+   "name": "start_ending_animation_voice",
+   "type": "Subroutine",
+   "kind": "user"
+  },
+  {
+   "address": 31847,
+   "name": "ending_voice_high_frequency",
+   "type": "AbsoluteAddress",
+   "kind": "user"
+  },
+  {
+   "address": 31852,
+   "name": "ending_voice_low_frequency",
+   "type": "AbsoluteAddress",
+   "kind": "user"
+  },
+  {
+   "address": 31871,
+   "name": "r_7C7F",
+   "type": "Return",
+   "kind": "auto"
+  },
+  {
+   "address": 31872,
+   "name": "save_scores_during_bitmap",
+   "type": "Subroutine",
+   "kind": "user"
+  },
+  {
+   "address": 31874,
+   "name": "b_7C82",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 31884,
+   "name": "restore_scores_after_bitmap",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 31886,
+   "name": "b_7C8E",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 31896,
+   "name": "ending_shape_table_first",
+   "type": "Field",
+   "kind": "user"
+  },
+  {
+   "address": 31911,
+   "name": "ending_shape_table_second",
+   "type": "Field",
+   "kind": "user"
+  },
+  {
+   "address": 31926,
+   "name": "ending_shape_table_third",
+   "type": "Field",
+   "kind": "user"
+  },
+  {
+   "address": 31941,
+   "name": "ending_arrival_shape_first",
+   "type": "Field",
+   "kind": "user"
+  },
+  {
+   "address": 31953,
+   "name": "ending_arrival_shape_second",
+   "type": "Field",
+   "kind": "user"
+  },
+  {
+   "address": 31965,
+   "name": "ending_arrival_shape_third",
+   "type": "Field",
+   "kind": "user"
+  },
+  {
+   "address": 31977,
+   "name": "ending_arrival_vertical_offsets",
+   "type": "Field",
+   "kind": "user"
+  },
+  {
+   "address": 32013,
+   "name": "ending_arrival_horizontal_offsets",
+   "type": "Field",
+   "kind": "user"
+  },
+  {
+   "address": 32049,
+   "name": "add_to_ending_pointer",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 32058,
+   "name": "r_7D3A",
+   "type": "Return",
+   "kind": "auto"
+  },
+  {
+   "address": 32059,
+   "name": "subtract_from_ending_pointer",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 32074,
+   "name": "r_7D4A",
+   "type": "Return",
+   "kind": "auto"
+  },
+  {
+   "address": 32075,
+   "name": "set_ending_copy_source",
+   "type": "Subroutine",
+   "kind": "user"
+  },
+  {
+   "address": 32080,
+   "name": "set_ending_copy_destination",
+   "type": "Subroutine",
+   "kind": "user"
+  },
+  {
+   "address": 32085,
+   "name": "copy_ending_bytes",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 32088,
+   "name": "b_7D58",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 32095,
+   "name": "b_7D5F",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 32100,
+   "name": "copy_ending_pages",
+   "type": "Subroutine",
+   "kind": "user"
+  },
+  {
+   "address": 32106,
+   "name": "b_7D6A",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 32118,
+   "name": "b_7D76",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 32140,
+   "name": "fill_ending_bytes",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 32143,
+   "name": "b_7D8F",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 32148,
+   "name": "b_7D94",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 32151,
+   "name": "fill_ending_pages",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 32158,
+   "name": "b_7D9E",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 32165,
+   "name": "b_7DA5",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 32181,
+   "name": "ending_zero_gap_before_counters",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 32186,
+   "name": "ending_tick_group_two_count",
+   "type": "AbsoluteAddress",
+   "kind": "user"
+  },
+  {
+   "address": 32189,
+   "name": "ending_tick_group_two_limit",
+   "type": "AbsoluteAddress",
+   "kind": "user"
+  },
+  {
+   "address": 32190,
+   "name": "ending_group_one_tick_limit",
+   "type": "AbsoluteAddress",
+   "kind": "user"
+  },
+  {
+   "address": 32191,
+   "name": "ending_group_one_tick",
+   "type": "AbsoluteAddress",
+   "kind": "user"
+  },
+  {
+   "address": 32192,
+   "name": "ending_arrival_tick",
+   "type": "Subroutine",
+   "kind": "user"
+  },
+  {
+   "address": 32195,
+   "name": "ending_group_one_shape_index",
+   "type": "AbsoluteAddress",
+   "kind": "user"
+  },
+  {
+   "address": 32259,
+   "name": "ending_record_suffix",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 43008,
+   "name": "ending_409_rle_start",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 43859,
+   "name": "ending_409_rle_90d8",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 43943,
+   "name": "p_ABA7",
+   "type": "Pointer",
+   "kind": "auto"
+  },
+  {
+   "address": 43944,
+   "name": "p_ABA8",
+   "type": "Pointer",
+   "kind": "auto"
+  },
+  {
+   "address": 44709,
+   "name": "ending_409_rle_96bf",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 45558,
+   "name": "ending_409_rle_9c70",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 46410,
+   "name": "ending_409_rle_a32e",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 47276,
+   "name": "ending_409_rle_a6e8",
+   "type": "UserDefined",
+   "kind": "user"
+  }
+ ],
+ "comments": [
+  {
+   "address": 30720,
+   "type": "line",
+   "text": "Public entry for $0C5A. Jump to the initial bitmap setup while image tape record 409 is still at $A800."
+  },
+  {
+   "address": 30723,
+   "type": "line",
+   "text": "Public entry for $0C67 after tape record 428 replaces the preceding image at $A800."
+  },
+  {
+   "address": 30726,
+   "type": "line",
+   "text": "Entry used by $0C7A. Y receives the saved tick limit from the resident stack."
+  },
+  {
+   "address": 30729,
+   "type": "line",
+   "text": "Entry for the later bitmap and colour-copy routine at $783A."
+  },
+  {
+   "address": 30732,
+   "type": "line",
+   "text": "Entry for the last sprite and text setup at $788A."
+  },
+  {
+   "address": 30735,
+   "type": "line",
+   "text": "Set bitmap mode with screen data at $F000, protect the data at $A480, apply the initial image preparation routines and set the marker at $E000 to zero."
+  },
+  {
+   "address": 30767,
+   "type": "line",
+   "text": "Repeat the resource preparation at $7993 with the new image in $A800, then run $791E and $78F2 with interrupts masked."
+  },
+  {
+   "address": 30778,
+   "type": "line",
+   "text": "Disable sprites, prepare image data, then copy $2000 bytes from $8000 into the bitmap at $C000 with I/O banked out. Restore I/O, copy the colour plane and enable sprite zero over the bitmap."
+  },
+  {
+   "address": 30880,
+   "type": "line",
+   "text": "Write 26 consecutive screen attribute bytes per row, then add 40 to the low operand of the store to move to the next row. This writable operand is labelled separately by Regenerator."
+  },
+  {
+   "address": 30881,
+   "type": "line",
+   "text": "Low address operand of the screen attribute store at $78A0. $78AC patches it by a screen row after each pass."
+  },
+  {
+   "address": 30910,
+   "type": "line",
+   "text": "The first 21 bytes written to the sprite at $F800 by $788A. They draw the upper seven three-byte rows of the final overlay."
+  },
+  {
+   "address": 30931,
+   "type": "line",
+   "text": "Set sprite zero at X $B9, Y $64, white and single colour. Install pointer $E0 at $F7F8 for the sprite data at $F800."
+  },
+  {
+   "address": 30962,
+   "type": "line",
+   "text": "Clear the 64-byte sprite block and copy seven table bytes to offsets $00, $03 through $12, filling one byte in each of its first seven rows."
+  },
+  {
+   "address": 30989,
+   "type": "line",
+   "text": "Seven values written by $78F2 down the leftmost byte of sprite zero."
+  },
+  {
+   "address": 30996,
+   "type": "line",
+   "text": "Read the raster low byte, subtract one with DEX and wait until $D012 equals the resulting value."
+  },
+  {
+   "address": 31006,
+   "type": "line",
+   "text": "Copy $03E8 bytes starting at $9F40 to the screen attribute plane at $F400."
+  },
+  {
+   "address": 31027,
+   "type": "line",
+   "text": "Copy $1000 bytes from $C000 to underlying RAM at $E000 using the overlay's descending copier at $7D64."
+  },
+  {
+   "address": 31045,
+   "type": "line",
+   "text": "Copy separate image attribute planes into colour RAM at $D800 and screen memory at $F000, then bank out I/O to move $1F40 bitmap bytes into $C000. Set the background from $A710."
+  },
+  {
+   "address": 31123,
+   "type": "line",
+   "text": "Set input $A800 and output $8000 for the packet decoder. A positive count copies that many literal bytes and a negative count repeats its following byte with the high bit stripped from the count. Zero ends the stream."
+  },
+  {
+   "address": 31176,
+   "type": "line",
+   "text": "Store A through the output pointer and increment its low and high bytes as needed."
+  },
+  {
+   "address": 31185,
+   "type": "line",
+   "text": "Read A through the input pointer and increment it with carry into its high byte."
+  },
+  {
+   "address": 31194,
+   "type": "line",
+   "text": "Maintain two independent tick counters. On their thresholds call the two sprite-update paths at $7B1B and $7B86."
+  },
+  {
+   "address": 31233,
+   "type": "line",
+   "text": "Call the animation tick when the raster's low byte reaches $F8 or above, then wait below $F8 before returning."
+  },
+  {
+   "address": 31251,
+   "type": "line",
+   "text": "Clear $47 and three state fields at $7DBA and $7DBF\u2013$7DC0 before the calls that prepare the animation's sprites."
+  },
+  {
+   "address": 31270,
+   "type": "line",
+   "text": "Cache Y plus one, enable all sprites and repeatedly update through $7A01 until $7DC0 reaches eleven."
+  },
+  {
+   "address": 31293,
+   "type": "line",
+   "text": "Copy the initial palette, place sprites zero and one and use fixed triplets to fill their bitmap blocks at $FC00 and $FC40."
+  },
+  {
+   "address": 31377,
+   "type": "line",
+   "text": "Four bytes written to $D025\u2013$D028 by $7A3D, setting shared multicolours and the colours of sprites zero and one."
+  },
+  {
+   "address": 31381,
+   "type": "line",
+   "text": "First byte repeated down all three-byte rows of sprite zero."
+  },
+  {
+   "address": 31382,
+   "type": "line",
+   "text": "Second byte of each initial three-byte row of sprite zero."
+  },
+  {
+   "address": 31383,
+   "type": "line",
+   "text": "Third byte of each initial three-byte row of sprite zero."
+  },
+  {
+   "address": 31384,
+   "type": "line",
+   "text": "First byte repeated down the initial rows of sprite one."
+  },
+  {
+   "address": 31385,
+   "type": "line",
+   "text": "Second byte of each initial sprite-one row."
+  },
+  {
+   "address": 31386,
+   "type": "line",
+   "text": "Third byte of each initial sprite-one row."
+  },
+  {
+   "address": 31387,
+   "type": "line",
+   "text": "Clear sprite data at $FC80 and initialize two sets of sprite pointers for groups 2\u20134 and 5\u20137. Load the six sprites' initial coordinates and colour bytes and configure expansion and priority."
+  },
+  {
+   "address": 31497,
+   "type": "line",
+   "text": "Three colours installed for sprites 5\u20137 before animation."
+  },
+  {
+   "address": 31500,
+   "type": "line",
+   "text": "Three X/Y pairs installed in $D00A\u2013$D00F."
+  },
+  {
+   "address": 31506,
+   "type": "line",
+   "text": "Three colours installed for sprites 2\u20134 before animation."
+  },
+  {
+   "address": 31509,
+   "type": "line",
+   "text": "Three X/Y pairs installed in $D004\u2013$D009."
+  },
+  {
+   "address": 31515,
+   "type": "line",
+   "text": "Entry called on the first tick divider. The hand-over holds RTS as its first opcode and therefore skips the group-two movement body at the next address."
+  },
+  {
+   "address": 31516,
+   "type": "line",
+   "text": "Decrease the shared sprite X by five and increment each of the three Y coordinates until the group reaches its threshold. Use the three animation-pointer tables to select shapes and update the sound callback."
+  },
+  {
+   "address": 31622,
+   "type": "line",
+   "text": "Move sprites 2\u20134 left and down together until X passes $006C. On the approach path choose the three pointer values from the running tables and advance the animation index. At the threshold switch to the ending-specific positions and pointers."
+  },
+  {
+   "address": 31812,
+   "type": "line",
+   "text": "Test the animation index in Y. Values 0, 7 and 16 start the configured oscillator; 3, 10 and 14 write $80 to its control register."
+  },
+  {
+   "address": 31841,
+   "type": "line",
+   "text": "Set maximum SID volume and write oscillator frequency, ADSR and noise with gate to the voice selected by X. The immediate frequency bytes can change during the sequence."
+  },
+  {
+   "address": 31847,
+   "type": "line",
+   "text": "Writable high-frequency immediate loaded at $7C66 before the indexed store to SID."
+  },
+  {
+   "address": 31852,
+   "type": "line",
+   "text": "Writable low-frequency immediate loaded at $7C6B before the SID store. Both sprite paths update this operand for the next sound event."
+  },
+  {
+   "address": 31872,
+   "type": "line",
+   "text": "Move 98 bytes from the block starting at $A47F to $777F before the bitmap rewrites the original memory."
+  },
+  {
+   "address": 31884,
+   "type": "line",
+   "text": "Copy the same 98-byte block back to $A47F from the holding area at $777F."
+  },
+  {
+   "address": 31896,
+   "type": "line",
+   "text": "First sprite pointer for each triplet of movement shapes. The animation writes it to $F3FA or $F3FD."
+  },
+  {
+   "address": 31911,
+   "type": "line",
+   "text": "Second pointer of a movement triplet, written to $F3FB or $F3FE."
+  },
+  {
+   "address": 31926,
+   "type": "line",
+   "text": "Third pointer of a movement triplet, written to $F3FC or $F3FF."
+  },
+  {
+   "address": 31941,
+   "type": "line",
+   "text": "Twelve shape pointers for the first sprite after the arrival path at $7C05 begins."
+  },
+  {
+   "address": 31953,
+   "type": "line",
+   "text": "Twelve shape pointers for the second sprite on that path."
+  },
+  {
+   "address": 31965,
+   "type": "line",
+   "text": "Twelve shape pointers for the third sprite on that path."
+  },
+  {
+   "address": 31977,
+   "type": "line",
+   "text": "Three 12-byte adjustment tables used by $7C2D. The code chooses a column by frame, adds it and one to each current sprite Y and then advances to the next table."
+  },
+  {
+   "address": 32013,
+   "type": "line",
+   "text": "Three 12-byte adjustment tables indexed in parallel with the vertical values. $7C23 subtracts the selected byte from each current X."
+  },
+  {
+   "address": 32049,
+   "type": "line",
+   "text": "Add A to the low address byte at $00,X, increment the high byte on overflow and leave the resulting pointer in the same pair."
+  },
+  {
+   "address": 32059,
+   "type": "line",
+   "text": "Form old pointer low byte minus A by subtracting it from A and negating the result. Decrement the high byte when this operation borrowed from it."
+  },
+  {
+   "address": 32075,
+   "type": "line",
+   "text": "Write the address supplied in X:Y to the source pointer in $7E/$7F."
+  },
+  {
+   "address": 32080,
+   "type": "line",
+   "text": "Write the address supplied in X:Y to the destination pointer in $80/$81."
+  },
+  {
+   "address": 32085,
+   "type": "line",
+   "text": "Copy Y bytes through the source and destination pointers while stepping the index down to zero."
+  },
+  {
+   "address": 32100,
+   "type": "line",
+   "text": "Copy X full pages plus Y bytes backward, decrementing both pointers' high bytes at each page boundary."
+  },
+  {
+   "address": 32140,
+   "type": "line",
+   "text": "Use A to fill Y bytes at ($80), working from the last index back to zero."
+  },
+  {
+   "address": 32151,
+   "type": "line",
+   "text": "Fill X full pages plus Y bytes. Move the high byte of the destination backward after each indexed page."
+  },
+  {
+   "address": 32181,
+   "type": "line",
+   "text": "Five zero bytes separate the fill routine's RTS at $7DB4 from the animation counters at $7DBA. The final-sequence run registered no reads, writes or instruction fetches in this gap."
+  },
+  {
+   "address": 32186,
+   "type": "line",
+   "text": "Incremented when the first update timer expires and the group-two entry at $7B1B returns."
+  },
+  {
+   "address": 32189,
+   "type": "line",
+   "text": "Divider threshold for the group-two counter in $47."
+  },
+  {
+   "address": 32190,
+   "type": "line",
+   "text": "Second divider threshold set from the value supplied by the resident after the animation call."
+  },
+  {
+   "address": 32191,
+   "type": "line",
+   "text": "Counter compared with $7DBE before calling the sprite group 2\u20134 update routine."
+  },
+  {
+   "address": 32192,
+   "type": "line",
+   "text": "Arrival stage counter. $7A26 ends the display loop when it reaches eleven."
+  },
+  {
+   "address": 32195,
+   "type": "line",
+   "text": "Index initialized to thirteen, decremented during approach and set to eleven at arrival."
+  },
+  {
+   "address": 32259,
+   "type": "line",
+   "text": "Final 141 bytes carried by tape record 402. The suffix starts inside a run of $FF values and ends at the loaded boundary $7E8F. Read, write and execute watchpoints counted zero hits from overlay entry to the final input wait at $35EA."
+  },
+  {
+   "address": 43008,
+   "type": "line",
+   "text": "Start of the initial picture's tape stream. The decoded bytes go to $8000, starting at the top of the bitmap."
+  },
+  {
+   "address": 43859,
+   "type": "line",
+   "text": "Packet boundary producing bytes from $90D8 in the bitmap's middle."
+  },
+  {
+   "address": 44709,
+   "type": "line",
+   "text": "Packet boundary producing bytes from $96BF, continuing the first picture raster data."
+  },
+  {
+   "address": 45558,
+   "type": "line",
+   "text": "Packet boundary producing bytes from $9C70, in the lower portion of the VIC bitmap."
+  },
+  {
+   "address": 46410,
+   "type": "line",
+   "text": "Packet boundary producing bytes from $A32E, in the screen and colour attribute data after the bitmap."
+  },
+  {
+   "address": 47276,
+   "type": "line",
+   "text": "Closing packets that produce data beginning at $A6E8 in the colour plane. The zero control ends the stream after 10,002 output bytes. A 244-byte suffix follows it in the tape record."
+  }
+ ]
+}

@@ -1,0 +1,67 @@
+{
+  "title": "Tower engine",
+  "order": 2,
+  "video": {
+    "screen": "",
+    "charset": ""
+  },
+  "coverage": {
+    "extra": [
+      [
+        "$0880",
+        "$A41F",
+        "Tape record 490 at hand-over."
+      ],
+      [
+        "$C000",
+        "$E48F",
+        "Tape record 267 at hand-over."
+      ],
+      [
+        "$E800",
+        "$F06F",
+        "Tape record 306 at hand-over."
+      ]
+    ],
+    "exclude": [
+      [
+        "$0400",
+        "$07FF",
+        "Boot screen and its padding at hand-over. The snapshot has the BASIC banner, blank cells and unchanged power-on fill at the end. The engine later reuses part of this range for runtime state."
+      ],
+      [
+        "$A420",
+        "$A51F",
+        "Exact same-address remainder of the first G-LOADER load before relocation. All 256 bytes match its original tape data and the relocated loader is analysed in the title part."
+      ],
+      [
+        "$0800",
+        "$087F",
+        "Title speech wave workspace. A store watch during the title voice call stopped after $A7F7, and the same bytes persist into the engine hand-over."
+      ]
+    ],
+    "include": [
+      [
+        "$D000",
+        "$DFFF",
+        "Both live VIC character sets are in underlying RAM."
+      ]
+    ]
+  },
+  "io": [],
+  "regions": [],
+  "ranges": [
+    [
+      "$0880",
+      "$A41F"
+    ],
+    [
+      "$C000",
+      "$E48F"
+    ],
+    [
+      "$E800",
+      "$F06F"
+    ]
+  ]
+}
