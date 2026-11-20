@@ -1,0 +1,129 @@
+{
+  "schema": 1,
+  "platform": "c64",
+  "slug": "super-cars",
+  "title": "Super Cars",
+  "year": 1991,
+  "publisher": "Gremlin Graphics",
+  "developer": "",
+  "title_image": "reference/title.png",
+  "build": "Airwolf-Team +7 disk",
+  "tier": "bronze",
+  "coverage_percent": 100,
+  "copy": "agent-draft",
+  "steward": "",
+  "credits": [],
+  "tools": {
+    "emulator": "VICE MCP v3.14.0 macOS arm64 headless",
+    "disassembler": "regenerator2000 0.9.18"
+  },
+  "model": "gpt-6.2-sol",
+  "step_models": {
+    "50-coverage": [
+      "gpt-6.2-sol"
+    ],
+    "60-verify": [
+      "gpt-6.2-sol"
+    ]
+  },
+  "accuracy": [
+    {
+      "step": "research",
+      "web": true,
+      "models": [
+        "gpt-6.2-sol"
+      ]
+    },
+    {
+      "step": "annotate",
+      "models": [
+        "gpt-6.2-sol"
+      ]
+    },
+    {
+      "step": "sample",
+      "size": 60,
+      "wrong": 9,
+      "fixed": 9,
+      "seed": 2064,
+      "models": [
+        "gpt-6.2-sol"
+      ]
+    }
+  ],
+  "kit_version": "0.0.360",
+  "created": "2026-11-20",
+  "video": {
+    "screen": "$4000",
+    "charset": ""
+  },
+  "coverage": {
+    "exclude": [
+      [
+        "$0000",
+        "$00FF",
+        "Zero-page workspace. The hand-over has a cleared page and gameplay populates pointers, input and state."
+      ],
+      [
+        "$0200",
+        "$03FF",
+        "Cleared runtime workspace at hand-over. Initialisation and the screen handlers set the game state and counters here."
+      ],
+      [
+        "$0599",
+        "$05DA",
+        "Keyboard sampling workspace overwritten by $0556."
+      ],
+      [
+        "$4400",
+        "$47FF",
+        "Generated track viewport at $4400 and its sprite pointer cells at $47F8, written by $0D91 onward and $22AB/$22F2."
+      ],
+      [
+        "$8100",
+        "$943F",
+        "Expanded track map. $0C57 ran 4,928 times on entry to Track 1 and store watches hit both endpoints. The source maps and dictionary are counted separately."
+      ],
+      [
+        "$4000",
+        "$43FF",
+        "Menu screen and sprite pointer workspace. $04AB replaces $4000-$43E7 with the screen plane. At hand-over it still holds the launcher source and trainer bytes."
+      ],
+      [
+        "$80A4",
+        "$80F1",
+        "Airwolf contact-screen sample player, called at $8E0E/$8E11/$8E14/$8E1F by the trainer path that resets the C64."
+      ],
+      [
+        "$6E9F",
+        "$6F18",
+        "Airwolf reset shim selected by the $8000 cartridge vectors. It clears the cartridge signature and jumps to the KERNAL reset. This code is absent in the Silicon comparison."
+      ],
+      [
+        "$6F40",
+        "$713F",
+        "Initially blank end-screen sprite output, cleared and drawn by $2A66. The authored letter sprites start at $7140."
+      ]
+    ],
+    "extra": [],
+    "include": [
+      [
+        "$D000",
+        "$DFFF",
+        "Menu and results character data exchanged by $04FE with I/O banked out"
+      ]
+    ]
+  },
+  "io": [],
+  "regions": [],
+  "links": {
+    "wiki": {
+      "title": "Super Cars – C64-Wiki",
+      "url": "https://www.c64-wiki.de/wiki/Super_Cars"
+    },
+    "manual": {
+      "title": "",
+      "url": ""
+    }
+  }
+}
