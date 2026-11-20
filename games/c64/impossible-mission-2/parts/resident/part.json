@@ -14,8 +14,8 @@
       ],
       [
         "$C000",
-        "$E48F",
-        "Tape record 267 at hand-over."
+        "$E3FF",
+        "The 36 pages of record 267 copied by $ACE7, matched at the $ACEA checkpoint."
       ],
       [
         "$E800",
@@ -38,6 +38,41 @@
         "$0800",
         "$087F",
         "Title speech wave workspace. A store watch during the title voice call stopped after $A7F7, and the same bytes persist into the engine hand-over."
+      ],
+      [
+        "$82D1",
+        "$86B8",
+        "Zero-filled 40-by-25 room cell workspace in record 490. $50BE clears all 1,000 cells before drawing. A controlled $51C4 run stopped after $51F5 stored tile class $0B at row 1, column 0 ($82F9)."
+      ],
+      [
+        "$9B36",
+        "$9C61",
+        "Zero-filled 300-byte glyph allocation workspace in record 490. The fill called at $5FE6 cleared all 300 seeded bytes in a controlled run. A watch stopped at $625F with the sentinel at $9C62 intact."
+      ],
+      [
+        "$7FD3",
+        "$82CC",
+        "Zero-filled room decode buffer in record 490. $2BD9 fills it from the compressed room template. A watch on the last byte stopped with all 762 seeded cells replaced and the following sentinel intact."
+      ],
+      [
+        "$7077",
+        "$7116",
+        "Zero-filled workspace for eight 20-byte actor records in tape record 490. The loop at $7A56 cleared all 160 seeded bytes in VICE. A watch on the last store stopped with the sentinel at $7117 intact."
+      ],
+      [
+        "$E400",
+        "$E48F",
+        "Exact same-address title bitmap bytes in the title and engine hand-over snapshots. The record 267 copy stops at $E3FF, as checked at $ACEA. These 144 bytes are listed in the title part."
+      ],
+      [
+        "$02FA",
+        "$032F",
+        "Power-on contents, including the standard BASIC and KERNAL vectors. Compared byte for byte against the same VICE machine after a hard reset."
+      ],
+      [
+        "$0332",
+        "$0333",
+        "KERNAL SAVE vector. Both bytes match the hard-reset VICE baseline. The preceding LOAD vector differs and remains tracked."
       ]
     ],
     "include": [
@@ -57,7 +92,7 @@
     ],
     [
       "$C000",
-      "$E48F"
+      "$E3FF"
     ],
     [
       "$E800",

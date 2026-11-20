@@ -108,8 +108,8 @@
       "bytes": 9360,
       "sha256": "ff4cd5356cf7134f7ec995c34a786267fecfd12775d9a3833c4fdff156198cb4",
       "answer": "data",
-      "load": "$C000",
-      "why": "The title loader requests this record at $ACF5. In the engine hand-over 9,218 of 9,360 bytes match at $C000, including the live VIC character data under I/O."
+      "load": "$1000",
+      "why": "The title loader requests this record at $ACCF and copies its first 9,216 bytes to $C000\u2013$E3FF through $ACE7. The stop at $ACEA found the uncopied suffix at $3400 and the title bitmap still at $E400\u2013$E48F."
     },
     {
       "image": "tape",
@@ -151,9 +151,11 @@
       },
       "bytes": 3120,
       "sha256": "34d577e1585ba4501fa594bf2d1a6f829118d3d7a294f8a82d0620006c396f2e",
-      "answer": "data",
+      "answer": "part",
       "load": "$A520",
-      "why": "Display data requested by $39E4. With the original request forced at $0A0A, all 3,120 bytes matched at $A520. A store watch at $F400 caught the copy from this buffer at $6232."
+      "why": "The loader requests 3,120 bytes at $A520. The backward copy at $6217 places its first 3,072 bytes at $F400 through $FFFF, including sprite shapes and the fixed-address speech driver. The remaining 48 bytes are listed at $B120 through $B14F.",
+      "part": "scene-resource",
+      "at": "$F400"
     },
     {
       "image": "tape",

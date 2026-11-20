@@ -1,0 +1,862 @@
+{
+ "schema": 1,
+ "platform": "c64",
+ "game": "impossible-mission-2",
+ "part": "scene-resource",
+ "build": "PAL cassette, POSSIBLE and G-LOADER",
+ "source": "regen2000proj",
+ "regions": {
+  "exclude": [
+   [
+    256,
+    511,
+    "stack"
+   ],
+   [
+    53248,
+    57343,
+    "I/O and colour RAM"
+   ],
+   [
+    0,
+    45343,
+    "Tower engine"
+   ],
+   [
+    45392,
+    62463,
+    "Tower engine"
+   ]
+  ],
+  "extra": [
+   [
+    45344,
+    45391,
+    "48-byte suffix of tape record 315, beyond the $0C00 copied bytes."
+   ],
+   [
+    62464,
+    65535,
+    "The first 3,072 bytes of record 315 copied by $39FB."
+   ]
+  ],
+  "edges": [
+   0,
+   256,
+   512,
+   1024,
+   2048,
+   4096,
+   16384,
+   32768,
+   40960,
+   49152,
+   53248,
+   57344
+  ],
+  "elsewhere": [
+   [
+    0,
+    45343,
+    "Tower engine"
+   ],
+   [
+    45392,
+    62463,
+    "Tower engine"
+   ]
+  ]
+ },
+ "blocks": [
+  {
+   "start": 45344,
+   "end": 45391,
+   "type": "Byte"
+  },
+  {
+   "start": 62464,
+   "end": 63295,
+   "type": "Byte"
+  },
+  {
+   "start": 63296,
+   "end": 63487,
+   "type": "Byte"
+  },
+  {
+   "start": 63488,
+   "end": 63615,
+   "type": "Byte"
+  },
+  {
+   "start": 63616,
+   "end": 63941,
+   "type": "Code"
+  },
+  {
+   "start": 63942,
+   "end": 63945,
+   "type": "Byte"
+  },
+  {
+   "start": 63946,
+   "end": 64071,
+   "type": "Code"
+  },
+  {
+   "start": 64072,
+   "end": 64087,
+   "type": "Byte"
+  },
+  {
+   "start": 64088,
+   "end": 64249,
+   "type": "Code"
+  },
+  {
+   "start": 64250,
+   "end": 64251,
+   "type": "Word"
+  },
+  {
+   "start": 64252,
+   "end": 64261,
+   "type": "Code"
+  },
+  {
+   "start": 64262,
+   "end": 65535,
+   "type": "Byte"
+  }
+ ],
+ "symbols": [
+  {
+   "address": 45344,
+   "name": "repeated_record_306_suffix",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 62464,
+   "name": "agent_pose_first_foot",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 62528,
+   "name": "agent_pose_first_body",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 62592,
+   "name": "agent_pose_first_contour",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 62656,
+   "name": "agent_pose_second_foot",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 62720,
+   "name": "agent_pose_second_body",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 62784,
+   "name": "agent_pose_second_contour",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 62848,
+   "name": "agent_pose_third_foot",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 62912,
+   "name": "agent_pose_third_body",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 62976,
+   "name": "agent_pose_third_contour",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 63040,
+   "name": "composite_sprite_plane_one",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 63104,
+   "name": "composite_sprite_plane_two",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 63168,
+   "name": "composite_sprite_plane_three",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 63232,
+   "name": "blank_sprite_cell",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 63488,
+   "name": "machine_sprite_image_one",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 63552,
+   "name": "machine_sprite_image_two",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 63616,
+   "name": "speech_nmi_forward",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 63649,
+   "name": "speech_nmi_backward",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 63680,
+   "name": "speech_nmi_constant_volume",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 63700,
+   "name": "speech_nmi_quiet_tick",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 63708,
+   "name": "speech_nmi_finish",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 63724,
+   "name": "speech_nmi_save_a",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 63725,
+   "name": "advance_speech_nmi_state",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 63752,
+   "name": "speech_nmi_segment_boundary",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 63778,
+   "name": "restore_speech_irq_registers",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 63784,
+   "name": "speech_nmi_interval",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 63803,
+   "name": "select_speech_stop_nmi",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 63808,
+   "name": "initialize_quiet_phase",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 63817,
+   "name": "set_speech_wave_offset",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 63820,
+   "name": "decode_or_mix_next_wave",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 63848,
+   "name": "read_speech_segment",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 63942,
+   "name": "speech_wave_lengths",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 63946,
+   "name": "advance_speech_descriptor",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 63958,
+   "name": "unpack_speech_levels",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 64012,
+   "name": "advance_speech_timing",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 64072,
+   "name": "speech_timing_increments",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 64088,
+   "name": "set_wave_offset_before_mix",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 64090,
+   "name": "mix_speech_wave_buffers",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 64135,
+   "name": "start_scene_speech",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 64152,
+   "name": "read_speech_timer_status",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 64158,
+   "name": "stop_speech_timer",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 64165,
+   "name": "start_speech_timer",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 64189,
+   "name": "initialize_speech_nmi_dispatch",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 64220,
+   "name": "initialize_speech_streams",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 64250,
+   "name": "speech_stream_base",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 64252,
+   "name": "start_speech_and_wait",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 64262,
+   "name": "embedded_8086_fragment",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 64320,
+   "name": "rounded_sprite_image",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 64384,
+   "name": "three_row_sprite_image",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 64448,
+   "name": "small_sprite_image",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 64512,
+   "name": "striped_sprite_image_small",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 64576,
+   "name": "striped_sprite_image_tall",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 64640,
+   "name": "wide_robot_sprite_image",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 64704,
+   "name": "alternate_robot_sprite_image",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 64768,
+   "name": "upright_robot_sprite_image",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 64832,
+   "name": "alternating_upright_sprite_image",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 64896,
+   "name": "hand_sprite_image",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 64960,
+   "name": "narrow_bar_sprite_image",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 65024,
+   "name": "angular_sprite_image",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 65088,
+   "name": "sloped_strip_sprite_image",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 65152,
+   "name": "long_bar_sprite_image",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 65216,
+   "name": "terminal_sprite_image",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 65280,
+   "name": "machinery_sprite_image",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 65344,
+   "name": "narrow_frame_sprite_image",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 65408,
+   "name": "first_striped_panel_sprite",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 65472,
+   "name": "second_striped_panel_sprite",
+   "type": "UserDefined",
+   "kind": "user"
+  }
+ ],
+ "comments": [
+  {
+   "address": 45344,
+   "type": "line",
+   "text": "The 48 bytes beyond the high-RAM copy limit match record 306 byte for byte starting at its offset $800. They remain in the staging buffer after $6232 completes the copy."
+  },
+  {
+   "address": 62464,
+   "type": "line",
+   "text": "First 64-byte sprite slot in the copy. Rendering its first 63 bytes shows a small foot shape at the lower left."
+  },
+  {
+   "address": 62528,
+   "type": "line",
+   "text": "Upright body shape in the second slot, beside the first foot and narrow contour slots."
+  },
+  {
+   "address": 62592,
+   "type": "line",
+   "text": "Narrow curved shape to the right of the body in the third sprite slot."
+  },
+  {
+   "address": 62656,
+   "type": "line",
+   "text": "Small lower-left shape in the first slot of the second three-slot group."
+  },
+  {
+   "address": 62720,
+   "type": "line",
+   "text": "Upright torso and leg silhouette in the middle slot of the second group."
+  },
+  {
+   "address": 62784,
+   "type": "line",
+   "text": "Curved right-side silhouette matching the second group of body and foot slots."
+  },
+  {
+   "address": 62848,
+   "type": "line",
+   "text": "Small lower-left shape in the first slot of the third group."
+  },
+  {
+   "address": 62912,
+   "type": "line",
+   "text": "Upright body shape with a more extended arm in the third group."
+  },
+  {
+   "address": 62976,
+   "type": "line",
+   "text": "Narrow side shape paired with the last upright body."
+  },
+  {
+   "address": 63040,
+   "type": "line",
+   "text": "First destination plane of the three-plane sprite builder. The AND-and-store path at $635F and the replacement path at $6388 write this slot. The copy at $63CA fills it from the agent sprites using the original VIC pointers."
+  },
+  {
+   "address": 63104,
+   "type": "line",
+   "text": "Second 64-byte plane used by the builder. The writes at $636B and $638B parallel the updates to the first plane."
+  },
+  {
+   "address": 63168,
+   "type": "line",
+   "text": "Third 64-byte plane used by the builder. The writes at $6374 and $638E use the same row index."
+  },
+  {
+   "address": 63232,
+   "type": "line",
+   "text": "All 63 visible sprite bytes are zero. The trailing stride byte is $04."
+  },
+  {
+   "address": 63488,
+   "type": "line",
+   "text": "Sprite-sized shape immediately before the similar shape at $F840 and the speech driver. The image has a rounded striped top over a wide base."
+  },
+  {
+   "address": 63552,
+   "type": "line",
+   "text": "Second rounded striped shape. The speech driver's first NMI instruction begins at the next slot boundary."
+  },
+  {
+   "address": 63616,
+   "type": "line",
+   "text": "Save A, read a value from the patched wave pointer in page four, halve it into SID volume and acknowledge CIA2. Increment the low operand and count down $8A. At zero switch to $F8A1 and pass it the last low operand."
+  },
+  {
+   "address": 63649,
+   "type": "line",
+   "text": "Output the same half-amplitude from the backward wave pointer and decrement its low operand until $8B reaches zero. Continue to the shared state advance when $8D is zero or select the constant-volume NMI otherwise."
+  },
+  {
+   "address": 63680,
+   "type": "line",
+   "text": "Output volume seven, acknowledge CIA2 and decrement the quiet-interval counter $8D. If it remains nonzero, install $F8D4 as a shorter interrupt that leaves the volume alone."
+  },
+  {
+   "address": 63700,
+   "type": "line",
+   "text": "Acknowledge CIA2 and count the remaining quiet ticks in $8D. When it expires, continue at $F8EC, where A is saved for the shared tail."
+  },
+  {
+   "address": 63708,
+   "type": "line",
+   "text": "Stop CIA2 timer B with $90, restore volume seven and acknowledge the pending CIA2 interrupt before returning."
+  },
+  {
+   "address": 63724,
+   "type": "line",
+   "text": "Save A on entry from the quiet-tick interrupt, then enter the shared state advance."
+  },
+  {
+   "address": 63725,
+   "type": "line",
+   "text": "Install the next low NMI vector byte from $8E, load the next wave offset and reset the forward, backward and quiet counters. Increment $94 and follow the segment path or the interval path selected by the patched jump."
+  },
+  {
+   "address": 63752,
+   "type": "line",
+   "text": "Save X and Y, increment $92 and read a descriptor when it wraps. Reload $94 from $93, toggle bit six of the old waveform offset to form X and call through the operand patched at $F920."
+  },
+  {
+   "address": 63778,
+   "type": "line",
+   "text": "Restore Y, X and A in reverse push order before returning from the NMI."
+  },
+  {
+   "address": 63784,
+   "type": "line",
+   "text": "Save X and Y, rebuild the alternate wave when $97 differs from $8F and advance the timing stream. Rejoin the shared register restore at $F922."
+  },
+  {
+   "address": 63803,
+   "type": "line",
+   "text": "Set $8E to $DC so the next state advance installs the timer-stopping handler."
+  },
+  {
+   "address": 63808,
+   "type": "line",
+   "text": "Set the next NMI low byte to $C0 and initialize the quiet duration field $91 to $80."
+  },
+  {
+   "address": 63817,
+   "type": "line",
+   "text": "Tail-call $FA58 to set the initial waveform offset in $8F before rebuilding the buffer."
+  },
+  {
+   "address": 63820,
+   "type": "line",
+   "text": "Decode packed levels through $F9D6, then inspect bit six of the descriptor byte patched into $F969. One branch toggles that bit and selects the just-decoded wave, while the other mixes waves before advancing the timing stream."
+  },
+  {
+   "address": 63848,
+   "type": "line",
+   "text": "Test the descriptor state patched into $F969. A negative value reinstalls the stop call. Otherwise read the descriptor at $84, load its counters, optionally build the source pointer from the base at $FAFA and patch the interval jump and waveform dispatch."
+  },
+  {
+   "address": 63942,
+   "type": "line",
+   "text": "Four waveform lengths indexed by two bits rotated out of the segment descriptor. The selected byte is written to $90."
+  },
+  {
+   "address": 63946,
+   "type": "line",
+   "text": "Advance the descriptor pointer $84/$85 by four bytes, carrying into the high byte."
+  },
+  {
+   "address": 63958,
+   "type": "line",
+   "text": "Add the selected wave length to the caller-supplied offset in A and patch the exit comparison. Decode pairs of five-bit even volume values from ($88), writing them to page four and advancing the source pointer as each packed byte is consumed."
+  },
+  {
+   "address": 64012,
+   "type": "line",
+   "text": "Increment the repeat counter. While it is nonzero, add the signed byte at $9A to the timing level and halve the result into $91. At rollover, read two new bytes from ($86), rebuild the counter and take the next increment from $FA48."
+  },
+  {
+   "address": 64072,
+   "type": "line",
+   "text": "Sixteen timing increments selected by the low nibble of the second timing byte. $FA13 adds the selected byte to $99 on subsequent intervals."
+  },
+  {
+   "address": 64088,
+   "type": "line",
+   "text": "Store the accumulator in $8F before falling through to the buffer mixer."
+  },
+  {
+   "address": 64090,
+   "type": "line",
+   "text": "Patch two source offsets into page four and choose the opposite output half. Average the source values with ADC and ROR for $90 entries, then store the output offset in $8F."
+  },
+  {
+   "address": 64135,
+   "type": "line",
+   "text": "Initialize the descriptor and timing pointers, stop timer B, install the NMI vector in page $F8, set its first phase and restart the timer. The resident JSR at $3609 reached this entry in VICE."
+  },
+  {
+   "address": 64152,
+   "type": "line",
+   "text": "Return bit zero of CIA2 timer B control in A. The resident poll shifts that bit into carry."
+  },
+  {
+   "address": 64158,
+   "type": "line",
+   "text": "Write $90 to timer B control and branch to the shared status read."
+  },
+  {
+   "address": 64165,
+   "type": "line",
+   "text": "Write $91 to timer B control, program latch $0064, enable timer B interrupts through $DD0D and acknowledge the pending flags."
+  },
+  {
+   "address": 64189,
+   "type": "line",
+   "text": "Patch the shared state advance to use its first interval target and stop callback. Set its counters to $FE, install the constant-volume NMI and give it a one-tick initial duration."
+  },
+  {
+   "address": 64220,
+   "type": "line",
+   "text": "Read the base at $FAFA into $84/$85 and use base plus eight for the timing pointer at $86/$87. Set the repeat counter to $FF and clear the mutable descriptor byte at $F969."
+  },
+  {
+   "address": 64250,
+   "type": "line",
+   "text": "Little-endian base pointer used by the speech decoder. It holds $0740 in the loaded record."
+  },
+  {
+   "address": 64252,
+   "type": "line",
+   "text": "Start the speech driver, poll timer B's running bit through $FA98 and return once it clears."
+  },
+  {
+   "address": 64262,
+   "type": "line",
+   "text": "A zero byte followed by a 16-bit x86 fragment. Its two relative CALLs at $FB08 and $FB32 have the same destination. Each tests AX after the call, and both conditional paths can reach the BP-relative load at $FB3D. The cassette copy places these bytes after the 6510 speech routine and before the next sprite slot."
+  },
+  {
+   "address": 64320,
+   "type": "line",
+   "text": "A rounded striped silhouette occupies the drawable bytes of this slot, with single-byte stride padding before the next graphic."
+  },
+  {
+   "address": 64384,
+   "type": "line",
+   "text": "Three nonzero rows of multicolour pixels in the first three bytes of their respective rows, followed by blank rows."
+  },
+  {
+   "address": 64448,
+   "type": "line",
+   "text": "Small centered round shape in the sprite slot before the taller striped shapes at $FC00."
+  },
+  {
+   "address": 64512,
+   "type": "line",
+   "text": "Striped body with tapered central shaft, rendered from 21 three-byte rows."
+  },
+  {
+   "address": 64576,
+   "type": "line",
+   "text": "Taller striped shaft and a base in the following 64-byte slot."
+  },
+  {
+   "address": 64640,
+   "type": "line",
+   "text": "Wide silhouette with an angled upper section. The next image preserves its base while changing the upper pixels."
+  },
+  {
+   "address": 64704,
+   "type": "line",
+   "text": "Second wide silhouette in the copied record. The engine uses this address as writable sprite storage after startup."
+  },
+  {
+   "address": 64768,
+   "type": "line",
+   "text": "Bright rounded shape with a pedestal in the original copy, before the engine overwrites this region."
+  },
+  {
+   "address": 64832,
+   "type": "line",
+   "text": "A second upright pedestal frame with shifted stripe pixels, from the same copied group."
+  },
+  {
+   "address": 64896,
+   "type": "line",
+   "text": "Large diagonal hand-shaped silhouette in the original copy. The later elevator snapshot differs across this slot."
+  },
+  {
+   "address": 64960,
+   "type": "line",
+   "text": "Thin horizontal shape with an enlarged left end."
+  },
+  {
+   "address": 65024,
+   "type": "line",
+   "text": "Orange angular silhouette in the top half of its 21-row cell."
+  },
+  {
+   "address": 65088,
+   "type": "line",
+   "text": "Horizontal striped shape with a sloping upper edge."
+  },
+  {
+   "address": 65152,
+   "type": "line",
+   "text": "Thin bright bar near the center of its cell with solid ends."
+  },
+  {
+   "address": 65216,
+   "type": "line",
+   "text": "Rectangular display with a lighter rim and rows of pixels beneath."
+  },
+  {
+   "address": 65280,
+   "type": "line",
+   "text": "Low profile with a stepped left edge and a taller column at right."
+  },
+  {
+   "address": 65344,
+   "type": "line",
+   "text": "Two narrow upright shapes joined by a short bridge at the top."
+  },
+  {
+   "address": 65408,
+   "type": "line",
+   "text": "First rectangular panel with alternating interior stripes. It still matches the cassette data in the opening elevator."
+  },
+  {
+   "address": 65472,
+   "type": "line",
+   "text": "Second rectangular panel in the last copied sprite slot. Subsequent engine writes reuse this slot for actor fields and hardware vectors."
+  }
+ ]
+}

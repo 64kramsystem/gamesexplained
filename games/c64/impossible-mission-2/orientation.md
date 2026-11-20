@@ -17,8 +17,9 @@ The first turbo load has two byte-width classes. The loading program's interrupt
 
 The ending and scoreboard snapshots below were produced by directing VICE to the game's loading paths. They establish the loads and show their display routines. They do not establish the player's prerequisites for triggering the paths.
 
-| Part | Route from the opening elevator | Listing snapshot |
+| Part | Controlled route | Listing snapshot |
 |---|---|---|
+| Scene graphics and speech | Restore the resident hand-over snapshot, reattach the TAP and seek to byte offset 646000 with Play pressed. Set PC to $0A0A and stop on the store to $F400. The last copy instruction is $6232 and the CPU stops at $6234. | `parts/scene-resource/work/entry.vsf`. |
 | Final sequence | Restore the elevator snapshot, reattach the TAP and seek to byte offset 1190466 with Play pressed. With the CPU paused, set PC to $0C25 and arm a stop on $7800. The game reads records 402 and 409 before entering the overlay. Continue to $0C6A to capture the image after record 428 replaced 409, and to $35EA for the completed display. | `parts/ending/work/entry.vsf`. The later snapshots are `ending-drawn.vsf` and `ending-wait.vsf`. |
 | Scoreboard | Restore the elevator snapshot, reattach the TAP and seek to byte offset 1280862 with Play pressed. Set PC to $2C65 and stop at $A520. Save the snapshot. The score code later calls back into the resident loader for records 264 and 358. | `parts/scores/work/entry.vsf`. The subsequent name-entry state is `scores-name-entry.vsf`. |
 
@@ -35,9 +36,10 @@ The kit's generic tape reader recognized the KERNAL block and split stretches of
 | 448 | $7000 | All 3,360 bytes match in the title snapshot. This is the second segment of the packed music stream. |
 | 462 | $A57D | 1,439 of 1,440 match in the title snapshot. This is the speech driver. |
 | 468 | $8000 | All 5,280 match in the title snapshot. The speech pointer table starts here. |
-| 267 | $C000 | 9,218 of 9,360 match in the engine hand-over. |
+| 267 | $1000, copied to $C000 | The stop at $ACEA after the backward page copy matched all 9,216 bytes through $E3FF. The final 144 bytes were still at $3400, and $E400–$E48F still held title pixels. |
 | 306 | $E800 | All 2,160 match in the engine hand-over. |
 | 490 | $0880 | All 39,840 match in the engine hand-over. |
+| 315 | $A520, copied to $F400 | The first 3,072 bytes match the copy at $F400–$FFFF at the last store. The final 48 match $B120–$B14F in the load buffer. |
 | 130 | $A520 | 3,808 of 3,840 match in the opening elevator snapshot. |
 | 402 and 409 | $7800 and $A800 | All 1,680 and 4,560 match at the final sequence hand-over. |
 | 428 | $A800 | All 4,800 match after the subsequent overlay call. |

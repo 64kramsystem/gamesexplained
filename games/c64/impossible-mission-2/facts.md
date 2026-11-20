@@ -1,12 +1,13 @@
 # Impossible Mission II facts
 
-This analysis uses the PAL tape edition. The four part folders carry the annotated listings and their own evidence. The entry routes and file provenance are in [orientation.md](orientation.md).
+This analysis uses the PAL tape edition. The five part folders carry the annotated listings and their own evidence. The entry routes and file provenance are in [orientation.md](orientation.md).
 
 ## Loading and ownership
 
 - VICE stopped at $0880 on the title loader's JMP from $ACFD. The body of tape record 490 matched all 39,840 bytes from $0880 through $A41F. It includes the engine and its resident data.
 - The opening tape requests were observed at execution checkpoints on $37A2. X was $05 for record 000 into $A500, $0A for record 130 into $A520, and $28 for record 328 into $F000. The live bytes of each five-byte record were read at the checkpoint.
 - $399F builds the first tower record number by multiplying $86BA by 16. $2C2A builds the second by multiplying the same value by 16 and adding 130. $39AE uses a $01E0-byte template stride and copies $01A9 bytes before decoding a room record. $2202–$2204 requests the special record 128 via $2C42, which doubles $40 to get the file number.
+- A controlled request for record 315 copied 3,072 bytes to $F400–$FFFF, ending with the store at $6232. The copy includes the agent sprite groups and the timer-driven speech driver at $F880–$FB05. The [scene resource facts](parts/scene-resource/facts.md) give the instruction checkpoints and store watches.
 - The title, final sequence and scoreboard contain code that occupies addresses used for other purposes in the engine image. Their listings use snapshots of those actual loaded states. The final sequence swaps one compressed image for another at $A800 while retaining the same code at $7800.
 
 ## Opening elevator
