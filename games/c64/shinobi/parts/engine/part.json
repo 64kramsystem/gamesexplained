@@ -8,6 +8,26 @@
   "coverage": {
     "exclude": [
       [
+        "$0000",
+        "$00FF",
+        "Processor port, KERNAL and BASIC workspace, and the engine's live pointers and scratch fields. The resident file starts at $0801 and the handover disassembly has no zero-page routine. The loader also uses $B9\u2013$BC for KERNAL file arguments."
+      ],
+      [
+        "$0200",
+        "$027F",
+        "Placement workspace in the C64 input buffer. The loop at $8FE8 copies all 128 bytes from the selected mission source before applying the records."
+      ],
+      [
+        "$0280",
+        "$037F",
+        "System workspace and inherited release loader. The remaining loader at $02A7 passes SHINOBI to KERNAL LOAD before jumping to $1904. The resident setup store at $3EDA clears all 256 bytes and then restores the KERNAL keyboard timing and PAL flag."
+      ],
+      [
+        "$0380",
+        "$03F7",
+        "Bytes left by the X-Large boot loader. This entire interval matches the corresponding bytes in its PRG at $2FBD\u2013$3034, beyond the resident loader's workspace clear and below the resident PRG's load address."
+      ],
+      [
         "$0400",
         "$05FF",
         "Inherited boot screen cells hold $20 at engine entry. The engine clears $0400-$04FF and writes its sentinel at $04A0."
@@ -21,6 +41,36 @@
         "$0700",
         "$07FF",
         "Boot screen and tail bytes match the pre-engine loading snapshot; the resident disk payload starts at $0801."
+      ],
+      [
+        "$4000",
+        "$47FF",
+        "Live playfield character buffer. The wipe at $1DC2 recreates 256 glyphs using eight-byte destination steps. A store watchpoint hit its last glyph, starting at $47F8."
+      ],
+      [
+        "$4800",
+        "$4BFF",
+        "Front gameplay screen and sprite pointers. The initial drawing loop writes character cells and the sprite setup at $96B6 writes the pointer table."
+      ],
+      [
+        "$4C3E",
+        "$4FFF",
+        "Remainder of the alternate gameplay screen after the two resident setup routines. The cell renderer and sprite setup at $96B9 write this screen and its pointer table."
+      ],
+      [
+        "$5400",
+        "$553F",
+        "Generated sprite buffer shared by player frames and message text. All 320 bytes are zero at hand-over. The renderer clears both 160-byte halves before writing glyph rows, and a store watch at $9620 stopped on the final byte at $553F."
+      ],
+      [
+        "$FF84",
+        "$FFF9",
+        "KERNAL jump-table addresses above the engine and mission loads. The stop at $FF84 saw ROM JMP $FDA3 with processor port $37, and different power-on bytes in RAM underneath."
+      ],
+      [
+        "$FFFA",
+        "$FFFF",
+        "Hardware vectors lie above every disk payload. During game setup the IRQ installer at $1E4F/$1E54 writes $1E87 into the RAM vector."
       ]
     ],
     "extra": [
