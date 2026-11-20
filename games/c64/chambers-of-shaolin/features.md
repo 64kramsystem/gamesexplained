@@ -1,23 +1,23 @@
 # Features
 
-The printed guide covers three platforms. Its general training and fighting instructions are leads for the C64 disk. References to selecting a stored fighter need a separate check against the C64 code.
+The printed guide describes three platforms. The disk load calls and media ledger identify which of its features this C64 release contains.
 
-| Feature | Status | What to look for |
+| Feature | Status | Evidence |
 | --- | --- | --- |
-| Stick | open | Read the master's attack height and jump, duck, or change distance before the blow. |
-| Agility | open | Avoid moving hazards and collect yin-yang symbols to recover power. Up triggers a flic-flac, while fire modifies the stick for jumping and ducking. |
-| Balance | live | Disk file 1 opened the Balance chamber. Live play showed four poles, a time counter and a sign counter. The manual describes collecting ten signs and restarting after a fall. |
-| Speed | live | Disk file 2 displayed the Speed instructions and a playable chamber with the suspended ball. The kick and water rules still need instruction tracing. |
-| Strength | live | Disk file 3 displayed the Strength instructions and the playable board chamber with a hand panel. The aiming and alternating-stick rules remain to be traced. |
-| Fire | open | Use a low sweeping kick to drive away burning baskets on a bridge. |
-| Combat | live | Disk file 4 displayed the combat introduction and two fighters in the mountain arena. The route from training and the effect of training scores still need instruction traces. |
-| End sequence | open | The guide mentions another test after beating four opponents. Its presence on the C64 remains open. |
-| Character storage | open | The guide describes a separate character disk. Look for C64 character loading and saving independently of high scores. |
-| Score table | confirmed | The score screen requested H at $FFD5 and displayed five records. Fire led to LOAD for LABLE. The score-save call uses the replacement name @:H. |
-| Music and sound effects | open | Check the title, training and combat independently for music and sound effects. |
+| Stick | differs | The manual describes a training chamber with the master’s stick. The numbered disk loads and fixed LOAD names lead through Balance, Speed and Strength before Combat. |
+| Agility | differs | The documented Agility chamber has no file or transition in the disk route. The Balance overlay has its own moving hazards and pickup markers. |
+| Balance | live | The first overlay shows four poles and the time and sign counters. The pickup check at $0EC3 counts successful matches. A controlled result test reached the training flag and four award stores. |
+| Speed | live | The second overlay shows the suspended ball and the rising water. Instruction traces show the ball’s recenter and reversal branches and both water painters. VICE checkpoints caught the four result award stores and the flag boundary between 49 and 50 percent. |
+| Strength | live | The third overlay shows the board chamber and its gauges. The code at $0D8C uses time between joystick direction changes, and $0F7C takes the strike path once the strength gauge finishes. Execution checkpoints covered partial progress and full success in the result handler. |
+| Fire | differs | The manual describes a burning-basket bridge. The counted disk files lead directly from Strength to Combat. |
+| Combat | live | The fourth overlay draws two fighters and four scene sources. Both motion interpreters read the training unlock flags for moves four, six and seven. The starting bar and timer calculations and the contact-score routines read training values carried from the numbered overlays. |
+| End sequence | differs | The disk uses an interlude followed by HIGH. A one-apprentice win in scene index 3 sets the exit flag and selects interlude 1. Two-apprentice completion selects interlude 6 and takes the same score exit. |
+| Character storage | differs | The code and media search accounts for the fixed load names, including the relocated Speed loader. The save call at $C44E in HIGH writes the score file H. The two names and training values pass between overlays in resident RAM. |
+| Score table | live | The score screen requested H at $FFD5 and displayed five records. Fire led to LOAD for LABLE. The score-save call uses the replacement name @:H. |
+| Music and sound effects | traced | Title, Balance, Speed, Combat and High Scores use SID music drivers. Speed has two traced tune selectors. Six Strength effect streams drive its own SID player. |
 
 ## Sources
 
 - [Chambers of Shaolin printed manual](https://db.hfsplay.fr/files/2018/10/06/cefaf35f-cfde-419b-a20d-cf990ade2c95.pdf), consulted 20 November 2026. The English training and combat instructions are on pp. 6–15.
 - [Overdrive release record](https://csdb.dk/release/?id=241287), consulted 20 November 2026.
-- [Chambers of Shaolin – C64-Wiki](https://www.c64-wiki.de/wiki/Chambers_of_Shaolin), consulted 20 November 2026. Its C64 description lists Balance, Speed and Strength. The other chambers in the multi-platform manual remain open until the load paths and relevant code are checked.
+- [Chambers of Shaolin – C64-Wiki](https://www.c64-wiki.de/wiki/Chambers_of_Shaolin), consulted 20 November 2026.

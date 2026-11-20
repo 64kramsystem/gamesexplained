@@ -23,6 +23,71 @@
     "Residual packed stream copied by the depacker through ($FE),Y before the destination data is unpacked through ($FA),Y. The authored output starts at $0800."
    ],
    [
+    40961,
+    49120,
+    "Generated Strength display bitmap. The traced $1358 copy writes every byte from the authored source at $2000. The first three pages initially serve as character RAM and are installed from $1D80 before the introduction is made visible."
+   ],
+   [
+    57939,
+    58111,
+    "Zero-filled tail beyond the six effect streams. Their split pointers start the streams at $E1CB through $E232. The instruction-level effect tests selected every stream and saw no reads in this tail."
+   ],
+   [
+    34048,
+    34303,
+    "Zero-filled destination for the first four board sprites. The $1075 instruction trace records every byte written by $10C9 before those sprite slots are displayed."
+   ],
+   [
+    34305,
+    34687,
+    "Zero-filled sprite workspace. The instruction trace at $1075 records every byte in this range written by the board and apprentice pose copies."
+   ],
+   [
+    34689,
+    34816,
+    "Zero-filled destination for the end of the apprentice pose copy. The $1123 stores recorded in the instruction trace fill it from the frame table."
+   ],
+   [
+    6609,
+    7551,
+    "Zero-filled gap between the last result message and the glyph source. Instruction watchpoints on reads, stores and execution had no hits at the instruction screen, during play or on the tested failed and successful result paths."
+   ],
+   [
+    22528,
+    25408,
+    "Zero-filled interval after the last board panel source band. The panel pointer tables and their fixed copy strides end below it, and the next nonzero image trailer starts at $6341. Intro, gameplay and both result probes found no accesses in the interval."
+   ],
+   [
+    49121,
+    51455,
+    "Zero-filled space after the last generated bitmap byte and before the disk exit at $C900. No RAM read, write or execution checkpoints hit before gameplay or on the measured gameplay and result paths."
+   ],
+   [
+    51512,
+    51710,
+    "Zero-filled space after the retained alternate LOAD tail. The live load routine branches into BASIC at $C929 and never falls through into the tail. Intro, play and the sampled results never accessed this gap."
+   ],
+   [
+    2048,
+    2063,
+    "Zero bytes below the hand-over entry at $0810. The depacker overwrites the earlier BASIC bootstrap in this range before entering the Strength program."
+   ],
+   [
+    25429,
+    25485,
+    "Zero alignment bytes between the retained pixel tail and the start of the standalone picture header. The introductory and play watchpoint on $6341\u2013$63FF saw no accesses."
+   ],
+   [
+    25744,
+    26623,
+    "Zero-filled gap after the last gauge pattern and before the first pose. The bar restoration trace for every height from zero through $50 stopped at $6457. The introduction, play and both sampled result cases saw no accesses in the gap."
+   ],
+   [
+    34817,
+    34943,
+    "Zero-filled generated sprite display bytes. The instruction trace of $112D installs both 64-byte overlay shapes from the aiming and indicator pointers."
+   ],
+   [
     0,
     2047,
     "Thalion intro and title"
@@ -121,7 +186,7 @@
   {
    "start": 2679,
    "end": 2683,
-   "type": "Undefined"
+   "type": "Byte"
   },
   {
    "start": 2684,
@@ -131,7 +196,7 @@
   {
    "start": 3016,
    "end": 3017,
-   "type": "Undefined"
+   "type": "PETSCII"
   },
   {
    "start": 3018,
@@ -180,8 +245,73 @@
   },
   {
    "start": 5183,
+   "end": 5244,
+   "type": "Code"
+  },
+  {
+   "start": 5245,
+   "end": 5542,
+   "type": "Code"
+  },
+  {
+   "start": 5543,
+   "end": 5691,
+   "type": "Code"
+  },
+  {
+   "start": 5692,
+   "end": 5834,
+   "type": "Code"
+  },
+  {
+   "start": 5835,
+   "end": 5904,
+   "type": "Code"
+  },
+  {
+   "start": 5905,
+   "end": 5957,
+   "type": "Byte"
+  },
+  {
+   "start": 5958,
+   "end": 5969,
+   "type": "Byte"
+  },
+  {
+   "start": 5970,
+   "end": 5977,
+   "type": "Byte"
+  },
+  {
+   "start": 5978,
+   "end": 5993,
+   "type": "Byte"
+  },
+  {
+   "start": 5994,
+   "end": 5997,
+   "type": "Byte"
+  },
+  {
+   "start": 5998,
+   "end": 6011,
+   "type": "Byte"
+  },
+  {
+   "start": 6012,
+   "end": 6019,
+   "type": "Byte"
+  },
+  {
+   "start": 6020,
+   "end": 6029,
+   "type": "Byte"
+  },
+  {
+   "start": 6030,
    "end": 6041,
-   "type": "Undefined"
+   "type": "Byte"
   },
   {
    "start": 6042,
@@ -190,6 +320,71 @@
   },
   {
    "start": 6118,
+   "end": 6127,
+   "type": "Byte"
+  },
+  {
+   "start": 6128,
+   "end": 6152,
+   "type": "Byte"
+  },
+  {
+   "start": 6153,
+   "end": 6202,
+   "type": "Word"
+  },
+  {
+   "start": 6203,
+   "end": 6212,
+   "type": "Address"
+  },
+  {
+   "start": 6213,
+   "end": 6229,
+   "type": "Byte"
+  },
+  {
+   "start": 6230,
+   "end": 6243,
+   "type": "Address"
+  },
+  {
+   "start": 6244,
+   "end": 6325,
+   "type": "Byte"
+  },
+  {
+   "start": 6326,
+   "end": 6374,
+   "type": "Byte"
+  },
+  {
+   "start": 6375,
+   "end": 6409,
+   "type": "Byte"
+  },
+  {
+   "start": 6410,
+   "end": 6462,
+   "type": "Byte"
+  },
+  {
+   "start": 6463,
+   "end": 6546,
+   "type": "Byte"
+  },
+  {
+   "start": 6547,
+   "end": 6574,
+   "type": "Byte"
+  },
+  {
+   "start": 6575,
+   "end": 6608,
+   "type": "Byte"
+  },
+  {
+   "start": 6609,
    "end": 7551,
    "type": "Undefined"
   },
@@ -251,7 +446,7 @@
   {
    "start": 16353,
    "end": 16383,
-   "type": "Undefined"
+   "type": "Byte"
   },
   {
    "start": 16384,
@@ -260,8 +455,153 @@
   },
   {
    "start": 17405,
-   "end": 25599,
+   "end": 17407,
+   "type": "Byte"
+  },
+  {
+   "start": 17408,
+   "end": 17727,
+   "type": "Byte"
+  },
+  {
+   "start": 17728,
+   "end": 18047,
+   "type": "Byte"
+  },
+  {
+   "start": 18048,
+   "end": 18367,
+   "type": "Byte"
+  },
+  {
+   "start": 18368,
+   "end": 18687,
+   "type": "Byte"
+  },
+  {
+   "start": 18688,
+   "end": 19007,
+   "type": "Byte"
+  },
+  {
+   "start": 19008,
+   "end": 19327,
+   "type": "Byte"
+  },
+  {
+   "start": 19328,
+   "end": 19647,
+   "type": "Byte"
+  },
+  {
+   "start": 19648,
+   "end": 19967,
+   "type": "Byte"
+  },
+  {
+   "start": 19968,
+   "end": 20207,
+   "type": "Byte"
+  },
+  {
+   "start": 20208,
+   "end": 20287,
+   "type": "Byte"
+  },
+  {
+   "start": 20288,
+   "end": 20527,
+   "type": "Byte"
+  },
+  {
+   "start": 20528,
+   "end": 20607,
+   "type": "Byte"
+  },
+  {
+   "start": 20608,
+   "end": 20847,
+   "type": "Byte"
+  },
+  {
+   "start": 20848,
+   "end": 20927,
+   "type": "Byte"
+  },
+  {
+   "start": 20928,
+   "end": 21167,
+   "type": "Byte"
+  },
+  {
+   "start": 21168,
+   "end": 21247,
+   "type": "Byte"
+  },
+  {
+   "start": 21248,
+   "end": 21487,
+   "type": "Byte"
+  },
+  {
+   "start": 21488,
+   "end": 21567,
+   "type": "Byte"
+  },
+  {
+   "start": 21568,
+   "end": 21807,
+   "type": "Byte"
+  },
+  {
+   "start": 21808,
+   "end": 21887,
+   "type": "Byte"
+  },
+  {
+   "start": 21888,
+   "end": 22127,
+   "type": "Byte"
+  },
+  {
+   "start": 22128,
+   "end": 22207,
+   "type": "Byte"
+  },
+  {
+   "start": 22208,
+   "end": 22447,
+   "type": "Byte"
+  },
+  {
+   "start": 22448,
+   "end": 22527,
+   "type": "Byte"
+  },
+  {
+   "start": 22528,
+   "end": 25408,
    "type": "Undefined"
+  },
+  {
+   "start": 25409,
+   "end": 25428,
+   "type": "Byte"
+  },
+  {
+   "start": 25429,
+   "end": 25485,
+   "type": "Undefined"
+  },
+  {
+   "start": 25486,
+   "end": 25506,
+   "type": "Byte"
+  },
+  {
+   "start": 25507,
+   "end": 25599,
+   "type": "Byte"
   },
   {
    "start": 25600,
@@ -270,6 +610,16 @@
   },
   {
    "start": 25680,
+   "end": 25687,
+   "type": "Byte"
+  },
+  {
+   "start": 25688,
+   "end": 25743,
+   "type": "Byte"
+  },
+  {
+   "start": 25744,
    "end": 26623,
    "type": "Undefined"
   },
@@ -360,8 +710,128 @@
   },
   {
    "start": 33152,
-   "end": 35839,
+   "end": 33215,
+   "type": "Byte"
+  },
+  {
+   "start": 33216,
+   "end": 33279,
+   "type": "Byte"
+  },
+  {
+   "start": 33280,
+   "end": 33343,
+   "type": "Byte"
+  },
+  {
+   "start": 33344,
+   "end": 33407,
+   "type": "Byte"
+  },
+  {
+   "start": 33408,
+   "end": 33471,
+   "type": "Byte"
+  },
+  {
+   "start": 33472,
+   "end": 33535,
+   "type": "Byte"
+  },
+  {
+   "start": 33536,
+   "end": 33599,
+   "type": "Byte"
+  },
+  {
+   "start": 33600,
+   "end": 33663,
+   "type": "Byte"
+  },
+  {
+   "start": 33664,
+   "end": 33727,
+   "type": "Byte"
+  },
+  {
+   "start": 33728,
+   "end": 33791,
+   "type": "Byte"
+  },
+  {
+   "start": 33792,
+   "end": 33855,
+   "type": "Byte"
+  },
+  {
+   "start": 33856,
+   "end": 33919,
+   "type": "Byte"
+  },
+  {
+   "start": 33920,
+   "end": 34047,
+   "type": "Byte"
+  },
+  {
+   "start": 34048,
+   "end": 34303,
    "type": "Undefined"
+  },
+  {
+   "start": 34304,
+   "end": 34304,
+   "type": "Byte"
+  },
+  {
+   "start": 34305,
+   "end": 34687,
+   "type": "Undefined"
+  },
+  {
+   "start": 34688,
+   "end": 34688,
+   "type": "Byte"
+  },
+  {
+   "start": 34689,
+   "end": 34943,
+   "type": "Undefined"
+  },
+  {
+   "start": 34944,
+   "end": 35071,
+   "type": "Byte"
+  },
+  {
+   "start": 35072,
+   "end": 35455,
+   "type": "Byte"
+  },
+  {
+   "start": 35456,
+   "end": 35583,
+   "type": "Byte"
+  },
+  {
+   "start": 35584,
+   "end": 35647,
+   "type": "Byte"
+  },
+  {
+   "start": 35648,
+   "end": 35711,
+   "type": "Byte"
+  },
+  {
+   "start": 35712,
+   "end": 35775,
+   "type": "Byte"
+  },
+  {
+   "start": 35776,
+   "end": 35839,
+   "type": "Byte"
   },
   {
    "start": 35840,
@@ -370,6 +840,66 @@
   },
   {
    "start": 36840,
+   "end": 36855,
+   "type": "Byte"
+  },
+  {
+   "start": 36856,
+   "end": 36863,
+   "type": "Byte"
+  },
+  {
+   "start": 36864,
+   "end": 36991,
+   "type": "Byte"
+  },
+  {
+   "start": 36992,
+   "end": 37759,
+   "type": "Byte"
+  },
+  {
+   "start": 37760,
+   "end": 38143,
+   "type": "Byte"
+  },
+  {
+   "start": 38144,
+   "end": 38911,
+   "type": "Byte"
+  },
+  {
+   "start": 38912,
+   "end": 39295,
+   "type": "Byte"
+  },
+  {
+   "start": 39296,
+   "end": 40063,
+   "type": "Byte"
+  },
+  {
+   "start": 40064,
+   "end": 40447,
+   "type": "Byte"
+  },
+  {
+   "start": 40448,
+   "end": 40946,
+   "type": "Byte"
+  },
+  {
+   "start": 40947,
+   "end": 40959,
+   "type": "PETSCII"
+  },
+  {
+   "start": 40960,
+   "end": 40960,
+   "type": "Byte"
+  },
+  {
+   "start": 40961,
    "end": 51455,
    "type": "Undefined"
   },
@@ -380,11 +910,101 @@
   },
   {
    "start": 51497,
+   "end": 51499,
+   "type": "Code"
+  },
+  {
+   "start": 51500,
+   "end": 51500,
+   "type": "PETSCII"
+  },
+  {
+   "start": 51501,
+   "end": 51511,
+   "type": "Byte"
+  },
+  {
+   "start": 51512,
    "end": 51710,
    "type": "Undefined"
   },
   {
    "start": 57344,
+   "end": 57346,
+   "type": "Code"
+  },
+  {
+   "start": 57347,
+   "end": 57362,
+   "type": "Code"
+  },
+  {
+   "start": 57363,
+   "end": 57431,
+   "type": "Code"
+  },
+  {
+   "start": 57432,
+   "end": 57571,
+   "type": "Code"
+  },
+  {
+   "start": 57572,
+   "end": 57692,
+   "type": "Code"
+  },
+  {
+   "start": 57693,
+   "end": 57714,
+   "type": "Code"
+  },
+  {
+   "start": 57715,
+   "end": 57728,
+   "type": "Byte"
+  },
+  {
+   "start": 57729,
+   "end": 57770,
+   "type": "Byte"
+  },
+  {
+   "start": 57771,
+   "end": 57802,
+   "type": "Byte"
+  },
+  {
+   "start": 57803,
+   "end": 57820,
+   "type": "Byte"
+  },
+  {
+   "start": 57821,
+   "end": 57847,
+   "type": "Byte"
+  },
+  {
+   "start": 57848,
+   "end": 57869,
+   "type": "Byte"
+  },
+  {
+   "start": 57870,
+   "end": 57887,
+   "type": "Byte"
+  },
+  {
+   "start": 57888,
+   "end": 57905,
+   "type": "Byte"
+  },
+  {
+   "start": 57906,
+   "end": 57938,
+   "type": "Byte"
+  },
+  {
+   "start": 57939,
    "end": 58111,
    "type": "Undefined"
   }
@@ -427,8 +1047,56 @@
    "kind": "user"
   },
   {
+   "address": 2459,
+   "name": "prepare_strength_result",
+   "type": "Subroutine",
+   "kind": "user"
+  },
+  {
+   "address": 2679,
+   "name": "strength_failed_strike_percent",
+   "type": "Data",
+   "kind": "user"
+  },
+  {
+   "address": 2684,
+   "name": "apply_strength_training_result",
+   "type": "Subroutine",
+   "kind": "user"
+  },
+  {
+   "address": 2901,
+   "name": "scale_strength_result",
+   "type": "Subroutine",
+   "kind": "user"
+  },
+  {
+   "address": 2978,
+   "name": "format_strength_award",
+   "type": "Subroutine",
+   "kind": "user"
+  },
+  {
+   "address": 3016,
+   "name": "strength_award_digits",
+   "type": "Data",
+   "kind": "user"
+  },
+  {
+   "address": 3018,
+   "name": "draw_strength_message_sequence",
+   "type": "Subroutine",
+   "kind": "user"
+  },
+  {
+   "address": 3058,
+   "name": "draw_strength_message",
+   "type": "Subroutine",
+   "kind": "user"
+  },
+  {
    "address": 3179,
-   "name": "draw_strength_apprentice_prompt",
+   "name": "show_strength_instructions",
    "type": "Subroutine",
    "kind": "user"
   },
@@ -475,8 +1143,170 @@
    "kind": "user"
   },
   {
+   "address": 5183,
+   "name": "strength_raster_irq",
+   "type": "Subroutine",
+   "kind": "user"
+  },
+  {
+   "address": 5245,
+   "name": "strength_irq_aim_markers",
+   "type": "Subroutine",
+   "kind": "user"
+  },
+  {
+   "address": 5543,
+   "name": "strength_irq_second_sprite_group",
+   "type": "Subroutine",
+   "kind": "user"
+  },
+  {
+   "address": 5692,
+   "name": "strength_irq_bottom_strip",
+   "type": "Subroutine",
+   "kind": "user"
+  },
+  {
+   "address": 5835,
+   "name": "strength_irq_border_timing",
+   "type": "Subroutine",
+   "kind": "user"
+  },
+  {
+   "address": 5905,
+   "name": "strength_attempt_state",
+   "type": "Data",
+   "kind": "user"
+  },
+  {
+   "address": 5958,
+   "name": "strength_indicator_positions",
+   "type": "Data",
+   "kind": "user"
+  },
+  {
+   "address": 5970,
+   "name": "strength_fighter_pose_positions",
+   "type": "Data",
+   "kind": "user"
+  },
+  {
+   "address": 5978,
+   "name": "strength_board_strike_positions",
+   "type": "Data",
+   "kind": "user"
+  },
+  {
+   "address": 5994,
+   "name": "strength_strike_base_threshold",
+   "type": "Data",
+   "kind": "user"
+  },
+  {
+   "address": 5998,
+   "name": "strength_board_panel_sources",
+   "type": "Data",
+   "kind": "user"
+  },
+  {
+   "address": 6012,
+   "name": "strength_aim_sprite_sources",
+   "type": "Data",
+   "kind": "user"
+  },
+  {
+   "address": 6020,
+   "name": "strength_attempt_panel_sources",
+   "type": "Data",
+   "kind": "user"
+  },
+  {
+   "address": 6030,
+   "name": "strength_second_indicator_sources",
+   "type": "Data",
+   "kind": "user"
+  },
+  {
    "address": 6042,
    "name": "strength_pose_pointers",
+   "type": "Data",
+   "kind": "user"
+  },
+  {
+   "address": 6118,
+   "name": "strength_gauge_bit_masks",
+   "type": "Data",
+   "kind": "user"
+  },
+  {
+   "address": 6128,
+   "name": "strength_apprentice_message_field",
+   "type": "Data",
+   "kind": "user"
+  },
+  {
+   "address": 6153,
+   "name": "strength_message_row_offsets",
+   "type": "Data",
+   "kind": "user"
+  },
+  {
+   "address": 6203,
+   "name": "strength_message_sequence_pointers",
+   "type": "Data",
+   "kind": "user"
+  },
+  {
+   "address": 6213,
+   "name": "strength_message_sequence_lists",
+   "type": "Data",
+   "kind": "user"
+  },
+  {
+   "address": 6230,
+   "name": "strength_message_pointers",
+   "type": "Data",
+   "kind": "user"
+  },
+  {
+   "address": 6244,
+   "name": "strength_result_message_0",
+   "type": "Data",
+   "kind": "user"
+  },
+  {
+   "address": 6326,
+   "name": "strength_result_message_1",
+   "type": "Data",
+   "kind": "user"
+  },
+  {
+   "address": 6375,
+   "name": "strength_result_message_2",
+   "type": "Data",
+   "kind": "user"
+  },
+  {
+   "address": 6410,
+   "name": "strength_result_message_3",
+   "type": "Data",
+   "kind": "user"
+  },
+  {
+   "address": 6463,
+   "name": "strength_result_message_4",
+   "type": "Data",
+   "kind": "user"
+  },
+  {
+   "address": 6547,
+   "name": "strength_result_message_5",
+   "type": "Data",
+   "kind": "user"
+  },
+  {
+   "address": 6575,
+   "name": "strength_result_message_6",
    "type": "Data",
    "kind": "user"
   },
@@ -547,14 +1377,200 @@
    "kind": "user"
   },
   {
+   "address": 16353,
+   "name": "strength_picture_preview_tail",
+   "type": "Data",
+   "kind": "user"
+  },
+  {
    "address": 16384,
    "name": "strength_playfield_colours",
    "type": "Data",
    "kind": "user"
   },
   {
+   "address": 17405,
+   "name": "strength_screen_source_tail",
+   "type": "Data",
+   "kind": "user"
+  },
+  {
+   "address": 17408,
+   "name": "strength_early_panel_row_0",
+   "type": "Data",
+   "kind": "user"
+  },
+  {
+   "address": 17728,
+   "name": "strength_early_panel_row_1",
+   "type": "Data",
+   "kind": "user"
+  },
+  {
+   "address": 18048,
+   "name": "strength_early_panel_row_2",
+   "type": "Data",
+   "kind": "user"
+  },
+  {
+   "address": 18368,
+   "name": "strength_early_panel_row_3",
+   "type": "Data",
+   "kind": "user"
+  },
+  {
+   "address": 18688,
+   "name": "strength_early_panel_row_4",
+   "type": "Data",
+   "kind": "user"
+  },
+  {
+   "address": 19008,
+   "name": "strength_early_panel_row_5",
+   "type": "Data",
+   "kind": "user"
+  },
+  {
+   "address": 19328,
+   "name": "strength_early_panel_row_6",
+   "type": "Data",
+   "kind": "user"
+  },
+  {
+   "address": 19648,
+   "name": "strength_early_panel_row_7",
+   "type": "Data",
+   "kind": "user"
+  },
+  {
+   "address": 19968,
+   "name": "strength_late_panel_row_0",
+   "type": "Data",
+   "kind": "user"
+  },
+  {
+   "address": 20208,
+   "name": "strength_attempt_1_band_0",
+   "type": "Data",
+   "kind": "user"
+  },
+  {
+   "address": 20288,
+   "name": "strength_late_panel_row_1",
+   "type": "Data",
+   "kind": "user"
+  },
+  {
+   "address": 20528,
+   "name": "strength_attempt_1_band_1",
+   "type": "Data",
+   "kind": "user"
+  },
+  {
+   "address": 20608,
+   "name": "strength_late_panel_row_2",
+   "type": "Data",
+   "kind": "user"
+  },
+  {
+   "address": 20848,
+   "name": "strength_attempt_2_band_0",
+   "type": "Data",
+   "kind": "user"
+  },
+  {
+   "address": 20928,
+   "name": "strength_late_panel_row_3",
+   "type": "Data",
+   "kind": "user"
+  },
+  {
+   "address": 21168,
+   "name": "strength_attempt_2_band_1",
+   "type": "Data",
+   "kind": "user"
+  },
+  {
+   "address": 21248,
+   "name": "strength_late_panel_row_4",
+   "type": "Data",
+   "kind": "user"
+  },
+  {
+   "address": 21488,
+   "name": "strength_attempt_3_band_0",
+   "type": "Data",
+   "kind": "user"
+  },
+  {
+   "address": 21568,
+   "name": "strength_late_panel_row_5",
+   "type": "Data",
+   "kind": "user"
+  },
+  {
+   "address": 21808,
+   "name": "strength_attempt_3_band_1",
+   "type": "Data",
+   "kind": "user"
+  },
+  {
+   "address": 21888,
+   "name": "strength_late_panel_row_6",
+   "type": "Data",
+   "kind": "user"
+  },
+  {
+   "address": 22128,
+   "name": "strength_attempt_4_band_0",
+   "type": "Data",
+   "kind": "user"
+  },
+  {
+   "address": 22208,
+   "name": "strength_late_panel_row_7",
+   "type": "Data",
+   "kind": "user"
+  },
+  {
+   "address": 22448,
+   "name": "strength_attempt_4_band_1",
+   "type": "Data",
+   "kind": "user"
+  },
+  {
+   "address": 25409,
+   "name": "strength_preview_bitmap_tail",
+   "type": "Data",
+   "kind": "user"
+  },
+  {
+   "address": 25486,
+   "name": "strength_picture_preview_header",
+   "type": "Data",
+   "kind": "user"
+  },
+  {
+   "address": 25507,
+   "name": "strength_picture_preview_stub",
+   "type": "Data",
+   "kind": "user"
+  },
+  {
    "address": 25600,
    "name": "strength_gauge_texture",
+   "type": "Data",
+   "kind": "user"
+  },
+  {
+   "address": 25680,
+   "name": "strength_gauge_terminal_cell",
+   "type": "Data",
+   "kind": "user"
+  },
+  {
+   "address": 25688,
+   "name": "strength_gauge_pattern_extension",
    "type": "Data",
    "kind": "user"
   },
@@ -661,8 +1677,212 @@
    "kind": "user"
   },
   {
+   "address": 33152,
+   "name": "strength_second_indicator_0",
+   "type": "Data",
+   "kind": "user"
+  },
+  {
+   "address": 33216,
+   "name": "strength_second_indicator_1",
+   "type": "Data",
+   "kind": "user"
+  },
+  {
+   "address": 33280,
+   "name": "strength_second_indicator_2",
+   "type": "Data",
+   "kind": "user"
+  },
+  {
+   "address": 33344,
+   "name": "strength_second_indicator_3",
+   "type": "Data",
+   "kind": "user"
+  },
+  {
+   "address": 33408,
+   "name": "strength_second_indicator_4",
+   "type": "Data",
+   "kind": "user"
+  },
+  {
+   "address": 33472,
+   "name": "strength_second_indicator_5",
+   "type": "Data",
+   "kind": "user"
+  },
+  {
+   "address": 33536,
+   "name": "strength_aim_sprite_0",
+   "type": "Data",
+   "kind": "user"
+  },
+  {
+   "address": 33600,
+   "name": "strength_aim_sprite_1",
+   "type": "Data",
+   "kind": "user"
+  },
+  {
+   "address": 33664,
+   "name": "strength_aim_sprite_2",
+   "type": "Data",
+   "kind": "user"
+  },
+  {
+   "address": 33728,
+   "name": "strength_aim_sprite_3",
+   "type": "Data",
+   "kind": "user"
+  },
+  {
+   "address": 33792,
+   "name": "strength_blank_marker_sprite",
+   "type": "Data",
+   "kind": "user"
+  },
+  {
+   "address": 33856,
+   "name": "strength_second_blank_marker_slot",
+   "type": "Data",
+   "kind": "user"
+  },
+  {
+   "address": 33920,
+   "name": "strength_inactive_blank_frame_start",
+   "type": "Data",
+   "kind": "user"
+  },
+  {
+   "address": 34304,
+   "name": "strength_board_slot_gap_byte",
+   "type": "Data",
+   "kind": "user"
+  },
+  {
+   "address": 34688,
+   "name": "strength_apprentice_slot_gap_byte",
+   "type": "Data",
+   "kind": "user"
+  },
+  {
+   "address": 34944,
+   "name": "strength_unused_buffer_tail",
+   "type": "Data",
+   "kind": "user"
+  },
+  {
+   "address": 35072,
+   "name": "strength_unused_frame_slot_22",
+   "type": "Data",
+   "kind": "user"
+  },
+  {
+   "address": 35456,
+   "name": "strength_unused_frame_slot_23_start",
+   "type": "Data",
+   "kind": "user"
+  },
+  {
+   "address": 35584,
+   "name": "strength_bottom_strip_shape_0",
+   "type": "Data",
+   "kind": "user"
+  },
+  {
+   "address": 35648,
+   "name": "strength_bottom_strip_shape_1",
+   "type": "Data",
+   "kind": "user"
+  },
+  {
+   "address": 35712,
+   "name": "strength_bottom_strip_shape_2",
+   "type": "Data",
+   "kind": "user"
+  },
+  {
+   "address": 35776,
+   "name": "strength_unused_bottom_strip_neighbour",
+   "type": "Data",
+   "kind": "user"
+  },
+  {
    "address": 35840,
    "name": "strength_instructions_matrix",
+   "type": "Data",
+   "kind": "user"
+  },
+  {
+   "address": 36840,
+   "name": "strength_text_page_tail",
+   "type": "Data",
+   "kind": "user"
+  },
+  {
+   "address": 36856,
+   "name": "strength_text_page_sprite_pointers",
+   "type": "Data",
+   "kind": "user"
+  },
+  {
+   "address": 36864,
+   "name": "strength_unused_frame_26_tail",
+   "type": "Data",
+   "kind": "user"
+  },
+  {
+   "address": 36992,
+   "name": "strength_unused_frame_slots_27_28",
+   "type": "Data",
+   "kind": "user"
+  },
+  {
+   "address": 37760,
+   "name": "strength_unused_frame_slot_29",
+   "type": "Data",
+   "kind": "user"
+  },
+  {
+   "address": 38144,
+   "name": "strength_unused_frame_slots_30_31",
+   "type": "Data",
+   "kind": "user"
+  },
+  {
+   "address": 38912,
+   "name": "strength_unused_frame_slot_32",
+   "type": "Data",
+   "kind": "user"
+  },
+  {
+   "address": 39296,
+   "name": "strength_unused_frame_slots_33_34",
+   "type": "Data",
+   "kind": "user"
+  },
+  {
+   "address": 40064,
+   "name": "strength_unused_frame_slot_35",
+   "type": "Data",
+   "kind": "user"
+  },
+  {
+   "address": 40448,
+   "name": "strength_unused_frame_slots_36_37",
+   "type": "Data",
+   "kind": "user"
+  },
+  {
+   "address": 40947,
+   "name": "strength_disk_load_marker",
+   "type": "Data",
+   "kind": "user"
+  },
+  {
+   "address": 40960,
+   "name": "strength_load_marker_tail",
    "type": "Data",
    "kind": "user"
   },
@@ -670,6 +1890,114 @@
    "address": 51456,
    "name": "leave_strength",
    "type": "Subroutine",
+   "kind": "user"
+  },
+  {
+   "address": 51497,
+   "name": "strength_basic_run_jump",
+   "type": "Subroutine",
+   "kind": "user"
+  },
+  {
+   "address": 51500,
+   "name": "combat_disk_filename",
+   "type": "Data",
+   "kind": "user"
+  },
+  {
+   "address": 51501,
+   "name": "strength_alternate_load_tail",
+   "type": "Data",
+   "kind": "user"
+  },
+  {
+   "address": 57344,
+   "name": "play_strength_effects",
+   "type": "Subroutine",
+   "kind": "user"
+  },
+  {
+   "address": 57347,
+   "name": "initialize_strength_sid",
+   "type": "Subroutine",
+   "kind": "user"
+  },
+  {
+   "address": 57363,
+   "name": "select_strength_effect_stream",
+   "type": "Subroutine",
+   "kind": "user"
+  },
+  {
+   "address": 57432,
+   "name": "decode_strength_effect_command",
+   "type": "Subroutine",
+   "kind": "user"
+  },
+  {
+   "address": 57572,
+   "name": "step_strength_effect_modulation",
+   "type": "Subroutine",
+   "kind": "user"
+  },
+  {
+   "address": 57693,
+   "name": "advance_strength_effect_voice",
+   "type": "Subroutine",
+   "kind": "user"
+  },
+  {
+   "address": 57715,
+   "name": "strength_effect_stream_pointers",
+   "type": "Data",
+   "kind": "user"
+  },
+  {
+   "address": 57729,
+   "name": "strength_effect_initial_state",
+   "type": "Data",
+   "kind": "user"
+  },
+  {
+   "address": 57771,
+   "name": "strength_effect_control_values",
+   "type": "Data",
+   "kind": "user"
+  },
+  {
+   "address": 57803,
+   "name": "strength_effect_1",
+   "type": "Data",
+   "kind": "user"
+  },
+  {
+   "address": 57821,
+   "name": "strength_effect_2",
+   "type": "Data",
+   "kind": "user"
+  },
+  {
+   "address": 57848,
+   "name": "strength_effect_3",
+   "type": "Data",
+   "kind": "user"
+  },
+  {
+   "address": 57870,
+   "name": "strength_effect_4",
+   "type": "Data",
+   "kind": "user"
+  },
+  {
+   "address": 57888,
+   "name": "strength_effect_5",
+   "type": "Data",
+   "kind": "user"
+  },
+  {
+   "address": 57906,
+   "name": "strength_effect_6",
+   "type": "Data",
    "kind": "user"
   }
  ],
@@ -705,9 +2033,49 @@
    "text": "Waits for CIA1 port A to equal $6F. A different reading clears the latch at $CE23, and accepting a press sets the latch so a held button cannot count twice."
   },
   {
+   "address": 2459,
+   "type": "line",
+   "text": "Draws the Strength result panel and selects its message from the strike outcome at $1711 and attempt index at $1745. Intermediate successes proceed to the next attempt before awarding training values."
+  },
+  {
+   "address": 2679,
+   "type": "line",
+   "text": "Five progress values for a failed strike, ordered by the zero-based attempt index: 0, 25, 50, 75 and 100."
+  },
+  {
+   "address": 2684,
+   "type": "line",
+   "text": "Sets the current apprentice flag at $CE2A plus apprentice index when the result percentage is at least 50. Adds the rounded-up shares of 50, 60, 0 and 14 to that apprentice\u2019s four accumulated training values at $CE17, $CE19, $CE1B and $CE1D plus index."
+  },
+  {
+   "address": 2901,
+   "type": "line",
+   "text": "Multiplies the byte in X by the byte in Y with repeated 16-bit addition. Subtracts 100 repeatedly and returns the rounded-up quotient in X and $FA. The zero-percent path returns zero immediately."
+  },
+  {
+   "address": 2978,
+   "type": "line",
+   "text": "Scales the award through $0B55 and creates two PETSCII decimal digits in $0BC8/$0BC9. Leaves the binary amount in $FA."
+  },
+  {
+   "address": 3016,
+   "type": "line",
+   "text": "Two output digits written by $0BA2 and copied into the result screen after each award calculation."
+  },
+  {
+   "address": 3018,
+   "type": "line",
+   "text": "Doubles A to select a word pointer from $183B and renders each message index in the list until the $FF terminator."
+  },
+  {
+   "address": 3058,
+   "type": "line",
+   "text": "Reads the message pointer at $1856 plus twice A. The stream gives a column and row before the character bytes. $FE starts another positioned row and $FF ends the message."
+  },
+  {
    "address": 3179,
    "type": "line",
-   "text": "Blanks and clears the matrix. Copies seven common prompt rows from $CE40 and chooses the name at $CE03 or $CE0D. Shows the form and waits for fire."
+   "text": "Copies seven instructional lines saved at $CE40\u2013$CECB to the $8C00 screen. Writes the active apprentice\u2019s name to the screen and to the result message buffer before waiting for fire."
   },
   {
    "address": 3468,
@@ -745,9 +2113,144 @@
    "text": "Selects RAM under the KERNAL, masks CIA1 interrupt sources and sets the VIC-II compare to line $FA. Writes $143F to the hardware IRQ vector."
   },
   {
+   "address": 5183,
+   "type": "line",
+   "text": "Acknowledges the VIC-II interrupt and advances $172B modulo four. The low raster phase checks choose one of four sprite and display setups before restoring the interrupted registers."
+  },
+  {
+   "address": 5245,
+   "type": "line",
+   "text": "Configures sprites for the upper strip and places two alternating columns using the two 16-bit aim positions at $173D and $173F. Before the strike it adjusts both positions by the same signed step. Schedules line $A5."
+  },
+  {
+   "address": 5543,
+   "type": "line",
+   "text": "Places six sprites from pointers $1A\u2013$1F using horizontal positions at $1741 and $1742. Sprite 6 uses pointer $21 and position $172D/$172E. Schedules line $EA."
+  },
+  {
+   "address": 5692,
+   "type": "line",
+   "text": "Switches all eight sprites to single colour, assigns pointers $2C\u2013$2E and positions them across the bottom at Y=$F2. Schedules line $F0."
+  },
+  {
+   "address": 5835,
+   "type": "line",
+   "text": "Waits for raster line $F1, then delays with NOP instructions before changing $D016 and scheduling the next interrupt on line $FA."
+  },
+  {
+   "address": 5905,
+   "type": "line",
+   "text": "Strike result and delay, joystick timing, animation phases, gauge values, raster phase, sprite coordinates and attempt index. $093F clears $1711\u2013$173D, seeds the positions and advances the attempt index."
+  },
+  {
+   "address": 5958,
+   "type": "line",
+   "text": "Six X/Y byte pairs for sprite 6 in the second raster phase. $115D and $1163 select the pair using $1720."
+  },
+  {
+   "address": 5970,
+   "type": "line",
+   "text": "Eight left-column X positions for the fighter\u2019s strike poses. The right column is 24 pixels farther right."
+  },
+  {
+   "address": 5978,
+   "type": "line",
+   "text": "Eight 16-bit X positions indexed by board animation phase, loaded during the successful strike path."
+  },
+  {
+   "address": 5994,
+   "type": "line",
+   "text": "Four thresholds for breaking the board stacks. The strike test adds the absolute distance between the selected horizontal position and $00FE."
+  },
+  {
+   "address": 5998,
+   "type": "line",
+   "text": "Seven 80-byte-wide bitmap strip sources for the eight rows of the panel update. The code at $119D steps the source by $140 to read each next row."
+  },
+  {
+   "address": 6012,
+   "type": "line",
+   "text": "Four pointers to 64-byte frames cycled by $0F1F and copied to $8800."
+  },
+  {
+   "address": 6020,
+   "type": "line",
+   "text": "Pointer table indexed by the attempt counter at $1745. $11EE skips index zero and copies two 80-byte bitmap bands from the selected source."
+  },
+  {
+   "address": 6030,
+   "type": "line",
+   "text": "Six pointers to 64-byte shapes. $117A copies the selected indicator for the second raster phase to $8840."
+  },
+  {
    "address": 6042,
    "type": "line",
    "text": "Table of six-sprite sources spaced $0180 apart. The punch updater uses indices zero through seven for the fighter and adds eight to $1743 for the board set."
+  },
+  {
+   "address": 6118,
+   "type": "line",
+   "text": "Ten left-justified bit masks read by the gauge update routines when composing a partially filled cell."
+  },
+  {
+   "address": 6128,
+   "type": "line",
+   "text": "Space-filled field beginning with the ten apprentice-name bytes patched by $0CBC. The following asterisks and $FF form its fixed suffix."
+  },
+  {
+   "address": 6153,
+   "type": "line",
+   "text": "Twenty-five multiples of 40. The text renderer uses these word offsets to position each row relative to $8C00."
+  },
+  {
+   "address": 6203,
+   "type": "line",
+   "text": "Five pointers to message-index lists, selected by the result mode in $CE24."
+  },
+  {
+   "address": 6213,
+   "type": "line",
+   "text": "Five lists of message IDs. Each stops at $FF. The dispatcher uses the list for the selected strike result."
+  },
+  {
+   "address": 6230,
+   "type": "line",
+   "text": "Seven little-endian pointers to the positioned text streams rendered by $0BF2."
+  },
+  {
+   "address": 6244,
+   "type": "line",
+   "text": "Positioned text stream selected by message index 0. Each row starts with column and row bytes, $FE moves to the next row, and $FF ends the stream."
+  },
+  {
+   "address": 6326,
+   "type": "line",
+   "text": "Positioned text stream selected by message index 1. Each row starts with column and row bytes, $FE moves to the next row, and $FF ends the stream."
+  },
+  {
+   "address": 6375,
+   "type": "line",
+   "text": "Positioned text stream selected by message index 2. Each row starts with column and row bytes, $FE moves to the next row, and $FF ends the stream."
+  },
+  {
+   "address": 6410,
+   "type": "line",
+   "text": "Positioned text stream selected by message index 3. Each row starts with column and row bytes, $FE moves to the next row, and $FF ends the stream."
+  },
+  {
+   "address": 6463,
+   "type": "line",
+   "text": "Positioned text stream selected by message index 4. Each row starts with column and row bytes, $FE moves to the next row, and $FF ends the stream."
+  },
+  {
+   "address": 6547,
+   "type": "line",
+   "text": "Positioned text stream selected by message index 5. Each row starts with column and row bytes, $FE moves to the next row, and $FF ends the stream."
+  },
+  {
+   "address": 6575,
+   "type": "line",
+   "text": "Positioned text stream selected by message index 6. Each row starts with column and row bytes, $FE moves to the next row, and $FF ends the stream."
   },
   {
    "address": 7552,
@@ -805,14 +2308,169 @@
    "text": "The 161 bytes copied after the 8000 visible bytes of the Strength bitmap, through $3FE0 inclusive."
   },
   {
+   "address": 16353,
+   "type": "line",
+   "text": "Retained picture-preview instructions. The first load takes its colour byte from source address $5F43. The loop fills the four colour RAM pages, enables bitmap mode and spins. These bytes sit beyond the chamber bitmap copy."
+  },
+  {
    "address": 16384,
    "type": "line",
    "text": "Screen-colour matrix for the Strength gameplay bitmap. The copy at $13B1 moves it into the visible screen at $8C00."
   },
   {
+   "address": 17405,
+   "type": "line",
+   "text": "Three ascending bytes $B8, $B9 and $BA after the screen source copy, which ends at $43FC."
+  },
+  {
+   "address": 17408,
+   "type": "line",
+   "text": "Packed bitmap pixels for row 0 of the early Strength panel strips. Each strip occupies 80 bytes and the copy steps 320 bytes between rows."
+  },
+  {
+   "address": 17728,
+   "type": "line",
+   "text": "Packed bitmap pixels for row 1 of the early Strength panel strips. Each strip occupies 80 bytes and the copy steps 320 bytes between rows."
+  },
+  {
+   "address": 18048,
+   "type": "line",
+   "text": "Packed bitmap pixels for row 2 of the early Strength panel strips. Each strip occupies 80 bytes and the copy steps 320 bytes between rows."
+  },
+  {
+   "address": 18368,
+   "type": "line",
+   "text": "Packed bitmap pixels for row 3 of the early Strength panel strips. Each strip occupies 80 bytes and the copy steps 320 bytes between rows."
+  },
+  {
+   "address": 18688,
+   "type": "line",
+   "text": "Packed bitmap pixels for row 4 of the early Strength panel strips. Each strip occupies 80 bytes and the copy steps 320 bytes between rows."
+  },
+  {
+   "address": 19008,
+   "type": "line",
+   "text": "Packed bitmap pixels for row 5 of the early Strength panel strips. Each strip occupies 80 bytes and the copy steps 320 bytes between rows."
+  },
+  {
+   "address": 19328,
+   "type": "line",
+   "text": "Packed bitmap pixels for row 6 of the early Strength panel strips. Each strip occupies 80 bytes and the copy steps 320 bytes between rows."
+  },
+  {
+   "address": 19648,
+   "type": "line",
+   "text": "Packed bitmap pixels for row 7 of the early Strength panel strips. Each strip occupies 80 bytes and the copy steps 320 bytes between rows."
+  },
+  {
+   "address": 19968,
+   "type": "line",
+   "text": "Packed bitmap pixels for row 0 of the late Strength panel strips. Each strip occupies 80 bytes and the copy steps 320 bytes between rows."
+  },
+  {
+   "address": 20208,
+   "type": "line",
+   "text": "Bitmap band 0 for attempt index 1. The copy at $11EE reads it through the pointer table at $1784."
+  },
+  {
+   "address": 20288,
+   "type": "line",
+   "text": "Packed bitmap pixels for row 1 of the late Strength panel strips. Each strip occupies 80 bytes and the copy steps 320 bytes between rows."
+  },
+  {
+   "address": 20528,
+   "type": "line",
+   "text": "Bitmap band 1 for attempt index 1. The copy at $11EE reads it through the pointer table at $1784."
+  },
+  {
+   "address": 20608,
+   "type": "line",
+   "text": "Packed bitmap pixels for row 2 of the late Strength panel strips. Each strip occupies 80 bytes and the copy steps 320 bytes between rows."
+  },
+  {
+   "address": 20848,
+   "type": "line",
+   "text": "Bitmap band 0 for attempt index 2. The copy at $11EE reads it through the pointer table at $1784."
+  },
+  {
+   "address": 20928,
+   "type": "line",
+   "text": "Packed bitmap pixels for row 3 of the late Strength panel strips. Each strip occupies 80 bytes and the copy steps 320 bytes between rows."
+  },
+  {
+   "address": 21168,
+   "type": "line",
+   "text": "Bitmap band 1 for attempt index 2. The copy at $11EE reads it through the pointer table at $1784."
+  },
+  {
+   "address": 21248,
+   "type": "line",
+   "text": "Packed bitmap pixels for row 4 of the late Strength panel strips. Each strip occupies 80 bytes and the copy steps 320 bytes between rows."
+  },
+  {
+   "address": 21488,
+   "type": "line",
+   "text": "Bitmap band 0 for attempt index 3. The copy at $11EE reads it through the pointer table at $1784."
+  },
+  {
+   "address": 21568,
+   "type": "line",
+   "text": "Packed bitmap pixels for row 5 of the late Strength panel strips. Each strip occupies 80 bytes and the copy steps 320 bytes between rows."
+  },
+  {
+   "address": 21808,
+   "type": "line",
+   "text": "Bitmap band 1 for attempt index 3. The copy at $11EE reads it through the pointer table at $1784."
+  },
+  {
+   "address": 21888,
+   "type": "line",
+   "text": "Packed bitmap pixels for row 6 of the late Strength panel strips. Each strip occupies 80 bytes and the copy steps 320 bytes between rows."
+  },
+  {
+   "address": 22128,
+   "type": "line",
+   "text": "Bitmap band 0 for attempt index 4. The copy at $11EE reads it through the pointer table at $1784."
+  },
+  {
+   "address": 22208,
+   "type": "line",
+   "text": "Packed bitmap pixels for row 7 of the late Strength panel strips. Each strip occupies 80 bytes and the copy steps 320 bytes between rows."
+  },
+  {
+   "address": 22448,
+   "type": "line",
+   "text": "Bitmap band 1 for attempt index 4. The copy at $11EE reads it through the pointer table at $1784."
+  },
+  {
+   "address": 25409,
+   "type": "line",
+   "text": "Retained twenty-byte pixel pattern before the standalone picture header. The chamber panel sources end at $57FF, and the original program\u2019s preview bytes begin with the BASIC header at $638E."
+  },
+  {
+   "address": 25486,
+   "type": "line",
+   "text": "Retained BASIC line header targeting $0814 with line number 2001 and SYS 2070, followed by a JEDI string. The adjacent bytes hold the picture-preview instructions."
+  },
+  {
+   "address": 25507,
+   "type": "line",
+   "text": "Retained standalone picture-preview bytes. The instruction sequence copies $24 pages from $0873 to $4000, sets the VIC registers from literals and picture colour bytes, then holds the raster display in a loop."
+  },
+  {
    "address": 25600,
    "type": "line",
    "text": "Eighty raster bytes used to restore the vertical bars in the Strength display. Each update selects an eight-byte cell and masks its bits with the current bar height."
+  },
+  {
+   "address": 25680,
+   "type": "line",
+   "text": "Eight source bytes read by the bar restore routines when the input height is $50. The preceding ten cells start at $6400."
+  },
+  {
+   "address": 25688,
+   "type": "line",
+   "text": "Seven more eight-byte copies of the gauge cell pattern after the last cell reached during the restore trace."
   },
   {
    "address": 26624,
@@ -900,14 +2558,274 @@
    "text": "Strength apprentice and board frame 16. The pointer table selects this six-sprite source and copies it to the display buffer in chunks. Each sprite occupies a 64-byte slot, with 63 image bytes."
   },
   {
+   "address": 33152,
+   "type": "line",
+   "text": "Strength sprite shape 0 selected through the pointer table at $178E and painted in the second raster phase."
+  },
+  {
+   "address": 33216,
+   "type": "line",
+   "text": "Strength sprite shape 1 selected through the pointer table at $178E and painted in the second raster phase."
+  },
+  {
+   "address": 33280,
+   "type": "line",
+   "text": "Strength sprite shape 2 selected through the pointer table at $178E and painted in the second raster phase."
+  },
+  {
+   "address": 33344,
+   "type": "line",
+   "text": "Strength sprite shape 3 selected through the pointer table at $178E and painted in the second raster phase."
+  },
+  {
+   "address": 33408,
+   "type": "line",
+   "text": "Strength sprite shape 4 selected through the pointer table at $178E and painted in the second raster phase."
+  },
+  {
+   "address": 33472,
+   "type": "line",
+   "text": "Strength sprite shape 5 selected through the pointer table at $178E and painted in the second raster phase."
+  },
+  {
+   "address": 33536,
+   "type": "line",
+   "text": "Strength aiming sprite shape 0 selected through the pointer table at $177C and painted in the upper raster phase."
+  },
+  {
+   "address": 33600,
+   "type": "line",
+   "text": "Strength aiming sprite shape 1 selected through the pointer table at $177C and painted in the upper raster phase."
+  },
+  {
+   "address": 33664,
+   "type": "line",
+   "text": "Strength aiming sprite shape 2 selected through the pointer table at $177C and painted in the upper raster phase."
+  },
+  {
+   "address": 33728,
+   "type": "line",
+   "text": "Strength aiming sprite shape 3 selected through the pointer table at $177C and painted in the upper raster phase."
+  },
+  {
+   "address": 33792,
+   "type": "line",
+   "text": "A blank 64-byte slot before the board sprite buffers. Its 63 image bytes are zero and its final byte is $01."
+  },
+  {
+   "address": 33856,
+   "type": "line",
+   "text": "A second blank sprite slot next to the upper-phase marker data. Its 63 image bytes are zero and its padding byte is $FF."
+  },
+  {
+   "address": 33920,
+   "type": "line",
+   "text": "Zero-filled beginning of the nominal six-sprite frame at index 19. $1075 uses indices zero through seven for the fighter and at most index 16 for the board group."
+  },
+  {
+   "address": 34304,
+   "type": "line",
+   "text": "Retained zero at the start of the board group\u2019s fifth sprite. The second chunk writes offsets $01\u2013$80 from $8600 and the first chunk ends at $85FF."
+  },
+  {
+   "address": 34688,
+   "type": "line",
+   "text": "Retained zero at the start of the fighter group\u2019s fifth sprite. The second chunk at $1123 writes offsets $01\u2013$80 from this address."
+  },
+  {
+   "address": 34944,
+   "type": "line",
+   "text": "Two initial zero sprite slots after the last upper-phase overlay buffer at $8840. The upper group uses pointers through $21."
+  },
+  {
+   "address": 35072,
+   "type": "line",
+   "text": "Zero-filled nominal frame at table index 22. Its six sprite slots lie above the indicator buffer."
+  },
+  {
+   "address": 35456,
+   "type": "line",
+   "text": "Two blank slots before the fixed bottom-strip sprites. They form the start of the nominal table slot at index 23."
+  },
+  {
+   "address": 35584,
+   "type": "line",
+   "text": "The initial single-colour sprite shape of the bottom raster strip, selected by pointer $2C."
+  },
+  {
+   "address": 35648,
+   "type": "line",
+   "text": "The second bottom-strip sprite shape, selected by pointer $2D and repeated inside the strip."
+  },
+  {
+   "address": 35712,
+   "type": "line",
+   "text": "The third bottom-strip sprite shape reached from pointer $2E."
+  },
+  {
+   "address": 35776,
+   "type": "line",
+   "text": "Initial blank sprite slot following the three fixed bottom-strip shapes. The strip uses pointers $2C, $2D and $2E."
+  },
+  {
    "address": 35840,
    "type": "line",
    "text": "Authored 40-by-25 character matrix at $8C00 for the Strength instructions."
   },
   {
+   "address": 36840,
+   "type": "line",
+   "text": "Sixteen blank character codes beyond the 1,000 visible cells. The intro colour pass still reads them because it processes four full pages."
+  },
+  {
+   "address": 36856,
+   "type": "line",
+   "text": "The eight sprite pointer bytes at the end of the screen page. The intro colour pass reads their initial spaces, and the raster handlers replace them with sprite pointers during play."
+  },
+  {
+   "address": 36864,
+   "type": "line",
+   "text": "Zero-filled final 128 bytes of the nominal frame at index 26. Its pointer at $17CE begins inside the display matrix and the animator selects only earlier entries."
+  },
+  {
+   "address": 36992,
+   "type": "line",
+   "text": "Two blank 384-byte slots at the source addresses of table entries 27 and 28. The board and fighter selectors use earlier indices."
+  },
+  {
+   "address": 37760,
+   "type": "line",
+   "text": "Blank nominal six-sprite slot at table entry 29. Its selected address would be $9380."
+  },
+  {
+   "address": 38144,
+   "type": "line",
+   "text": "Two blank nominal frame slots addressed by Strength table indices 30 and 31."
+  },
+  {
+   "address": 38912,
+   "type": "line",
+   "text": "Six blank sprite slots at $9800, the next address in the Strength table after entry 31."
+  },
+  {
+   "address": 39296,
+   "type": "line",
+   "text": "Blank six-sprite source slots for table values 33 and 34."
+  },
+  {
+   "address": 40064,
+   "type": "line",
+   "text": "Blank slot at the address recorded in table entry 35. The next slot starts at $9E00."
+  },
+  {
+   "address": 40448,
+   "type": "line",
+   "text": "One blank 384-byte slot and the leading zero bytes of the final slot. The retained disk marker begins at $9FF3 inside the nominal final slot."
+  },
+  {
+   "address": 40947,
+   "type": "line",
+   "text": "The hand-over carries the text C64-DL1 $C000 just before $A000. Its use by the game remains unclassified."
+  },
+  {
+   "address": 40960,
+   "type": "line",
+   "text": "The $94 byte that follows the C64-DL1 text. The character and bitmap setup both replace this byte before their display appears."
+  },
+  {
    "address": 51456,
    "type": "line",
    "text": "Blanks the display, restores the KERNAL and installs the resident loader at $CA00 before opening a file on device 8."
+  },
+  {
+   "address": 51497,
+   "type": "line",
+   "text": "Jumps to BASIC RUN after the CLR call at $C926."
+  },
+  {
+   "address": 51500,
+   "type": "line",
+   "text": "The single-character name 4 supplied to SETNAM at $C91C."
+  },
+  {
+   "address": 51501,
+   "type": "line",
+   "text": "A retained LOAD/CLR/RUN byte sequence after the one-character file name. It starts with the $FFD5 operand from a LOAD call and contains JSR $A7AE where the live exit uses JMP."
+  },
+  {
+   "address": 57344,
+   "type": "line",
+   "text": "Jumps to the voice dispatcher at $E02E."
+  },
+  {
+   "address": 57347,
+   "type": "line",
+   "text": "Sets the SID volume and mode to $1F. Clears the 24 voice and filter registers at $D400\u2013$D417."
+  },
+  {
+   "address": 57363,
+   "type": "line",
+   "text": "A zero effect number disables the voice\u2019s envelope and sets its test bit. For an active effect the low seven bits select a stream. The high bit requests a restart with the voice gate reset and the stream position reset to zero."
+  },
+  {
+   "address": 57432,
+   "type": "line",
+   "text": "The high bit redirects to an offset in the stream. Otherwise, the command bits control optional envelope, frequency, pulse and voice-zero filter fields. The final branch updates the stream position and duration or clears the active effect request."
+  },
+  {
+   "address": 57572,
+   "type": "line",
+   "text": "Steps frequency, waveform and pulse while the current duration runs. The frequency stream can set its high byte with $81 or redirect to a stream offset with another negative command. The waveform table maps indices to SID control bytes."
+  },
+  {
+   "address": 57693,
+   "type": "line",
+   "text": "Subtracts seven from the current SID register offset and loops for the next voice. After the final voice it adds a patched step to the patched cutoff and writes $D416."
+  },
+  {
+   "address": 57715,
+   "type": "line",
+   "text": "The seven low bytes at $E173 and seven high bytes at $E17A form the sound stream pointer arrays. Effect numbers 1\u20136 are active, and zero selects the silent path before lookup."
+  },
+  {
+   "address": 57729,
+   "type": "line",
+   "text": "Zeroed voice work fields, indexed by the SID offsets 0, 7 and 14. Includes effect commands at $E196 plus voice offset, their counters and the current frequency, waveform and pulse fields."
+  },
+  {
+   "address": 57771,
+   "type": "line",
+   "text": "Lookup of SID control bytes indexed by the waveform stream at $E13E."
+  },
+  {
+   "address": 57803,
+   "type": "line",
+   "text": "Sound effect 1 selected from the split pointer arrays. Its command bytes and operands drive the Strength effect player at $E058."
+  },
+  {
+   "address": 57821,
+   "type": "line",
+   "text": "Sound effect 2 selected from the split pointer arrays. Its command bytes and operands drive the Strength effect player at $E058."
+  },
+  {
+   "address": 57848,
+   "type": "line",
+   "text": "Sound effect 3 selected from the split pointer arrays. Its command bytes and operands drive the Strength effect player at $E058."
+  },
+  {
+   "address": 57870,
+   "type": "line",
+   "text": "Sound effect 4 selected from the split pointer arrays. Its command bytes and operands drive the Strength effect player at $E058."
+  },
+  {
+   "address": 57888,
+   "type": "line",
+   "text": "Sound effect 5 selected from the split pointer arrays. Its command bytes and operands drive the Strength effect player at $E058."
+  },
+  {
+   "address": 57906,
+   "type": "line",
+   "text": "Sound effect 6 selected from the split pointer arrays. Its command bytes and operands drive the Strength effect player at $E058."
   }
  ]
 }

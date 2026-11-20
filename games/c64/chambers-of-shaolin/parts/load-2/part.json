@@ -11,6 +11,121 @@
         "$0334",
         "$07FF",
         "Residual packed stream copied by the depacker through ($FE),Y before the destination data is unpacked through ($FA),Y. The authored output starts at $0800."
+      ],
+      [
+        "$9000",
+        "$9EC3",
+        "Zero-filled hand-over space reserved for the first 21 generated line record slots. The $C1E0 instruction trace followed all 55 initial slot pointers and watched the records being written."
+      ],
+      [
+        "$D000",
+        "$DEC3",
+        "Zero-filled hand-over space reserved for 21 line record slots in RAM under I/O. The $C1E0 trace with processor port $34 recorded 3588 distinct write addresses and no reads or execution there during generation."
+      ],
+      [
+        "$F000",
+        "$F923",
+        "Zero-filled hand-over space reserved for the last 13 generated line record slots. The $C1E0 instruction trace followed all 55 initial slot pointers and watched the records being written."
+      ],
+      [
+        "$A800",
+        "$B4FF",
+        "Zero-filled hand-over space in the generated Speed bitmap. The $1B60 instruction trace saw every destination byte in $A000\u2013$B4FF written from the authored source at $6000 before the gameplay bitmap was shown."
+      ],
+      [
+        "$1F1B",
+        "$1FFF",
+        "Zero-filled gap after the last Speed helper and before the first pose. Introduction and play watchpoints on CPU reads, stores and execution saw no hits."
+      ],
+      [
+        "$5D21",
+        "$5FFF",
+        "Zero-filled gap after the two open water graphics pairs and before the copied playfield bitmap. The side copy traces ended at $5D20 and intro and play checkpoints saw no accesses in the gap."
+      ],
+      [
+        "$7D40",
+        "$7FFF",
+        "Zero-filled gap behind the last table-addressed overlay slot at $7D00\u2013$7D3F. The VIC bank begins at $8000. Introduction and gameplay CPU watches saw no hits."
+      ],
+      [
+        "$8400",
+        "$86FF",
+        "Zero-filled pose buffers that receive two copies of the animated six-sprite apprentice. Four controlled calls per buffer to $137C exercised every destination byte at instruction level."
+      ],
+      [
+        "$9EC4",
+        "$9FFF",
+        "Zero-filled gap beyond the twenty-first generated line slot and before the bitmap. The traced directory steps from $9E10 to $D000, and the intro and play watches saw no references in the gap."
+      ],
+      [
+        "$DEC4",
+        "$DFFF",
+        "Zero-filled gap behind the last generated record in RAM beneath I/O. The next slot starts at $F000 and the intro and gameplay watchpoint saw no hits within this interval."
+      ],
+      [
+        "$EA1B",
+        "$EAFF",
+        "Zero-filled gap following the final track and preceding the relocated exit loader. Instruction runs of both available tunes stopped their stream reads below this interval, and intro and play watched it without any access."
+      ],
+      [
+        "$FD00",
+        "$FD2F",
+        "Zero-filled padding after the instruction font source, whose three-page copy reads $FA00\u2013$FCFF. The active generated line directory ends at $F923 and the retained vector template starts at $FD30."
+      ],
+      [
+        "$FD50",
+        "$FD5B",
+        "Twelve zero bytes following the RAM copy of the KERNAL vector table and before the inactive directory slot at $FD5C."
+      ],
+      [
+        "$CDCE",
+        "$CDFE",
+        "Zero-filled tail after the positioned result messages. The message directory and stream terminators bound every stream below the tail."
+      ],
+      [
+        "$5CE0",
+        "$5CFF",
+        "Zero-filled space between two retained overlay masks and the open-water graphics. The water instruction tests and the intro and play watchpoints saw no accesses."
+      ],
+      [
+        "$8780",
+        "$87EF",
+        "Initially zero workspace written by the right overlay sprite copier. The two-side instruction trace reached all of these bytes."
+      ],
+      [
+        "$8800",
+        "$886F",
+        "Initially zero display sprite workspace. The Speed overlay instruction trace writes through these two partial or full slots."
+      ],
+      [
+        "$887E",
+        "$88FF",
+        "Initially zero work bytes in and just before two display sprite slots. The overlay copier writes these bytes during its animation."
+      ],
+      [
+        "$8900",
+        "$8BFF",
+        "Unused sprite-bank space after the six overlay slots. The sprite copier overshoots into $897E\u2013$897F and $89BE\u2013$89BF when Y wraps inside its three-store loop. The live watch stopped after $120C and the instruction trace identified the written bytes."
+      ],
+      [
+        "$BF55",
+        "$BF8D",
+        "Zero-filled gap outside the visible bitmap and before the retained preview header. Intro and play watches saw no CPU access."
+      ],
+      [
+        "$C000",
+        "$C1D7",
+        "Zero-filled interval after the retained bitmap preview and before the line generator. Intro and play watches saw no accesses."
+      ],
+      [
+        "$C1D9",
+        "$C1DF",
+        "Seven zero bytes following the retained $33 byte and just before the line generator. Intro and play watches saw no accesses."
+      ],
+      [
+        "$FEC4",
+        "$FFFF",
+        "Zero-filled region after the final nominal line directory slot. The raster installer writes the hardware IRQ vector before enabling the Speed handler."
       ]
     ],
     "extra": [
@@ -25,13 +140,7 @@
         "Depacker output from disk file 2, retained in full pending classification"
       ]
     ],
-    "include": [
-      [
-        "$D000",
-        "$DFFF",
-        "Depacker writes the RAM beneath I/O"
-      ]
-    ]
+    "include": []
   },
   "io": [],
   "regions": [],

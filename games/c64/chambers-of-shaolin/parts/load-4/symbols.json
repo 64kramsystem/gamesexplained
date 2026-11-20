@@ -13,9 +13,99 @@
     "stack"
    ],
    [
+    56175,
+    56447,
+    "I/O and colour RAM"
+   ],
+   [
+    57216,
+    57343,
+    "I/O and colour RAM"
+   ],
+   [
     820,
     2047,
     "Residual packed stream copied by the depacker through ($FE),Y before the destination data is unpacked through ($FA),Y. The authored output starts at $0800."
+   ],
+   [
+    8192,
+    16352,
+    "Generated display plane. The blanked Combat entry installs the introductory glyphs at $2000\u2013$22FF from $DC80 before enabling the text display. $1CB4 then clears $2000\u2013$3FE0 before scene decoding. The instruction trace records both ends of the clear."
+   ],
+   [
+    20864,
+    24179,
+    "Combat working plane zeroed by $1CB4 before the fight display is enabled. The instruction trace records every store from $5180 through $5E73."
+   ],
+   [
+    16353,
+    16383,
+    "Zero-filled end of the bitmap allocation outside the initialized bitmap at $2000\u2013$3FE0 and beyond the visible cells."
+   ],
+   [
+    19113,
+    19199,
+    "Zero-filled gap after scene source 3 and before the first HUD bar source. The decoder ended its stream at $4AA8 and intro and play watchpoints saw no accesses in this interval."
+   ],
+   [
+    19576,
+    20015,
+    "Zero-filled space beyond the authored HUD colour strip. The HUD painter starts its second matrix fills at $4E30. No read, write or execution hit in this gap during intro or play."
+   ],
+   [
+    20415,
+    20471,
+    "Zero-filled interval after the generated HUD matrix and before the weapon\u2019s sprite pointer. The HUD trace ends at $4FBE."
+   ],
+   [
+    20473,
+    20863,
+    "Zero-filled interval between the weapon\u2019s fixed sprite pointer and the fighter bitmap work plane. The weapon phase enables only sprite zero. No CPU watchpoint hits in the intro and play probes."
+   ],
+   [
+    24180,
+    24383,
+    "Zero-filled gap after the cleared fighter plane and before the weapon sprite. Intro and play read, write and execution watches saw no access."
+   ],
+   [
+    24448,
+    24575,
+    "Zero-filled gap after the 64-byte weapon sprite. The pointer $7D selects $5F40 and the watches found no CPU access past its slot."
+   ],
+   [
+    30605,
+    30719,
+    "Zero-filled gap after the second compressed scene stream. The decoder stopped at $778C, and the adjacent fight state begins at $7800."
+   ],
+   [
+    32673,
+    32767,
+    "Zero-filled interval between the opponent frame selector and the first fighter-frame pointer. The intro and fight watched the interval with no hits."
+   ],
+   [
+    32992,
+    33023,
+    "Zero-filled padding after the final two-byte fighter-frame offset and before the first sprite bitmap header at $8100."
+   ],
+   [
+    56175,
+    56447,
+    "Zero-filled gap in RAM beneath I/O between the first scene stream and the intro font. Intro writes hit I/O colour and port registers. The play watch stopped after a CIA read at $0A18 with processor port $35."
+   ],
+   [
+    57216,
+    57343,
+    "Zero-filled tail after the Combat font source and before the music entry. The font copy stops at $DF7F and the intro and fight watches saw no access here."
+   ],
+   [
+    60468,
+    60479,
+    "Twelve zero bytes between the final music phrase data and the fire gate at $EC40. The player\u2019s phrase trace and intro and fight watches saw no references."
+   ],
+   [
+    20016,
+    20414,
+    "Generated second HUD matrix. The $1F52 trace recorded writes throughout the interval before the Combat bitmap display is enabled. The old contents of this region are uniform $A0."
    ],
    [
     0,
@@ -57,7 +147,11 @@
   "beneath": [
    [
     53248,
-    57343
+    56174
+   ],
+   [
+    56448,
+    57215
    ]
   ],
   "elsewhere": [
@@ -77,7 +171,7 @@
   {
    "start": 2048,
    "end": 2063,
-   "type": "Undefined"
+   "type": "Byte"
   },
   {
    "start": 2064,
@@ -96,8 +190,28 @@
   },
   {
    "start": 3853,
+   "end": 3980,
+   "type": "Code"
+  },
+  {
+   "start": 3981,
+   "end": 4022,
+   "type": "Code"
+  },
+  {
+   "start": 4023,
+   "end": 4055,
+   "type": "Code"
+  },
+  {
+   "start": 4056,
+   "end": 4097,
+   "type": "Code"
+  },
+  {
+   "start": 4098,
    "end": 4130,
-   "type": "Undefined"
+   "type": "Code"
   },
   {
    "start": 4131,
@@ -136,8 +250,33 @@
   },
   {
    "start": 7477,
+   "end": 7552,
+   "type": "Code"
+  },
+  {
+   "start": 7553,
+   "end": 7599,
+   "type": "Code"
+  },
+  {
+   "start": 7600,
+   "end": 7623,
+   "type": "Code"
+  },
+  {
+   "start": 7624,
+   "end": 7766,
+   "type": "Code"
+  },
+  {
+   "start": 7767,
+   "end": 7821,
+   "type": "Code"
+  },
+  {
+   "start": 7822,
    "end": 7837,
-   "type": "Undefined"
+   "type": "Code"
   },
   {
    "start": 7838,
@@ -161,6 +300,11 @@
   },
   {
    "start": 8133,
+   "end": 8191,
+   "type": "Byte"
+  },
+  {
+   "start": 8192,
    "end": 16383,
    "type": "Undefined"
   },
@@ -181,6 +325,56 @@
   },
   {
    "start": 19113,
+   "end": 19199,
+   "type": "Undefined"
+  },
+  {
+   "start": 19200,
+   "end": 19359,
+   "type": "Byte"
+  },
+  {
+   "start": 19360,
+   "end": 19519,
+   "type": "Byte"
+  },
+  {
+   "start": 19520,
+   "end": 19560,
+   "type": "Byte"
+  },
+  {
+   "start": 19561,
+   "end": 19575,
+   "type": "Byte"
+  },
+  {
+   "start": 19576,
+   "end": 20471,
+   "type": "Undefined"
+  },
+  {
+   "start": 20472,
+   "end": 20472,
+   "type": "Byte"
+  },
+  {
+   "start": 20473,
+   "end": 24383,
+   "type": "Undefined"
+  },
+  {
+   "start": 24384,
+   "end": 24407,
+   "type": "Byte"
+  },
+  {
+   "start": 24408,
+   "end": 24447,
+   "type": "Byte"
+  },
+  {
+   "start": 24448,
    "end": 24575,
    "type": "Undefined"
   },
@@ -216,8 +410,13 @@
   },
   {
    "start": 30605,
-   "end": 30769,
+   "end": 30719,
    "type": "Undefined"
+  },
+  {
+   "start": 30720,
+   "end": 30769,
+   "type": "Byte"
   },
   {
    "start": 30770,
@@ -226,6 +425,201 @@
   },
   {
    "start": 30810,
+   "end": 30816,
+   "type": "Byte"
+  },
+  {
+   "start": 30817,
+   "end": 30869,
+   "type": "Byte"
+  },
+  {
+   "start": 30870,
+   "end": 30900,
+   "type": "Byte"
+  },
+  {
+   "start": 30901,
+   "end": 30910,
+   "type": "Byte"
+  },
+  {
+   "start": 30911,
+   "end": 30950,
+   "type": "Byte"
+  },
+  {
+   "start": 30951,
+   "end": 31206,
+   "type": "Byte"
+  },
+  {
+   "start": 31207,
+   "end": 31462,
+   "type": "Byte"
+  },
+  {
+   "start": 31463,
+   "end": 31490,
+   "type": "Address"
+  },
+  {
+   "start": 31491,
+   "end": 31504,
+   "type": "Byte"
+  },
+  {
+   "start": 31505,
+   "end": 31514,
+   "type": "Byte"
+  },
+  {
+   "start": 31515,
+   "end": 31524,
+   "type": "Byte"
+  },
+  {
+   "start": 31525,
+   "end": 31537,
+   "type": "Byte"
+  },
+  {
+   "start": 31538,
+   "end": 31552,
+   "type": "Byte"
+  },
+  {
+   "start": 31553,
+   "end": 31564,
+   "type": "Byte"
+  },
+  {
+   "start": 31565,
+   "end": 31582,
+   "type": "Byte"
+  },
+  {
+   "start": 31583,
+   "end": 31592,
+   "type": "Byte"
+  },
+  {
+   "start": 31593,
+   "end": 31601,
+   "type": "Byte"
+  },
+  {
+   "start": 31602,
+   "end": 31637,
+   "type": "Byte"
+  },
+  {
+   "start": 31638,
+   "end": 31645,
+   "type": "Byte"
+  },
+  {
+   "start": 31646,
+   "end": 31681,
+   "type": "Byte"
+  },
+  {
+   "start": 31682,
+   "end": 31688,
+   "type": "Byte"
+  },
+  {
+   "start": 31689,
+   "end": 31702,
+   "type": "Byte"
+  },
+  {
+   "start": 31703,
+   "end": 31720,
+   "type": "Word"
+  },
+  {
+   "start": 31721,
+   "end": 31738,
+   "type": "Word"
+  },
+  {
+   "start": 31739,
+   "end": 31924,
+   "type": "Word"
+  },
+  {
+   "start": 31925,
+   "end": 32110,
+   "type": "Word"
+  },
+  {
+   "start": 32111,
+   "end": 32124,
+   "type": "Byte"
+  },
+  {
+   "start": 32125,
+   "end": 32152,
+   "type": "Word"
+  },
+  {
+   "start": 32153,
+   "end": 32161,
+   "type": "Byte"
+  },
+  {
+   "start": 32162,
+   "end": 32170,
+   "type": "Byte"
+  },
+  {
+   "start": 32171,
+   "end": 32179,
+   "type": "Byte"
+  },
+  {
+   "start": 32180,
+   "end": 32188,
+   "type": "Byte"
+  },
+  {
+   "start": 32189,
+   "end": 32198,
+   "type": "Byte"
+  },
+  {
+   "start": 32199,
+   "end": 32203,
+   "type": "Byte"
+  },
+  {
+   "start": 32204,
+   "end": 32206,
+   "type": "Byte"
+  },
+  {
+   "start": 32207,
+   "end": 32299,
+   "type": "Byte"
+  },
+  {
+   "start": 32300,
+   "end": 32485,
+   "type": "Byte"
+  },
+  {
+   "start": 32486,
+   "end": 32671,
+   "type": "Byte"
+  },
+  {
+   "start": 32672,
+   "end": 32672,
+   "type": "Byte"
+  },
+  {
+   "start": 32673,
    "end": 32767,
    "type": "Undefined"
   },
@@ -236,6 +630,16 @@
   },
   {
    "start": 32932,
+   "end": 32935,
+   "type": "Word"
+  },
+  {
+   "start": 32936,
+   "end": 32991,
+   "type": "Word"
+  },
+  {
+   "start": 32992,
    "end": 33023,
    "type": "Undefined"
   },
@@ -662,7 +1066,7 @@
   {
    "start": 49748,
    "end": 49919,
-   "type": "Undefined"
+   "type": "Byte"
   },
   {
    "start": 49920,
@@ -691,8 +1095,183 @@
   },
   {
    "start": 50051,
+   "end": 50200,
+   "type": "Byte"
+  },
+  {
+   "start": 50201,
+   "end": 50431,
+   "type": "Byte"
+  },
+  {
+   "start": 50432,
+   "end": 50474,
+   "type": "Code"
+  },
+  {
+   "start": 50475,
+   "end": 50566,
+   "type": "Code"
+  },
+  {
+   "start": 50567,
+   "end": 50661,
+   "type": "Code"
+  },
+  {
+   "start": 50662,
+   "end": 50726,
+   "type": "Code"
+  },
+  {
+   "start": 50727,
+   "end": 50823,
+   "type": "Code"
+  },
+  {
+   "start": 50824,
+   "end": 50859,
+   "type": "Code"
+  },
+  {
+   "start": 50860,
+   "end": 51036,
+   "type": "Code"
+  },
+  {
+   "start": 51037,
+   "end": 51059,
+   "type": "Code"
+  },
+  {
+   "start": 51060,
+   "end": 51077,
+   "type": "Byte"
+  },
+  {
+   "start": 51078,
+   "end": 51088,
+   "type": "Byte"
+  },
+  {
+   "start": 51089,
+   "end": 51102,
+   "type": "Byte"
+  },
+  {
+   "start": 51103,
+   "end": 51711,
+   "type": "Byte"
+  },
+  {
+   "start": 51712,
+   "end": 51861,
+   "type": "Code"
+  },
+  {
+   "start": 51862,
+   "end": 51991,
+   "type": "Code"
+  },
+  {
+   "start": 51992,
+   "end": 52033,
+   "type": "Code"
+  },
+  {
+   "start": 52034,
+   "end": 52095,
+   "type": "Byte"
+  },
+  {
+   "start": 52096,
+   "end": 52097,
+   "type": "Word"
+  },
+  {
+   "start": 52098,
+   "end": 52102,
+   "type": "PETSCII"
+  },
+  {
+   "start": 52103,
+   "end": 52134,
+   "type": "Address"
+  },
+  {
+   "start": 52135,
+   "end": 52166,
+   "type": "Address"
+  },
+  {
+   "start": 52167,
+   "end": 52198,
+   "type": "Address"
+  },
+  {
+   "start": 52199,
+   "end": 52230,
+   "type": "Address"
+  },
+  {
+   "start": 52231,
+   "end": 52310,
+   "type": "PETSCII"
+  },
+  {
+   "start": 52311,
+   "end": 52390,
+   "type": "PETSCII"
+  },
+  {
+   "start": 52391,
+   "end": 52470,
+   "type": "PETSCII"
+  },
+  {
+   "start": 52471,
+   "end": 52550,
+   "type": "PETSCII"
+  },
+  {
+   "start": 52551,
+   "end": 52554,
+   "type": "Byte"
+  },
+  {
+   "start": 52555,
+   "end": 52555,
+   "type": "Byte"
+  },
+  {
+   "start": 52556,
+   "end": 52558,
+   "type": "Byte"
+  },
+  {
+   "start": 52559,
+   "end": 52568,
+   "type": "Byte"
+  },
+  {
+   "start": 52569,
+   "end": 52569,
+   "type": "Byte"
+  },
+  {
+   "start": 52570,
+   "end": 52587,
+   "type": "Byte"
+  },
+  {
+   "start": 52588,
+   "end": 52671,
+   "type": "Byte"
+  },
+  {
+   "start": 52672,
    "end": 52734,
-   "type": "Undefined"
+   "type": "Byte"
   },
   {
    "start": 53248,
@@ -721,6 +1300,186 @@
   },
   {
    "start": 57216,
+   "end": 57343,
+   "type": "Undefined"
+  },
+  {
+   "start": 57344,
+   "end": 57346,
+   "type": "Code"
+  },
+  {
+   "start": 57347,
+   "end": 57414,
+   "type": "Code"
+  },
+  {
+   "start": 57415,
+   "end": 57518,
+   "type": "Code"
+  },
+  {
+   "start": 57519,
+   "end": 57555,
+   "type": "Code"
+  },
+  {
+   "start": 57556,
+   "end": 57761,
+   "type": "Code"
+  },
+  {
+   "start": 57762,
+   "end": 57912,
+   "type": "Code"
+  },
+  {
+   "start": 57913,
+   "end": 58002,
+   "type": "Code"
+  },
+  {
+   "start": 58003,
+   "end": 58139,
+   "type": "Code"
+  },
+  {
+   "start": 58140,
+   "end": 58194,
+   "type": "Code"
+  },
+  {
+   "start": 58195,
+   "end": 58481,
+   "type": "Code"
+  },
+  {
+   "start": 58482,
+   "end": 58548,
+   "type": "Code"
+  },
+  {
+   "start": 58549,
+   "end": 58600,
+   "type": "Code"
+  },
+  {
+   "start": 58601,
+   "end": 58653,
+   "type": "Code"
+  },
+  {
+   "start": 58654,
+   "end": 58829,
+   "type": "Byte"
+  },
+  {
+   "start": 58830,
+   "end": 58876,
+   "type": "Byte"
+  },
+  {
+   "start": 58877,
+   "end": 58898,
+   "type": "Byte"
+  },
+  {
+   "start": 58899,
+   "end": 58919,
+   "type": "Byte"
+  },
+  {
+   "start": 58920,
+   "end": 58926,
+   "type": "Byte"
+  },
+  {
+   "start": 58927,
+   "end": 58974,
+   "type": "Byte"
+  },
+  {
+   "start": 58975,
+   "end": 59010,
+   "type": "Byte"
+  },
+  {
+   "start": 59011,
+   "end": 59071,
+   "type": "PETSCII"
+  },
+  {
+   "start": 59072,
+   "end": 59166,
+   "type": "Byte"
+  },
+  {
+   "start": 59167,
+   "end": 59205,
+   "type": "PETSCII"
+  },
+  {
+   "start": 59206,
+   "end": 59300,
+   "type": "Byte"
+  },
+  {
+   "start": 59301,
+   "end": 59303,
+   "type": "Byte"
+  },
+  {
+   "start": 59304,
+   "end": 59393,
+   "type": "Byte"
+  },
+  {
+   "start": 59394,
+   "end": 59423,
+   "type": "Address"
+  },
+  {
+   "start": 59424,
+   "end": 59430,
+   "type": "Byte"
+  },
+  {
+   "start": 59431,
+   "end": 59687,
+   "type": "Byte"
+  },
+  {
+   "start": 59688,
+   "end": 59703,
+   "type": "PETSCII"
+  },
+  {
+   "start": 59704,
+   "end": 59716,
+   "type": "Byte"
+  },
+  {
+   "start": 59717,
+   "end": 59758,
+   "type": "Byte"
+  },
+  {
+   "start": 59759,
+   "end": 59769,
+   "type": "Byte"
+  },
+  {
+   "start": 59770,
+   "end": 60195,
+   "type": "Byte"
+  },
+  {
+   "start": 60196,
+   "end": 60467,
+   "type": "Byte"
+  },
+  {
+   "start": 60468,
    "end": 60479,
    "type": "Undefined"
   },
@@ -751,8 +1510,113 @@
   },
   {
    "start": 60952,
+   "end": 61001,
+   "type": "Word"
+  },
+  {
+   "start": 61002,
+   "end": 61015,
+   "type": "Address"
+  },
+  {
+   "start": 61016,
+   "end": 61018,
+   "type": "Byte"
+  },
+  {
+   "start": 61019,
+   "end": 61021,
+   "type": "Byte"
+  },
+  {
+   "start": 61022,
+   "end": 61024,
+   "type": "Byte"
+  },
+  {
+   "start": 61025,
+   "end": 61027,
+   "type": "Byte"
+  },
+  {
+   "start": 61028,
+   "end": 61030,
+   "type": "Byte"
+  },
+  {
+   "start": 61031,
+   "end": 61033,
+   "type": "Byte"
+  },
+  {
+   "start": 61034,
+   "end": 61036,
+   "type": "Byte"
+  },
+  {
+   "start": 61037,
+   "end": 61054,
+   "type": "Address"
+  },
+  {
+   "start": 61055,
+   "end": 61082,
+   "type": "Byte"
+  },
+  {
+   "start": 61083,
+   "end": 61173,
+   "type": "Byte"
+  },
+  {
+   "start": 61174,
+   "end": 61232,
+   "type": "Byte"
+  },
+  {
+   "start": 61233,
+   "end": 61306,
+   "type": "Byte"
+  },
+  {
+   "start": 61307,
+   "end": 61377,
+   "type": "Byte"
+  },
+  {
+   "start": 61378,
+   "end": 61450,
+   "type": "Byte"
+  },
+  {
+   "start": 61451,
+   "end": 61475,
+   "type": "Byte"
+  },
+  {
+   "start": 61476,
+   "end": 61503,
+   "type": "Byte"
+  },
+  {
+   "start": 61504,
+   "end": 61531,
+   "type": "Byte"
+  },
+  {
+   "start": 61532,
+   "end": 61767,
+   "type": "Word"
+  },
+  {
+   "start": 61768,
+   "end": 62463,
+   "type": "Byte"
+  },
+  {
+   "start": 62464,
    "end": 62719,
-   "type": "Undefined"
+   "type": "Word"
   },
   {
    "start": 62720,
@@ -767,7 +1631,7 @@
   {
    "start": 63048,
    "end": 63231,
-   "type": "Undefined"
+   "type": "Byte"
   },
   {
    "start": 63232,
@@ -786,11 +1650,37 @@
   },
   {
    "start": 65400,
+   "end": 65412,
+   "type": "Byte"
+  },
+  {
+   "start": 65413,
+   "end": 65450,
+   "type": "Byte"
+  },
+  {
+   "start": 65451,
+   "end": 65503,
+   "type": "Byte"
+  },
+  {
+   "start": 65504,
+   "end": 65520,
+   "type": "Byte"
+  },
+  {
+   "start": 65521,
    "end": 65535,
-   "type": "Undefined"
+   "type": "Byte"
   }
  ],
  "symbols": [
+  {
+   "address": 2048,
+   "name": "combat_retained_pre_entry_fragment",
+   "type": "Data",
+   "kind": "user"
+  },
   {
    "address": 2064,
    "name": "combat_entry",
@@ -810,8 +1700,146 @@
    "kind": "user"
   },
   {
+   "address": 3853,
+   "name": "step_combat_bars",
+   "type": "Subroutine",
+   "kind": "user"
+  },
+  {
+   "address": 3981,
+   "name": "erase_first_combat_bar_cell",
+   "type": "Subroutine",
+   "kind": "user"
+  },
+  {
+   "address": 4023,
+   "name": "reveal_first_combat_bar_cell",
+   "type": "Subroutine",
+   "kind": "user"
+  },
+  {
+   "address": 4056,
+   "name": "erase_second_combat_bar_cell",
+   "type": "Subroutine",
+   "kind": "user"
+  },
+  {
+   "address": 4098,
+   "name": "reveal_second_combat_bar_cell",
+   "type": "Subroutine",
+   "kind": "user"
+  },
+  {
    "address": 4131,
    "name": "stamp_apprentice_name",
+   "type": "Subroutine",
+   "kind": "user"
+  },
+  {
+   "address": 4921,
+   "name": "check_combat_opponent_left_boundary",
+   "type": "Subroutine",
+   "kind": "user"
+  },
+  {
+   "address": 4986,
+   "name": "reset_combat_opponent_at_left_edge",
+   "type": "Subroutine",
+   "kind": "user"
+  },
+  {
+   "address": 5068,
+   "name": "check_combat_opponent_right_boundary",
+   "type": "Subroutine",
+   "kind": "user"
+  },
+  {
+   "address": 5127,
+   "name": "reset_combat_opponent_at_right_edge",
+   "type": "Subroutine",
+   "kind": "user"
+  },
+  {
+   "address": 5211,
+   "name": "check_combat_apprentice_boundary",
+   "type": "Subroutine",
+   "kind": "user"
+  },
+  {
+   "address": 5276,
+   "name": "reset_combat_apprentice_at_left_edge",
+   "type": "Subroutine",
+   "kind": "user"
+  },
+  {
+   "address": 5358,
+   "name": "check_combat_apprentice_right_boundary",
+   "type": "Subroutine",
+   "kind": "user"
+  },
+  {
+   "address": 5417,
+   "name": "reset_combat_apprentice_at_right_edge",
+   "type": "Subroutine",
+   "kind": "user"
+  },
+  {
+   "address": 5501,
+   "name": "advance_combat_first_motion_script",
+   "type": "Subroutine",
+   "kind": "user"
+  },
+  {
+   "address": 5628,
+   "name": "apply_combat_first_motion_delta",
+   "type": "Subroutine",
+   "kind": "user"
+  },
+  {
+   "address": 5686,
+   "name": "dispatch_combat_first_motion_stick_controls",
+   "type": "Subroutine",
+   "kind": "user"
+  },
+  {
+   "address": 5899,
+   "name": "select_combat_first_motion_pose",
+   "type": "Subroutine",
+   "kind": "user"
+  },
+  {
+   "address": 5947,
+   "name": "apply_combat_first_motion_attack",
+   "type": "Subroutine",
+   "kind": "user"
+  },
+  {
+   "address": 5956,
+   "name": "advance_combat_second_motion_script",
+   "type": "Subroutine",
+   "kind": "user"
+  },
+  {
+   "address": 6086,
+   "name": "apply_combat_second_motion_delta",
+   "type": "Subroutine",
+   "kind": "user"
+  },
+  {
+   "address": 6144,
+   "name": "dispatch_combat_second_motion_stick_controls",
+   "type": "Subroutine",
+   "kind": "user"
+  },
+  {
+   "address": 6357,
+   "name": "select_combat_second_motion_pose",
+   "type": "Subroutine",
+   "kind": "user"
+  },
+  {
+   "address": 6405,
+   "name": "apply_combat_second_motion_attack",
    "type": "Subroutine",
    "kind": "user"
   },
@@ -852,6 +1880,42 @@
    "kind": "user"
   },
   {
+   "address": 7477,
+   "name": "dispatch_combat_raster_irq",
+   "type": "Subroutine",
+   "kind": "user"
+  },
+  {
+   "address": 7553,
+   "name": "combat_raster_phase_zero",
+   "type": "Subroutine",
+   "kind": "user"
+  },
+  {
+   "address": 7600,
+   "name": "combat_raster_phase_one",
+   "type": "Subroutine",
+   "kind": "user"
+  },
+  {
+   "address": 7624,
+   "name": "combat_raster_phase_two",
+   "type": "Subroutine",
+   "kind": "user"
+  },
+  {
+   "address": 7767,
+   "name": "combat_raster_phase_three",
+   "type": "Subroutine",
+   "kind": "user"
+  },
+  {
+   "address": 7822,
+   "name": "combat_raster_phase_four",
+   "type": "Subroutine",
+   "kind": "user"
+  },
+  {
    "address": 7838,
    "name": "decode_combat_scene",
    "type": "Subroutine",
@@ -876,6 +1940,12 @@
    "kind": "user"
   },
   {
+   "address": 8133,
+   "name": "combat_retained_form_glyph_tail",
+   "type": "Data",
+   "kind": "user"
+  },
+  {
    "address": 16384,
    "name": "combat_scene_3_4000",
    "type": "Data",
@@ -890,6 +1960,48 @@
   {
    "address": 18432,
    "name": "combat_scene_3_4800",
+   "type": "Data",
+   "kind": "user"
+  },
+  {
+   "address": 19200,
+   "name": "combat_first_bar_pixels",
+   "type": "Data",
+   "kind": "user"
+  },
+  {
+   "address": 19360,
+   "name": "combat_second_bar_pixels",
+   "type": "Data",
+   "kind": "user"
+  },
+  {
+   "address": 19520,
+   "name": "combat_bottom_hud_colours",
+   "type": "Data",
+   "kind": "user"
+  },
+  {
+   "address": 19561,
+   "name": "combat_hud_colour_strip_suffix",
+   "type": "Data",
+   "kind": "user"
+  },
+  {
+   "address": 20472,
+   "name": "combat_weapon_sprite_pointer",
+   "type": "Data",
+   "kind": "user"
+  },
+  {
+   "address": 24384,
+   "name": "combat_weapon_sprite_working_rows",
+   "type": "Data",
+   "kind": "user"
+  },
+  {
+   "address": 24408,
+   "name": "combat_weapon_sprite_blank_lower_rows",
    "type": "Data",
    "kind": "user"
   },
@@ -930,14 +2042,266 @@
    "kind": "user"
   },
   {
+   "address": 30720,
+   "name": "combat_fighter_round_state",
+   "type": "Data",
+   "kind": "user"
+  },
+  {
    "address": 30770,
    "name": "combat_scene_descriptors",
    "type": "Data",
    "kind": "user"
   },
   {
+   "address": 30810,
+   "name": "combat_raster_and_scene_state",
+   "type": "Data",
+   "kind": "user"
+  },
+  {
+   "address": 30817,
+   "name": "combat_fighter_rendering_state",
+   "type": "Data",
+   "kind": "user"
+  },
+  {
+   "address": 30870,
+   "name": "combat_name_stamp_fields",
+   "type": "Data",
+   "kind": "user"
+  },
+  {
+   "address": 30901,
+   "name": "combat_picture_text_suffix",
+   "type": "Data",
+   "kind": "user"
+  },
+  {
+   "address": 30911,
+   "name": "combat_hud_final_colour_row",
+   "type": "Data",
+   "kind": "user"
+  },
+  {
+   "address": 30951,
+   "name": "combat_multicolour_transparency_masks",
+   "type": "Data",
+   "kind": "user"
+  },
+  {
+   "address": 31207,
+   "name": "combat_multicolour_horizontal_reflection",
+   "type": "Data",
+   "kind": "user"
+  },
+  {
+   "address": 31463,
+   "name": "combat_move_script_pointers",
+   "type": "Data",
+   "kind": "user"
+  },
+  {
+   "address": 31491,
+   "name": "combat_motion_script_0",
+   "type": "Data",
+   "kind": "user"
+  },
+  {
+   "address": 31505,
+   "name": "combat_motion_script_1",
+   "type": "Data",
+   "kind": "user"
+  },
+  {
+   "address": 31515,
+   "name": "combat_motion_script_2",
+   "type": "Data",
+   "kind": "user"
+  },
+  {
+   "address": 31525,
+   "name": "combat_motion_script_3",
+   "type": "Data",
+   "kind": "user"
+  },
+  {
+   "address": 31538,
+   "name": "combat_motion_script_4",
+   "type": "Data",
+   "kind": "user"
+  },
+  {
+   "address": 31553,
+   "name": "combat_motion_script_5",
+   "type": "Data",
+   "kind": "user"
+  },
+  {
+   "address": 31565,
+   "name": "combat_motion_script_6",
+   "type": "Data",
+   "kind": "user"
+  },
+  {
+   "address": 31583,
+   "name": "combat_motion_script_7",
+   "type": "Data",
+   "kind": "user"
+  },
+  {
+   "address": 31593,
+   "name": "combat_motion_script_8",
+   "type": "Data",
+   "kind": "user"
+  },
+  {
+   "address": 31602,
+   "name": "combat_motion_script_9",
+   "type": "Data",
+   "kind": "user"
+  },
+  {
+   "address": 31638,
+   "name": "combat_motion_script_10",
+   "type": "Data",
+   "kind": "user"
+  },
+  {
+   "address": 31646,
+   "name": "combat_motion_script_11",
+   "type": "Data",
+   "kind": "user"
+  },
+  {
+   "address": 31682,
+   "name": "combat_motion_script_12",
+   "type": "Data",
+   "kind": "user"
+  },
+  {
+   "address": 31689,
+   "name": "combat_motion_script_13",
+   "type": "Data",
+   "kind": "user"
+  },
+  {
+   "address": 31703,
+   "name": "combat_forward_motion_deltas",
+   "type": "Data",
+   "kind": "user"
+  },
+  {
+   "address": 31721,
+   "name": "combat_reflected_motion_deltas",
+   "type": "Data",
+   "kind": "user"
+  },
+  {
+   "address": 31739,
+   "name": "combat_forward_body_position_offsets",
+   "type": "Data",
+   "kind": "user"
+  },
+  {
+   "address": 31925,
+   "name": "combat_reflected_body_position_offsets",
+   "type": "Data",
+   "kind": "user"
+  },
+  {
+   "address": 32111,
+   "name": "combat_left_limit_by_move",
+   "type": "Data",
+   "kind": "user"
+  },
+  {
+   "address": 32125,
+   "name": "combat_right_limit_by_move",
+   "type": "Data",
+   "kind": "user"
+  },
+  {
+   "address": 32153,
+   "name": "combat_attack_test_mode",
+   "type": "Data",
+   "kind": "user"
+  },
+  {
+   "address": 32162,
+   "name": "combat_contact_trigger_values",
+   "type": "Data",
+   "kind": "user"
+  },
+  {
+   "address": 32171,
+   "name": "combat_contact_near_thresholds",
+   "type": "Data",
+   "kind": "user"
+  },
+  {
+   "address": 32180,
+   "name": "combat_contact_far_thresholds",
+   "type": "Data",
+   "kind": "user"
+  },
+  {
+   "address": 32189,
+   "name": "combat_contact_action_lower_bounds",
+   "type": "Data",
+   "kind": "user"
+  },
+  {
+   "address": 32199,
+   "name": "combat_contact_action_upper_bounds",
+   "type": "Data",
+   "kind": "user"
+  },
+  {
+   "address": 32204,
+   "name": "combat_attack_sprite_position",
+   "type": "Data",
+   "kind": "user"
+  },
+  {
+   "address": 32207,
+   "name": "combat_attack_frame_indices",
+   "type": "Data",
+   "kind": "user"
+  },
+  {
+   "address": 32300,
+   "name": "combat_attack_forward_position_offsets",
+   "type": "Data",
+   "kind": "user"
+  },
+  {
+   "address": 32486,
+   "name": "combat_attack_reflected_position_offsets",
+   "type": "Data",
+   "kind": "user"
+  },
+  {
+   "address": 32672,
+   "name": "combat_opponent_frame_index",
+   "type": "Data",
+   "kind": "user"
+  },
+  {
    "address": 32768,
    "name": "combat_bitmap_frame_offsets",
+   "type": "Data",
+   "kind": "user"
+  },
+  {
+   "address": 32932,
+   "name": "combat_bitmap_frame_offsets_82_83",
+   "type": "Data",
+   "kind": "user"
+  },
+  {
+   "address": 32936,
+   "name": "combat_bitmap_offsets_for_remaining_pose_ids",
    "type": "Data",
    "kind": "user"
   },
@@ -1446,6 +2810,12 @@
    "kind": "user"
   },
   {
+   "address": 49748,
+   "name": "combat_frame_82_pixels_before_exit",
+   "type": "Data",
+   "kind": "user"
+  },
+  {
    "address": 49920,
    "name": "load_high_score_program",
    "type": "Subroutine",
@@ -1476,6 +2846,222 @@
    "kind": "user"
   },
   {
+   "address": 50051,
+   "name": "combat_frame_83_retained_pixels",
+   "type": "Data",
+   "kind": "user"
+  },
+  {
+   "address": 50201,
+   "name": "combat_oversized_frame_83_gap",
+   "type": "Data",
+   "kind": "user"
+  },
+  {
+   "address": 50432,
+   "name": "combat_opponent_command_entry",
+   "type": "Subroutine",
+   "kind": "user"
+  },
+  {
+   "address": 50475,
+   "name": "combat_opponent_distance_check",
+   "type": "Subroutine",
+   "kind": "user"
+  },
+  {
+   "address": 50567,
+   "name": "combat_opponent_close_range_reposition",
+   "type": "Subroutine",
+   "kind": "user"
+  },
+  {
+   "address": 50662,
+   "name": "combat_opponent_follow_or_check_reaction",
+   "type": "Subroutine",
+   "kind": "user"
+  },
+  {
+   "address": 50727,
+   "name": "combat_opponent_reaction_commands",
+   "type": "Subroutine",
+   "kind": "user"
+  },
+  {
+   "address": 50824,
+   "name": "combat_opponent_action_timer",
+   "type": "Subroutine",
+   "kind": "user"
+  },
+  {
+   "address": 50860,
+   "name": "combat_opponent_pick_attack",
+   "type": "Subroutine",
+   "kind": "user"
+  },
+  {
+   "address": 51037,
+   "name": "combat_opponent_fallback_command",
+   "type": "Subroutine",
+   "kind": "user"
+  },
+  {
+   "address": 51060,
+   "name": "combat_opponent_fallback_table",
+   "type": "Data",
+   "kind": "user"
+  },
+  {
+   "address": 51078,
+   "name": "combat_opponent_decision_workspace",
+   "type": "Data",
+   "kind": "user"
+  },
+  {
+   "address": 51089,
+   "name": "combat_opponent_workspace_suffix",
+   "type": "Data",
+   "kind": "user"
+  },
+  {
+   "address": 51103,
+   "name": "combat_oversized_frame_83_gap_after_opponent",
+   "type": "Data",
+   "kind": "user"
+  },
+  {
+   "address": 51712,
+   "name": "paint_combat_score_digits",
+   "type": "Subroutine",
+   "kind": "user"
+  },
+  {
+   "address": 51862,
+   "name": "format_combat_score_digits",
+   "type": "Subroutine",
+   "kind": "user"
+  },
+  {
+   "address": 51992,
+   "name": "add_combat_digit_contribution",
+   "type": "Subroutine",
+   "kind": "user"
+  },
+  {
+   "address": 52034,
+   "name": "combat_fast_loader_code_fragment",
+   "type": "Data",
+   "kind": "user"
+  },
+  {
+   "address": 52096,
+   "name": "combat_score_to_format",
+   "type": "Data",
+   "kind": "user"
+  },
+  {
+   "address": 52098,
+   "name": "combat_score_digit_buffer",
+   "type": "Data",
+   "kind": "user"
+  },
+  {
+   "address": 52103,
+   "name": "combat_score_pointers_1",
+   "type": "Data",
+   "kind": "user"
+  },
+  {
+   "address": 52135,
+   "name": "combat_score_pointers_16",
+   "type": "Data",
+   "kind": "user"
+  },
+  {
+   "address": 52167,
+   "name": "combat_score_pointers_256",
+   "type": "Data",
+   "kind": "user"
+  },
+  {
+   "address": 52199,
+   "name": "combat_score_pointers_4096",
+   "type": "Data",
+   "kind": "user"
+  },
+  {
+   "address": 52231,
+   "name": "combat_score_digits_1",
+   "type": "Data",
+   "kind": "user"
+  },
+  {
+   "address": 52311,
+   "name": "combat_score_digits_16",
+   "type": "Data",
+   "kind": "user"
+  },
+  {
+   "address": 52391,
+   "name": "combat_score_digits_256",
+   "type": "Data",
+   "kind": "user"
+  },
+  {
+   "address": 52471,
+   "name": "combat_score_digits_4096",
+   "type": "Data",
+   "kind": "user"
+  },
+  {
+   "address": 52551,
+   "name": "combat_score_nibble_offsets",
+   "type": "Data",
+   "kind": "user"
+  },
+  {
+   "address": 52555,
+   "name": "combat_score_draw_side",
+   "type": "Data",
+   "kind": "user"
+  },
+  {
+   "address": 52556,
+   "name": "combat_interlude_and_scene_state",
+   "type": "Data",
+   "kind": "user"
+  },
+  {
+   "address": 52559,
+   "name": "combat_default_name_field",
+   "type": "Data",
+   "kind": "user"
+  },
+  {
+   "address": 52569,
+   "name": "combat_exit_to_high_scores_flag",
+   "type": "Data",
+   "kind": "user"
+  },
+  {
+   "address": 52570,
+   "name": "combat_move_score_values",
+   "type": "Data",
+   "kind": "user"
+  },
+  {
+   "address": 52588,
+   "name": "combat_retained_fast_loader_masks",
+   "type": "Data",
+   "kind": "user"
+  },
+  {
+   "address": 52672,
+   "name": "combat_retained_fast_loader_zero_window",
+   "type": "Data",
+   "kind": "user"
+  },
+  {
    "address": 53248,
    "name": "combat_scene_0_d000",
    "type": "Data",
@@ -1496,6 +3082,216 @@
   {
    "address": 56448,
    "name": "combat_intro_glyphs",
+   "type": "Data",
+   "kind": "user"
+  },
+  {
+   "address": 57344,
+   "name": "combat_music_play",
+   "type": "Subroutine",
+   "kind": "user"
+  },
+  {
+   "address": 57347,
+   "name": "initialize_combat_music",
+   "type": "Subroutine",
+   "kind": "user"
+  },
+  {
+   "address": 57415,
+   "name": "step_combat_music_track",
+   "type": "Subroutine",
+   "kind": "user"
+  },
+  {
+   "address": 57519,
+   "name": "service_combat_music_voice",
+   "type": "Subroutine",
+   "kind": "user"
+  },
+  {
+   "address": 57556,
+   "name": "decode_combat_music_phrase",
+   "type": "Subroutine",
+   "kind": "user"
+  },
+  {
+   "address": 57762,
+   "name": "start_combat_music_note",
+   "type": "Subroutine",
+   "kind": "user"
+  },
+  {
+   "address": 57913,
+   "name": "update_combat_music_filter",
+   "type": "Subroutine",
+   "kind": "user"
+  },
+  {
+   "address": 58003,
+   "name": "step_combat_music_slide",
+   "type": "Subroutine",
+   "kind": "user"
+  },
+  {
+   "address": 58140,
+   "name": "update_combat_music_note_frequency",
+   "type": "Subroutine",
+   "kind": "user"
+  },
+  {
+   "address": 58195,
+   "name": "step_combat_music_instrument_pitch",
+   "type": "Subroutine",
+   "kind": "user"
+  },
+  {
+   "address": 58482,
+   "name": "step_combat_music_pulse_width",
+   "type": "Subroutine",
+   "kind": "user"
+  },
+  {
+   "address": 58549,
+   "name": "select_combat_music_waveform",
+   "type": "Subroutine",
+   "kind": "user"
+  },
+  {
+   "address": 58601,
+   "name": "write_combat_music_sid_voice",
+   "type": "Subroutine",
+   "kind": "user"
+  },
+  {
+   "address": 58654,
+   "name": "combat_music_instruments",
+   "type": "Data",
+   "kind": "user"
+  },
+  {
+   "address": 58830,
+   "name": "combat_music_pitch_directory",
+   "type": "Data",
+   "kind": "user"
+  },
+  {
+   "address": 58877,
+   "name": "combat_music_pulse_directory",
+   "type": "Data",
+   "kind": "user"
+  },
+  {
+   "address": 58899,
+   "name": "combat_music_control_directory",
+   "type": "Data",
+   "kind": "user"
+  },
+  {
+   "address": 58920,
+   "name": "combat_music_filter_directory",
+   "type": "Data",
+   "kind": "user"
+  },
+  {
+   "address": 58927,
+   "name": "combat_music_pitch_overrides",
+   "type": "Data",
+   "kind": "user"
+  },
+  {
+   "address": 58975,
+   "name": "combat_music_override_streams",
+   "type": "Data",
+   "kind": "user"
+  },
+  {
+   "address": 59011,
+   "name": "combat_music_revolution_credit",
+   "type": "Data",
+   "kind": "user"
+  },
+  {
+   "address": 59072,
+   "name": "combat_music_frequency_low",
+   "type": "Data",
+   "kind": "user"
+  },
+  {
+   "address": 59167,
+   "name": "combat_music_tune_credit",
+   "type": "Data",
+   "kind": "user"
+  },
+  {
+   "address": 59206,
+   "name": "combat_music_frequency_high",
+   "type": "Data",
+   "kind": "user"
+  },
+  {
+   "address": 59301,
+   "name": "combat_music_sid_voice_offsets",
+   "type": "Data",
+   "kind": "user"
+  },
+  {
+   "address": 59304,
+   "name": "combat_music_runtime_state",
+   "type": "Data",
+   "kind": "user"
+  },
+  {
+   "address": 59394,
+   "name": "combat_music_phrase_directory",
+   "type": "Data",
+   "kind": "user"
+  },
+  {
+   "address": 59424,
+   "name": "combat_music_initial_track_state",
+   "type": "Data",
+   "kind": "user"
+  },
+  {
+   "address": 59431,
+   "name": "combat_music_modulation_streams",
+   "type": "Data",
+   "kind": "user"
+  },
+  {
+   "address": 59688,
+   "name": "combat_music_code_credit",
+   "type": "Data",
+   "kind": "user"
+  },
+  {
+   "address": 59704,
+   "name": "combat_music_track_voice_0",
+   "type": "Data",
+   "kind": "user"
+  },
+  {
+   "address": 59717,
+   "name": "combat_music_track_voice_1",
+   "type": "Data",
+   "kind": "user"
+  },
+  {
+   "address": 59759,
+   "name": "combat_music_track_voice_2",
+   "type": "Data",
+   "kind": "user"
+  },
+  {
+   "address": 59770,
+   "name": "combat_music_phrase_low_entries",
+   "type": "Data",
+   "kind": "user"
+  },
+  {
+   "address": 60196,
+   "name": "combat_music_phrase_high_entries",
    "type": "Data",
    "kind": "user"
   },
@@ -1530,6 +3326,138 @@
    "kind": "user"
   },
   {
+   "address": 60952,
+   "name": "combat_interlude_screen_rows",
+   "type": "Data",
+   "kind": "user"
+  },
+  {
+   "address": 61002,
+   "name": "combat_interlude_message_lists",
+   "type": "Data",
+   "kind": "user"
+  },
+  {
+   "address": 61016,
+   "name": "combat_interlude_event_0",
+   "type": "Data",
+   "kind": "user"
+  },
+  {
+   "address": 61019,
+   "name": "combat_interlude_event_1",
+   "type": "Data",
+   "kind": "user"
+  },
+  {
+   "address": 61022,
+   "name": "combat_interlude_event_2",
+   "type": "Data",
+   "kind": "user"
+  },
+  {
+   "address": 61025,
+   "name": "combat_interlude_event_3",
+   "type": "Data",
+   "kind": "user"
+  },
+  {
+   "address": 61028,
+   "name": "combat_interlude_event_4",
+   "type": "Data",
+   "kind": "user"
+  },
+  {
+   "address": 61031,
+   "name": "combat_interlude_event_5",
+   "type": "Data",
+   "kind": "user"
+  },
+  {
+   "address": 61034,
+   "name": "combat_interlude_event_6",
+   "type": "Data",
+   "kind": "user"
+  },
+  {
+   "address": 61037,
+   "name": "combat_interlude_message_pointers",
+   "type": "Data",
+   "kind": "user"
+  },
+  {
+   "address": 61055,
+   "name": "combat_interlude_message_0",
+   "type": "Data",
+   "kind": "user"
+  },
+  {
+   "address": 61083,
+   "name": "combat_interlude_message_1",
+   "type": "Data",
+   "kind": "user"
+  },
+  {
+   "address": 61174,
+   "name": "combat_interlude_message_2",
+   "type": "Data",
+   "kind": "user"
+  },
+  {
+   "address": 61233,
+   "name": "combat_interlude_message_3",
+   "type": "Data",
+   "kind": "user"
+  },
+  {
+   "address": 61307,
+   "name": "combat_interlude_message_4",
+   "type": "Data",
+   "kind": "user"
+  },
+  {
+   "address": 61378,
+   "name": "combat_interlude_message_5",
+   "type": "Data",
+   "kind": "user"
+  },
+  {
+   "address": 61451,
+   "name": "combat_interlude_message_6",
+   "type": "Data",
+   "kind": "user"
+  },
+  {
+   "address": 61476,
+   "name": "combat_interlude_message_7",
+   "type": "Data",
+   "kind": "user"
+  },
+  {
+   "address": 61504,
+   "name": "combat_interlude_message_8",
+   "type": "Data",
+   "kind": "user"
+  },
+  {
+   "address": 61532,
+   "name": "combat_retained_low_descriptor_offsets",
+   "type": "Data",
+   "kind": "user"
+  },
+  {
+   "address": 61768,
+   "name": "combat_retained_attack_descriptor_bytes",
+   "type": "Data",
+   "kind": "user"
+  },
+  {
+   "address": 62464,
+   "name": "combat_retained_descriptor_directory",
+   "type": "Data",
+   "kind": "user"
+  },
+  {
    "address": 62720,
    "name": "combat_attack_descriptor_offsets",
    "type": "Data",
@@ -1538,6 +3466,12 @@
   {
    "address": 62884,
    "name": "combat_reflected_descriptor_offsets",
+   "type": "Data",
+   "kind": "user"
+  },
+  {
+   "address": 63048,
+   "name": "combat_low_weapon_bitmap_descriptors",
    "type": "Data",
    "kind": "user"
   },
@@ -1558,9 +3492,44 @@
    "name": "combat_second_descriptors_fb84",
    "type": "Data",
    "kind": "user"
+  },
+  {
+   "address": 65400,
+   "name": "combat_retained_pointer_advance_helper",
+   "type": "Data",
+   "kind": "user"
+  },
+  {
+   "address": 65413,
+   "name": "combat_retained_display_restore_bytes",
+   "type": "Data",
+   "kind": "user"
+  },
+  {
+   "address": 65451,
+   "name": "combat_retained_control_transfer_bytes",
+   "type": "Data",
+   "kind": "user"
+  },
+  {
+   "address": 65504,
+   "name": "combat_retained_rom_bank_helpers",
+   "type": "Data",
+   "kind": "user"
+  },
+  {
+   "address": 65521,
+   "name": "combat_retained_end_of_ram",
+   "type": "Data",
+   "kind": "user"
   }
  ],
  "comments": [
+  {
+   "address": 2048,
+   "type": "line",
+   "text": "Bytes preceding the $0810 entry. The instruction fragment calls $E5A0, sets the processor port to $35 and clears the VIC border colour."
+  },
   {
    "address": 2064,
    "type": "line",
@@ -1577,9 +3546,124 @@
    "text": "Selects the descriptor bank using the facing flag at $780E and looks up the pose through $7DCF. Adds $B500 to the relative pointer and distributes eight or sixteen bytes to the alternating display buffers."
   },
   {
+   "address": 3853,
+   "type": "line",
+   "text": "Called by the $1E93 raster phase. Toggles $7819 on each call and services the bars on alternating calls. Signed pending changes at $7817 and $7818 move the positions two pixels at a time, subject to the respective bounds."
+  },
+  {
+   "address": 3981,
+   "type": "line",
+   "text": "Uses the low three position bits to select a mask and the upper bits to target an eight-byte bitmap cell at $3E00. Clears masked bits before decrementing the position twice."
+  },
+  {
+   "address": 4023,
+   "type": "line",
+   "text": "Masks eight bytes from the first stored bar at $4B00 and writes them to the matching bitmap cell at $3E00."
+  },
+  {
+   "address": 4056,
+   "type": "line",
+   "text": "Uses the low three position bits to select a mask and the upper bits to target an eight-byte cell at $3EA0. Clears masked bits before incrementing the position twice."
+  },
+  {
+   "address": 4098,
+   "type": "line",
+   "text": "Masks eight bytes from the second stored bar at $4BA0 and writes them to the matching bitmap cell at $3EA0."
+  },
+  {
    "address": 4131,
    "type": "line",
    "text": "Reads the name at $7896 up to $FF. Converts each byte to a glyph offset in RAM beneath I/O and copies its eight pixel rows into the bitmap beginning at $2000."
+  },
+  {
+   "address": 4921,
+   "type": "line",
+   "text": "Returns if the opponent move-state offset is nonzero. Chooses a boundary from the facing and move ID. At the left limit, marks the move offset idle with $FF."
+  },
+  {
+   "address": 4986,
+   "type": "line",
+   "text": "Checks the active opponent move and horizontal position. When the applicable left threshold is crossed, sets X to eight, selects pose zero and sets the motion offset to idle $FF."
+  },
+  {
+   "address": 5068,
+   "type": "line",
+   "text": "Looks up the right boundary for the opponent\u2019s move as a two-byte coordinate. The move idles if the opponent is at or beyond that boundary."
+  },
+  {
+   "address": 5127,
+   "type": "line",
+   "text": "Checks the high X byte, facing and move state for an edge transition. The reset path puts the opponent at $0118, clears its current pose and sets the motion offset to idle $FF."
+  },
+  {
+   "address": 5211,
+   "type": "line",
+   "text": "Selects an edge test from the apprentice facing and move. The left test uses the table at $7D6F and sets the move offset to idle $FF when the boundary test succeeds."
+  },
+  {
+   "address": 5276,
+   "type": "line",
+   "text": "Checks the apprentice position and permitted move state. The left reset sets X to eight and puts the apprentice in the idle pose."
+  },
+  {
+   "address": 5358,
+   "type": "line",
+   "text": "Looks up the apprentice\u2019s movement limit through $7D7D. If its 16-bit X position reaches that limit, marks the movement offset idle."
+  },
+  {
+   "address": 5417,
+   "type": "line",
+   "text": "Checks apprentice X, facing and move state, then restores the idle pose and horizontal position $0118 when the edge condition passes."
+  },
+  {
+   "address": 5501,
+   "type": "line",
+   "text": "Checks training unlock flags for moves four, six and seven. Reads an action script from $7AE7 and dispatches its joystick checks and movement or attack commands. Values below $64 select poses."
+  },
+  {
+   "address": 5628,
+   "type": "line",
+   "text": "Subtracts $64 from the script command to select a signed horizontal delta. Uses one of two facing-dependent tables and adds it to the opponent position before advancing the script."
+  },
+  {
+   "address": 5686,
+   "type": "line",
+   "text": "Interprets command bytes $C8\u2013$CD as comparisons with the saved stick sample. The result can advance, hold or restart the script. Some branches recheck an edge or shift the opponent by eight pixels."
+  },
+  {
+   "address": 5899,
+   "type": "line",
+   "text": "Writes twice the pose number to $7FA0. Loads the signed horizontal offset from the current facing table and saves it in $780A/$780B."
+  },
+  {
+   "address": 5947,
+   "type": "line",
+   "text": "Calls the first contact handler for script command $CE, then advances the script."
+  },
+  {
+   "address": 5956,
+   "type": "line",
+   "text": "Checks the second training unlock fields for moves four, six and seven. Uses the same action-script directory with its own progress byte."
+  },
+  {
+   "address": 6086,
+   "type": "line",
+   "text": "Converts a command from $64 upward to a horizontal delta from the active facing table. Adds it to the apprentice position and resumes the script."
+  },
+  {
+   "address": 6144,
+   "type": "line",
+   "text": "Implements the hold, advance or restart decisions for script commands $C8\u2013$CD using the other stick sample. Selected branches recheck edge conditions or shift the apprentice by eight pixels."
+  },
+  {
+   "address": 6357,
+   "type": "line",
+   "text": "Writes twice the pose number to $788C. Reads the signed horizontal pose offset from the active facing table and saves it in $7808/$7809."
+  },
+  {
+   "address": 6405,
+   "type": "line",
+   "text": "Calls the second contact handler when the interpreter reaches $CE, then resumes the script."
   },
   {
    "address": 6414,
@@ -1612,6 +3696,36 @@
    "text": "Clears the bitmap destination at $2000 and the auxiliary plane beginning at $5180 using overlapping page writes."
   },
   {
+   "address": 7477,
+   "type": "line",
+   "text": "Acknowledges VIC interrupts, saves registers and advances the phase byte at $7867. The fifth service resets the phase byte and takes the common CIA acknowledge and register-restore path."
+  },
+  {
+   "address": 7553,
+   "type": "line",
+   "text": "Times the first background colour change with NOPs, sets $D016 to $18 and reads the colour and next raster compare from the selected scene state."
+  },
+  {
+   "address": 7600,
+   "type": "line",
+   "text": "After a shorter NOP delay, writes the second background colour and schedules the compare at line $A1."
+  },
+  {
+   "address": 7624,
+   "type": "line",
+   "text": "Writes the third background colour and switches the VIC bank and display layout according to $786C. Applies pending sprite-zero positions, saves $FA\u2013$FF across the SID and score drawing calls, then schedules line $EE."
+  },
+  {
+   "address": 7767,
+   "type": "line",
+   "text": "Waits for raster line $F1, increments the game tick count at $7816, restores the main bitmap bank and schedules line $FF."
+  },
+  {
+   "address": 7822,
+   "type": "line",
+   "text": "Writes $08 to the horizontal display control, services the two bars through $0F0D and schedules line $39."
+  },
+  {
    "address": 7838,
    "type": "line",
    "text": "Indexes the ten-byte descriptors at $7832 with the scene index in A. Reads the stream backwards and handles literal, run, pointer reset and exit tokens. Writes the selected bitmap and screen-colour plane."
@@ -1632,6 +3746,11 @@
    "text": "Copies the first row from $78BF and the lower rows from $4C40 and $4C54. Fills the colour RAM and initializes the screen and work copies of the lower display."
   },
   {
+   "address": 8133,
+   "type": "line",
+   "text": "Matches the title glyph data from $0A45 through $0A7F byte for byte. The Combat introduction copies its displayed font from $DC80."
+  },
+  {
    "address": 16384,
    "type": "line",
    "text": "Compressed background for combat scene 3, source offsets 1705\u20132728 measured back from $4AA8. The decoder reads backwards and reconstructs the screen matrix and bitmap."
@@ -1645,6 +3764,41 @@
    "address": 18432,
    "type": "line",
    "text": "Compressed background for combat scene 3, source offsets 0\u2013680 measured back from $4AA8. The decoder reads backwards and reconstructs the screen matrix and bitmap."
+  },
+  {
+   "address": 19200,
+   "type": "line",
+   "text": "Twenty 8-byte bitmap cells for the first lower bar. $0FB7 reads a cell selected by the upper position bits, masks it, and copies it to $3E00 plus the cell offset."
+  },
+  {
+   "address": 19360,
+   "type": "line",
+   "text": "Twenty 8-byte bitmap cells for the second lower bar. $1002 reads from this plane and writes the masked cell to $3EA0 plus the cell offset. The first eight bytes are zero, below the lowest cell the reveal path reads."
+  },
+  {
+   "address": 19520,
+   "type": "line",
+   "text": "Two 21-cell strips of bitmap colour pairs. The first ends at the shared cell $4C54 where the second starts. $1F52 copies them to $07C0 and $07D4."
+  },
+  {
+   "address": 19561,
+   "type": "line",
+   "text": "Fifteen trailing HUD colour-cell values following the 41 bytes selected by the HUD initializer."
+  },
+  {
+   "address": 20472,
+   "type": "line",
+   "text": "The weapon setup at $0E0D stores pointer $7D for sprite zero. In VIC bank $4000 that pointer selects the slot at $5F40."
+  },
+  {
+   "address": 24384,
+   "type": "line",
+   "text": "Eight groups with three bytes per sprite row. The reflected attack-mask painter writes the first two bytes in each row and preserves the third."
+  },
+  {
+   "address": 24408,
+   "type": "line",
+   "text": "Zero-filled lower part of the 64-byte weapon sprite at $5F40. The mask writer supplies the upper rows and pointer $7D selects the full sprite slot."
   },
   {
    "address": 24576,
@@ -1677,14 +3831,224 @@
    "text": "Compressed background for combat scene 1, source offsets 0\u20131014 measured back from $778C. The decoder reads backwards and reconstructs the screen matrix and bitmap."
   },
   {
+   "address": 30720,
+   "type": "line",
+   "text": "Fighter positions, headings, action indices and contact state, plus the two staggered timing counters and the HUD bar endpoints."
+  },
+  {
    "address": 30770,
    "type": "line",
    "text": "Four ten-byte scene descriptors selected at $1E9E. Each supplies the descending input and output pointers, the marker and the following scene parameters."
   },
   {
+   "address": 30810,
+   "type": "line",
+   "text": "Raster values for the timed display phases, selected scene parameters and the scene decoder\u2019s repeat counter."
+  },
+  {
+   "address": 30817,
+   "type": "line",
+   "text": "Stick samples and per-fighter action counters followed by bitmap painter state. The painters store the active source address, width, height and previous draw bounds in this area."
+  },
+  {
+   "address": 30870,
+   "type": "line",
+   "text": "The editable text fields filled from the two resident apprentice names. The font stamper reads positioned glyphs beginning at $7896."
+  },
+  {
+   "address": 30901,
+   "type": "line",
+   "text": "Trailing text bytes of the second name record. The following 40-byte pattern is the HUD\u2019s lower screen colour row."
+  },
+  {
+   "address": 30911,
+   "type": "line",
+   "text": "Forty screen-colour bytes copied to $0400\u2013$0427, the first matrix row, by $1F52."
+  },
+  {
+   "address": 30951,
+   "type": "line",
+   "text": "One mask for each possible source byte. A zero two-bit pixel gives mask bits 11, and a coloured pixel gives 00. The painter ANDs the background with this byte before ORing the source."
+  },
+  {
+   "address": 31207,
+   "type": "line",
+   "text": "One byte for each possible source byte. Reverses the four two-bit pixels within the byte for the reflected fighter painter."
+  },
+  {
+   "address": 31463,
+   "type": "line",
+   "text": "Fourteen pointers shared by the two fighter action interpreters. The active movement ID is doubled to index the directory."
+  },
+  {
+   "address": 31491,
+   "type": "line",
+   "text": "Fighter movement 0. Values below $64 select poses and $64\u2013$6C select travel deltas. The fighter interpreter handles any stick tests or attack commands in this sequence before the $FF terminator."
+  },
+  {
+   "address": 31505,
+   "type": "line",
+   "text": "Fighter movement 1. Values below $64 select poses and $64\u2013$6C select travel deltas. The fighter interpreter handles any stick tests or attack commands in this sequence before the $FF terminator."
+  },
+  {
+   "address": 31515,
+   "type": "line",
+   "text": "Fighter movement 2. Values below $64 select poses and $64\u2013$6C select travel deltas. The fighter interpreter handles any stick tests or attack commands in this sequence before the $FF terminator."
+  },
+  {
+   "address": 31525,
+   "type": "line",
+   "text": "Fighter movement 3. Values below $64 select poses and $64\u2013$6C select travel deltas. The fighter interpreter handles any stick tests or attack commands in this sequence before the $FF terminator."
+  },
+  {
+   "address": 31538,
+   "type": "line",
+   "text": "Fighter movement 4. Values below $64 select poses and $64\u2013$6C select travel deltas. The fighter interpreter handles any stick tests or attack commands in this sequence before the $FF terminator."
+  },
+  {
+   "address": 31553,
+   "type": "line",
+   "text": "Fighter movement 5. Values below $64 select poses and $64\u2013$6C select travel deltas. The fighter interpreter handles any stick tests or attack commands in this sequence before the $FF terminator."
+  },
+  {
+   "address": 31565,
+   "type": "line",
+   "text": "Fighter movement 6. Values below $64 select poses and $64\u2013$6C select travel deltas. The fighter interpreter handles any stick tests or attack commands in this sequence before the $FF terminator."
+  },
+  {
+   "address": 31583,
+   "type": "line",
+   "text": "Fighter movement 7. Values below $64 select poses and $64\u2013$6C select travel deltas. The fighter interpreter handles any stick tests or attack commands in this sequence before the $FF terminator."
+  },
+  {
+   "address": 31593,
+   "type": "line",
+   "text": "Fighter movement 8. Values below $64 select poses and $64\u2013$6C select travel deltas. The fighter interpreter handles any stick tests or attack commands in this sequence before the $FF terminator."
+  },
+  {
+   "address": 31602,
+   "type": "line",
+   "text": "Fighter movement 9. Values below $64 select poses and $64\u2013$6C select travel deltas. The fighter interpreter handles any stick tests or attack commands in this sequence before the $FF terminator."
+  },
+  {
+   "address": 31638,
+   "type": "line",
+   "text": "Fighter movement 10. Values below $64 select poses and $64\u2013$6C select travel deltas. The fighter interpreter handles any stick tests or attack commands in this sequence before the $FF terminator."
+  },
+  {
+   "address": 31646,
+   "type": "line",
+   "text": "Fighter movement 11. Values below $64 select poses and $64\u2013$6C select travel deltas. The fighter interpreter handles any stick tests or attack commands in this sequence before the $FF terminator."
+  },
+  {
+   "address": 31682,
+   "type": "line",
+   "text": "Fighter movement 12. Values below $64 select poses and $64\u2013$6C select travel deltas. The fighter interpreter handles any stick tests or attack commands in this sequence before the $FF terminator."
+  },
+  {
+   "address": 31689,
+   "type": "line",
+   "text": "Fighter movement 13. Values below $64 select poses and $64\u2013$6C select travel deltas. The fighter interpreter handles any stick tests or attack commands in this sequence before the $FF terminator."
+  },
+  {
+   "address": 31703,
+   "type": "line",
+   "text": "Nine signed 16-bit horizontal deltas. Motion script bytes $64\u2013$6C select one of these when this facing is active."
+  },
+  {
+   "address": 31721,
+   "type": "line",
+   "text": "Nine signed 16-bit horizontal deltas used for the opposite facing. The script command selects the same delta index."
+  },
+  {
+   "address": 31739,
+   "type": "line",
+   "text": "Ninety-three pairs reached by doubling the pose number. The script painter picks this table for one facing and uses the pair as the fighter\u2019s relative horizontal position."
+  },
+  {
+   "address": 31925,
+   "type": "line",
+   "text": "Ninety-three position-offset pairs for the other facing, selected by the same pose number."
+  },
+  {
+   "address": 32111,
+   "type": "line",
+   "text": "Fourteen minimum X values selected by the fighter\u2019s current movement ID at the edge check."
+  },
+  {
+   "address": 32125,
+   "type": "line",
+   "text": "Fourteen little-endian maximum X positions for the right-edge movement test."
+  },
+  {
+   "address": 32153,
+   "type": "line",
+   "text": "Nine indexed mode bytes read by the contact test at $113D."
+  },
+  {
+   "address": 32162,
+   "type": "line",
+   "text": "Nine entries selected by the move index and compared within the hit test."
+  },
+  {
+   "address": 32171,
+   "type": "line",
+   "text": "Nine lookup bytes used by the short-distance half of the contact test."
+  },
+  {
+   "address": 32180,
+   "type": "line",
+   "text": "Nine lookup bytes selected by move type for the other distance check."
+  },
+  {
+   "address": 32189,
+   "type": "line",
+   "text": "Ten action comparison values indexed during contact handling."
+  },
+  {
+   "address": 32199,
+   "type": "line",
+   "text": "Action comparison values read by the second contact guard."
+  },
+  {
+   "address": 32204,
+   "type": "line",
+   "text": "Calculated horizontal position and vertical placement for the weapon overlay. $0C64 seeds the X value from the fighter position and adds the selected pose offset."
+  },
+  {
+   "address": 32207,
+   "type": "line",
+   "text": "Ninety-three descriptor indices selected by the selected fighter pose. The weapon bitmap painter doubles the descriptor index to choose its source."
+  },
+  {
+   "address": 32300,
+   "type": "line",
+   "text": "Two bytes per pose for the forward weapon placement. The first advances the fighter X position and the second sets the weapon Y position."
+  },
+  {
+   "address": 32486,
+   "type": "line",
+   "text": "Two bytes per pose for the opposite weapon placement. The first is a signed horizontal adjustment and the second sets Y."
+  },
+  {
+   "address": 32672,
+   "type": "line",
+   "text": "The active opponent frame number multiplied by two. The animator writes this at $170C and the painter reads it at $0C2B."
+  },
+  {
    "address": 32768,
    "type": "line",
    "text": "The first 82 entries are relative pointers to complete fighter bitmap frames. The painter at $19B4 adds $4000 before taking the two dimension bytes."
+  },
+  {
+   "address": 32932,
+   "type": "line",
+   "text": "Two relative offsets that resolve to $C254 and $C336. Script 12 selects both; their source extends into addresses occupied by the disk exit or display code."
+  },
+  {
+   "address": 32936,
+   "type": "line",
+   "text": "Twenty-eight further relative frame offsets, beginning again at $4100, followed by larger offsets for later pose IDs."
   },
   {
    "address": 33024,
@@ -2107,6 +4471,11 @@
    "text": "Combat fighter frame 81 starts at $C172 and holds 7 rows of 32 packed pixel bytes after its dimension bytes. This span covers frame offsets 0\u2013225."
   },
   {
+   "address": 49748,
+   "type": "line",
+   "text": "Beginning of frame 82, with a two-byte header of $07,$20. Its declared pixels extend beyond $C2FF into the live exit routine."
+  },
+  {
    "address": 49920,
    "type": "line",
    "text": "Blanks the screen, mutes the SID, restores the ROM and KERNAL vectors and loads HIGH from device 8 before returning to BASIC run."
@@ -2132,6 +4501,186 @@
    "text": "Sets the KERNAL input and output device numbers to 0 and 3. Copies the VIC-II preset from $ECB9, leaving display control, border and background colour unchanged."
   },
   {
+   "address": 50051,
+   "type": "line",
+   "text": "Pixel bytes after the display setup that starts inside the nominal frame 83 allocation at $C336. The frame pointer resolves into instruction bytes before these pixels."
+  },
+  {
+   "address": 50201,
+   "type": "line",
+   "text": "Zero-filled space before the opponent control routine. The oversized frame 83 render samples $C4D0 as a pixel source when it interprets the instruction bytes at $C336 as dimensions."
+  },
+  {
+   "address": 50432,
+   "type": "line",
+   "text": "Checks both move states. The idle or blocked path sets the opponent\u2019s synthetic stick to $FF and primes its timers, otherwise continues to the spacing check."
+  },
+  {
+   "address": 50475,
+   "type": "line",
+   "text": "Subtracts the fighter X positions and stores a magnitude and side. With a low distance byte of at least $64, switches the facing selector, sets the spacing threshold from CIA timer bits and requests $FE."
+  },
+  {
+   "address": 50567,
+   "type": "line",
+   "text": "Checks the current player move, retreat latch and distance. The reposition path sets $FE and changes the facing selector according to positional limits at X=$58 and $C9."
+  },
+  {
+   "address": 50662,
+   "type": "line",
+   "text": "Starts from a directional command based on facing. Checks the player action and compares CIA timer bits with $7800 to decide whether to try a move-specific reaction."
+  },
+  {
+   "address": 50727,
+   "type": "line",
+   "text": "Compares the player move with seven candidate action IDs and tests the matching distance condition. Selects a synthetic stick code for the reactions that pass."
+  },
+  {
+   "address": 50824,
+   "type": "line",
+   "text": "Within the stored distance threshold, decrements the wait timer. A negative result sets the reposition latch and reaches the command-return path with the previously stored command. While the timer is nonnegative, the CIA timer and threshold at $7801 choose the next decision path."
+  },
+  {
+   "address": 50860,
+   "type": "line",
+   "text": "Samples three bits of the CIA timer. Uses those bits, distance bands and facing to select a synthetic stick command, then stores it for the opponent action code."
+  },
+  {
+   "address": 51037,
+   "type": "line",
+   "text": "Masks the CIA timer with $11 and fetches a command from $C774. Normalizes a zero command to idle $FF before returning."
+  },
+  {
+   "address": 51060,
+   "type": "line",
+   "text": "Eighteen synthetic stick bytes. The $11 mask in the caller selects positions 0, 1, 16 or 17."
+  },
+  {
+   "address": 51078,
+   "type": "line",
+   "text": "Distance and side bytes, decision delays, the reposition latch and the three separately masked CIA timer bits used by the opponent move picker."
+  },
+  {
+   "address": 51089,
+   "type": "line",
+   "text": "Fourteen bytes after the last opponent decision field. Loaded nonzero cells at $C793, $C795\u2013$C796, $C798 and $C79E are retained beside the decision variables."
+  },
+  {
+   "address": 51103,
+   "type": "line",
+   "text": "Zero-filled space after opponent control and before the score painter. The frame 83 renderer samples $C810, $C8E0 and $C9B0 from this range as pixels."
+  },
+  {
+   "address": 51712,
+   "type": "line",
+   "text": "Alternates the two displayed scores using $CD4B. Formats five decimal digits and writes eight bytes per glyph from RAM beneath I/O into the upper bitmap row. Restores the processor port after drawing."
+  },
+  {
+   "address": 51862,
+   "type": "line",
+   "text": "Starts with five PETSCII zero digits and accumulates a five-digit contribution for each of the four nibbles in the score word at $CB80."
+  },
+  {
+   "address": 51992,
+   "type": "line",
+   "text": "Adds the selected five-byte decimal string from the units end, carrying left whenever a PETSCII digit reaches $3A. The caller patches the source operand before each call."
+  },
+  {
+   "address": 52034,
+   "type": "line",
+   "text": "Byte-for-byte copy of the title\u2019s fast-loader code in the range that the Combat score painter partly overlays. Includes the serial close, LOAD vector restoration and final-block reader."
+  },
+  {
+   "address": 52096,
+   "type": "line",
+   "text": "The score painter copies the current score here from $CE1F or $CE21 according to the alternating selector."
+  },
+  {
+   "address": 52098,
+   "type": "line",
+   "text": "Five PETSCII digits produced by $CA96. $CA48 reads each digit as a glyph selector."
+  },
+  {
+   "address": 52103,
+   "type": "line",
+   "text": "Sixteen pointers indexed by score nibble 0, which is the coefficient of 1. Each points to a five-digit decimal string."
+  },
+  {
+   "address": 52135,
+   "type": "line",
+   "text": "Sixteen pointers indexed by score nibble 1, which is the coefficient of 16. Each points to a five-digit decimal string."
+  },
+  {
+   "address": 52167,
+   "type": "line",
+   "text": "Sixteen pointers indexed by score nibble 2, which is the coefficient of 256. Each points to a five-digit decimal string."
+  },
+  {
+   "address": 52199,
+   "type": "line",
+   "text": "Sixteen pointers indexed by score nibble 3, which is the coefficient of 4096. Each points to a five-digit decimal string."
+  },
+  {
+   "address": 52231,
+   "type": "line",
+   "text": "Sixteen five-character decimal strings for multiples of 1, from zero to 15. The carry routine adds one string from this table to the digit buffer."
+  },
+  {
+   "address": 52311,
+   "type": "line",
+   "text": "Sixteen five-character decimal strings for multiples of 16, from zero to 240. The carry routine adds one string from this table to the digit buffer."
+  },
+  {
+   "address": 52391,
+   "type": "line",
+   "text": "Sixteen five-character decimal strings for multiples of 256, from zero to 3840. The carry routine adds one string from this table to the digit buffer."
+  },
+  {
+   "address": 52471,
+   "type": "line",
+   "text": "Sixteen five-character decimal strings for multiples of 4096, from zero to 61440. The carry routine adds one string from this table to the digit buffer."
+  },
+  {
+   "address": 52551,
+   "type": "line",
+   "text": "Four scratch offsets written by the score formatter. Low byte nibbles come first, each multiplied by two to index the relevant decimal contribution pointers."
+  },
+  {
+   "address": 52555,
+   "type": "line",
+   "text": "Toggles on each call to $CA00 and selects the next score field and screen offset to update."
+  },
+  {
+   "address": 52556,
+   "type": "line",
+   "text": "Scene number, interlude selector and result state used when choosing which presentation to draw."
+  },
+  {
+   "address": 52559,
+   "type": "line",
+   "text": "Space and PETSCII SHI DE YU in the ten bytes preceding the interlude exit flag."
+  },
+  {
+   "address": 52569,
+   "type": "line",
+   "text": "When this byte is one after the interlude, Combat jumps to the disk exit for HIGH."
+  },
+  {
+   "address": 52570,
+   "type": "line",
+   "text": "Little-endian score amounts indexed by the move. The contact handlers add the selected word and adjust it with the apprentice\u2019s training values."
+  },
+  {
+   "address": 52588,
+   "type": "line",
+   "text": "Byte-for-byte copy of this section of the title disk receiver\u2019s fill bytes and CIA2 input mask table."
+  },
+  {
+   "address": 52672,
+   "type": "line",
+   "text": "Zero-filled remainder of the loader area. The oversized Combat frame 83 includes a pixel read at $CDC0."
+  },
+  {
    "address": 53248,
    "type": "line",
    "text": "Compressed background for combat scene 0, source offsets 1903\u20132926 measured back from $DB6E. The decoder reads backwards and reconstructs the screen matrix and bitmap."
@@ -2150,6 +4699,181 @@
    "address": 56448,
    "type": "line",
    "text": "The three-page glyph source for the combat introduction, read from the RAM beneath I/O and copied to the character generator at $2000."
+  },
+  {
+   "address": 57344,
+   "type": "line",
+   "text": "Jumps to the voice service entry at $E0B2."
+  },
+  {
+   "address": 57347,
+   "type": "line",
+   "text": "Clears the voice and filter state and resets the SID. Uses A to select the divider and six initial voice pointer bytes, and marks the first pass to fetch a sequence entry."
+  },
+  {
+   "address": 57415,
+   "type": "line",
+   "text": "Interprets track bytes as a new track pointer, voice offsets or a repeat count. Nonnegative values select a phrase through the directory. Saves the new track position and begins the phrase."
+  },
+  {
+   "address": 57519,
+   "type": "line",
+   "text": "Starts the player at voice index two or continues the current voice. The tick divider and note timers decide whether to fetch another phrase byte or step the instrument and write the active voice."
+  },
+  {
+   "address": 57556,
+   "type": "line",
+   "text": "Selects the phrase using the current voice\u2019s index. Decodes note, duration, instrument, filter, pitch override and slide commands. A zero byte returns to track processing."
+  },
+  {
+   "address": 57762,
+   "type": "line",
+   "text": "Updates SID gate and envelope according to the instrument flags, resets modulation on a new note and reads the note frequency from its two byte tables. Updates the duration and saved phrase position."
+  },
+  {
+   "address": 57913,
+   "type": "line",
+   "text": "Services the remaining voices by descending register index. The final voice updates the tick divider and SID mode and resonance. The filter step path reads a timed incremental cutoff command and writes $D416."
+  },
+  {
+   "address": 58003,
+   "type": "line",
+   "text": "Initializes the slide when its counter is negative. Computes the interval from the difference of two note frequencies divided by the duration. Thereafter decrements the counter and adds the stored interval."
+  },
+  {
+   "address": 58140,
+   "type": "line",
+   "text": "Writes a relative note lookup or a literal high frequency byte, then resumes instrument decoding. The silent branch resets the selected voice control and both envelope registers before moving on."
+  },
+  {
+   "address": 58195,
+   "type": "line",
+   "text": "Uses the current instrument or the active override to select a pitch program. Applies its loop and timing fields and updates the note frequency from the program\u2019s command."
+  },
+  {
+   "address": 58482,
+   "type": "line",
+   "text": "Uses the instrument to choose a timed pulse increment program and advances that program when the countdown elapses. Adds the active increment to the saved pulse width."
+  },
+  {
+   "address": 58549,
+   "type": "line",
+   "text": "Selects a fixed instrument control byte or the next byte from a control program. Applies the current voice mask and saves the program position."
+  },
+  {
+   "address": 58601,
+   "type": "line",
+   "text": "Writes control, frequency, pulse width, attack/decay and sustain/release to the selected SID voice, then advances to the next voice."
+  },
+  {
+   "address": 58654,
+   "type": "line",
+   "text": "Twenty-two eight-byte instrument records. The player indexes their envelope, control and modulation fields with the selected instrument number times eight."
+  },
+  {
+   "address": 58830,
+   "type": "line",
+   "text": "Split low and high pitch program pointers and their loop limits and positions. The override path writes the element at index zero of each array."
+  },
+  {
+   "address": 58877,
+   "type": "line",
+   "text": "Arrays of low and high pointers based at $E5FD and $E608. The pulse driver uses the nonzero selector from the instrument byte."
+  },
+  {
+   "address": 58899,
+   "type": "line",
+   "text": "Split pointers to sequences of SID control bytes and their loop restart offsets. The instrument supplies the sequence length and selector."
+  },
+  {
+   "address": 58920,
+   "type": "line",
+   "text": "Filter program pointers from the tables based at $E628 and $E62A, followed by the control values indexed from $E62C."
+  },
+  {
+   "address": 58927,
+   "type": "line",
+   "text": "Override table entries for pointer low bytes, high bytes, length and loop position. The player copies the selected values into index zero of the ordinary pitch directory."
+  },
+  {
+   "address": 58975,
+   "type": "line",
+   "text": "Short pitch programs selected by the override directory. Their entries provide the note offsets and control bytes for $E3A5."
+  },
+  {
+   "address": 59011,
+   "type": "line",
+   "text": "Embedded message about Revolution, followed by the MIC/AD and F.A.M.E. attribution and 1989 date."
+  },
+  {
+   "address": 59072,
+   "type": "line",
+   "text": "Ninety-five low bytes of SID frequencies, read during note changes and the pitch slide calculation."
+  },
+  {
+   "address": 59167,
+   "type": "line",
+   "text": "Embedded tune credit for the arrangement of G\u2019D Old Scotch. It sits between the two frequency tables."
+  },
+  {
+   "address": 59206,
+   "type": "line",
+   "text": "Ninety-five high bytes of SID frequencies, paired by note with the table at $E6C0."
+  },
+  {
+   "address": 59301,
+   "type": "line",
+   "text": "The offsets 0, 7 and 14 for the three SID register groups."
+  },
+  {
+   "address": 59304,
+   "type": "line",
+   "text": "Voice and filter state cleared by $E003. Holds frequency, instrument index, control and modulation positions, track pointers and the tick divider."
+  },
+  {
+   "address": 59394,
+   "type": "line",
+   "text": "Fifteen little-endian phrase pointers selected by doubling the active track\u2019s phrase index. Some phrase entry points are inside other streams."
+  },
+  {
+   "address": 59424,
+   "type": "line",
+   "text": "Three voice track low bytes, three high bytes and the initial music tick divider for tune zero."
+  },
+  {
+   "address": 59431,
+   "type": "line",
+   "text": "The pitch, pulse, control and filter programs reached from the split pointer tables. The short command streams provide modulation delays, increments and loop positions."
+  },
+  {
+   "address": 59688,
+   "type": "line",
+   "text": "Embedded credit naming AD Bulka as the music code author."
+  },
+  {
+   "address": 59704,
+   "type": "line",
+   "text": "First SID voice track sequence. Its final $FF and pointer restart it at $E939, one byte after its initial phrase."
+  },
+  {
+   "address": 59717,
+   "type": "line",
+   "text": "Second SID voice track sequence. Its phrase indices and repeat command feed the track interpreter at $E047."
+  },
+  {
+   "address": 59759,
+   "type": "line",
+   "text": "Third SID voice track sequence, ending with $FF and the restart pointer $E96F."
+  },
+  {
+   "address": 59770,
+   "type": "line",
+   "text": "Phrase bytes reached by directory indices zero through nine. Some note and duration commands are shared by multiple directory pointers."
+  },
+  {
+   "address": 60196,
+   "type": "line",
+   "text": "Phrase bytes reached by directory indices ten through fourteen. This group contains the higher-index sections of the tune and shares the decoder at $E0D4."
   },
   {
    "address": 60480,
@@ -2177,6 +4901,116 @@
    "text": "Places character RAM at $2000 and the matrix at $0400. Banks out I/O while reading the font at $DC80 and then programs the display colours."
   },
   {
+   "address": 60952,
+   "type": "line",
+   "text": "The 25 row offsets from the $0400 screen base, in increments of 40. The renderer at $ED0B adds the column from each text row to the selected offset."
+  },
+  {
+   "address": 61002,
+   "type": "line",
+   "text": "Seven list pointers. The presentation at $EC68 uses the event at $CD4D to choose one through $ECD7."
+  },
+  {
+   "address": 61016,
+   "type": "line",
+   "text": "Interlude event 0 requests positioned messages 0 and 7. The $FF byte returns from the list loop."
+  },
+  {
+   "address": 61019,
+   "type": "line",
+   "text": "Interlude event 1 requests positioned messages 1 and 7. The $FF byte returns from the list loop."
+  },
+  {
+   "address": 61022,
+   "type": "line",
+   "text": "Interlude event 2 requests positioned messages 2 and 8. The $FF byte returns from the list loop."
+  },
+  {
+   "address": 61025,
+   "type": "line",
+   "text": "Interlude event 3 requests positioned messages 3 and 8. The $FF byte returns from the list loop."
+  },
+  {
+   "address": 61028,
+   "type": "line",
+   "text": "Interlude event 4 requests positioned messages 4 and 8. The $FF byte returns from the list loop."
+  },
+  {
+   "address": 61031,
+   "type": "line",
+   "text": "Interlude event 5 requests positioned messages 5 and 8. The $FF byte returns from the list loop."
+  },
+  {
+   "address": 61034,
+   "type": "line",
+   "text": "Interlude event 6 requests positioned messages 6 and 7. The $FF byte returns from the list loop."
+  },
+  {
+   "address": 61037,
+   "type": "line",
+   "text": "Nine message pointers indexed by the list bytes through $ECFF. Each target starts with a column and row."
+  },
+  {
+   "address": 61055,
+   "type": "line",
+   "text": "Message 0 draws \"YOU HAVE BEEN / DEFEATED!\" at the column and row prefixed to each row. $FE introduces another positioned row and $FF ends the message."
+  },
+  {
+   "address": 61083,
+   "type": "line",
+   "text": "Message 1 draws \"CONGRATULATION! / YOU HAVE BEEN / VICTORIOUS / AGAINST THE ELITE / FIGHTERS OF SHAOLIN!\" at the column and row prefixed to each row. $FE introduces another positioned row and $FF ends the message."
+  },
+  {
+   "address": 61174,
+   "type": "line",
+   "text": "Message 2 draws \"YOU BEGIN YOUR FIGHT / AT THE BOTTOM OF THE / MOUNTAINS!\" at the column and row prefixed to each row. $FE introduces another positioned row and $FF ends the message."
+  },
+  {
+   "address": 61233,
+   "type": "line",
+   "text": "Message 3 draws \"WELL DONE! / YOUR SECOND FIGHT IS HELD / IN THE OLD PART OF THE / TOWN!\" at the column and row prefixed to each row. $FE introduces another positioned row and $FF ends the message."
+  },
+  {
+   "address": 61307,
+   "type": "line",
+   "text": "Message 4 draws \"IMPRESSIVE! / NOW PROVE YOURSELF / ON THE MARKETPLACE OF / THE CITY!\" at the column and row prefixed to each row. $FE introduces another positioned row and $FF ends the message."
+  },
+  {
+   "address": 61378,
+   "type": "line",
+   "text": "Message 5 draws \"BRILLIANT! / BUT NOW THE BEST FIGHTER / AWAITS YOU / BY THE CITYWALLS!\" at the column and row prefixed to each row. $FE introduces another positioned row and $FF ends the message."
+  },
+  {
+   "address": 61451,
+   "type": "line",
+   "text": "Message 6 draws \"YOUR TRAINING IS OVER!\" at the column and row prefixed to each row. $FE introduces another positioned row and $FF ends the message."
+  },
+  {
+   "address": 61476,
+   "type": "line",
+   "text": "Message 7 draws \"PUSH FIRE-BUTTON TO GO ON\" at the column and row prefixed to each row. $FE introduces another positioned row and $FF ends the message."
+  },
+  {
+   "address": 61504,
+   "type": "line",
+   "text": "Message 8 draws \"PUSH FIRE-BUTTON TO START\" at the column and row prefixed to each row. $FE introduces another positioned row and $FF ends the message."
+  },
+  {
+   "address": 61532,
+   "type": "line",
+   "text": "Trailing little-endian offsets identical to the active directory slice at $F55C\u2013$F647. The interlude text occupies the preceding addresses."
+  },
+  {
+   "address": 61768,
+   "type": "line",
+   "text": "Retained duplicate of the graphics descriptor bytes at $F648\u2013$F8FF, including the width-tagged weapon masks."
+  },
+  {
+   "address": 62464,
+   "type": "line",
+   "text": "Page identical to the active weapon descriptor directory at $F500\u2013$F5FF. The painter indexes the copy at $F500."
+  },
+  {
    "address": 62720,
    "type": "line",
    "text": "Eighty-two relative pointers to the first set of fighter display descriptors, selected with the facing flag clear. The code at $0CF8 adds $B500."
@@ -2185,6 +5019,11 @@
    "address": 62884,
    "type": "line",
    "text": "Eighty-two relative pointers into the second set of fighter display descriptors, selected with the facing flag set. These share the same $B500 base."
+  },
+  {
+   "address": 63048,
+   "type": "line",
+   "text": "Beginning of the high-memory weapon shape pool. The entry data includes eight- and sixteen-pixel-byte masks consumed by the weapon painter."
   },
   {
    "address": 63232,
@@ -2200,6 +5039,31 @@
    "address": 64388,
    "type": "line",
    "text": "Combat second display descriptor set, offsets 0\u20131011. The second byte of each record is the eight- or sixteen-byte body size read by $0D07."
+  },
+  {
+   "address": 65400,
+   "type": "line",
+   "text": "Retained helper instruction bytes. Tests $98, adds A to the pointer at $25/$26 with carry propagation and decrements X before returning."
+  },
+  {
+   "address": 65413,
+   "type": "line",
+   "text": "Retained code that copies a VIC preset to $D000, copies a page fragment to $033F and writes a sprite pointer and a VIC bank value before jumping to $FFEA."
+  },
+  {
+   "address": 65451,
+   "type": "line",
+   "text": "Sequence beginning with SEI and CLD that saves stack values into $DEFB\u2013$DEFD and builds new stack values before jumping to $FECB."
+  },
+  {
+   "address": 65504,
+   "type": "line",
+   "text": "Two short sequences that clear or set processor-port bit 1, changing the KERNAL ROM mapping."
+  },
+  {
+   "address": 65521,
+   "type": "line",
+   "text": "Retained bytes include a SAMMER text fragment followed by the final hardware vector values. Combat writes its own IRQ vector when enabling the raster interrupt."
   }
  ]
 }

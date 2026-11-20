@@ -16,6 +16,66 @@
         "$2000",
         "$3FE0",
         "The hand-over holds an exact copy of $4000-$5FE0. The title blanks the display and replaces the copy from a selected bitmap source before setting $D011 to show it."
+      ],
+      [
+        "$0B00",
+        "$13FF",
+        "Zero-filled gap after the loaded form font. The form copies three source pages from $0800 to its VIC character memory. Title read, write and execution checkpoints saw no access in the gap from the publisher picture through the apprentice form."
+      ],
+      [
+        "$1C00",
+        "$1FFF",
+        "Zero-filled gap after the form matrix. The instruction trace of $C6D6 reads $1800\u2013$1BFF. The title route saw no access beyond that source during the three pictures and apprentice form."
+      ],
+      [
+        "$ABFD",
+        "$C1FE",
+        "Zero-filled interval after the third picture matrix and before the publisher-picture flag. Instruction traces of all three $C5A4 selectors end their matrix reads at $63FC, $87FC and $ABFC. No CPU read, write or execution checkpoint hit this interval during the title route."
+      ],
+      [
+        "$3FE1",
+        "$3FFF",
+        "Zero-filled end of the generated display window. All three $C5A4 instruction traces wrote the bitmap only through $3FE0. The VIC bitmap occupies 8,000 bytes from $2000."
+      ],
+      [
+        "$E000",
+        "$E04F",
+        "Zero-filled space preceding the title music player. The start-prompt transition at $C25F overwrites this interval from $F000 before entering the relocated player."
+      ],
+      [
+        "$EB50",
+        "$ECFF",
+        "Zero-filled RAM after the title track lists. The title tune instruction trace did not read it. The start-prompt copy generated all 432 destination bytes, confirmed by the title route write checkpoint."
+      ],
+      [
+        "$ED00",
+        "$EFFF",
+        "Zero-filled RAM beyond the last relocated page at $ECFF. The exit execution checkpoint at $ED0C hit KERNAL ROM with processor port $37 and different CPU and RAM bytes. The title IRQ reaches the RAM music regions below this interval."
+      ],
+      [
+        "$FD00",
+        "$FD2F",
+        "Zero-filled gap after the final relocated source page and before the RAM copy of the KERNAL vectors. The title route watch found no reads, stores or execution in these bytes as part of the $FC64\u2013$FD2F interval after the 156 source reads through $FCFF."
+      ],
+      [
+        "$FD50",
+        "$FFFD",
+        "Zero-filled RAM under KERNAL ROM before the retained IRQ vector. The title route had execution hits in this interval. A stopping exit watch caught $FE1C with port $37 and confirmed those instruction bytes in ROM while the RAM bytes were zero."
+      ],
+      [
+        "$CDEE",
+        "$CDFF",
+        "Zero-filled gap immediately after the 512-byte drive upload source. The upload loop stops after $CDED. CPU read, write and execution watches saw no access during title and through the first depacker hand-over."
+      ],
+      [
+        "$CECC",
+        "$CEFF",
+        "Zero-filled gap after the seven resident prompt rows. Title and first-load watches saw no accesses. The numbered programs copy the seven rows by their fixed starts and lengths."
+      ],
+      [
+        "$CFA0",
+        "$CFFF",
+        "Zero-filled gap behind the resident result border. The numbered overlays use fixed sources and lengths within the border. Title and first-load watches saw no reads, writes or execution in the gap."
       ]
     ],
     "extra": [

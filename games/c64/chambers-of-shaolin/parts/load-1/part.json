@@ -11,6 +11,101 @@
         "$0334",
         "$07FF",
         "Residual packed stream copied by the depacker through ($FE),Y before the destination data is unpacked through ($FA),Y. The authored output starts at $0800."
+      ],
+      [
+        "$A000",
+        "$BFE0",
+        "Generated Balance display plane. The introductory display copies all 768 glyph bytes from $ED80 before being enabled. At the gameplay transition the instruction trace of $18CC writes all $A000\u2013$BFE0 from $5800\u2013$77E0 before the VIC bitmap display is enabled."
+      ],
+      [
+        "$51E0",
+        "$577F",
+        "Zero-filled interval before the bitmap source. Intro, play and result watchpoints saw no CPU accesses. The pose directory ends at source $4D00 and the chamber bitmap begins at $5800."
+      ],
+      [
+        "$7C00",
+        "$7FFF",
+        "Zero-filled region between the loaded bitmap colour matrix and the VIC sprite bank. The matrix copy stops at $7BFC, and intro, play and result probes saw no access here."
+      ],
+      [
+        "$8380",
+        "$8BFF",
+        "Zero-filled region between the VIC pose and pickup slots and the instruction matrix at $8C00. The tracked Balance VIC pointers stay within slots 0 through $0D, and no intro, play or result CPU watchpoint hit this region."
+      ],
+      [
+        "$9E80",
+        "$9FFF",
+        "Zero-filled tail after the last animated path frame. The instruction trace of all eight frame selections ends at $9E7F, and no intro, play or result CPU watchpoint hit the tail."
+      ],
+      [
+        "$C000",
+        "$C8FF",
+        "Zero-filled range between the display-bank tail and the disk exit. No CPU read, write or execution checkpoint hit on the tested intro, gameplay and result paths."
+      ],
+      [
+        "$C943",
+        "$C9FE",
+        "Zero-filled tail after the Balance exit and disk name. The live exit requests file 2 and leaves through BASIC, and the intro, play and result watches saw no references here."
+      ],
+      [
+        "$E000",
+        "$E16F",
+        "Zero-filled range preceding the music entry at $E170. The music instruction trace did not read or execute this region and there were no intro, gameplay or result watchpoint hits."
+      ],
+      [
+        "$9840",
+        "$98BF",
+        "Zero-filled row stride gap after the three late path frame strips in row 0. The eight-selection instruction trace read the complete source strips on either side and skipped the gap."
+      ],
+      [
+        "$9980",
+        "$99FF",
+        "Zero-filled row stride gap after the three late path frame strips in row 1. The eight-selection instruction trace read the complete source strips on either side and skipped the gap."
+      ],
+      [
+        "$9AC0",
+        "$9B3F",
+        "Zero-filled row stride gap after the three late path frame strips in row 2. The eight-selection instruction trace read the complete source strips on either side and skipped the gap."
+      ],
+      [
+        "$9C00",
+        "$9C7F",
+        "Zero-filled row stride gap after the three late path frame strips in row 3. The eight-selection instruction trace read the complete source strips on either side and skipped the gap."
+      ],
+      [
+        "$9D40",
+        "$9DBF",
+        "Zero-filled row stride gap after the three late path frame strips in row 4. The eight-selection instruction trace read the complete source strips on either side and skipped the gap."
+      ],
+      [
+        "$1F0F",
+        "$1FFF",
+        "Zero-filled tail following the last terminated positioned message at $1F0E. The twelve message pointers and stream terminators confine the renderer to lower addresses."
+      ],
+      [
+        "$EC67",
+        "$ED08",
+        "Zero-filled gap after all three Balance music tracks. The instruction trace ends with track data below $EC67. The introduction watch hit the ROM VIC preset read at $095D before the processor mapping changes at $0819."
+      ],
+      [
+        "$1C0A",
+        "$1C0E",
+        "Five zero bytes beyond the nine-entry sprite-register source and before the bitmap backup workspace. Intro, play and result watches saw no accesses."
+      ],
+      [
+        "$4F00",
+        "$4F0D",
+        "Zero alignment after two retained duplicate sprite slots and before the standalone BASIC preview header. The pose table ends at $4D00 and the watch found no accesses here."
+      ],
+      [
+        "$4F80",
+        "$4FFF",
+        "Zero-filled interval after the retained standalone bitmap preview instructions. Intro, play and result watches saw no accesses."
+      ],
+      [
+        "$5781",
+        "$57FF",
+        "Zero-filled interval before the authored bitmap begins. The bitmap and sprite directory ranges do not reach it, and the intro, play and result watches found no addresses in use."
       ]
     ],
     "extra": [

@@ -11,6 +11,71 @@
         "$0334",
         "$07FF",
         "Residual packed stream copied by the depacker through ($FE),Y before the destination data is unpacked through ($FA),Y. The authored output starts at $0800."
+      ],
+      [
+        "$A001",
+        "$BFE0",
+        "Generated Strength display bitmap. The traced $1358 copy writes every byte from the authored source at $2000. The first three pages initially serve as character RAM and are installed from $1D80 before the introduction is made visible."
+      ],
+      [
+        "$E253",
+        "$E2FF",
+        "Zero-filled tail beyond the six effect streams. Their split pointers start the streams at $E1CB through $E232. The instruction-level effect tests selected every stream and saw no reads in this tail."
+      ],
+      [
+        "$8500",
+        "$85FF",
+        "Zero-filled destination for the first four board sprites. The $1075 instruction trace records every byte written by $10C9 before those sprite slots are displayed."
+      ],
+      [
+        "$8601",
+        "$877F",
+        "Zero-filled sprite workspace. The instruction trace at $1075 records every byte in this range written by the board and apprentice pose copies."
+      ],
+      [
+        "$8781",
+        "$8800",
+        "Zero-filled destination for the end of the apprentice pose copy. The $1123 stores recorded in the instruction trace fill it from the frame table."
+      ],
+      [
+        "$19D1",
+        "$1D7F",
+        "Zero-filled gap between the last result message and the glyph source. Instruction watchpoints on reads, stores and execution had no hits at the instruction screen, during play or on the tested failed and successful result paths."
+      ],
+      [
+        "$5800",
+        "$6340",
+        "Zero-filled interval after the last board panel source band. The panel pointer tables and their fixed copy strides end below it, and the next nonzero image trailer starts at $6341. Intro, gameplay and both result probes found no accesses in the interval."
+      ],
+      [
+        "$BFE1",
+        "$C8FF",
+        "Zero-filled space after the last generated bitmap byte and before the disk exit at $C900. No RAM read, write or execution checkpoints hit before gameplay or on the measured gameplay and result paths."
+      ],
+      [
+        "$C938",
+        "$C9FE",
+        "Zero-filled space after the retained alternate LOAD tail. The live load routine branches into BASIC at $C929 and never falls through into the tail. Intro, play and the sampled results never accessed this gap."
+      ],
+      [
+        "$0800",
+        "$080F",
+        "Zero bytes below the hand-over entry at $0810. The depacker overwrites the earlier BASIC bootstrap in this range before entering the Strength program."
+      ],
+      [
+        "$6355",
+        "$638D",
+        "Zero alignment bytes between the retained pixel tail and the start of the standalone picture header. The introductory and play watchpoint on $6341\u2013$63FF saw no accesses."
+      ],
+      [
+        "$6490",
+        "$67FF",
+        "Zero-filled gap after the last gauge pattern and before the first pose. The bar restoration trace for every height from zero through $50 stopped at $6457. The introduction, play and both sampled result cases saw no accesses in the gap."
+      ],
+      [
+        "$8801",
+        "$887F",
+        "Zero-filled generated sprite display bytes. The instruction trace of $112D installs both 64-byte overlay shapes from the aiming and indicator pointers."
       ]
     ],
     "extra": [

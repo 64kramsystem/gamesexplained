@@ -32,6 +32,30 @@ The title's form renderer takes a list of message IDs ending in $FF. A message s
 - The Combat scene decoder at $1E9E selects one of four ten-byte descriptors at $7832. CPU instruction tracing consumed four source streams, $D000–$DB6E, $6B96–$778C, $6000–$6B95 and $4000–$4AA8. They each write the scene's colour matrix at $0428–$062F and bitmap portion at $2140–$317F. The first stream is read with I/O banked out.
 - The large zero-filled score gap at $1400–$9FFF produced no stores or execution hits between hand-over and requesting the next load. The two reads stopped in the KERNAL serial routines after `BIT $2009` and `BIT $3FA9`. These instructions use a three-byte BIT to skip an alternate instruction. The operands do not supply score data.
 
-## Open analysis
+## Training result and score formatting
 
-The exported maps identify traced starts, authored display planes and several tables. They leave the remaining routines and data bare. The end conditions, training-to-combat rules, combat dispatch and unlabelled music data still need analysis. The listings use hand-over images, so indirect accesses and bytes installed or changed by the game still need tracing.
+- Strength uses a zero-based attempt index and a separate strike outcome. The results handler awards training values when it reaches its award path, scaling the four base values 50, 60, 0 and 14 by the result percentage with rounding up. Targeted execution checkpoints reached all four award stores at $0A9C, $0ABC, $0ADB and $0AFB. The flag at $CE2A plus apprentice index was written for 50 and 100 percent in the tested cases.
+- The score screen rewrites an in-memory five-row message before rendering it. The decimal digit routines use $C860–$C863 for lookup offsets. A top score shifts bytes through $C8B9, beyond the five-record save range that ends at $C8A3.
+
+## Display initialization and Combat score
+
+- Balance replaces the display plane before playing. A CPU trace of $18CC read $5800–$77E0 and wrote $A000–$BFE0. The introduction first installs characters at the same base from $ED80.
+- Combat clears its bitmap and working plane before decoding a scene. The instruction trace records $2000–$3FE0 and $5180–$5E73 as the clear destinations. On entering that path in VICE, the clear routines executed 7,948 and 3,328 stores respectively. The HUD initializer then read each of its bottom colour strips 21 times.
+- The Combat raster IRQ at $1D35 ran 120 times in 24 VICE frames. The phase that waits for line $F1 increments $7816, and separate phases service the HUD bars and redraw the score.
+- Combat formats its score by adding one decimal contribution per nibble. Instruction tracing produced the five-digit strings 00000, 09999 and 65535 for the tested scores 0, 9999 and 65535.
+
+## Training carried into Combat
+
+The numbered training loads use two interleaved apprentice records at $CE17–$CE1E. Balance writes the initial award values. Speed and Strength add their own awards. The paired flags at $CE26–$CE2B record the training unlocks. In Combat, the action interpreters at $157D and $1744 consult one flag apiece for each of moves four, six and seven. An instruction test with each flag zero or one checked both interpreters. A zero flag took the exit without reading the script directory. A one flag reached the directory and selected the first pose of the requested move.
+
+Combat uses the training values in three other places. Its opening and recurring timers use $C8 minus $CE17 or $CE18. The opening bars at $0EEE use $CE1D and $CE1E, and the contact handlers add the move score from $CD5A with adjustments from $CE19–$CE1C. In one-apprentice mode the entry supplies the CPU opponent with default values and all three move flags. The code at $09AB increases its thresholds and training values after advancing the arena.
+
+## Combat progression and disk I/O
+
+A controlled combat round check entered $0960 with bar $7831 at $A0 and movement offset $7810 at $FF. In one-apprentice mode, scene index 2 advanced to scene 3 and selected interlude 5. Scene 3 advanced to index 4, selected interlude 1 and set the score-exit flag at $09A3. In two-apprentice mode it selected interlude 6 and set the same flag at $0977. An active movement offset of zero bypassed those endings. The intro then consults the flag at $08B1 and can enter the HIGH load at $C300.
+
+The executable disk calls, including the Speed loader as reconstructed from $EB00–$EFFF, account for the route from LABLE through 1, 2, 3, 4 and HIGH, then back to LABLE. The high-score program separately loads and saves H. The listed calls use fixed filenames and the disk directory contains those files plus the release intro. The multi-platform manual also describes chambers and character storage absent from this disk route.
+
+## The listing's error rate
+
+An independent gpt-6.2-sol checker sampled 65 of 1,114 comments with seed 652. Seven contained wrong details (10.8%, with a Wilson 95% interval of 5.3% to 20.6%). The estimate weighted by stratum size was also 10.8%. The seven corrections cover the Balance bitmap mask and music credit, Speed strip and pointer strides, Strength voice-zero filter fields, Combat bar cadence and expired timer branch, and title command-buffer boundaries. Repeated comments with the same errors were also corrected. The checker may have missed errors in the sample.

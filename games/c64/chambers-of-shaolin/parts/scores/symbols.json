@@ -43,6 +43,26 @@
     "Zero-filled region before the score program. Read, write and execution watches from entry to the next LOAD saw no accesses with either a bottom or top score."
    ],
    [
+    51386,
+    51455,
+    "Zero-filled gap between the score insertion spill and the restart routine. Both top- and bottom-score live watches saw no reads, writes or execution before the next LOAD."
+   ],
+   [
+    51527,
+    51711,
+    "Zero-filled tail after the duplicate LABLE filename. Both score paths saw no reads, writes or execution before the next LOAD."
+   ],
+   [
+    60118,
+    61439,
+    "Zero-filled tail beyond the final phrase directory entry. The instruction-level score tune run reads through $EAD4. The live hits at $ED0C and the VIC preset read at $C252 used KERNAL ROM with processor port $36."
+   ],
+   [
+    40960,
+    40960,
+    "Isolated $94 byte at the same seam as the four numbered images and the score image' depacker output. Both score paths watched this RAM address through the next LOAD and saw no access."
+   ],
+   [
     0,
     2047,
     "Thalion intro and title"
@@ -190,8 +210,38 @@
   },
   {
    "start": 50685,
+   "end": 50734,
+   "type": "Word"
+  },
+  {
+   "start": 50735,
+   "end": 50736,
+   "type": "Address"
+  },
+  {
+   "start": 50737,
+   "end": 50738,
+   "type": "Byte"
+  },
+  {
+   "start": 50739,
+   "end": 50740,
+   "type": "Address"
+  },
+  {
+   "start": 50741,
+   "end": 50840,
+   "type": "Byte"
+  },
+  {
+   "start": 50841,
+   "end": 50842,
+   "type": "Word"
+  },
+  {
+   "start": 50843,
    "end": 50847,
-   "type": "Undefined"
+   "type": "PETSCII"
   },
   {
    "start": 50848,
@@ -236,7 +286,7 @@
   {
    "start": 51296,
    "end": 51299,
-   "type": "Undefined"
+   "type": "Byte"
   },
   {
    "start": 51300,
@@ -250,6 +300,11 @@
   },
   {
    "start": 51364,
+   "end": 51385,
+   "type": "Byte"
+  },
+  {
+   "start": 51386,
    "end": 51455,
    "type": "Undefined"
   },
@@ -260,6 +315,21 @@
   },
   {
    "start": 51500,
+   "end": 51504,
+   "type": "PETSCII"
+  },
+  {
+   "start": 51505,
+   "end": 51521,
+   "type": "Code"
+  },
+  {
+   "start": 51522,
+   "end": 51526,
+   "type": "PETSCII"
+  },
+  {
+   "start": 51527,
    "end": 51711,
    "type": "Undefined"
   },
@@ -290,6 +360,56 @@
   },
   {
    "start": 58623,
+   "end": 58645,
+   "type": "Code"
+  },
+  {
+   "start": 58646,
+   "end": 58765,
+   "type": "Byte"
+  },
+  {
+   "start": 58766,
+   "end": 58808,
+   "type": "Byte"
+  },
+  {
+   "start": 58809,
+   "end": 58828,
+   "type": "Byte"
+  },
+  {
+   "start": 58829,
+   "end": 58846,
+   "type": "Byte"
+  },
+  {
+   "start": 58847,
+   "end": 58864,
+   "type": "Byte"
+  },
+  {
+   "start": 58865,
+   "end": 58880,
+   "type": "Byte"
+  },
+  {
+   "start": 58881,
+   "end": 58893,
+   "type": "Byte"
+  },
+  {
+   "start": 58894,
+   "end": 59083,
+   "type": "Byte"
+  },
+  {
+   "start": 59084,
+   "end": 59086,
+   "type": "Byte"
+  },
+  {
+   "start": 59087,
    "end": 59176,
    "type": "Undefined"
   },
@@ -310,8 +430,23 @@
   },
   {
    "start": 59216,
+   "end": 59427,
+   "type": "Byte"
+  },
+  {
+   "start": 59428,
+   "end": 59440,
+   "type": "Byte"
+  },
+  {
+   "start": 59441,
+   "end": 59494,
+   "type": "Byte"
+  },
+  {
+   "start": 59495,
    "end": 59515,
-   "type": "Undefined"
+   "type": "Byte"
   },
   {
    "start": 59516,
@@ -390,6 +525,11 @@
   },
   {
    "start": 60117,
+   "end": 60117,
+   "type": "Byte"
+  },
+  {
+   "start": 60118,
    "end": 61439,
    "type": "Undefined"
   }
@@ -486,6 +626,48 @@
    "kind": "user"
   },
   {
+   "address": 50685,
+   "name": "score_screen_row_offsets",
+   "type": "Data",
+   "kind": "user"
+  },
+  {
+   "address": 50735,
+   "name": "score_message_sequence_pointer",
+   "type": "Data",
+   "kind": "user"
+  },
+  {
+   "address": 50737,
+   "name": "score_message_sequence",
+   "type": "Data",
+   "kind": "user"
+  },
+  {
+   "address": 50739,
+   "name": "score_message_pointer",
+   "type": "Data",
+   "kind": "user"
+  },
+  {
+   "address": 50741,
+   "name": "score_message_rows",
+   "type": "Data",
+   "kind": "user"
+  },
+  {
+   "address": 50841,
+   "name": "score_to_format",
+   "type": "Data",
+   "kind": "user"
+  },
+  {
+   "address": 50843,
+   "name": "score_decimal_digits",
+   "type": "Data",
+   "kind": "user"
+  },
+  {
    "address": 50848,
    "name": "score_units_pointers",
    "type": "Data",
@@ -534,6 +716,12 @@
    "kind": "user"
   },
   {
+   "address": 51296,
+   "name": "score_nibble_offsets",
+   "type": "Data",
+   "kind": "user"
+  },
+  {
    "address": 51300,
    "name": "score_filenames",
    "type": "Data",
@@ -546,9 +734,33 @@
    "kind": "user"
   },
   {
+   "address": 51364,
+   "name": "score_insertion_overrun",
+   "type": "Data",
+   "kind": "user"
+  },
+  {
    "address": 51456,
    "name": "leave_scores",
    "type": "Subroutine",
+   "kind": "user"
+  },
+  {
+   "address": 51500,
+   "name": "title_filename",
+   "type": "Data",
+   "kind": "user"
+  },
+  {
+   "address": 51505,
+   "name": "score_reload_alternate_tail",
+   "type": "Subroutine",
+   "kind": "user"
+  },
+  {
+   "address": 51522,
+   "name": "score_reload_filename_copy",
+   "type": "Data",
    "kind": "user"
   },
   {
@@ -582,6 +794,84 @@
    "kind": "user"
   },
   {
+   "address": 57890,
+   "name": "advance_music_voice",
+   "type": "Subroutine",
+   "kind": "user"
+  },
+  {
+   "address": 58187,
+   "name": "update_score_pitch_and_waveform",
+   "type": "Subroutine",
+   "kind": "user"
+  },
+  {
+   "address": 58474,
+   "name": "update_score_pulse_and_control",
+   "type": "Subroutine",
+   "kind": "user"
+  },
+  {
+   "address": 58623,
+   "name": "write_score_envelope",
+   "type": "Subroutine",
+   "kind": "user"
+  },
+  {
+   "address": 58646,
+   "name": "score_instrument_records",
+   "type": "Data",
+   "kind": "user"
+  },
+  {
+   "address": 58766,
+   "name": "score_waveform_sequence_directory",
+   "type": "Data",
+   "kind": "user"
+  },
+  {
+   "address": 58809,
+   "name": "score_pulse_sequence_directory",
+   "type": "Data",
+   "kind": "user"
+  },
+  {
+   "address": 58829,
+   "name": "score_control_sequence_directory",
+   "type": "Data",
+   "kind": "user"
+  },
+  {
+   "address": 58847,
+   "name": "score_player_parameter_tables",
+   "type": "Data",
+   "kind": "user"
+  },
+  {
+   "address": 58865,
+   "name": "score_override_waveform_sequences",
+   "type": "Data",
+   "kind": "user"
+  },
+  {
+   "address": 58881,
+   "name": "score_pitch_index_offsets",
+   "type": "Data",
+   "kind": "user"
+  },
+  {
+   "address": 58894,
+   "name": "score_note_frequencies",
+   "type": "Data",
+   "kind": "user"
+  },
+  {
+   "address": 59084,
+   "name": "score_sid_voice_offsets",
+   "type": "Data",
+   "kind": "user"
+  },
+  {
    "address": 59177,
    "name": "score_music_phrase_pointers",
    "type": "Data",
@@ -596,6 +886,30 @@
   {
    "address": 59215,
    "name": "score_music_tempo",
+   "type": "Data",
+   "kind": "user"
+  },
+  {
+   "address": 59216,
+   "name": "score_instrument_streams",
+   "type": "Data",
+   "kind": "user"
+  },
+  {
+   "address": 59428,
+   "name": "score_voice_1_track",
+   "type": "Data",
+   "kind": "user"
+  },
+  {
+   "address": 59441,
+   "name": "score_voice_2_track",
+   "type": "Data",
+   "kind": "user"
+  },
+  {
+   "address": 59495,
+   "name": "score_voice_3_track",
    "type": "Data",
    "kind": "user"
   },
@@ -688,6 +1002,12 @@
    "name": "score_phrase_eaa2",
    "type": "Data",
    "kind": "user"
+  },
+  {
+   "address": 60117,
+   "name": "score_phrase_15_slot",
+   "type": "Data",
+   "kind": "user"
   }
  ],
  "comments": [
@@ -714,7 +1034,7 @@
   {
    "address": 49768,
    "type": "line",
-   "text": "Starts with five entries and a twelve-byte stride. Compares the high score byte at $CE20 against $C869 plus the table index before consulting the low byte at $CE1F."
+   "text": "Scans five twelve-byte records by unsigned score, comparing the high byte first. A new score equal to or above a record takes its position. The copy beginning at $C297 shifts twelve-byte slots up in memory before the ten-character name and score are written into the selected slot."
   },
   {
    "address": 50028,
@@ -767,6 +1087,41 @@
    "text": "Acknowledges the VIC-II raster IRQ, preserves A, X, Y and the sound player scratch at $FA\u2013$FF, and calls the player at $E000. Restores the compare to line zero."
   },
   {
+   "address": 50685,
+   "type": "line",
+   "text": "Twenty-five little-endian multiples of 40. The message renderer adds the selected row offset and the message column to $0400."
+  },
+  {
+   "address": 50735,
+   "type": "line",
+   "text": "Pointer selected by A=0 at $C4EB. It addresses the message list at $C631."
+  },
+  {
+   "address": 50737,
+   "type": "line",
+   "text": "Selects message zero and ends with $FF."
+  },
+  {
+   "address": 50739,
+   "type": "line",
+   "text": "Pointer to message zero, the five score rows."
+  },
+  {
+   "address": 50741,
+   "type": "line",
+   "text": "Five rows at column 13, starting on screen rows $0C, $0E, $10, $12 and $14. Score insertion and formatting fill each row with a ten-character name and five decimal digits. $FE starts another row and $FF ends the message."
+  },
+  {
+   "address": 50841,
+   "type": "line",
+   "text": "Little-endian score copied from one record at a time for the four nibble lookups in the decimal formatter."
+  },
+  {
+   "address": 50843,
+   "type": "line",
+   "text": "Five PETSCII digits initialized to zero by $C36C. The formatter accumulates the string contributions of the four nibbles here before copying the result into the message rows."
+  },
+  {
    "address": 50848,
    "type": "line",
    "text": "Lookup for the low nibble of the low score byte, with 16 pointers to five-digit decimal strings."
@@ -807,6 +1162,11 @@
    "text": "Sixteen five-digit decimal strings for values zero through 61440 in steps of 4096."
   },
   {
+   "address": 51296,
+   "type": "line",
+   "text": "Four scratch offsets written by the decimal formatter, one for each score nibble. Each offset selects a two-byte pointer to the five-digit contribution."
+  },
+  {
    "address": 51300,
    "type": "line",
    "text": "The three-byte replacement name @:H used for SAVE, followed by the one-byte name H used for LOAD."
@@ -817,9 +1177,29 @@
    "text": "Five records of 12 bytes. Each holds a ten-character name and a two-byte score, compared most-significant byte first before insertion."
   },
   {
+   "address": 51364,
+   "type": "line",
+   "text": "The insertion copy at $C29A reads the first ten bytes of this area and can write through $C8B9. These bytes sit after the five records and outside the 60-byte span saved under @:H."
+  },
+  {
    "address": 51456,
    "type": "line",
    "text": "Blanks the screen, restores the ROM mapping, installs the RAM LOAD vector and calls SETLFS for device 8 before choosing the next file."
+  },
+  {
+   "address": 51500,
+   "type": "line",
+   "text": "The five characters LABLE passed to SETNAM at $C91C before loading the title program."
+  },
+  {
+   "address": 51505,
+   "type": "line",
+   "text": "Clears or sets $CE01, $CE24 and $CE02 from A, then calls the BASIC CLR and RUN entries with A=0. The active score exit jumps to BASIC RUN from $C929 before this sequence."
+  },
+  {
+   "address": 51522,
+   "type": "line",
+   "text": "A second copy of the five-character name LABLE after the alternate BASIC call sequence. The score exit uses the copy at $C92C."
   },
   {
    "address": 57344,
@@ -847,6 +1227,71 @@
    "text": "Uses the phrase index for this voice to select a pointer from $E729, then reads the byte at the current phrase position. For values below $60, adds the voice offset at $E714 and stores the resulting note index."
   },
   {
+   "address": 57890,
+   "type": "line",
+   "text": "Decrements the voice index to service the next voice. After the last voice it updates the driver timer and its global SID settings."
+  },
+  {
+   "address": 58187,
+   "type": "line",
+   "text": "Uses the active instrument and per-voice selectors to choose a waveform sequence, apply its wait and loop fields and update the note and pitch offsets."
+  },
+  {
+   "address": 58474,
+   "type": "line",
+   "text": "Updates the pulse accumulator using timed eight-bit step commands selected by the instrument. Chooses the control byte from the instrument or a control sequence and masks it against voice state before writing the SID registers."
+  },
+  {
+   "address": 58623,
+   "type": "line",
+   "text": "Saves X, looks up the instrument envelope bytes by the active voice instrument and writes SID attack/decay and sustain/release at offsets $D405 and $D406. Restores X and advances the voice."
+  },
+  {
+   "address": 58646,
+   "type": "line",
+   "text": "Instrument parameter bytes indexed by the instrument offset held at $E6D8 per voice. The player draws the envelope, waveform, pulse sequence and control settings from successive fields."
+  },
+  {
+   "address": 58766,
+   "type": "line",
+   "text": "Split pointer, length and loop data read at $E387\u2013$E399. The driver writes the selected override into the first slot of each table at $E35E\u2013$E370."
+  },
+  {
+   "address": 58809,
+   "type": "line",
+   "text": "Split low and high pointer tables for the timed pulse-step streams. $E47A and $E47F fetch the pointer selected by the low five bits of the instrument setting."
+  },
+  {
+   "address": 58829,
+   "type": "line",
+   "text": "Split pointers and restart indices for control-byte sequences. The instrument selects the sequence and supplies its length at $E4AD."
+  },
+  {
+   "address": 58847,
+   "type": "line",
+   "text": "Small parameter tables indexed by the player at $E24C, $E251 and $E144. $E144 puts the selected value into the individual voice state."
+  },
+  {
+   "address": 58865,
+   "type": "line",
+   "text": "Four four-byte tables for the per-voice waveform override. $E35B\u2013$E370 copies the chosen pointer, length and loop index into the waveform directory."
+  },
+  {
+   "address": 58881,
+   "type": "line",
+   "text": "Bytes before the low frequency table. The pitch-step calculation at $E400 can use its last entry through the indexed operand $E60D,Y."
+  },
+  {
+   "address": 58894,
+   "type": "line",
+   "text": "Two 95-byte arrays starting at $E60E and $E66D. The player uses the note index to read the low and high bytes of the SID frequency word."
+  },
+  {
+   "address": 59084,
+   "type": "line",
+   "text": "SID voice register offsets 0, 7 and 14 used to select the active voice register group."
+  },
+  {
    "address": 59177,
    "type": "line",
    "text": "Sixteen pointers to song phrases. The doubled pattern number held in the current voice position at $E70E selects the pointer."
@@ -860,6 +1305,26 @@
    "address": 59215,
    "type": "line",
    "text": "The tune setup copies this byte to the immediate operand at $E22E."
+  },
+  {
+   "address": 59216,
+   "type": "line",
+   "text": "Waveform, pulse-step and control sequences addressed by the player directories at $E58E\u2013$E5DE. Pulse data includes a delay and a step, with a high-bit command to jump back within the stream."
+  },
+  {
+   "address": 59428,
+   "type": "line",
+   "text": "Initial track for SID voice 1. Pattern numbers select phrases through $E729 and $FF followed by a word loops the track back to its start."
+  },
+  {
+   "address": 59441,
+   "type": "line",
+   "text": "Initial track for SID voice 2. Pattern numbers select phrases through $E729 and $FF followed by a word loops the track back to its start."
+  },
+  {
+   "address": 59495,
+   "type": "line",
+   "text": "Initial track for SID voice 3. Pattern numbers select phrases through $E729 and $FF followed by a word loops the track back to its start."
   },
   {
    "address": 59516,
@@ -935,6 +1400,11 @@
    "address": 60066,
    "type": "line",
    "text": "Music phrase data at the pointer for pattern 14. The phrase reader at $E0D1 fetches these note and control bytes through a zero-page pointer."
+  },
+  {
+   "address": 60117,
+   "type": "line",
+   "text": "The final entry in the phrase directory points here. This first byte is zero. The traced score voice tracks did not select the slot."
   }
  ]
 }

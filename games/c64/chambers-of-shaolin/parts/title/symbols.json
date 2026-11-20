@@ -28,6 +28,66 @@
     "The hand-over holds an exact copy of $4000-$5FE0. The title blanks the display and replaces the copy from a selected bitmap source before setting $D011 to show it."
    ],
    [
+    2816,
+    5119,
+    "Zero-filled gap after the loaded form font. The form copies three source pages from $0800 to its VIC character memory. Title read, write and execution checkpoints saw no access in the gap from the publisher picture through the apprentice form."
+   ],
+   [
+    7168,
+    8191,
+    "Zero-filled gap after the form matrix. The instruction trace of $C6D6 reads $1800\u2013$1BFF. The title route saw no access beyond that source during the three pictures and apprentice form."
+   ],
+   [
+    44029,
+    49662,
+    "Zero-filled interval after the third picture matrix and before the publisher-picture flag. Instruction traces of all three $C5A4 selectors end their matrix reads at $63FC, $87FC and $ABFC. No CPU read, write or execution checkpoint hit this interval during the title route."
+   ],
+   [
+    16353,
+    16383,
+    "Zero-filled end of the generated display window. All three $C5A4 instruction traces wrote the bitmap only through $3FE0. The VIC bitmap occupies 8,000 bytes from $2000."
+   ],
+   [
+    57344,
+    57423,
+    "Zero-filled space preceding the title music player. The start-prompt transition at $C25F overwrites this interval from $F000 before entering the relocated player."
+   ],
+   [
+    60240,
+    60671,
+    "Zero-filled RAM after the title track lists. The title tune instruction trace did not read it. The start-prompt copy generated all 432 destination bytes, confirmed by the title route write checkpoint."
+   ],
+   [
+    60672,
+    61439,
+    "Zero-filled RAM beyond the last relocated page at $ECFF. The exit execution checkpoint at $ED0C hit KERNAL ROM with processor port $37 and different CPU and RAM bytes. The title IRQ reaches the RAM music regions below this interval."
+   ],
+   [
+    64768,
+    64815,
+    "Zero-filled gap after the final relocated source page and before the RAM copy of the KERNAL vectors. The title route watch found no reads, stores or execution in these bytes as part of the $FC64\u2013$FD2F interval after the 156 source reads through $FCFF."
+   ],
+   [
+    64848,
+    65533,
+    "Zero-filled RAM under KERNAL ROM before the retained IRQ vector. The title route had execution hits in this interval. A stopping exit watch caught $FE1C with port $37 and confirmed those instruction bytes in ROM while the RAM bytes were zero."
+   ],
+   [
+    52718,
+    52735,
+    "Zero-filled gap immediately after the 512-byte drive upload source. The upload loop stops after $CDED. CPU read, write and execution watches saw no access during title and through the first depacker hand-over."
+   ],
+   [
+    52940,
+    52991,
+    "Zero-filled gap after the seven resident prompt rows. Title and first-load watches saw no accesses. The numbered programs copy the seven rows by their fixed starts and lengths."
+   ],
+   [
+    53152,
+    53247,
+    "Zero-filled gap behind the resident result border. The numbered overlays use fixed sources and lengths within the border. Title and first-load watches saw no reads, writes or execution in the gap."
+   ],
+   [
     53248,
     57343,
     "2 parts: Combat, Test of Speed"
@@ -151,7 +211,7 @@
   {
    "start": 24545,
    "end": 24575,
-   "type": "Undefined"
+   "type": "Byte"
   },
   {
    "start": 24576,
@@ -161,7 +221,7 @@
   {
    "start": 25597,
    "end": 25599,
-   "type": "Undefined"
+   "type": "Byte"
   },
   {
    "start": 25600,
@@ -221,7 +281,7 @@
   {
    "start": 33761,
    "end": 33791,
-   "type": "Undefined"
+   "type": "Byte"
   },
   {
    "start": 33792,
@@ -231,7 +291,7 @@
   {
    "start": 34813,
    "end": 34815,
-   "type": "Undefined"
+   "type": "Byte"
   },
   {
    "start": 34816,
@@ -291,7 +351,7 @@
   {
    "start": 42977,
    "end": 43007,
-   "type": "Undefined"
+   "type": "Byte"
   },
   {
    "start": 43008,
@@ -300,8 +360,13 @@
   },
   {
    "start": 44029,
-   "end": 49663,
+   "end": 49662,
    "type": "Undefined"
+  },
+  {
+   "start": 49663,
+   "end": 49663,
+   "type": "Byte"
   },
   {
    "start": 49664,
@@ -401,7 +466,7 @@
   {
    "start": 51182,
    "end": 51182,
-   "type": "Undefined"
+   "type": "Byte"
   },
   {
    "start": 51183,
@@ -410,8 +475,18 @@
   },
   {
    "start": 51189,
+   "end": 51193,
+   "type": "Byte"
+  },
+  {
+   "start": 51194,
+   "end": 51199,
+   "type": "Byte"
+  },
+  {
+   "start": 51200,
    "end": 51201,
-   "type": "Undefined"
+   "type": "Byte"
   },
   {
    "start": 51202,
@@ -465,8 +540,18 @@
   },
   {
    "start": 51628,
+   "end": 51628,
+   "type": "Byte"
+  },
+  {
+   "start": 51629,
+   "end": 51630,
+   "type": "Byte"
+  },
+  {
+   "start": 51631,
    "end": 51640,
-   "type": "Undefined"
+   "type": "PETSCII"
   },
   {
    "start": 51641,
@@ -480,8 +565,13 @@
   },
   {
    "start": 51686,
+   "end": 51696,
+   "type": "Byte"
+  },
+  {
+   "start": 51697,
    "end": 51711,
-   "type": "Undefined"
+   "type": "Byte"
   },
   {
    "start": 51712,
@@ -490,8 +580,128 @@
   },
   {
    "start": 51723,
-   "end": 52799,
+   "end": 51724,
+   "type": "Byte"
+  },
+  {
+   "start": 51725,
+   "end": 51736,
+   "type": "Byte"
+  },
+  {
+   "start": 51737,
+   "end": 51844,
+   "type": "Code"
+  },
+  {
+   "start": 51845,
+   "end": 51896,
+   "type": "Code"
+  },
+  {
+   "start": 51897,
+   "end": 51953,
+   "type": "Code"
+  },
+  {
+   "start": 51954,
+   "end": 52055,
+   "type": "Code"
+  },
+  {
+   "start": 52056,
+   "end": 52066,
+   "type": "Code"
+  },
+  {
+   "start": 52067,
+   "end": 52127,
+   "type": "Code"
+  },
+  {
+   "start": 52128,
+   "end": 52137,
+   "type": "Code"
+  },
+  {
+   "start": 52138,
+   "end": 52142,
+   "type": "Code"
+  },
+  {
+   "start": 52143,
+   "end": 52205,
+   "type": "Code"
+  },
+  {
+   "start": 52206,
+   "end": 52477,
+   "type": "Byte"
+  },
+  {
+   "start": 52478,
+   "end": 52479,
+   "type": "Byte"
+  },
+  {
+   "start": 52480,
+   "end": 52511,
+   "type": "Byte"
+  },
+  {
+   "start": 52512,
+   "end": 52543,
+   "type": "Byte"
+  },
+  {
+   "start": 52544,
+   "end": 52575,
+   "type": "Byte"
+  },
+  {
+   "start": 52576,
+   "end": 52607,
+   "type": "Byte"
+  },
+  {
+   "start": 52608,
+   "end": 52639,
+   "type": "Byte"
+  },
+  {
+   "start": 52640,
+   "end": 52671,
+   "type": "Byte"
+  },
+  {
+   "start": 52672,
+   "end": 52703,
+   "type": "Byte"
+  },
+  {
+   "start": 52704,
+   "end": 52717,
+   "type": "Byte"
+  },
+  {
+   "start": 52718,
+   "end": 52735,
    "type": "Undefined"
+  },
+  {
+   "start": 52736,
+   "end": 52758,
+   "type": "Byte"
+  },
+  {
+   "start": 52759,
+   "end": 52779,
+   "type": "Byte"
+  },
+  {
+   "start": 52780,
+   "end": 52799,
+   "type": "Byte"
   },
   {
    "start": 52800,
@@ -540,6 +750,36 @@
   },
   {
    "start": 57424,
+   "end": 57426,
+   "type": "Code"
+  },
+  {
+   "start": 57427,
+   "end": 57494,
+   "type": "Code"
+  },
+  {
+   "start": 57495,
+   "end": 57601,
+   "type": "Code"
+  },
+  {
+   "start": 57602,
+   "end": 57635,
+   "type": "Code"
+  },
+  {
+   "start": 57636,
+   "end": 57862,
+   "type": "Code"
+  },
+  {
+   "start": 57863,
+   "end": 58027,
+   "type": "Code"
+  },
+  {
+   "start": 58028,
    "end": 58111,
    "type": "Code"
   },
@@ -550,6 +790,141 @@
   },
   {
    "start": 58180,
+   "end": 58206,
+   "type": "PETSCII"
+  },
+  {
+   "start": 58207,
+   "end": 58316,
+   "type": "Code"
+  },
+  {
+   "start": 58317,
+   "end": 58343,
+   "type": "Code"
+  },
+  {
+   "start": 58344,
+   "end": 58379,
+   "type": "Code"
+  },
+  {
+   "start": 58380,
+   "end": 58396,
+   "type": "Code"
+  },
+  {
+   "start": 58397,
+   "end": 58683,
+   "type": "Code"
+  },
+  {
+   "start": 58684,
+   "end": 58750,
+   "type": "Code"
+  },
+  {
+   "start": 58751,
+   "end": 58802,
+   "type": "Code"
+  },
+  {
+   "start": 58803,
+   "end": 58882,
+   "type": "Code"
+  },
+  {
+   "start": 58883,
+   "end": 58994,
+   "type": "Byte"
+  },
+  {
+   "start": 58995,
+   "end": 59026,
+   "type": "Byte"
+  },
+  {
+   "start": 59027,
+   "end": 59050,
+   "type": "Byte"
+  },
+  {
+   "start": 59051,
+   "end": 59057,
+   "type": "Byte"
+  },
+  {
+   "start": 59058,
+   "end": 59076,
+   "type": "Byte"
+  },
+  {
+   "start": 59077,
+   "end": 59094,
+   "type": "Byte"
+  },
+  {
+   "start": 59095,
+   "end": 59189,
+   "type": "Byte"
+  },
+  {
+   "start": 59190,
+   "end": 59284,
+   "type": "Byte"
+  },
+  {
+   "start": 59285,
+   "end": 59287,
+   "type": "Byte"
+  },
+  {
+   "start": 59288,
+   "end": 59377,
+   "type": "Byte"
+  },
+  {
+   "start": 59378,
+   "end": 59403,
+   "type": "Address"
+  },
+  {
+   "start": 59404,
+   "end": 59409,
+   "type": "Byte"
+  },
+  {
+   "start": 59410,
+   "end": 59410,
+   "type": "Byte"
+  },
+  {
+   "start": 59411,
+   "end": 59543,
+   "type": "Byte"
+  },
+  {
+   "start": 59544,
+   "end": 60171,
+   "type": "Byte"
+  },
+  {
+   "start": 60172,
+   "end": 60194,
+   "type": "Byte"
+  },
+  {
+   "start": 60195,
+   "end": 60208,
+   "type": "Byte"
+  },
+  {
+   "start": 60209,
+   "end": 60239,
+   "type": "Byte"
+  },
+  {
+   "start": 60240,
    "end": 61439,
    "type": "Undefined"
   },
@@ -565,8 +940,13 @@
   },
   {
    "start": 62802,
+   "end": 62803,
+   "type": "Byte"
+  },
+  {
+   "start": 62804,
    "end": 62857,
-   "type": "Undefined"
+   "type": "PETSCII"
   },
   {
    "start": 62858,
@@ -585,8 +965,33 @@
   },
   {
    "start": 64577,
-   "end": 65535,
+   "end": 64611,
+   "type": "Byte"
+  },
+  {
+   "start": 64612,
+   "end": 64767,
+   "type": "Byte"
+  },
+  {
+   "start": 64768,
+   "end": 64815,
    "type": "Undefined"
+  },
+  {
+   "start": 64816,
+   "end": 64847,
+   "type": "Address"
+  },
+  {
+   "start": 64848,
+   "end": 65533,
+   "type": "Undefined"
+  },
+  {
+   "start": 65534,
+   "end": 65535,
+   "type": "Address"
   }
  ],
  "symbols": [
@@ -669,8 +1074,20 @@
    "kind": "user"
   },
   {
+   "address": 24545,
+   "name": "title_picture_0_preview_tail",
+   "type": "Data",
+   "kind": "user"
+  },
+  {
    "address": 24576,
    "name": "publisher_screen_colours",
+   "type": "Data",
+   "kind": "user"
+  },
+  {
+   "address": 25597,
+   "name": "publisher_matrix_trailer",
    "type": "Data",
    "kind": "user"
   },
@@ -741,8 +1158,20 @@
    "kind": "user"
   },
   {
+   "address": 33761,
+   "name": "title_picture_1_preview_tail",
+   "type": "Data",
+   "kind": "user"
+  },
+  {
    "address": 33792,
    "name": "title_screen_colours",
+   "type": "Data",
+   "kind": "user"
+  },
+  {
+   "address": 34813,
+   "name": "title_matrix_trailer",
    "type": "Data",
    "kind": "user"
   },
@@ -813,8 +1242,20 @@
    "kind": "user"
   },
   {
+   "address": 42977,
+   "name": "title_picture_2_preview_tail",
+   "type": "Data",
+   "kind": "user"
+  },
+  {
    "address": 43008,
    "name": "start_prompt_colours",
+   "type": "Data",
+   "kind": "user"
+  },
+  {
+   "address": 49663,
+   "name": "publisher_picture_skip",
    "type": "Data",
    "kind": "user"
   },
@@ -933,8 +1374,32 @@
    "kind": "user"
   },
   {
+   "address": 51182,
+   "name": "picture_colour_table_prefix",
+   "type": "Data",
+   "kind": "user"
+  },
+  {
    "address": 51183,
    "name": "picture_colour_ram_values",
+   "type": "Data",
+   "kind": "user"
+  },
+  {
+   "address": 51189,
+   "name": "title_picture_copy_state",
+   "type": "Data",
+   "kind": "user"
+  },
+  {
+   "address": 51194,
+   "name": "title_raster_and_picture_state",
+   "type": "Data",
+   "kind": "user"
+  },
+  {
+   "address": 51200,
+   "name": "title_frame_wait_values",
    "type": "Data",
    "kind": "user"
   },
@@ -999,6 +1464,24 @@
    "kind": "user"
   },
   {
+   "address": 51628,
+   "name": "name_translation_end_marker",
+   "type": "Data",
+   "kind": "user"
+  },
+  {
+   "address": 51629,
+   "name": "name_entry_edit_state",
+   "type": "Data",
+   "kind": "user"
+  },
+  {
+   "address": 51631,
+   "name": "retained_name_width_field",
+   "type": "Data",
+   "kind": "user"
+  },
+  {
    "address": 51641,
    "name": "load_balance",
    "type": "Subroutine",
@@ -1011,9 +1494,165 @@
    "kind": "user"
   },
   {
+   "address": 51686,
+   "name": "retained_form_row_tail",
+   "type": "Data",
+   "kind": "user"
+  },
+  {
+   "address": 51697,
+   "name": "retained_apprentice_prompt",
+   "type": "Data",
+   "kind": "user"
+  },
+  {
    "address": 51712,
    "name": "install_fast_load_vector",
    "type": "Subroutine",
+   "kind": "user"
+  },
+  {
+   "address": 51723,
+   "name": "serial_loader_saved_byte_state",
+   "type": "Data",
+   "kind": "user"
+  },
+  {
+   "address": 51725,
+   "name": "drive_command_parameters",
+   "type": "Data",
+   "kind": "user"
+  },
+  {
+   "address": 51737,
+   "name": "prepare_serial_file_load",
+   "type": "Subroutine",
+   "kind": "user"
+  },
+  {
+   "address": 51845,
+   "name": "upload_drive_program",
+   "type": "Subroutine",
+   "kind": "user"
+  },
+  {
+   "address": 51897,
+   "name": "start_drive_transfer",
+   "type": "Subroutine",
+   "kind": "user"
+  },
+  {
+   "address": 51954,
+   "name": "read_full_disk_blocks",
+   "type": "Subroutine",
+   "kind": "user"
+  },
+  {
+   "address": 52056,
+   "name": "restore_kernal_load_vector",
+   "type": "Subroutine",
+   "kind": "user"
+  },
+  {
+   "address": 52067,
+   "name": "read_final_disk_block",
+   "type": "Subroutine",
+   "kind": "user"
+  },
+  {
+   "address": 52128,
+   "name": "address_drive_listener",
+   "type": "Subroutine",
+   "kind": "user"
+  },
+  {
+   "address": 52138,
+   "name": "address_drive_talker",
+   "type": "Subroutine",
+   "kind": "user"
+  },
+  {
+   "address": 52143,
+   "name": "receive_fast_disk_byte",
+   "type": "Subroutine",
+   "kind": "user"
+  },
+  {
+   "address": 52206,
+   "name": "drive_side_upload_code",
+   "type": "Data",
+   "kind": "user"
+  },
+  {
+   "address": 52478,
+   "name": "drive_upload_reserved_bytes",
+   "type": "Data",
+   "kind": "user"
+  },
+  {
+   "address": 52480,
+   "name": "fast_disk_receive_lookup",
+   "type": "Data",
+   "kind": "user"
+  },
+  {
+   "address": 52512,
+   "name": "drive_upload_fill_20",
+   "type": "Data",
+   "kind": "user"
+  },
+  {
+   "address": 52544,
+   "name": "fast_disk_receive_lookup_40",
+   "type": "Data",
+   "kind": "user"
+  },
+  {
+   "address": 52576,
+   "name": "drive_upload_fill_60",
+   "type": "Data",
+   "kind": "user"
+  },
+  {
+   "address": 52608,
+   "name": "fast_disk_receive_lookup_80",
+   "type": "Data",
+   "kind": "user"
+  },
+  {
+   "address": 52640,
+   "name": "drive_upload_fill_a0",
+   "type": "Data",
+   "kind": "user"
+  },
+  {
+   "address": 52672,
+   "name": "fast_disk_receive_lookup_c0",
+   "type": "Data",
+   "kind": "user"
+  },
+  {
+   "address": 52704,
+   "name": "drive_upload_last_bytes",
+   "type": "Data",
+   "kind": "user"
+  },
+  {
+   "address": 52736,
+   "name": "resident_apprentice_selection",
+   "type": "Data",
+   "kind": "user"
+  },
+  {
+   "address": 52759,
+   "name": "resident_training_results",
+   "type": "Data",
+   "kind": "user"
+  },
+  {
+   "address": 52780,
+   "name": "resident_state_clear_tail",
+   "type": "Data",
    "kind": "user"
   },
   {
@@ -1053,8 +1692,212 @@
    "kind": "user"
   },
   {
+   "address": 57424,
+   "name": "play_title_tune",
+   "type": "Subroutine",
+   "kind": "user"
+  },
+  {
+   "address": 57427,
+   "name": "initialize_title_tune",
+   "type": "Subroutine",
+   "kind": "user"
+  },
+  {
+   "address": 57495,
+   "name": "read_title_track_command",
+   "type": "Subroutine",
+   "kind": "user"
+  },
+  {
+   "address": 57602,
+   "name": "step_title_music_voices",
+   "type": "Subroutine",
+   "kind": "user"
+  },
+  {
+   "address": 57636,
+   "name": "read_title_phrase_command",
+   "type": "Subroutine",
+   "kind": "user"
+  },
+  {
+   "address": 57863,
+   "name": "start_title_voice_note",
+   "type": "Subroutine",
+   "kind": "user"
+  },
+  {
+   "address": 58028,
+   "name": "update_title_sid_filter",
+   "type": "Subroutine",
+   "kind": "user"
+  },
+  {
    "address": 58112,
    "name": "title_tune_credit",
+   "type": "Data",
+   "kind": "user"
+  },
+  {
+   "address": 58180,
+   "name": "title_tune_credit_suffix",
+   "type": "Data",
+   "kind": "user"
+  },
+  {
+   "address": 58207,
+   "name": "calculate_title_pitch_slide",
+   "type": "Subroutine",
+   "kind": "user"
+  },
+  {
+   "address": 58317,
+   "name": "step_title_pitch_slide",
+   "type": "Subroutine",
+   "kind": "user"
+  },
+  {
+   "address": 58344,
+   "name": "apply_title_modulation_frequency",
+   "type": "Subroutine",
+   "kind": "user"
+  },
+  {
+   "address": 58380,
+   "name": "silence_title_voice",
+   "type": "Subroutine",
+   "kind": "user"
+  },
+  {
+   "address": 58397,
+   "name": "step_title_instrument_pitch",
+   "type": "Subroutine",
+   "kind": "user"
+  },
+  {
+   "address": 58684,
+   "name": "step_title_pulse_width",
+   "type": "Subroutine",
+   "kind": "user"
+  },
+  {
+   "address": 58751,
+   "name": "select_title_waveform_control",
+   "type": "Subroutine",
+   "kind": "user"
+  },
+  {
+   "address": 58803,
+   "name": "write_title_sid_voice",
+   "type": "Subroutine",
+   "kind": "user"
+  },
+  {
+   "address": 58883,
+   "name": "title_voice_instruments",
+   "type": "Data",
+   "kind": "user"
+  },
+  {
+   "address": 58995,
+   "name": "title_pitch_stream_directory",
+   "type": "Data",
+   "kind": "user"
+  },
+  {
+   "address": 59027,
+   "name": "title_pulse_waveform_stream_directory",
+   "type": "Data",
+   "kind": "user"
+  },
+  {
+   "address": 59051,
+   "name": "title_filter_sequence_setup",
+   "type": "Data",
+   "kind": "user"
+  },
+  {
+   "address": 59058,
+   "name": "title_pitch_override_directory",
+   "type": "Data",
+   "kind": "user"
+  },
+  {
+   "address": 59077,
+   "name": "title_pitch_override_streams",
+   "type": "Data",
+   "kind": "user"
+  },
+  {
+   "address": 59095,
+   "name": "title_sid_frequency_low",
+   "type": "Data",
+   "kind": "user"
+  },
+  {
+   "address": 59190,
+   "name": "title_sid_frequency_high",
+   "type": "Data",
+   "kind": "user"
+  },
+  {
+   "address": 59285,
+   "name": "title_sid_voice_offsets",
+   "type": "Data",
+   "kind": "user"
+  },
+  {
+   "address": 59288,
+   "name": "title_voice_working_state",
+   "type": "Data",
+   "kind": "user"
+  },
+  {
+   "address": 59378,
+   "name": "title_phrase_directory",
+   "type": "Data",
+   "kind": "user"
+  },
+  {
+   "address": 59404,
+   "name": "title_song_start_tracks",
+   "type": "Data",
+   "kind": "user"
+  },
+  {
+   "address": 59410,
+   "name": "title_song_tick_divider",
+   "type": "Data",
+   "kind": "user"
+  },
+  {
+   "address": 59411,
+   "name": "title_sid_modulation_streams",
+   "type": "Data",
+   "kind": "user"
+  },
+  {
+   "address": 59544,
+   "name": "title_tune_phrase_streams",
+   "type": "Data",
+   "kind": "user"
+  },
+  {
+   "address": 60172,
+   "name": "title_voice_0_track",
+   "type": "Data",
+   "kind": "user"
+  },
+  {
+   "address": 60195,
+   "name": "title_voice_1_track",
+   "type": "Data",
+   "kind": "user"
+  },
+  {
+   "address": 60209,
+   "name": "title_voice_2_track",
    "type": "Data",
    "kind": "user"
   },
@@ -1067,6 +1910,18 @@
   {
    "address": 62464,
    "name": "start_music_driver_tail",
+   "type": "Data",
+   "kind": "user"
+  },
+  {
+   "address": 62802,
+   "name": "start_prompt_driver_jump_operand",
+   "type": "Data",
+   "kind": "user"
+  },
+  {
+   "address": 62804,
+   "name": "start_prompt_tune_credit",
    "type": "Data",
    "kind": "user"
   },
@@ -1085,6 +1940,30 @@
   {
    "address": 64512,
    "name": "start_music_sequence_tail",
+   "type": "Data",
+   "kind": "user"
+  },
+  {
+   "address": 64577,
+   "name": "start_prompt_track_loop_tail",
+   "type": "Data",
+   "kind": "user"
+  },
+  {
+   "address": 64612,
+   "name": "start_prompt_relocated_page_padding",
+   "type": "Data",
+   "kind": "user"
+  },
+  {
+   "address": 64816,
+   "name": "title_ram_under_kernal_vector_defaults",
+   "type": "Data",
+   "kind": "user"
+  },
+  {
+   "address": 65534,
+   "name": "title_initial_hardware_irq_vector",
    "type": "Data",
    "kind": "user"
   }
@@ -1156,9 +2035,19 @@
    "text": "Final 161 bytes following the 8000 visible pixel bytes of the Thalion logo. The 32 overlapping passes at $C5DD copy this tail after the displayed bitmap."
   },
   {
+   "address": 24545,
+   "type": "line",
+   "text": "The publisher bitmap carries this fragment beyond the bytes copied to the display. Its instruction bytes fill the four colour RAM pages from $5F43, turn on bitmap mode and branch back to a hold loop."
+  },
+  {
    "address": 24576,
    "type": "line",
    "text": "VIC-II screen-cell colours for the Thalion logo bitmap. The indexed copy at $C621 puts them in the visible matrix at $0400."
+  },
+  {
+   "address": 25597,
+   "type": "line",
+   "text": "Three zero bytes between the end of the publisher matrix copy and the beginning of the title bitmap."
   },
   {
    "address": 25600,
@@ -1216,9 +2105,19 @@
    "text": "Final 161 bytes following the 8000 visible pixel bytes of the Shaolin title lettering. The 32 overlapping passes at $C5DD copy this tail after the displayed bitmap."
   },
   {
+   "address": 33761,
+   "type": "line",
+   "text": "The title bitmap carries this fragment beyond the bytes copied to the display. Its instruction bytes fill the four colour RAM pages from $5F43, turn on bitmap mode and branch back to a hold loop."
+  },
+  {
    "address": 33792,
    "type": "line",
    "text": "VIC-II screen-cell colours for the Chambers of Shaolin lettering. Picture index 1 selects this matrix for the indexed copy to $0400."
+  },
+  {
+   "address": 34813,
+   "type": "line",
+   "text": "Three zero bytes after the last byte of the title matrix copy and before the start prompt bitmap."
   },
   {
    "address": 34816,
@@ -1276,9 +2175,19 @@
    "text": "Final 161 bytes following the 8000 visible pixel bytes of the Fire-to-start picture. The 32 overlapping passes at $C5DD copy this tail after the displayed bitmap."
   },
   {
+   "address": 42977,
+   "type": "line",
+   "text": "The start prompt bitmap carries this fragment beyond the bytes copied to the display. Its instruction bytes fill the four colour RAM pages from $5F43, turn on bitmap mode and branch back to a hold loop."
+  },
+  {
    "address": 43008,
    "type": "line",
    "text": "Screen-cell colours selected for picture index 2. The display alternates between that picture and the credits when the prompt timer is enabled."
+  },
+  {
+   "address": 49663,
+   "type": "line",
+   "text": "The title entry reads this byte at $C21A. A nonzero value branches past the publisher picture to the title display."
   },
   {
    "address": 49664,
@@ -1376,9 +2285,29 @@
    "text": "Source addresses of the corresponding VIC-II cell colour matrices."
   },
   {
+   "address": 51182,
+   "type": "line",
+   "text": "Zero byte immediately before the first colour selected by $C5BE. The game reads colours from $C7EF at even offsets."
+  },
+  {
    "address": 51183,
    "type": "line",
    "text": "One colour byte for each bitmap, at two-byte intervals. The copy routine fills all four colour RAM pages with the selected value."
+  },
+  {
+   "address": 51189,
+   "type": "line",
+   "text": "Selected colour RAM byte, two-byte bitmap source and two-byte matrix source. The picture selector at $C5A4 prepares these fields for the copy."
+  },
+  {
+   "address": 51194,
+   "type": "line",
+   "text": "Runtime bytes used by the title presentation. Holds its raster counter, bitmap copy page count, display phase selector, bitmap latch, display selection and fire latch."
+  },
+  {
+   "address": 51200,
+   "type": "line",
+   "text": "Low and high bytes of the two-byte display counter. The routine at $C42D increments it on raster line zero and clears it when the high byte reaches three."
   },
   {
    "address": 51202,
@@ -1431,6 +2360,21 @@
    "text": "Pairs of KERNAL matrix code and character code used by the name editor. The first byte of the last entry is $FF, terminating the search."
   },
   {
+   "address": 51628,
+   "type": "line",
+   "text": "Extra $FF byte after the matrix-code terminator at $C9AB. The key lookup checks $C9AB before it can read this trailing byte."
+  },
+  {
+   "address": 51629,
+   "type": "line",
+   "text": "Length of the entered name and last translated key. The editor updates the length on inserts and deletes and holds the key byte to suppress repeats."
+  },
+  {
+   "address": 51631,
+   "type": "line",
+   "text": "Ten PETSCII spaces after the editor cursor and key latch. This retained field has the same width as a name, and the editor writes the displayed name at $0667."
+  },
+  {
    "address": 51641,
    "type": "line",
    "text": "Blanks the screen, restores the KERNAL mapping and installs the RAM LOAD vector. Calls SETLFS for device 8 and SETNAM for the single character at $C9E5, then tail-transfers to BASIC after LOAD."
@@ -1441,9 +2385,139 @@
    "text": "The one-byte PETSCII name '1' that the apprentice form passes to SETNAM."
   },
   {
+   "address": 51686,
+   "type": "line",
+   "text": "Ten screen bytes ending with $FF. The row tail sits between the Balance filename and a duplicate of the apprentice prompt."
+  },
+  {
+   "address": 51697,
+   "type": "line",
+   "text": "Duplicate of the first 15 bytes of the positioned name prompt at $C917. Includes column seven, row eight and the embedded text NAME OF APPRE."
+  },
+  {
    "address": 51712,
    "type": "line",
    "text": "Sets the KERNAL indirect LOAD vector at $0330/$0331 to $CA19."
+  },
+  {
+   "address": 51723,
+   "type": "line",
+   "text": "Saved KERNAL serial workspace values from $B4/$B5. The loader restores them before returning or continuing through the KERNAL."
+  },
+  {
+   "address": 51725,
+   "type": "line",
+   "text": "The serial loader sends two adjacent command buffers in reverse address order. M-W uses $CA13 down through $CA0E with a 34-byte length. M-E uses $CA18 through $CA14. The upload loop updates destination bytes at $CA0F/$CA10."
+  },
+  {
+   "address": 51737,
+   "type": "line",
+   "text": "Saves KERNAL serial state and the current VIC bank bits. Sends the disk filename, checks serial status and initializes the source and drive addresses for the transfer loop."
+  },
+  {
+   "address": 51845,
+   "type": "line",
+   "text": "Writes the drive memory command, then streams bytes from the source beginning at $CBEE. Sends up to 34 bytes per command and advances the drive destination until it reaches $0600."
+  },
+  {
+   "address": 51897,
+   "type": "line",
+   "text": "Sends the drive execute command, initializes the receiving pointer from $C3/$C4 and reads three header bytes through $CBAF. A nonzero secondary address selects the incoming destination from the header."
+  },
+  {
+   "address": 51954,
+   "type": "line",
+   "text": "Reads a first group of $FC bytes or later groups of $FE bytes through $CBAF into ($AE),Y. Advances the destination and block index. A nonzero control byte selects the short final block at $CB63."
+  },
+  {
+   "address": 52056,
+   "type": "line",
+   "text": "Restores the indirect LOAD vector at $0330/$0331 to the KERNAL handler at $F4A5."
+  },
+  {
+   "address": 52067,
+   "type": "line",
+   "text": "Derives the short final block length from the incoming control byte and the current block state. Copies the remaining bytes, returns the exclusive end address in X/Y and restores KERNAL workspace."
+  },
+  {
+   "address": 52128,
+   "type": "line",
+   "text": "Preserves the channel byte in A while addressing device 8 as listener, then passes the channel byte to the KERNAL."
+  },
+  {
+   "address": 52138,
+   "type": "line",
+   "text": "Passes device 8 to the KERNAL talk routine at $ED09."
+  },
+  {
+   "address": 52143,
+   "type": "line",
+   "text": "Waits for CIA2 port A bit 7 and a VIC raster timing window. Combines four timed port samples through lookup windows at $CD00, $CD08, $CD10 and $CD18."
+  },
+  {
+   "address": 52206,
+   "type": "line",
+   "text": "6502 instructions in the upload source for the 1541. The C64 loop sends them over serial from $CBEE. The drive-side code accesses the disk and serial VIAs at $1C00 and $1800."
+  },
+  {
+   "address": 52478,
+   "type": "line",
+   "text": "Two zero bytes inside the uploaded drive image. The source pointer reaches them between the preceding drive code and the CIA sample lookup at $CD00."
+  },
+  {
+   "address": 52480,
+   "type": "line",
+   "text": "Repeated bit patterns looked up from four CIA2 port samples. OR combines their values into a received byte."
+  },
+  {
+   "address": 52512,
+   "type": "line",
+   "text": "All $FF bytes between the lookup windows for CIA2 bits $00 and $40. The upload reads these 32 bytes in order."
+  },
+  {
+   "address": 52544,
+   "type": "line",
+   "text": "Four bit contribution windows for CIA2 samples with upper bits $40. The receiver ORs the selected contribution with the other three sample results."
+  },
+  {
+   "address": 52576,
+   "type": "line",
+   "text": "All $FF bytes between the lookup windows for CIA2 bits $40 and $80. The upload reads these 32 bytes in order."
+  },
+  {
+   "address": 52608,
+   "type": "line",
+   "text": "Four bit contribution windows for CIA2 samples with upper bits $80. The receiver ORs the selected contribution with the other three sample results."
+  },
+  {
+   "address": 52640,
+   "type": "line",
+   "text": "All $FF bytes between the lookup windows for CIA2 bits $80 and $C0. The upload reads these 32 bytes in order."
+  },
+  {
+   "address": 52672,
+   "type": "line",
+   "text": "Zero bit contributions for CIA2 samples with both upper bits set. This window supplies the fourth case in the receive lookup."
+  },
+  {
+   "address": 52704,
+   "type": "line",
+   "text": "Zero bytes at the end of the 512-byte source span the C64 sends to the drive."
+  },
+  {
+   "address": 52736,
+   "type": "line",
+   "text": "Apprentice count, two workspace bytes and two ten-character name fields. The title initializes the block and copies the form results here before selecting file 1."
+  },
+  {
+   "address": 52759,
+   "type": "line",
+   "text": "Shared progress and training values carried between disk loads. The first eight bytes are paired by apprentice. The Strength result handler adds to four pairs and can set a flag in the pair at $CE2A."
+  },
+  {
+   "address": 52780,
+   "type": "line",
+   "text": "Twenty zero bytes at the end of the 64-byte resident clear. The title entry loop at $C208 also clears this tail."
   },
   {
    "address": 52800,
@@ -1476,9 +2550,179 @@
    "text": "Fourth horizontal border source row for training results. Balance writes it at $8F4C."
   },
   {
+   "address": 57424,
+   "type": "line",
+   "text": "Jumps to the three-voice update at $E102. The title raster handler calls this entry once per music tick."
+  },
+  {
+   "address": 57427,
+   "type": "line",
+   "text": "Clears player state and the SID registers, puts each voice control register into test, and selects six track pointer bytes and a timing parameter using the tune number in A."
+  },
+  {
+   "address": 57495,
+   "type": "line",
+   "text": "A track byte below $80 selects a phrase. $FF followed by a word sets a new track position. The remaining high-bit commands set the transpose, instrument offset or repeat count before the next selection."
+  },
+  {
+   "address": 57602,
+   "type": "line",
+   "text": "Starts at voice index 2, looks at the tick divider and decrements the note counters. Redirects to the instrument update when no new note is due."
+  },
+  {
+   "address": 57636,
+   "type": "line",
+   "text": "Selects the phrase through $E7F2. A zero ends the phrase, bytes below $60 provide transposed notes, and higher values set note length, instrument, rests or additional pitch values."
+  },
+  {
+   "address": 57863,
+   "type": "line",
+   "text": "Applies the instrument gate and envelope controls, resets the per-note counters, computes the SID frequency bytes from the note index and advances to the next voice after updating the phrase offset."
+  },
+  {
+   "address": 58028,
+   "type": "line",
+   "text": "Reloads the global tick divider when it expires and writes the SID volume and filter registers. When filtering is active, reads the next timed cutoff step and applies it to $D416."
+  },
+  {
    "address": 58112,
    "type": "line",
    "text": "Credits identify Holger Knipping and date the Thalion title tune to November 1989."
+  },
+  {
+   "address": 58180,
+   "type": "line",
+   "text": "The title tune credit continues with the FAME copyright and the year 1989, then pads with spaces up to the player code."
+  },
+  {
+   "address": 58207,
+   "type": "line",
+   "text": "Uses the start and target note indices to compute a signed frequency increment for the programmed slide length. Stores the low and high increment bytes separately."
+  },
+  {
+   "address": 58317,
+   "type": "line",
+   "text": "Sets up a new slide when its counter has the high bit set. Otherwise decrements the counter and adds the saved increment to the voice frequency."
+  },
+  {
+   "address": 58344,
+   "type": "line",
+   "text": "Takes either a note-relative lookup or a literal high frequency byte. Updates the saved SID frequency and resumes the instrument stream with its reader index."
+  },
+  {
+   "address": 58380,
+   "type": "line",
+   "text": "Clears control and both envelope registers for the selected SID voice, then advances to the next voice."
+  },
+  {
+   "address": 58397,
+   "type": "line",
+   "text": "Selects the per-instrument or overridden pitch sequence. Processes loop and delay values and applies note changes or periodic frequency increments."
+  },
+  {
+   "address": 58684,
+   "type": "line",
+   "text": "Uses the instrument to select a timed pulse stream. Fetches a delay and increment and adds that increment to the voice pulse value."
+  },
+  {
+   "address": 58751,
+   "type": "line",
+   "text": "Uses a fixed control byte or reads from an instrument-selected sequence. Applies the saved voice mask and advances the sequence position."
+  },
+  {
+   "address": 58803,
+   "type": "line",
+   "text": "Writes control, frequency and pulse values to the selected SID voice, updates its envelope registers and returns to the voice iterator."
+  },
+  {
+   "address": 58883,
+   "type": "line",
+   "text": "Fourteen eight-byte instrument records. The player multiplies the selected instrument by eight and reads envelope, waveform, pulse and pitch controls from the successive fields."
+  },
+  {
+   "address": 58995,
+   "type": "line",
+   "text": "Split low and high pitch stream pointers at $E673 and $E67B. The arrays at $E683 and $E68B give the stream position that triggers a loop and its restart offset. $E42D patches the index-zero entries for an override."
+  },
+  {
+   "address": 59027,
+   "type": "line",
+   "text": "Pulse sequence selectors 1 through 7 use split pointers based at $E692 and $E69A. The same layout at $E6A2 and $E6A5 selects waveform sequences 1 and 2, with waveform restart offsets based at $E6A8."
+  },
+  {
+   "address": 59051,
+   "type": "line",
+   "text": "Filter sequence pointer bytes selected by the filter mode. The selected mode also supplies the upper bits written to SID filter mode and volume via the table based at $E6AF."
+  },
+  {
+   "address": 59058,
+   "type": "line",
+   "text": "Pitch override indices 1 through 4 provide the pointer, loop limit and restart offset that $E42D installs in pitch stream slot zero."
+  },
+  {
+   "address": 59077,
+   "type": "line",
+   "text": "Short pitch sequences reached through the override directory. The four starts are $E6C5, $E6C8, $E6CE and $E6D1."
+  },
+  {
+   "address": 59095,
+   "type": "line",
+   "text": "Low bytes of the SID note lookup. The note index is shared by the player and its pitch-slide arithmetic."
+  },
+  {
+   "address": 59190,
+   "type": "line",
+   "text": "High bytes of the SID note lookup. The frequency writer combines these with the low-byte table at $E6D7."
+  },
+  {
+   "address": 59285,
+   "type": "line",
+   "text": "SID register offsets 0, 7 and 14 for the three voices."
+  },
+  {
+   "address": 59288,
+   "type": "line",
+   "text": "Zero-filled player state cleared by $E05B. Three-byte groups hold the current frequency, track and phrase positions, note timings and the instrument modulation state. Global timer and filter state occupy the final three bytes."
+  },
+  {
+   "address": 59378,
+   "type": "line",
+   "text": "Thirteen two-byte phrase pointers. $E124 uses the current phrase number multiplied by two. Some pointers start within another phrase stream."
+  },
+  {
+   "address": 59404,
+   "type": "line",
+   "text": "Three low bytes followed by three high bytes. The title tune initializer copies these into the voice track pointers for tune zero."
+  },
+  {
+   "address": 59410,
+   "type": "line",
+   "text": "Reload value for the music tick divider selected when the game starts tune zero."
+  },
+  {
+   "address": 59411,
+   "type": "line",
+   "text": "The title player reads pulse increments, pitch commands, waveform sequences and filter timing from this pool. Stream offsets are resolved through the directory at $E673\u2013$E6B1."
+  },
+  {
+   "address": 59544,
+   "type": "line",
+   "text": "Overlapping phrase streams addressed by the directory at $E7F2. The player interprets their bytes as notes, durations and instrument commands before the zero that returns to the track."
+  },
+  {
+   "address": 60172,
+   "type": "line",
+   "text": "Track for SID voice index 0, starting with phrase 3. High-bit parameters set offsets and repeats, and the final $FF and address restart this track."
+  },
+  {
+   "address": 60195,
+   "type": "line",
+   "text": "Track for SID voice index 1, starting with phrase 3. High-bit parameters set offsets and repeats, and the final $FF and address restart this track."
+  },
+  {
+   "address": 60209,
+   "type": "line",
+   "text": "Track for SID voice index 2, starting with phrase 0. High-bit parameters set offsets and repeats, and the final $FF and address restart this track."
   },
   {
    "address": 61440,
@@ -1489,6 +2733,16 @@
    "address": 62464,
    "type": "line",
    "text": "End of the copied driver code used by the start-prompt song. The instruction trace of the relocated driver reaches $E551."
+  },
+  {
+   "address": 62802,
+   "type": "line",
+   "text": "Little-endian destination $E256 of the final JMP, whose opcode is at $F551 before the driver is moved to $E000."
+  },
+  {
+   "address": 62804,
+   "type": "line",
+   "text": "Embedded credit in the relocated start-prompt song image. It names Holger Knipping, F.A.M.E. and 1989."
   },
   {
    "address": 62858,
@@ -1504,6 +2758,26 @@
    "address": 64512,
    "type": "line",
    "text": "High part of the start-prompt song image. The simulated driver reads this part after relocation to $EC00\u2013$EC40."
+  },
+  {
+   "address": 64577,
+   "type": "line",
+   "text": "End of a start-prompt voice track, copied to $EC41\u2013$EC63. The final $FF command and its two address bytes point back to $EC2B."
+  },
+  {
+   "address": 64612,
+   "type": "line",
+   "text": "Zero padding after the final start-prompt track. The page copy at $C2A7 carries it to $EC64\u2013$ECFF along with the preceding track bytes."
+  },
+  {
+   "address": 64816,
+   "type": "line",
+   "text": "Sixteen little-endian vector values matching the C64 KERNAL defaults for $0314\u2013$0333, from IRQ $EA31 through SAVE $F5ED. These bytes are in RAM underneath the ROM vector template."
+  },
+  {
+   "address": 65534,
+   "type": "line",
+   "text": "Initial RAM hardware IRQ vector $C65A. The title interrupt installer replaces it with $C500 before its own raster handler is used."
   }
  ]
 }

@@ -1,3 +1,13 @@
 # Agent history
 
 The analysis was started on 20 November 2026 from the batch's fetched main, with gpt-6.2-sol. The downloaded Overdrive disk stays in ignored work. The program hand-overs were captured by running each original depacker in VICE. The kit CPU traced its staging and output stores from two RAM fills, and the output matched VICE. The title-to-Balance route was tested with execution checkpoints through the title's LOAD call and both Balance fire gates. The listings were kept on the hand-over snapshots. The later programs were examined as independent packed loads.
+
+The follow-up resumed step 50 on the same branch and used the saved hand-over images. The score entry was exercised with scores $0000 and $FFFF, watching both formatter scratch and memory after the record table. A second watch stopped at the first ROM execute and data-read hits in the score music tail. Strength result cases were executed from a saved play state by entering $099B with controlled values at $1711 and $1745, with checkpoints at each award store and at the result wait before leaving the routine. A separate VICE run counted all four Strength IRQ paths. The kit CPU traced the Strength bitmap generator and all six sound-effect selectors. The title loader was watched from the saved first LOAD call to the depacker hand-over at $0150. Logs and reproduction scripts are in ignored work/.
+
+The Speed follow-up traced the 55 initialization calls at $C1E0 and their bitmap address and mask writes, including the slots in RAM under I/O. A separate VICE checkpoint count measured the three IRQ phases.
+
+The next step 50 pass used instruction traces to identify generated Balance and Combat display planes. VICE checkpoints counted the Combat clears, HUD colour reads and raster phases. The kit CPU traced Combat’s decimal score formatter, both bar painters and the title music player. The ledger queues and reproduction scripts are in ignored work/.
+
+The final coverage session traced the title and chamber memory-bank transitions, both sides of the Speed water writer, the Strength sprite and gauge destinations and the Combat animator and opponent routine. Controlled result checks exercised the Balance and Speed award stores and the Combat score-exit branches. Combat movement script 12 specifically selected the two frame pointers that overlap code. Drawing those frames in the kit CPU established which code and neighbouring bytes the painter consumed.
+
+The six ledgers reconciled before the listing sample. A separate gpt-6.2-sol checker sampled 65 comments. The scope ended with analysis, so no Play tab or new reachability claim required a step 65 input recording. The debugger probes use saved states and controlled arguments.

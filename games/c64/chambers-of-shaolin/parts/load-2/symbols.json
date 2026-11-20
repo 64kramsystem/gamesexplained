@@ -13,9 +13,129 @@
     "stack"
    ],
    [
+    53248,
+    57343,
+    "I/O and colour RAM"
+   ],
+   [
     820,
     2047,
     "Residual packed stream copied by the depacker through ($FE),Y before the destination data is unpacked through ($FA),Y. The authored output starts at $0800."
+   ],
+   [
+    36864,
+    40643,
+    "Zero-filled hand-over space reserved for the first 21 generated line record slots. The $C1E0 instruction trace followed all 55 initial slot pointers and watched the records being written."
+   ],
+   [
+    53248,
+    57027,
+    "Zero-filled hand-over space reserved for 21 line record slots in RAM under I/O. The $C1E0 trace with processor port $34 recorded 3588 distinct write addresses and no reads or execution there during generation."
+   ],
+   [
+    61440,
+    63779,
+    "Zero-filled hand-over space reserved for the last 13 generated line record slots. The $C1E0 instruction trace followed all 55 initial slot pointers and watched the records being written."
+   ],
+   [
+    43008,
+    46335,
+    "Zero-filled hand-over space in the generated Speed bitmap. The $1B60 instruction trace saw every destination byte in $A000\u2013$B4FF written from the authored source at $6000 before the gameplay bitmap was shown."
+   ],
+   [
+    7963,
+    8191,
+    "Zero-filled gap after the last Speed helper and before the first pose. Introduction and play watchpoints on CPU reads, stores and execution saw no hits."
+   ],
+   [
+    23841,
+    24575,
+    "Zero-filled gap after the two open water graphics pairs and before the copied playfield bitmap. The side copy traces ended at $5D20 and intro and play checkpoints saw no accesses in the gap."
+   ],
+   [
+    32064,
+    32767,
+    "Zero-filled gap behind the last table-addressed overlay slot at $7D00\u2013$7D3F. The VIC bank begins at $8000. Introduction and gameplay CPU watches saw no hits."
+   ],
+   [
+    33792,
+    34559,
+    "Zero-filled pose buffers that receive two copies of the animated six-sprite apprentice. Four controlled calls per buffer to $137C exercised every destination byte at instruction level."
+   ],
+   [
+    40644,
+    40959,
+    "Zero-filled gap beyond the twenty-first generated line slot and before the bitmap. The traced directory steps from $9E10 to $D000, and the intro and play watches saw no references in the gap."
+   ],
+   [
+    57028,
+    57343,
+    "Zero-filled gap behind the last generated record in RAM beneath I/O. The next slot starts at $F000 and the intro and gameplay watchpoint saw no hits within this interval."
+   ],
+   [
+    59931,
+    60159,
+    "Zero-filled gap following the final track and preceding the relocated exit loader. Instruction runs of both available tunes stopped their stream reads below this interval, and intro and play watched it without any access."
+   ],
+   [
+    64768,
+    64815,
+    "Zero-filled padding after the instruction font source, whose three-page copy reads $FA00\u2013$FCFF. The active generated line directory ends at $F923 and the retained vector template starts at $FD30."
+   ],
+   [
+    64848,
+    64859,
+    "Twelve zero bytes following the RAM copy of the KERNAL vector table and before the inactive directory slot at $FD5C."
+   ],
+   [
+    52686,
+    52734,
+    "Zero-filled tail after the positioned result messages. The message directory and stream terminators bound every stream below the tail."
+   ],
+   [
+    23776,
+    23807,
+    "Zero-filled space between two retained overlay masks and the open-water graphics. The water instruction tests and the intro and play watchpoints saw no accesses."
+   ],
+   [
+    34688,
+    34799,
+    "Initially zero workspace written by the right overlay sprite copier. The two-side instruction trace reached all of these bytes."
+   ],
+   [
+    34816,
+    34927,
+    "Initially zero display sprite workspace. The Speed overlay instruction trace writes through these two partial or full slots."
+   ],
+   [
+    34942,
+    35071,
+    "Initially zero work bytes in and just before two display sprite slots. The overlay copier writes these bytes during its animation."
+   ],
+   [
+    35072,
+    35839,
+    "Unused sprite-bank space after the six overlay slots. The sprite copier overshoots into $897E\u2013$897F and $89BE\u2013$89BF when Y wraps inside its three-store loop. The live watch stopped after $120C and the instruction trace identified the written bytes."
+   ],
+   [
+    48981,
+    49037,
+    "Zero-filled gap outside the visible bitmap and before the retained preview header. Intro and play watches saw no CPU access."
+   ],
+   [
+    49152,
+    49623,
+    "Zero-filled interval after the retained bitmap preview and before the line generator. Intro and play watches saw no accesses."
+   ],
+   [
+    49625,
+    49631,
+    "Seven zero bytes following the retained $33 byte and just before the line generator. Intro and play watches saw no accesses."
+   ],
+   [
+    65220,
+    65535,
+    "Zero-filled region after the final nominal line directory slot. The raster installer writes the hardware IRQ vector before enabling the Speed handler."
    ],
    [
     0,
@@ -54,12 +174,6 @@
    53248,
    57344
   ],
-  "beneath": [
-   [
-    53248,
-    57343
-   ]
-  ],
   "elsewhere": [
    [
     0,
@@ -77,7 +191,7 @@
   {
    "start": 2048,
    "end": 2063,
-   "type": "Undefined"
+   "type": "Byte"
   },
   {
    "start": 2064,
@@ -112,7 +226,7 @@
   {
    "start": 3201,
    "end": 3202,
-   "type": "Undefined"
+   "type": "Byte"
   },
   {
    "start": 3203,
@@ -141,8 +255,13 @@
   },
   {
    "start": 5699,
+   "end": 5752,
+   "type": "Code"
+  },
+  {
+   "start": 5753,
    "end": 5990,
-   "type": "Undefined"
+   "type": "Code"
   },
   {
    "start": 5991,
@@ -152,7 +271,7 @@
   {
    "start": 6441,
    "end": 6441,
-   "type": "Undefined"
+   "type": "Code"
   },
   {
    "start": 6442,
@@ -176,6 +295,46 @@
   },
   {
    "start": 7139,
+   "end": 7176,
+   "type": "Code"
+  },
+  {
+   "start": 7177,
+   "end": 7238,
+   "type": "Code"
+  },
+  {
+   "start": 7239,
+   "end": 7323,
+   "type": "Code"
+  },
+  {
+   "start": 7324,
+   "end": 7477,
+   "type": "Code"
+  },
+  {
+   "start": 7478,
+   "end": 7570,
+   "type": "Code"
+  },
+  {
+   "start": 7571,
+   "end": 7778,
+   "type": "Code"
+  },
+  {
+   "start": 7779,
+   "end": 7939,
+   "type": "Code"
+  },
+  {
+   "start": 7940,
+   "end": 7962,
+   "type": "Code"
+  },
+  {
+   "start": 7963,
    "end": 8191,
    "type": "Undefined"
   },
@@ -371,6 +530,176 @@
   },
   {
    "start": 22784,
+   "end": 23039,
+   "type": "Byte"
+  },
+  {
+   "start": 23040,
+   "end": 23041,
+   "type": "Byte"
+  },
+  {
+   "start": 23042,
+   "end": 23057,
+   "type": "Byte"
+  },
+  {
+   "start": 23058,
+   "end": 23059,
+   "type": "Byte"
+  },
+  {
+   "start": 23060,
+   "end": 23075,
+   "type": "Byte"
+  },
+  {
+   "start": 23076,
+   "end": 23077,
+   "type": "Byte"
+  },
+  {
+   "start": 23078,
+   "end": 23093,
+   "type": "Byte"
+  },
+  {
+   "start": 23094,
+   "end": 23095,
+   "type": "Byte"
+  },
+  {
+   "start": 23096,
+   "end": 23111,
+   "type": "Byte"
+  },
+  {
+   "start": 23112,
+   "end": 23113,
+   "type": "Byte"
+  },
+  {
+   "start": 23114,
+   "end": 23129,
+   "type": "Byte"
+  },
+  {
+   "start": 23130,
+   "end": 23131,
+   "type": "Byte"
+  },
+  {
+   "start": 23132,
+   "end": 23147,
+   "type": "Byte"
+  },
+  {
+   "start": 23148,
+   "end": 23149,
+   "type": "Byte"
+  },
+  {
+   "start": 23150,
+   "end": 23165,
+   "type": "Byte"
+  },
+  {
+   "start": 23166,
+   "end": 23167,
+   "type": "Byte"
+  },
+  {
+   "start": 23168,
+   "end": 23183,
+   "type": "Byte"
+  },
+  {
+   "start": 23184,
+   "end": 23185,
+   "type": "Byte"
+  },
+  {
+   "start": 23186,
+   "end": 23264,
+   "type": "Byte"
+  },
+  {
+   "start": 23265,
+   "end": 23267,
+   "type": "Byte"
+  },
+  {
+   "start": 23268,
+   "end": 23346,
+   "type": "Byte"
+  },
+  {
+   "start": 23347,
+   "end": 23349,
+   "type": "Byte"
+  },
+  {
+   "start": 23350,
+   "end": 23428,
+   "type": "Byte"
+  },
+  {
+   "start": 23429,
+   "end": 23431,
+   "type": "Byte"
+  },
+  {
+   "start": 23432,
+   "end": 23510,
+   "type": "Byte"
+  },
+  {
+   "start": 23511,
+   "end": 23515,
+   "type": "Byte"
+  },
+  {
+   "start": 23516,
+   "end": 23579,
+   "type": "Byte"
+  },
+  {
+   "start": 23580,
+   "end": 23643,
+   "type": "Byte"
+  },
+  {
+   "start": 23644,
+   "end": 23709,
+   "type": "Byte"
+  },
+  {
+   "start": 23710,
+   "end": 23775,
+   "type": "Byte"
+  },
+  {
+   "start": 23776,
+   "end": 23807,
+   "type": "Undefined"
+  },
+  {
+   "start": 23808,
+   "end": 23823,
+   "type": "Byte"
+  },
+  {
+   "start": 23824,
+   "end": 23824,
+   "type": "Byte"
+  },
+  {
+   "start": 23825,
+   "end": 23840,
+   "type": "Byte"
+  },
+  {
+   "start": 23841,
    "end": 24575,
    "type": "Undefined"
   },
@@ -406,8 +735,143 @@
   },
   {
    "start": 29952,
-   "end": 41983,
+   "end": 30207,
+   "type": "Byte"
+  },
+  {
+   "start": 30208,
+   "end": 30463,
+   "type": "Byte"
+  },
+  {
+   "start": 30464,
+   "end": 30719,
+   "type": "Byte"
+  },
+  {
+   "start": 30720,
+   "end": 30975,
+   "type": "Byte"
+  },
+  {
+   "start": 30976,
+   "end": 31231,
+   "type": "Byte"
+  },
+  {
+   "start": 31232,
+   "end": 31487,
+   "type": "Byte"
+  },
+  {
+   "start": 31488,
+   "end": 31679,
+   "type": "Byte"
+  },
+  {
+   "start": 31680,
+   "end": 31743,
+   "type": "Byte"
+  },
+  {
+   "start": 31744,
+   "end": 31807,
+   "type": "Byte"
+  },
+  {
+   "start": 31808,
+   "end": 32063,
+   "type": "Byte"
+  },
+  {
+   "start": 32064,
+   "end": 32767,
    "type": "Undefined"
+  },
+  {
+   "start": 32768,
+   "end": 33023,
+   "type": "Byte"
+  },
+  {
+   "start": 33024,
+   "end": 33279,
+   "type": "Byte"
+  },
+  {
+   "start": 33280,
+   "end": 33535,
+   "type": "Byte"
+  },
+  {
+   "start": 33536,
+   "end": 33791,
+   "type": "Byte"
+  },
+  {
+   "start": 33792,
+   "end": 34559,
+   "type": "Undefined"
+  },
+  {
+   "start": 34560,
+   "end": 34687,
+   "type": "Byte"
+  },
+  {
+   "start": 34688,
+   "end": 34799,
+   "type": "Undefined"
+  },
+  {
+   "start": 34800,
+   "end": 34815,
+   "type": "Byte"
+  },
+  {
+   "start": 34816,
+   "end": 34927,
+   "type": "Undefined"
+  },
+  {
+   "start": 34928,
+   "end": 34941,
+   "type": "Byte"
+  },
+  {
+   "start": 34942,
+   "end": 35839,
+   "type": "Undefined"
+  },
+  {
+   "start": 35840,
+   "end": 36839,
+   "type": "Byte"
+  },
+  {
+   "start": 36840,
+   "end": 36855,
+   "type": "Byte"
+  },
+  {
+   "start": 36856,
+   "end": 36863,
+   "type": "Byte"
+  },
+  {
+   "start": 36864,
+   "end": 40959,
+   "type": "Undefined"
+  },
+  {
+   "start": 40960,
+   "end": 41727,
+   "type": "Byte"
+  },
+  {
+   "start": 41728,
+   "end": 41983,
+   "type": "Byte"
   },
   {
    "start": 41984,
@@ -416,6 +880,61 @@
   },
   {
    "start": 42984,
+   "end": 43007,
+   "type": "Byte"
+  },
+  {
+   "start": 43008,
+   "end": 46335,
+   "type": "Undefined"
+  },
+  {
+   "start": 46336,
+   "end": 47039,
+   "type": "Byte"
+  },
+  {
+   "start": 47040,
+   "end": 47999,
+   "type": "Byte"
+  },
+  {
+   "start": 48000,
+   "end": 48959,
+   "type": "Byte"
+  },
+  {
+   "start": 48960,
+   "end": 48980,
+   "type": "Byte"
+  },
+  {
+   "start": 48981,
+   "end": 49037,
+   "type": "Undefined"
+  },
+  {
+   "start": 49038,
+   "end": 49058,
+   "type": "Byte"
+  },
+  {
+   "start": 49059,
+   "end": 49151,
+   "type": "Byte"
+  },
+  {
+   "start": 49152,
+   "end": 49623,
+   "type": "Undefined"
+  },
+  {
+   "start": 49624,
+   "end": 49624,
+   "type": "Byte"
+  },
+  {
+   "start": 49625,
    "end": 49631,
    "type": "Undefined"
   },
@@ -426,8 +945,73 @@
   },
   {
    "start": 50300,
+   "end": 50393,
+   "type": "Byte"
+  },
+  {
+   "start": 50394,
+   "end": 50406,
+   "type": "Byte"
+  },
+  {
+   "start": 50407,
+   "end": 50410,
+   "type": "Byte"
+  },
+  {
+   "start": 50411,
+   "end": 50630,
+   "type": "Byte"
+  },
+  {
+   "start": 50631,
+   "end": 50638,
+   "type": "Byte"
+  },
+  {
+   "start": 50639,
+   "end": 51314,
+   "type": "Word"
+  },
+  {
+   "start": 51315,
+   "end": 51346,
+   "type": "Address"
+  },
+  {
+   "start": 51347,
+   "end": 51380,
+   "type": "Byte"
+  },
+  {
+   "start": 51381,
+   "end": 51490,
+   "type": "Address"
+  },
+  {
+   "start": 51491,
+   "end": 51506,
+   "type": "Address"
+  },
+  {
+   "start": 51507,
+   "end": 51536,
+   "type": "Word"
+  },
+  {
+   "start": 51537,
+   "end": 51544,
+   "type": "Address"
+  },
+  {
+   "start": 51545,
+   "end": 51552,
+   "type": "Address"
+  },
+  {
+   "start": 51553,
    "end": 51560,
-   "type": "Undefined"
+   "type": "Address"
   },
   {
    "start": 51561,
@@ -441,21 +1025,326 @@
   },
   {
    "start": 51657,
+   "end": 51682,
+   "type": "Byte"
+  },
+  {
+   "start": 51683,
+   "end": 51708,
+   "type": "Byte"
+  },
+  {
+   "start": 51709,
+   "end": 51730,
+   "type": "Byte"
+  },
+  {
+   "start": 51731,
+   "end": 51752,
+   "type": "Byte"
+  },
+  {
+   "start": 51753,
+   "end": 51804,
+   "type": "Byte"
+  },
+  {
+   "start": 51805,
+   "end": 51856,
+   "type": "Byte"
+  },
+  {
+   "start": 51857,
+   "end": 51908,
+   "type": "Byte"
+  },
+  {
+   "start": 51909,
+   "end": 51960,
+   "type": "Byte"
+  },
+  {
+   "start": 51961,
+   "end": 52024,
+   "type": "Byte"
+  },
+  {
+   "start": 52025,
+   "end": 52088,
+   "type": "Byte"
+  },
+  {
+   "start": 52089,
+   "end": 52152,
+   "type": "Address"
+  },
+  {
+   "start": 52153,
+   "end": 52192,
+   "type": "Byte"
+  },
+  {
+   "start": 52193,
+   "end": 52206,
+   "type": "Byte"
+  },
+  {
+   "start": 52207,
+   "end": 52222,
+   "type": "Address"
+  },
+  {
+   "start": 52223,
+   "end": 52238,
+   "type": "Address"
+  },
+  {
+   "start": 52239,
+   "end": 52288,
+   "type": "Word"
+  },
+  {
+   "start": 52289,
+   "end": 52298,
+   "type": "Address"
+  },
+  {
+   "start": 52299,
+   "end": 52315,
+   "type": "Byte"
+  },
+  {
+   "start": 52316,
+   "end": 52331,
+   "type": "Address"
+  },
+  {
+   "start": 52332,
+   "end": 52366,
+   "type": "Byte"
+  },
+  {
+   "start": 52367,
+   "end": 52443,
+   "type": "Byte"
+  },
+  {
+   "start": 52444,
+   "end": 52490,
+   "type": "Byte"
+  },
+  {
+   "start": 52491,
+   "end": 52523,
+   "type": "Byte"
+  },
+  {
+   "start": 52524,
+   "end": 52607,
+   "type": "Byte"
+  },
+  {
+   "start": 52608,
+   "end": 52632,
+   "type": "Byte"
+  },
+  {
+   "start": 52633,
+   "end": 52657,
+   "type": "Byte"
+  },
+  {
+   "start": 52658,
+   "end": 52685,
+   "type": "Byte"
+  },
+  {
+   "start": 52686,
    "end": 52734,
    "type": "Undefined"
   },
   {
    "start": 53248,
-   "end": 57711,
+   "end": 57343,
    "type": "Undefined"
   },
   {
+   "start": 57344,
+   "end": 57346,
+   "type": "Byte"
+  },
+  {
+   "start": 57347,
+   "end": 57362,
+   "type": "Byte"
+  },
+  {
+   "start": 57363,
+   "end": 57431,
+   "type": "Byte"
+  },
+  {
+   "start": 57432,
+   "end": 57571,
+   "type": "Byte"
+  },
+  {
+   "start": 57572,
+   "end": 57692,
+   "type": "Byte"
+  },
+  {
+   "start": 57693,
+   "end": 57711,
+   "type": "Byte"
+  },
+  {
    "start": 57712,
-   "end": 58111,
+   "end": 57714,
    "type": "Code"
   },
   {
-   "start": 58112,
+   "start": 57715,
+   "end": 57782,
+   "type": "Code"
+  },
+  {
+   "start": 57783,
+   "end": 57886,
+   "type": "Code"
+  },
+  {
+   "start": 57887,
+   "end": 57923,
+   "type": "Code"
+  },
+  {
+   "start": 57924,
+   "end": 58150,
+   "type": "Code"
+  },
+  {
+   "start": 58151,
+   "end": 58309,
+   "type": "Code"
+  },
+  {
+   "start": 58310,
+   "end": 58399,
+   "type": "Code"
+  },
+  {
+   "start": 58400,
+   "end": 58536,
+   "type": "Code"
+  },
+  {
+   "start": 58537,
+   "end": 58589,
+   "type": "Code"
+  },
+  {
+   "start": 58590,
+   "end": 58876,
+   "type": "Code"
+  },
+  {
+   "start": 58877,
+   "end": 58943,
+   "type": "Code"
+  },
+  {
+   "start": 58944,
+   "end": 58995,
+   "type": "Code"
+  },
+  {
+   "start": 58996,
+   "end": 59075,
+   "type": "Code"
+  },
+  {
+   "start": 59076,
+   "end": 59203,
+   "type": "Byte"
+  },
+  {
+   "start": 59204,
+   "end": 59230,
+   "type": "Byte"
+  },
+  {
+   "start": 59231,
+   "end": 59263,
+   "type": "Byte"
+  },
+  {
+   "start": 59264,
+   "end": 59298,
+   "type": "Byte"
+  },
+  {
+   "start": 59299,
+   "end": 59393,
+   "type": "Byte"
+  },
+  {
+   "start": 59394,
+   "end": 59488,
+   "type": "Byte"
+  },
+  {
+   "start": 59489,
+   "end": 59491,
+   "type": "Byte"
+  },
+  {
+   "start": 59492,
+   "end": 59581,
+   "type": "Byte"
+  },
+  {
+   "start": 59582,
+   "end": 59601,
+   "type": "Address"
+  },
+  {
+   "start": 59602,
+   "end": 59613,
+   "type": "Byte"
+  },
+  {
+   "start": 59614,
+   "end": 59615,
+   "type": "Byte"
+  },
+  {
+   "start": 59616,
+   "end": 59747,
+   "type": "Byte"
+  },
+  {
+   "start": 59748,
+   "end": 59793,
+   "type": "Byte"
+  },
+  {
+   "start": 59794,
+   "end": 59810,
+   "type": "Byte"
+  },
+  {
+   "start": 59811,
+   "end": 59907,
+   "type": "Byte"
+  },
+  {
+   "start": 59908,
+   "end": 59930,
+   "type": "Byte"
+  },
+  {
+   "start": 59931,
    "end": 60159,
    "type": "Undefined"
   },
@@ -471,8 +1360,18 @@
   },
   {
    "start": 61440,
-   "end": 63999,
+   "end": 63779,
    "type": "Undefined"
+  },
+  {
+   "start": 63780,
+   "end": 63959,
+   "type": "Byte"
+  },
+  {
+   "start": 63960,
+   "end": 63999,
+   "type": "Byte"
   },
   {
    "start": 64000,
@@ -481,11 +1380,42 @@
   },
   {
    "start": 64768,
+   "end": 64815,
+   "type": "Undefined"
+  },
+  {
+   "start": 64816,
+   "end": 64847,
+   "type": "Address"
+  },
+  {
+   "start": 64848,
+   "end": 64859,
+   "type": "Undefined"
+  },
+  {
+   "start": 64860,
+   "end": 65039,
+   "type": "Byte"
+  },
+  {
+   "start": 65040,
+   "end": 65219,
+   "type": "Byte"
+  },
+  {
+   "start": 65220,
    "end": 65535,
    "type": "Undefined"
   }
  ],
  "symbols": [
+  {
+   "address": 2048,
+   "name": "speed_retained_pre_entry_fragment",
+   "type": "Data",
+   "kind": "user"
+  },
   {
    "address": 2064,
    "name": "speed_entry",
@@ -523,6 +1453,42 @@
    "kind": "user"
   },
   {
+   "address": 3201,
+   "name": "speed_result_decimal_digits",
+   "type": "Data",
+   "kind": "user"
+  },
+  {
+   "address": 3203,
+   "name": "draw_speed_message_sequence",
+   "type": "Subroutine",
+   "kind": "user"
+  },
+  {
+   "address": 3243,
+   "name": "draw_speed_positioned_text",
+   "type": "Subroutine",
+   "kind": "user"
+  },
+  {
+   "address": 3364,
+   "name": "show_speed_apprentice_prompt",
+   "type": "Subroutine",
+   "kind": "user"
+  },
+  {
+   "address": 3470,
+   "name": "clear_speed_instruction_matrix",
+   "type": "Subroutine",
+   "kind": "user"
+  },
+  {
+   "address": 3490,
+   "name": "configure_speed_instruction_colours",
+   "type": "Subroutine",
+   "kind": "user"
+  },
+  {
    "address": 3624,
    "name": "draw_speed_instructions",
    "type": "Subroutine",
@@ -547,6 +1513,78 @@
    "kind": "user"
   },
   {
+   "address": 5699,
+   "name": "recenter_speed_ball",
+   "type": "Subroutine",
+   "kind": "user"
+  },
+  {
+   "address": 5753,
+   "name": "advance_speed_ball_swing",
+   "type": "Subroutine",
+   "kind": "user"
+  },
+  {
+   "address": 5991,
+   "name": "erase_previous_speed_ball_line",
+   "type": "Subroutine",
+   "kind": "user"
+  },
+  {
+   "address": 6064,
+   "name": "draw_current_speed_ball_line",
+   "type": "Subroutine",
+   "kind": "user"
+  },
+  {
+   "address": 6218,
+   "name": "update_alternating_speed_water_edges",
+   "type": "Subroutine",
+   "kind": "user"
+  },
+  {
+   "address": 6380,
+   "name": "update_left_speed_water_edge",
+   "type": "Subroutine",
+   "kind": "user"
+  },
+  {
+   "address": 6441,
+   "name": "speed_unused_water_return",
+   "type": "Subroutine",
+   "kind": "user"
+  },
+  {
+   "address": 6442,
+   "name": "copy_left_speed_water_frame",
+   "type": "Subroutine",
+   "kind": "user"
+  },
+  {
+   "address": 6496,
+   "name": "copy_speed_water_column",
+   "type": "Subroutine",
+   "kind": "user"
+  },
+  {
+   "address": 6714,
+   "name": "clear_speed_water_column_bottom",
+   "type": "Subroutine",
+   "kind": "user"
+  },
+  {
+   "address": 6768,
+   "name": "write_right_speed_water_strip",
+   "type": "Subroutine",
+   "kind": "user"
+  },
+  {
+   "address": 6866,
+   "name": "write_left_speed_water_strip",
+   "type": "Subroutine",
+   "kind": "user"
+  },
+  {
    "address": 6964,
    "name": "enable_speed_sprites",
    "type": "Subroutine",
@@ -561,6 +1599,54 @@
   {
    "address": 7008,
    "name": "copy_speed_bitmap",
+   "type": "Subroutine",
+   "kind": "user"
+  },
+  {
+   "address": 7139,
+   "name": "install_speed_raster_irq",
+   "type": "Subroutine",
+   "kind": "user"
+  },
+  {
+   "address": 7177,
+   "name": "speed_raster_irq",
+   "type": "Subroutine",
+   "kind": "user"
+  },
+  {
+   "address": 7239,
+   "name": "speed_upper_sprite_phase",
+   "type": "Subroutine",
+   "kind": "user"
+  },
+  {
+   "address": 7324,
+   "name": "speed_lower_sprite_phase",
+   "type": "Subroutine",
+   "kind": "user"
+  },
+  {
+   "address": 7478,
+   "name": "speed_water_timer",
+   "type": "Subroutine",
+   "kind": "user"
+  },
+  {
+   "address": 7571,
+   "name": "speed_water_display",
+   "type": "Subroutine",
+   "kind": "user"
+  },
+  {
+   "address": 7779,
+   "name": "speed_resume_apprentice_display",
+   "type": "Subroutine",
+   "kind": "user"
+  },
+  {
+   "address": 7940,
+   "name": "speed_rebuild_current_line",
    "type": "Subroutine",
    "kind": "user"
   },
@@ -697,6 +1783,12 @@
    "kind": "user"
   },
   {
+   "address": 16384,
+   "name": "speed_pose_21_tail",
+   "type": "Data",
+   "kind": "user"
+  },
+  {
    "address": 16640,
    "name": "speed_pose_22",
    "type": "Data",
@@ -793,6 +1885,204 @@
    "kind": "user"
   },
   {
+   "address": 22784,
+   "name": "speed_duplicate_overlay_shapes_0_3",
+   "type": "Data",
+   "kind": "user"
+  },
+  {
+   "address": 23040,
+   "name": "speed_first_water_strip_dimensions",
+   "type": "Data",
+   "kind": "user"
+  },
+  {
+   "address": 23042,
+   "name": "speed_water_right_strip_0",
+   "type": "Data",
+   "kind": "user"
+  },
+  {
+   "address": 23058,
+   "name": "speed_water_alignment_5a12",
+   "type": "Data",
+   "kind": "user"
+  },
+  {
+   "address": 23060,
+   "name": "speed_water_right_strip_1",
+   "type": "Data",
+   "kind": "user"
+  },
+  {
+   "address": 23076,
+   "name": "speed_water_alignment_5a24",
+   "type": "Data",
+   "kind": "user"
+  },
+  {
+   "address": 23078,
+   "name": "speed_water_right_strip_2",
+   "type": "Data",
+   "kind": "user"
+  },
+  {
+   "address": 23094,
+   "name": "speed_water_alignment_5a36",
+   "type": "Data",
+   "kind": "user"
+  },
+  {
+   "address": 23096,
+   "name": "speed_water_right_strip_3",
+   "type": "Data",
+   "kind": "user"
+  },
+  {
+   "address": 23112,
+   "name": "speed_water_alignment_5a48",
+   "type": "Data",
+   "kind": "user"
+  },
+  {
+   "address": 23114,
+   "name": "speed_water_left_strip_0",
+   "type": "Data",
+   "kind": "user"
+  },
+  {
+   "address": 23130,
+   "name": "speed_water_alignment_5a5a",
+   "type": "Data",
+   "kind": "user"
+  },
+  {
+   "address": 23132,
+   "name": "speed_water_left_strip_1",
+   "type": "Data",
+   "kind": "user"
+  },
+  {
+   "address": 23148,
+   "name": "speed_water_alignment_5a6c",
+   "type": "Data",
+   "kind": "user"
+  },
+  {
+   "address": 23150,
+   "name": "speed_water_left_strip_2",
+   "type": "Data",
+   "kind": "user"
+  },
+  {
+   "address": 23166,
+   "name": "speed_water_alignment_5a7e",
+   "type": "Data",
+   "kind": "user"
+  },
+  {
+   "address": 23168,
+   "name": "speed_water_left_strip_3",
+   "type": "Data",
+   "kind": "user"
+  },
+  {
+   "address": 23184,
+   "name": "speed_water_alignment_5a90",
+   "type": "Data",
+   "kind": "user"
+  },
+  {
+   "address": 23186,
+   "name": "speed_water_column_frame_0",
+   "type": "Data",
+   "kind": "user"
+  },
+  {
+   "address": 23265,
+   "name": "speed_water_alignment_5ae1",
+   "type": "Data",
+   "kind": "user"
+  },
+  {
+   "address": 23268,
+   "name": "speed_water_column_frame_1",
+   "type": "Data",
+   "kind": "user"
+  },
+  {
+   "address": 23347,
+   "name": "speed_water_alignment_5b33",
+   "type": "Data",
+   "kind": "user"
+  },
+  {
+   "address": 23350,
+   "name": "speed_water_column_frame_2",
+   "type": "Data",
+   "kind": "user"
+  },
+  {
+   "address": 23429,
+   "name": "speed_water_alignment_5b85",
+   "type": "Data",
+   "kind": "user"
+  },
+  {
+   "address": 23432,
+   "name": "speed_water_column_frame_3",
+   "type": "Data",
+   "kind": "user"
+  },
+  {
+   "address": 23511,
+   "name": "speed_water_to_overlay_headers",
+   "type": "Data",
+   "kind": "user"
+  },
+  {
+   "address": 23516,
+   "name": "speed_right_overlay_bitmap_mask",
+   "type": "Data",
+   "kind": "user"
+  },
+  {
+   "address": 23580,
+   "name": "speed_left_overlay_bitmap_mask",
+   "type": "Data",
+   "kind": "user"
+  },
+  {
+   "address": 23644,
+   "name": "speed_first_retained_overlay_mask",
+   "type": "Data",
+   "kind": "user"
+  },
+  {
+   "address": 23710,
+   "name": "speed_second_retained_overlay_mask",
+   "type": "Data",
+   "kind": "user"
+  },
+  {
+   "address": 23808,
+   "name": "speed_left_open_water_edge",
+   "type": "Data",
+   "kind": "user"
+  },
+  {
+   "address": 23824,
+   "name": "speed_open_water_inter_side_gap",
+   "type": "Data",
+   "kind": "user"
+  },
+  {
+   "address": 23825,
+   "name": "speed_right_open_water_edge",
+   "type": "Data",
+   "kind": "user"
+  },
+  {
    "address": 24576,
    "name": "speed_bitmap_source_6000",
    "type": "Data",
@@ -829,8 +2119,290 @@
    "kind": "user"
   },
   {
+   "address": 29952,
+   "name": "speed_overlay_shapes_0_3",
+   "type": "Data",
+   "kind": "user"
+  },
+  {
+   "address": 30208,
+   "name": "speed_overlay_shapes_4_7",
+   "type": "Data",
+   "kind": "user"
+  },
+  {
+   "address": 30464,
+   "name": "speed_overlay_shapes_8_11",
+   "type": "Data",
+   "kind": "user"
+  },
+  {
+   "address": 30720,
+   "name": "speed_overlay_shapes_12_15",
+   "type": "Data",
+   "kind": "user"
+  },
+  {
+   "address": 30976,
+   "name": "speed_overlay_shapes_16_19",
+   "type": "Data",
+   "kind": "user"
+  },
+  {
+   "address": 31232,
+   "name": "speed_overlay_shapes_20_23",
+   "type": "Data",
+   "kind": "user"
+  },
+  {
+   "address": 31488,
+   "name": "speed_overlay_shapes_24_26",
+   "type": "Data",
+   "kind": "user"
+  },
+  {
+   "address": 31680,
+   "name": "speed_omitted_overlay_slot",
+   "type": "Data",
+   "kind": "user"
+  },
+  {
+   "address": 31744,
+   "name": "speed_overlay_shape_27",
+   "type": "Data",
+   "kind": "user"
+  },
+  {
+   "address": 31808,
+   "name": "speed_overlay_shapes_28_31",
+   "type": "Data",
+   "kind": "user"
+  },
+  {
+   "address": 32768,
+   "name": "speed_fixed_top_sprite_slots",
+   "type": "Data",
+   "kind": "user"
+  },
+  {
+   "address": 33024,
+   "name": "speed_fixed_upper_middle_sprite_slots",
+   "type": "Data",
+   "kind": "user"
+  },
+  {
+   "address": 33280,
+   "name": "speed_fixed_lower_middle_sprite_slots",
+   "type": "Data",
+   "kind": "user"
+  },
+  {
+   "address": 33536,
+   "name": "speed_fixed_bottom_sprite_slots",
+   "type": "Data",
+   "kind": "user"
+  },
+  {
+   "address": 34560,
+   "name": "speed_ball_sprite_shapes",
+   "type": "Data",
+   "kind": "user"
+  },
+  {
+   "address": 34800,
+   "name": "speed_overlay_slot_31_blank_rows",
+   "type": "Data",
+   "kind": "user"
+  },
+  {
+   "address": 34928,
+   "name": "speed_overlay_slot_33_blank_rows",
+   "type": "Data",
+   "kind": "user"
+  },
+  {
+   "address": 35840,
+   "name": "speed_playfield_matrix",
+   "type": "Data",
+   "kind": "user"
+  },
+  {
+   "address": 36840,
+   "name": "speed_playfield_matrix_tail",
+   "type": "Data",
+   "kind": "user"
+  },
+  {
+   "address": 36856,
+   "name": "speed_initial_sprite_pointers",
+   "type": "Data",
+   "kind": "user"
+  },
+  {
+   "address": 40960,
+   "name": "speed_initial_character_buffer",
+   "type": "Data",
+   "kind": "user"
+  },
+  {
+   "address": 41728,
+   "name": "speed_initial_bitmap_buffer_suffix",
+   "type": "Data",
+   "kind": "user"
+  },
+  {
    "address": 41984,
    "name": "speed_instructions_matrix",
+   "type": "Data",
+   "kind": "user"
+  },
+  {
+   "address": 42984,
+   "name": "speed_instruction_matrix_trailer",
+   "type": "Data",
+   "kind": "user"
+  },
+  {
+   "address": 46336,
+   "name": "speed_loaded_bitmap_rows_16_18",
+   "type": "Data",
+   "kind": "user"
+  },
+  {
+   "address": 47040,
+   "name": "speed_loaded_bitmap_rows_19_21",
+   "type": "Data",
+   "kind": "user"
+  },
+  {
+   "address": 48000,
+   "name": "speed_loaded_bitmap_rows_22_24",
+   "type": "Data",
+   "kind": "user"
+  },
+  {
+   "address": 48960,
+   "name": "speed_bitmap_pattern_trailer",
+   "type": "Data",
+   "kind": "user"
+  },
+  {
+   "address": 49038,
+   "name": "speed_bitmap_preview_basic_header",
+   "type": "Data",
+   "kind": "user"
+  },
+  {
+   "address": 49059,
+   "name": "speed_bitmap_preview_bytes",
+   "type": "Data",
+   "kind": "user"
+  },
+  {
+   "address": 49624,
+   "name": "speed_before_line_generator_literal",
+   "type": "Data",
+   "kind": "user"
+  },
+  {
+   "address": 49632,
+   "name": "generate_speed_line_records",
+   "type": "Subroutine",
+   "kind": "user"
+  },
+  {
+   "address": 49797,
+   "name": "store_speed_line_pixel",
+   "type": "Subroutine",
+   "kind": "user"
+  },
+  {
+   "address": 49930,
+   "name": "walk_speed_line",
+   "type": "Subroutine",
+   "kind": "user"
+  },
+  {
+   "address": 50300,
+   "name": "speed_chamber_work_state",
+   "type": "Data",
+   "kind": "user"
+  },
+  {
+   "address": 50394,
+   "name": "speed_chamber_parameters",
+   "type": "Data",
+   "kind": "user"
+  },
+  {
+   "address": 50407,
+   "name": "speed_water_scroll_values",
+   "type": "Data",
+   "kind": "user"
+  },
+  {
+   "address": 50411,
+   "name": "speed_retained_water_scroll_repeats",
+   "type": "Data",
+   "kind": "user"
+  },
+  {
+   "address": 50631,
+   "name": "speed_bitmap_pixel_masks",
+   "type": "Data",
+   "kind": "user"
+  },
+  {
+   "address": 50639,
+   "name": "speed_ball_line_geometry",
+   "type": "Data",
+   "kind": "user"
+  },
+  {
+   "address": 51315,
+   "name": "speed_lower_bitmap_cell_addresses",
+   "type": "Data",
+   "kind": "user"
+  },
+  {
+   "address": 51347,
+   "name": "speed_shape_and_ball_positions",
+   "type": "Data",
+   "kind": "user"
+  },
+  {
+   "address": 51381,
+   "name": "speed_generated_line_slot_pointers",
+   "type": "Data",
+   "kind": "user"
+  },
+  {
+   "address": 51491,
+   "name": "speed_generated_line_slot_directory_tail",
+   "type": "Data",
+   "kind": "user"
+  },
+  {
+   "address": 51507,
+   "name": "speed_line_geometry_offsets",
+   "type": "Data",
+   "kind": "user"
+  },
+  {
+   "address": 51537,
+   "name": "speed_water_column_pointers",
+   "type": "Data",
+   "kind": "user"
+  },
+  {
+   "address": 51545,
+   "name": "speed_water_right_strip_pointers",
+   "type": "Data",
+   "kind": "user"
+  },
+  {
+   "address": 51553,
+   "name": "speed_water_left_strip_pointers",
    "type": "Data",
    "kind": "user"
   },
@@ -847,6 +2419,378 @@
    "kind": "user"
   },
   {
+   "address": 51657,
+   "name": "speed_motion_script_0",
+   "type": "Data",
+   "kind": "user"
+  },
+  {
+   "address": 51683,
+   "name": "speed_motion_script_1",
+   "type": "Data",
+   "kind": "user"
+  },
+  {
+   "address": 51709,
+   "name": "speed_motion_script_2",
+   "type": "Data",
+   "kind": "user"
+  },
+  {
+   "address": 51731,
+   "name": "speed_motion_script_3",
+   "type": "Data",
+   "kind": "user"
+  },
+  {
+   "address": 51753,
+   "name": "speed_motion_script_4",
+   "type": "Data",
+   "kind": "user"
+  },
+  {
+   "address": 51805,
+   "name": "speed_motion_script_5",
+   "type": "Data",
+   "kind": "user"
+  },
+  {
+   "address": 51857,
+   "name": "speed_motion_script_6",
+   "type": "Data",
+   "kind": "user"
+  },
+  {
+   "address": 51909,
+   "name": "speed_motion_script_7",
+   "type": "Data",
+   "kind": "user"
+  },
+  {
+   "address": 51961,
+   "name": "speed_motion_script_8",
+   "type": "Data",
+   "kind": "user"
+  },
+  {
+   "address": 52025,
+   "name": "speed_motion_script_9",
+   "type": "Data",
+   "kind": "user"
+  },
+  {
+   "address": 52089,
+   "name": "speed_overlay_shape_pointers",
+   "type": "Data",
+   "kind": "user"
+  },
+  {
+   "address": 52153,
+   "name": "speed_overlay_frame_numbers",
+   "type": "Data",
+   "kind": "user"
+  },
+  {
+   "address": 52193,
+   "name": "speed_overlay_height_values",
+   "type": "Data",
+   "kind": "user"
+  },
+  {
+   "address": 52207,
+   "name": "speed_left_overlay_bitmap_addresses",
+   "type": "Data",
+   "kind": "user"
+  },
+  {
+   "address": 52223,
+   "name": "speed_right_overlay_bitmap_addresses",
+   "type": "Data",
+   "kind": "user"
+  },
+  {
+   "address": 52239,
+   "name": "speed_message_row_offsets",
+   "type": "Data",
+   "kind": "user"
+  },
+  {
+   "address": 52289,
+   "name": "speed_message_sequence_pointers",
+   "type": "Data",
+   "kind": "user"
+  },
+  {
+   "address": 52299,
+   "name": "speed_message_sequence_lists",
+   "type": "Data",
+   "kind": "user"
+  },
+  {
+   "address": 52316,
+   "name": "speed_positioned_message_pointers",
+   "type": "Data",
+   "kind": "user"
+  },
+  {
+   "address": 52332,
+   "name": "speed_result_message_0",
+   "type": "Data",
+   "kind": "user"
+  },
+  {
+   "address": 52367,
+   "name": "speed_result_message_1",
+   "type": "Data",
+   "kind": "user"
+  },
+  {
+   "address": 52444,
+   "name": "speed_result_message_2",
+   "type": "Data",
+   "kind": "user"
+  },
+  {
+   "address": 52491,
+   "name": "speed_result_message_3",
+   "type": "Data",
+   "kind": "user"
+  },
+  {
+   "address": 52524,
+   "name": "speed_result_message_4",
+   "type": "Data",
+   "kind": "user"
+  },
+  {
+   "address": 52608,
+   "name": "speed_result_message_5",
+   "type": "Data",
+   "kind": "user"
+  },
+  {
+   "address": 52633,
+   "name": "speed_result_message_6",
+   "type": "Data",
+   "kind": "user"
+  },
+  {
+   "address": 52658,
+   "name": "speed_result_message_7",
+   "type": "Data",
+   "kind": "user"
+  },
+  {
+   "address": 57344,
+   "name": "play_retained_speed_effects",
+   "type": "Data",
+   "kind": "user"
+  },
+  {
+   "address": 57347,
+   "name": "initialize_retained_speed_sid",
+   "type": "Data",
+   "kind": "user"
+  },
+  {
+   "address": 57363,
+   "name": "select_retained_speed_effect_stream",
+   "type": "Data",
+   "kind": "user"
+  },
+  {
+   "address": 57432,
+   "name": "decode_retained_speed_effect_command",
+   "type": "Data",
+   "kind": "user"
+  },
+  {
+   "address": 57572,
+   "name": "step_retained_speed_effect_modulation",
+   "type": "Data",
+   "kind": "user"
+  },
+  {
+   "address": 57693,
+   "name": "advance_retained_speed_effect_voice",
+   "type": "Data",
+   "kind": "user"
+  },
+  {
+   "address": 57712,
+   "name": "speed_music_play",
+   "type": "Subroutine",
+   "kind": "user"
+  },
+  {
+   "address": 57715,
+   "name": "speed_initialize_music",
+   "type": "Subroutine",
+   "kind": "user"
+  },
+  {
+   "address": 57783,
+   "name": "speed_step_music_track",
+   "type": "Subroutine",
+   "kind": "user"
+  },
+  {
+   "address": 57887,
+   "name": "speed_service_music_voice",
+   "type": "Subroutine",
+   "kind": "user"
+  },
+  {
+   "address": 57924,
+   "name": "speed_decode_music_phrase",
+   "type": "Subroutine",
+   "kind": "user"
+  },
+  {
+   "address": 58151,
+   "name": "speed_start_music_note",
+   "type": "Subroutine",
+   "kind": "user"
+  },
+  {
+   "address": 58310,
+   "name": "speed_update_music_filter",
+   "type": "Subroutine",
+   "kind": "user"
+  },
+  {
+   "address": 58400,
+   "name": "speed_step_music_slide",
+   "type": "Subroutine",
+   "kind": "user"
+  },
+  {
+   "address": 58537,
+   "name": "speed_update_music_note_frequency",
+   "type": "Subroutine",
+   "kind": "user"
+  },
+  {
+   "address": 58590,
+   "name": "speed_step_music_instrument_pitch",
+   "type": "Subroutine",
+   "kind": "user"
+  },
+  {
+   "address": 58877,
+   "name": "speed_step_music_pulse_width",
+   "type": "Subroutine",
+   "kind": "user"
+  },
+  {
+   "address": 58944,
+   "name": "speed_select_music_waveform",
+   "type": "Subroutine",
+   "kind": "user"
+  },
+  {
+   "address": 58996,
+   "name": "speed_write_music_sid_voice",
+   "type": "Subroutine",
+   "kind": "user"
+  },
+  {
+   "address": 59076,
+   "name": "speed_music_instruments",
+   "type": "Data",
+   "kind": "user"
+  },
+  {
+   "address": 59204,
+   "name": "speed_music_pitch_directories",
+   "type": "Data",
+   "kind": "user"
+  },
+  {
+   "address": 59231,
+   "name": "speed_music_pulse_control_filter_directories",
+   "type": "Data",
+   "kind": "user"
+  },
+  {
+   "address": 59264,
+   "name": "speed_music_pitch_override_directories",
+   "type": "Data",
+   "kind": "user"
+  },
+  {
+   "address": 59299,
+   "name": "speed_music_frequency_low",
+   "type": "Data",
+   "kind": "user"
+  },
+  {
+   "address": 59394,
+   "name": "speed_music_frequency_high",
+   "type": "Data",
+   "kind": "user"
+  },
+  {
+   "address": 59489,
+   "name": "speed_music_voice_sid_offsets",
+   "type": "Data",
+   "kind": "user"
+  },
+  {
+   "address": 59492,
+   "name": "speed_music_voice_workspace",
+   "type": "Data",
+   "kind": "user"
+  },
+  {
+   "address": 59582,
+   "name": "speed_music_phrase_directory",
+   "type": "Data",
+   "kind": "user"
+  },
+  {
+   "address": 59602,
+   "name": "speed_music_initial_tracks",
+   "type": "Data",
+   "kind": "user"
+  },
+  {
+   "address": 59614,
+   "name": "speed_music_tick_dividers",
+   "type": "Data",
+   "kind": "user"
+  },
+  {
+   "address": 59616,
+   "name": "speed_music_modulation_pool",
+   "type": "Data",
+   "kind": "user"
+  },
+  {
+   "address": 59748,
+   "name": "speed_music_tune_zero_phrase_group",
+   "type": "Data",
+   "kind": "user"
+  },
+  {
+   "address": 59794,
+   "name": "speed_music_tune_zero_tracks",
+   "type": "Data",
+   "kind": "user"
+  },
+  {
+   "address": 59811,
+   "name": "speed_music_tune_one_phrase_group",
+   "type": "Data",
+   "kind": "user"
+  },
+  {
+   "address": 59908,
+   "name": "speed_music_tune_one_tracks",
+   "type": "Data",
+   "kind": "user"
+  },
+  {
    "address": 60160,
    "name": "strength_loader_image_first_four_pages",
    "type": "Data",
@@ -859,13 +2803,48 @@
    "kind": "user"
   },
   {
+   "address": 63780,
+   "name": "speed_unused_generated_line_slot_55",
+   "type": "Data",
+   "kind": "user"
+  },
+  {
+   "address": 63960,
+   "name": "speed_unused_generated_line_slot_56_prefix",
+   "type": "Data",
+   "kind": "user"
+  },
+  {
    "address": 64000,
    "name": "speed_instruction_font",
+   "type": "Data",
+   "kind": "user"
+  },
+  {
+   "address": 64816,
+   "name": "speed_ram_kernal_vector_defaults",
+   "type": "Data",
+   "kind": "user"
+  },
+  {
+   "address": 64860,
+   "name": "speed_unused_generated_line_slot_61",
+   "type": "Data",
+   "kind": "user"
+  },
+  {
+   "address": 65040,
+   "name": "speed_unused_generated_line_slot_62",
    "type": "Data",
    "kind": "user"
   }
  ],
  "comments": [
+  {
+   "address": 2048,
+   "type": "line",
+   "text": "Bytes ahead of the $0810 Speed entry. The instruction fragment calls $E5A0, blanks the VIC display and reads the CIA2 direction bits."
+  },
   {
    "address": 2064,
    "type": "line",
@@ -897,6 +2876,36 @@
    "text": "Counts ten successful reads of VIC raster line zero before polling CIA1 port A for a new $6F match. Uses $CE23 as the held-press latch."
   },
   {
+   "address": 3201,
+   "type": "line",
+   "text": "Two output screen digits updated by the award formatter at $0C6B. Both start at character $30."
+  },
+  {
+   "address": 3203,
+   "type": "line",
+   "text": "Doubles the supplied sequence number and reads its pointer from $CC41. Passes each message ID to the positioned text routine until $FF."
+  },
+  {
+   "address": 3243,
+   "type": "line",
+   "text": "Reads the column and row from a message selected through $CC5C, adds the row offset and uses $A400 as the screen base. $FE begins another positioned row, $FF ends the message and character values of $40 or above lose $40 before the store."
+  },
+  {
+   "address": 3364,
+   "type": "line",
+   "text": "Clears the instruction matrix, copies seven resident 20-character rows and inserts the active apprentice\u2019s name. Enables the character display, waits for fire and restores the gameplay matrix selection."
+  },
+  {
+   "address": 3470,
+   "type": "line",
+   "text": "Fills $A400 through $A7FF with screen code zero."
+  },
+  {
+   "address": 3490,
+   "type": "line",
+   "text": "Selects $A400 with character memory at $A000. Installs the three-page font from $FA00 and writes colour RAM using thresholds on the screen character codes."
+  },
+  {
    "address": 3624,
    "type": "line",
    "text": "Selects the $A400 screen matrix and copies font bytes from $FA00-$FCFF to $A000 while BASIC ROM is out. Sets colour RAM from the screen matrix before enabling character mode and waiting for fire."
@@ -917,6 +2926,66 @@
    "text": "Advances the animation counter when $C480 is armed. The selected pose is streamed into an inactive buffer in four 96-byte pieces before the displacement and sprite pointers are updated."
   },
   {
+   "address": 5699,
+   "type": "line",
+   "text": "After three skipped calls, clears the line length at $C4AC and moves the line index at $C4DC one step toward $1C. Saves the preceding index in $C4C3 for erasing the old line. At the centre index it clears the recenter flag at $C49D."
+  },
+  {
+   "address": 5753,
+   "type": "line",
+   "text": "Saves the old line index and accumulates a signed distance correction. When the accumulator passes the update test, advances the index by the signed step at $C4A8. Patches the comparison bounds from line length, reverses the step at a matching bound and may set either end flag."
+  },
+  {
+   "address": 5991,
+   "type": "line",
+   "text": "Uses the old line index at $C4C3 to locate a generated line record through $C8B5. Walks the entries backwards and removes each saved pixel bit from the bitmap."
+  },
+  {
+   "address": 6064,
+   "type": "line",
+   "text": "Uses the new line index at $C4DC to select the generated line record and OR its masks into the bitmap. Reads the corresponding position from the table at $C5CF for the ball sprite."
+  },
+  {
+   "address": 6218,
+   "type": "line",
+   "text": "Toggles the water-edge selector at $C4C1. One side starts at $185C and the other at $18EC. Each selects either a frame from the water-edge tables or the open-column graphics when the respective progress value reaches six."
+  },
+  {
+   "address": 6380,
+   "type": "line",
+   "text": "Reads left-hand progress at $C48F. Uses the source frame and reverse-order row strip for progress below six. At six or more it installs the $5D00 strips and clears lower cells."
+  },
+  {
+   "address": 6441,
+   "type": "line",
+   "text": "Return byte after the unconditional jump at $1926. That jump enters the column clearer, whose own return exits the water update."
+  },
+  {
+   "address": 6442,
+   "type": "line",
+   "text": "Resolves the selected column and horizontal strip sources through $C951 and $C961, then copies the left-side frame into the visible bitmap."
+  },
+  {
+   "address": 6496,
+   "type": "line",
+   "text": "Writes eight bytes per cell down the bitmap, advancing the destination by one 320-byte row. Copies a final partial cell and zeros its unused rows before passing to the column clearer."
+  },
+  {
+   "address": 6714,
+   "type": "line",
+   "text": "Zeros eight raster bytes per bitmap cell while advancing by 320 bytes, until the cell counter at $C4D5 reaches nine."
+  },
+  {
+   "address": 6768,
+   "type": "line",
+   "text": "Writes the selected sixteen-pixel-byte strip in reverse order into $B280\u2013$B28F."
+  },
+  {
+   "address": 6866,
+   "type": "line",
+   "text": "Writes the selected sixteen-byte strip in reverse order into $B1B0\u2013$B1BF."
+  },
+  {
    "address": 6964,
    "type": "line",
    "text": "Enables all eight sprites in multicolour, sets the X high bits for sprites four through seven, and assigns the shared colours."
@@ -929,7 +2998,47 @@
   {
    "address": 7008,
    "type": "line",
-   "text": "Copies the source starting at $6000 into the VIC bitmap starting at $A000."
+   "text": "Copies 21 pages from $6000\u2013$74FF to the visible bitmap at $A000\u2013$B4FF. Then stamps selected colour cells with $E6."
+  },
+  {
+   "address": 7139,
+   "type": "line",
+   "text": "Selects RAM under the KERNAL, enables the VIC raster IRQ, masks CIA1 IRQs and installs $1C09 in the hardware vector."
+  },
+  {
+   "address": 7177,
+   "type": "line",
+   "text": "Acknowledges the raster interrupt, saves A, X and Y and advances $C4D4 through the three raster phases."
+  },
+  {
+   "address": 7239,
+   "type": "line",
+   "text": "Installs six sprite pointers, position pairs and colours from the Speed state and display tables. Sets the next compare to $B3."
+  },
+  {
+   "address": 7324,
+   "type": "line",
+   "text": "Positions eight sprites in two rows with fixed shape pointers and takes the next interrupt at $B7."
+  },
+  {
+   "address": 7478,
+   "type": "line",
+   "text": "Advances the water timer using the state at $C4BF. Depending on that state it reaches the rise update at count $4B or $7D. The rise decrements the immediate operand at $1DE3 until it reaches $BA."
+  },
+  {
+   "address": 7571,
+   "type": "line",
+   "text": "Polls the raster while reassigning sprite pointers and Y positions on lines $D0 and $E7. Uses the operand at $1DE3 as a raster threshold and cycles the four $D016 values at $C4E7."
+  },
+  {
+   "address": 7779,
+   "type": "line",
+   "text": "Finishes the water phase and updates the sprite display using one of two gameplay paths. Writes the top sprite pointers and positions, sets the main-loop flag and schedules the next compare at $6E."
+  },
+  {
+   "address": 7940,
+   "type": "line",
+   "text": "Reloads the endpoint and length from $C4CE\u2013$C4D0 and rebuilds the current bitmap line through $C30A. Sets $C4DE when the call returns."
   },
   {
    "address": 8192,
@@ -1042,6 +3151,11 @@
    "text": "Speed apprentice frame 21. The pointer table selects this six-sprite source and copies it to the display buffer in chunks. Each sprite occupies a 64-byte slot, with 63 image bytes."
   },
   {
+   "address": 16384,
+   "type": "line",
+   "text": "Last four 64-byte sprite slots of the Speed apprentice pose starting at $3F80."
+  },
+  {
    "address": 16640,
    "type": "line",
    "text": "Speed apprentice frame 22. The pointer table selects this six-sprite source and copies it to the display buffer in chunks. Each sprite occupies a 64-byte slot, with 63 image bytes."
@@ -1122,6 +3236,171 @@
    "text": "Speed apprentice frame 37. The pointer table selects this six-sprite source and copies it to the display buffer in chunks. Each sprite occupies a 64-byte slot, with 63 image bytes."
   },
   {
+   "address": 22784,
+   "type": "line",
+   "text": "Four 64-byte shape images identical to the first four entries at $7500. The overlay directory selects their copies from $7500."
+  },
+  {
+   "address": 23040,
+   "type": "line",
+   "text": "The two bytes $01 and $10 preceding the first sixteen-byte water strip, whose pointer starts after this header."
+  },
+  {
+   "address": 23042,
+   "type": "line",
+   "text": "The sixteen source bytes for right horizontal strip 0. The stored strips are 18 bytes apart. The adjacent directory entries are two-byte pointers. The painter reverses the 16 bytes into the bitmap."
+  },
+  {
+   "address": 23058,
+   "type": "line",
+   "text": "Two-byte size prefix for the following 16-byte water strip. The painter starts its indexed reads after both bytes. This boundary follows source index 0."
+  },
+  {
+   "address": 23060,
+   "type": "line",
+   "text": "The sixteen source bytes for right horizontal strip 1. The stored strips are 18 bytes apart. The adjacent directory entries are two-byte pointers. The painter reverses the 16 bytes into the bitmap."
+  },
+  {
+   "address": 23076,
+   "type": "line",
+   "text": "Two-byte size prefix for the following 16-byte water strip. The painter starts its indexed reads after both bytes. This boundary follows source index 1."
+  },
+  {
+   "address": 23078,
+   "type": "line",
+   "text": "The sixteen source bytes for right horizontal strip 2. The stored strips are 18 bytes apart. The adjacent directory entries are two-byte pointers. The painter reverses the 16 bytes into the bitmap."
+  },
+  {
+   "address": 23094,
+   "type": "line",
+   "text": "Two-byte size prefix for the following 16-byte water strip. The painter starts its indexed reads after both bytes. This boundary follows source index 2."
+  },
+  {
+   "address": 23096,
+   "type": "line",
+   "text": "The sixteen source bytes for right horizontal strip 3. The stored strips are 18 bytes apart. The adjacent directory entries are two-byte pointers. The painter reverses the 16 bytes into the bitmap."
+  },
+  {
+   "address": 23112,
+   "type": "line",
+   "text": "Two-byte size prefix for the following 16-byte water strip. The painter starts its indexed reads after both bytes. This boundary follows source index 3."
+  },
+  {
+   "address": 23114,
+   "type": "line",
+   "text": "The sixteen source bytes for left horizontal strip 0. The stored strips are 18 bytes apart. The adjacent directory entries are two-byte pointers. The painter reverses the 16 bytes into the bitmap."
+  },
+  {
+   "address": 23130,
+   "type": "line",
+   "text": "Two-byte size prefix for the following 16-byte water strip. The painter starts its indexed reads after both bytes. This boundary follows source index 4."
+  },
+  {
+   "address": 23132,
+   "type": "line",
+   "text": "The sixteen source bytes for left horizontal strip 1. The stored strips are 18 bytes apart. The adjacent directory entries are two-byte pointers. The painter reverses the 16 bytes into the bitmap."
+  },
+  {
+   "address": 23148,
+   "type": "line",
+   "text": "Two-byte size prefix for the following 16-byte water strip. The painter starts its indexed reads after both bytes. This boundary follows source index 5."
+  },
+  {
+   "address": 23150,
+   "type": "line",
+   "text": "The sixteen source bytes for left horizontal strip 2. The stored strips are 18 bytes apart. The adjacent directory entries are two-byte pointers. The painter reverses the 16 bytes into the bitmap."
+  },
+  {
+   "address": 23166,
+   "type": "line",
+   "text": "Two-byte size prefix for the following 16-byte water strip. The painter starts its indexed reads after both bytes. This boundary follows source index 6."
+  },
+  {
+   "address": 23168,
+   "type": "line",
+   "text": "The sixteen source bytes for left horizontal strip 3. The stored strips are 18 bytes apart. The adjacent directory entries are two-byte pointers. The painter reverses the 16 bytes into the bitmap."
+  },
+  {
+   "address": 23184,
+   "type": "line",
+   "text": "Two-byte size prefix for the following 16-byte water strip. The painter starts its indexed reads after both bytes. This boundary follows source index 7."
+  },
+  {
+   "address": 23186,
+   "type": "line",
+   "text": "Column frame 0. At the nine-complete-cell configuration, the painter reads nine groups of eight bytes and seven more bytes for the final partial cell."
+  },
+  {
+   "address": 23265,
+   "type": "line",
+   "text": "Last byte of the preceding column allocation followed by the width and height prefix of the next column. The traced painter consumes 79 bytes from each selected address. This boundary follows source index 0."
+  },
+  {
+   "address": 23268,
+   "type": "line",
+   "text": "Column frame 1. At the nine-complete-cell configuration, the painter reads nine groups of eight bytes and seven more bytes for the final partial cell."
+  },
+  {
+   "address": 23347,
+   "type": "line",
+   "text": "Last byte of the preceding column allocation followed by the width and height prefix of the next column. The traced painter consumes 79 bytes from each selected address. This boundary follows source index 1."
+  },
+  {
+   "address": 23350,
+   "type": "line",
+   "text": "Column frame 2. At the nine-complete-cell configuration, the painter reads nine groups of eight bytes and seven more bytes for the final partial cell."
+  },
+  {
+   "address": 23429,
+   "type": "line",
+   "text": "Last byte of the preceding column allocation followed by the width and height prefix of the next column. The traced painter consumes 79 bytes from each selected address. This boundary follows source index 2."
+  },
+  {
+   "address": 23432,
+   "type": "line",
+   "text": "Column frame 3. At the nine-complete-cell configuration, the painter reads nine groups of eight bytes and seven more bytes for the final partial cell."
+  },
+  {
+   "address": 23511,
+   "type": "line",
+   "text": "Trailing water data followed by the first $04,$10 overlay-size pair and its first two bytes. The live writer starts two bytes farther into the pixels."
+  },
+  {
+   "address": 23516,
+   "type": "line",
+   "text": "Four 16-byte bitmap strips merged with the underlying image by the right overlay swing code at $10B0."
+  },
+  {
+   "address": 23580,
+   "type": "line",
+   "text": "Four 16-byte bitmap strips merged into the left overlay position. The code at $106B sets this source for $10B0."
+  },
+  {
+   "address": 23644,
+   "type": "line",
+   "text": "A stored $04,$10 size pair followed by another 64-byte bitmap mask, adjacent to the masks selected by the active overlay paths."
+  },
+  {
+   "address": 23710,
+   "type": "line",
+   "text": "A second retained four-by-sixteen-byte mask after the active overlay sources, beginning with bytes $04,$10."
+  },
+  {
+   "address": 23808,
+   "type": "line",
+   "text": "Two eight-byte cells for the left side after progress reaches six. The writer copies them to $B438 and $B578 before clearing lower rows."
+  },
+  {
+   "address": 23824,
+   "type": "line",
+   "text": "Zero separator between the two bytestrings used after the water edge opens. The eight-byte pairs are copied from $5D00 and $5D11."
+  },
+  {
+   "address": 23825,
+   "type": "line",
+   "text": "Two eight-byte cells for the right side after progress reaches six. The writer copies them to $B500 and $B640 before clearing lower rows."
+  },
+  {
    "address": 24576,
    "type": "line",
    "text": "Speed playfield bitmap source offsets 0\u20131023. The 21-page copy at $1B60 places this slice at $A000."
@@ -1152,9 +3431,244 @@
    "text": "Speed playfield bitmap source offsets 5120\u20135375. The 21-page copy at $1B60 places this slice at $B400."
   },
   {
+   "address": 29952,
+   "type": "line",
+   "text": "Four 64-byte Speed overlay shapes at directory indices 0\u20133. The first 63 bytes of each slot are bitmap rows. The overlay progression table selects which indices to copy to the VIC sprite buffers."
+  },
+  {
+   "address": 30208,
+   "type": "line",
+   "text": "Four 64-byte Speed overlay shapes at directory indices 4\u20137. The first 63 bytes of each slot are bitmap rows. The overlay progression table selects which indices to copy to the VIC sprite buffers."
+  },
+  {
+   "address": 30464,
+   "type": "line",
+   "text": "Four 64-byte Speed overlay shapes at directory indices 8\u201311. The first 63 bytes of each slot are bitmap rows. The overlay progression table selects which indices to copy to the VIC sprite buffers."
+  },
+  {
+   "address": 30720,
+   "type": "line",
+   "text": "Four 64-byte Speed overlay shapes at directory indices 12\u201315. The first 63 bytes of each slot are bitmap rows. The overlay progression table selects which indices to copy to the VIC sprite buffers."
+  },
+  {
+   "address": 30976,
+   "type": "line",
+   "text": "Four 64-byte Speed overlay shapes at directory indices 16\u201319. The first 63 bytes of each slot are bitmap rows. The overlay progression table selects which indices to copy to the VIC sprite buffers."
+  },
+  {
+   "address": 31232,
+   "type": "line",
+   "text": "Four 64-byte Speed overlay shapes at directory indices 20\u201323. The first 63 bytes of each slot are bitmap rows. The overlay progression table selects which indices to copy to the VIC sprite buffers."
+  },
+  {
+   "address": 31488,
+   "type": "line",
+   "text": "Three stored overlay shapes at indices 24\u201326. The directory skips the next physical slot at $7BC0."
+  },
+  {
+   "address": 31680,
+   "type": "line",
+   "text": "Empty physical sprite slot skipped by the address table between overlay indices 26 and 27."
+  },
+  {
+   "address": 31744,
+   "type": "line",
+   "text": "The overlay shape at index 27, stored after the physical gap at $7BC0."
+  },
+  {
+   "address": 31808,
+   "type": "line",
+   "text": "Four 64-byte source slots for the final overlay selectors. Index 31 points to the last all-zero slot."
+  },
+  {
+   "address": 32768,
+   "type": "line",
+   "text": "Initial VIC sprite shapes at pointers 0 through 3. The timed raster placement code draws from this fixed set in the lower two phases."
+  },
+  {
+   "address": 33024,
+   "type": "line",
+   "text": "Initial VIC sprite shapes at pointers 4 through 7. The timed raster placement code draws from this fixed set in the lower two phases."
+  },
+  {
+   "address": 33280,
+   "type": "line",
+   "text": "Initial VIC sprite shapes at pointers 8 through 11. The timed raster placement code draws from this fixed set in the lower two phases."
+  },
+  {
+   "address": 33536,
+   "type": "line",
+   "text": "Initial VIC sprite shapes at pointers 12 through 15. The timed raster placement code draws from this fixed set in the lower two phases."
+  },
+  {
+   "address": 34560,
+   "type": "line",
+   "text": "Two 64-byte initial sprite slots selected by pointers $1C and $1D for the suspended ball display."
+  },
+  {
+   "address": 34800,
+   "type": "line",
+   "text": "Sixteen initial zero bytes at the end of the VIC slot beginning at $87C0. The overlay writer fills only the first 48 bytes of this slot."
+  },
+  {
+   "address": 34928,
+   "type": "line",
+   "text": "Fourteen initial zero bytes after the 48-byte overlay write at $8840. The following two bytes receive wraparound stores from a different source slot."
+  },
+  {
+   "address": 35840,
+   "type": "line",
+   "text": "The loaded 40-column matrix supplies the two screen-colour nibbles for each of the 25 visible Speed bitmap rows. Water and line updates write selected cells."
+  },
+  {
+   "address": 36840,
+   "type": "line",
+   "text": "Sixteen bytes after the 1,000 displayed cells and before the eight sprite pointers."
+  },
+  {
+   "address": 36856,
+   "type": "line",
+   "text": "Eight initial VIC sprite pointers at the end of the screen page. The Speed IRQ updates pointers for its timed sprite groups."
+  },
+  {
+   "address": 40960,
+   "type": "line",
+   "text": "Initial character bytes in the VIC buffer. Most duplicate the three pages at $FA00. The instruction-screen setup copies the source font over the entire buffer."
+  },
+  {
+   "address": 41728,
+   "type": "line",
+   "text": "Initial bytes of the bitmap\u2019s fourth page. They match the gameplay bitmap source at $6300 except at offsets $1E and $1F."
+  },
+  {
    "address": 41984,
    "type": "line",
    "text": "Authored 40-by-25 character matrix at $A400 displayed when the Speed opening routine selects character mode."
+  },
+  {
+   "address": 42984,
+   "type": "line",
+   "text": "Twenty-four bytes past the 1,000-cell instruction screen. The font colour setup still reads them while preparing four full pages of colour RAM."
+  },
+  {
+   "address": 46336,
+   "type": "line",
+   "text": "Authored pixels for the final eight cells of bitmap row 16 and the full rows 17 and 18. The initial 21-page bitmap copy ends at $B4FF, before these lower rows."
+  },
+  {
+   "address": 47040,
+   "type": "line",
+   "text": "Authored gameplay bitmap pixels for rows 19\u201321 of the 40-column VIC matrix. The initial 21-page bitmap copy ends before this range."
+  },
+  {
+   "address": 48000,
+   "type": "line",
+   "text": "Authored gameplay bitmap pixels for rows 22\u201324 of the 40-column VIC matrix. The initial 21-page bitmap copy ends before this range."
+  },
+  {
+   "address": 48960,
+   "type": "line",
+   "text": "Small pixel pattern after the 25 visible bitmap rows, before the standalone preview header."
+  },
+  {
+   "address": 49038,
+   "type": "line",
+   "text": "Retained BASIC header with SYS 2070 and a JEDI text fragment. The preview program immediately follows."
+  },
+  {
+   "address": 49059,
+   "type": "line",
+   "text": "Retained preview instructions following the Speed bitmap. They copy the image and configure the VIC bank, bitmap, colour registers and border in a display hold loop."
+  },
+  {
+   "address": 49624,
+   "type": "line",
+   "text": "The retained $33 byte in the otherwise zero space just before the line generator at $C1E0. The slot directory and line geometry are later in memory."
+  },
+  {
+   "address": 49632,
+   "type": "line",
+   "text": "Selects the next destination slot from the pointer table at $C8B5. Updates the source position and direction, reads a three-byte endpoint record and generates the addressed pixel masks for that line."
+  },
+  {
+   "address": 49797,
+   "type": "line",
+   "text": "Forms the packed bitmap byte address and pixel mask from the line step coordinates. Writes each record as two address bytes followed by one mask."
+  },
+  {
+   "address": 49930,
+   "type": "line",
+   "text": "Computes signed horizontal and vertical deltas from the supplied endpoint. Uses an integer error accumulator to step between the endpoints and passes each pixel to $C285."
+  },
+  {
+   "address": 50300,
+   "type": "line",
+   "text": "Progress and rendering work bytes. $09F2 clears these 94 bytes before setting initial animation, joystick, water, line and result state."
+  },
+  {
+   "address": 50394,
+   "type": "line",
+   "text": "Initial water cell and pixel counts, line index and step, current redraw state, and result adjustment fields. $09F2 installs the gameplay starting settings here."
+  },
+  {
+   "address": 50407,
+   "type": "line",
+   "text": "Four $D016 values alternated by the water raster service at $1E09. The low three bits cycle horizontal fine scroll 1, 2, 3, 2."
+  },
+  {
+   "address": 50411,
+   "type": "line",
+   "text": "Fifty-five repetitions of the same four $D016 values. The raster routine resets its index before fetching a fifth value."
+  },
+  {
+   "address": 50631,
+   "type": "line",
+   "text": "Eight single-bit masks in the order selected by the bitmap line walker at $C2E0."
+  },
+  {
+   "address": 50639,
+   "type": "line",
+   "text": "Three pairs of 16-bit coordinates per 12-byte group. $C1E0 advances the base by 12 and uses the first coordinates to generate a bitmap line. $17B0 uses the same line index to place the ball sprite. A final four-byte pair follows the full groups."
+  },
+  {
+   "address": 51315,
+   "type": "line",
+   "text": "Sixteen little-endian bitmap addresses arranged in four rows and four columns. The row step is $140 and the adjacent columns differ by $18 or $20."
+  },
+  {
+   "address": 51347,
+   "type": "line",
+   "text": "Per-sprite coordinate bytes, including the animated overlay and suspended ball positions. The pose and line routines write them before the raster handler places the sprites."
+  },
+  {
+   "address": 51381,
+   "type": "line",
+   "text": "Fifty-five pointers to 180-byte slots for generated line records. Slots span ordinary RAM at $9000, RAM under I/O at $D000 and RAM under the KERNAL at $F000."
+  },
+  {
+   "address": 51491,
+   "type": "line",
+   "text": "Eight further $B4-spaced addresses from $F924 through $FE10. The chamber initializer stops after 55 generated records before consuming this tail."
+  },
+  {
+   "address": 51507,
+   "type": "line",
+   "text": "Fifteen little-endian offsets from zero through $A8, increasing by the 12-byte size of a line geometry group."
+  },
+  {
+   "address": 51537,
+   "type": "line",
+   "text": "Four sources for the column painter at $1960. Both sides of the feature use this directory."
+  },
+  {
+   "address": 51545,
+   "type": "line",
+   "text": "Four 16-byte sources for the reverse-order horizontal painter at $1A70."
+  },
+  {
+   "address": 51553,
+   "type": "line",
+   "text": "Four 16-byte sources for the reverse-order horizontal painter at $1AD2."
   },
   {
    "address": 51561,
@@ -1167,6 +3681,316 @@
    "text": "Ten pointers to Speed movement streams. The move number at $C4D9 selects the stream whose position is held in $C481."
   },
   {
+   "address": 51657,
+   "type": "line",
+   "text": "Apprentice motion script 0. The first byte of a four-byte record selects a pose and the following pair at offsets two and three supplies its offset bytes. Two-byte $C8 and $CC controls handle stick matching when those opcodes occur."
+  },
+  {
+   "address": 51683,
+   "type": "line",
+   "text": "Apprentice motion script 1. The first byte of a four-byte record selects a pose and the following pair at offsets two and three supplies its offset bytes. Two-byte $C8 and $CC controls handle stick matching when those opcodes occur."
+  },
+  {
+   "address": 51709,
+   "type": "line",
+   "text": "Apprentice motion script 2. The first byte of a four-byte record selects a pose and the following pair at offsets two and three supplies its offset bytes. Two-byte $C8 and $CC controls handle stick matching when those opcodes occur."
+  },
+  {
+   "address": 51731,
+   "type": "line",
+   "text": "Apprentice motion script 3. The first byte of a four-byte record selects a pose and the following pair at offsets two and three supplies its offset bytes. Two-byte $C8 and $CC controls handle stick matching when those opcodes occur."
+  },
+  {
+   "address": 51753,
+   "type": "line",
+   "text": "Apprentice motion script 4. The first byte of a four-byte record selects a pose and the following pair at offsets two and three supplies its offset bytes. Two-byte $C8 and $CC controls handle stick matching when those opcodes occur."
+  },
+  {
+   "address": 51805,
+   "type": "line",
+   "text": "Apprentice motion script 5. The first byte of a four-byte record selects a pose and the following pair at offsets two and three supplies its offset bytes. Two-byte $C8 and $CC controls handle stick matching when those opcodes occur."
+  },
+  {
+   "address": 51857,
+   "type": "line",
+   "text": "Apprentice motion script 6. The first byte of a four-byte record selects a pose and the following pair at offsets two and three supplies its offset bytes. Two-byte $C8 and $CC controls handle stick matching when those opcodes occur."
+  },
+  {
+   "address": 51909,
+   "type": "line",
+   "text": "Apprentice motion script 7. The first byte of a four-byte record selects a pose and the following pair at offsets two and three supplies its offset bytes. Two-byte $C8 and $CC controls handle stick matching when those opcodes occur."
+  },
+  {
+   "address": 51961,
+   "type": "line",
+   "text": "Apprentice motion script 8. The first byte of a four-byte record selects a pose and the following pair at offsets two and three supplies its offset bytes. Two-byte $C8 and $CC controls handle stick matching when those opcodes occur."
+  },
+  {
+   "address": 52025,
+   "type": "line",
+   "text": "Apprentice motion script 9. The first byte of a four-byte record selects a pose and the following pair at offsets two and three supplies its offset bytes. Two-byte $C8 and $CC controls handle stick matching when those opcodes occur."
+  },
+  {
+   "address": 52089,
+   "type": "line",
+   "text": "Thirty-two pointers to 64-byte overlay shapes from $7500. The directory skips the empty slot at $7BC0 and ends at $7D00."
+  },
+  {
+   "address": 52153,
+   "type": "line",
+   "text": "Ten four-byte records indexed by the two overlay progress counters. The first three bytes select shape changes and the fourth stays zero."
+  },
+  {
+   "address": 52193,
+   "type": "line",
+   "text": "Fourteen movement and height parameters read by the overlay painter and its sprite updates."
+  },
+  {
+   "address": 52207,
+   "type": "line",
+   "text": "Eight bitmap destination addresses selected by the left overlay progress step at $1078."
+  },
+  {
+   "address": 52223,
+   "type": "line",
+   "text": "Eight bitmap destination addresses selected from the right progress step at $1046."
+  },
+  {
+   "address": 52239,
+   "type": "line",
+   "text": "Twenty-five multiples of 40 used to place message rows in the instruction matrix."
+  },
+  {
+   "address": 52289,
+   "type": "line",
+   "text": "Five pointers to sequence lists selected by the result mode."
+  },
+  {
+   "address": 52299,
+   "type": "line",
+   "text": "Five lists of positioned message indices, each ending at $FF."
+  },
+  {
+   "address": 52316,
+   "type": "line",
+   "text": "Eight message pointers selected by the sequence renderer at $0CAB."
+  },
+  {
+   "address": 52332,
+   "type": "line",
+   "text": "Positioned message 0 selected through $CC5C. Column and row precede each string segment, with $FE for a new position and $FF for end."
+  },
+  {
+   "address": 52367,
+   "type": "line",
+   "text": "Positioned message 1 selected through $CC5C. Column and row precede each string segment, with $FE for a new position and $FF for end."
+  },
+  {
+   "address": 52444,
+   "type": "line",
+   "text": "Positioned message 2 selected through $CC5C. Column and row precede each string segment, with $FE for a new position and $FF for end."
+  },
+  {
+   "address": 52491,
+   "type": "line",
+   "text": "Positioned message 3 selected through $CC5C. Column and row precede each string segment, with $FE for a new position and $FF for end."
+  },
+  {
+   "address": 52524,
+   "type": "line",
+   "text": "Positioned message 4 selected through $CC5C. Column and row precede each string segment, with $FE for a new position and $FF for end."
+  },
+  {
+   "address": 52608,
+   "type": "line",
+   "text": "Positioned message 5 selected through $CC5C. Column and row precede each string segment, with $FE for a new position and $FF for end."
+  },
+  {
+   "address": 52633,
+   "type": "line",
+   "text": "Positioned message 6 selected through $CC5C. Column and row precede each string segment, with $FE for a new position and $FF for end."
+  },
+  {
+   "address": 52658,
+   "type": "line",
+   "text": "Positioned message 7 selected through $CC5C. Column and row precede each string segment, with $FE for a new position and $FF for end."
+  },
+  {
+   "address": 57344,
+   "type": "line",
+   "text": "Retained copy of the Strength effect-driver bytes. Jumps to the voice dispatcher at $E02E."
+  },
+  {
+   "address": 57347,
+   "type": "line",
+   "text": "Retained copy of the Strength effect-driver bytes. Sets the SID volume and mode to $1F. Clears the 24 voice and filter registers at $D400\u2013$D417."
+  },
+  {
+   "address": 57363,
+   "type": "line",
+   "text": "Retained copy of the Strength effect-driver bytes. A zero effect number disables the voice\u2019s envelope and sets its test bit. For an active effect the low seven bits select a stream. The high bit requests a restart with the voice gate reset and the stream position reset to zero."
+  },
+  {
+   "address": 57432,
+   "type": "line",
+   "text": "Retained copy of the Strength effect decoder. Its command bits control envelope, oscillator and voice-zero filter fields, then update the voice duration or clear the effect request."
+  },
+  {
+   "address": 57572,
+   "type": "line",
+   "text": "Retained copy of the Strength effect-driver bytes. Steps frequency, waveform and pulse while the current duration runs. The frequency stream can set its high byte with $81 or redirect to a stream offset with another negative command. The waveform table maps indices to SID control bytes."
+  },
+  {
+   "address": 57693,
+   "type": "line",
+   "text": "Retained effect voice stepper. Its ending SID cutoff store is interrupted by the Speed music entry at $E170."
+  },
+  {
+   "address": 57712,
+   "type": "line",
+   "text": "The Speed music service entry jumps to the voice updater at $E222."
+  },
+  {
+   "address": 57715,
+   "type": "line",
+   "text": "Clears the voice and filter state and resets the SID. Uses A to select the divider and six initial voice pointer bytes, and marks the first pass to fetch a sequence entry."
+  },
+  {
+   "address": 57783,
+   "type": "line",
+   "text": "Interprets track bytes as a new track pointer, voice offsets or a repeat count. Nonnegative values select a phrase through the directory. Saves the new track position and begins the phrase."
+  },
+  {
+   "address": 57887,
+   "type": "line",
+   "text": "Starts the player at voice index two or continues the current voice. The tick divider and note timers decide whether to fetch another phrase byte or step the instrument and write the active voice."
+  },
+  {
+   "address": 57924,
+   "type": "line",
+   "text": "Selects the phrase using the current voice\u2019s index. Decodes note, duration, instrument, filter, pitch override and slide commands. A zero byte returns to track processing."
+  },
+  {
+   "address": 58151,
+   "type": "line",
+   "text": "Updates SID gate and envelope according to the instrument flags, resets modulation on a new note and reads the note frequency from its two byte tables. Updates the duration and saved phrase position."
+  },
+  {
+   "address": 58310,
+   "type": "line",
+   "text": "Services the remaining voices by descending register index. The final voice updates the tick divider and SID mode and resonance. The filter step path reads a timed incremental cutoff command and writes $D416."
+  },
+  {
+   "address": 58400,
+   "type": "line",
+   "text": "Initializes the slide when its counter is negative. Computes the interval from the difference of two note frequencies divided by the duration. Thereafter decrements the counter and adds the stored interval."
+  },
+  {
+   "address": 58537,
+   "type": "line",
+   "text": "Writes a relative note lookup or a literal high frequency byte, then resumes instrument decoding. The silent branch resets the selected voice control and both envelope registers before moving on."
+  },
+  {
+   "address": 58590,
+   "type": "line",
+   "text": "Uses the current instrument or the active override to select a pitch program. Applies its loop and timing fields and updates the note frequency from the program\u2019s command."
+  },
+  {
+   "address": 58877,
+   "type": "line",
+   "text": "Uses the instrument to choose a timed pulse increment program and advances that program when the countdown elapses. Adds the active increment to the saved pulse width."
+  },
+  {
+   "address": 58944,
+   "type": "line",
+   "text": "Selects a fixed instrument control byte or the next byte from a control program. Applies the current voice mask and saves the program position."
+  },
+  {
+   "address": 58996,
+   "type": "line",
+   "text": "Writes control, frequency, pulse width, attack/decay and sustain/release to the selected SID voice, then advances to the next voice. The Speed variant can write a zero sustain/release byte or skip its envelope write when the voice and gate checks suppress the normal path."
+  },
+  {
+   "address": 59076,
+   "type": "line",
+   "text": "Sixteen eight-byte instrument records. The player reads the waveform settings, envelope, modulation and gate flags by using the selected instrument number times eight."
+  },
+  {
+   "address": 59204,
+   "type": "line",
+   "text": "Split pitch program pointers and their loop controls, selected by the instrument or overwritten at index zero by an override."
+  },
+  {
+   "address": 59231,
+   "type": "line",
+   "text": "Pulse, control and filter program pointers. The driver selects a program by the current instrument or filter command."
+  },
+  {
+   "address": 59264,
+   "type": "line",
+   "text": "Pitch override directory, including split pointers, loop fields and the short programs addressed by those pointers."
+  },
+  {
+   "address": 59299,
+   "type": "line",
+   "text": "Low bytes of the 95 SID note frequencies, paired with the table at $E802."
+  },
+  {
+   "address": 59394,
+   "type": "line",
+   "text": "High frequency bytes referenced with the same note index as the low bytes at $E7A3."
+  },
+  {
+   "address": 59489,
+   "type": "line",
+   "text": "SID register offsets 0, 7 and 14 for the three voices."
+  },
+  {
+   "address": 59492,
+   "type": "line",
+   "text": "Voice and filter state initialized by $E173. Holds frequency, instrument, modulation positions, note counters and current track pointers."
+  },
+  {
+   "address": 59582,
+   "type": "line",
+   "text": "Ten little-endian phrase pointers, read at twice the phrase number."
+  },
+  {
+   "address": 59602,
+   "type": "line",
+   "text": "Two six-byte records. Each provides three track address low bytes and three high bytes."
+  },
+  {
+   "address": 59614,
+   "type": "line",
+   "text": "The two reload bytes selected by tune index."
+  },
+  {
+   "address": 59616,
+   "type": "line",
+   "text": "Short programs controlling pitch, pulse width and waveform. The player reads them through its split selector tables."
+  },
+  {
+   "address": 59748,
+   "type": "line",
+   "text": "Notes and control commands for the phrases selected in the first Speed tune, with entry points from $E964 to $E985."
+  },
+  {
+   "address": 59794,
+   "type": "line",
+   "text": "Three short tracks for the first Speed tune. Their loop commands point back into this track group."
+  },
+  {
+   "address": 59811,
+   "type": "line",
+   "text": "The second group of overlapping phrases, selected for tune one. The final phrase starts at $E9FE."
+  },
+  {
+   "address": 59908,
+   "type": "line",
+   "text": "The three looped tracks for Speed tune one, with starts at $EA04, $EA08 and $EA14."
+  },
+  {
    "address": 60160,
    "type": "line",
    "text": "The first four pages of the program image the Speed exit moves down to $C900\u2013$CCFF before executing it."
@@ -1177,9 +4001,34 @@
    "text": "The fifth page moved to $CD00 by the Speed exit, finishing the relocated loader image."
   },
   {
+   "address": 63780,
+   "type": "line",
+   "text": "All-zero initial buffer addressed by the slot entry after the 55 active lines. The line initializer stops before generating this record."
+  },
+  {
+   "address": 63960,
+   "type": "line",
+   "text": "Zero-filled prefix of the second inactive slot. Its nominal extent overlaps the font source beginning at $FA00."
+  },
+  {
    "address": 64000,
    "type": "line",
    "text": "Three pages of the private font copied to $A000 before displaying the Speed instructions. The glyph bytes match the title form's original font."
+  },
+  {
+   "address": 64816,
+   "type": "line",
+   "text": "Sixteen little-endian vector values matching the KERNAL\u2019s default IRQ, NMI and device vectors. The title load retains the same RAM template at this address."
+  },
+  {
+   "address": 64860,
+   "type": "line",
+   "text": "Zero-filled nominal line slot pointed to from the inactive directory tail. The generator never reaches the slot index."
+  },
+  {
+   "address": 65040,
+   "type": "line",
+   "text": "Final unused zero-filled 180-byte slot in the line pointer list."
   }
  ]
 }

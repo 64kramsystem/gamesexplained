@@ -11,6 +11,86 @@
         "$0334",
         "$07FF",
         "Residual packed stream copied by the depacker through ($FE),Y before the destination data is unpacked through ($FA),Y. The authored output starts at $0800."
+      ],
+      [
+        "$2000",
+        "$3FE0",
+        "Generated display plane. The blanked Combat entry installs the introductory glyphs at $2000\u2013$22FF from $DC80 before enabling the text display. $1CB4 then clears $2000\u2013$3FE0 before scene decoding. The instruction trace records both ends of the clear."
+      ],
+      [
+        "$5180",
+        "$5E73",
+        "Combat working plane zeroed by $1CB4 before the fight display is enabled. The instruction trace records every store from $5180 through $5E73."
+      ],
+      [
+        "$3FE1",
+        "$3FFF",
+        "Zero-filled end of the bitmap allocation outside the initialized bitmap at $2000\u2013$3FE0 and beyond the visible cells."
+      ],
+      [
+        "$4AA9",
+        "$4AFF",
+        "Zero-filled gap after scene source 3 and before the first HUD bar source. The decoder ended its stream at $4AA8 and intro and play watchpoints saw no accesses in this interval."
+      ],
+      [
+        "$4C78",
+        "$4E2F",
+        "Zero-filled space beyond the authored HUD colour strip. The HUD painter starts its second matrix fills at $4E30. No read, write or execution hit in this gap during intro or play."
+      ],
+      [
+        "$4FBF",
+        "$4FF7",
+        "Zero-filled interval after the generated HUD matrix and before the weapon\u2019s sprite pointer. The HUD trace ends at $4FBE."
+      ],
+      [
+        "$4FF9",
+        "$517F",
+        "Zero-filled interval between the weapon\u2019s fixed sprite pointer and the fighter bitmap work plane. The weapon phase enables only sprite zero. No CPU watchpoint hits in the intro and play probes."
+      ],
+      [
+        "$5E74",
+        "$5F3F",
+        "Zero-filled gap after the cleared fighter plane and before the weapon sprite. Intro and play read, write and execution watches saw no access."
+      ],
+      [
+        "$5F80",
+        "$5FFF",
+        "Zero-filled gap after the 64-byte weapon sprite. The pointer $7D selects $5F40 and the watches found no CPU access past its slot."
+      ],
+      [
+        "$778D",
+        "$77FF",
+        "Zero-filled gap after the second compressed scene stream. The decoder stopped at $778C, and the adjacent fight state begins at $7800."
+      ],
+      [
+        "$7FA1",
+        "$7FFF",
+        "Zero-filled interval between the opponent frame selector and the first fighter-frame pointer. The intro and fight watched the interval with no hits."
+      ],
+      [
+        "$80E0",
+        "$80FF",
+        "Zero-filled padding after the final two-byte fighter-frame offset and before the first sprite bitmap header at $8100."
+      ],
+      [
+        "$DB6F",
+        "$DC7F",
+        "Zero-filled gap in RAM beneath I/O between the first scene stream and the intro font. Intro writes hit I/O colour and port registers. The play watch stopped after a CIA read at $0A18 with processor port $35."
+      ],
+      [
+        "$DF80",
+        "$DFFF",
+        "Zero-filled tail after the Combat font source and before the music entry. The font copy stops at $DF7F and the intro and fight watches saw no access here."
+      ],
+      [
+        "$EC34",
+        "$EC3F",
+        "Twelve zero bytes between the final music phrase data and the fire gate at $EC40. The player\u2019s phrase trace and intro and fight watches saw no references."
+      ],
+      [
+        "$4E30",
+        "$4FBE",
+        "Generated second HUD matrix. The $1F52 trace recorded writes throughout the interval before the Combat bitmap display is enabled. The old contents of this region are uniform $A0."
       ]
     ],
     "extra": [
@@ -28,8 +108,13 @@
     "include": [
       [
         "$D000",
-        "$DFFF",
-        "Depacker writes the RAM beneath I/O"
+        "$DB6E",
+        "Compressed environment stream read with I/O banked out. The first decoder trace consumed exactly this range."
+      ],
+      [
+        "$DC80",
+        "$DF7F",
+        "Combat introduction glyphs read with I/O banked out. The $EDB2 loop copies all three source pages."
       ]
     ]
   },
@@ -51,6 +136,12 @@
       "$EDBE",
       "ram",
       "I/O is banked out while the Combat introduction reads the three glyph pages."
+    ],
+    [
+      "$CA52",
+      "$CA7C",
+      "ram",
+      "The score digit painter selects the glyphs stored under I/O after setting the processor port to $34."
     ]
   ],
   "regions": [],
