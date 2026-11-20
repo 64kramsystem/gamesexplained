@@ -1,0 +1,93 @@
+{
+  "schema": 1,
+  "platform": "c64",
+  "slug": "flasch-bier",
+  "title": "Flasch Bier",
+  "year": 1985,
+  "publisher": "Werner Soft",
+  "developer": "Ulrich Schulz",
+  "title_image": "reference/title.png",
+  "build": "c64g FLSCHBIR.T64",
+  "tier": "bronze",
+  "coverage_percent": null,
+  "copy": "agent-draft",
+  "steward": "",
+  "credits": [],
+  "tools": {
+    "emulator": "VICE-MCP v3.14.0 macOS arm64 headless, dummy audio",
+    "disassembler": "regenerator2000"
+  },
+  "model": "gpt-6.2-sol",
+  "step_models": {
+    "50-coverage": [
+      "gpt-6.2-sol"
+    ],
+    "60-verify": [
+      "gpt-6.2-sol"
+    ]
+  },
+  "accuracy": [
+    {
+      "step": "research",
+      "web": true,
+      "models": [
+        "gpt-6.2-sol"
+      ]
+    },
+    {
+      "step": "annotate",
+      "models": [
+        "gpt-6.2-sol"
+      ]
+    },
+    {
+      "step": "sample",
+      "size": 60,
+      "wrong": 7,
+      "fixed": 7,
+      "seed": 1985,
+      "models": [
+        "gpt-6.2-sol"
+      ]
+    }
+  ],
+  "kit_version": "0.0.360",
+  "created": "2026-11-20",
+  "video": {
+    "screen": "$0400",
+    "charset": "$1800"
+  },
+  "coverage": {
+    "exclude": [
+      [
+        "$6201",
+        "$6380",
+        "Unrelated TEST DISK BASIC directory image, with linked directory records, blocks-free line and trailing bytes"
+      ],
+      [
+        "$FD30",
+        "$FD4F",
+        "Outside the tape load, a duplicate of the KERNAL vector-default table at the same ROM address"
+      ],
+      [
+        "$07C0",
+        "$07E7",
+        "Generated bottom display row at $0400 + 24 \u00d7 40, blank at SYS entry and with digits written by $5F14, $5F59 and $2727 in play"
+      ]
+    ],
+    "extra": [],
+    "include": []
+  },
+  "io": [],
+  "regions": [],
+  "links": {
+    "wiki": {
+      "title": "",
+      "url": ""
+    },
+    "manual": {
+      "title": "",
+      "url": ""
+    }
+  }
+}

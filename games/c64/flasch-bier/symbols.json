@@ -1,0 +1,2076 @@
+{
+ "schema": 1,
+ "platform": "c64",
+ "game": "flasch-bier",
+ "build": "c64g FLSCHBIR.T64",
+ "source": "regen2000proj",
+ "regions": {
+  "exclude": [
+   [
+    256,
+    511,
+    "stack"
+   ],
+   [
+    53248,
+    57343,
+    "I/O and colour RAM"
+   ],
+   [
+    1024,
+    2047,
+    "screen RAM"
+   ],
+   [
+    25089,
+    25472,
+    "Unrelated TEST DISK BASIC directory image, with linked directory records, blocks-free line and trailing bytes"
+   ],
+   [
+    64816,
+    64847,
+    "Outside the tape load, a duplicate of the KERNAL vector-default table at the same ROM address"
+   ],
+   [
+    1984,
+    2023,
+    "Generated bottom display row at $0400 + 24 \u00d7 40, blank at SYS entry and with digits written by $5F14, $5F59 and $2727 in play"
+   ]
+  ],
+  "extra": [
+   [
+    6144,
+    8191,
+    "character set"
+   ]
+  ],
+  "edges": [
+   0,
+   256,
+   512,
+   1024,
+   2048,
+   4096,
+   16384,
+   32768,
+   40960,
+   49152,
+   53248,
+   57344
+  ]
+ },
+ "blocks": [
+  {
+   "start": 0,
+   "end": 2048,
+   "type": "Undefined"
+  },
+  {
+   "start": 2049,
+   "end": 2111,
+   "type": "Byte"
+  },
+  {
+   "start": 2112,
+   "end": 2172,
+   "type": "Code"
+  },
+  {
+   "start": 2173,
+   "end": 8191,
+   "type": "Byte"
+  },
+  {
+   "start": 8192,
+   "end": 8271,
+   "type": "Code"
+  },
+  {
+   "start": 8272,
+   "end": 8281,
+   "type": "Byte"
+  },
+  {
+   "start": 8282,
+   "end": 8846,
+   "type": "Code"
+  },
+  {
+   "start": 8847,
+   "end": 8861,
+   "type": "Byte"
+  },
+  {
+   "start": 8862,
+   "end": 10207,
+   "type": "Code"
+  },
+  {
+   "start": 10208,
+   "end": 22527,
+   "type": "Byte"
+  },
+  {
+   "start": 22528,
+   "end": 23245,
+   "type": "Code"
+  },
+  {
+   "start": 23246,
+   "end": 23247,
+   "type": "Byte"
+  },
+  {
+   "start": 23248,
+   "end": 23289,
+   "type": "Code"
+  },
+  {
+   "start": 23290,
+   "end": 23291,
+   "type": "Byte"
+  },
+  {
+   "start": 23292,
+   "end": 23315,
+   "type": "Code"
+  },
+  {
+   "start": 23316,
+   "end": 24339,
+   "type": "Screencode"
+  },
+  {
+   "start": 24340,
+   "end": 24557,
+   "type": "Code"
+  },
+  {
+   "start": 24558,
+   "end": 24831,
+   "type": "Byte"
+  },
+  {
+   "start": 24832,
+   "end": 24947,
+   "type": "Code"
+  },
+  {
+   "start": 24948,
+   "end": 25088,
+   "type": "Byte"
+  },
+  {
+   "start": 25089,
+   "end": 65535,
+   "type": "Undefined"
+  }
+ ],
+ "symbols": [
+  {
+   "address": 2,
+   "name": "sound_irq_divider",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 165,
+   "name": "source_cell_low",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 166,
+   "name": "source_cell_high",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 171,
+   "name": "cave_source_low",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 172,
+   "name": "cave_source_high",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 193,
+   "name": "workspace_pointer_low",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 194,
+   "name": "workspace_pointer_high",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 198,
+   "name": "keyboard_queue_count",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 788,
+   "name": "irq_vector_low",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 789,
+   "name": "irq_vector_high",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 792,
+   "name": "nmi_vector_low",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 793,
+   "name": "nmi_vector_high",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 832,
+   "name": "score_low",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 833,
+   "name": "score_high",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 834,
+   "name": "lives",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 836,
+   "name": "time_left",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 837,
+   "name": "timer_irq_divider",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 838,
+   "name": "timer_format_backup",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 840,
+   "name": "cave_number_work",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 846,
+   "name": "noise_rhythm_step",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 847,
+   "name": "game_music_step",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 864,
+   "name": "tile_work",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 865,
+   "name": "title_delay_low",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 866,
+   "name": "title_delay_high",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 880,
+   "name": "werner_cell",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 2049,
+   "name": "basic_boot_line",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 2087,
+   "name": "after_basic_end",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 2112,
+   "name": "boot",
+   "type": "Subroutine",
+   "kind": "user"
+  },
+  {
+   "address": 2122,
+   "name": "restart_from_nmi",
+   "type": "Subroutine",
+   "kind": "user"
+  },
+  {
+   "address": 2160,
+   "name": "start_game_audio",
+   "type": "Subroutine",
+   "kind": "user"
+  },
+  {
+   "address": 2173,
+   "name": "boot_to_sprite_boundary",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 2176,
+   "name": "title_lower_logo_left",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 2240,
+   "name": "title_lower_logo_right",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 2304,
+   "name": "actor_slots_at_entry",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 2560,
+   "name": "live_cave_at_entry",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 2816,
+   "name": "actor_flags_at_entry",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 3072,
+   "name": "title_pitch_low_1",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 3136,
+   "name": "title_pitch_low_2",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 3200,
+   "name": "title_pitch_low_3",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 3264,
+   "name": "title_pitch_low_4",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 3328,
+   "name": "title_pitch_high_1",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 3392,
+   "name": "title_pitch_high_2",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 3456,
+   "name": "title_pitch_high_3",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 3520,
+   "name": "title_pitch_high_4",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 3584,
+   "name": "title_shape_38",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 3648,
+   "name": "title_shape_39",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 3712,
+   "name": "title_shape_3a",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 3776,
+   "name": "title_shape_3b",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 3840,
+   "name": "title_shape_3c",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 3904,
+   "name": "title_shape_3d",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 3968,
+   "name": "title_shape_3e",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 4032,
+   "name": "title_shape_3f",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 4096,
+   "name": "alternate_glyphs_0",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 5120,
+   "name": "alternate_glyphs_1",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 6144,
+   "name": "cave_glyphs_0",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 7168,
+   "name": "cave_glyphs_1",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 8192,
+   "name": "draw_cave",
+   "type": "Subroutine",
+   "kind": "user"
+  },
+  {
+   "address": 8272,
+   "name": "nop_gap_2050",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 8282,
+   "name": "rock_fall",
+   "type": "Subroutine",
+   "kind": "user"
+  },
+  {
+   "address": 8344,
+   "name": "rock_roll",
+   "type": "Subroutine",
+   "kind": "user"
+  },
+  {
+   "address": 8498,
+   "name": "move_werner",
+   "type": "Subroutine",
+   "kind": "user"
+  },
+  {
+   "address": 8576,
+   "name": "test_down",
+   "type": "Subroutine",
+   "kind": "user"
+  },
+  {
+   "address": 8654,
+   "name": "test_left",
+   "type": "Subroutine",
+   "kind": "user"
+  },
+  {
+   "address": 8732,
+   "name": "test_right",
+   "type": "Subroutine",
+   "kind": "user"
+  },
+  {
+   "address": 8811,
+   "name": "set_effect_envelopes",
+   "type": "Subroutine",
+   "kind": "user"
+  },
+  {
+   "address": 8847,
+   "name": "effect_setup_tail",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 8862,
+   "name": "fall_on_werner",
+   "type": "Subroutine",
+   "kind": "user"
+  },
+  {
+   "address": 8926,
+   "name": "step_rock",
+   "type": "Subroutine",
+   "kind": "user"
+  },
+  {
+   "address": 8968,
+   "name": "show_death_tile",
+   "type": "Subroutine",
+   "kind": "user"
+  },
+  {
+   "address": 8989,
+   "name": "delay_then_read_direction",
+   "type": "Subroutine",
+   "kind": "user"
+  },
+  {
+   "address": 9004,
+   "name": "enemy_try_up",
+   "type": "Subroutine",
+   "kind": "user"
+  },
+  {
+   "address": 9065,
+   "name": "enemy_try_down",
+   "type": "Subroutine",
+   "kind": "user"
+  },
+  {
+   "address": 9126,
+   "name": "enemy_try_left",
+   "type": "Subroutine",
+   "kind": "user"
+  },
+  {
+   "address": 9187,
+   "name": "enemy_try_right",
+   "type": "Subroutine",
+   "kind": "user"
+  },
+  {
+   "address": 9248,
+   "name": "choose_enemy_turn",
+   "type": "Subroutine",
+   "kind": "user"
+  },
+  {
+   "address": 9471,
+   "name": "index_cave_actors",
+   "type": "Subroutine",
+   "kind": "user"
+  },
+  {
+   "address": 9547,
+   "name": "select_first_cave",
+   "type": "Subroutine",
+   "kind": "user"
+  },
+  {
+   "address": 9555,
+   "name": "load_cave_from_ram",
+   "type": "Subroutine",
+   "kind": "user"
+  },
+  {
+   "address": 9632,
+   "name": "advance_cave",
+   "type": "Subroutine",
+   "kind": "user"
+  },
+  {
+   "address": 9647,
+   "name": "start_first_cave",
+   "type": "Subroutine",
+   "kind": "user"
+  },
+  {
+   "address": 9650,
+   "name": "simulate_cave",
+   "type": "Subroutine",
+   "kind": "user"
+  },
+  {
+   "address": 9730,
+   "name": "complete_cave",
+   "type": "Subroutine",
+   "kind": "user"
+  },
+  {
+   "address": 9741,
+   "name": "flash_before_interlude",
+   "type": "Subroutine",
+   "kind": "user"
+  },
+  {
+   "address": 9748,
+   "name": "score_lives_interlude",
+   "type": "Subroutine",
+   "kind": "user"
+  },
+  {
+   "address": 9886,
+   "name": "game_over_prompt",
+   "type": "Subroutine",
+   "kind": "user"
+  },
+  {
+   "address": 9963,
+   "name": "lose_life",
+   "type": "Subroutine",
+   "kind": "user"
+  },
+  {
+   "address": 9969,
+   "name": "reset_score_and_lives",
+   "type": "Subroutine",
+   "kind": "user"
+  },
+  {
+   "address": 10002,
+   "name": "award_time_bonus",
+   "type": "Subroutine",
+   "kind": "user"
+  },
+  {
+   "address": 10023,
+   "name": "cave_irq",
+   "type": "Subroutine",
+   "kind": "user"
+  },
+  {
+   "address": 10106,
+   "name": "reset_difficulty",
+   "type": "Subroutine",
+   "kind": "user"
+  },
+  {
+   "address": 10119,
+   "name": "reset_cave_clock",
+   "type": "Subroutine",
+   "kind": "user"
+  },
+  {
+   "address": 10132,
+   "name": "wrap_cave_pages",
+   "type": "Subroutine",
+   "kind": "user"
+  },
+  {
+   "address": 10152,
+   "name": "flash_border",
+   "type": "Subroutine",
+   "kind": "user"
+  },
+  {
+   "address": 10170,
+   "name": "restore_title_irq",
+   "type": "Subroutine",
+   "kind": "user"
+  },
+  {
+   "address": 10208,
+   "name": "pre_glyph_fragment",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 10240,
+   "name": "retained_pixel_data",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 10752,
+   "name": "retained_tile_patterns",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 11264,
+   "name": "cave_01",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 11520,
+   "name": "cave_02",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 11776,
+   "name": "cave_03",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 12032,
+   "name": "cave_04",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 12288,
+   "name": "cave_05",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 12544,
+   "name": "cave_06",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 12800,
+   "name": "cave_07",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 13056,
+   "name": "cave_08",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 13312,
+   "name": "cave_09",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 13568,
+   "name": "cave_10",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 13824,
+   "name": "cave_11",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 14080,
+   "name": "cave_12",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 14336,
+   "name": "cave_13",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 14592,
+   "name": "cave_14",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 14848,
+   "name": "cave_15",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 15104,
+   "name": "cave_16",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 15360,
+   "name": "cave_17",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 15616,
+   "name": "cave_18",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 15872,
+   "name": "cave_19",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 16128,
+   "name": "cave_20",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 16384,
+   "name": "cave_21",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 16640,
+   "name": "cave_22",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 16896,
+   "name": "cave_23",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 17152,
+   "name": "cave_24",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 17408,
+   "name": "cave_25",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 17664,
+   "name": "cave_26",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 17920,
+   "name": "cave_27",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 18176,
+   "name": "cave_28",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 18432,
+   "name": "cave_29",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 18688,
+   "name": "cave_30",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 18944,
+   "name": "cave_31",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 19200,
+   "name": "cave_32",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 19456,
+   "name": "cave_33",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 19712,
+   "name": "cave_34",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 19968,
+   "name": "cave_35",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 20224,
+   "name": "cave_36",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 20480,
+   "name": "cave_37",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 20736,
+   "name": "cave_38",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 20992,
+   "name": "cave_39",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 21248,
+   "name": "cave_40",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 21504,
+   "name": "cave_41",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 21760,
+   "name": "cave_42",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 22016,
+   "name": "cave_43",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 22272,
+   "name": "cave_44",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 22528,
+   "name": "draw_title",
+   "type": "Subroutine",
+   "kind": "user"
+  },
+  {
+   "address": 22708,
+   "name": "bounce_title_sprites",
+   "type": "Subroutine",
+   "kind": "user"
+  },
+  {
+   "address": 22819,
+   "name": "start_title_bass",
+   "type": "Subroutine",
+   "kind": "user"
+  },
+  {
+   "address": 22848,
+   "name": "slide_title_sprites",
+   "type": "Subroutine",
+   "kind": "user"
+  },
+  {
+   "address": 22972,
+   "name": "title_music_loop",
+   "type": "Subroutine",
+   "kind": "user"
+  },
+  {
+   "address": 23048,
+   "name": "play_title_note",
+   "type": "Subroutine",
+   "kind": "user"
+  },
+  {
+   "address": 23220,
+   "name": "poll_title_fire",
+   "type": "Subroutine",
+   "kind": "user"
+  },
+  {
+   "address": 23246,
+   "name": "nop_gap_5ace",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 23248,
+   "name": "set_title_character",
+   "type": "Subroutine",
+   "kind": "user"
+  },
+  {
+   "address": 23290,
+   "name": "nop_gap_5afa",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 23292,
+   "name": "leave_title",
+   "type": "Subroutine",
+   "kind": "user"
+  },
+  {
+   "address": 23316,
+   "name": "title_screen_page_0",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 23572,
+   "name": "title_screen_page_1",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 23828,
+   "name": "title_screen_page_2",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 24084,
+   "name": "title_screen_page_3",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 24340,
+   "name": "draw_cave_number",
+   "type": "Subroutine",
+   "kind": "user"
+  },
+  {
+   "address": 24395,
+   "name": "black_title_background",
+   "type": "Subroutine",
+   "kind": "user"
+  },
+  {
+   "address": 24401,
+   "name": "begin_initial_cave",
+   "type": "Subroutine",
+   "kind": "user"
+  },
+  {
+   "address": 24409,
+   "name": "draw_cave_status",
+   "type": "Subroutine",
+   "kind": "user"
+  },
+  {
+   "address": 24503,
+   "name": "clear_to_yellow_text",
+   "type": "Subroutine",
+   "kind": "user"
+  },
+  {
+   "address": 24514,
+   "name": "interlude_delay",
+   "type": "Subroutine",
+   "kind": "user"
+  },
+  {
+   "address": 24538,
+   "name": "clear_keyboard_queue",
+   "type": "Subroutine",
+   "kind": "user"
+  },
+  {
+   "address": 24543,
+   "name": "reset_game_sound_counters",
+   "type": "Subroutine",
+   "kind": "user"
+  },
+  {
+   "address": 24558,
+   "name": "startup_tail_fragment",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 24567,
+   "name": "before_game_pitches",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 24576,
+   "name": "game_pitch_low",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 24678,
+   "name": "game_pitch_low_fill",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 24704,
+   "name": "game_pitch_high",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 24806,
+   "name": "game_pitch_high_fill",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 24832,
+   "name": "game_music_irq",
+   "type": "Subroutine",
+   "kind": "user"
+  },
+  {
+   "address": 24948,
+   "name": "before_basic_fragments",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 24960,
+   "name": "detached_basic_fragments",
+   "type": "UserDefined",
+   "kind": "user"
+  }
+ ],
+ "comments": [
+  {
+   "address": 2,
+   "type": "line",
+   "text": "IRQ calls elapsed toward the next gameplay music tick. Reset on title handoff and when reaching 9."
+  },
+  {
+   "address": 165,
+   "type": "line",
+   "text": "Low byte of the $0A00-grid source pointer when moving or rolling an actor."
+  },
+  {
+   "address": 166,
+   "type": "line",
+   "text": "Set to $0A for grid source addresses used with zero-page indirect indexing."
+  },
+  {
+   "address": 171,
+   "type": "line",
+   "text": "Zero low byte of the map source address copied by $2555."
+  },
+  {
+   "address": 172,
+   "type": "line",
+   "text": "Selects the cave page. Starts at $2C and advances through $57 before wrapping."
+  },
+  {
+   "address": 193,
+   "type": "line",
+   "text": "Low byte for either a neighbour in the live map or the current destination in the renderer."
+  },
+  {
+   "address": 194,
+   "type": "line",
+   "text": "High byte for the shared neighbour and screen pointer."
+  },
+  {
+   "address": 198,
+   "type": "line",
+   "text": "KERNAL queue length. The score interlude drops any queued keys at $5FDA."
+  },
+  {
+   "address": 788,
+   "type": "line",
+   "text": "Low byte of the KERNAL IRQ indirect vector. Gameplay uses $2727 and the title restores $EA31."
+  },
+  {
+   "address": 789,
+   "type": "line",
+   "text": "High byte of the indirect IRQ vector installed at $270B or $27C2."
+  },
+  {
+   "address": 792,
+   "type": "line",
+   "text": "Low byte of the NMI vector set to $084A on entry."
+  },
+  {
+   "address": 793,
+   "type": "line",
+   "text": "High byte of the vector for restarting through the title."
+  },
+  {
+   "address": 832,
+   "type": "line",
+   "text": "Low byte of the binary score accumulated from remaining cave time."
+  },
+  {
+   "address": 833,
+   "type": "line",
+   "text": "Score high byte. Incremented when adding a cave bonus carries from the low byte."
+  },
+  {
+   "address": 834,
+   "type": "line",
+   "text": "Lives counter. Initialised to ten and decremented when entering $26EB."
+  },
+  {
+   "address": 836,
+   "type": "line",
+   "text": "Cave timer reset to 100. Decremented on each terminal tick of the divider and added to the score on completion."
+  },
+  {
+   "address": 837,
+   "type": "line",
+   "text": "Increments each gameplay IRQ. At $3C the handler resets it and decreases time left."
+  },
+  {
+   "address": 838,
+   "type": "line",
+   "text": "Saved time value while the IRQ repeatedly subtracts decimal tens to write HUD digits."
+  },
+  {
+   "address": 840,
+   "type": "line",
+   "text": "Temporary cave page index while converting it to screen digits."
+  },
+  {
+   "address": 846,
+   "type": "line",
+   "text": "Cycles through six sound ticks. At step three the IRQ retriggers voice 2 noise."
+  },
+  {
+   "address": 847,
+   "type": "line",
+   "text": "Voice 3 sequence index. The IRQ restarts at zero when it reaches $66."
+  },
+  {
+   "address": 864,
+   "type": "line",
+   "text": "Temporary tile code in the renderer and old actor position in movement tests."
+  },
+  {
+   "address": 865,
+   "type": "line",
+   "text": "Inner counter of the title animation delay. Wrap to zero advances the outer counter."
+  },
+  {
+   "address": 866,
+   "type": "line",
+   "text": "Outer counter of the title animation delay that also schedules sprite movements."
+  },
+  {
+   "address": 880,
+   "type": "line",
+   "text": "Current Werner map index. Rebuilt from tile $00 and updated after a successful direction move."
+  },
+  {
+   "address": 2049,
+   "type": "line",
+   "text": "Tokenised BASIC line 1985 at $0801 with SYS 2112 and a REM identifying WERNER SOFT. The zero next-line pointer ends the program."
+  },
+  {
+   "address": 2087,
+   "type": "line",
+   "text": "Bytes past the zero BASIC link and before SYS target $0840. The fragment includes token $97 (POKE), decimal text 53265,91 and a line terminator at $083B."
+  },
+  {
+   "address": 2112,
+   "type": "line",
+   "text": "Install the $084A NMI vector, clear voice gates, set the KERNAL text attributes and enter the title at $5800 with IRQs masked."
+  },
+  {
+   "address": 2122,
+   "type": "line",
+   "text": "Call the KERNAL screen-editor entry, clear all three gates and fall into the same title path used at startup."
+  },
+  {
+   "address": 2160,
+   "type": "line",
+   "text": "Set voice 3 attack/decay and sustain/release, then initialise the gameplay music counters."
+  },
+  {
+   "address": 2173,
+   "type": "line",
+   "text": "Three loaded bytes between the jump to $5FDF and the aligned sprite slot $22."
+  },
+  {
+   "address": 2176,
+   "type": "line",
+   "text": "Shape slot $22, selected for sprite 2 during the title at $5869. The VIC reads 21 rows of three bytes."
+  },
+  {
+   "address": 2240,
+   "type": "line",
+   "text": "Shape slot $23, paired with slot $22 on sprite 3. The startup routine sets the pointer at $586E."
+  },
+  {
+   "address": 2304,
+   "type": "line",
+   "text": "Loaded contents of the actor-index page. The level loader clears this page at $2589 and $250D/$2528 rebuild the two active lists before play."
+  },
+  {
+   "address": 2560,
+   "type": "line",
+   "text": "The load image includes a pre-existing cave-shaped buffer. The first game setup replaces its entire page from $2C00 before the renderer uses it."
+  },
+  {
+   "address": 2816,
+   "type": "line",
+   "text": "Loaded contents of the flag page. Cave setup clears all 256 bytes at $2586. Rock slots then record falling and enemy slots hold direction."
+  },
+  {
+   "address": 3072,
+   "type": "line",
+   "text": "Title pitch low bytes for note indices $00\u2013$3F. X wraps over all 256 indices. The low loads are $5A0B and $5A28; the fixed entry-zero load is $592C. The values are written to D400 and D40E."
+  },
+  {
+   "address": 3136,
+   "type": "line",
+   "text": "Title pitch low bytes for note indices $40\u2013$7F. X wraps over all 256 indices. The low loads are $5A0B and $5A28; the fixed entry-zero load is $592C. The values are written to D400 and D40E."
+  },
+  {
+   "address": 3200,
+   "type": "line",
+   "text": "Title pitch low bytes for note indices $80\u2013$BF. X wraps over all 256 indices. The low loads are $5A0B and $5A28; the fixed entry-zero load is $592C. The values are written to D400 and D40E."
+  },
+  {
+   "address": 3264,
+   "type": "line",
+   "text": "Title pitch low bytes for note indices $C0\u2013$FF. X wraps over all 256 indices. The low loads are $5A0B and $5A28; the fixed entry-zero load is $592C. The values are written to D400 and D40E."
+  },
+  {
+   "address": 3328,
+   "type": "line",
+   "text": "Title pitch high bytes for note indices $00\u2013$3F. X wraps over all 256 indices. The high loads are $5A11 and $5A2E; the fixed entry-zero load is $5932. The values are written to D401 and D40F."
+  },
+  {
+   "address": 3392,
+   "type": "line",
+   "text": "Title pitch high bytes for note indices $40\u2013$7F. X wraps over all 256 indices. The high loads are $5A11 and $5A2E; the fixed entry-zero load is $5932. The values are written to D401 and D40F."
+  },
+  {
+   "address": 3456,
+   "type": "line",
+   "text": "Title pitch high bytes for note indices $80\u2013$BF. X wraps over all 256 indices. The high loads are $5A11 and $5A2E; the fixed entry-zero load is $5932. The values are written to D401 and D40F."
+  },
+  {
+   "address": 3520,
+   "type": "line",
+   "text": "Title pitch high bytes for note indices $C0\u2013$FF. X wraps over all 256 indices. The high loads are $5A11 and $5A2E; the fixed entry-zero load is $5932. The values are written to D401 and D40F."
+  },
+  {
+   "address": 3584,
+   "type": "line",
+   "text": "Alternative title character layer, stored in VIC slot $38. Each record is 63 pixel bytes followed by the slot alignment byte."
+  },
+  {
+   "address": 3648,
+   "type": "line",
+   "text": "Alternative title character layer, stored in VIC slot $39. Each record is 63 pixel bytes followed by the slot alignment byte."
+  },
+  {
+   "address": 3712,
+   "type": "line",
+   "text": "Alternative title character layer, stored in VIC slot $3A. Each record is 63 pixel bytes followed by the slot alignment byte."
+  },
+  {
+   "address": 3776,
+   "type": "line",
+   "text": "Title character layer, stored in VIC slot $3B. Each record is 63 pixel bytes followed by the slot alignment byte."
+  },
+  {
+   "address": 3840,
+   "type": "line",
+   "text": "Title character layer, stored in VIC slot $3C. Each record is 63 pixel bytes followed by the slot alignment byte."
+  },
+  {
+   "address": 3904,
+   "type": "line",
+   "text": "Title character layer, stored in VIC slot $3D. Each record is 63 pixel bytes followed by the slot alignment byte."
+  },
+  {
+   "address": 3968,
+   "type": "line",
+   "text": "First upper logo sprite, stored in VIC slot $3E. Each record is 63 pixel bytes followed by the slot alignment byte."
+  },
+  {
+   "address": 4032,
+   "type": "line",
+   "text": "Second upper logo sprite, stored in VIC slot $3F. Each record is 63 pixel bytes followed by the slot alignment byte."
+  },
+  {
+   "address": 4096,
+   "type": "line",
+   "text": "Glyph indices $00\u2013$7F, eight scanline bytes each. The eight-byte glyphs use the same four-character tile order as the selected $1800 set. The observed game writes select $1800 or the character ROM."
+  },
+  {
+   "address": 5120,
+   "type": "line",
+   "text": "Glyph indices $80\u2013$FF, eight scanline bytes each. The eight-byte glyphs use the same four-character tile order as the selected $1800 set. The observed game writes select $1800 or the character ROM."
+  },
+  {
+   "address": 6144,
+   "type": "line",
+   "text": "Glyph indices $00\u2013$7F, eight scanline bytes each. The VIC glyph base selected by $D018=$1B is $1800. The level renderer adds 0, 1, 2 and 3 to the map byte for the four quadrants."
+  },
+  {
+   "address": 7168,
+   "type": "line",
+   "text": "Glyph indices $80\u2013$FF, eight scanline bytes each. The VIC glyph base selected by $D018=$1B is $1800."
+  },
+  {
+   "address": 8192,
+   "type": "line",
+   "text": "Expand each of the 240 live map bytes at $0A00 to four consecutive screen codes in a 2 by 2 square. Advance the screen pointer by 80 bytes per map row and tail-call the level-number display."
+  },
+  {
+   "address": 8272,
+   "type": "line",
+   "text": "NOP fill at $2050 between terminated paths or separately entered routines."
+  },
+  {
+   "address": 8282,
+   "type": "line",
+   "text": "Using rock slot X at $0900, look one row down. Move the rock into a cell whose low six bits equal $10, empty its old cell and retrigger SID noise on voice 1."
+  },
+  {
+   "address": 8344,
+   "type": "line",
+   "text": "When the cell below the rock belongs to class $08 under mask $38, test the two side-and-diagonal pairs for space. Try the right pair before the left. Move one row down and one column sideways, update the rock slot and retrigger noise."
+  },
+  {
+   "address": 8498,
+   "type": "line",
+   "text": "Read active-low movement from CIA1 port A. Try up, down, left and right in order. Move into class $10 under mask $38 or jump to cave completion if the destination's low six bits equal $18."
+  },
+  {
+   "address": 8576,
+   "type": "line",
+   "text": "Read joystick bit 1. Form the tile directly below Werner by adding 20 and use the same class and bottle tests as the up path."
+  },
+  {
+   "address": 8654,
+   "type": "line",
+   "text": "Read joystick bit 2 and subtract one from the current cell to test the left destination."
+  },
+  {
+   "address": 8732,
+   "type": "line",
+   "text": "Read joystick bit 3 and add one to the current cell to test the right destination."
+  },
+  {
+   "address": 8811,
+   "type": "line",
+   "text": "Refresh the SID voice 1 and voice 2 envelope registers, frequency high bytes and master volume before the simulation pass."
+  },
+  {
+   "address": 8847,
+   "type": "line",
+   "text": "Residual effect setup fragment after the RTS at $228E. It begins with an isolated $44 and contains writes to voice 3 envelope and voice 3 frequency-high register before its own RTS."
+  },
+  {
+   "address": 8862,
+   "type": "line",
+   "text": "Test the cell below the falling rock against tile $00. On a hit drop into the cell, clear the rock's previous cell, retrigger noise and enter the death display."
+  },
+  {
+   "address": 8926,
+   "type": "line",
+   "text": "If slot X fell on the previous pass, check for Werner directly below. Try straight down and mark the falling flag if the index changes. With no drop clear the flag and try a roll."
+  },
+  {
+   "address": 8968,
+   "type": "line",
+   "text": "Set Werner's cell to $1C, redraw and wait until CIA1 port A equals $6F, then enter the life-loss path."
+  },
+  {
+   "address": 8989,
+   "type": "line",
+   "text": "Spin for 256 increments of X per outer iteration. The compare operand at $2326 is shortened after a full circuit of the cave pages. Then jump to the joystick reader."
+  },
+  {
+   "address": 9004,
+   "type": "line",
+   "text": "Use slot X and offset -20. A destination whose low six bits equal $00 jumps to death. Class $10 under the same mask permits the move and sets the slot heading to 1."
+  },
+  {
+   "address": 9065,
+   "type": "line",
+   "text": "Use slot X and offset +20. A destination whose low six bits equal $00 jumps to death. Class $10 under the same mask permits the move and sets the slot heading to 2."
+  },
+  {
+   "address": 9126,
+   "type": "line",
+   "text": "Use slot X and offset -1. A destination whose low six bits equal $00 jumps to death. Class $10 under the same mask permits the move and sets the slot heading to 4."
+  },
+  {
+   "address": 9187,
+   "type": "line",
+   "text": "Use slot X and offset +1. A destination whose low six bits equal $00 jumps to death. Class $10 under the same mask permits the move and sets the slot heading to 8."
+  },
+  {
+   "address": 9248,
+   "type": "line",
+   "text": "Dispatch on the heading at $0B00,X and test neighbour directions in its order. A changed $0900,X ends the scan. A new slot gets heading 1 at $24F9."
+  },
+  {
+   "address": 9471,
+   "type": "line",
+   "text": "Scan the first 240 cave cells twice and build the rock ($08) and enemy ($04) lists with $FF terminators. Find the first Werner tile ($00) and keep the cell index at $0370."
+  },
+  {
+   "address": 9547,
+   "type": "line",
+   "text": "Initialise the cave source pointer to $2C00 before entering the copy path."
+  },
+  {
+   "address": 9555,
+   "type": "line",
+   "text": "Copy the selected 256-byte cave page to $0A00, set VIC colours and mode, clear actor work pages and redraw the HUD and cave."
+  },
+  {
+   "address": 9632,
+   "type": "line",
+   "text": "Increment the map page at $AC. At $58 wrap to $2C and reduce the direction delay from $31 towards its floor of 1 by steps of $10. Then go through the score interlude."
+  },
+  {
+   "address": 9647,
+   "type": "line",
+   "text": "Load the opening map before entering the simulation loop."
+  },
+  {
+   "address": 9650,
+   "type": "line",
+   "text": "Set effects and draw the map, update the rock and enemy position lists in order, check movement around further redraws and take the restart path on the exact fire pattern or zero time."
+  },
+  {
+   "address": 9730,
+   "type": "line",
+   "text": "Award the remaining time via $2712, set the tick divider to $FF and advance the level page."
+  },
+  {
+   "address": 9741,
+   "type": "line",
+   "text": "Flash the border via $27A8 with interrupts masked before entering the status display."
+  },
+  {
+   "address": 9748,
+   "type": "line",
+   "text": "Clear the display, select the ROM character set and print SCORE and LIVES through CHROUT, formatting values with BASIC ROM $BDCD. The lives test selects the game-over path or the delayed redraw of the cave."
+  },
+  {
+   "address": 9886,
+   "type": "line",
+   "text": "Print GAME OVER, poll GETIN for space, then return to the title."
+  },
+  {
+   "address": 9963,
+   "type": "line",
+   "text": "Decrement the lives byte at $0342 and redraw the score interlude."
+  },
+  {
+   "address": 9969,
+   "type": "line",
+   "text": "Initialise lives to 10 and score to 0, clear the display, install the game IRQ at $2727 and start the first cave."
+  },
+  {
+   "address": 10002,
+   "type": "line",
+   "text": "Add the remaining time byte to the low score byte and propagate carry to the high byte. Refill the timer to 100."
+  },
+  {
+   "address": 10023,
+   "type": "line",
+   "text": "Count IRQ calls up to $3C, decrement the time counter, show its last two decimal digits using screen codes beginning at $22, restore the count and enter the music IRQ tail."
+  },
+  {
+   "address": 10106,
+   "type": "line",
+   "text": "Set the timer to 100 and restore the direction delay operand to $31 before resetting the score and lives."
+  },
+  {
+   "address": 10119,
+   "type": "line",
+   "text": "Reset time and tick divider before loading the same selected cave page."
+  },
+  {
+   "address": 10132,
+   "type": "line",
+   "text": "Restore source page $2C. Reduce the delay operand at $2326 by $10, with the compare setting carry on the decreasing series; leave it alone once it reaches 1."
+  },
+  {
+   "address": 10152,
+   "type": "line",
+   "text": "With interrupts disabled, increment the border in a pair of 256-iteration loops. Exit with A=7 and carry clear."
+  },
+  {
+   "address": 10170,
+   "type": "line",
+   "text": "Restore the KERNAL IRQ vector at $EA31, clear the last title sprite positions and expansion and jump to the title."
+  },
+  {
+   "address": 10208,
+   "type": "line",
+   "text": "Thirty-two bytes immediately after the title restart jump. The fragment is separate from the cave pages that begin at $2C00."
+  },
+  {
+   "address": 10240,
+   "type": "line",
+   "text": "Retained bytes before the cave bank. Interpreted as eight-byte character records, the upper part yields multicolour patterns and rows of repeated two-pixel strokes. The active title and cave character base is $1800."
+  },
+  {
+   "address": 10752,
+   "type": "line",
+   "text": "Retained graphic patterns ending at the first cave page. The last page shows the repeated four-character pattern seen in the cave glyph set, including exact eight-byte matches. The observed VIC selector points to $1800 during play."
+  },
+  {
+   "address": 11264,
+   "type": "line",
+   "text": "Cave 01, source page $2C. The first 240 bytes form 12 rows of 20 tile codes, with 38 rock cells and 0 enemy cells. The loader copies the final 16 bytes with the page. Rendering and actor scans stop at offset $F0."
+  },
+  {
+   "address": 11520,
+   "type": "line",
+   "text": "Title sprites 4\u20136 also read this page through pointers $B5\u2013$B7. Cave 02, source page $2D. The first 240 bytes form 12 rows of 20 tile codes, with 0 rock cells and 3 enemy cells. The loader copies the final 16 bytes with the page. Rendering and actor scans stop at offset $F0."
+  },
+  {
+   "address": 11776,
+   "type": "line",
+   "text": "Cave 03, source page $2E. The first 240 bytes form 12 rows of 20 tile codes, with 34 rock cells and 2 enemy cells. The loader copies the final 16 bytes with the page. Rendering and actor scans stop at offset $F0."
+  },
+  {
+   "address": 12032,
+   "type": "line",
+   "text": "Cave 04, source page $2F. The first 240 bytes form 12 rows of 20 tile codes, with 5 rock cells and 6 enemy cells. The loader copies the final 16 bytes with the page. Rendering and actor scans stop at offset $F0."
+  },
+  {
+   "address": 12288,
+   "type": "line",
+   "text": "Cave 05, source page $30. The first 240 bytes form 12 rows of 20 tile codes, with 11 rock cells and 4 enemy cells. The loader copies the final 16 bytes with the page. Rendering and actor scans stop at offset $F0."
+  },
+  {
+   "address": 12544,
+   "type": "line",
+   "text": "Cave 06, source page $31. The first 240 bytes form 12 rows of 20 tile codes, with 1 rock cells and 7 enemy cells. The loader copies the final 16 bytes with the page. Rendering and actor scans stop at offset $F0."
+  },
+  {
+   "address": 12800,
+   "type": "line",
+   "text": "Cave 07, source page $32. The first 240 bytes form 12 rows of 20 tile codes, with 0 rock cells and 12 enemy cells. The loader copies the final 16 bytes with the page. Rendering and actor scans stop at offset $F0."
+  },
+  {
+   "address": 13056,
+   "type": "line",
+   "text": "Cave 08, source page $33. The first 240 bytes form 12 rows of 20 tile codes, with 0 rock cells and 3 enemy cells. The loader copies the final 16 bytes with the page. Rendering and actor scans stop at offset $F0."
+  },
+  {
+   "address": 13312,
+   "type": "line",
+   "text": "Cave 09, source page $34. The first 240 bytes form 12 rows of 20 tile codes, with 0 rock cells and 6 enemy cells. The loader copies the final 16 bytes with the page. Rendering and actor scans stop at offset $F0."
+  },
+  {
+   "address": 13568,
+   "type": "line",
+   "text": "Cave 10, source page $35. The first 240 bytes form 12 rows of 20 tile codes, with 10 rock cells and 11 enemy cells. The loader copies the final 16 bytes with the page. Rendering and actor scans stop at offset $F0."
+  },
+  {
+   "address": 13824,
+   "type": "line",
+   "text": "Cave 11, source page $36. The first 240 bytes form 12 rows of 20 tile codes, with 8 rock cells and 4 enemy cells. The loader copies the final 16 bytes with the page. Rendering and actor scans stop at offset $F0."
+  },
+  {
+   "address": 14080,
+   "type": "line",
+   "text": "Cave 12, source page $37. The first 240 bytes form 12 rows of 20 tile codes, with 5 rock cells and 45 enemy cells. The loader copies the final 16 bytes with the page. Rendering and actor scans stop at offset $F0."
+  },
+  {
+   "address": 14336,
+   "type": "line",
+   "text": "Cave 13, source page $38. The first 240 bytes form 12 rows of 20 tile codes, with 0 rock cells and 8 enemy cells. The loader copies the final 16 bytes with the page. Rendering and actor scans stop at offset $F0."
+  },
+  {
+   "address": 14592,
+   "type": "line",
+   "text": "Cave 14, source page $39. The first 240 bytes form 12 rows of 20 tile codes, with 0 rock cells and 9 enemy cells. The loader copies the final 16 bytes with the page. Rendering and actor scans stop at offset $F0."
+  },
+  {
+   "address": 14848,
+   "type": "line",
+   "text": "Cave 15, source page $3A. The first 240 bytes form 12 rows of 20 tile codes, with 0 rock cells and 22 enemy cells. The loader copies the final 16 bytes with the page. Rendering and actor scans stop at offset $F0."
+  },
+  {
+   "address": 15104,
+   "type": "line",
+   "text": "Cave 16, source page $3B. The first 240 bytes form 12 rows of 20 tile codes, with 68 rock cells and 3 enemy cells. The loader copies the final 16 bytes with the page. Rendering and actor scans stop at offset $F0."
+  },
+  {
+   "address": 15360,
+   "type": "line",
+   "text": "Cave 17, source page $3C. The first 240 bytes form 12 rows of 20 tile codes, with 16 rock cells and 3 enemy cells. The loader copies the final 16 bytes with the page. Rendering and actor scans stop at offset $F0."
+  },
+  {
+   "address": 15616,
+   "type": "line",
+   "text": "Cave 18, source page $3D. The first 240 bytes form 12 rows of 20 tile codes, with 10 rock cells and 4 enemy cells. The loader copies the final 16 bytes with the page. Rendering and actor scans stop at offset $F0."
+  },
+  {
+   "address": 15872,
+   "type": "line",
+   "text": "Cave 19, source page $3E. The first 240 bytes form 12 rows of 20 tile codes, with 0 rock cells and 24 enemy cells. The loader copies the final 16 bytes with the page. Rendering and actor scans stop at offset $F0."
+  },
+  {
+   "address": 16128,
+   "type": "line",
+   "text": "Cave 20, source page $3F. The first 240 bytes form 12 rows of 20 tile codes, with 14 rock cells and 4 enemy cells. The loader copies the final 16 bytes with the page. Rendering and actor scans stop at offset $F0."
+  },
+  {
+   "address": 16384,
+   "type": "line",
+   "text": "Cave 21, source page $40. The first 240 bytes form 12 rows of 20 tile codes, with 9 rock cells and 12 enemy cells. The loader copies the final 16 bytes with the page. Rendering and actor scans stop at offset $F0."
+  },
+  {
+   "address": 16640,
+   "type": "line",
+   "text": "Cave 22, source page $41. The first 240 bytes form 12 rows of 20 tile codes, with 50 rock cells and 2 enemy cells. The loader copies the final 16 bytes with the page. Rendering and actor scans stop at offset $F0."
+  },
+  {
+   "address": 16896,
+   "type": "line",
+   "text": "Cave 23, source page $42. The first 240 bytes form 12 rows of 20 tile codes, with 0 rock cells and 7 enemy cells. The loader copies the final 16 bytes with the page. Rendering and actor scans stop at offset $F0."
+  },
+  {
+   "address": 17152,
+   "type": "line",
+   "text": "Cave 24, source page $43. The first 240 bytes form 12 rows of 20 tile codes, with 3 rock cells and 15 enemy cells. The loader copies the final 16 bytes with the page. Rendering and actor scans stop at offset $F0."
+  },
+  {
+   "address": 17408,
+   "type": "line",
+   "text": "Cave 25, source page $44. The first 240 bytes form 12 rows of 20 tile codes, with 26 rock cells and 6 enemy cells. The loader copies the final 16 bytes with the page. Rendering and actor scans stop at offset $F0."
+  },
+  {
+   "address": 17664,
+   "type": "line",
+   "text": "Cave 26, source page $45. The first 240 bytes form 12 rows of 20 tile codes, with 20 rock cells and 4 enemy cells. The loader copies the final 16 bytes with the page. Rendering and actor scans stop at offset $F0."
+  },
+  {
+   "address": 17920,
+   "type": "line",
+   "text": "Cave 27, source page $46. The first 240 bytes form 12 rows of 20 tile codes, with 29 rock cells and 32 enemy cells. The loader copies the final 16 bytes with the page. Rendering and actor scans stop at offset $F0."
+  },
+  {
+   "address": 18176,
+   "type": "line",
+   "text": "Cave 28, source page $47. The first 240 bytes form 12 rows of 20 tile codes, with 12 rock cells and 8 enemy cells. The loader copies the final 16 bytes with the page. Rendering and actor scans stop at offset $F0."
+  },
+  {
+   "address": 18432,
+   "type": "line",
+   "text": "Cave 29, source page $48. The first 240 bytes form 12 rows of 20 tile codes, with 20 rock cells and 18 enemy cells. The loader copies the final 16 bytes with the page. Rendering and actor scans stop at offset $F0."
+  },
+  {
+   "address": 18688,
+   "type": "line",
+   "text": "Cave 30, source page $49. The first 240 bytes form 12 rows of 20 tile codes, with 0 rock cells and 57 enemy cells. The loader copies the final 16 bytes with the page. Rendering and actor scans stop at offset $F0."
+  },
+  {
+   "address": 18944,
+   "type": "line",
+   "text": "Cave 31, source page $4A. The first 240 bytes form 12 rows of 20 tile codes, with 0 rock cells and 10 enemy cells. The loader copies the final 16 bytes with the page. Rendering and actor scans stop at offset $F0."
+  },
+  {
+   "address": 19200,
+   "type": "line",
+   "text": "Cave 32, source page $4B. The first 240 bytes form 12 rows of 20 tile codes, with 42 rock cells and 12 enemy cells. The loader copies the final 16 bytes with the page. Rendering and actor scans stop at offset $F0."
+  },
+  {
+   "address": 19456,
+   "type": "line",
+   "text": "Cave 33, source page $4C. The first 240 bytes form 12 rows of 20 tile codes, with 18 rock cells and 5 enemy cells. The loader copies the final 16 bytes with the page. Rendering and actor scans stop at offset $F0."
+  },
+  {
+   "address": 19712,
+   "type": "line",
+   "text": "Cave 34, source page $4D. The first 240 bytes form 12 rows of 20 tile codes, with 20 rock cells and 4 enemy cells. The loader copies the final 16 bytes with the page. Rendering and actor scans stop at offset $F0."
+  },
+  {
+   "address": 19968,
+   "type": "line",
+   "text": "Cave 35, source page $4E. The first 240 bytes form 12 rows of 20 tile codes, with 60 rock cells and 3 enemy cells. The loader copies the final 16 bytes with the page. Rendering and actor scans stop at offset $F0."
+  },
+  {
+   "address": 20224,
+   "type": "line",
+   "text": "Cave 36, source page $4F. The first 240 bytes form 12 rows of 20 tile codes, with 13 rock cells and 4 enemy cells. The loader copies the final 16 bytes with the page. Rendering and actor scans stop at offset $F0."
+  },
+  {
+   "address": 20480,
+   "type": "line",
+   "text": "Cave 37, source page $50. The first 240 bytes form 12 rows of 20 tile codes, with 14 rock cells and 2 enemy cells. The loader copies the final 16 bytes with the page. Rendering and actor scans stop at offset $F0."
+  },
+  {
+   "address": 20736,
+   "type": "line",
+   "text": "Cave 38, source page $51. The first 240 bytes form 12 rows of 20 tile codes, with 14 rock cells and 11 enemy cells. The loader copies the final 16 bytes with the page. Rendering and actor scans stop at offset $F0."
+  },
+  {
+   "address": 20992,
+   "type": "line",
+   "text": "Cave 39, source page $52. The first 240 bytes form 12 rows of 20 tile codes, with 0 rock cells and 6 enemy cells. The loader copies the final 16 bytes with the page. Rendering and actor scans stop at offset $F0."
+  },
+  {
+   "address": 21248,
+   "type": "line",
+   "text": "Cave 40, source page $53. The first 240 bytes form 12 rows of 20 tile codes, with 10 rock cells and 7 enemy cells. The loader copies the final 16 bytes with the page. Rendering and actor scans stop at offset $F0."
+  },
+  {
+   "address": 21504,
+   "type": "line",
+   "text": "Cave 41, source page $54. The first 240 bytes form 12 rows of 20 tile codes, with 2 rock cells and 9 enemy cells. The loader copies the final 16 bytes with the page. Rendering and actor scans stop at offset $F0."
+  },
+  {
+   "address": 21760,
+   "type": "line",
+   "text": "Cave 42, source page $55. The first 240 bytes form 12 rows of 20 tile codes, with 0 rock cells and 3 enemy cells. The loader copies the final 16 bytes with the page. Rendering and actor scans stop at offset $F0."
+  },
+  {
+   "address": 22016,
+   "type": "line",
+   "text": "Cave 43, source page $56. The first 240 bytes form 12 rows of 20 tile codes, with 0 rock cells and 15 enemy cells. The loader copies the final 16 bytes with the page. Rendering and actor scans stop at offset $F0."
+  },
+  {
+   "address": 22272,
+   "type": "line",
+   "text": "Cave 44, source page $57. The first 240 bytes form 12 rows of 20 tile codes, with 4 rock cells and 15 enemy cells. The loader copies the final 16 bytes with the page. Rendering and actor scans stop at offset $F0."
+  },
+  {
+   "address": 22528,
+   "type": "line",
+   "text": "Set white colour RAM, copy the four title screen pages, position the seven sprites, initialise SID envelopes and run the title's timing and animation loops."
+  },
+  {
+   "address": 22708,
+   "type": "line",
+   "text": "Alternate two pitches and the Y positions of sprites 0 and 1 according to X parity. A two-byte busy delay spaces 16 iterations."
+  },
+  {
+   "address": 22819,
+   "type": "line",
+   "text": "Use index zero from the split title pitch tables to start voice 3 before the second bounce phase."
+  },
+  {
+   "address": 22848,
+   "type": "line",
+   "text": "Continue alternating the bounce sound while shifting sprites 2 and 3 left every eighth outer delay count, for 16 note iterations."
+  },
+  {
+   "address": 22972,
+   "type": "line",
+   "text": "Start X at $FF so the preincrement begins with pitch index zero. Alternate sprite bounce and voice 2 pitch, advance the melody, animate the three overlaid character sprites and poll fire."
+  },
+  {
+   "address": 23048,
+   "type": "line",
+   "text": "Set voice 1 from the indexed low and high frequency tables and retrigger its sawtooth. Every 16th index copies the note to voice 3."
+  },
+  {
+   "address": 23220,
+   "type": "line",
+   "text": "Read bit 4 of CIA1 port A. With no fire, toggle the last three sprites' Y positions and continue the note loop. A low bit exits at $5AFC."
+  },
+  {
+   "address": 23246,
+   "type": "line",
+   "text": "NOP fill at $5ACE between terminated paths or separately entered routines."
+  },
+  {
+   "address": 23248,
+   "type": "line",
+   "text": "Set the three overlaid sprite colours and common Y position, then set shape pointers $B5\u2013$B7."
+  },
+  {
+   "address": 23290,
+   "type": "line",
+   "text": "NOP fill at $5AFA between terminated paths or separately entered routines."
+  },
+  {
+   "address": 23292,
+   "type": "line",
+   "text": "Clear all SID register slots and disable sprites before moving to game setup at $0870."
+  },
+  {
+   "address": 23316,
+   "type": "line",
+   "text": "Title screen source page copied by $581A\u2013$5832 to $0400. These are screen codes for the VIC character set, with sprite pointers assigned separately after the copy."
+  },
+  {
+   "address": 23572,
+   "type": "line",
+   "text": "Title screen source page copied by $581A\u2013$5832 to $0500. These are screen codes for the VIC character set, with sprite pointers assigned separately after the copy."
+  },
+  {
+   "address": 23828,
+   "type": "line",
+   "text": "Title screen source page copied by $581A\u2013$5832 to $0600. These are screen codes for the VIC character set, with sprite pointers assigned separately after the copy."
+  },
+  {
+   "address": 24084,
+   "type": "line",
+   "text": "Title screen source page copied by $581A\u2013$5832 to $0700. These are screen codes for the VIC character set, with sprite pointers assigned separately after the copy."
+  },
+  {
+   "address": 24340,
+   "type": "line",
+   "text": "Convert the selected page minus $2B to a two-digit display in $07C6\u2013$07C7 by incrementing from custom digit zero $22."
+  },
+  {
+   "address": 24395,
+   "type": "line",
+   "text": "Set VIC background 0 to black."
+  },
+  {
+   "address": 24401,
+   "type": "line",
+   "text": "Clear the timer divider and head to the first cave."
+  },
+  {
+   "address": 24409,
+   "type": "line",
+   "text": "Position the cursor along the bottom row, print score and lives using ROM routines, translate the non-space cells into custom glyph indices and rebuild actor lists."
+  },
+  {
+   "address": 24503,
+   "type": "line",
+   "text": "Send clear-screen and colour control codes $93 and $9E through CHROUT."
+  },
+  {
+   "address": 24514,
+   "type": "line",
+   "text": "Consume a 256 by 256 software delay with NOPs in the inner loop."
+  },
+  {
+   "address": 24538,
+   "type": "line",
+   "text": "Zero KERNAL keyboard buffer count $C6."
+  },
+  {
+   "address": 24543,
+   "type": "line",
+   "text": "Zero the IRQ note divider and seed two sequence indices with $FF so their first increments produce 0."
+  },
+  {
+   "address": 24558,
+   "type": "line",
+   "text": "Residual loop tail after the unconditional jump at $5FEB. Its final JMP also points to the gameplay reset at $277A."
+  },
+  {
+   "address": 24567,
+   "type": "line",
+   "text": "Nine loaded bytes past the residual jump at $5FF4. The voice 3 low-byte frequency table starts on the following page."
+  },
+  {
+   "address": 24576,
+   "type": "line",
+   "text": "Voice 3 pitch low bytes indexed by the 102-step gameplay sound sequence. $614D reads the low byte after the high byte passes the rest check."
+  },
+  {
+   "address": 24678,
+   "type": "line",
+   "text": "The 26 bytes between the active low and high pitch sequences are all $FF. The IRQ resets the index at $66."
+  },
+  {
+   "address": 24704,
+   "type": "line",
+   "text": "Voice 3 pitch high bytes for sequence indices 0\u2013101. The IRQ tail skips the pitch and gate stores when this byte is zero."
+  },
+  {
+   "address": 24806,
+   "type": "line",
+   "text": "The high-byte table has 26 $FF bytes after the last active index, up to the IRQ music entry at $6100."
+  },
+  {
+   "address": 24832,
+   "type": "line",
+   "text": "Divide the IRQ cadence by nine. Advance the six-step noise rhythm and 102-step voice 3 score. A nonzero pitch high byte retriggers sawtooth, then execution chains to KERNAL $EA31."
+  },
+  {
+   "address": 24948,
+   "type": "line",
+   "text": "Twelve loaded bytes beyond the IRQ tail jump to KERNAL. The repeated $1F/$C0 and $9F/$C0 pairs also appear in the fragments beginning at $6180."
+  },
+  {
+   "address": 24960,
+   "type": "line",
+   "text": "Detached tokenised BASIC fragments. Header-like bytes at $6180 precede a PRINT token and point into the apparent quoted payload. $61AE has another PRINT-like fragment and $61D4 is a GOTO token. The boot line link at $0801 does not point here."
+  }
+ ]
+}
