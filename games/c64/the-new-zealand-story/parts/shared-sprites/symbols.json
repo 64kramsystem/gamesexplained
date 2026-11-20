@@ -1,0 +1,163 @@
+{
+ "schema": 1,
+ "platform": "c64",
+ "game": "the-new-zealand-story",
+ "part": "shared-sprites",
+ "build": "Ocean Rainbow Collection disk",
+ "source": "regen2000proj",
+ "regions": {
+  "exclude": [
+   [
+    256,
+    511,
+    "stack"
+   ],
+   [
+    53248,
+    57343,
+    "I/O and colour RAM"
+   ],
+   [
+    0,
+    65337,
+    "Resident engine"
+   ],
+   [
+    65339,
+    65442,
+    "Resident engine"
+   ],
+   [
+    65444,
+    65446,
+    "Resident engine"
+   ],
+   [
+    65448,
+    65535,
+    "Resident engine"
+   ],
+   [
+    24576,
+    25727,
+    "4 parts: World 3, World 2, World 1 and others"
+   ],
+   [
+    38912,
+    40203,
+    "5 parts: World 1, World 2, World 3 and others"
+   ],
+   [
+    40704,
+    53247,
+    "8 parts: World 4 boss assets, World 1, World 2 and others"
+   ]
+  ],
+  "extra": [],
+  "edges": [
+   0,
+   256,
+   512,
+   1024,
+   2048,
+   4096,
+   16384,
+   32768,
+   40960,
+   49152,
+   53248,
+   57344
+  ],
+  "elsewhere": [
+   [
+    0,
+    65337,
+    "Resident engine"
+   ],
+   [
+    65339,
+    65442,
+    "Resident engine"
+   ],
+   [
+    65444,
+    65446,
+    "Resident engine"
+   ],
+   [
+    65448,
+    65535,
+    "Resident engine"
+   ],
+   [
+    24576,
+    25727,
+    "4 parts: World 3, World 2, World 1 and others"
+   ],
+   [
+    38912,
+    40203,
+    "5 parts: World 1, World 2, World 3 and others"
+   ],
+   [
+    40704,
+    53247,
+    "8 parts: World 4 boss assets, World 1, World 2 and others"
+   ]
+  ]
+ },
+ "blocks": [
+  {
+   "start": 65338,
+   "end": 65338,
+   "type": "Byte"
+  },
+  {
+   "start": 65443,
+   "end": 65443,
+   "type": "Byte"
+  },
+  {
+   "start": 65447,
+   "end": 65447,
+   "type": "Byte"
+  }
+ ],
+ "symbols": [
+  {
+   "address": 65338,
+   "name": "dr_sprite_fc_row_19_middle",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 65443,
+   "name": "dr_sprite_fe_row_11_last",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 65447,
+   "name": "dr_sprite_fe_row_13_first",
+   "type": "UserDefined",
+   "kind": "user"
+  }
+ ],
+ "comments": [
+  {
+   "address": 65338,
+   "type": "line",
+   "text": "Middle pixel byte in row 19 of VIC sprite slot $FC, counted from zero. DR supplies $AF here, replacing the boot image\u2019s $B1."
+  },
+  {
+   "address": 65443,
+   "type": "line",
+   "text": "Last pixel byte in row 11 of sprite slot $FE. DR replaces the boot byte $02 with $00."
+  },
+  {
+   "address": 65447,
+   "type": "line",
+   "text": "First pixel byte in row 13 of sprite slot $FE. DR replaces the boot byte $20 with $1E."
+  }
+ ]
+}

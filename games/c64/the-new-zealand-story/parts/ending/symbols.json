@@ -1,0 +1,351 @@
+{
+ "schema": 1,
+ "platform": "c64",
+ "game": "the-new-zealand-story",
+ "part": "ending",
+ "build": "Ocean Rainbow Collection disk",
+ "source": "regen2000proj",
+ "regions": {
+  "exclude": [
+   [
+    256,
+    511,
+    "stack"
+   ],
+   [
+    53248,
+    57343,
+    "I/O and colour RAM"
+   ],
+   [
+    0,
+    24575,
+    "Resident engine"
+   ],
+   [
+    24576,
+    25727,
+    "World 5"
+   ],
+   [
+    25728,
+    38911,
+    "Resident engine"
+   ],
+   [
+    38912,
+    40203,
+    "World 5"
+   ],
+   [
+    40204,
+    40703,
+    "Resident engine"
+   ],
+   [
+    40704,
+    40959,
+    "World 5"
+   ],
+   [
+    41939,
+    53247,
+    "World 5"
+   ],
+   [
+    53248,
+    65337,
+    "Resident engine"
+   ],
+   [
+    65338,
+    65338,
+    "Shared disk sprite variants"
+   ],
+   [
+    65339,
+    65442,
+    "Resident engine"
+   ],
+   [
+    65443,
+    65443,
+    "Shared disk sprite variants"
+   ],
+   [
+    65444,
+    65446,
+    "Resident engine"
+   ],
+   [
+    65447,
+    65447,
+    "Shared disk sprite variants"
+   ],
+   [
+    65448,
+    65535,
+    "Resident engine"
+   ]
+  ],
+  "extra": [
+   [
+    40960,
+    41938,
+    "Loaded overlay range"
+   ]
+  ],
+  "edges": [
+   0,
+   256,
+   512,
+   1024,
+   2048,
+   4096,
+   16384,
+   32768,
+   40960,
+   49152,
+   53248,
+   57344
+  ],
+  "elsewhere": [
+   [
+    0,
+    24575,
+    "Resident engine"
+   ],
+   [
+    24576,
+    25727,
+    "World 5"
+   ],
+   [
+    25728,
+    38911,
+    "Resident engine"
+   ],
+   [
+    38912,
+    40203,
+    "World 5"
+   ],
+   [
+    40204,
+    40703,
+    "Resident engine"
+   ],
+   [
+    40704,
+    40959,
+    "World 5"
+   ],
+   [
+    41939,
+    53247,
+    "World 5"
+   ],
+   [
+    53248,
+    65337,
+    "Resident engine"
+   ],
+   [
+    65338,
+    65338,
+    "Shared disk sprite variants"
+   ],
+   [
+    65339,
+    65442,
+    "Resident engine"
+   ],
+   [
+    65443,
+    65443,
+    "Shared disk sprite variants"
+   ],
+   [
+    65444,
+    65446,
+    "Resident engine"
+   ],
+   [
+    65447,
+    65447,
+    "Shared disk sprite variants"
+   ],
+   [
+    65448,
+    65535,
+    "Resident engine"
+   ]
+  ]
+ },
+ "blocks": [
+  {
+   "start": 40960,
+   "end": 41221,
+   "type": "Code"
+  },
+  {
+   "start": 41222,
+   "end": 41222,
+   "type": "Code"
+  },
+  {
+   "start": 41223,
+   "end": 41240,
+   "type": "Code"
+  },
+  {
+   "start": 41241,
+   "end": 41816,
+   "type": "Screencode"
+  },
+  {
+   "start": 41817,
+   "end": 41818,
+   "type": "Byte"
+  },
+  {
+   "start": 41819,
+   "end": 41834,
+   "type": "Code"
+  },
+  {
+   "start": 41835,
+   "end": 41915,
+   "type": "Code"
+  },
+  {
+   "start": 41916,
+   "end": 41917,
+   "type": "Byte"
+  },
+  {
+   "start": 41918,
+   "end": 41918,
+   "type": "Byte"
+  },
+  {
+   "start": 41919,
+   "end": 41938,
+   "type": "Code"
+  }
+ ],
+ "symbols": [
+  {
+   "address": 40960,
+   "name": "epilogue_setup",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 41222,
+   "name": "epilogue_nmi",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 41223,
+   "name": "epilogue_irq",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 41241,
+   "name": "epilogue_text",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 41817,
+   "name": "epilogue_delay_counters",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 41819,
+   "name": "epilogue_character_delay",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 41835,
+   "name": "draw_epilogue_text",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 41916,
+   "name": "epilogue_kiwi_shapes",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 41918,
+   "name": "epilogue_animation_phase",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 41919,
+   "name": "animate_epilogue_kiwi",
+   "type": "UserDefined",
+   "kind": "user"
+  }
+ ],
+ "comments": [
+  {
+   "address": 40960,
+   "type": "line",
+   "text": "Copies the common font to $C800, clears the screen and color RAM, installs two overlaid kiwi sprites, sets the text pointers and starts the ending song. After the text scroll it waits for joystick port 2 fire."
+  },
+  {
+   "address": 41222,
+   "type": "line",
+   "text": "Returns directly from NMI. The epilogue vectors it here while its raster IRQ owns the display."
+  },
+  {
+   "address": 41223,
+   "type": "line",
+   "text": "Acknowledges the raster interrupt and calls the common SID sequencer, preserving A, X and Y on the stack."
+  },
+  {
+   "address": 41241,
+   "type": "line",
+   "text": "Sixteen rows of 36 screen codes. $A36F draws them one character at a time, leaving four unused cells per 40-column destination row."
+  },
+  {
+   "address": 41817,
+   "type": "line",
+   "text": "Nested countdown bytes used by $A35B for the pause between printed characters."
+  },
+  {
+   "address": 41819,
+   "type": "line",
+   "text": "Spins on two counters in RAM and restores the outer counter to $20 on expiry."
+  },
+  {
+   "address": 41835,
+   "type": "line",
+   "text": "Draws 16 rows of 36 characters, advancing source by 36 and screen by 40 after each row. Moves both kiwi sprite Y registers down eight lines between rows."
+  },
+  {
+   "address": 41916,
+   "type": "line",
+   "text": "Two base sprite pointers alternated at $A3C8 to animate the leading kiwi as the text is printed."
+  },
+  {
+   "address": 41918,
+   "type": "line",
+   "text": "One-bit phase toggled before selecting the next pair of kiwi sprite pointers."
+  },
+  {
+   "address": 41919,
+   "type": "line",
+   "text": "Alternates base sprite pointers $47 and $49 and uses the succeeding pointer for the second layer. The two sprites share the same position."
+  }
+ ]
+}

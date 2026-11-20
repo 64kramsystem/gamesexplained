@@ -1,0 +1,293 @@
+{
+ "schema": 1,
+ "platform": "c64",
+ "game": "the-new-zealand-story",
+ "part": "world-4-boss",
+ "build": "Ocean Rainbow Collection disk",
+ "source": "regen2000proj",
+ "regions": {
+  "exclude": [
+   [
+    256,
+    511,
+    "stack"
+   ],
+   [
+    53248,
+    57343,
+    "I/O and colour RAM"
+   ],
+   [
+    0,
+    38911,
+    "Resident engine"
+   ],
+   [
+    38912,
+    40203,
+    "World 4"
+   ],
+   [
+    40204,
+    40703,
+    "Resident engine"
+   ],
+   [
+    40960,
+    45055,
+    "World 4"
+   ],
+   [
+    49152,
+    51199,
+    "World 4"
+   ],
+   [
+    53248,
+    65337,
+    "Resident engine"
+   ],
+   [
+    65338,
+    65338,
+    "Shared disk sprite variants"
+   ],
+   [
+    65339,
+    65442,
+    "Resident engine"
+   ],
+   [
+    65443,
+    65443,
+    "Shared disk sprite variants"
+   ],
+   [
+    65444,
+    65446,
+    "Resident engine"
+   ],
+   [
+    65447,
+    65447,
+    "Shared disk sprite variants"
+   ],
+   [
+    65448,
+    65535,
+    "Resident engine"
+   ]
+  ],
+  "extra": [
+   [
+    40704,
+    40959,
+    "Loaded overlay range"
+   ],
+   [
+    45056,
+    49151,
+    "Loaded overlay range"
+   ],
+   [
+    51200,
+    53247,
+    "Loaded overlay range"
+   ]
+  ],
+  "edges": [
+   0,
+   256,
+   512,
+   1024,
+   2048,
+   4096,
+   16384,
+   32768,
+   40960,
+   49152,
+   53248,
+   57344
+  ],
+  "elsewhere": [
+   [
+    0,
+    38911,
+    "Resident engine"
+   ],
+   [
+    38912,
+    40203,
+    "World 4"
+   ],
+   [
+    40204,
+    40703,
+    "Resident engine"
+   ],
+   [
+    40960,
+    45055,
+    "World 4"
+   ],
+   [
+    49152,
+    51199,
+    "World 4"
+   ],
+   [
+    53248,
+    65337,
+    "Resident engine"
+   ],
+   [
+    65338,
+    65338,
+    "Shared disk sprite variants"
+   ],
+   [
+    65339,
+    65442,
+    "Resident engine"
+   ],
+   [
+    65443,
+    65443,
+    "Shared disk sprite variants"
+   ],
+   [
+    65444,
+    65446,
+    "Resident engine"
+   ],
+   [
+    65447,
+    65447,
+    "Shared disk sprite variants"
+   ],
+   [
+    65448,
+    65535,
+    "Resident engine"
+   ]
+  ]
+ },
+ "blocks": [
+  {
+   "start": 40704,
+   "end": 40959,
+   "type": "Byte"
+  },
+  {
+   "start": 45056,
+   "end": 46079,
+   "type": "Byte"
+  },
+  {
+   "start": 46080,
+   "end": 47103,
+   "type": "Byte"
+  },
+  {
+   "start": 47104,
+   "end": 48127,
+   "type": "Byte"
+  },
+  {
+   "start": 48128,
+   "end": 49151,
+   "type": "Byte"
+  },
+  {
+   "start": 51200,
+   "end": 52223,
+   "type": "Byte"
+  },
+  {
+   "start": 52224,
+   "end": 53247,
+   "type": "Byte"
+  }
+ ],
+ "symbols": [
+  {
+   "address": 40704,
+   "name": "boss_glyph_attributes",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 45056,
+   "name": "metatile_definitions_00_3f",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 46080,
+   "name": "metatile_definitions_40_7f",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 47104,
+   "name": "metatile_definitions_80_bf",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 48128,
+   "name": "metatile_definitions_c0_ff",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 51200,
+   "name": "boss_playfield_font",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 52224,
+   "name": "playfield_glyphs_80_ff",
+   "type": "UserDefined",
+   "kind": "user"
+  }
+ ],
+ "comments": [
+  {
+   "address": 40704,
+   "type": "line",
+   "text": "A4 supplies new attributes for Wellington round 4: each displayed glyph indexes the color and collision byte used by $2516 and $2610."
+  },
+  {
+   "address": 45056,
+   "type": "line",
+   "text": "Wellington definitions for metatiles $00\u2013$3F in the late-round overlay. Each is a four-column set of four glyphs, indexed as four times the column plus the row at $24C0\u2013$24F7."
+  },
+  {
+   "address": 46080,
+   "type": "line",
+   "text": "Wellington definitions for metatiles $40\u2013$7F in the late-round overlay. Each is a four-column set of four glyphs, indexed as four times the column plus the row at $24C0\u2013$24F7."
+  },
+  {
+   "address": 47104,
+   "type": "line",
+   "text": "Wellington definitions for metatiles $80\u2013$BF in the late-round overlay. Each is a four-column set of four glyphs, indexed as four times the column plus the row at $24C0\u2013$24F7."
+  },
+  {
+   "address": 48128,
+   "type": "line",
+   "text": "Wellington definitions for metatiles $C0\u2013$FF in the late-round overlay. Each is a four-column set of four glyphs, indexed as four times the column plus the row at $24C0\u2013$24F7."
+  },
+  {
+   "address": 51200,
+   "type": "line",
+   "text": "C4 supplies the 256 eight-byte playfield glyphs for the Wellington boss overlay. The screen fetches them from VIC bank 3."
+  },
+  {
+   "address": 52224,
+   "type": "line",
+   "text": "The upper C4 glyphs contain curved outlines and platform pieces, with repeated strips in the final quarter."
+  }
+ ]
+}

@@ -1,0 +1,116 @@
+{
+  "title": "Resident engine",
+  "order": 1,
+  "video": {
+    "screen": "$8800",
+    "charset": ""
+  },
+  "coverage": {
+    "exclude": [
+      [
+        "$8800",
+        "$8BFF",
+        "Title and status screen work area rebuilt by $8DC0. The status panel template is at $0699."
+      ],
+      [
+        "$7F2C",
+        "$7FFD",
+        "SID driver work array cleared by the round initialization loop at $1E46. Music data ends immediately below it."
+      ],
+      [
+        "$0320",
+        "$051F",
+        "Resident title startup at $8DC0\u2013$8DD1 clears both pages before using the initial work area."
+      ],
+      [
+        "$43E9",
+        "$4412",
+        "Zero-filled gap between the end of the scroll-bound handler at $43E8 and the next routine at $4413. The resident instruction-reference sweep found no direct or indexed references."
+      ],
+      [
+        "$558C",
+        "$55FF",
+        "Zero padding after the sprite register clear and before the metatile pointers. The nearby raster pointer arrays are indexed by seven states. Read and execute watches in the title, worlds, bosses and ending registered zero hits."
+      ],
+      [
+        "$5F3C",
+        "$5FFF",
+        "Trailing boot-image padding after the 216-byte stack receiver. The copy at $5E58 stops at $5F3B and the instruction-reference sweep found no other access. Read and execute watches across the captured parts registered zero hits."
+      ],
+      [
+        "$6500",
+        "$69EF",
+        "Boot-image padding beyond the boss staging transfer. The five-page copy at $4808 ends at $64FF. CPU read and execute watches were quiet here across the title, gameplay and four sprite-based boss paths, and the instruction-reference sweep found no direct or indexed references."
+      ],
+      [
+        "$7FFE",
+        "$7FFF",
+        "Zero bytes beyond the last SID workspace field. The full clear loop at $1E46 ends at $7FFD, while later channel fields use X=0 through 2 or the six-byte pointer-array offsets."
+      ],
+      [
+        "$0BBC",
+        "$0BC3",
+        "Zero padding before the collision handler early RTS. Its branch at $0BC8 targets $0BC4."
+      ],
+      [
+        "$220C",
+        "$220C",
+        "Zero padding between the NMI return and the following raster IRQ entry at $220D."
+      ],
+      [
+        "$2637",
+        "$264F",
+        "Zero padding before the projected collision columns at $2650. The three initialized collision arrays begin at $2650, $2669 and $2682."
+      ]
+    ],
+    "extra": [
+      [
+        "$0320",
+        "$5FFF",
+        "Loaded resident NZS range"
+      ],
+      [
+        "$6380",
+        "$97FF",
+        "Loaded resident NZS range"
+      ],
+      [
+        "$9D0C",
+        "$9EFF",
+        "Loaded resident NZS range"
+      ],
+      [
+        "$D000",
+        "$FFF9",
+        "Loaded resident NZS range"
+      ]
+    ],
+    "include": [
+      [
+        "$D000",
+        "$DFFF",
+        "Sprite shape bytes loaded into RAM behind I/O and fetched by the VIC-II from bank 3."
+      ]
+    ]
+  },
+  "io": [],
+  "regions": [],
+  "ranges": [
+    [
+      "$0320",
+      "$5FFF"
+    ],
+    [
+      "$6380",
+      "$97FF"
+    ],
+    [
+      "$9D0C",
+      "$9EFF"
+    ],
+    [
+      "$D000",
+      "$FFF9"
+    ]
+  ]
+}
