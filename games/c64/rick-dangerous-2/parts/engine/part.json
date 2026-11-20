@@ -1,0 +1,168 @@
+{
+  "title": "Resident engine",
+  "order": 1,
+  "video": {
+    "screen": "$C000",
+    "charset": ""
+  },
+  "coverage": {
+    "exclude": [
+      [
+        "$C400",
+        "$C7E7",
+        "Alternate screen page built by the room renderer. All 1000 cells are zero at the resident handover and cleared by $52C9\u2013$52D5 before being drawn."
+      ],
+      [
+        "$8000",
+        "$84B1",
+        "Zero-filled at the resident handover. The gameplay renderer generates columns here through $507E and $51B3. The load path temporarily uses the overlapping first bytes to save zero page."
+      ]
+    ],
+    "extra": [
+      [
+        "$C800",
+        "$D7FF",
+        "Resident VIC shape data and sprite workspace"
+      ],
+      [
+        "$0660",
+        "$06C9",
+        "Present at the $0400 entry and unchanged in the Hyde Park gameplay snapshot. Function pending."
+      ],
+      [
+        "$104A",
+        "$106F",
+        "Present at the $0400 entry and unchanged in the Hyde Park gameplay snapshot. Function pending."
+      ],
+      [
+        "$2E0A",
+        "$2E14",
+        "Present at the $0400 entry and unchanged in the Hyde Park gameplay snapshot. Function pending."
+      ],
+      [
+        "$48B1",
+        "$48E7",
+        "Present at the $0400 entry and unchanged in the Hyde Park gameplay snapshot. Function pending."
+      ],
+      [
+        "$4930",
+        "$496E",
+        "Present at the $0400 entry and unchanged in the Hyde Park gameplay snapshot. Function pending."
+      ],
+      [
+        "$49B4",
+        "$49FB",
+        "Present at the $0400 entry and unchanged in the Hyde Park gameplay snapshot. Function pending."
+      ],
+      [
+        "$4A3F",
+        "$4BDE",
+        "Present at the $0400 entry and unchanged in the Hyde Park gameplay snapshot. Function pending."
+      ],
+      [
+        "$4BE7",
+        "$4F3B",
+        "Byte-for-byte match in the entry snapshot at $E808-$EB5C. Transfer path and purpose pending."
+      ],
+      [
+        "$593C",
+        "$5951",
+        "Present at the $0400 entry and unchanged in the Hyde Park gameplay snapshot. Function pending."
+      ],
+      [
+        "$5A51",
+        "$5AFC",
+        "Present at the $0400 entry and unchanged in the Hyde Park gameplay snapshot. Function pending."
+      ],
+      [
+        "$5B65",
+        "$5B94",
+        "Present at the $0400 entry and unchanged in the Hyde Park gameplay snapshot. Function pending."
+      ],
+      [
+        "$5F38",
+        "$5F43",
+        "Present at the $0400 entry and unchanged in the Hyde Park gameplay snapshot. Function pending."
+      ],
+      [
+        "$6405",
+        "$6412",
+        "Present at the $0400 entry and unchanged in the Hyde Park gameplay snapshot. Function pending."
+      ],
+      [
+        "$6FE6",
+        "$7005",
+        "Present at the $0400 entry and unchanged in the Hyde Park gameplay snapshot. Function pending."
+      ],
+      [
+        "$7046",
+        "$7065",
+        "Present at the $0400 entry and unchanged in the Hyde Park gameplay snapshot. Function pending."
+      ],
+      [
+        "$76AE",
+        "$76D4",
+        "Present at the $0400 entry and unchanged in the Hyde Park gameplay snapshot. Function pending."
+      ],
+      [
+        "$76E2",
+        "$7708",
+        "Present at the $0400 entry and unchanged in the Hyde Park gameplay snapshot. Function pending."
+      ],
+      [
+        "$771A",
+        "$7740",
+        "Present at the $0400 entry and unchanged in the Hyde Park gameplay snapshot. Function pending."
+      ],
+      [
+        "$774E",
+        "$77CC",
+        "Present at the $0400 entry and unchanged in the Hyde Park gameplay snapshot. Function pending."
+      ],
+      [
+        "$780D",
+        "$79E9",
+        "Present at the $0400 entry and unchanged in the Hyde Park gameplay snapshot. Function pending."
+      ],
+      [
+        "$7D39",
+        "$7D47",
+        "Present at the $0400 entry and unchanged in the Hyde Park gameplay snapshot. Function pending."
+      ],
+      [
+        "$7D97",
+        "$7DAC",
+        "Present at the $0400 entry and unchanged in the Hyde Park gameplay snapshot. Function pending."
+      ],
+      [
+        "$7DD8",
+        "$7ECB",
+        "Present at the $0400 entry and unchanged in the Hyde Park gameplay snapshot. Function pending."
+      ],
+      [
+        "$84F2",
+        "$85B1",
+        "Present at the $0400 entry and unchanged in the Hyde Park gameplay snapshot. Function pending."
+      ],
+      [
+        "$86C6",
+        "$86EE",
+        "Present at the $0400 entry and unchanged in the Hyde Park gameplay snapshot. Function pending."
+      ],
+      [
+        "$C7E8",
+        "$C7F7",
+        "Present at the $0400 entry and unchanged in the Hyde Park gameplay snapshot. Function pending."
+      ]
+    ],
+    "include": [
+      [
+        "$D000",
+        "$D7FF",
+        "Resident VIC graphics held in RAM under the I/O bank"
+      ]
+    ]
+  },
+  "io": [],
+  "regions": []
+}

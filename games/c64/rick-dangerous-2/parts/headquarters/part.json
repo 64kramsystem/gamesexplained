@@ -1,0 +1,43 @@
+{
+  "title": "Fat Guy Headquarters",
+  "order": 6,
+  "over": "engine",
+  "ranges": [
+    [
+      "$8A00",
+      "$BFFF"
+    ],
+    [
+      "$D800",
+      "$EFFF"
+    ]
+  ],
+  "video": {
+    "screen": "",
+    "charset": ""
+  },
+  "coverage": {
+    "exclude": [],
+    "extra": [
+      [
+        "$8A00",
+        "$BFFF",
+        "First output span of the streamed level depacker"
+      ],
+      [
+        "$D800",
+        "$EFFF",
+        "Second output span of the streamed level depacker"
+      ]
+    ],
+    "include": [
+      [
+        "$D800",
+        "$DFFF",
+        "Level bytes streamed into RAM with the I/O bank out"
+      ]
+    ]
+  },
+  "io": [],
+  "regions": []
+}
