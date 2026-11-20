@@ -1,0 +1,43 @@
+{
+  "title": "Resident engine",
+  "order": 1,
+  "video": {
+    "screen": "",
+    "charset": ""
+  },
+  "coverage": {
+    "exclude": [
+      [
+        "$0400",
+        "$05FF",
+        "Inherited boot screen cells hold $20 at engine entry. The engine clears $0400-$04FF and writes its sentinel at $04A0."
+      ],
+      [
+        "$0600",
+        "$06FF",
+        "Initial blank cells become the generated multicolour pixel reversal table. All 256 play bytes match the transform in $4C00."
+      ],
+      [
+        "$0700",
+        "$07FF",
+        "Boot screen and tail bytes match the pre-engine loading snapshot; the resident disk payload starts at $0801."
+      ]
+    ],
+    "extra": [
+      [
+        "$0801",
+        "$BFFF",
+        "Resident PRG payload loaded at $0801."
+      ]
+    ],
+    "include": []
+  },
+  "io": [],
+  "regions": [],
+  "ranges": [
+    [
+      "$0801",
+      "$BFFF"
+    ]
+  ]
+}

@@ -1,0 +1,43 @@
+{
+  "title": "Mission 2",
+  "order": 3,
+  "over": "engine",
+  "ranges": [
+    [
+      "$6400",
+      "$68FF"
+    ],
+    [
+      "$C000",
+      "$FEEF"
+    ]
+  ],
+  "video": {
+    "screen": "",
+    "charset": ""
+  },
+  "coverage": {
+    "exclude": [],
+    "extra": [
+      [
+        "$6400",
+        "$68FF",
+        "First $0500 bytes of the mission payload."
+      ],
+      [
+        "$C000",
+        "$FEEF",
+        "Second destination for the mission payload, $3EF0 bytes."
+      ]
+    ],
+    "include": [
+      [
+        "$D000",
+        "$DFFF",
+        "Mission byte stream written with I/O banked out at $3F5E."
+      ]
+    ]
+  },
+  "io": [],
+  "regions": []
+}

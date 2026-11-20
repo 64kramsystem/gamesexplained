@@ -1,0 +1,10184 @@
+{
+ "schema": 1,
+ "platform": "c64",
+ "game": "shinobi",
+ "part": "engine",
+ "build": "X-Large disk release",
+ "source": "regenerator2000 live",
+ "regions": {
+  "exclude": [
+   [
+    256,
+    511,
+    "stack"
+   ],
+   [
+    53248,
+    57343,
+    "I/O and colour RAM"
+   ],
+   [
+    1024,
+    1535,
+    "Inherited boot screen cells hold $20 at engine entry. The engine clears $0400-$04FF and writes its sentinel at $04A0."
+   ],
+   [
+    1536,
+    1791,
+    "Initial blank cells become the generated multicolour pixel reversal table. All 256 play bytes match the transform in $4C00."
+   ],
+   [
+    1792,
+    2047,
+    "Boot screen and tail bytes match the pre-engine loading snapshot; the resident disk payload starts at $0801."
+   ],
+   [
+    49152,
+    65263,
+    "5 parts: Mission 1, Mission 2, Mission 3 and others"
+   ]
+  ],
+  "extra": [
+   [
+    2049,
+    49151,
+    "Resident PRG payload loaded at $0801."
+   ]
+  ],
+  "edges": [
+   0,
+   256,
+   512,
+   1024,
+   2048,
+   4096,
+   16384,
+   32768,
+   40960,
+   49152,
+   53248,
+   57344
+  ],
+  "elsewhere": [
+   [
+    49152,
+    65263,
+    "5 parts: Mission 1, Mission 2, Mission 3 and others"
+   ]
+  ]
+ },
+ "blocks": [
+  {
+   "start": 0,
+   "end": 2088,
+   "type": "Undefined"
+  },
+  {
+   "start": 2089,
+   "end": 2122,
+   "type": "Code"
+  },
+  {
+   "start": 2123,
+   "end": 2797,
+   "type": "Undefined"
+  },
+  {
+   "start": 2798,
+   "end": 3004,
+   "type": "Code"
+  },
+  {
+   "start": 3005,
+   "end": 3170,
+   "type": "Undefined"
+  },
+  {
+   "start": 3171,
+   "end": 3210,
+   "type": "Code"
+  },
+  {
+   "start": 3211,
+   "end": 3607,
+   "type": "Undefined"
+  },
+  {
+   "start": 3608,
+   "end": 3750,
+   "type": "Code"
+  },
+  {
+   "start": 3751,
+   "end": 3751,
+   "type": "Undefined"
+  },
+  {
+   "start": 3752,
+   "end": 4401,
+   "type": "Code"
+  },
+  {
+   "start": 4402,
+   "end": 4402,
+   "type": "Undefined"
+  },
+  {
+   "start": 4403,
+   "end": 4609,
+   "type": "Code"
+  },
+  {
+   "start": 4610,
+   "end": 4625,
+   "type": "Undefined"
+  },
+  {
+   "start": 4626,
+   "end": 4752,
+   "type": "Code"
+  },
+  {
+   "start": 4753,
+   "end": 4768,
+   "type": "Undefined"
+  },
+  {
+   "start": 4769,
+   "end": 4911,
+   "type": "Code"
+  },
+  {
+   "start": 4912,
+   "end": 5007,
+   "type": "Undefined"
+  },
+  {
+   "start": 5008,
+   "end": 5087,
+   "type": "Code"
+  },
+  {
+   "start": 5088,
+   "end": 5090,
+   "type": "Undefined"
+  },
+  {
+   "start": 5091,
+   "end": 5143,
+   "type": "Code"
+  },
+  {
+   "start": 5144,
+   "end": 5144,
+   "type": "Undefined"
+  },
+  {
+   "start": 5145,
+   "end": 5283,
+   "type": "Code"
+  },
+  {
+   "start": 5284,
+   "end": 5284,
+   "type": "Undefined"
+  },
+  {
+   "start": 5285,
+   "end": 5339,
+   "type": "Code"
+  },
+  {
+   "start": 5340,
+   "end": 5404,
+   "type": "Undefined"
+  },
+  {
+   "start": 5405,
+   "end": 5488,
+   "type": "Code"
+  },
+  {
+   "start": 5489,
+   "end": 5499,
+   "type": "Undefined"
+  },
+  {
+   "start": 5500,
+   "end": 5796,
+   "type": "Code"
+  },
+  {
+   "start": 5797,
+   "end": 5870,
+   "type": "Undefined"
+  },
+  {
+   "start": 5871,
+   "end": 6014,
+   "type": "Code"
+  },
+  {
+   "start": 6015,
+   "end": 6020,
+   "type": "Undefined"
+  },
+  {
+   "start": 6021,
+   "end": 6341,
+   "type": "Code"
+  },
+  {
+   "start": 6342,
+   "end": 6349,
+   "type": "Undefined"
+  },
+  {
+   "start": 6350,
+   "end": 6357,
+   "type": "Byte"
+  },
+  {
+   "start": 6358,
+   "end": 6358,
+   "type": "Undefined"
+  },
+  {
+   "start": 6359,
+   "end": 6400,
+   "type": "Code"
+  },
+  {
+   "start": 6401,
+   "end": 6403,
+   "type": "Undefined"
+  },
+  {
+   "start": 6404,
+   "end": 7193,
+   "type": "Code"
+  },
+  {
+   "start": 7194,
+   "end": 7196,
+   "type": "Undefined"
+  },
+  {
+   "start": 7197,
+   "end": 7334,
+   "type": "Code"
+  },
+  {
+   "start": 7335,
+   "end": 7374,
+   "type": "Undefined"
+  },
+  {
+   "start": 7375,
+   "end": 7481,
+   "type": "Code"
+  },
+  {
+   "start": 7482,
+   "end": 7511,
+   "type": "Undefined"
+  },
+  {
+   "start": 7512,
+   "end": 7552,
+   "type": "Code"
+  },
+  {
+   "start": 7553,
+   "end": 7616,
+   "type": "Byte"
+  },
+  {
+   "start": 7617,
+   "end": 7617,
+   "type": "Undefined"
+  },
+  {
+   "start": 7618,
+   "end": 7813,
+   "type": "Code"
+  },
+  {
+   "start": 7814,
+   "end": 7814,
+   "type": "Undefined"
+  },
+  {
+   "start": 7815,
+   "end": 7890,
+   "type": "Code"
+  },
+  {
+   "start": 7891,
+   "end": 7900,
+   "type": "Undefined"
+  },
+  {
+   "start": 7901,
+   "end": 7928,
+   "type": "Code"
+  },
+  {
+   "start": 7929,
+   "end": 8119,
+   "type": "Undefined"
+  },
+  {
+   "start": 8120,
+   "end": 8653,
+   "type": "Code"
+  },
+  {
+   "start": 8654,
+   "end": 8668,
+   "type": "Undefined"
+  },
+  {
+   "start": 8669,
+   "end": 9232,
+   "type": "Code"
+  },
+  {
+   "start": 9233,
+   "end": 9234,
+   "type": "Undefined"
+  },
+  {
+   "start": 9235,
+   "end": 9590,
+   "type": "Code"
+  },
+  {
+   "start": 9591,
+   "end": 9595,
+   "type": "Undefined"
+  },
+  {
+   "start": 9596,
+   "end": 9726,
+   "type": "Code"
+  },
+  {
+   "start": 9727,
+   "end": 9728,
+   "type": "Undefined"
+  },
+  {
+   "start": 9729,
+   "end": 9750,
+   "type": "Code"
+  },
+  {
+   "start": 9751,
+   "end": 9753,
+   "type": "Undefined"
+  },
+  {
+   "start": 9754,
+   "end": 9822,
+   "type": "Code"
+  },
+  {
+   "start": 9823,
+   "end": 9823,
+   "type": "Undefined"
+  },
+  {
+   "start": 9824,
+   "end": 9979,
+   "type": "Code"
+  },
+  {
+   "start": 9980,
+   "end": 9981,
+   "type": "Undefined"
+  },
+  {
+   "start": 9982,
+   "end": 10096,
+   "type": "Code"
+  },
+  {
+   "start": 10097,
+   "end": 10097,
+   "type": "Undefined"
+  },
+  {
+   "start": 10098,
+   "end": 10198,
+   "type": "Code"
+  },
+  {
+   "start": 10199,
+   "end": 10209,
+   "type": "Undefined"
+  },
+  {
+   "start": 10210,
+   "end": 10317,
+   "type": "Code"
+  },
+  {
+   "start": 10318,
+   "end": 10318,
+   "type": "Undefined"
+  },
+  {
+   "start": 10319,
+   "end": 10474,
+   "type": "Code"
+  },
+  {
+   "start": 10475,
+   "end": 10558,
+   "type": "Undefined"
+  },
+  {
+   "start": 10559,
+   "end": 10596,
+   "type": "Code"
+  },
+  {
+   "start": 10597,
+   "end": 10612,
+   "type": "Undefined"
+  },
+  {
+   "start": 10613,
+   "end": 10802,
+   "type": "Code"
+  },
+  {
+   "start": 10803,
+   "end": 10804,
+   "type": "Undefined"
+  },
+  {
+   "start": 10805,
+   "end": 11032,
+   "type": "Code"
+  },
+  {
+   "start": 11033,
+   "end": 11142,
+   "type": "Undefined"
+  },
+  {
+   "start": 11143,
+   "end": 11399,
+   "type": "Code"
+  },
+  {
+   "start": 11400,
+   "end": 11405,
+   "type": "Undefined"
+  },
+  {
+   "start": 11406,
+   "end": 11448,
+   "type": "Code"
+  },
+  {
+   "start": 11449,
+   "end": 11462,
+   "type": "Undefined"
+  },
+  {
+   "start": 11463,
+   "end": 11686,
+   "type": "Code"
+  },
+  {
+   "start": 11687,
+   "end": 11687,
+   "type": "Undefined"
+  },
+  {
+   "start": 11688,
+   "end": 11759,
+   "type": "Code"
+  },
+  {
+   "start": 11760,
+   "end": 11788,
+   "type": "Undefined"
+  },
+  {
+   "start": 11789,
+   "end": 12010,
+   "type": "Code"
+  },
+  {
+   "start": 12011,
+   "end": 12027,
+   "type": "Undefined"
+  },
+  {
+   "start": 12028,
+   "end": 12335,
+   "type": "Code"
+  },
+  {
+   "start": 12336,
+   "end": 13294,
+   "type": "Undefined"
+  },
+  {
+   "start": 13295,
+   "end": 13431,
+   "type": "Code"
+  },
+  {
+   "start": 13432,
+   "end": 14390,
+   "type": "Undefined"
+  },
+  {
+   "start": 14391,
+   "end": 14581,
+   "type": "Code"
+  },
+  {
+   "start": 14582,
+   "end": 14582,
+   "type": "Undefined"
+  },
+  {
+   "start": 14583,
+   "end": 14669,
+   "type": "Code"
+  },
+  {
+   "start": 14670,
+   "end": 14684,
+   "type": "Undefined"
+  },
+  {
+   "start": 14685,
+   "end": 14737,
+   "type": "Code"
+  },
+  {
+   "start": 14738,
+   "end": 14742,
+   "type": "Undefined"
+  },
+  {
+   "start": 14743,
+   "end": 14772,
+   "type": "Code"
+  },
+  {
+   "start": 14773,
+   "end": 14776,
+   "type": "Undefined"
+  },
+  {
+   "start": 14777,
+   "end": 14817,
+   "type": "Code"
+  },
+  {
+   "start": 14818,
+   "end": 14819,
+   "type": "Undefined"
+  },
+  {
+   "start": 14820,
+   "end": 15087,
+   "type": "Code"
+  },
+  {
+   "start": 15088,
+   "end": 15090,
+   "type": "Undefined"
+  },
+  {
+   "start": 15091,
+   "end": 15198,
+   "type": "Code"
+  },
+  {
+   "start": 15199,
+   "end": 15221,
+   "type": "Undefined"
+  },
+  {
+   "start": 15222,
+   "end": 15469,
+   "type": "Code"
+  },
+  {
+   "start": 15470,
+   "end": 15538,
+   "type": "Undefined"
+  },
+  {
+   "start": 15539,
+   "end": 15565,
+   "type": "Code"
+  },
+  {
+   "start": 15566,
+   "end": 15597,
+   "type": "Undefined"
+  },
+  {
+   "start": 15598,
+   "end": 15882,
+   "type": "Code"
+  },
+  {
+   "start": 15883,
+   "end": 15933,
+   "type": "Undefined"
+  },
+  {
+   "start": 15934,
+   "end": 15945,
+   "type": "PETSCII Text"
+  },
+  {
+   "start": 15946,
+   "end": 16190,
+   "type": "Code"
+  },
+  {
+   "start": 16191,
+   "end": 16191,
+   "type": "Undefined"
+  },
+  {
+   "start": 16192,
+   "end": 16244,
+   "type": "Code"
+  },
+  {
+   "start": 16245,
+   "end": 16248,
+   "type": "Undefined"
+  },
+  {
+   "start": 16249,
+   "end": 16293,
+   "type": "Code"
+  },
+  {
+   "start": 16294,
+   "end": 19455,
+   "type": "Undefined"
+  },
+  {
+   "start": 19456,
+   "end": 19517,
+   "type": "Code"
+  },
+  {
+   "start": 19518,
+   "end": 20479,
+   "type": "Undefined"
+  },
+  {
+   "start": 20480,
+   "end": 20559,
+   "type": "Byte"
+  },
+  {
+   "start": 20560,
+   "end": 20735,
+   "type": "Undefined"
+  },
+  {
+   "start": 20736,
+   "end": 20951,
+   "type": "Byte"
+  },
+  {
+   "start": 20952,
+   "end": 21887,
+   "type": "Undefined"
+  },
+  {
+   "start": 21888,
+   "end": 35199,
+   "type": "Byte"
+  },
+  {
+   "start": 35200,
+   "end": 35231,
+   "type": "Undefined"
+  },
+  {
+   "start": 35232,
+   "end": 35700,
+   "type": "Code"
+  },
+  {
+   "start": 35701,
+   "end": 35708,
+   "type": "Undefined"
+  },
+  {
+   "start": 35709,
+   "end": 35779,
+   "type": "Code"
+  },
+  {
+   "start": 35780,
+   "end": 35902,
+   "type": "Undefined"
+  },
+  {
+   "start": 35903,
+   "end": 36192,
+   "type": "Code"
+  },
+  {
+   "start": 36193,
+   "end": 36202,
+   "type": "Undefined"
+  },
+  {
+   "start": 36203,
+   "end": 36342,
+   "type": "Code"
+  },
+  {
+   "start": 36343,
+   "end": 36347,
+   "type": "Undefined"
+  },
+  {
+   "start": 36348,
+   "end": 36772,
+   "type": "Code"
+  },
+  {
+   "start": 36773,
+   "end": 36782,
+   "type": "Undefined"
+  },
+  {
+   "start": 36783,
+   "end": 36838,
+   "type": "Code"
+  },
+  {
+   "start": 36839,
+   "end": 36839,
+   "type": "Undefined"
+  },
+  {
+   "start": 36840,
+   "end": 36880,
+   "type": "Code"
+  },
+  {
+   "start": 36881,
+   "end": 36881,
+   "type": "Undefined"
+  },
+  {
+   "start": 36882,
+   "end": 37134,
+   "type": "Code"
+  },
+  {
+   "start": 37135,
+   "end": 37168,
+   "type": "Undefined"
+  },
+  {
+   "start": 37169,
+   "end": 37343,
+   "type": "Code"
+  },
+  {
+   "start": 37344,
+   "end": 37491,
+   "type": "Undefined"
+  },
+  {
+   "start": 37492,
+   "end": 37621,
+   "type": "Code"
+  },
+  {
+   "start": 37622,
+   "end": 37683,
+   "type": "Undefined"
+  },
+  {
+   "start": 37684,
+   "end": 37866,
+   "type": "Code"
+  },
+  {
+   "start": 37867,
+   "end": 38162,
+   "type": "Undefined"
+  },
+  {
+   "start": 38163,
+   "end": 38356,
+   "type": "Code"
+  },
+  {
+   "start": 38357,
+   "end": 38416,
+   "type": "Undefined"
+  },
+  {
+   "start": 38417,
+   "end": 38656,
+   "type": "Code"
+  },
+  {
+   "start": 38657,
+   "end": 38657,
+   "type": "Undefined"
+  },
+  {
+   "start": 38658,
+   "end": 38689,
+   "type": "Lo/Hi Address"
+  },
+  {
+   "start": 38690,
+   "end": 39008,
+   "type": "PETSCII Text"
+  },
+  {
+   "start": 39009,
+   "end": 39024,
+   "type": "Byte"
+  },
+  {
+   "start": 39025,
+   "end": 39243,
+   "type": "Code"
+  },
+  {
+   "start": 39244,
+   "end": 39294,
+   "type": "PETSCII Text"
+  },
+  {
+   "start": 39295,
+   "end": 39848,
+   "type": "Undefined"
+  },
+  {
+   "start": 39849,
+   "end": 39916,
+   "type": "Code"
+  },
+  {
+   "start": 39917,
+   "end": 39972,
+   "type": "Undefined"
+  },
+  {
+   "start": 39973,
+   "end": 40001,
+   "type": "Code"
+  },
+  {
+   "start": 40002,
+   "end": 40176,
+   "type": "Undefined"
+  },
+  {
+   "start": 40177,
+   "end": 40320,
+   "type": "Code"
+  },
+  {
+   "start": 40321,
+   "end": 40324,
+   "type": "Undefined"
+  },
+  {
+   "start": 40325,
+   "end": 40394,
+   "type": "Code"
+  },
+  {
+   "start": 40395,
+   "end": 43540,
+   "type": "Undefined"
+  },
+  {
+   "start": 43541,
+   "end": 43653,
+   "type": "Code"
+  },
+  {
+   "start": 43654,
+   "end": 43722,
+   "type": "Undefined"
+  },
+  {
+   "start": 43723,
+   "end": 43756,
+   "type": "Code"
+  },
+  {
+   "start": 43757,
+   "end": 44591,
+   "type": "Undefined"
+  },
+  {
+   "start": 44592,
+   "end": 44764,
+   "type": "Code"
+  },
+  {
+   "start": 44765,
+   "end": 44778,
+   "type": "Undefined"
+  },
+  {
+   "start": 44779,
+   "end": 45195,
+   "type": "Code"
+  },
+  {
+   "start": 45196,
+   "end": 45543,
+   "type": "Undefined"
+  },
+  {
+   "start": 45544,
+   "end": 45653,
+   "type": "Code"
+  },
+  {
+   "start": 45654,
+   "end": 46077,
+   "type": "Undefined"
+  },
+  {
+   "start": 46078,
+   "end": 46333,
+   "type": "Code"
+  },
+  {
+   "start": 46334,
+   "end": 46403,
+   "type": "Undefined"
+  },
+  {
+   "start": 46404,
+   "end": 46454,
+   "type": "Code"
+  },
+  {
+   "start": 46455,
+   "end": 46480,
+   "type": "Undefined"
+  },
+  {
+   "start": 46481,
+   "end": 46696,
+   "type": "Code"
+  },
+  {
+   "start": 46697,
+   "end": 46993,
+   "type": "Undefined"
+  },
+  {
+   "start": 46994,
+   "end": 47168,
+   "type": "Code"
+  },
+  {
+   "start": 47169,
+   "end": 47201,
+   "type": "Undefined"
+  },
+  {
+   "start": 47202,
+   "end": 47633,
+   "type": "Code"
+  },
+  {
+   "start": 47634,
+   "end": 47744,
+   "type": "Undefined"
+  },
+  {
+   "start": 47745,
+   "end": 47820,
+   "type": "Code"
+  },
+  {
+   "start": 47821,
+   "end": 47822,
+   "type": "Undefined"
+  },
+  {
+   "start": 47823,
+   "end": 47853,
+   "type": "Code"
+  },
+  {
+   "start": 47854,
+   "end": 47855,
+   "type": "Undefined"
+  },
+  {
+   "start": 47856,
+   "end": 48102,
+   "type": "Code"
+  },
+  {
+   "start": 48103,
+   "end": 48112,
+   "type": "Undefined"
+  },
+  {
+   "start": 48113,
+   "end": 48219,
+   "type": "Code"
+  },
+  {
+   "start": 48220,
+   "end": 48410,
+   "type": "Byte"
+  },
+  {
+   "start": 48411,
+   "end": 48496,
+   "type": "Code"
+  },
+  {
+   "start": 48497,
+   "end": 48497,
+   "type": "Undefined"
+  },
+  {
+   "start": 48498,
+   "end": 48548,
+   "type": "Code"
+  },
+  {
+   "start": 48549,
+   "end": 49151,
+   "type": "Undefined"
+  },
+  {
+   "start": 65264,
+   "end": 65411,
+   "type": "Undefined"
+  },
+  {
+   "start": 65412,
+   "end": 65535,
+   "type": "Code"
+  }
+ ],
+ "symbols": [
+  {
+   "address": 0,
+   "name": "f_0000",
+   "type": "Field",
+   "kind": "auto"
+  },
+  {
+   "address": 1,
+   "name": "zpa_01",
+   "type": "ZeroPageAbsoluteAddress",
+   "kind": "auto"
+  },
+  {
+   "address": 3,
+   "name": "zpa_03",
+   "type": "ZeroPageAbsoluteAddress",
+   "kind": "auto"
+  },
+  {
+   "address": 4,
+   "name": "zpa_04",
+   "type": "ZeroPageAbsoluteAddress",
+   "kind": "auto"
+  },
+  {
+   "address": 5,
+   "name": "zpa_05",
+   "type": "ZeroPageAbsoluteAddress",
+   "kind": "auto"
+  },
+  {
+   "address": 6,
+   "name": "zpa_06",
+   "type": "ZeroPageAbsoluteAddress",
+   "kind": "auto"
+  },
+  {
+   "address": 7,
+   "name": "zpa_07",
+   "type": "ZeroPageAbsoluteAddress",
+   "kind": "auto"
+  },
+  {
+   "address": 8,
+   "name": "zpa_08",
+   "type": "ZeroPageAbsoluteAddress",
+   "kind": "auto"
+  },
+  {
+   "address": 9,
+   "name": "zpa_09",
+   "type": "ZeroPageAbsoluteAddress",
+   "kind": "auto"
+  },
+  {
+   "address": 10,
+   "name": "zpa_0A",
+   "type": "ZeroPageAbsoluteAddress",
+   "kind": "auto"
+  },
+  {
+   "address": 11,
+   "name": "zpa_0B",
+   "type": "ZeroPageAbsoluteAddress",
+   "kind": "auto"
+  },
+  {
+   "address": 12,
+   "name": "zpa_0C",
+   "type": "ZeroPageAbsoluteAddress",
+   "kind": "auto"
+  },
+  {
+   "address": 13,
+   "name": "zpa_0D",
+   "type": "ZeroPageAbsoluteAddress",
+   "kind": "auto"
+  },
+  {
+   "address": 16,
+   "name": "zpa_10",
+   "type": "ZeroPageAbsoluteAddress",
+   "kind": "auto"
+  },
+  {
+   "address": 17,
+   "name": "zpa_11",
+   "type": "ZeroPageAbsoluteAddress",
+   "kind": "auto"
+  },
+  {
+   "address": 18,
+   "name": "zpa_12",
+   "type": "ZeroPageAbsoluteAddress",
+   "kind": "auto"
+  },
+  {
+   "address": 19,
+   "name": "zpa_13",
+   "type": "ZeroPageAbsoluteAddress",
+   "kind": "auto"
+  },
+  {
+   "address": 21,
+   "name": "zpa_15",
+   "type": "ZeroPageAbsoluteAddress",
+   "kind": "auto"
+  },
+  {
+   "address": 22,
+   "name": "zpa_16",
+   "type": "ZeroPageAbsoluteAddress",
+   "kind": "auto"
+  },
+  {
+   "address": 30,
+   "name": "zpa_1E",
+   "type": "ZeroPageAbsoluteAddress",
+   "kind": "auto"
+  },
+  {
+   "address": 31,
+   "name": "zpa_1F",
+   "type": "ZeroPageAbsoluteAddress",
+   "kind": "auto"
+  },
+  {
+   "address": 36,
+   "name": "zpa_24",
+   "type": "ZeroPageAbsoluteAddress",
+   "kind": "auto"
+  },
+  {
+   "address": 37,
+   "name": "zpa_25",
+   "type": "ZeroPageAbsoluteAddress",
+   "kind": "auto"
+  },
+  {
+   "address": 38,
+   "name": "zpa_26",
+   "type": "ZeroPageAbsoluteAddress",
+   "kind": "auto"
+  },
+  {
+   "address": 39,
+   "name": "zpa_27",
+   "type": "ZeroPageAbsoluteAddress",
+   "kind": "auto"
+  },
+  {
+   "address": 40,
+   "name": "zpa_28",
+   "type": "ZeroPageAbsoluteAddress",
+   "kind": "auto"
+  },
+  {
+   "address": 41,
+   "name": "zpa_29",
+   "type": "ZeroPageAbsoluteAddress",
+   "kind": "auto"
+  },
+  {
+   "address": 42,
+   "name": "zpa_2A",
+   "type": "ZeroPageAbsoluteAddress",
+   "kind": "auto"
+  },
+  {
+   "address": 43,
+   "name": "zpa_2B",
+   "type": "ZeroPageAbsoluteAddress",
+   "kind": "auto"
+  },
+  {
+   "address": 44,
+   "name": "zpa_2C",
+   "type": "ZeroPageAbsoluteAddress",
+   "kind": "auto"
+  },
+  {
+   "address": 45,
+   "name": "zpa_2D",
+   "type": "ZeroPageAbsoluteAddress",
+   "kind": "auto"
+  },
+  {
+   "address": 46,
+   "name": "zpa_2E",
+   "type": "ZeroPageAbsoluteAddress",
+   "kind": "auto"
+  },
+  {
+   "address": 47,
+   "name": "zpa_2F",
+   "type": "ZeroPageAbsoluteAddress",
+   "kind": "auto"
+  },
+  {
+   "address": 48,
+   "name": "zpa_30",
+   "type": "ZeroPageAbsoluteAddress",
+   "kind": "auto"
+  },
+  {
+   "address": 49,
+   "name": "zpa_31",
+   "type": "ZeroPageAbsoluteAddress",
+   "kind": "auto"
+  },
+  {
+   "address": 50,
+   "name": "zpa_32",
+   "type": "ZeroPageAbsoluteAddress",
+   "kind": "auto"
+  },
+  {
+   "address": 51,
+   "name": "zpa_33",
+   "type": "ZeroPageAbsoluteAddress",
+   "kind": "auto"
+  },
+  {
+   "address": 52,
+   "name": "zpa_34",
+   "type": "ZeroPageAbsoluteAddress",
+   "kind": "auto"
+  },
+  {
+   "address": 53,
+   "name": "zpa_35",
+   "type": "ZeroPageAbsoluteAddress",
+   "kind": "auto"
+  },
+  {
+   "address": 54,
+   "name": "zpa_36",
+   "type": "ZeroPageAbsoluteAddress",
+   "kind": "auto"
+  },
+  {
+   "address": 55,
+   "name": "zpa_37",
+   "type": "ZeroPageAbsoluteAddress",
+   "kind": "auto"
+  },
+  {
+   "address": 56,
+   "name": "zpa_38",
+   "type": "ZeroPageAbsoluteAddress",
+   "kind": "auto"
+  },
+  {
+   "address": 57,
+   "name": "zpa_39",
+   "type": "ZeroPageAbsoluteAddress",
+   "kind": "auto"
+  },
+  {
+   "address": 100,
+   "name": "zpa_64",
+   "type": "ZeroPageAbsoluteAddress",
+   "kind": "auto"
+  },
+  {
+   "address": 106,
+   "name": "zpa_6A",
+   "type": "ZeroPageAbsoluteAddress",
+   "kind": "auto"
+  },
+  {
+   "address": 107,
+   "name": "zpa_6B",
+   "type": "ZeroPageAbsoluteAddress",
+   "kind": "auto"
+  },
+  {
+   "address": 108,
+   "name": "zpa_6C",
+   "type": "ZeroPageAbsoluteAddress",
+   "kind": "auto"
+  },
+  {
+   "address": 120,
+   "name": "zpa_78",
+   "type": "ZeroPageAbsoluteAddress",
+   "kind": "auto"
+  },
+  {
+   "address": 121,
+   "name": "zpa_79",
+   "type": "ZeroPageAbsoluteAddress",
+   "kind": "auto"
+  },
+  {
+   "address": 190,
+   "name": "zpa_BE",
+   "type": "ZeroPageAbsoluteAddress",
+   "kind": "auto"
+  },
+  {
+   "address": 191,
+   "name": "zpa_BF",
+   "type": "ZeroPageAbsoluteAddress",
+   "kind": "auto"
+  },
+  {
+   "address": 192,
+   "name": "zpa_C0",
+   "type": "ZeroPageAbsoluteAddress",
+   "kind": "auto"
+  },
+  {
+   "address": 199,
+   "name": "zpa_C7",
+   "type": "ZeroPageAbsoluteAddress",
+   "kind": "auto"
+  },
+  {
+   "address": 200,
+   "name": "zpa_C8",
+   "type": "ZeroPageAbsoluteAddress",
+   "kind": "auto"
+  },
+  {
+   "address": 201,
+   "name": "zpa_C9",
+   "type": "ZeroPageAbsoluteAddress",
+   "kind": "auto"
+  },
+  {
+   "address": 202,
+   "name": "zpa_CA",
+   "type": "ZeroPageAbsoluteAddress",
+   "kind": "auto"
+  },
+  {
+   "address": 203,
+   "name": "zpa_CB",
+   "type": "ZeroPageAbsoluteAddress",
+   "kind": "auto"
+  },
+  {
+   "address": 205,
+   "name": "zpa_CD",
+   "type": "ZeroPageAbsoluteAddress",
+   "kind": "auto"
+  },
+  {
+   "address": 206,
+   "name": "zpa_CE",
+   "type": "ZeroPageAbsoluteAddress",
+   "kind": "auto"
+  },
+  {
+   "address": 207,
+   "name": "zpa_CF",
+   "type": "ZeroPageAbsoluteAddress",
+   "kind": "auto"
+  },
+  {
+   "address": 208,
+   "name": "zpa_D0",
+   "type": "ZeroPageAbsoluteAddress",
+   "kind": "auto"
+  },
+  {
+   "address": 209,
+   "name": "zpa_D1",
+   "type": "ZeroPageAbsoluteAddress",
+   "kind": "auto"
+  },
+  {
+   "address": 210,
+   "name": "zpa_D2",
+   "type": "ZeroPageAbsoluteAddress",
+   "kind": "auto"
+  },
+  {
+   "address": 211,
+   "name": "zpa_D3",
+   "type": "ZeroPageAbsoluteAddress",
+   "kind": "auto"
+  },
+  {
+   "address": 212,
+   "name": "zpa_D4",
+   "type": "ZeroPageAbsoluteAddress",
+   "kind": "auto"
+  },
+  {
+   "address": 213,
+   "name": "zpa_D5",
+   "type": "ZeroPageAbsoluteAddress",
+   "kind": "auto"
+  },
+  {
+   "address": 228,
+   "name": "zpp_E4",
+   "type": "ZeroPagePointer",
+   "kind": "auto"
+  },
+  {
+   "address": 247,
+   "name": "zpa_F7",
+   "type": "ZeroPageAbsoluteAddress",
+   "kind": "auto"
+  },
+  {
+   "address": 248,
+   "name": "zpa_F8",
+   "type": "ZeroPageAbsoluteAddress",
+   "kind": "auto"
+  },
+  {
+   "address": 249,
+   "name": "zpa_F9",
+   "type": "ZeroPageAbsoluteAddress",
+   "kind": "auto"
+  },
+  {
+   "address": 250,
+   "name": "zpa_FA",
+   "type": "ZeroPageAbsoluteAddress",
+   "kind": "auto"
+  },
+  {
+   "address": 251,
+   "name": "zpa_FB",
+   "type": "ZeroPageAbsoluteAddress",
+   "kind": "auto"
+  },
+  {
+   "address": 252,
+   "name": "zpa_FC",
+   "type": "ZeroPageAbsoluteAddress",
+   "kind": "auto"
+  },
+  {
+   "address": 253,
+   "name": "zpa_FD",
+   "type": "ZeroPageAbsoluteAddress",
+   "kind": "auto"
+  },
+  {
+   "address": 254,
+   "name": "zpa_FE",
+   "type": "ZeroPageAbsoluteAddress",
+   "kind": "auto"
+  },
+  {
+   "address": 512,
+   "name": "f_0200",
+   "type": "Field",
+   "kind": "auto"
+  },
+  {
+   "address": 640,
+   "name": "f_0280",
+   "type": "Field",
+   "kind": "auto"
+  },
+  {
+   "address": 656,
+   "name": "a_0290",
+   "type": "AbsoluteAddress",
+   "kind": "auto"
+  },
+  {
+   "address": 678,
+   "name": "a_02A6",
+   "type": "AbsoluteAddress",
+   "kind": "auto"
+  },
+  {
+   "address": 788,
+   "name": "a_0314",
+   "type": "AbsoluteAddress",
+   "kind": "auto"
+  },
+  {
+   "address": 789,
+   "name": "a_0315",
+   "type": "AbsoluteAddress",
+   "kind": "auto"
+  },
+  {
+   "address": 1024,
+   "name": "f_0400",
+   "type": "Field",
+   "kind": "auto"
+  },
+  {
+   "address": 1184,
+   "name": "a_04A0",
+   "type": "AbsoluteAddress",
+   "kind": "auto"
+  },
+  {
+   "address": 1536,
+   "name": "f_0600",
+   "type": "Field",
+   "kind": "auto"
+  },
+  {
+   "address": 2064,
+   "name": "f_0810",
+   "type": "Field",
+   "kind": "auto"
+  },
+  {
+   "address": 2065,
+   "name": "a_0811",
+   "type": "AbsoluteAddress",
+   "kind": "auto"
+  },
+  {
+   "address": 2066,
+   "name": "a_0812",
+   "type": "AbsoluteAddress",
+   "kind": "auto"
+  },
+  {
+   "address": 2067,
+   "name": "a_0813",
+   "type": "AbsoluteAddress",
+   "kind": "auto"
+  },
+  {
+   "address": 2068,
+   "name": "f_0814",
+   "type": "Field",
+   "kind": "auto"
+  },
+  {
+   "address": 2069,
+   "name": "a_0815",
+   "type": "AbsoluteAddress",
+   "kind": "auto"
+  },
+  {
+   "address": 2070,
+   "name": "a_0816",
+   "type": "AbsoluteAddress",
+   "kind": "auto"
+  },
+  {
+   "address": 2071,
+   "name": "f_0817",
+   "type": "Field",
+   "kind": "auto"
+  },
+  {
+   "address": 2072,
+   "name": "a_0818",
+   "type": "AbsoluteAddress",
+   "kind": "auto"
+  },
+  {
+   "address": 2073,
+   "name": "a_0819",
+   "type": "AbsoluteAddress",
+   "kind": "auto"
+  },
+  {
+   "address": 2074,
+   "name": "a_081A",
+   "type": "AbsoluteAddress",
+   "kind": "auto"
+  },
+  {
+   "address": 2075,
+   "name": "a_081B",
+   "type": "AbsoluteAddress",
+   "kind": "auto"
+  },
+  {
+   "address": 2076,
+   "name": "f_081C",
+   "type": "Field",
+   "kind": "auto"
+  },
+  {
+   "address": 2080,
+   "name": "a_0820",
+   "type": "AbsoluteAddress",
+   "kind": "auto"
+  },
+  {
+   "address": 2081,
+   "name": "a_0821",
+   "type": "AbsoluteAddress",
+   "kind": "auto"
+  },
+  {
+   "address": 2082,
+   "name": "a_0822",
+   "type": "AbsoluteAddress",
+   "kind": "auto"
+  },
+  {
+   "address": 2083,
+   "name": "a_0823",
+   "type": "AbsoluteAddress",
+   "kind": "auto"
+  },
+  {
+   "address": 2084,
+   "name": "a_0824",
+   "type": "AbsoluteAddress",
+   "kind": "auto"
+  },
+  {
+   "address": 2085,
+   "name": "a_0825",
+   "type": "AbsoluteAddress",
+   "kind": "auto"
+  },
+  {
+   "address": 2086,
+   "name": "a_0826",
+   "type": "AbsoluteAddress",
+   "kind": "auto"
+  },
+  {
+   "address": 2087,
+   "name": "a_0827",
+   "type": "AbsoluteAddress",
+   "kind": "auto"
+  },
+  {
+   "address": 2088,
+   "name": "a_0828",
+   "type": "AbsoluteAddress",
+   "kind": "auto"
+  },
+  {
+   "address": 2089,
+   "name": "s_0829",
+   "type": "Subroutine",
+   "kind": "auto"
+  },
+  {
+   "address": 2111,
+   "name": "b_083F",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 2122,
+   "name": "r_084A",
+   "type": "Return",
+   "kind": "auto"
+  },
+  {
+   "address": 2128,
+   "name": "a_0850",
+   "type": "AbsoluteAddress",
+   "kind": "auto"
+  },
+  {
+   "address": 2129,
+   "name": "a_0851",
+   "type": "AbsoluteAddress",
+   "kind": "auto"
+  },
+  {
+   "address": 2130,
+   "name": "a_0852",
+   "type": "AbsoluteAddress",
+   "kind": "auto"
+  },
+  {
+   "address": 2131,
+   "name": "a_0853",
+   "type": "AbsoluteAddress",
+   "kind": "auto"
+  },
+  {
+   "address": 2132,
+   "name": "a_0854",
+   "type": "AbsoluteAddress",
+   "kind": "auto"
+  },
+  {
+   "address": 2133,
+   "name": "a_0855",
+   "type": "AbsoluteAddress",
+   "kind": "auto"
+  },
+  {
+   "address": 2134,
+   "name": "f_0856",
+   "type": "Field",
+   "kind": "auto"
+  },
+  {
+   "address": 2166,
+   "name": "f_0876",
+   "type": "Field",
+   "kind": "auto"
+  },
+  {
+   "address": 2198,
+   "name": "f_0896",
+   "type": "Field",
+   "kind": "auto"
+  },
+  {
+   "address": 2230,
+   "name": "f_08B6",
+   "type": "Field",
+   "kind": "auto"
+  },
+  {
+   "address": 2262,
+   "name": "f_08D6",
+   "type": "Field",
+   "kind": "auto"
+  },
+  {
+   "address": 2502,
+   "name": "f_09C6",
+   "type": "Field",
+   "kind": "auto"
+  },
+  {
+   "address": 2742,
+   "name": "f_0AB6",
+   "type": "Field",
+   "kind": "auto"
+  },
+  {
+   "address": 2764,
+   "name": "f_0ACC",
+   "type": "Field",
+   "kind": "auto"
+  },
+  {
+   "address": 2766,
+   "name": "a_0ACE",
+   "type": "AbsoluteAddress",
+   "kind": "auto"
+  },
+  {
+   "address": 2767,
+   "name": "a_0ACF",
+   "type": "AbsoluteAddress",
+   "kind": "auto"
+  },
+  {
+   "address": 2768,
+   "name": "a_0AD0",
+   "type": "AbsoluteAddress",
+   "kind": "auto"
+  },
+  {
+   "address": 2770,
+   "name": "a_0AD2",
+   "type": "AbsoluteAddress",
+   "kind": "auto"
+  },
+  {
+   "address": 2771,
+   "name": "a_0AD3",
+   "type": "AbsoluteAddress",
+   "kind": "auto"
+  },
+  {
+   "address": 2772,
+   "name": "f_0AD4",
+   "type": "Field",
+   "kind": "auto"
+  },
+  {
+   "address": 2776,
+   "name": "f_0AD8",
+   "type": "Field",
+   "kind": "auto"
+  },
+  {
+   "address": 2777,
+   "name": "a_0AD9",
+   "type": "AbsoluteAddress",
+   "kind": "auto"
+  },
+  {
+   "address": 2779,
+   "name": "a_0ADB",
+   "type": "AbsoluteAddress",
+   "kind": "auto"
+  },
+  {
+   "address": 2780,
+   "name": "a_0ADC",
+   "type": "AbsoluteAddress",
+   "kind": "auto"
+  },
+  {
+   "address": 2793,
+   "name": "a_0AE9",
+   "type": "AbsoluteAddress",
+   "kind": "auto"
+  },
+  {
+   "address": 2794,
+   "name": "a_0AEA",
+   "type": "AbsoluteAddress",
+   "kind": "auto"
+  },
+  {
+   "address": 2795,
+   "name": "f_0AEB",
+   "type": "Field",
+   "kind": "auto"
+  },
+  {
+   "address": 2796,
+   "name": "a_0AEC",
+   "type": "AbsoluteAddress",
+   "kind": "auto"
+  },
+  {
+   "address": 2798,
+   "name": "prepare_stage_tables",
+   "type": "Subroutine",
+   "kind": "user"
+  },
+  {
+   "address": 2886,
+   "name": "build_stage_row_pointers",
+   "type": "Subroutine",
+   "kind": "user"
+  },
+  {
+   "address": 2888,
+   "name": "b_0B48",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 3005,
+   "name": "f_0BBD",
+   "type": "Field",
+   "kind": "auto"
+  },
+  {
+   "address": 3009,
+   "name": "f_0BC1",
+   "type": "Field",
+   "kind": "auto"
+  },
+  {
+   "address": 3013,
+   "name": "f_0BC5",
+   "type": "Field",
+   "kind": "auto"
+  },
+  {
+   "address": 3017,
+   "name": "a_0BC9",
+   "type": "AbsoluteAddress",
+   "kind": "auto"
+  },
+  {
+   "address": 3018,
+   "name": "f_0BCA",
+   "type": "Field",
+   "kind": "auto"
+  },
+  {
+   "address": 3020,
+   "name": "a_0BCC",
+   "type": "AbsoluteAddress",
+   "kind": "auto"
+  },
+  {
+   "address": 3024,
+   "name": "f_0BD0",
+   "type": "Field",
+   "kind": "auto"
+  },
+  {
+   "address": 3025,
+   "name": "f_0BD1",
+   "type": "Field",
+   "kind": "auto"
+  },
+  {
+   "address": 3028,
+   "name": "a_0BD4",
+   "type": "AbsoluteAddress",
+   "kind": "auto"
+  },
+  {
+   "address": 3035,
+   "name": "a_0BDB",
+   "type": "AbsoluteAddress",
+   "kind": "auto"
+  },
+  {
+   "address": 3036,
+   "name": "a_0BDC",
+   "type": "AbsoluteAddress",
+   "kind": "auto"
+  },
+  {
+   "address": 3037,
+   "name": "a_0BDD",
+   "type": "AbsoluteAddress",
+   "kind": "auto"
+  },
+  {
+   "address": 3038,
+   "name": "a_0BDE",
+   "type": "AbsoluteAddress",
+   "kind": "auto"
+  },
+  {
+   "address": 3040,
+   "name": "a_0BE0",
+   "type": "AbsoluteAddress",
+   "kind": "auto"
+  },
+  {
+   "address": 3043,
+   "name": "f_0BE3",
+   "type": "Field",
+   "kind": "auto"
+  },
+  {
+   "address": 3047,
+   "name": "f_0BE7",
+   "type": "Field",
+   "kind": "auto"
+  },
+  {
+   "address": 3051,
+   "name": "f_0BEB",
+   "type": "Field",
+   "kind": "auto"
+  },
+  {
+   "address": 3055,
+   "name": "a_0BEF",
+   "type": "AbsoluteAddress",
+   "kind": "auto"
+  },
+  {
+   "address": 3056,
+   "name": "f_0BF0",
+   "type": "Field",
+   "kind": "auto"
+  },
+  {
+   "address": 3058,
+   "name": "f_0BF2",
+   "type": "Field",
+   "kind": "auto"
+  },
+  {
+   "address": 3062,
+   "name": "a_0BF6",
+   "type": "AbsoluteAddress",
+   "kind": "auto"
+  },
+  {
+   "address": 3063,
+   "name": "f_0BF7",
+   "type": "Field",
+   "kind": "auto"
+  },
+  {
+   "address": 3071,
+   "name": "f_0BFF",
+   "type": "Field",
+   "kind": "auto"
+  },
+  {
+   "address": 3075,
+   "name": "f_0C03",
+   "type": "Field",
+   "kind": "auto"
+  },
+  {
+   "address": 3079,
+   "name": "f_0C07",
+   "type": "Field",
+   "kind": "auto"
+  },
+  {
+   "address": 3080,
+   "name": "f_0C08",
+   "type": "Field",
+   "kind": "auto"
+  },
+  {
+   "address": 3083,
+   "name": "f_0C0B",
+   "type": "Field",
+   "kind": "auto"
+  },
+  {
+   "address": 3089,
+   "name": "f_0C11",
+   "type": "Field",
+   "kind": "auto"
+  },
+  {
+   "address": 3093,
+   "name": "f_0C15",
+   "type": "Field",
+   "kind": "auto"
+  },
+  {
+   "address": 3097,
+   "name": "f_0C19",
+   "type": "Field",
+   "kind": "auto"
+  },
+  {
+   "address": 3101,
+   "name": "f_0C1D",
+   "type": "Field",
+   "kind": "auto"
+  },
+  {
+   "address": 3105,
+   "name": "f_0C21",
+   "type": "Field",
+   "kind": "auto"
+  },
+  {
+   "address": 3109,
+   "name": "f_0C25",
+   "type": "Field",
+   "kind": "auto"
+  },
+  {
+   "address": 3113,
+   "name": "f_0C29",
+   "type": "Field",
+   "kind": "auto"
+  },
+  {
+   "address": 3117,
+   "name": "f_0C2D",
+   "type": "Field",
+   "kind": "auto"
+  },
+  {
+   "address": 3121,
+   "name": "f_0C31",
+   "type": "Field",
+   "kind": "auto"
+  },
+  {
+   "address": 3125,
+   "name": "f_0C35",
+   "type": "Field",
+   "kind": "auto"
+  },
+  {
+   "address": 3129,
+   "name": "f_0C39",
+   "type": "Field",
+   "kind": "auto"
+  },
+  {
+   "address": 3133,
+   "name": "f_0C3D",
+   "type": "Field",
+   "kind": "auto"
+  },
+  {
+   "address": 3141,
+   "name": "f_0C45",
+   "type": "Field",
+   "kind": "auto"
+  },
+  {
+   "address": 3145,
+   "name": "f_0C49",
+   "type": "Field",
+   "kind": "auto"
+  },
+  {
+   "address": 3149,
+   "name": "a_0C4D",
+   "type": "AbsoluteAddress",
+   "kind": "auto"
+  },
+  {
+   "address": 3150,
+   "name": "f_0C4E",
+   "type": "Field",
+   "kind": "auto"
+  },
+  {
+   "address": 3154,
+   "name": "f_0C52",
+   "type": "Field",
+   "kind": "auto"
+  },
+  {
+   "address": 3158,
+   "name": "a_0C56",
+   "type": "AbsoluteAddress",
+   "kind": "auto"
+  },
+  {
+   "address": 3159,
+   "name": "a_0C57",
+   "type": "AbsoluteAddress",
+   "kind": "auto"
+  },
+  {
+   "address": 3160,
+   "name": "a_0C58",
+   "type": "AbsoluteAddress",
+   "kind": "auto"
+  },
+  {
+   "address": 3161,
+   "name": "a_0C59",
+   "type": "AbsoluteAddress",
+   "kind": "auto"
+  },
+  {
+   "address": 3162,
+   "name": "a_0C5A",
+   "type": "AbsoluteAddress",
+   "kind": "auto"
+  },
+  {
+   "address": 3163,
+   "name": "a_0C5B",
+   "type": "AbsoluteAddress",
+   "kind": "auto"
+  },
+  {
+   "address": 3164,
+   "name": "a_0C5C",
+   "type": "AbsoluteAddress",
+   "kind": "auto"
+  },
+  {
+   "address": 3165,
+   "name": "a_0C5D",
+   "type": "AbsoluteAddress",
+   "kind": "auto"
+  },
+  {
+   "address": 3166,
+   "name": "a_0C5E",
+   "type": "AbsoluteAddress",
+   "kind": "auto"
+  },
+  {
+   "address": 3167,
+   "name": "a_0C5F",
+   "type": "AbsoluteAddress",
+   "kind": "auto"
+  },
+  {
+   "address": 3168,
+   "name": "a_0C60",
+   "type": "AbsoluteAddress",
+   "kind": "auto"
+  },
+  {
+   "address": 3169,
+   "name": "a_0C61",
+   "type": "AbsoluteAddress",
+   "kind": "auto"
+  },
+  {
+   "address": 3170,
+   "name": "a_0C62",
+   "type": "AbsoluteAddress",
+   "kind": "auto"
+  },
+  {
+   "address": 3171,
+   "name": "tile_at_character_position",
+   "type": "Subroutine",
+   "kind": "user"
+  },
+  {
+   "address": 3211,
+   "name": "a_0C8B",
+   "type": "AbsoluteAddress",
+   "kind": "auto"
+  },
+  {
+   "address": 3608,
+   "name": "s_0E18",
+   "type": "Subroutine",
+   "kind": "auto"
+  },
+  {
+   "address": 3623,
+   "name": "b_0E27",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 3627,
+   "name": "j_0E2B",
+   "type": "Jump",
+   "kind": "auto"
+  },
+  {
+   "address": 3674,
+   "name": "j_0E5A",
+   "type": "Jump",
+   "kind": "auto"
+  },
+  {
+   "address": 3685,
+   "name": "b_0E65",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 3689,
+   "name": "a_0E69",
+   "type": "AbsoluteAddress",
+   "kind": "auto"
+  },
+  {
+   "address": 3708,
+   "name": "b_0E7C",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 3743,
+   "name": "b_0E9F",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 3750,
+   "name": "r_0EA6",
+   "type": "Return",
+   "kind": "auto"
+  },
+  {
+   "address": 3751,
+   "name": "a_0EA7",
+   "type": "AbsoluteAddress",
+   "kind": "auto"
+  },
+  {
+   "address": 3752,
+   "name": "s_0EA8",
+   "type": "Subroutine",
+   "kind": "auto"
+  },
+  {
+   "address": 3786,
+   "name": "b_0ECA",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 3805,
+   "name": "b_0EDD",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 3814,
+   "name": "b_0EE6",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 3829,
+   "name": "b_0EF5",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 3961,
+   "name": "b_0F79",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 3974,
+   "name": "b_0F86",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 3986,
+   "name": "j_0F92",
+   "type": "Jump",
+   "kind": "auto"
+  },
+  {
+   "address": 4237,
+   "name": "b_108D",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 4249,
+   "name": "b_1099",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 4263,
+   "name": "r_10A7",
+   "type": "Return",
+   "kind": "auto"
+  },
+  {
+   "address": 4264,
+   "name": "b_10A8",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 4398,
+   "name": "b_112E",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 4401,
+   "name": "r_1131",
+   "type": "Return",
+   "kind": "auto"
+  },
+  {
+   "address": 4402,
+   "name": "a_1132",
+   "type": "AbsoluteAddress",
+   "kind": "auto"
+  },
+  {
+   "address": 4403,
+   "name": "s_1133",
+   "type": "Subroutine",
+   "kind": "auto"
+  },
+  {
+   "address": 4437,
+   "name": "b_1155",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 4465,
+   "name": "b_1171",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 4468,
+   "name": "j_1174",
+   "type": "Jump",
+   "kind": "auto"
+  },
+  {
+   "address": 4496,
+   "name": "b_1190",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 4508,
+   "name": "b_119C",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 4511,
+   "name": "r_119F",
+   "type": "Return",
+   "kind": "auto"
+  },
+  {
+   "address": 4512,
+   "name": "s_11A0",
+   "type": "Subroutine",
+   "kind": "auto"
+  },
+  {
+   "address": 4533,
+   "name": "b_11B5",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 4552,
+   "name": "b_11C8",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 4554,
+   "name": "b_11CA",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 4600,
+   "name": "b_11F8",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 4609,
+   "name": "r_1201",
+   "type": "Return",
+   "kind": "auto"
+  },
+  {
+   "address": 4610,
+   "name": "f_1202",
+   "type": "Field",
+   "kind": "auto"
+  },
+  {
+   "address": 4618,
+   "name": "f_120A",
+   "type": "Field",
+   "kind": "auto"
+  },
+  {
+   "address": 4626,
+   "name": "s_1212",
+   "type": "Subroutine",
+   "kind": "auto"
+  },
+  {
+   "address": 4689,
+   "name": "b_1251",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 4706,
+   "name": "b_1262",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 4732,
+   "name": "b_127C",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 4735,
+   "name": "b_127F",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 4752,
+   "name": "r_1290",
+   "type": "Return",
+   "kind": "auto"
+  },
+  {
+   "address": 4753,
+   "name": "f_1291",
+   "type": "Field",
+   "kind": "auto"
+  },
+  {
+   "address": 4761,
+   "name": "f_1299",
+   "type": "Field",
+   "kind": "auto"
+  },
+  {
+   "address": 4769,
+   "name": "s_12A1",
+   "type": "Subroutine",
+   "kind": "auto"
+  },
+  {
+   "address": 4806,
+   "name": "b_12C6",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 4819,
+   "name": "b_12D3",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 4846,
+   "name": "b_12EE",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 4857,
+   "name": "j_12F9",
+   "type": "Jump",
+   "kind": "auto"
+  },
+  {
+   "address": 4875,
+   "name": "b_130B",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 4886,
+   "name": "r_1316",
+   "type": "Return",
+   "kind": "auto"
+  },
+  {
+   "address": 4887,
+   "name": "b_1317",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 4912,
+   "name": "f_1330",
+   "type": "Field",
+   "kind": "auto"
+  },
+  {
+   "address": 4920,
+   "name": "f_1338",
+   "type": "Field",
+   "kind": "auto"
+  },
+  {
+   "address": 4928,
+   "name": "f_1340",
+   "type": "Field",
+   "kind": "auto"
+  },
+  {
+   "address": 4936,
+   "name": "f_1348",
+   "type": "Field",
+   "kind": "auto"
+  },
+  {
+   "address": 4944,
+   "name": "f_1350",
+   "type": "Field",
+   "kind": "auto"
+  },
+  {
+   "address": 4952,
+   "name": "f_1358",
+   "type": "Field",
+   "kind": "auto"
+  },
+  {
+   "address": 4960,
+   "name": "f_1360",
+   "type": "Field",
+   "kind": "auto"
+  },
+  {
+   "address": 4968,
+   "name": "f_1368",
+   "type": "Field",
+   "kind": "auto"
+  },
+  {
+   "address": 4976,
+   "name": "f_1370",
+   "type": "Field",
+   "kind": "auto"
+  },
+  {
+   "address": 4984,
+   "name": "f_1378",
+   "type": "Field",
+   "kind": "auto"
+  },
+  {
+   "address": 4992,
+   "name": "f_1380",
+   "type": "Field",
+   "kind": "auto"
+  },
+  {
+   "address": 5000,
+   "name": "f_1388",
+   "type": "Field",
+   "kind": "auto"
+  },
+  {
+   "address": 5008,
+   "name": "s_1390",
+   "type": "Subroutine",
+   "kind": "auto"
+  },
+  {
+   "address": 5036,
+   "name": "b_13AC",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 5039,
+   "name": "j_13AF",
+   "type": "Jump",
+   "kind": "auto"
+  },
+  {
+   "address": 5062,
+   "name": "b_13C6",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 5087,
+   "name": "r_13DF",
+   "type": "Return",
+   "kind": "auto"
+  },
+  {
+   "address": 5088,
+   "name": "a_13E0",
+   "type": "AbsoluteAddress",
+   "kind": "auto"
+  },
+  {
+   "address": 5089,
+   "name": "a_13E1",
+   "type": "AbsoluteAddress",
+   "kind": "auto"
+  },
+  {
+   "address": 5090,
+   "name": "a_13E2",
+   "type": "AbsoluteAddress",
+   "kind": "auto"
+  },
+  {
+   "address": 5091,
+   "name": "j_13E3",
+   "type": "Jump",
+   "kind": "auto"
+  },
+  {
+   "address": 5121,
+   "name": "b_1401",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 5133,
+   "name": "r_140D",
+   "type": "Return",
+   "kind": "auto"
+  },
+  {
+   "address": 5134,
+   "name": "b_140E",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 5145,
+   "name": "b_1419",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 5150,
+   "name": "b_141E",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 5169,
+   "name": "b_1431",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 5185,
+   "name": "b_1441",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 5195,
+   "name": "b_144B",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 5205,
+   "name": "b_1455",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 5218,
+   "name": "b_1462",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 5221,
+   "name": "s_1465",
+   "type": "Subroutine",
+   "kind": "auto"
+  },
+  {
+   "address": 5252,
+   "name": "a_1484",
+   "type": "AbsoluteAddress",
+   "kind": "auto"
+  },
+  {
+   "address": 5253,
+   "name": "a_1485",
+   "type": "AbsoluteAddress",
+   "kind": "auto"
+  },
+  {
+   "address": 5257,
+   "name": "b_1489",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 5270,
+   "name": "a_1496",
+   "type": "AbsoluteAddress",
+   "kind": "auto"
+  },
+  {
+   "address": 5271,
+   "name": "a_1497",
+   "type": "AbsoluteAddress",
+   "kind": "auto"
+  },
+  {
+   "address": 5272,
+   "name": "j_1498",
+   "type": "Jump",
+   "kind": "auto"
+  },
+  {
+   "address": 5283,
+   "name": "r_14A3",
+   "type": "Return",
+   "kind": "auto"
+  },
+  {
+   "address": 5284,
+   "name": "a_14A4",
+   "type": "AbsoluteAddress",
+   "kind": "auto"
+  },
+  {
+   "address": 5285,
+   "name": "s_14A5",
+   "type": "Subroutine",
+   "kind": "auto"
+  },
+  {
+   "address": 5312,
+   "name": "a_14C0",
+   "type": "AbsoluteAddress",
+   "kind": "auto"
+  },
+  {
+   "address": 5313,
+   "name": "a_14C1",
+   "type": "AbsoluteAddress",
+   "kind": "auto"
+  },
+  {
+   "address": 5332,
+   "name": "a_14D4",
+   "type": "AbsoluteAddress",
+   "kind": "auto"
+  },
+  {
+   "address": 5333,
+   "name": "a_14D5",
+   "type": "AbsoluteAddress",
+   "kind": "auto"
+  },
+  {
+   "address": 5334,
+   "name": "b_14D6",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 5339,
+   "name": "r_14DB",
+   "type": "Return",
+   "kind": "auto"
+  },
+  {
+   "address": 5340,
+   "name": "a_14DC",
+   "type": "AbsoluteAddress",
+   "kind": "auto"
+  },
+  {
+   "address": 5341,
+   "name": "f_14DD",
+   "type": "Field",
+   "kind": "auto"
+  },
+  {
+   "address": 5357,
+   "name": "f_14ED",
+   "type": "Field",
+   "kind": "auto"
+  },
+  {
+   "address": 5373,
+   "name": "f_14FD",
+   "type": "Field",
+   "kind": "auto"
+  },
+  {
+   "address": 5389,
+   "name": "f_150D",
+   "type": "Field",
+   "kind": "auto"
+  },
+  {
+   "address": 5405,
+   "name": "s_151D",
+   "type": "Subroutine",
+   "kind": "auto"
+  },
+  {
+   "address": 5422,
+   "name": "b_152E",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 5447,
+   "name": "b_1547",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 5472,
+   "name": "r_1560",
+   "type": "Return",
+   "kind": "auto"
+  },
+  {
+   "address": 5473,
+   "name": "s_1561",
+   "type": "Subroutine",
+   "kind": "auto"
+  },
+  {
+   "address": 5500,
+   "name": "s_157C",
+   "type": "Subroutine",
+   "kind": "auto"
+  },
+  {
+   "address": 5547,
+   "name": "b_15AB",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 5549,
+   "name": "b_15AD",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 5574,
+   "name": "b_15C6",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 5592,
+   "name": "b_15D8",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 5595,
+   "name": "j_15DB",
+   "type": "Jump",
+   "kind": "auto"
+  },
+  {
+   "address": 5659,
+   "name": "b_161B",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 5662,
+   "name": "j_161E",
+   "type": "Jump",
+   "kind": "auto"
+  },
+  {
+   "address": 5697,
+   "name": "s_1641",
+   "type": "Subroutine",
+   "kind": "auto"
+  },
+  {
+   "address": 5698,
+   "name": "a_1642",
+   "type": "AbsoluteAddress",
+   "kind": "auto"
+  },
+  {
+   "address": 5699,
+   "name": "a_1643",
+   "type": "AbsoluteAddress",
+   "kind": "auto"
+  },
+  {
+   "address": 5700,
+   "name": "r_1644",
+   "type": "Return",
+   "kind": "auto"
+  },
+  {
+   "address": 5701,
+   "name": "s_1645",
+   "type": "Subroutine",
+   "kind": "auto"
+  },
+  {
+   "address": 5729,
+   "name": "b_1661",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 5749,
+   "name": "s_1675",
+   "type": "Subroutine",
+   "kind": "auto"
+  },
+  {
+   "address": 5777,
+   "name": "b_1691",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 5855,
+   "name": "f_16DF",
+   "type": "Field",
+   "kind": "auto"
+  },
+  {
+   "address": 5863,
+   "name": "f_16E7",
+   "type": "Field",
+   "kind": "auto"
+  },
+  {
+   "address": 5871,
+   "name": "s_16EF",
+   "type": "Subroutine",
+   "kind": "auto"
+  },
+  {
+   "address": 5885,
+   "name": "b_16FD",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 5913,
+   "name": "b_1719",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 5915,
+   "name": "b_171B",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 5940,
+   "name": "b_1734",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 5954,
+   "name": "b_1742",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 5975,
+   "name": "b_1757",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 5983,
+   "name": "b_175F",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 5985,
+   "name": "b_1761",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 6009,
+   "name": "b_1779",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 6014,
+   "name": "r_177E",
+   "type": "Return",
+   "kind": "auto"
+  },
+  {
+   "address": 6015,
+   "name": "a_177F",
+   "type": "AbsoluteAddress",
+   "kind": "auto"
+  },
+  {
+   "address": 6016,
+   "name": "a_1780",
+   "type": "AbsoluteAddress",
+   "kind": "auto"
+  },
+  {
+   "address": 6017,
+   "name": "a_1781",
+   "type": "AbsoluteAddress",
+   "kind": "auto"
+  },
+  {
+   "address": 6018,
+   "name": "a_1782",
+   "type": "AbsoluteAddress",
+   "kind": "auto"
+  },
+  {
+   "address": 6019,
+   "name": "a_1783",
+   "type": "AbsoluteAddress",
+   "kind": "auto"
+  },
+  {
+   "address": 6020,
+   "name": "a_1784",
+   "type": "AbsoluteAddress",
+   "kind": "auto"
+  },
+  {
+   "address": 6021,
+   "name": "draw_initial_playfield",
+   "type": "Subroutine",
+   "kind": "user"
+  },
+  {
+   "address": 6079,
+   "name": "b_17BF",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 6115,
+   "name": "a_17E3",
+   "type": "AbsoluteAddress",
+   "kind": "auto"
+  },
+  {
+   "address": 6230,
+   "name": "write_playfield_cell",
+   "type": "Subroutine",
+   "kind": "user"
+  },
+  {
+   "address": 6267,
+   "name": "a_187B",
+   "type": "AbsoluteAddress",
+   "kind": "auto"
+  },
+  {
+   "address": 6277,
+   "name": "s_1885",
+   "type": "Subroutine",
+   "kind": "auto"
+  },
+  {
+   "address": 6280,
+   "name": "b_1888",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 6323,
+   "name": "b_18B3",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 6342,
+   "name": "keyboard_column_masks",
+   "type": "Field",
+   "kind": "user"
+  },
+  {
+   "address": 6350,
+   "name": "key_matrix_samples",
+   "type": "Field",
+   "kind": "user"
+  },
+  {
+   "address": 6352,
+   "name": "a_18D0",
+   "type": "AbsoluteAddress",
+   "kind": "auto"
+  },
+  {
+   "address": 6355,
+   "name": "a_18D3",
+   "type": "AbsoluteAddress",
+   "kind": "auto"
+  },
+  {
+   "address": 6357,
+   "name": "a_18D5",
+   "type": "AbsoluteAddress",
+   "kind": "auto"
+  },
+  {
+   "address": 6359,
+   "name": "sample_key_matrix",
+   "type": "Subroutine",
+   "kind": "user"
+  },
+  {
+   "address": 6379,
+   "name": "b_18EB",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 6397,
+   "name": "a_18FD",
+   "type": "AbsoluteAddress",
+   "kind": "auto"
+  },
+  {
+   "address": 6399,
+   "name": "a_18FF",
+   "type": "AbsoluteAddress",
+   "kind": "auto"
+  },
+  {
+   "address": 6401,
+   "name": "a_1901",
+   "type": "AbsoluteAddress",
+   "kind": "auto"
+  },
+  {
+   "address": 6402,
+   "name": "a_1902",
+   "type": "AbsoluteAddress",
+   "kind": "auto"
+  },
+  {
+   "address": 6403,
+   "name": "a_1903",
+   "type": "AbsoluteAddress",
+   "kind": "auto"
+  },
+  {
+   "address": 6404,
+   "name": "engine_entry",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 6422,
+   "name": "configure_initial_display",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 6476,
+   "name": "b_194C",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 6478,
+   "name": "b_194E",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 6566,
+   "name": "b_19A6",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 6581,
+   "name": "initialize_players",
+   "type": "Subroutine",
+   "kind": "user"
+  },
+  {
+   "address": 6594,
+   "name": "b_19C2",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 6619,
+   "name": "b_19DB",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 6634,
+   "name": "b_19EA",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 6651,
+   "name": "j_19FB",
+   "type": "Jump",
+   "kind": "auto"
+  },
+  {
+   "address": 6693,
+   "name": "choose_active_player_stage",
+   "type": "Jump",
+   "kind": "user"
+  },
+  {
+   "address": 6703,
+   "name": "b_1A2F",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 6737,
+   "name": "b_1A51",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 6756,
+   "name": "b_1A64",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 6771,
+   "name": "initialize_stage",
+   "type": "Branch",
+   "kind": "user"
+  },
+  {
+   "address": 6809,
+   "name": "b_1A99",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 6835,
+   "name": "s_1AB3",
+   "type": "Subroutine",
+   "kind": "auto"
+  },
+  {
+   "address": 6836,
+   "name": "a_1AB4",
+   "type": "AbsoluteAddress",
+   "kind": "auto"
+  },
+  {
+   "address": 6837,
+   "name": "a_1AB5",
+   "type": "AbsoluteAddress",
+   "kind": "auto"
+  },
+  {
+   "address": 6881,
+   "name": "b_1AE1",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 7048,
+   "name": "b_1B88",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 7064,
+   "name": "b_1B98",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 7067,
+   "name": "j_1B9B",
+   "type": "Jump",
+   "kind": "auto"
+  },
+  {
+   "address": 7099,
+   "name": "b_1BBB",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 7122,
+   "name": "b_1BD2",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 7163,
+   "name": "j_1BFB",
+   "type": "Jump",
+   "kind": "auto"
+  },
+  {
+   "address": 7168,
+   "name": "j_1C00",
+   "type": "Jump",
+   "kind": "auto"
+  },
+  {
+   "address": 7181,
+   "name": "b_1C0D",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 7191,
+   "name": "b_1C17",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 7197,
+   "name": "b_1C1D",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 7226,
+   "name": "b_1C3A",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 7238,
+   "name": "b_1C46",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 7252,
+   "name": "b_1C54",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 7268,
+   "name": "a_1C64",
+   "type": "AbsoluteAddress",
+   "kind": "auto"
+  },
+  {
+   "address": 7277,
+   "name": "b_1C6D",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 7309,
+   "name": "b_1C8D",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 7335,
+   "name": "f_1CA7",
+   "type": "Field",
+   "kind": "auto"
+  },
+  {
+   "address": 7339,
+   "name": "f_1CAB",
+   "type": "Field",
+   "kind": "auto"
+  },
+  {
+   "address": 7343,
+   "name": "f_1CAF",
+   "type": "Field",
+   "kind": "auto"
+  },
+  {
+   "address": 7347,
+   "name": "f_1CB3",
+   "type": "Field",
+   "kind": "auto"
+  },
+  {
+   "address": 7351,
+   "name": "f_1CB7",
+   "type": "Field",
+   "kind": "auto"
+  },
+  {
+   "address": 7355,
+   "name": "f_1CBB",
+   "type": "Field",
+   "kind": "auto"
+  },
+  {
+   "address": 7356,
+   "name": "a_1CBC",
+   "type": "AbsoluteAddress",
+   "kind": "auto"
+  },
+  {
+   "address": 7359,
+   "name": "f_1CBF",
+   "type": "Field",
+   "kind": "auto"
+  },
+  {
+   "address": 7360,
+   "name": "a_1CC0",
+   "type": "AbsoluteAddress",
+   "kind": "auto"
+  },
+  {
+   "address": 7363,
+   "name": "f_1CC3",
+   "type": "Field",
+   "kind": "auto"
+  },
+  {
+   "address": 7364,
+   "name": "a_1CC4",
+   "type": "AbsoluteAddress",
+   "kind": "auto"
+  },
+  {
+   "address": 7367,
+   "name": "f_1CC7",
+   "type": "Field",
+   "kind": "auto"
+  },
+  {
+   "address": 7375,
+   "name": "s_1CCF",
+   "type": "Subroutine",
+   "kind": "auto"
+  },
+  {
+   "address": 7377,
+   "name": "b_1CD1",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 7400,
+   "name": "b_1CE8",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 7402,
+   "name": "s_1CEA",
+   "type": "Subroutine",
+   "kind": "auto"
+  },
+  {
+   "address": 7404,
+   "name": "b_1CEC",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 7482,
+   "name": "f_1D3A",
+   "type": "Field",
+   "kind": "auto"
+  },
+  {
+   "address": 7490,
+   "name": "f_1D42",
+   "type": "Field",
+   "kind": "auto"
+  },
+  {
+   "address": 7494,
+   "name": "f_1D46",
+   "type": "Field",
+   "kind": "auto"
+  },
+  {
+   "address": 7498,
+   "name": "f_1D4A",
+   "type": "Field",
+   "kind": "auto"
+  },
+  {
+   "address": 7502,
+   "name": "f_1D4E",
+   "type": "Field",
+   "kind": "auto"
+  },
+  {
+   "address": 7506,
+   "name": "f_1D52",
+   "type": "Field",
+   "kind": "auto"
+  },
+  {
+   "address": 7509,
+   "name": "f_1D55",
+   "type": "Field",
+   "kind": "auto"
+  },
+  {
+   "address": 7512,
+   "name": "s_1D58",
+   "type": "Subroutine",
+   "kind": "auto"
+  },
+  {
+   "address": 7528,
+   "name": "a_1D68",
+   "type": "AbsoluteAddress",
+   "kind": "auto"
+  },
+  {
+   "address": 7533,
+   "name": "b_1D6D",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 7547,
+   "name": "b_1D7B",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 7549,
+   "name": "a_1D7D",
+   "type": "AbsoluteAddress",
+   "kind": "auto"
+  },
+  {
+   "address": 7551,
+   "name": "a_1D7F",
+   "type": "AbsoluteAddress",
+   "kind": "auto"
+  },
+  {
+   "address": 7553,
+   "name": "charset_wipe_masks",
+   "type": "Field",
+   "kind": "user"
+  },
+  {
+   "address": 7585,
+   "name": "charset_wipe_rows",
+   "type": "Field",
+   "kind": "user"
+  },
+  {
+   "address": 7617,
+   "name": "a_1DC1",
+   "type": "AbsoluteAddress",
+   "kind": "auto"
+  },
+  {
+   "address": 7618,
+   "name": "wipe_playfield_font",
+   "type": "Subroutine",
+   "kind": "user"
+  },
+  {
+   "address": 7630,
+   "name": "j_1DCE",
+   "type": "Jump",
+   "kind": "auto"
+  },
+  {
+   "address": 7651,
+   "name": "b_1DE3",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 7664,
+   "name": "b_1DF0",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 7678,
+   "name": "b_1DFE",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 7699,
+   "name": "a_1E13",
+   "type": "AbsoluteAddress",
+   "kind": "auto"
+  },
+  {
+   "address": 7703,
+   "name": "b_1E17",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 7708,
+   "name": "j_1E1C",
+   "type": "Jump",
+   "kind": "auto"
+  },
+  {
+   "address": 7710,
+   "name": "f_1E1E",
+   "type": "Field",
+   "kind": "auto"
+  },
+  {
+   "address": 7721,
+   "name": "b_1E29",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 7732,
+   "name": "b_1E34",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 7747,
+   "name": "b_1E43",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 7752,
+   "name": "configure_raster_interrupt",
+   "type": "Subroutine",
+   "kind": "user"
+  },
+  {
+   "address": 7814,
+   "name": "a_1E86",
+   "type": "AbsoluteAddress",
+   "kind": "auto"
+  },
+  {
+   "address": 7815,
+   "name": "raster_dispatch",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 7831,
+   "name": "b_1E97",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 7863,
+   "name": "a_1EB7",
+   "type": "AbsoluteAddress",
+   "kind": "auto"
+  },
+  {
+   "address": 7864,
+   "name": "a_1EB8",
+   "type": "AbsoluteAddress",
+   "kind": "auto"
+  },
+  {
+   "address": 7865,
+   "name": "raster_dispatch_return",
+   "type": "Jump",
+   "kind": "user"
+  },
+  {
+   "address": 7882,
+   "name": "b_1ECA",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 7891,
+   "name": "a_1ED3",
+   "type": "AbsoluteAddress",
+   "kind": "auto"
+  },
+  {
+   "address": 7892,
+   "name": "raster_handler_low_bytes",
+   "type": "Field",
+   "kind": "user"
+  },
+  {
+   "address": 7901,
+   "name": "raster_handler_high_bytes",
+   "type": "Field",
+   "kind": "user"
+  },
+  {
+   "address": 8116,
+   "name": "f_1FB4",
+   "type": "Field",
+   "kind": "auto"
+  },
+  {
+   "address": 8120,
+   "name": "s_1FB8",
+   "type": "Subroutine",
+   "kind": "auto"
+  },
+  {
+   "address": 8164,
+   "name": "b_1FE4",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 8201,
+   "name": "b_2009",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 8248,
+   "name": "b_2038",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 8255,
+   "name": "s_203F",
+   "type": "Subroutine",
+   "kind": "auto"
+  },
+  {
+   "address": 8314,
+   "name": "b_207A",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 8331,
+   "name": "b_208B",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 8353,
+   "name": "b_20A1",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 8356,
+   "name": "b_20A4",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 8397,
+   "name": "j_20CD",
+   "type": "Jump",
+   "kind": "auto"
+  },
+  {
+   "address": 8441,
+   "name": "b_20F9",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 8448,
+   "name": "s_2100",
+   "type": "Subroutine",
+   "kind": "auto"
+  },
+  {
+   "address": 8524,
+   "name": "b_214C",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 8546,
+   "name": "b_2162",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 8549,
+   "name": "b_2165",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 8590,
+   "name": "j_218E",
+   "type": "Jump",
+   "kind": "auto"
+  },
+  {
+   "address": 8634,
+   "name": "b_21BA",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 8648,
+   "name": "b_21C8",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 8654,
+   "name": "raster_schedule_start",
+   "type": "AbsoluteAddress",
+   "kind": "user"
+  },
+  {
+   "address": 8655,
+   "name": "raster_next_lines",
+   "type": "AbsoluteAddress",
+   "kind": "user"
+  },
+  {
+   "address": 8661,
+   "name": "raster_handler_indices",
+   "type": "AbsoluteAddress",
+   "kind": "user"
+  },
+  {
+   "address": 8669,
+   "name": "s_21DD",
+   "type": "Subroutine",
+   "kind": "auto"
+  },
+  {
+   "address": 8699,
+   "name": "b_21FB",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 8735,
+   "name": "b_221F",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 8779,
+   "name": "j_224B",
+   "type": "Jump",
+   "kind": "auto"
+  },
+  {
+   "address": 8793,
+   "name": "s_2259",
+   "type": "Subroutine",
+   "kind": "auto"
+  },
+  {
+   "address": 8801,
+   "name": "b_2261",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 8810,
+   "name": "b_226A",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 8814,
+   "name": "b_226E",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 8825,
+   "name": "s_2279",
+   "type": "Subroutine",
+   "kind": "auto"
+  },
+  {
+   "address": 8834,
+   "name": "b_2282",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 8839,
+   "name": "b_2287",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 8847,
+   "name": "b_228F",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 8865,
+   "name": "b_22A1",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 8912,
+   "name": "b_22D0",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 8920,
+   "name": "b_22D8",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 8950,
+   "name": "b_22F6",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 8956,
+   "name": "s_22FC",
+   "type": "Subroutine",
+   "kind": "auto"
+  },
+  {
+   "address": 9019,
+   "name": "a_233B",
+   "type": "AbsoluteAddress",
+   "kind": "auto"
+  },
+  {
+   "address": 9024,
+   "name": "b_2340",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 9025,
+   "name": "a_2341",
+   "type": "AbsoluteAddress",
+   "kind": "auto"
+  },
+  {
+   "address": 9030,
+   "name": "b_2346",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 9047,
+   "name": "b_2357",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 9056,
+   "name": "b_2360",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 9061,
+   "name": "b_2365",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 9073,
+   "name": "b_2371",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 9084,
+   "name": "b_237C",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 9103,
+   "name": "b_238F",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 9114,
+   "name": "b_239A",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 9131,
+   "name": "b_23AB",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 9133,
+   "name": "b_23AD",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 9152,
+   "name": "b_23C0",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 9155,
+   "name": "j_23C3",
+   "type": "Jump",
+   "kind": "auto"
+  },
+  {
+   "address": 9172,
+   "name": "b_23D4",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 9182,
+   "name": "b_23DE",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 9203,
+   "name": "b_23F3",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 9205,
+   "name": "b_23F5",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 9227,
+   "name": "b_240B",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 9233,
+   "name": "a_2411",
+   "type": "AbsoluteAddress",
+   "kind": "auto"
+  },
+  {
+   "address": 9234,
+   "name": "a_2412",
+   "type": "AbsoluteAddress",
+   "kind": "auto"
+  },
+  {
+   "address": 9235,
+   "name": "s_2413",
+   "type": "Subroutine",
+   "kind": "auto"
+  },
+  {
+   "address": 9247,
+   "name": "r_241F",
+   "type": "Return",
+   "kind": "auto"
+  },
+  {
+   "address": 9248,
+   "name": "b_2420",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 9254,
+   "name": "b_2426",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 9270,
+   "name": "b_2436",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 9278,
+   "name": "j_243E",
+   "type": "Jump",
+   "kind": "auto"
+  },
+  {
+   "address": 9285,
+   "name": "j_2445",
+   "type": "Jump",
+   "kind": "auto"
+  },
+  {
+   "address": 9293,
+   "name": "b_244D",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 9320,
+   "name": "b_2468",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 9337,
+   "name": "j_2479",
+   "type": "Jump",
+   "kind": "auto"
+  },
+  {
+   "address": 9351,
+   "name": "b_2487",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 9398,
+   "name": "b_24B6",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 9433,
+   "name": "b_24D9",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 9443,
+   "name": "b_24E3",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 9446,
+   "name": "r_24E6",
+   "type": "Return",
+   "kind": "auto"
+  },
+  {
+   "address": 9447,
+   "name": "j_24E7",
+   "type": "Jump",
+   "kind": "auto"
+  },
+  {
+   "address": 9455,
+   "name": "b_24EF",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 9461,
+   "name": "s_24F5",
+   "type": "Subroutine",
+   "kind": "auto"
+  },
+  {
+   "address": 9588,
+   "name": "b_2574",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 9591,
+   "name": "f_2577",
+   "type": "Field",
+   "kind": "auto"
+  },
+  {
+   "address": 9594,
+   "name": "a_257A",
+   "type": "AbsoluteAddress",
+   "kind": "auto"
+  },
+  {
+   "address": 9595,
+   "name": "a_257B",
+   "type": "AbsoluteAddress",
+   "kind": "auto"
+  },
+  {
+   "address": 9596,
+   "name": "s_257C",
+   "type": "Subroutine",
+   "kind": "auto"
+  },
+  {
+   "address": 9602,
+   "name": "b_2582",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 9646,
+   "name": "b_25AE",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 9678,
+   "name": "b_25CE",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 9687,
+   "name": "b_25D7",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 9719,
+   "name": "b_25F7",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 9726,
+   "name": "r_25FE",
+   "type": "Return",
+   "kind": "auto"
+  },
+  {
+   "address": 9727,
+   "name": "a_25FF",
+   "type": "AbsoluteAddress",
+   "kind": "auto"
+  },
+  {
+   "address": 9728,
+   "name": "a_2600",
+   "type": "AbsoluteAddress",
+   "kind": "auto"
+  },
+  {
+   "address": 9729,
+   "name": "s_2601",
+   "type": "Subroutine",
+   "kind": "auto"
+  },
+  {
+   "address": 9740,
+   "name": "b_260C",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 9751,
+   "name": "timer_seconds_bcd",
+   "type": "AbsoluteAddress",
+   "kind": "user"
+  },
+  {
+   "address": 9752,
+   "name": "timer_minutes_bcd",
+   "type": "AbsoluteAddress",
+   "kind": "user"
+  },
+  {
+   "address": 9753,
+   "name": "timer_subsecond",
+   "type": "AbsoluteAddress",
+   "kind": "user"
+  },
+  {
+   "address": 9754,
+   "name": "tick_stage_timer",
+   "type": "Subroutine",
+   "kind": "user"
+  },
+  {
+   "address": 9760,
+   "name": "b_2620",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 9777,
+   "name": "b_2631",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 9821,
+   "name": "b_265D",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 9823,
+   "name": "a_265F",
+   "type": "AbsoluteAddress",
+   "kind": "auto"
+  },
+  {
+   "address": 9824,
+   "name": "s_2660",
+   "type": "Subroutine",
+   "kind": "auto"
+  },
+  {
+   "address": 9851,
+   "name": "b_267B",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 9864,
+   "name": "draw_minutes_and_seconds",
+   "type": "Subroutine",
+   "kind": "user"
+  },
+  {
+   "address": 9932,
+   "name": "b_26CC",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 9935,
+   "name": "b_26CF",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 9942,
+   "name": "s_26D6",
+   "type": "Subroutine",
+   "kind": "auto"
+  },
+  {
+   "address": 9950,
+   "name": "b_26DE",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 9964,
+   "name": "j_26EC",
+   "type": "Jump",
+   "kind": "auto"
+  },
+  {
+   "address": 9980,
+   "name": "a_26FC",
+   "type": "AbsoluteAddress",
+   "kind": "auto"
+  },
+  {
+   "address": 9981,
+   "name": "a_26FD",
+   "type": "AbsoluteAddress",
+   "kind": "auto"
+  },
+  {
+   "address": 9982,
+   "name": "s_26FE",
+   "type": "Subroutine",
+   "kind": "auto"
+  },
+  {
+   "address": 9988,
+   "name": "b_2704",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 10020,
+   "name": "b_2724",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 10042,
+   "name": "b_273A",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 10074,
+   "name": "b_275A",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 10096,
+   "name": "r_2770",
+   "type": "Return",
+   "kind": "auto"
+  },
+  {
+   "address": 10097,
+   "name": "a_2771",
+   "type": "AbsoluteAddress",
+   "kind": "auto"
+  },
+  {
+   "address": 10098,
+   "name": "configure_display_nmi",
+   "type": "Subroutine",
+   "kind": "user"
+  },
+  {
+   "address": 10103,
+   "name": "b_2777",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 10159,
+   "name": "b_27AF",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 10166,
+   "name": "b_27B6",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 10178,
+   "name": "b_27C2",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 10183,
+   "name": "r_27C7",
+   "type": "Return",
+   "kind": "auto"
+  },
+  {
+   "address": 10184,
+   "name": "stop_cia2_timers",
+   "type": "Subroutine",
+   "kind": "user"
+  },
+  {
+   "address": 10199,
+   "name": "a_27D7",
+   "type": "AbsoluteAddress",
+   "kind": "auto"
+  },
+  {
+   "address": 10200,
+   "name": "f_27D8",
+   "type": "Field",
+   "kind": "auto"
+  },
+  {
+   "address": 10208,
+   "name": "a_27E0",
+   "type": "AbsoluteAddress",
+   "kind": "auto"
+  },
+  {
+   "address": 10209,
+   "name": "a_27E1",
+   "type": "AbsoluteAddress",
+   "kind": "auto"
+  },
+  {
+   "address": 10210,
+   "name": "b_27E2",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 10248,
+   "name": "b_2808",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 10270,
+   "name": "b_281E",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 10275,
+   "name": "j_2823",
+   "type": "Jump",
+   "kind": "auto"
+  },
+  {
+   "address": 10309,
+   "name": "b_2845",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 10310,
+   "name": "a_2846",
+   "type": "AbsoluteAddress",
+   "kind": "auto"
+  },
+  {
+   "address": 10312,
+   "name": "a_2848",
+   "type": "AbsoluteAddress",
+   "kind": "auto"
+  },
+  {
+   "address": 10318,
+   "name": "a_284E",
+   "type": "AbsoluteAddress",
+   "kind": "auto"
+  },
+  {
+   "address": 10341,
+   "name": "a_2865",
+   "type": "AbsoluteAddress",
+   "kind": "auto"
+  },
+  {
+   "address": 10342,
+   "name": "b_2866",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 10356,
+   "name": "b_2874",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 10445,
+   "name": "b_28CD",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 10446,
+   "name": "a_28CE",
+   "type": "AbsoluteAddress",
+   "kind": "auto"
+  },
+  {
+   "address": 10454,
+   "name": "a_28D6",
+   "type": "AbsoluteAddress",
+   "kind": "auto"
+  },
+  {
+   "address": 10461,
+   "name": "b_28DD",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 10467,
+   "name": "a_28E3",
+   "type": "AbsoluteAddress",
+   "kind": "auto"
+  },
+  {
+   "address": 10469,
+   "name": "a_28E5",
+   "type": "AbsoluteAddress",
+   "kind": "auto"
+  },
+  {
+   "address": 10475,
+   "name": "f_28EB",
+   "type": "Field",
+   "kind": "auto"
+  },
+  {
+   "address": 10487,
+   "name": "f_28F7",
+   "type": "Field",
+   "kind": "auto"
+  },
+  {
+   "address": 10499,
+   "name": "f_2903",
+   "type": "Field",
+   "kind": "auto"
+  },
+  {
+   "address": 10511,
+   "name": "f_290F",
+   "type": "Field",
+   "kind": "auto"
+  },
+  {
+   "address": 10523,
+   "name": "f_291B",
+   "type": "Field",
+   "kind": "auto"
+  },
+  {
+   "address": 10535,
+   "name": "f_2927",
+   "type": "Field",
+   "kind": "auto"
+  },
+  {
+   "address": 10547,
+   "name": "f_2933",
+   "type": "Field",
+   "kind": "auto"
+  },
+  {
+   "address": 10559,
+   "name": "s_293F",
+   "type": "Subroutine",
+   "kind": "auto"
+  },
+  {
+   "address": 10561,
+   "name": "b_2941",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 10597,
+   "name": "f_2965",
+   "type": "Field",
+   "kind": "auto"
+  },
+  {
+   "address": 10613,
+   "name": "s_2975",
+   "type": "Subroutine",
+   "kind": "auto"
+  },
+  {
+   "address": 10618,
+   "name": "j_297A",
+   "type": "Jump",
+   "kind": "auto"
+  },
+  {
+   "address": 10644,
+   "name": "b_2994",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 10674,
+   "name": "b_29B2",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 10692,
+   "name": "j_29C4",
+   "type": "Jump",
+   "kind": "auto"
+  },
+  {
+   "address": 10713,
+   "name": "b_29D9",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 10723,
+   "name": "j_29E3",
+   "type": "Jump",
+   "kind": "auto"
+  },
+  {
+   "address": 10741,
+   "name": "b_29F5",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 10753,
+   "name": "j_2A01",
+   "type": "Jump",
+   "kind": "auto"
+  },
+  {
+   "address": 10776,
+   "name": "b_2A18",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 10791,
+   "name": "b_2A27",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 10802,
+   "name": "r_2A32",
+   "type": "Return",
+   "kind": "auto"
+  },
+  {
+   "address": 10803,
+   "name": "a_2A33",
+   "type": "AbsoluteAddress",
+   "kind": "auto"
+  },
+  {
+   "address": 10804,
+   "name": "a_2A34",
+   "type": "AbsoluteAddress",
+   "kind": "auto"
+  },
+  {
+   "address": 10805,
+   "name": "s_2A35",
+   "type": "Subroutine",
+   "kind": "auto"
+  },
+  {
+   "address": 10811,
+   "name": "b_2A3B",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 10819,
+   "name": "b_2A43",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 10890,
+   "name": "a_2A8A",
+   "type": "AbsoluteAddress",
+   "kind": "auto"
+  },
+  {
+   "address": 10897,
+   "name": "b_2A91",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 10922,
+   "name": "b_2AAA",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 10956,
+   "name": "b_2ACC",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 11003,
+   "name": "b_2AFB",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 11017,
+   "name": "s_2B09",
+   "type": "Subroutine",
+   "kind": "auto"
+  },
+  {
+   "address": 11018,
+   "name": "a_2B0A",
+   "type": "AbsoluteAddress",
+   "kind": "auto"
+  },
+  {
+   "address": 11019,
+   "name": "a_2B0B",
+   "type": "AbsoluteAddress",
+   "kind": "auto"
+  },
+  {
+   "address": 11021,
+   "name": "a_2B0D",
+   "type": "AbsoluteAddress",
+   "kind": "auto"
+  },
+  {
+   "address": 11025,
+   "name": "a_2B11",
+   "type": "AbsoluteAddress",
+   "kind": "auto"
+  },
+  {
+   "address": 11029,
+   "name": "a_2B15",
+   "type": "AbsoluteAddress",
+   "kind": "auto"
+  },
+  {
+   "address": 11033,
+   "name": "f_2B19",
+   "type": "Field",
+   "kind": "auto"
+  },
+  {
+   "address": 11058,
+   "name": "f_2B32",
+   "type": "Field",
+   "kind": "auto"
+  },
+  {
+   "address": 11083,
+   "name": "f_2B4B",
+   "type": "Field",
+   "kind": "auto"
+  },
+  {
+   "address": 11108,
+   "name": "f_2B64",
+   "type": "Field",
+   "kind": "auto"
+  },
+  {
+   "address": 11133,
+   "name": "a_2B7D",
+   "type": "AbsoluteAddress",
+   "kind": "auto"
+  },
+  {
+   "address": 11134,
+   "name": "a_2B7E",
+   "type": "AbsoluteAddress",
+   "kind": "auto"
+  },
+  {
+   "address": 11136,
+   "name": "a_2B80",
+   "type": "AbsoluteAddress",
+   "kind": "auto"
+  },
+  {
+   "address": 11137,
+   "name": "a_2B81",
+   "type": "AbsoluteAddress",
+   "kind": "auto"
+  },
+  {
+   "address": 11138,
+   "name": "a_2B82",
+   "type": "AbsoluteAddress",
+   "kind": "auto"
+  },
+  {
+   "address": 11140,
+   "name": "a_2B84",
+   "type": "AbsoluteAddress",
+   "kind": "auto"
+  },
+  {
+   "address": 11141,
+   "name": "a_2B85",
+   "type": "AbsoluteAddress",
+   "kind": "auto"
+  },
+  {
+   "address": 11143,
+   "name": "s_2B87",
+   "type": "Subroutine",
+   "kind": "auto"
+  },
+  {
+   "address": 11157,
+   "name": "b_2B95",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 11188,
+   "name": "b_2BB4",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 11205,
+   "name": "f_2BC5",
+   "type": "Field",
+   "kind": "auto"
+  },
+  {
+   "address": 11206,
+   "name": "a_2BC6",
+   "type": "AbsoluteAddress",
+   "kind": "auto"
+  },
+  {
+   "address": 11207,
+   "name": "a_2BC7",
+   "type": "AbsoluteAddress",
+   "kind": "auto"
+  },
+  {
+   "address": 11242,
+   "name": "f_2BEA",
+   "type": "Field",
+   "kind": "auto"
+  },
+  {
+   "address": 11243,
+   "name": "a_2BEB",
+   "type": "AbsoluteAddress",
+   "kind": "auto"
+  },
+  {
+   "address": 11244,
+   "name": "a_2BEC",
+   "type": "AbsoluteAddress",
+   "kind": "auto"
+  },
+  {
+   "address": 11294,
+   "name": "b_2C1E",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 11304,
+   "name": "a_2C28",
+   "type": "AbsoluteAddress",
+   "kind": "auto"
+  },
+  {
+   "address": 11316,
+   "name": "b_2C34",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 11323,
+   "name": "b_2C3B",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 11361,
+   "name": "b_2C61",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 11372,
+   "name": "b_2C6C",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 11389,
+   "name": "b_2C7D",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 11404,
+   "name": "a_2C8C",
+   "type": "AbsoluteAddress",
+   "kind": "auto"
+  },
+  {
+   "address": 11405,
+   "name": "a_2C8D",
+   "type": "AbsoluteAddress",
+   "kind": "auto"
+  },
+  {
+   "address": 11406,
+   "name": "mirror_buffered_multicolour_sprite",
+   "type": "Subroutine",
+   "kind": "user"
+  },
+  {
+   "address": 11410,
+   "name": "b_2C92",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 11449,
+   "name": "f_2CB9",
+   "type": "Field",
+   "kind": "auto"
+  },
+  {
+   "address": 11455,
+   "name": "a_2CBF",
+   "type": "AbsoluteAddress",
+   "kind": "auto"
+  },
+  {
+   "address": 11456,
+   "name": "f_2CC0",
+   "type": "Field",
+   "kind": "auto"
+  },
+  {
+   "address": 11462,
+   "name": "a_2CC6",
+   "type": "AbsoluteAddress",
+   "kind": "auto"
+  },
+  {
+   "address": 11463,
+   "name": "s_2CC7",
+   "type": "Subroutine",
+   "kind": "auto"
+  },
+  {
+   "address": 11510,
+   "name": "b_2CF6",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 11530,
+   "name": "b_2D0A",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 11550,
+   "name": "b_2D1E",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 11553,
+   "name": "a_2D21",
+   "type": "AbsoluteAddress",
+   "kind": "auto"
+  },
+  {
+   "address": 11580,
+   "name": "b_2D3C",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 11624,
+   "name": "b_2D68",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 11637,
+   "name": "b_2D75",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 11644,
+   "name": "b_2D7C",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 11670,
+   "name": "b_2D96",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 11680,
+   "name": "b_2DA0",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 11686,
+   "name": "r_2DA6",
+   "type": "Return",
+   "kind": "auto"
+  },
+  {
+   "address": 11687,
+   "name": "a_2DA7",
+   "type": "AbsoluteAddress",
+   "kind": "auto"
+  },
+  {
+   "address": 11688,
+   "name": "s_2DA8",
+   "type": "Subroutine",
+   "kind": "auto"
+  },
+  {
+   "address": 11706,
+   "name": "b_2DBA",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 11724,
+   "name": "b_2DCC",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 11727,
+   "name": "j_2DCF",
+   "type": "Jump",
+   "kind": "auto"
+  },
+  {
+   "address": 11733,
+   "name": "a_2DD5",
+   "type": "AbsoluteAddress",
+   "kind": "auto"
+  },
+  {
+   "address": 11740,
+   "name": "b_2DDC",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 11747,
+   "name": "b_2DE3",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 11760,
+   "name": "f_2DF0",
+   "type": "Field",
+   "kind": "auto"
+  },
+  {
+   "address": 11786,
+   "name": "f_2E0A",
+   "type": "Field",
+   "kind": "auto"
+  },
+  {
+   "address": 11789,
+   "name": "s_2E0D",
+   "type": "Subroutine",
+   "kind": "auto"
+  },
+  {
+   "address": 11796,
+   "name": "b_2E14",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 11811,
+   "name": "b_2E23",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 11816,
+   "name": "j_2E28",
+   "type": "Jump",
+   "kind": "auto"
+  },
+  {
+   "address": 11826,
+   "name": "b_2E32",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 11879,
+   "name": "b_2E67",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 11914,
+   "name": "b_2E8A",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 11929,
+   "name": "b_2E99",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 11964,
+   "name": "b_2EBC",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 11979,
+   "name": "j_2ECB",
+   "type": "Jump",
+   "kind": "auto"
+  },
+  {
+   "address": 12004,
+   "name": "b_2EE4",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 12011,
+   "name": "f_2EEB",
+   "type": "Field",
+   "kind": "auto"
+  },
+  {
+   "address": 12024,
+   "name": "a_2EF8",
+   "type": "AbsoluteAddress",
+   "kind": "auto"
+  },
+  {
+   "address": 12025,
+   "name": "a_2EF9",
+   "type": "AbsoluteAddress",
+   "kind": "auto"
+  },
+  {
+   "address": 12026,
+   "name": "a_2EFA",
+   "type": "AbsoluteAddress",
+   "kind": "auto"
+  },
+  {
+   "address": 12027,
+   "name": "a_2EFB",
+   "type": "AbsoluteAddress",
+   "kind": "auto"
+  },
+  {
+   "address": 12028,
+   "name": "s_2EFC",
+   "type": "Subroutine",
+   "kind": "auto"
+  },
+  {
+   "address": 12066,
+   "name": "r_2F22",
+   "type": "Return",
+   "kind": "auto"
+  },
+  {
+   "address": 12067,
+   "name": "r_2F23",
+   "type": "Return",
+   "kind": "auto"
+  },
+  {
+   "address": 12068,
+   "name": "b_2F24",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 12078,
+   "name": "b_2F2E",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 12091,
+   "name": "b_2F3B",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 12116,
+   "name": "j_2F54",
+   "type": "Jump",
+   "kind": "auto"
+  },
+  {
+   "address": 12133,
+   "name": "b_2F65",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 12137,
+   "name": "b_2F69",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 12148,
+   "name": "b_2F74",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 12158,
+   "name": "b_2F7E",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 12171,
+   "name": "b_2F8B",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 12199,
+   "name": "shift_screen_rows_to_buffer_4C",
+   "type": "Subroutine",
+   "kind": "user"
+  },
+  {
+   "address": 12201,
+   "name": "b_2FA9",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 12266,
+   "name": "b_2FEA",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 13295,
+   "name": "shift_screen_rows_to_buffer_48",
+   "type": "Subroutine",
+   "kind": "user"
+  },
+  {
+   "address": 13297,
+   "name": "b_33F1",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 13362,
+   "name": "b_3432",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 14391,
+   "name": "s_3837",
+   "type": "Subroutine",
+   "kind": "auto"
+  },
+  {
+   "address": 14413,
+   "name": "b_384D",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 14543,
+   "name": "b_38CF",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 14556,
+   "name": "b_38DC",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 14581,
+   "name": "r_38F5",
+   "type": "Return",
+   "kind": "auto"
+  },
+  {
+   "address": 14582,
+   "name": "a_38F6",
+   "type": "AbsoluteAddress",
+   "kind": "auto"
+  },
+  {
+   "address": 14583,
+   "name": "s_38F7",
+   "type": "Subroutine",
+   "kind": "auto"
+  },
+  {
+   "address": 14671,
+   "name": "f_394F",
+   "type": "Field",
+   "kind": "auto"
+  },
+  {
+   "address": 14685,
+   "name": "s_395D",
+   "type": "Subroutine",
+   "kind": "auto"
+  },
+  {
+   "address": 14702,
+   "name": "b_396E",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 14725,
+   "name": "b_3985",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 14738,
+   "name": "f_3992",
+   "type": "Field",
+   "kind": "auto"
+  },
+  {
+   "address": 14743,
+   "name": "s_3997",
+   "type": "Subroutine",
+   "kind": "auto"
+  },
+  {
+   "address": 14753,
+   "name": "b_39A1",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 14766,
+   "name": "b_39AE",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 14773,
+   "name": "a_39B5",
+   "type": "AbsoluteAddress",
+   "kind": "auto"
+  },
+  {
+   "address": 14774,
+   "name": "a_39B6",
+   "type": "AbsoluteAddress",
+   "kind": "auto"
+  },
+  {
+   "address": 14775,
+   "name": "a_39B7",
+   "type": "AbsoluteAddress",
+   "kind": "auto"
+  },
+  {
+   "address": 14776,
+   "name": "a_39B8",
+   "type": "AbsoluteAddress",
+   "kind": "auto"
+  },
+  {
+   "address": 14777,
+   "name": "s_39B9",
+   "type": "Subroutine",
+   "kind": "auto"
+  },
+  {
+   "address": 14819,
+   "name": "a_39E3",
+   "type": "AbsoluteAddress",
+   "kind": "auto"
+  },
+  {
+   "address": 14820,
+   "name": "s_39E4",
+   "type": "Subroutine",
+   "kind": "auto"
+  },
+  {
+   "address": 14840,
+   "name": "b_39F8",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 14885,
+   "name": "b_3A25",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 14890,
+   "name": "b_3A2A",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 14932,
+   "name": "b_3A54",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 14936,
+   "name": "b_3A58",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 14960,
+   "name": "b_3A70",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 15001,
+   "name": "r_3A99",
+   "type": "Return",
+   "kind": "auto"
+  },
+  {
+   "address": 15002,
+   "name": "b_3A9A",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 15021,
+   "name": "b_3AAD",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 15032,
+   "name": "b_3AB8",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 15087,
+   "name": "r_3AEF",
+   "type": "Return",
+   "kind": "auto"
+  },
+  {
+   "address": 15088,
+   "name": "a_3AF0",
+   "type": "AbsoluteAddress",
+   "kind": "auto"
+  },
+  {
+   "address": 15089,
+   "name": "a_3AF1",
+   "type": "AbsoluteAddress",
+   "kind": "auto"
+  },
+  {
+   "address": 15090,
+   "name": "a_3AF2",
+   "type": "AbsoluteAddress",
+   "kind": "auto"
+  },
+  {
+   "address": 15091,
+   "name": "s_3AF3",
+   "type": "Subroutine",
+   "kind": "auto"
+  },
+  {
+   "address": 15138,
+   "name": "r_3B22",
+   "type": "Return",
+   "kind": "auto"
+  },
+  {
+   "address": 15139,
+   "name": "b_3B23",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 15145,
+   "name": "s_3B29",
+   "type": "Subroutine",
+   "kind": "auto"
+  },
+  {
+   "address": 15159,
+   "name": "b_3B37",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 15180,
+   "name": "b_3B4C",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 15198,
+   "name": "r_3B5E",
+   "type": "Return",
+   "kind": "auto"
+  },
+  {
+   "address": 15200,
+   "name": "a_3B60",
+   "type": "AbsoluteAddress",
+   "kind": "auto"
+  },
+  {
+   "address": 15201,
+   "name": "f_3B61",
+   "type": "Field",
+   "kind": "auto"
+  },
+  {
+   "address": 15208,
+   "name": "f_3B68",
+   "type": "Field",
+   "kind": "auto"
+  },
+  {
+   "address": 15215,
+   "name": "f_3B6F",
+   "type": "Field",
+   "kind": "auto"
+  },
+  {
+   "address": 15222,
+   "name": "sample_controls",
+   "type": "Subroutine",
+   "kind": "user"
+  },
+  {
+   "address": 15247,
+   "name": "b_3B8F",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 15267,
+   "name": "b_3BA3",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 15273,
+   "name": "a_3BA9",
+   "type": "AbsoluteAddress",
+   "kind": "auto"
+  },
+  {
+   "address": 15294,
+   "name": "b_3BBE",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 15301,
+   "name": "pause_keyboard_loop",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 15332,
+   "name": "b_3BE4",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 15347,
+   "name": "latch_control_sample",
+   "type": "Branch",
+   "kind": "user"
+  },
+  {
+   "address": 15366,
+   "name": "b_3C06",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 15380,
+   "name": "record_control_changes",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 15414,
+   "name": "b_3C36",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 15420,
+   "name": "j_3C3C",
+   "type": "Jump",
+   "kind": "auto"
+  },
+  {
+   "address": 15421,
+   "name": "a_3C3D",
+   "type": "AbsoluteAddress",
+   "kind": "auto"
+  },
+  {
+   "address": 15423,
+   "name": "a_3C3F",
+   "type": "AbsoluteAddress",
+   "kind": "auto"
+  },
+  {
+   "address": 15425,
+   "name": "replay_control_changes",
+   "type": "Branch",
+   "kind": "user"
+  },
+  {
+   "address": 15446,
+   "name": "a_3C56",
+   "type": "AbsoluteAddress",
+   "kind": "auto"
+  },
+  {
+   "address": 15453,
+   "name": "b_3C5D",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 15466,
+   "name": "b_3C6A",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 15470,
+   "name": "f_3C6E",
+   "type": "Field",
+   "kind": "auto"
+  },
+  {
+   "address": 15503,
+   "name": "f_3C8F",
+   "type": "Field",
+   "kind": "auto"
+  },
+  {
+   "address": 15536,
+   "name": "a_3CB0",
+   "type": "AbsoluteAddress",
+   "kind": "auto"
+  },
+  {
+   "address": 15537,
+   "name": "a_3CB1",
+   "type": "AbsoluteAddress",
+   "kind": "auto"
+  },
+  {
+   "address": 15538,
+   "name": "a_3CB2",
+   "type": "AbsoluteAddress",
+   "kind": "auto"
+  },
+  {
+   "address": 15539,
+   "name": "s_3CB3",
+   "type": "Subroutine",
+   "kind": "auto"
+  },
+  {
+   "address": 15543,
+   "name": "b_3CB7",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 15557,
+   "name": "b_3CC5",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 15598,
+   "name": "s_3CEE",
+   "type": "Subroutine",
+   "kind": "auto"
+  },
+  {
+   "address": 15657,
+   "name": "r_3D29",
+   "type": "Return",
+   "kind": "auto"
+  },
+  {
+   "address": 15658,
+   "name": "s_3D2A",
+   "type": "Subroutine",
+   "kind": "auto"
+  },
+  {
+   "address": 15698,
+   "name": "b_3D52",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 15703,
+   "name": "b_3D57",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 15727,
+   "name": "b_3D6F",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 15763,
+   "name": "r_3D93",
+   "type": "Return",
+   "kind": "auto"
+  },
+  {
+   "address": 15764,
+   "name": "b_3D94",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 15777,
+   "name": "b_3DA1",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 15805,
+   "name": "b_3DBD",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 15848,
+   "name": "r_3DE8",
+   "type": "Return",
+   "kind": "auto"
+  },
+  {
+   "address": 15849,
+   "name": "s_3DE9",
+   "type": "Subroutine",
+   "kind": "auto"
+  },
+  {
+   "address": 15883,
+   "name": "f_3E0B",
+   "type": "Field",
+   "kind": "auto"
+  },
+  {
+   "address": 15889,
+   "name": "f_3E11",
+   "type": "Field",
+   "kind": "auto"
+  },
+  {
+   "address": 15896,
+   "name": "f_3E18",
+   "type": "Field",
+   "kind": "auto"
+  },
+  {
+   "address": 15903,
+   "name": "f_3E1F",
+   "type": "Field",
+   "kind": "auto"
+  },
+  {
+   "address": 15911,
+   "name": "f_3E27",
+   "type": "Field",
+   "kind": "auto"
+  },
+  {
+   "address": 15919,
+   "name": "f_3E2F",
+   "type": "Field",
+   "kind": "auto"
+  },
+  {
+   "address": 15927,
+   "name": "f_3E37",
+   "type": "Field",
+   "kind": "auto"
+  },
+  {
+   "address": 15934,
+   "name": "mission_file_specification",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 15941,
+   "name": "a_3E45",
+   "type": "AbsoluteAddress",
+   "kind": "auto"
+  },
+  {
+   "address": 15946,
+   "name": "open_mission_stream",
+   "type": "Subroutine",
+   "kind": "user"
+  },
+  {
+   "address": 16023,
+   "name": "load_mission",
+   "type": "Subroutine",
+   "kind": "user"
+  },
+  {
+   "address": 16090,
+   "name": "b_3EDA",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 16162,
+   "name": "close_mission_after_transfer",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 16171,
+   "name": "a_3F2B",
+   "type": "AbsoluteAddress",
+   "kind": "auto"
+  },
+  {
+   "address": 16191,
+   "name": "a_3F3F",
+   "type": "AbsoluteAddress",
+   "kind": "auto"
+  },
+  {
+   "address": 16192,
+   "name": "receive_mission_bytes",
+   "type": "Subroutine",
+   "kind": "user"
+  },
+  {
+   "address": 16235,
+   "name": "b_3F6B",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 16241,
+   "name": "b_3F71",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 16244,
+   "name": "r_3F74",
+   "type": "Return",
+   "kind": "auto"
+  },
+  {
+   "address": 16249,
+   "name": "close_mission_stream",
+   "type": "Subroutine",
+   "kind": "user"
+  },
+  {
+   "address": 16267,
+   "name": "b_3F8B",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 16281,
+   "name": "b_3F99",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 16292,
+   "name": "a_3FA4",
+   "type": "AbsoluteAddress",
+   "kind": "auto"
+  },
+  {
+   "address": 17984,
+   "name": "f_4640",
+   "type": "Field",
+   "kind": "auto"
+  },
+  {
+   "address": 18424,
+   "name": "f_47F8",
+   "type": "Field",
+   "kind": "auto"
+  },
+  {
+   "address": 18432,
+   "name": "f_4800",
+   "type": "Field",
+   "kind": "auto"
+  },
+  {
+   "address": 18472,
+   "name": "f_4828",
+   "type": "Field",
+   "kind": "auto"
+  },
+  {
+   "address": 18512,
+   "name": "f_4850",
+   "type": "Field",
+   "kind": "auto"
+  },
+  {
+   "address": 18552,
+   "name": "f_4878",
+   "type": "Field",
+   "kind": "auto"
+  },
+  {
+   "address": 18592,
+   "name": "f_48A0",
+   "type": "Field",
+   "kind": "auto"
+  },
+  {
+   "address": 18632,
+   "name": "f_48C8",
+   "type": "Field",
+   "kind": "auto"
+  },
+  {
+   "address": 18672,
+   "name": "f_48F0",
+   "type": "Field",
+   "kind": "auto"
+  },
+  {
+   "address": 18712,
+   "name": "f_4918",
+   "type": "Field",
+   "kind": "auto"
+  },
+  {
+   "address": 18752,
+   "name": "f_4940",
+   "type": "Field",
+   "kind": "auto"
+  },
+  {
+   "address": 18792,
+   "name": "f_4968",
+   "type": "Field",
+   "kind": "auto"
+  },
+  {
+   "address": 18832,
+   "name": "f_4990",
+   "type": "Field",
+   "kind": "auto"
+  },
+  {
+   "address": 18872,
+   "name": "f_49B8",
+   "type": "Field",
+   "kind": "auto"
+  },
+  {
+   "address": 18912,
+   "name": "f_49E0",
+   "type": "Field",
+   "kind": "auto"
+  },
+  {
+   "address": 18952,
+   "name": "f_4A08",
+   "type": "Field",
+   "kind": "auto"
+  },
+  {
+   "address": 18992,
+   "name": "f_4A30",
+   "type": "Field",
+   "kind": "auto"
+  },
+  {
+   "address": 19032,
+   "name": "f_4A58",
+   "type": "Field",
+   "kind": "auto"
+  },
+  {
+   "address": 19072,
+   "name": "f_4A80",
+   "type": "Field",
+   "kind": "auto"
+  },
+  {
+   "address": 19112,
+   "name": "f_4AA8",
+   "type": "Field",
+   "kind": "auto"
+  },
+  {
+   "address": 19152,
+   "name": "f_4AD0",
+   "type": "Field",
+   "kind": "auto"
+  },
+  {
+   "address": 19192,
+   "name": "f_4AF8",
+   "type": "Field",
+   "kind": "auto"
+  },
+  {
+   "address": 19232,
+   "name": "f_4B20",
+   "type": "Field",
+   "kind": "auto"
+  },
+  {
+   "address": 19272,
+   "name": "f_4B48",
+   "type": "Field",
+   "kind": "auto"
+  },
+  {
+   "address": 19448,
+   "name": "a_4BF8",
+   "type": "AbsoluteAddress",
+   "kind": "auto"
+  },
+  {
+   "address": 19449,
+   "name": "a_4BF9",
+   "type": "AbsoluteAddress",
+   "kind": "auto"
+  },
+  {
+   "address": 19450,
+   "name": "f_4BFA",
+   "type": "Field",
+   "kind": "auto"
+  },
+  {
+   "address": 19452,
+   "name": "a_4BFC",
+   "type": "AbsoluteAddress",
+   "kind": "auto"
+  },
+  {
+   "address": 19453,
+   "name": "a_4BFD",
+   "type": "AbsoluteAddress",
+   "kind": "auto"
+  },
+  {
+   "address": 19454,
+   "name": "a_4BFE",
+   "type": "AbsoluteAddress",
+   "kind": "auto"
+  },
+  {
+   "address": 19455,
+   "name": "a_4BFF",
+   "type": "AbsoluteAddress",
+   "kind": "auto"
+  },
+  {
+   "address": 19456,
+   "name": "build_pixel_pair_reverse_table",
+   "type": "Subroutine",
+   "kind": "user"
+  },
+  {
+   "address": 19458,
+   "name": "b_4C02",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 19466,
+   "name": "b_4C0A",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 19496,
+   "name": "f_4C28",
+   "type": "Field",
+   "kind": "auto"
+  },
+  {
+   "address": 19503,
+   "name": "clear_initial_page_04",
+   "type": "Subroutine",
+   "kind": "user"
+  },
+  {
+   "address": 19506,
+   "name": "b_4C32",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 19536,
+   "name": "f_4C50",
+   "type": "Field",
+   "kind": "auto"
+  },
+  {
+   "address": 19576,
+   "name": "f_4C78",
+   "type": "Field",
+   "kind": "auto"
+  },
+  {
+   "address": 19616,
+   "name": "f_4CA0",
+   "type": "Field",
+   "kind": "auto"
+  },
+  {
+   "address": 19656,
+   "name": "f_4CC8",
+   "type": "Field",
+   "kind": "auto"
+  },
+  {
+   "address": 19696,
+   "name": "f_4CF0",
+   "type": "Field",
+   "kind": "auto"
+  },
+  {
+   "address": 19736,
+   "name": "f_4D18",
+   "type": "Field",
+   "kind": "auto"
+  },
+  {
+   "address": 19776,
+   "name": "f_4D40",
+   "type": "Field",
+   "kind": "auto"
+  },
+  {
+   "address": 19816,
+   "name": "f_4D68",
+   "type": "Field",
+   "kind": "auto"
+  },
+  {
+   "address": 19856,
+   "name": "f_4D90",
+   "type": "Field",
+   "kind": "auto"
+  },
+  {
+   "address": 19896,
+   "name": "f_4DB8",
+   "type": "Field",
+   "kind": "auto"
+  },
+  {
+   "address": 19936,
+   "name": "f_4DE0",
+   "type": "Field",
+   "kind": "auto"
+  },
+  {
+   "address": 19976,
+   "name": "f_4E08",
+   "type": "Field",
+   "kind": "auto"
+  },
+  {
+   "address": 20016,
+   "name": "f_4E30",
+   "type": "Field",
+   "kind": "auto"
+  },
+  {
+   "address": 20056,
+   "name": "f_4E58",
+   "type": "Field",
+   "kind": "auto"
+  },
+  {
+   "address": 20096,
+   "name": "f_4E80",
+   "type": "Field",
+   "kind": "auto"
+  },
+  {
+   "address": 20136,
+   "name": "f_4EA8",
+   "type": "Field",
+   "kind": "auto"
+  },
+  {
+   "address": 20176,
+   "name": "f_4ED0",
+   "type": "Field",
+   "kind": "auto"
+  },
+  {
+   "address": 20216,
+   "name": "f_4EF8",
+   "type": "Field",
+   "kind": "auto"
+  },
+  {
+   "address": 20256,
+   "name": "f_4F20",
+   "type": "Field",
+   "kind": "auto"
+  },
+  {
+   "address": 20296,
+   "name": "f_4F48",
+   "type": "Field",
+   "kind": "auto"
+  },
+  {
+   "address": 20472,
+   "name": "a_4FF8",
+   "type": "AbsoluteAddress",
+   "kind": "auto"
+  },
+  {
+   "address": 20473,
+   "name": "a_4FF9",
+   "type": "AbsoluteAddress",
+   "kind": "auto"
+  },
+  {
+   "address": 20474,
+   "name": "f_4FFA",
+   "type": "Field",
+   "kind": "auto"
+  },
+  {
+   "address": 20476,
+   "name": "a_4FFC",
+   "type": "AbsoluteAddress",
+   "kind": "auto"
+  },
+  {
+   "address": 20477,
+   "name": "a_4FFD",
+   "type": "AbsoluteAddress",
+   "kind": "auto"
+  },
+  {
+   "address": 20478,
+   "name": "a_4FFE",
+   "type": "AbsoluteAddress",
+   "kind": "auto"
+  },
+  {
+   "address": 20479,
+   "name": "a_4FFF",
+   "type": "AbsoluteAddress",
+   "kind": "auto"
+  },
+  {
+   "address": 20480,
+   "name": "font_digits",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 20736,
+   "name": "font_capitals",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 21280,
+   "name": "f_5320",
+   "type": "Field",
+   "kind": "auto"
+  },
+  {
+   "address": 21320,
+   "name": "f_5348",
+   "type": "Field",
+   "kind": "auto"
+  },
+  {
+   "address": 21321,
+   "name": "f_5349",
+   "type": "Field",
+   "kind": "auto"
+  },
+  {
+   "address": 21330,
+   "name": "f_5352",
+   "type": "Field",
+   "kind": "auto"
+  },
+  {
+   "address": 21360,
+   "name": "f_5370",
+   "type": "Field",
+   "kind": "auto"
+  },
+  {
+   "address": 21392,
+   "name": "a_5390",
+   "type": "AbsoluteAddress",
+   "kind": "auto"
+  },
+  {
+   "address": 21393,
+   "name": "a_5391",
+   "type": "AbsoluteAddress",
+   "kind": "auto"
+  },
+  {
+   "address": 21401,
+   "name": "f_5399",
+   "type": "Field",
+   "kind": "auto"
+  },
+  {
+   "address": 21411,
+   "name": "f_53A3",
+   "type": "Field",
+   "kind": "auto"
+  },
+  {
+   "address": 21415,
+   "name": "f_53A7",
+   "type": "Field",
+   "kind": "auto"
+  },
+  {
+   "address": 21432,
+   "name": "a_53B8",
+   "type": "AbsoluteAddress",
+   "kind": "auto"
+  },
+  {
+   "address": 21433,
+   "name": "a_53B9",
+   "type": "AbsoluteAddress",
+   "kind": "auto"
+  },
+  {
+   "address": 21435,
+   "name": "f_53BB",
+   "type": "Field",
+   "kind": "auto"
+  },
+  {
+   "address": 21440,
+   "name": "f_53C0",
+   "type": "Field",
+   "kind": "auto"
+  },
+  {
+   "address": 21441,
+   "name": "f_53C1",
+   "type": "Field",
+   "kind": "auto"
+  },
+  {
+   "address": 21442,
+   "name": "f_53C2",
+   "type": "Field",
+   "kind": "auto"
+  },
+  {
+   "address": 21496,
+   "name": "f_53F8",
+   "type": "Field",
+   "kind": "auto"
+  },
+  {
+   "address": 21504,
+   "name": "f_5400",
+   "type": "Field",
+   "kind": "auto"
+  },
+  {
+   "address": 21505,
+   "name": "f_5401",
+   "type": "Field",
+   "kind": "auto"
+  },
+  {
+   "address": 21506,
+   "name": "f_5402",
+   "type": "Field",
+   "kind": "auto"
+  },
+  {
+   "address": 21568,
+   "name": "f_5440",
+   "type": "Field",
+   "kind": "auto"
+  },
+  {
+   "address": 21664,
+   "name": "f_54A0",
+   "type": "Field",
+   "kind": "auto"
+  },
+  {
+   "address": 21888,
+   "name": "projectile_and_effect_sprites",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 22848,
+   "name": "body_and_limb_sprites",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 23872,
+   "name": "figure_poses_with_raised_arms",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 24896,
+   "name": "walking_and_turning_poses",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 25920,
+   "name": "alternating_limb_and_body_slots",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 26944,
+   "name": "shared_body_and_limb_slots",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 27968,
+   "name": "crouching_and_movement_slots",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 28416,
+   "name": "alternate_figure_and_motion_sprites",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 29440,
+   "name": "standing_and_leaping_sprites",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 30464,
+   "name": "final_resident_movement_frames",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 30656,
+   "name": "large_object_and_effect_sprites",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 32128,
+   "name": "multipart_object_sprites",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 32767,
+   "name": "a_7FFF",
+   "type": "AbsoluteAddress",
+   "kind": "auto"
+  },
+  {
+   "address": 32768,
+   "name": "source_sprite_frames",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 33792,
+   "name": "source_mirrored_figure_frames",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 34816,
+   "name": "source_masked_figure_and_poses",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 35232,
+   "name": "s_89A0",
+   "type": "Subroutine",
+   "kind": "auto"
+  },
+  {
+   "address": 35304,
+   "name": "b_89E8",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 35359,
+   "name": "a_8A1F",
+   "type": "AbsoluteAddress",
+   "kind": "auto"
+  },
+  {
+   "address": 35363,
+   "name": "s_8A23",
+   "type": "Subroutine",
+   "kind": "auto"
+  },
+  {
+   "address": 35367,
+   "name": "b_8A27",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 35381,
+   "name": "b_8A35",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 35411,
+   "name": "s_8A53",
+   "type": "Subroutine",
+   "kind": "auto"
+  },
+  {
+   "address": 35442,
+   "name": "b_8A72",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 35470,
+   "name": "b_8A8E",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 35473,
+   "name": "j_8A91",
+   "type": "Jump",
+   "kind": "auto"
+  },
+  {
+   "address": 35501,
+   "name": "b_8AAD",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 35513,
+   "name": "b_8AB9",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 35516,
+   "name": "r_8ABC",
+   "type": "Return",
+   "kind": "auto"
+  },
+  {
+   "address": 35517,
+   "name": "s_8ABD",
+   "type": "Subroutine",
+   "kind": "auto"
+  },
+  {
+   "address": 35544,
+   "name": "b_8AD8",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 35601,
+   "name": "j_8B11",
+   "type": "Jump",
+   "kind": "auto"
+  },
+  {
+   "address": 35614,
+   "name": "b_8B1E",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 35632,
+   "name": "b_8B30",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 35694,
+   "name": "b_8B6E",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 35701,
+   "name": "f_8B75",
+   "type": "Field",
+   "kind": "auto"
+  },
+  {
+   "address": 35705,
+   "name": "f_8B79",
+   "type": "Field",
+   "kind": "auto"
+  },
+  {
+   "address": 35709,
+   "name": "s_8B7D",
+   "type": "Subroutine",
+   "kind": "auto"
+  },
+  {
+   "address": 35711,
+   "name": "b_8B7F",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 35740,
+   "name": "b_8B9C",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 35747,
+   "name": "b_8BA3",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 35766,
+   "name": "b_8BB6",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 35771,
+   "name": "j_8BBB",
+   "type": "Jump",
+   "kind": "auto"
+  },
+  {
+   "address": 35774,
+   "name": "b_8BBE",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 35780,
+   "name": "a_8BC4",
+   "type": "AbsoluteAddress",
+   "kind": "auto"
+  },
+  {
+   "address": 35781,
+   "name": "f_8BC5",
+   "type": "Field",
+   "kind": "auto"
+  },
+  {
+   "address": 35802,
+   "name": "f_8BDA",
+   "type": "Field",
+   "kind": "auto"
+  },
+  {
+   "address": 35823,
+   "name": "f_8BEF",
+   "type": "Field",
+   "kind": "auto"
+  },
+  {
+   "address": 35827,
+   "name": "f_8BF3",
+   "type": "Field",
+   "kind": "auto"
+  },
+  {
+   "address": 35831,
+   "name": "a_8BF7",
+   "type": "AbsoluteAddress",
+   "kind": "auto"
+  },
+  {
+   "address": 35833,
+   "name": "f_8BF9",
+   "type": "Field",
+   "kind": "auto"
+  },
+  {
+   "address": 35849,
+   "name": "f_8C09",
+   "type": "Field",
+   "kind": "auto"
+  },
+  {
+   "address": 35869,
+   "name": "f_8C1D",
+   "type": "Field",
+   "kind": "auto"
+  },
+  {
+   "address": 35885,
+   "name": "f_8C2D",
+   "type": "Field",
+   "kind": "auto"
+  },
+  {
+   "address": 35901,
+   "name": "a_8C3D",
+   "type": "AbsoluteAddress",
+   "kind": "auto"
+  },
+  {
+   "address": 35902,
+   "name": "a_8C3E",
+   "type": "AbsoluteAddress",
+   "kind": "auto"
+  },
+  {
+   "address": 35903,
+   "name": "s_8C3F",
+   "type": "Subroutine",
+   "kind": "auto"
+  },
+  {
+   "address": 35939,
+   "name": "r_8C63",
+   "type": "Return",
+   "kind": "auto"
+  },
+  {
+   "address": 35940,
+   "name": "j_8C64",
+   "type": "Jump",
+   "kind": "auto"
+  },
+  {
+   "address": 36003,
+   "name": "j_8CA3",
+   "type": "Jump",
+   "kind": "auto"
+  },
+  {
+   "address": 36022,
+   "name": "b_8CB6",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 36047,
+   "name": "b_8CCF",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 36068,
+   "name": "b_8CE4",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 36078,
+   "name": "b_8CEE",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 36091,
+   "name": "b_8CFB",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 36098,
+   "name": "j_8D02",
+   "type": "Jump",
+   "kind": "auto"
+  },
+  {
+   "address": 36114,
+   "name": "b_8D12",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 36126,
+   "name": "j_8D1E",
+   "type": "Jump",
+   "kind": "auto"
+  },
+  {
+   "address": 36144,
+   "name": "b_8D30",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 36147,
+   "name": "b_8D33",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 36152,
+   "name": "b_8D38",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 36162,
+   "name": "j_8D42",
+   "type": "Jump",
+   "kind": "auto"
+  },
+  {
+   "address": 36192,
+   "name": "r_8D60",
+   "type": "Return",
+   "kind": "auto"
+  },
+  {
+   "address": 36202,
+   "name": "a_8D6A",
+   "type": "AbsoluteAddress",
+   "kind": "auto"
+  },
+  {
+   "address": 36203,
+   "name": "s_8D6B",
+   "type": "Subroutine",
+   "kind": "auto"
+  },
+  {
+   "address": 36217,
+   "name": "b_8D79",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 36246,
+   "name": "r_8D96",
+   "type": "Return",
+   "kind": "auto"
+  },
+  {
+   "address": 36247,
+   "name": "j_8D97",
+   "type": "Jump",
+   "kind": "auto"
+  },
+  {
+   "address": 36297,
+   "name": "b_8DC9",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 36309,
+   "name": "r_8DD5",
+   "type": "Return",
+   "kind": "auto"
+  },
+  {
+   "address": 36310,
+   "name": "b_8DD6",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 36316,
+   "name": "b_8DDC",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 36342,
+   "name": "r_8DF6",
+   "type": "Return",
+   "kind": "auto"
+  },
+  {
+   "address": 36343,
+   "name": "a_8DF7",
+   "type": "AbsoluteAddress",
+   "kind": "auto"
+  },
+  {
+   "address": 36344,
+   "name": "a_8DF8",
+   "type": "AbsoluteAddress",
+   "kind": "auto"
+  },
+  {
+   "address": 36345,
+   "name": "a_8DF9",
+   "type": "AbsoluteAddress",
+   "kind": "auto"
+  },
+  {
+   "address": 36346,
+   "name": "a_8DFA",
+   "type": "AbsoluteAddress",
+   "kind": "auto"
+  },
+  {
+   "address": 36347,
+   "name": "a_8DFB",
+   "type": "AbsoluteAddress",
+   "kind": "auto"
+  },
+  {
+   "address": 36348,
+   "name": "s_8DFC",
+   "type": "Subroutine",
+   "kind": "auto"
+  },
+  {
+   "address": 36365,
+   "name": "b_8E0D",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 36382,
+   "name": "b_8E1E",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 36406,
+   "name": "r_8E36",
+   "type": "Return",
+   "kind": "auto"
+  },
+  {
+   "address": 36407,
+   "name": "b_8E37",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 36452,
+   "name": "b_8E64",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 36463,
+   "name": "b_8E6F",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 36474,
+   "name": "b_8E7A",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 36501,
+   "name": "b_8E95",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 36524,
+   "name": "r_8EAC",
+   "type": "Return",
+   "kind": "auto"
+  },
+  {
+   "address": 36525,
+   "name": "prepare_object_placements",
+   "type": "Subroutine",
+   "kind": "user"
+  },
+  {
+   "address": 36546,
+   "name": "b_8EC2",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 36592,
+   "name": "b_8EF0",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 36612,
+   "name": "a_8F04",
+   "type": "AbsoluteAddress",
+   "kind": "auto"
+  },
+  {
+   "address": 36613,
+   "name": "a_8F05",
+   "type": "AbsoluteAddress",
+   "kind": "auto"
+  },
+  {
+   "address": 36614,
+   "name": "a_8F06",
+   "type": "AbsoluteAddress",
+   "kind": "auto"
+  },
+  {
+   "address": 36643,
+   "name": "b_8F23",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 36649,
+   "name": "r_8F29",
+   "type": "Return",
+   "kind": "auto"
+  },
+  {
+   "address": 36650,
+   "name": "s_8F2A",
+   "type": "Subroutine",
+   "kind": "auto"
+  },
+  {
+   "address": 36683,
+   "name": "b_8F4B",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 36685,
+   "name": "f_8F4D",
+   "type": "Field",
+   "kind": "auto"
+  },
+  {
+   "address": 36686,
+   "name": "a_8F4E",
+   "type": "AbsoluteAddress",
+   "kind": "auto"
+  },
+  {
+   "address": 36687,
+   "name": "a_8F4F",
+   "type": "AbsoluteAddress",
+   "kind": "auto"
+  },
+  {
+   "address": 36721,
+   "name": "b_8F71",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 36759,
+   "name": "b_8F97",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 36773,
+   "name": "a_8FA5",
+   "type": "AbsoluteAddress",
+   "kind": "auto"
+  },
+  {
+   "address": 36774,
+   "name": "f_8FA6",
+   "type": "Field",
+   "kind": "auto"
+  },
+  {
+   "address": 36782,
+   "name": "a_8FAE",
+   "type": "AbsoluteAddress",
+   "kind": "auto"
+  },
+  {
+   "address": 36783,
+   "name": "s_8FAF",
+   "type": "Subroutine",
+   "kind": "auto"
+  },
+  {
+   "address": 36838,
+   "name": "r_8FE6",
+   "type": "Return",
+   "kind": "auto"
+  },
+  {
+   "address": 36840,
+   "name": "copy_player_placement_list",
+   "type": "Subroutine",
+   "kind": "user"
+  },
+  {
+   "address": 36869,
+   "name": "b_9005",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 36881,
+   "name": "a_9011",
+   "type": "AbsoluteAddress",
+   "kind": "auto"
+  },
+  {
+   "address": 36882,
+   "name": "reset_panel_characters",
+   "type": "Subroutine",
+   "kind": "user"
+  },
+  {
+   "address": 36886,
+   "name": "b_9016",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 36896,
+   "name": "b_9020",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 36907,
+   "name": "s_902B",
+   "type": "Subroutine",
+   "kind": "auto"
+  },
+  {
+   "address": 36910,
+   "name": "j_902E",
+   "type": "Jump",
+   "kind": "auto"
+  },
+  {
+   "address": 36979,
+   "name": "b_9073",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 37035,
+   "name": "b_90AB",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 37043,
+   "name": "b_90B3",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 37135,
+   "name": "a_910F",
+   "type": "AbsoluteAddress",
+   "kind": "auto"
+  },
+  {
+   "address": 37136,
+   "name": "a_9110",
+   "type": "AbsoluteAddress",
+   "kind": "auto"
+  },
+  {
+   "address": 37137,
+   "name": "a_9111",
+   "type": "AbsoluteAddress",
+   "kind": "auto"
+  },
+  {
+   "address": 37138,
+   "name": "a_9112",
+   "type": "AbsoluteAddress",
+   "kind": "auto"
+  },
+  {
+   "address": 37139,
+   "name": "f_9113",
+   "type": "Field",
+   "kind": "auto"
+  },
+  {
+   "address": 37149,
+   "name": "f_911D",
+   "type": "Field",
+   "kind": "auto"
+  },
+  {
+   "address": 37159,
+   "name": "f_9127",
+   "type": "Field",
+   "kind": "auto"
+  },
+  {
+   "address": 37169,
+   "name": "s_9131",
+   "type": "Subroutine",
+   "kind": "auto"
+  },
+  {
+   "address": 37216,
+   "name": "b_9160",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 37235,
+   "name": "b_9173",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 37263,
+   "name": "b_918F",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 37298,
+   "name": "s_91B2",
+   "type": "Subroutine",
+   "kind": "auto"
+  },
+  {
+   "address": 37305,
+   "name": "b_91B9",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 37328,
+   "name": "a_91D0",
+   "type": "AbsoluteAddress",
+   "kind": "auto"
+  },
+  {
+   "address": 37492,
+   "name": "s_9274",
+   "type": "Subroutine",
+   "kind": "auto"
+  },
+  {
+   "address": 37514,
+   "name": "b_928A",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 37522,
+   "name": "b_9292",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 37538,
+   "name": "b_92A2",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 37543,
+   "name": "j_92A7",
+   "type": "Jump",
+   "kind": "auto"
+  },
+  {
+   "address": 37563,
+   "name": "b_92BB",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 37576,
+   "name": "r_92C8",
+   "type": "Return",
+   "kind": "auto"
+  },
+  {
+   "address": 37577,
+   "name": "s_92C9",
+   "type": "Subroutine",
+   "kind": "auto"
+  },
+  {
+   "address": 37584,
+   "name": "b_92D0",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 37606,
+   "name": "b_92E6",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 37678,
+   "name": "a_932E",
+   "type": "AbsoluteAddress",
+   "kind": "auto"
+  },
+  {
+   "address": 37679,
+   "name": "f_932F",
+   "type": "Field",
+   "kind": "auto"
+  },
+  {
+   "address": 37683,
+   "name": "a_9333",
+   "type": "AbsoluteAddress",
+   "kind": "auto"
+  },
+  {
+   "address": 37684,
+   "name": "s_9334",
+   "type": "Subroutine",
+   "kind": "auto"
+  },
+  {
+   "address": 37760,
+   "name": "b_9380",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 37764,
+   "name": "s_9384",
+   "type": "Subroutine",
+   "kind": "auto"
+  },
+  {
+   "address": 37784,
+   "name": "b_9398",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 37798,
+   "name": "b_93A6",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 37818,
+   "name": "b_93BA",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 37835,
+   "name": "b_93CB",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 37849,
+   "name": "b_93D9",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 37863,
+   "name": "b_93E7",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 37968,
+   "name": "f_9450",
+   "type": "Field",
+   "kind": "auto"
+  },
+  {
+   "address": 37990,
+   "name": "f_9466",
+   "type": "Field",
+   "kind": "auto"
+  },
+  {
+   "address": 38012,
+   "name": "f_947C",
+   "type": "Field",
+   "kind": "auto"
+  },
+  {
+   "address": 38034,
+   "name": "f_9492",
+   "type": "Field",
+   "kind": "auto"
+  },
+  {
+   "address": 38098,
+   "name": "f_94D2",
+   "type": "Field",
+   "kind": "auto"
+  },
+  {
+   "address": 38162,
+   "name": "a_9512",
+   "type": "AbsoluteAddress",
+   "kind": "auto"
+  },
+  {
+   "address": 38163,
+   "name": "s_9513",
+   "type": "Subroutine",
+   "kind": "auto"
+  },
+  {
+   "address": 38177,
+   "name": "b_9521",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 38196,
+   "name": "r_9534",
+   "type": "Return",
+   "kind": "auto"
+  },
+  {
+   "address": 38197,
+   "name": "b_9535",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 38220,
+   "name": "b_954C",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 38253,
+   "name": "b_956D",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 38261,
+   "name": "r_9575",
+   "type": "Return",
+   "kind": "auto"
+  },
+  {
+   "address": 38262,
+   "name": "b_9576",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 38273,
+   "name": "b_9581",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 38281,
+   "name": "j_9589",
+   "type": "Jump",
+   "kind": "auto"
+  },
+  {
+   "address": 38291,
+   "name": "b_9593",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 38302,
+   "name": "b_959E",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 38327,
+   "name": "b_95B7",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 38348,
+   "name": "b_95CC",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 38356,
+   "name": "r_95D4",
+   "type": "Return",
+   "kind": "auto"
+  },
+  {
+   "address": 38386,
+   "name": "f_95F2",
+   "type": "Field",
+   "kind": "auto"
+  },
+  {
+   "address": 38417,
+   "name": "render_message_in_sprites",
+   "type": "Subroutine",
+   "kind": "user"
+  },
+  {
+   "address": 38423,
+   "name": "b_9617",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 38429,
+   "name": "b_961D",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 38445,
+   "name": "j_962D",
+   "type": "Jump",
+   "kind": "auto"
+  },
+  {
+   "address": 38461,
+   "name": "b_963D",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 38475,
+   "name": "b_964B",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 38480,
+   "name": "j_9650",
+   "type": "Jump",
+   "kind": "auto"
+  },
+  {
+   "address": 38488,
+   "name": "b_9658",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 38528,
+   "name": "b_9680",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 38530,
+   "name": "f_9682",
+   "type": "Field",
+   "kind": "auto"
+  },
+  {
+   "address": 38531,
+   "name": "a_9683",
+   "type": "AbsoluteAddress",
+   "kind": "auto"
+  },
+  {
+   "address": 38532,
+   "name": "a_9684",
+   "type": "AbsoluteAddress",
+   "kind": "auto"
+  },
+  {
+   "address": 38547,
+   "name": "b_9693",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 38578,
+   "name": "b_96B2",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 38611,
+   "name": "b_96D3",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 38657,
+   "name": "a_9701",
+   "type": "AbsoluteAddress",
+   "kind": "auto"
+  },
+  {
+   "address": 38658,
+   "name": "message_pointer_table",
+   "type": "Field",
+   "kind": "user"
+  },
+  {
+   "address": 38674,
+   "name": "f_9712",
+   "type": "Field",
+   "kind": "auto"
+  },
+  {
+   "address": 38690,
+   "name": "game_over_message",
+   "type": "AbsoluteAddress",
+   "kind": "user"
+  },
+  {
+   "address": 38716,
+   "name": "player_ready_message",
+   "type": "AbsoluteAddress",
+   "kind": "user"
+  },
+  {
+   "address": 38739,
+   "name": "wait_for_mission_message",
+   "type": "AbsoluteAddress",
+   "kind": "user"
+  },
+  {
+   "address": 38771,
+   "name": "time_over_message",
+   "type": "AbsoluteAddress",
+   "kind": "user"
+  },
+  {
+   "address": 38782,
+   "name": "keep_mission_message",
+   "type": "AbsoluteAddress",
+   "kind": "user"
+  },
+  {
+   "address": 38809,
+   "name": "mission_complete_message",
+   "type": "AbsoluteAddress",
+   "kind": "user"
+  },
+  {
+   "address": 38837,
+   "name": "destroy_all_enemies_message",
+   "type": "AbsoluteAddress",
+   "kind": "user"
+  },
+  {
+   "address": 38863,
+   "name": "shinobi_message",
+   "type": "AbsoluteAddress",
+   "kind": "user"
+  },
+  {
+   "address": 38872,
+   "name": "special_bonus_message",
+   "type": "AbsoluteAddress",
+   "kind": "user"
+  },
+  {
+   "address": 38887,
+   "name": "practice_or_demo_message",
+   "type": "AbsoluteAddress",
+   "kind": "user"
+  },
+  {
+   "address": 38915,
+   "name": "fire_to_play_message",
+   "type": "AbsoluteAddress",
+   "kind": "user"
+  },
+  {
+   "address": 38942,
+   "name": "perfect_message",
+   "type": "AbsoluteAddress",
+   "kind": "user"
+  },
+  {
+   "address": 38954,
+   "name": "stage_clear_message",
+   "type": "AbsoluteAddress",
+   "kind": "user"
+  },
+  {
+   "address": 38967,
+   "name": "loading_mission_message",
+   "type": "AbsoluteAddress",
+   "kind": "user"
+  },
+  {
+   "address": 38994,
+   "name": "feel_the_suss_message",
+   "type": "AbsoluteAddress",
+   "kind": "user"
+  },
+  {
+   "address": 39009,
+   "name": "message_colour_cycle",
+   "type": "Field",
+   "kind": "user"
+  },
+  {
+   "address": 39025,
+   "name": "select_sprite_message",
+   "type": "Subroutine",
+   "kind": "user"
+  },
+  {
+   "address": 39049,
+   "name": "wait_for_message",
+   "type": "Subroutine",
+   "kind": "user"
+  },
+  {
+   "address": 39051,
+   "name": "b_988B",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 39070,
+   "name": "b_989E",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 39093,
+   "name": "b_98B5",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 39096,
+   "name": "b_98B8",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 39114,
+   "name": "attract_prompt",
+   "type": "Subroutine",
+   "kind": "user"
+  },
+  {
+   "address": 39129,
+   "name": "b_98D9",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 39131,
+   "name": "j_98DB",
+   "type": "Jump",
+   "kind": "auto"
+  },
+  {
+   "address": 39143,
+   "name": "b_98E7",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 39155,
+   "name": "b_98F3",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 39168,
+   "name": "b_9900",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 39180,
+   "name": "b_990C",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 39193,
+   "name": "b_9919",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 39217,
+   "name": "b_9931",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 39229,
+   "name": "b_993D",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 39241,
+   "name": "b_9949",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 39242,
+   "name": "a_994A",
+   "type": "AbsoluteAddress",
+   "kind": "auto"
+  },
+  {
+   "address": 39244,
+   "name": "player_count_strings",
+   "type": "Field",
+   "kind": "user"
+  },
+  {
+   "address": 39276,
+   "name": "attract_fire_string",
+   "type": "Field",
+   "kind": "user"
+  },
+  {
+   "address": 39295,
+   "name": "f_997F",
+   "type": "Field",
+   "kind": "auto"
+  },
+  {
+   "address": 39425,
+   "name": "f_9A01",
+   "type": "Field",
+   "kind": "auto"
+  },
+  {
+   "address": 39555,
+   "name": "f_9A83",
+   "type": "Field",
+   "kind": "auto"
+  },
+  {
+   "address": 39685,
+   "name": "f_9B05",
+   "type": "Field",
+   "kind": "auto"
+  },
+  {
+   "address": 39815,
+   "name": "f_9B87",
+   "type": "Field",
+   "kind": "auto"
+  },
+  {
+   "address": 39834,
+   "name": "f_9B9A",
+   "type": "Field",
+   "kind": "auto"
+  },
+  {
+   "address": 39849,
+   "name": "s_9BA9",
+   "type": "Subroutine",
+   "kind": "auto"
+  },
+  {
+   "address": 39864,
+   "name": "b_9BB8",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 39866,
+   "name": "b_9BBA",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 39878,
+   "name": "r_9BC6",
+   "type": "Return",
+   "kind": "auto"
+  },
+  {
+   "address": 39879,
+   "name": "s_9BC7",
+   "type": "Subroutine",
+   "kind": "auto"
+  },
+  {
+   "address": 39895,
+   "name": "b_9BD7",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 39898,
+   "name": "b_9BDA",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 39916,
+   "name": "r_9BEC",
+   "type": "Return",
+   "kind": "auto"
+  },
+  {
+   "address": 39930,
+   "name": "f_9BFA",
+   "type": "Field",
+   "kind": "auto"
+  },
+  {
+   "address": 39944,
+   "name": "f_9C08",
+   "type": "Field",
+   "kind": "auto"
+  },
+  {
+   "address": 39958,
+   "name": "f_9C16",
+   "type": "Field",
+   "kind": "auto"
+  },
+  {
+   "address": 39973,
+   "name": "s_9C25",
+   "type": "Subroutine",
+   "kind": "auto"
+  },
+  {
+   "address": 40117,
+   "name": "f_9CB5",
+   "type": "Field",
+   "kind": "auto"
+  },
+  {
+   "address": 40132,
+   "name": "f_9CC4",
+   "type": "Field",
+   "kind": "auto"
+  },
+  {
+   "address": 40147,
+   "name": "f_9CD3",
+   "type": "Field",
+   "kind": "auto"
+  },
+  {
+   "address": 40162,
+   "name": "f_9CE2",
+   "type": "Field",
+   "kind": "auto"
+  },
+  {
+   "address": 40177,
+   "name": "s_9CF1",
+   "type": "Subroutine",
+   "kind": "auto"
+  },
+  {
+   "address": 40204,
+   "name": "r_9D0C",
+   "type": "Return",
+   "kind": "auto"
+  },
+  {
+   "address": 40205,
+   "name": "s_9D0D",
+   "type": "Subroutine",
+   "kind": "auto"
+  },
+  {
+   "address": 40207,
+   "name": "b_9D0F",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 40220,
+   "name": "b_9D1C",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 40226,
+   "name": "s_9D22",
+   "type": "Subroutine",
+   "kind": "auto"
+  },
+  {
+   "address": 40228,
+   "name": "b_9D24",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 40271,
+   "name": "b_9D4F",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 40285,
+   "name": "b_9D5D",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 40304,
+   "name": "b_9D70",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 40320,
+   "name": "r_9D80",
+   "type": "Return",
+   "kind": "auto"
+  },
+  {
+   "address": 40321,
+   "name": "f_9D81",
+   "type": "Field",
+   "kind": "auto"
+  },
+  {
+   "address": 40325,
+   "name": "s_9D85",
+   "type": "Subroutine",
+   "kind": "auto"
+  },
+  {
+   "address": 40341,
+   "name": "b_9D95",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 40364,
+   "name": "b_9DAC",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 40372,
+   "name": "b_9DB4",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 41427,
+   "name": "f_A1D3",
+   "type": "Field",
+   "kind": "auto"
+  },
+  {
+   "address": 43264,
+   "name": "f_A900",
+   "type": "Field",
+   "kind": "auto"
+  },
+  {
+   "address": 43540,
+   "name": "a_AA14",
+   "type": "AbsoluteAddress",
+   "kind": "auto"
+  },
+  {
+   "address": 43541,
+   "name": "s_AA15",
+   "type": "Subroutine",
+   "kind": "auto"
+  },
+  {
+   "address": 43556,
+   "name": "b_AA24",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 43573,
+   "name": "j_AA35",
+   "type": "Jump",
+   "kind": "auto"
+  },
+  {
+   "address": 43586,
+   "name": "b_AA42",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 43606,
+   "name": "r_AA56",
+   "type": "Return",
+   "kind": "auto"
+  },
+  {
+   "address": 43607,
+   "name": "b_AA57",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 43616,
+   "name": "b_AA60",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 43626,
+   "name": "b_AA6A",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 43642,
+   "name": "j_AA7A",
+   "type": "Jump",
+   "kind": "auto"
+  },
+  {
+   "address": 43653,
+   "name": "r_AA85",
+   "type": "Return",
+   "kind": "auto"
+  },
+  {
+   "address": 43654,
+   "name": "f_AA86",
+   "type": "Field",
+   "kind": "auto"
+  },
+  {
+   "address": 43668,
+   "name": "f_AA94",
+   "type": "Field",
+   "kind": "auto"
+  },
+  {
+   "address": 43683,
+   "name": "f_AAA3",
+   "type": "Field",
+   "kind": "auto"
+  },
+  {
+   "address": 43702,
+   "name": "f_AAB6",
+   "type": "Field",
+   "kind": "auto"
+  },
+  {
+   "address": 43723,
+   "name": "s_AACB",
+   "type": "Subroutine",
+   "kind": "auto"
+  },
+  {
+   "address": 43735,
+   "name": "b_AAD7",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 43743,
+   "name": "b_AADF",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 44535,
+   "name": "a_ADF7",
+   "type": "AbsoluteAddress",
+   "kind": "auto"
+  },
+  {
+   "address": 44536,
+   "name": "f_ADF8",
+   "type": "Field",
+   "kind": "auto"
+  },
+  {
+   "address": 44544,
+   "name": "f_AE00",
+   "type": "Field",
+   "kind": "auto"
+  },
+  {
+   "address": 44552,
+   "name": "f_AE08",
+   "type": "Field",
+   "kind": "auto"
+  },
+  {
+   "address": 44560,
+   "name": "f_AE10",
+   "type": "Field",
+   "kind": "auto"
+  },
+  {
+   "address": 44568,
+   "name": "f_AE18",
+   "type": "Field",
+   "kind": "auto"
+  },
+  {
+   "address": 44576,
+   "name": "f_AE20",
+   "type": "Field",
+   "kind": "auto"
+  },
+  {
+   "address": 44584,
+   "name": "f_AE28",
+   "type": "Field",
+   "kind": "auto"
+  },
+  {
+   "address": 44592,
+   "name": "s_AE30",
+   "type": "Subroutine",
+   "kind": "auto"
+  },
+  {
+   "address": 44667,
+   "name": "b_AE7B",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 44689,
+   "name": "b_AE91",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 44711,
+   "name": "b_AEA7",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 44716,
+   "name": "j_AEAC",
+   "type": "Jump",
+   "kind": "auto"
+  },
+  {
+   "address": 44740,
+   "name": "s_AEC4",
+   "type": "Subroutine",
+   "kind": "auto"
+  },
+  {
+   "address": 44748,
+   "name": "b_AECC",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 44765,
+   "name": "a_AEDD",
+   "type": "AbsoluteAddress",
+   "kind": "auto"
+  },
+  {
+   "address": 44766,
+   "name": "a_AEDE",
+   "type": "AbsoluteAddress",
+   "kind": "auto"
+  },
+  {
+   "address": 44767,
+   "name": "a_AEDF",
+   "type": "AbsoluteAddress",
+   "kind": "auto"
+  },
+  {
+   "address": 44768,
+   "name": "a_AEE0",
+   "type": "AbsoluteAddress",
+   "kind": "auto"
+  },
+  {
+   "address": 44770,
+   "name": "f_AEE2",
+   "type": "Field",
+   "kind": "auto"
+  },
+  {
+   "address": 44777,
+   "name": "a_AEE9",
+   "type": "AbsoluteAddress",
+   "kind": "auto"
+  },
+  {
+   "address": 44778,
+   "name": "a_AEEA",
+   "type": "AbsoluteAddress",
+   "kind": "auto"
+  },
+  {
+   "address": 44779,
+   "name": "s_AEEB",
+   "type": "Subroutine",
+   "kind": "auto"
+  },
+  {
+   "address": 44797,
+   "name": "b_AEFD",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 44800,
+   "name": "b_AF00",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 44857,
+   "name": "b_AF39",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 44883,
+   "name": "b_AF53",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 44947,
+   "name": "b_AF93",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 44963,
+   "name": "b_AFA3",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 44966,
+   "name": "j_AFA6",
+   "type": "Jump",
+   "kind": "auto"
+  },
+  {
+   "address": 44997,
+   "name": "s_AFC5",
+   "type": "Subroutine",
+   "kind": "auto"
+  },
+  {
+   "address": 44998,
+   "name": "a_AFC6",
+   "type": "AbsoluteAddress",
+   "kind": "auto"
+  },
+  {
+   "address": 44999,
+   "name": "a_AFC7",
+   "type": "AbsoluteAddress",
+   "kind": "auto"
+  },
+  {
+   "address": 45000,
+   "name": "j_AFC8",
+   "type": "Jump",
+   "kind": "auto"
+  },
+  {
+   "address": 45014,
+   "name": "b_AFD6",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 45032,
+   "name": "b_AFE8",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 45043,
+   "name": "b_AFF3",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 45064,
+   "name": "load_next_mission",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 45114,
+   "name": "b_B03A",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 45140,
+   "name": "b_B054",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 45173,
+   "name": "s_B075",
+   "type": "Subroutine",
+   "kind": "auto"
+  },
+  {
+   "address": 45175,
+   "name": "b_B077",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 45196,
+   "name": "a_B08C",
+   "type": "AbsoluteAddress",
+   "kind": "auto"
+  },
+  {
+   "address": 45197,
+   "name": "a_B08D",
+   "type": "AbsoluteAddress",
+   "kind": "auto"
+  },
+  {
+   "address": 45198,
+   "name": "f_B08E",
+   "type": "Field",
+   "kind": "auto"
+  },
+  {
+   "address": 45208,
+   "name": "f_B098",
+   "type": "Field",
+   "kind": "auto"
+  },
+  {
+   "address": 45542,
+   "name": "a_B1E6",
+   "type": "AbsoluteAddress",
+   "kind": "auto"
+  },
+  {
+   "address": 45543,
+   "name": "a_B1E7",
+   "type": "AbsoluteAddress",
+   "kind": "auto"
+  },
+  {
+   "address": 45544,
+   "name": "s_B1E8",
+   "type": "Subroutine",
+   "kind": "auto"
+  },
+  {
+   "address": 45575,
+   "name": "r_B207",
+   "type": "Return",
+   "kind": "auto"
+  },
+  {
+   "address": 45576,
+   "name": "b_B208",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 45625,
+   "name": "b_B239",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 46002,
+   "name": "a_B3B2",
+   "type": "AbsoluteAddress",
+   "kind": "auto"
+  },
+  {
+   "address": 46057,
+   "name": "f_B3E9",
+   "type": "Field",
+   "kind": "auto"
+  },
+  {
+   "address": 46063,
+   "name": "f_B3EF",
+   "type": "Field",
+   "kind": "auto"
+  },
+  {
+   "address": 46069,
+   "name": "f_B3F5",
+   "type": "Field",
+   "kind": "auto"
+  },
+  {
+   "address": 46077,
+   "name": "a_B3FD",
+   "type": "AbsoluteAddress",
+   "kind": "auto"
+  },
+  {
+   "address": 46078,
+   "name": "s_B3FE",
+   "type": "Subroutine",
+   "kind": "auto"
+  },
+  {
+   "address": 46115,
+   "name": "b_B423",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 46160,
+   "name": "a_B450",
+   "type": "AbsoluteAddress",
+   "kind": "auto"
+  },
+  {
+   "address": 46161,
+   "name": "a_B451",
+   "type": "AbsoluteAddress",
+   "kind": "auto"
+  },
+  {
+   "address": 46163,
+   "name": "a_B453",
+   "type": "AbsoluteAddress",
+   "kind": "auto"
+  },
+  {
+   "address": 46165,
+   "name": "a_B455",
+   "type": "AbsoluteAddress",
+   "kind": "auto"
+  },
+  {
+   "address": 46187,
+   "name": "b_B46B",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 46193,
+   "name": "b_B471",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 46199,
+   "name": "s_B477",
+   "type": "Subroutine",
+   "kind": "auto"
+  },
+  {
+   "address": 46201,
+   "name": "b_B479",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 46251,
+   "name": "b_B4AB",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 46265,
+   "name": "b_B4B9",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 46271,
+   "name": "s_B4BF",
+   "type": "Subroutine",
+   "kind": "auto"
+  },
+  {
+   "address": 46273,
+   "name": "b_B4C1",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 46299,
+   "name": "b_B4DB",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 46328,
+   "name": "b_B4F8",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 46334,
+   "name": "a_B4FE",
+   "type": "AbsoluteAddress",
+   "kind": "auto"
+  },
+  {
+   "address": 46404,
+   "name": "j_B544",
+   "type": "Jump",
+   "kind": "auto"
+  },
+  {
+   "address": 46406,
+   "name": "b_B546",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 46417,
+   "name": "b_B551",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 46455,
+   "name": "f_B577",
+   "type": "Field",
+   "kind": "auto"
+  },
+  {
+   "address": 46465,
+   "name": "f_B581",
+   "type": "Field",
+   "kind": "auto"
+  },
+  {
+   "address": 46481,
+   "name": "s_B591",
+   "type": "Subroutine",
+   "kind": "auto"
+  },
+  {
+   "address": 46485,
+   "name": "b_B595",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 46511,
+   "name": "b_B5AF",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 46551,
+   "name": "b_B5D7",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 46562,
+   "name": "a_B5E2",
+   "type": "AbsoluteAddress",
+   "kind": "auto"
+  },
+  {
+   "address": 46572,
+   "name": "b_B5EC",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 46580,
+   "name": "s_B5F4",
+   "type": "Subroutine",
+   "kind": "auto"
+  },
+  {
+   "address": 46582,
+   "name": "b_B5F6",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 46589,
+   "name": "b_B5FD",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 46603,
+   "name": "b_B60B",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 46621,
+   "name": "b_B61D",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 46639,
+   "name": "b_B62F",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 46669,
+   "name": "a_B64D",
+   "type": "AbsoluteAddress",
+   "kind": "auto"
+  },
+  {
+   "address": 46673,
+   "name": "b_B651",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 46678,
+   "name": "j_B656",
+   "type": "Jump",
+   "kind": "auto"
+  },
+  {
+   "address": 46686,
+   "name": "j_B65E",
+   "type": "Jump",
+   "kind": "auto"
+  },
+  {
+   "address": 46691,
+   "name": "b_B663",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 46864,
+   "name": "f_B710",
+   "type": "Field",
+   "kind": "auto"
+  },
+  {
+   "address": 46994,
+   "name": "s_B792",
+   "type": "Subroutine",
+   "kind": "auto"
+  },
+  {
+   "address": 47002,
+   "name": "b_B79A",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 47010,
+   "name": "b_B7A2",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 47012,
+   "name": "b_B7A4",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 47038,
+   "name": "b_B7BE",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 47120,
+   "name": "b_B810",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 47168,
+   "name": "r_B840",
+   "type": "Return",
+   "kind": "auto"
+  },
+  {
+   "address": 47169,
+   "name": "f_B841",
+   "type": "Field",
+   "kind": "auto"
+  },
+  {
+   "address": 47185,
+   "name": "a_B851",
+   "type": "AbsoluteAddress",
+   "kind": "auto"
+  },
+  {
+   "address": 47201,
+   "name": "a_B861",
+   "type": "AbsoluteAddress",
+   "kind": "auto"
+  },
+  {
+   "address": 47202,
+   "name": "s_B862",
+   "type": "Subroutine",
+   "kind": "auto"
+  },
+  {
+   "address": 47220,
+   "name": "b_B874",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 47280,
+   "name": "b_B8B0",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 47302,
+   "name": "b_B8C6",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 47305,
+   "name": "j_B8C9",
+   "type": "Jump",
+   "kind": "auto"
+  },
+  {
+   "address": 47313,
+   "name": "b_B8D1",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 47321,
+   "name": "b_B8D9",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 47333,
+   "name": "j_B8E5",
+   "type": "Jump",
+   "kind": "auto"
+  },
+  {
+   "address": 47341,
+   "name": "b_B8ED",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 47350,
+   "name": "b_B8F6",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 47353,
+   "name": "b_B8F9",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 47365,
+   "name": "b_B905",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 47379,
+   "name": "b_B913",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 47387,
+   "name": "b_B91B",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 47404,
+   "name": "b_B92C",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 47428,
+   "name": "b_B944",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 47453,
+   "name": "b_B95D",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 47470,
+   "name": "j_B96E",
+   "type": "Jump",
+   "kind": "auto"
+  },
+  {
+   "address": 47518,
+   "name": "b_B99E",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 47524,
+   "name": "b_B9A4",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 47533,
+   "name": "b_B9AD",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 47553,
+   "name": "b_B9C1",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 47567,
+   "name": "b_B9CF",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 47573,
+   "name": "j_B9D5",
+   "type": "Jump",
+   "kind": "auto"
+  },
+  {
+   "address": 47596,
+   "name": "b_B9EC",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 47604,
+   "name": "b_B9F4",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 47619,
+   "name": "j_BA03",
+   "type": "Jump",
+   "kind": "auto"
+  },
+  {
+   "address": 47627,
+   "name": "j_BA0B",
+   "type": "Jump",
+   "kind": "auto"
+  },
+  {
+   "address": 47633,
+   "name": "r_BA11",
+   "type": "Return",
+   "kind": "auto"
+  },
+  {
+   "address": 47634,
+   "name": "f_BA12",
+   "type": "Field",
+   "kind": "auto"
+  },
+  {
+   "address": 47719,
+   "name": "f_BA67",
+   "type": "Field",
+   "kind": "auto"
+  },
+  {
+   "address": 47732,
+   "name": "f_BA74",
+   "type": "Field",
+   "kind": "auto"
+  },
+  {
+   "address": 47745,
+   "name": "s_BA81",
+   "type": "Subroutine",
+   "kind": "auto"
+  },
+  {
+   "address": 47764,
+   "name": "j_BA94",
+   "type": "Jump",
+   "kind": "auto"
+  },
+  {
+   "address": 47776,
+   "name": "b_BAA0",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 47789,
+   "name": "b_BAAD",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 47790,
+   "name": "a_BAAE",
+   "type": "AbsoluteAddress",
+   "kind": "auto"
+  },
+  {
+   "address": 47792,
+   "name": "a_BAB0",
+   "type": "AbsoluteAddress",
+   "kind": "auto"
+  },
+  {
+   "address": 47794,
+   "name": "b_BAB2",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 47810,
+   "name": "b_BAC2",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 47812,
+   "name": "b_BAC4",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 47817,
+   "name": "a_BAC9",
+   "type": "AbsoluteAddress",
+   "kind": "auto"
+  },
+  {
+   "address": 47821,
+   "name": "a_BACD",
+   "type": "AbsoluteAddress",
+   "kind": "auto"
+  },
+  {
+   "address": 47822,
+   "name": "a_BACE",
+   "type": "AbsoluteAddress",
+   "kind": "auto"
+  },
+  {
+   "address": 47823,
+   "name": "s_BACF",
+   "type": "Subroutine",
+   "kind": "auto"
+  },
+  {
+   "address": 47848,
+   "name": "b_BAE8",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 47853,
+   "name": "r_BAED",
+   "type": "Return",
+   "kind": "auto"
+  },
+  {
+   "address": 47854,
+   "name": "a_BAEE",
+   "type": "AbsoluteAddress",
+   "kind": "auto"
+  },
+  {
+   "address": 47855,
+   "name": "a_BAEF",
+   "type": "AbsoluteAddress",
+   "kind": "auto"
+  },
+  {
+   "address": 47856,
+   "name": "s_BAF0",
+   "type": "Subroutine",
+   "kind": "auto"
+  },
+  {
+   "address": 47862,
+   "name": "b_BAF6",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 47888,
+   "name": "b_BB10",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 47890,
+   "name": "j_BB12",
+   "type": "Jump",
+   "kind": "auto"
+  },
+  {
+   "address": 47939,
+   "name": "b_BB43",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 47968,
+   "name": "b_BB60",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 47989,
+   "name": "b_BB75",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 47998,
+   "name": "j_BB7E",
+   "type": "Jump",
+   "kind": "auto"
+  },
+  {
+   "address": 48001,
+   "name": "b_BB81",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 48047,
+   "name": "b_BBAF",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 48068,
+   "name": "j_BBC4",
+   "type": "Jump",
+   "kind": "auto"
+  },
+  {
+   "address": 48080,
+   "name": "b_BBD0",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 48094,
+   "name": "b_BBDE",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 48102,
+   "name": "r_BBE6",
+   "type": "Return",
+   "kind": "auto"
+  },
+  {
+   "address": 48113,
+   "name": "s_BBF1",
+   "type": "Subroutine",
+   "kind": "auto"
+  },
+  {
+   "address": 48141,
+   "name": "b_BC0D",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 48150,
+   "name": "j_BC16",
+   "type": "Jump",
+   "kind": "auto"
+  },
+  {
+   "address": 48162,
+   "name": "b_BC22",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 48194,
+   "name": "b_BC42",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 48200,
+   "name": "j_BC48",
+   "type": "Jump",
+   "kind": "auto"
+  },
+  {
+   "address": 48219,
+   "name": "r_BC5B",
+   "type": "Return",
+   "kind": "auto"
+  },
+  {
+   "address": 48220,
+   "name": "sid_effect_frequency_curves",
+   "type": "Field",
+   "kind": "user"
+  },
+  {
+   "address": 48380,
+   "name": "sid_command_waveforms",
+   "type": "Field",
+   "kind": "user"
+  },
+  {
+   "address": 48390,
+   "name": "sid_command_envelopes",
+   "type": "Field",
+   "kind": "user"
+  },
+  {
+   "address": 48400,
+   "name": "sid_effect_step",
+   "type": "Field",
+   "kind": "user"
+  },
+  {
+   "address": 48403,
+   "name": "sid_voice_register_offsets",
+   "type": "Field",
+   "kind": "user"
+  },
+  {
+   "address": 48406,
+   "name": "sid_voice_effect_ids",
+   "type": "Field",
+   "kind": "user"
+  },
+  {
+   "address": 48409,
+   "name": "a_BD19",
+   "type": "AbsoluteAddress",
+   "kind": "auto"
+  },
+  {
+   "address": 48410,
+   "name": "a_BD1A",
+   "type": "AbsoluteAddress",
+   "kind": "auto"
+  },
+  {
+   "address": 48411,
+   "name": "start_sid_effect",
+   "type": "Subroutine",
+   "kind": "user"
+  },
+  {
+   "address": 48440,
+   "name": "b_BD38",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 48493,
+   "name": "a_BD6D",
+   "type": "AbsoluteAddress",
+   "kind": "auto"
+  },
+  {
+   "address": 48495,
+   "name": "a_BD6F",
+   "type": "AbsoluteAddress",
+   "kind": "auto"
+  },
+  {
+   "address": 48497,
+   "name": "a_BD71",
+   "type": "AbsoluteAddress",
+   "kind": "auto"
+  },
+  {
+   "address": 48498,
+   "name": "advance_sid_effects",
+   "type": "Subroutine",
+   "kind": "user"
+  },
+  {
+   "address": 48505,
+   "name": "b_BD79",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 48545,
+   "name": "b_BDA1",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 65412,
+   "name": "KERNAL_IOINIT",
+   "type": "Predefined",
+   "kind": "system"
+  },
+  {
+   "address": 65418,
+   "name": "KERNAL_RESTOR",
+   "type": "Predefined",
+   "kind": "system"
+  },
+  {
+   "address": 65424,
+   "name": "KERNAL_SETMSG",
+   "type": "Predefined",
+   "kind": "system"
+  },
+  {
+   "address": 65466,
+   "name": "KERNAL_SETLFS",
+   "type": "Predefined",
+   "kind": "system"
+  },
+  {
+   "address": 65469,
+   "name": "KERNAL_SETNAM",
+   "type": "Predefined",
+   "kind": "system"
+  },
+  {
+   "address": 65472,
+   "name": "KERNAL_OPEN",
+   "type": "Predefined",
+   "kind": "system"
+  },
+  {
+   "address": 65475,
+   "name": "KERNAL_CLOSE",
+   "type": "Predefined",
+   "kind": "system"
+  },
+  {
+   "address": 65478,
+   "name": "KERNAL_CHKIN",
+   "type": "Predefined",
+   "kind": "system"
+  },
+  {
+   "address": 65487,
+   "name": "KERNAL_CHRIN",
+   "type": "Predefined",
+   "kind": "system"
+  },
+  {
+   "address": 65511,
+   "name": "KERNAL_CLALL",
+   "type": "Predefined",
+   "kind": "system"
+  }
+ ],
+ "comments": [
+  {
+   "address": 2798,
+   "type": "line",
+   "text": "Reads the stage metadata following $FCC0. Sets the stage palette and initial vertical view, loads the tile and attribute grid pointers and dimensions, prepares row pointers and calculates scroll limits."
+  },
+  {
+   "address": 2886,
+   "type": "line",
+   "text": "Fills four split tables at $0856, $0876, $0896 and $08B6 with the tile and attribute addresses of 32 rows, adding the stage width each time. Then computes horizontal and vertical bounds in character-cell units."
+  },
+  {
+   "address": 3171,
+   "type": "line",
+   "text": "Divides the 16-bit horizontal and 8-bit vertical character coordinates by four. Adds the resulting column to the selected tile-row address and returns that 4 by 4 tile ID."
+  },
+  {
+   "address": 6021,
+   "type": "line",
+   "text": "Builds a 40-column view from the selected starting position. For each character position it finds the containing tile, selects one of sixteen indices in that tile and fetches its VIC colour from $CF00 before writing both screen buffers."
+  },
+  {
+   "address": 6230,
+   "type": "line",
+   "text": "Writes the character code in A to the same row and column of the $4800 and $4C00 screen buffers and writes the colour from $05 to colour RAM. The routine patches its own immediate operand to save the character while computing the destination pointers."
+  },
+  {
+   "address": 6342,
+   "type": "line",
+   "text": "Eight masks select one active-low CIA1 port A output per scan, in the order $FE,$FC,$FB,$F7,$EF,$DF,$BF,$7F. The second sample selects two columns."
+  },
+  {
+   "address": 6350,
+   "type": "line",
+   "text": "Eight CIA1 port B samples written in scan order by the keyboard routine at $18D7. A low bit reports a closed switch in a selected column."
+  },
+  {
+   "address": 6359,
+   "type": "line",
+   "text": "Sets CIA1 A to output and B to input, then applies the eight masks from $18C6 and saves the port B samples at $18CE. The saved X and Y are restored from immediate operands patched on entry."
+  },
+  {
+   "address": 6404,
+   "type": "line",
+   "text": "Masks interrupts, maps RAM over BASIC and the KERNAL, initializes the active mission to 1 and calls the mission disk loader before configuring the display."
+  },
+  {
+   "address": 6422,
+   "type": "line",
+   "text": "Turns off the display, selects VIC bank $4000 through CIA2 and caches the bank select with two values for the serial clock line. Stops the CIA2 timers before initial screen construction."
+  },
+  {
+   "address": 6581,
+   "type": "line",
+   "text": "Starts a new player setup, clears score state and saves the current mission for both players. Sets the starting counters using the selected one-player or two-player mode."
+  },
+  {
+   "address": 6693,
+   "type": "line",
+   "text": "Checks whether the active player has lives and whether their stored mission matches the loaded one, before dispatching to the appropriate setup path."
+  },
+  {
+   "address": 6771,
+   "type": "line",
+   "text": "Reads the active player's stage index, selects the alternate graphics when it matches $FCF5, constructs the stage's lookup tables, applies object placements and patches the call at $1AB3 to the mission setup hook."
+  },
+  {
+   "address": 7553,
+   "type": "line",
+   "text": "Each pass uses this mask to keep selected pixels in one row of every character in the playfield font. A reverse pass uses its inverse to clear those pixels."
+  },
+  {
+   "address": 7585,
+   "type": "line",
+   "text": "Selects the pixel row (0 to 7) to update on each masked pass through the 256 characters."
+  },
+  {
+   "address": 7618,
+   "type": "line",
+   "text": "Runs 32 masked passes across all 256 characters at $4000, each pass touching one row in each glyph. A=0 masks existing destination pixels away. A nonzero takes pixels from $D000, $D800 or $CB00 RAM, selected by $1902 and $ADF7."
+  },
+  {
+   "address": 7752,
+   "type": "line",
+   "text": "Places the RAM handler $1E87 in the hardware IRQ vector, sets the first VIC raster compare to $F8, clears pending sources and enables VIC raster IRQs."
+  },
+  {
+   "address": 7815,
+   "type": "line",
+   "text": "Saves A, acknowledges CIA1 and VIC status, and processes the VIC source bits selected by $28. For a selected source it saves X/Y, reads the raster schedule and replaces the destination of the jump at $1EB6 using the two handler tables."
+  },
+  {
+   "address": 7865,
+   "type": "line",
+   "text": "Advances the raster schedule index. A scheduled line of $FF restarts the schedule at line $21CE. Writes the compare register and restores the saved registers before RTI."
+  },
+  {
+   "address": 7892,
+   "type": "line",
+   "text": "Low bytes of handler addresses. The dispatcher indexes with the handler number from the raster schedule and patches the low JMP operand at $1EB7."
+  },
+  {
+   "address": 7901,
+   "type": "line",
+   "text": "High bytes of handler addresses copied into the JMP operand at $1EB8."
+  },
+  {
+   "address": 8654,
+   "type": "line",
+   "text": "Low eight bits of the first raster compare after the dispatcher restarts the schedule."
+  },
+  {
+   "address": 8655,
+   "type": "line",
+   "text": "Indexed low raster compare values for the dispatcher's return. $FF resets the schedule index and uses the value at $21CE instead."
+  },
+  {
+   "address": 8661,
+   "type": "line",
+   "text": "Handler-table indices parallel to the raster line schedule. Each selected index is copied to $1E86 before dispatch."
+  },
+  {
+   "address": 9751,
+   "type": "line",
+   "text": "Packed decimal seconds. The countdown reloads $59 and borrows from the minute byte when seconds pass below zero."
+  },
+  {
+   "address": 9752,
+   "type": "line",
+   "text": "Packed decimal minutes for the play timer, initialized to 3 by stage entry."
+  },
+  {
+   "address": 9753,
+   "type": "line",
+   "text": "Countdown initialized to $32. Each call of the clock decrements it and the seconds update reloads it at zero."
+  },
+  {
+   "address": 9754,
+   "type": "line",
+   "text": "Counts down from 50 calls, then subtracts one BCD second using decimal mode. Borrows a minute on seconds underflow, and when there are no minutes to borrow sets the timeout outcome and clamps the display to zero."
+  },
+  {
+   "address": 9864,
+   "type": "line",
+   "text": "Places the minutes, colon and two BCD second digits in the panel starting at $53BB. Each digit uses the second numeral set at glyph $14 plus the digit."
+  },
+  {
+   "address": 10098,
+   "type": "line",
+   "text": "Blanks the display and waits on the raster. On first entry installs $284F as the NMI vector, programs both CIA2 timer latches with $4CC7 and starts timer A at the selected raster position."
+  },
+  {
+   "address": 10184,
+   "type": "line",
+   "text": "Writes zero to both CIA2 timer controls and the interrupt control register, then clears the setup flag at $2771."
+  },
+  {
+   "address": 11406,
+   "type": "line",
+   "text": "Mirrors 21 rows of three bytes in the sprite work area at $5400 plus Y. Swaps the outer bytes of each row and reverses their two-bit pixel pairs through the table at $0600."
+  },
+  {
+   "address": 12199,
+   "type": "line",
+   "text": "Copies the 40-character rows of the front screen at $4800 into the alternate $4C00 screen, moving each copied row up one row."
+  },
+  {
+   "address": 13295,
+   "type": "line",
+   "text": "Copies 40-character rows from the $4C00 screen into the $4800 screen with a one-row vertical displacement."
+  },
+  {
+   "address": 15222,
+   "type": "line",
+   "text": "Scans the keyboard, reads joystick port 2 through CIA1 port A and applies seven keyboard masks to the saved control byte. A pressed control clears its corresponding bit in $0ADB."
+  },
+  {
+   "address": 15301,
+   "type": "line",
+   "text": "Rescans the keyboard after the raster line wait. While the colour key is active and the raster tick passes the mask test, increments the active player's colour and updates the first two sprite colours."
+  },
+  {
+   "address": 15347,
+   "type": "line",
+   "text": "Keeps the latest raw masked input in $0ADC. Suppresses player input during the lockout at $0C4D, or sends the input to the demonstration or capture path depending on $9011."
+  },
+  {
+   "address": 15380,
+   "type": "line",
+   "text": "In mode 2 stores a duration and new control byte when the byte changes, then advances the write index and resets the duration."
+  },
+  {
+   "address": 15425,
+   "type": "line",
+   "text": "In mode 1 loads an input byte and its duration whenever the previous duration expires. Decrements the duration and applies the saved byte at $0ADB. A zero byte sets $2C to 1 instead."
+  },
+  {
+   "address": 15934,
+   "type": "line",
+   "text": "Twelve-byte DOS stream name for drive 8. The digit at $3E45 is replaced from the mission index before opening the file, and the suffix requests a PRG stream for reading."
+  },
+  {
+   "address": 15946,
+   "type": "line",
+   "text": "Resets the KERNAL vectors and initializes I/O, sets the twelve-byte filename at $3E3E, opens logical file 1 on drive 8 with secondary address 3 and selects it for input."
+  },
+  {
+   "address": 16023,
+   "type": "line",
+   "text": "Blanks the screen and disables the current raster and CIA interrupt sources, sets the ASCII digit in the mission filename and opens the disk stream. Reads $0500 bytes to $6400 and $3EF0 bytes to $C000, then closes the stream and restores the saved processor port."
+  },
+  {
+   "address": 16162,
+   "type": "line",
+   "text": "Banks in the KERNAL to close the channel after both transfers. The immediate operand at $3F2B holds the processor port saved before the load."
+  },
+  {
+   "address": 16192,
+   "type": "line",
+   "text": "Reads one byte through KERNAL CHRIN, banks out I/O and ROM for the store through $FA/$FB, increments that destination and decrements the remaining length in $FC/$FD. Returns when the counter reaches zero."
+  },
+  {
+   "address": 16249,
+   "type": "line",
+   "text": "Closes logical file 1, clears the channel selections and waits for 255 passages of raster line $F8 before returning. Restores X from the patched operand at $3FA4."
+  },
+  {
+   "address": 19456,
+   "type": "line",
+   "text": "Enumerates all 256 byte values, reverses the order of their four 2-bit fields and stores the result at $0600,X. The table permits horizontal reversal of multicolour pixels."
+  },
+  {
+   "address": 19503,
+   "type": "line",
+   "text": "Clears page $0400 and then seeds $04A0 with $FF."
+  },
+  {
+   "address": 20480,
+   "type": "line",
+   "text": "Ten 8-byte glyphs for digits 0 to 9 in the custom font, each byte holding the eight pixels of one row."
+  },
+  {
+   "address": 20736,
+   "type": "line",
+   "text": "Custom fixed-width glyphs from blank at index $20 through Z at index $3A, eight bytes per character."
+  },
+  {
+   "address": 21888,
+   "type": "line",
+   "text": "Multicolour sprite rows for small flying objects and effects, including the pointed projectiles and round flash shapes. Each 64-byte slot holds 21 three-byte rows followed by one byte outside the displayed height."
+  },
+  {
+   "address": 22848,
+   "type": "line",
+   "text": "Multicolour figure poses and component shapes. Upper bodies, leg silhouettes and horizontally paired poses are stored in consecutive 64-byte slots. The mission loader can replace the slots at $6400-$68FF."
+  },
+  {
+   "address": 23872,
+   "type": "line",
+   "text": "Sixteen sprite slots including compact action poses, swinging limb shapes around $5E80 and paired left/right upper-body poses near $5FC0-$6100."
+  },
+  {
+   "address": 24896,
+   "type": "line",
+   "text": "Sixteen sprite slots around the walking and turning poses. Upper- and lower-body shapes are stored in separate frames."
+  },
+  {
+   "address": 25920,
+   "type": "line",
+   "text": "Figure components with long vertical leg silhouettes and mirrored upper body shapes. The first part is in the region the mission loader overwrites."
+  },
+  {
+   "address": 26944,
+   "type": "line",
+   "text": "Upper-body sprites facing either way and long single-leg poses, followed by crouched figures and horizontally extended pieces."
+  },
+  {
+   "address": 27968,
+   "type": "line",
+   "text": "Tail of the actor-frame block, including compact crouching poses and the tall shapes at $6E00 and $6E40."
+  },
+  {
+   "address": 28416,
+   "type": "line",
+   "text": "Sprite rows for figures facing and moving in both directions, including poses with the legs extended and crouching figures."
+  },
+  {
+   "address": 29440,
+   "type": "line",
+   "text": "Standing figures and extended limbs, paired by facing direction across the block."
+  },
+  {
+   "address": 30464,
+   "type": "line",
+   "text": "Last three sprite slots before the larger effect block. These hold mirrored figure fragments."
+  },
+  {
+   "address": 30656,
+   "type": "line",
+   "text": "Sprite slots containing wide silhouettes and bright effect frames, including repeated horizontal pieces and circular bursts."
+  },
+  {
+   "address": 32128,
+   "type": "line",
+   "text": "Upper and lower pieces of large sprite-drawn objects. The last quarter includes numbered award panels."
+  },
+  {
+   "address": 32768,
+   "type": "line",
+   "text": "Stored 64-byte multicolour frames beyond the live VIC bank. They include repeated figure outlines with altered limbs and matched left and right poses."
+  },
+  {
+   "address": 33792,
+   "type": "line",
+   "text": "Left-facing source frames with poses corresponding to the right-facing art from $8000."
+  },
+  {
+   "address": 34816,
+   "type": "line",
+   "text": "Final resident source shapes beyond the active VIC bank. They include a figure with an extended weapon and large head and body parts."
+  },
+  {
+   "address": 36525,
+   "type": "line",
+   "text": "Selects the active stage's attribute grid and reduces its cells to the low three bits. Applies three-byte records from the active player's half of page $0200. Each gives a destination pointer and a value, and a zero value ends the list. Counts records whose shifted type equals 1, 5, 9, 13 or 14."
+  },
+  {
+   "address": 36840,
+   "type": "line",
+   "text": "Copies 128 bytes from the stage pointer at $FCE9/$FCED into the first or second half of page $0200, selected by the player workspace index."
+  },
+  {
+   "address": 36882,
+   "type": "line",
+   "text": "Fills 200 panel cells at $5320 with the blank glyph and sets the eight sprite pointers at $53F8 to $55."
+  },
+  {
+   "address": 38417,
+   "type": "line",
+   "text": "Clears the text sprite buffer starting at $5400. Walks a zero-ended ASCII message after its leading position byte, converts digits and capitals to glyphs from $5000 and writes eight glyph rows three bytes apart in sprite storage. A digit 1 in these templates uses the active player number at $39."
+  },
+  {
+   "address": 38658,
+   "type": "line",
+   "text": "Sixteen split pointers selected by message number in A. Low bytes are at $9702 and high bytes at $9712. Both indices 4 and 5 select the mission-retention prompt."
+  },
+  {
+   "address": 38690,
+   "type": "line",
+   "text": "Player-number and game-over text. Starts with position byte $74 and ends at the zero before the ready message."
+  },
+  {
+   "address": 38716,
+   "type": "line",
+   "text": "The ready announcement begins with position byte $7C and includes the player-number placeholder."
+  },
+  {
+   "address": 38739,
+   "type": "line",
+   "text": "Tells the player to wait for a new mission. The position byte is $46."
+  },
+  {
+   "address": 38771,
+   "type": "line",
+   "text": "Announces that time ran out. Its template begins at position $74."
+  },
+  {
+   "address": 38782,
+   "type": "line",
+   "text": "Asks the player whether to keep mission 1. Both corresponding pointer-table entries use these same bytes."
+  },
+  {
+   "address": 38809,
+   "type": "line",
+   "text": "Two-line completion message placed by position byte $50."
+  },
+  {
+   "address": 38837,
+   "type": "line",
+   "text": "Two-line objective text placed by position byte $5A."
+  },
+  {
+   "address": 38863,
+   "type": "line",
+   "text": "Title word with position byte $84."
+  },
+  {
+   "address": 38872,
+   "type": "line",
+   "text": "Bonus heading placed by position byte $50."
+  },
+  {
+   "address": 38887,
+   "type": "line",
+   "text": "Two-line practice or demonstration prompt with position byte $46."
+  },
+  {
+   "address": 38915,
+   "type": "line",
+   "text": "Two-line fire prompt with position byte $46 for the sprite renderer."
+  },
+  {
+   "address": 38942,
+   "type": "line",
+   "text": "Perfect result text with position byte $46."
+  },
+  {
+   "address": 38954,
+   "type": "line",
+   "text": "Stage completion text with position byte $64."
+  },
+  {
+   "address": 38967,
+   "type": "line",
+   "text": "Two-line disk loading text with a mission-number slot."
+  },
+  {
+   "address": 38994,
+   "type": "line",
+   "text": "Standalone message selected by index 15 in the sprite message table."
+  },
+  {
+   "address": 39009,
+   "type": "line",
+   "text": "Sixteen VIC colour values selected by bits 2 to 5 of the message delay counter, copied to the first five sprite colours."
+  },
+  {
+   "address": 39025,
+   "type": "line",
+   "text": "Uses A to select a message pointer from $9702/$9712, sets the message state and calls the sprite renderer."
+  },
+  {
+   "address": 39049,
+   "type": "line",
+   "text": "Waits for the $2B flag and clears it on each pass. Cycles the first five sprite colours and allows controls to dismiss the message after the delay counter drops below $5A. Clears sprite enables, expansion and message state on exit."
+  },
+  {
+   "address": 39114,
+   "type": "line",
+   "text": "For the demonstration or the active attract prompt, converts capitals by subtracting $20 and places the fire and player-count text at $5352/$53A3. Active-low right selects mode 3, left selects mode 2 and fire enters the player setup at $19B5."
+  },
+  {
+   "address": 39244,
+   "type": "line",
+   "text": "Two zero-terminated strings for the attract prompt. Mode 3 starts 16 bytes into this table for the two-player message."
+  },
+  {
+   "address": 39276,
+   "type": "line",
+   "text": "Zero-terminated fire prompt for the character screen at $5352, separate from the positioned sprite-message template."
+  },
+  {
+   "address": 45064,
+   "type": "line",
+   "text": "Clears $27E1 and $26, advances the mission number and loads the next file. Restores VIC bank settings, clears colour RAM and waits for fire before clearing sprite enables and reinitializing the next scene."
+  },
+  {
+   "address": 48220,
+   "type": "line",
+   "text": "Ten sequences of sixteen high frequency bytes. The effect updater uses the effect number times sixteen plus the current step and copies the result into the selected voice's high frequency register."
+  },
+  {
+   "address": 48380,
+   "type": "line",
+   "text": "Indexed waveforms and gate control values for a newly selected sound effect."
+  },
+  {
+   "address": 48390,
+   "type": "line",
+   "text": "Indexed attack and decay values applied to the selected voice at its effect start."
+  },
+  {
+   "address": 48400,
+   "type": "line",
+   "text": "Three indices into the active effect's 16-step sequence. A value of $10 means the voice's sequence has finished."
+  },
+  {
+   "address": 48403,
+   "type": "line",
+   "text": "Register offsets 0, 7 and 14 for the SID's three voice register groups."
+  },
+  {
+   "address": 48406,
+   "type": "line",
+   "text": "The effect number currently assigned to each of the three SID voices."
+  },
+  {
+   "address": 48411,
+   "type": "line",
+   "text": "Cycles through the three voice indices and saves A as the chosen voice's effect number. Clears the previous gate, initializes both frequency bytes from the low five bits of VIC control 1 and writes the effect's envelope and waveform."
+  },
+  {
+   "address": 48498,
+   "type": "line",
+   "text": "Visits all three voices and skips a voice whose step is $10. Otherwise advances the step and replaces the voice's frequency high byte from the sixteen-entry sequence selected by its effect number."
+  }
+ ]
+}

@@ -1,0 +1,770 @@
+{
+ "schema": 1,
+ "platform": "c64",
+ "game": "shinobi",
+ "part": "mission1",
+ "build": "X-Large disk release",
+ "source": "regenerator2000 live",
+ "regions": {
+  "exclude": [
+   [
+    256,
+    511,
+    "stack"
+   ],
+   [
+    0,
+    25599,
+    "Resident engine"
+   ],
+   [
+    26880,
+    49151,
+    "Resident engine"
+   ],
+   [
+    65264,
+    65535,
+    "Resident engine"
+   ]
+  ],
+  "extra": [
+   [
+    25600,
+    26879,
+    "First $0500 bytes of the mission payload."
+   ],
+   [
+    49152,
+    65263,
+    "Second destination for the mission payload, $3EF0 bytes."
+   ]
+  ],
+  "edges": [
+   0,
+   256,
+   512,
+   1024,
+   2048,
+   4096,
+   16384,
+   32768,
+   40960,
+   49152,
+   53248,
+   57344
+  ],
+  "beneath": [
+   [
+    53248,
+    57343
+   ]
+  ],
+  "elsewhere": [
+   [
+    0,
+    25599,
+    "Resident engine"
+   ],
+   [
+    26880,
+    49151,
+    "Resident engine"
+   ],
+   [
+    65264,
+    65535,
+    "Resident engine"
+   ]
+  ]
+ },
+ "blocks": [
+  {
+   "start": 25600,
+   "end": 26879,
+   "type": "Byte"
+  },
+  {
+   "start": 49152,
+   "end": 50447,
+   "type": "Byte"
+  },
+  {
+   "start": 50448,
+   "end": 51967,
+   "type": "Undefined"
+  },
+  {
+   "start": 51968,
+   "end": 52479,
+   "type": "Byte"
+  },
+  {
+   "start": 52480,
+   "end": 52991,
+   "type": "Undefined"
+  },
+  {
+   "start": 52992,
+   "end": 57823,
+   "type": "Byte"
+  },
+  {
+   "start": 57824,
+   "end": 58111,
+   "type": "Undefined"
+  },
+  {
+   "start": 58112,
+   "end": 58591,
+   "type": "Byte"
+  },
+  {
+   "start": 58592,
+   "end": 58879,
+   "type": "Undefined"
+  },
+  {
+   "start": 58880,
+   "end": 59359,
+   "type": "Byte"
+  },
+  {
+   "start": 59360,
+   "end": 59391,
+   "type": "Undefined"
+  },
+  {
+   "start": 59392,
+   "end": 59871,
+   "type": "Byte"
+  },
+  {
+   "start": 59872,
+   "end": 60159,
+   "type": "Undefined"
+  },
+  {
+   "start": 60160,
+   "end": 60219,
+   "type": "Byte"
+  },
+  {
+   "start": 60220,
+   "end": 60287,
+   "type": "Undefined"
+  },
+  {
+   "start": 60288,
+   "end": 60347,
+   "type": "Byte"
+  },
+  {
+   "start": 60348,
+   "end": 60962,
+   "type": "Undefined"
+  },
+  {
+   "start": 60963,
+   "end": 60986,
+   "type": "Code"
+  },
+  {
+   "start": 60987,
+   "end": 64703,
+   "type": "Undefined"
+  },
+  {
+   "start": 64704,
+   "end": 64704,
+   "type": "Byte"
+  },
+  {
+   "start": 64705,
+   "end": 64720,
+   "type": "Lo/Hi Address"
+  },
+  {
+   "start": 64721,
+   "end": 64744,
+   "type": "Byte"
+  },
+  {
+   "start": 64745,
+   "end": 64752,
+   "type": "Lo/Hi Address"
+  },
+  {
+   "start": 64753,
+   "end": 64767,
+   "type": "Byte"
+  },
+  {
+   "start": 64768,
+   "end": 64895,
+   "type": "Undefined"
+  },
+  {
+   "start": 64896,
+   "end": 65151,
+   "type": "Byte"
+  },
+  {
+   "start": 65152,
+   "end": 65263,
+   "type": "Undefined"
+  }
+ ],
+ "symbols": [
+  {
+   "address": 25600,
+   "name": "mission_sprite_shapes",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 26624,
+   "name": "final_mission_sprite_slots",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 49152,
+   "name": "stage_metatile_patterns",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 50176,
+   "name": "upper_mission_one_metatiles",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 51968,
+   "name": "alternate_scene_graphics",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 52992,
+   "name": "tile_colour_values",
+   "type": "Field",
+   "kind": "user"
+  },
+  {
+   "address": 53248,
+   "name": "main_stage_charset",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 54272,
+   "name": "main_stage_upper_character_codes",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 55296,
+   "name": "alternate_stage_charset",
+   "type": "Field",
+   "kind": "user"
+  },
+  {
+   "address": 55552,
+   "name": "f_D900",
+   "type": "Field",
+   "kind": "auto"
+  },
+  {
+   "address": 55808,
+   "name": "f_DA00",
+   "type": "Field",
+   "kind": "auto"
+  },
+  {
+   "address": 56056,
+   "name": "f_DAF8",
+   "type": "Field",
+   "kind": "auto"
+  },
+  {
+   "address": 56096,
+   "name": "f_DB20",
+   "type": "Field",
+   "kind": "auto"
+  },
+  {
+   "address": 56136,
+   "name": "f_DB48",
+   "type": "Field",
+   "kind": "auto"
+  },
+  {
+   "address": 56137,
+   "name": "f_DB49",
+   "type": "Field",
+   "kind": "auto"
+  },
+  {
+   "address": 56146,
+   "name": "f_DB52",
+   "type": "Field",
+   "kind": "auto"
+  },
+  {
+   "address": 56162,
+   "name": "f_DB62",
+   "type": "Field",
+   "kind": "auto"
+  },
+  {
+   "address": 56176,
+   "name": "f_DB70",
+   "type": "Field",
+   "kind": "auto"
+  },
+  {
+   "address": 56208,
+   "name": "a_DB90",
+   "type": "AbsoluteAddress",
+   "kind": "auto"
+  },
+  {
+   "address": 56209,
+   "name": "a_DB91",
+   "type": "AbsoluteAddress",
+   "kind": "auto"
+  },
+  {
+   "address": 56217,
+   "name": "f_DB99",
+   "type": "Field",
+   "kind": "auto"
+  },
+  {
+   "address": 56227,
+   "name": "f_DBA3",
+   "type": "Field",
+   "kind": "auto"
+  },
+  {
+   "address": 56231,
+   "name": "f_DBA7",
+   "type": "Field",
+   "kind": "auto"
+  },
+  {
+   "address": 56248,
+   "name": "a_DBB8",
+   "type": "AbsoluteAddress",
+   "kind": "auto"
+  },
+  {
+   "address": 56249,
+   "name": "a_DBB9",
+   "type": "AbsoluteAddress",
+   "kind": "auto"
+  },
+  {
+   "address": 56251,
+   "name": "f_DBBB",
+   "type": "Field",
+   "kind": "auto"
+  },
+  {
+   "address": 56320,
+   "name": "alternate_stage_upper_character_codes",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 57344,
+   "name": "stage_1_tile_grid",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 58112,
+   "name": "stage_1_attribute_grid",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 58336,
+   "name": "a_E3E0",
+   "type": "AbsoluteAddress",
+   "kind": "auto"
+  },
+  {
+   "address": 58880,
+   "name": "stage_2_tile_grid",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 59392,
+   "name": "stage_2_attribute_grid",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 59622,
+   "name": "a_E8E6",
+   "type": "AbsoluteAddress",
+   "kind": "auto"
+  },
+  {
+   "address": 60160,
+   "name": "stage_3_tile_grid",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 60288,
+   "name": "stage_3_attribute_grid",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 60395,
+   "name": "a_EBEB",
+   "type": "AbsoluteAddress",
+   "kind": "auto"
+  },
+  {
+   "address": 60963,
+   "name": "stage_entry_hook",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 60974,
+   "name": "b_EE2E",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 60984,
+   "name": "b_EE38",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 64704,
+   "name": "mission_number",
+   "type": "AbsoluteAddress",
+   "kind": "user"
+  },
+  {
+   "address": 64705,
+   "name": "stage_tile_grid_pointers",
+   "type": "Field",
+   "kind": "user"
+  },
+  {
+   "address": 64709,
+   "name": "f_FCC5",
+   "type": "Field",
+   "kind": "auto"
+  },
+  {
+   "address": 64713,
+   "name": "stage_attribute_grid_pointers",
+   "type": "Field",
+   "kind": "user"
+  },
+  {
+   "address": 64717,
+   "name": "f_FCCD",
+   "type": "Field",
+   "kind": "auto"
+  },
+  {
+   "address": 64721,
+   "name": "stage_grid_widths",
+   "type": "Field",
+   "kind": "user"
+  },
+  {
+   "address": 64725,
+   "name": "stage_grid_heights",
+   "type": "Field",
+   "kind": "user"
+  },
+  {
+   "address": 64729,
+   "name": "stage_background_values",
+   "type": "Field",
+   "kind": "user"
+  },
+  {
+   "address": 64733,
+   "name": "stage_multicolour_1",
+   "type": "Field",
+   "kind": "user"
+  },
+  {
+   "address": 64737,
+   "name": "stage_multicolour_2",
+   "type": "Field",
+   "kind": "user"
+  },
+  {
+   "address": 64741,
+   "name": "stage_view_start_y",
+   "type": "Field",
+   "kind": "user"
+  },
+  {
+   "address": 64745,
+   "name": "stage_placement_list_pointers",
+   "type": "Field",
+   "kind": "user"
+  },
+  {
+   "address": 64749,
+   "name": "f_FCED",
+   "type": "Field",
+   "kind": "auto"
+  },
+  {
+   "address": 64753,
+   "name": "stage_parameters",
+   "type": "Field",
+   "kind": "user"
+  },
+  {
+   "address": 64757,
+   "name": "alternate_charset_stage",
+   "type": "AbsoluteAddress",
+   "kind": "user"
+  },
+  {
+   "address": 64758,
+   "name": "a_FCF6",
+   "type": "AbsoluteAddress",
+   "kind": "auto"
+  },
+  {
+   "address": 64759,
+   "name": "a_FCF7",
+   "type": "AbsoluteAddress",
+   "kind": "auto"
+  },
+  {
+   "address": 64760,
+   "name": "stage_display_parameters",
+   "type": "Field",
+   "kind": "user"
+  },
+  {
+   "address": 64764,
+   "name": "stage_shared_operand",
+   "type": "AbsoluteAddress",
+   "kind": "user"
+  },
+  {
+   "address": 64765,
+   "name": "a_FCFD",
+   "type": "AbsoluteAddress",
+   "kind": "auto"
+  },
+  {
+   "address": 64766,
+   "name": "stage_setup_hook",
+   "type": "AbsoluteAddress",
+   "kind": "user"
+  },
+  {
+   "address": 64767,
+   "name": "a_FCFF",
+   "type": "AbsoluteAddress",
+   "kind": "auto"
+  },
+  {
+   "address": 64896,
+   "name": "stage_one_placement_source",
+   "type": "AbsoluteAddress",
+   "kind": "user"
+  },
+  {
+   "address": 65024,
+   "name": "stage_two_placement_source",
+   "type": "Predefined",
+   "kind": "user"
+  }
+ ],
+ "comments": [
+  {
+   "address": 25600,
+   "type": "line",
+   "text": "Twenty consecutive 64-byte sprite slots in VIC bank $4000. Each slot begins with 21 rows of three pixel bytes, and the last byte is outside the displayed height."
+  },
+  {
+   "address": 26624,
+   "type": "line",
+   "text": "Four sprite slots after the first sixteen mission frames. The VIC slot positions relative to bank $4000 are $A0-$A3."
+  },
+  {
+   "address": 49152,
+   "type": "line",
+   "text": "Four rows of four character codes per 16-byte tile. The map renderer resolves a tile ID through the resident screen-code pointer tables, then indexes this pattern with the character coordinates modulo four."
+  },
+  {
+   "address": 50176,
+   "type": "line",
+   "text": "Tile IDs $40-$50 use the upper end of the populated dictionary. Each row is four character indices wide, starting at $C400 for ID $40."
+  },
+  {
+   "address": 51968,
+   "type": "line",
+   "text": "Pixel rows at the start of the alternate scene font. When $ADF7 is set the masked wipe reads from $CB00 using the same eight-byte glyph stride as the resident playfield font."
+  },
+  {
+   "address": 52992,
+   "type": "line",
+   "text": "Tile-indexed colour bytes. The initial playfield renderer at $17CD reads these in parallel with the tile character pointers and $1882 writes the chosen value to colour RAM."
+  },
+  {
+   "address": 53248,
+   "type": "line",
+   "text": "Primary 256-character graphics source. The resident wipe routine at $1DC2 enables RAM under I/O and copies the selected pixel rows to the live character set at $4000."
+  },
+  {
+   "address": 54272,
+   "type": "line",
+   "text": "Rows for character codes $80-$FF in the main stage's 256-glyph set. The masked copy selects them through the same eight-byte stride as the lower codes."
+  },
+  {
+   "address": 55296,
+   "type": "line",
+   "text": "Alternate 256-character graphics source in RAM below the I/O window. The resident wipe routine chooses this source when $1902 is set, unless the alternate scene flag $ADF7 takes priority."
+  },
+  {
+   "address": 56320,
+   "type": "line",
+   "text": "The upper half of the alternate stage's eight-byte character slots, read under CIA and expansion register addresses with I/O banked out."
+  },
+  {
+   "address": 57344,
+   "type": "line",
+   "text": "Stage 1 grid, 60 entries per row and first 8 rows. Each byte selects one 4 \u00d7 4 character tile through the split table at $08D6/$09C6."
+  },
+  {
+   "address": 58112,
+   "type": "line",
+   "text": "Stage 1 grid, 60 entries per row and first 8 rows. The engine uses the low three bits for world-coordinate attribute lookups and modifies the grid during play."
+  },
+  {
+   "address": 58880,
+   "type": "line",
+   "text": "Stage 2 grid, 60 entries per row and first 8 rows. Each byte selects one 4 \u00d7 4 character tile through the split table at $08D6/$09C6."
+  },
+  {
+   "address": 59392,
+   "type": "line",
+   "text": "Stage 2 grid, 60 entries per row and first 8 rows. The engine uses the low three bits for world-coordinate attribute lookups and modifies the grid during play."
+  },
+  {
+   "address": 60160,
+   "type": "line",
+   "text": "Stage 3 grid, 10 entries per row and first 6 rows. Each byte selects one 4 \u00d7 4 character tile through the split table at $08D6/$09C6."
+  },
+  {
+   "address": 60288,
+   "type": "line",
+   "text": "Stage 3 grid, 10 entries per row and first 6 rows. The engine uses the low three bits for world-coordinate attribute lookups and modifies the grid during play."
+  },
+  {
+   "address": 60963,
+   "type": "line",
+   "text": "Reads $31. For values 1 or 2 sets $2C to 1 and clears $27. Clears $31 on those paths and leaves zero unchanged and subtracts two from values above 2."
+  },
+  {
+   "address": 64704,
+   "type": "line",
+   "text": "The one-based mission number used for this file and for play selection in the resident engine."
+  },
+  {
+   "address": 64705,
+   "type": "line",
+   "text": "Four split pointers with their high bytes at $FCC5. The resident loader at $0B26 selects a stage and gives its grid to the row-pointer builder at $0B46."
+  },
+  {
+   "address": 64713,
+   "type": "line",
+   "text": "Four split pointers with high bytes at $FCCD. The grid parallels the tile map and the resident coordinate lookup at $3DFA masks each attribute to its low three bits."
+  },
+  {
+   "address": 64721,
+   "type": "line",
+   "text": "Stage widths used as a byte stride for the tile and attribute row pointers."
+  },
+  {
+   "address": 64725,
+   "type": "line",
+   "text": "Stage heights used by the resident scaler to derive the vertical playfield limit and by $8EAD to walk the attribute grid."
+  },
+  {
+   "address": 64729,
+   "type": "line",
+   "text": "Indexed stage values copied to $2D during setup by $0AFD."
+  },
+  {
+   "address": 64733,
+   "type": "line",
+   "text": "VIC extended background register $D022 values selected by stage."
+  },
+  {
+   "address": 64737,
+   "type": "line",
+   "text": "VIC extended background register $D023 values selected by stage."
+  },
+  {
+   "address": 64741,
+   "type": "line",
+   "text": "Indexed initial view value written to $1781 before the character drawing loop at $1785."
+  },
+  {
+   "address": 64745,
+   "type": "line",
+   "text": "Four split pointers with high bytes at $FCED. $8FE8 copies 128 bytes from the selected source into a separate workspace half for each player."
+  },
+  {
+   "address": 64753,
+   "type": "line",
+   "text": "Indexed stage bytes cached at $0AEA and $0BE0 before display setup."
+  },
+  {
+   "address": 64757,
+   "type": "line",
+   "text": "Stage index compared at $1A82. A match enables the alternate source at $D800 and installs the two operand bytes following this value at $1642/$1643."
+  },
+  {
+   "address": 64760,
+   "type": "line",
+   "text": "Four indexed values. Stage setup at $0B0E copies the selected value to $1901."
+  },
+  {
+   "address": 64764,
+   "type": "line",
+   "text": "The pair at $FCFC/$FCFD supplies the two operand bytes at $2B0A/$2B0B."
+  },
+  {
+   "address": 64766,
+   "type": "line",
+   "text": "Low and high bytes of the mission-provided routine that $1AB3 calls after preparing the stage grids."
+  },
+  {
+   "address": 64896,
+   "type": "line",
+   "text": "Stage 1 placement seed copied into player workspace by $8FE8. A record has a destination low byte, destination high byte and value. A zero value ends the loop that applies records to the working stage grid."
+  },
+  {
+   "address": 65024,
+   "type": "line",
+   "text": "Stage 2 placement seed copied into page $0200. The resident setup applies the value of each record at its two-byte destination and stops at the first zero value."
+  }
+ ]
+}
