@@ -28,14 +28,16 @@ To check variant loads without repeating the draft, restore the saved pre-match 
 | File | Observed use or placement |
 | --- | --- |
 | S.S.  BASKETBALL | XPB boot, scroller and loader at $0801. |
-| A | KERNAL load requested on all four routes. The $1000 load overlaps B and the selected court's staging buffer. Surviving bytes above $69FF include the sprite pointer catalogues and pose records. |
+| A | KERNAL load requested on all four routes. The overlay loads A at $1000 and enters $1100. The relocation loop at $11C6 copies the shared poses and the six chosen overlay catalogues, adding the destination base to their pointer entries. The slot-pointer writes at $1299 and $129F fill $7002–$700D. Original and relocated record tails survive above $69FF after B loads. |
 | B | Entire 23,552-byte payload matches $0E00–$69FF at all four hand-overs. |
 | C–F | Each loads 6,144 bytes at $1800. The entire selected file then matches $D800–$EFFF at hand-over. |
-| G–J | Each matches all 1,408 bytes at $C000–$C57F at its court hand-over. The 80-by-17 cell map starts at $C000. Tail bytes still need classification. |
+| G–J | Each matches all 1,408 bytes at $C000–$C57F at its court hand-over. The 80-by-17 cell map starts at $C000. The final 47 bytes of each file match a slice of file B. Setup reuses several cells after the map for clamping, actor flags and a counter. |
 | K | All 384 bytes match $FD80–$FEFF, where the match recolour routine reads them as six sprite templates. |
-| L | One-byte file addressed to $03FF. Its use is open. |
+| L | One zero byte addressed to $03FF. The boot, four court load sequences and return request do not select it. The call-site inventory is in the match facts. |
 | M | XPB loads the packed selection program at $0801. The unpacked menu starts at $0800. |
 
-The disk reader also found a deleted directory entry with a residual chain. Its ownership is open in [media.json](media.json).
+Seven decorative directory entries have type DEL and zero blocks. Their shared start points to the BAM at track 18 sector 0, then follows the directory sectors. The grouped entry is recorded as directory art in [media.json](media.json).
 
-The LCX comparison disk has byte-identical A–L files and a different M. It stayed on a striped border in the attempted boot using this emulator. The TBF comparison disk contains a byte-identical M, so it supplies no independent check of the packed menu's retained RAM. Both preservation-archive retail G64 links returned HTTP 401. [LCX disk record](https://csdb.dk/release/?id=245631) · [TBF disk record](https://csdb.dk/release/?id=132763) · [Retail preservation record](https://preservation64.de/index.php?title=Street_Sports_Basketball)
+The LCX comparison disk has byte-identical A–L files and a different M. Its stripe loop polls CIA1 port A at $084E. In a controlled comparison, setting PC to $0855 took the input-accepted path. Execution stopped at the checksum comparison branch at $089D with Z set, at the unpacker entry $094A and at the menu hand-over $0800. All seven packed selection gaps and the parked overlay tail at $D16D–$D1FE match XPB byte for byte in that snapshot. The TBF disk contains a byte-identical M. Both preservation-archive retail G64 links returned HTTP 401. [LCX disk record](https://csdb.dk/release/?id=245631) · [TBF disk record](https://csdb.dk/release/?id=132763) · [Retail preservation record](https://preservation64.de/index.php?title=Street_Sports_Basketball)
+
+The Dump Club comparison disk boots a differently packed BASKETBALL file and has byte-identical A–L files. A title snapshot matches each compared selection stretch except the 16 bytes at $FD30–$FD3F. The comparison uses a title snapshot, so a difference there can come from startup as well as the disk image. The parked overlay tail also matches. [Dump Club disk catalogue](https://www.dumpclub64.it/dumping/57-dumping-estate-2025/)

@@ -11,6 +11,76 @@
         "$0400",
         "$07E7",
         "Default KERNAL 40-by-25 screen matrix, all $20 in the entry and title snapshots. The game selects VIC bank $4000."
+      ],
+      [
+        "$D400",
+        "$D5FF",
+        "Copies of the low workspace pages $0200 and $0300. Identical at menu entry. When the disk overlay is exposed, these pages appear at $0C00 and $0D00, where $090C updates them and $0E06 of the match reads them back."
+      ],
+      [
+        "$FE00",
+        "$FEBF",
+        "Power-on fill at menu entry. The title driver generates 96 frequency words here by shifting the reference octave at $E474."
+      ],
+      [
+        "$FF00",
+        "$FF27",
+        "Power-on fill at menu entry. The menu writes the team name and option workspace here from $0370 through the copy at $0D5F."
+      ],
+      [
+        "$D000",
+        "$D2FF",
+        "Parked disk overlay counted at $0800\u2013$0AFF in the match part. Those three pages match the selection hand-over after the exchange at $FFCE, apart from the filename byte at $0A00."
+      ],
+      [
+        "$D300",
+        "$D3FF",
+        "Parked zero-page image exchanged into $0B00. The disk overlay saves low RAM here and $0E23 restores it on the return path."
+      ],
+      [
+        "$FD30",
+        "$FD4F",
+        "Startup replaces this window with 32 saved KERNAL RAM vectors. A watchpoint on $FD30 stops at ROM PC $FD29 with the destination pointer $C3/$C4 equal to $FD30. The old hand-over bytes in this window are overwritten during initialization."
+      ],
+      [
+        "$0340",
+        "$03FF",
+        "Three XPB scroller sprite slots. The pre-M snapshot selects pointers $0D, $0E and $0F in the default screen matrix and all 192 bytes match at both part hand-overs. The parts reuse the page as writable state."
+      ],
+      [
+        "$D700",
+        "$D7FF",
+        "Page left in RAM by the first unpacker relocation. The overlay swap ends at $D6FF and the banked colour sources start at $D800. The picture pointer tables address other pages. The menu VIC modes select banks $4000 and $0000. Read watches on the relocated page in the title, court and draft states did not stop."
+      ],
+      [
+        "$FD1C",
+        "$FD2F",
+        "Intervening bytes between the end of the selection backdrop and the saved vector workspace. The backdrop decoder exits at $0CE4 with its next source at $FD1C. The vector copy starts at $FD30. Read watches in the selection states did not stop, and all four match setups write these bytes before reading them."
+      ],
+      [
+        "$4CDE",
+        "$4DDE",
+        "Unpacked bytes between the draft cursor sprite slots and the coin coordinate table. The three enabled cursor pointers end at $4CBF. The two indexed cursor writes are bounded to the first two slots. No other direct instruction can reach this gap, and CPU read watches in the title, court and draft states did not stop."
+      ],
+      [
+        "$7F5E",
+        "$7FFF",
+        "Unpacked bytes above the visible bitmap. An execution breakpoint at $0CE4 confirmed the backdrop decoder ends at $7F40. The sprite pointers used in this bank select slots below $6000. No direct instruction can reach this tail, and CPU read watches in the selection states did not stop."
+      ],
+      [
+        "$ACAC",
+        "$AFDE",
+        "Unpacked gap between the undrafted and drafted figure areas. The last undrafted image at $AB14 reads its last byte at $ACA7, observed at $13FA, and the next image set begins at $B000. The picture directories have no entry into the gap and CPU read watches in the selection states did not stop."
+      ],
+      [
+        "$BB1F",
+        "$BFC0",
+        "Unpacked gap after the drafted figures and before the prompts at $C000. The last drafted image at $B9FC reads its last byte at $BB17, observed at $13FA. The picture and text directories have no entry into this gap and CPU read watches in the selection states did not stop."
+      ],
+      [
+        "$EB6D",
+        "$EBFD",
+        "Relocated bytes after the music event area and before the screen colour source at $EC00. Event sizes and both exits of the stream branches bound all audio reads through $EB69, including the two retained sequences. A controlled stream step confirmed that the terminator disables the voice there."
       ]
     ],
     "extra": [
@@ -37,11 +107,6 @@
     ],
     "include": [
       [
-        "$D000",
-        "$D3FF",
-        "RAM source for the relocated disk routines at $0800"
-      ],
-      [
         "$D800",
         "$DFFF",
         "RAM-backed colour tables copied by $0C86 and $0D13"
@@ -50,6 +115,21 @@
         "$5C00",
         "$5FE7",
         "Authored title colours in RAM that becomes screen output during selection."
+      ],
+      [
+        "$D600",
+        "$D627",
+        "Selection loader entry jumps and setup code stored before the page exchange at $FFCE."
+      ],
+      [
+        "$5FF8",
+        "$5FFF",
+        "VIC sprite pointer slots in the $5C00 screen matrix. The draft and coin animation write these at $1DF2 and $1F15."
+      ],
+      [
+        "$D628",
+        "$D680",
+        "Fragment of the old disk overlay. Its 89 bytes match file M at offset $0840 and include two indexed block-copy loops."
       ]
     ]
   },

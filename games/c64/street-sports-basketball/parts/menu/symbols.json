@@ -13,19 +13,94 @@
     "stack"
    ],
    [
-    54272,
+    53248,
+    54783,
+    "I/O and colour RAM"
+   ],
+   [
+    54913,
     55295,
     "I/O and colour RAM"
    ],
    [
     24552,
-    24575,
+    24567,
     "screen RAM"
    ],
    [
     1024,
     2023,
     "Default KERNAL 40-by-25 screen matrix, all $20 in the entry and title snapshots. The game selects VIC bank $4000."
+   ],
+   [
+    54272,
+    54783,
+    "Copies of the low workspace pages $0200 and $0300. Identical at menu entry. When the disk overlay is exposed, these pages appear at $0C00 and $0D00, where $090C updates them and $0E06 of the match reads them back."
+   ],
+   [
+    65024,
+    65215,
+    "Power-on fill at menu entry. The title driver generates 96 frequency words here by shifting the reference octave at $E474."
+   ],
+   [
+    65280,
+    65319,
+    "Power-on fill at menu entry. The menu writes the team name and option workspace here from $0370 through the copy at $0D5F."
+   ],
+   [
+    53248,
+    54015,
+    "Parked disk overlay counted at $0800\u2013$0AFF in the match part. Those three pages match the selection hand-over after the exchange at $FFCE, apart from the filename byte at $0A00."
+   ],
+   [
+    54016,
+    54271,
+    "Parked zero-page image exchanged into $0B00. The disk overlay saves low RAM here and $0E23 restores it on the return path."
+   ],
+   [
+    64816,
+    64847,
+    "Startup replaces this window with 32 saved KERNAL RAM vectors. A watchpoint on $FD30 stops at ROM PC $FD29 with the destination pointer $C3/$C4 equal to $FD30. The old hand-over bytes in this window are overwritten during initialization."
+   ],
+   [
+    832,
+    1023,
+    "Three XPB scroller sprite slots. The pre-M snapshot selects pointers $0D, $0E and $0F in the default screen matrix and all 192 bytes match at both part hand-overs. The parts reuse the page as writable state."
+   ],
+   [
+    55040,
+    55295,
+    "Page left in RAM by the first unpacker relocation. The overlay swap ends at $D6FF and the banked colour sources start at $D800. The picture pointer tables address other pages. The menu VIC modes select banks $4000 and $0000. Read watches on the relocated page in the title, court and draft states did not stop."
+   ],
+   [
+    64796,
+    64815,
+    "Intervening bytes between the end of the selection backdrop and the saved vector workspace. The backdrop decoder exits at $0CE4 with its next source at $FD1C. The vector copy starts at $FD30. Read watches in the selection states did not stop, and all four match setups write these bytes before reading them."
+   ],
+   [
+    19678,
+    19934,
+    "Unpacked bytes between the draft cursor sprite slots and the coin coordinate table. The three enabled cursor pointers end at $4CBF. The two indexed cursor writes are bounded to the first two slots. No other direct instruction can reach this gap, and CPU read watches in the title, court and draft states did not stop."
+   ],
+   [
+    32606,
+    32767,
+    "Unpacked bytes above the visible bitmap. An execution breakpoint at $0CE4 confirmed the backdrop decoder ends at $7F40. The sprite pointers used in this bank select slots below $6000. No direct instruction can reach this tail, and CPU read watches in the selection states did not stop."
+   ],
+   [
+    44204,
+    45022,
+    "Unpacked gap between the undrafted and drafted figure areas. The last undrafted image at $AB14 reads its last byte at $ACA7, observed at $13FA, and the next image set begins at $B000. The picture directories have no entry into the gap and CPU read watches in the selection states did not stop."
+   ],
+   [
+    47903,
+    49088,
+    "Unpacked gap after the drafted figures and before the prompts at $C000. The last drafted image at $B9FC reads its last byte at $BB17, observed at $13FA. The picture and text directories have no entry into this gap and CPU read watches in the selection states did not stop."
+   ],
+   [
+    60269,
+    60413,
+    "Relocated bytes after the music event area and before the screen colour source at $EC00. Event sizes and both exits of the stream branches bound all audio reads through $EB69, including the two retained sequences. A controlled stream step confirmed that the terminator disables the voice there."
    ]
   ],
   "extra": [
@@ -66,8 +141,8 @@
   ],
   "beneath": [
    [
-    53248,
-    54271
+    54784,
+    54912
    ],
    [
     55296,
@@ -78,6 +153,136 @@
  "blocks": [
   {
    "start": 0,
+   "end": 0,
+   "type": "Undefined"
+  },
+  {
+   "start": 1,
+   "end": 1,
+   "type": "Byte"
+  },
+  {
+   "start": 2,
+   "end": 75,
+   "type": "Undefined"
+  },
+  {
+   "start": 76,
+   "end": 76,
+   "type": "Byte"
+  },
+  {
+   "start": 77,
+   "end": 155,
+   "type": "Undefined"
+  },
+  {
+   "start": 156,
+   "end": 156,
+   "type": "Byte"
+  },
+  {
+   "start": 157,
+   "end": 158,
+   "type": "Undefined"
+  },
+  {
+   "start": 159,
+   "end": 159,
+   "type": "Byte"
+  },
+  {
+   "start": 160,
+   "end": 163,
+   "type": "Undefined"
+  },
+  {
+   "start": 164,
+   "end": 164,
+   "type": "Byte"
+  },
+  {
+   "start": 165,
+   "end": 197,
+   "type": "Undefined"
+  },
+  {
+   "start": 198,
+   "end": 198,
+   "type": "Byte"
+  },
+  {
+   "start": 199,
+   "end": 630,
+   "type": "Undefined"
+  },
+  {
+   "start": 631,
+   "end": 640,
+   "type": "Byte"
+  },
+  {
+   "start": 641,
+   "end": 788,
+   "type": "Undefined"
+  },
+  {
+   "start": 789,
+   "end": 789,
+   "type": "Byte"
+  },
+  {
+   "start": 790,
+   "end": 791,
+   "type": "Undefined"
+  },
+  {
+   "start": 792,
+   "end": 793,
+   "type": "Byte"
+  },
+  {
+   "start": 794,
+   "end": 827,
+   "type": "Undefined"
+  },
+  {
+   "start": 828,
+   "end": 828,
+   "type": "Byte"
+  },
+  {
+   "start": 829,
+   "end": 879,
+   "type": "Undefined"
+  },
+  {
+   "start": 880,
+   "end": 919,
+   "type": "Byte"
+  },
+  {
+   "start": 920,
+   "end": 924,
+   "type": "Undefined"
+  },
+  {
+   "start": 925,
+   "end": 925,
+   "type": "Byte"
+  },
+  {
+   "start": 926,
+   "end": 929,
+   "type": "Undefined"
+  },
+  {
+   "start": 930,
+   "end": 930,
+   "type": "Byte"
+  },
+  {
+   "start": 931,
    "end": 2047,
    "type": "Undefined"
   },
@@ -118,11 +323,11 @@
   },
   {
    "start": 2870,
-   "end": 2924,
+   "end": 3000,
    "type": "Code"
   },
   {
-   "start": 2925,
+   "start": 3001,
    "end": 3008,
    "type": "Undefined"
   },
@@ -139,7 +344,7 @@
   {
    "start": 3120,
    "end": 3125,
-   "type": "Undefined"
+   "type": "Word"
   },
   {
    "start": 3126,
@@ -149,7 +354,7 @@
   {
    "start": 3152,
    "end": 3157,
-   "type": "Undefined"
+   "type": "Word"
   },
   {
    "start": 3158,
@@ -163,16 +368,6 @@
   },
   {
    "start": 3206,
-   "end": 3377,
-   "type": "Code"
-  },
-  {
-   "start": 3378,
-   "end": 3418,
-   "type": "Undefined"
-  },
-  {
-   "start": 3419,
    "end": 3725,
    "type": "Code"
   },
@@ -193,6 +388,16 @@
   },
   {
    "start": 4779,
+   "end": 4781,
+   "type": "Undefined"
+  },
+  {
+   "start": 4782,
+   "end": 4782,
+   "type": "Byte"
+  },
+  {
+   "start": 4783,
    "end": 4790,
    "type": "Undefined"
   },
@@ -203,6 +408,16 @@
   },
   {
    "start": 5159,
+   "end": 5164,
+   "type": "Undefined"
+  },
+  {
+   "start": 5165,
+   "end": 5165,
+   "type": "Byte"
+  },
+  {
+   "start": 5166,
    "end": 5170,
    "type": "Undefined"
   },
@@ -284,15 +499,30 @@
   {
    "start": 7856,
    "end": 7871,
-   "type": "Undefined"
+   "type": "Byte"
   },
   {
    "start": 7872,
-   "end": 8111,
+   "end": 8153,
    "type": "Code"
   },
   {
-   "start": 8112,
+   "start": 8154,
+   "end": 8157,
+   "type": "Byte"
+  },
+  {
+   "start": 8158,
+   "end": 8178,
+   "type": "Code"
+  },
+  {
+   "start": 8179,
+   "end": 8189,
+   "type": "Byte"
+  },
+  {
+   "start": 8190,
    "end": 8191,
    "type": "Undefined"
   },
@@ -418,11 +648,11 @@
   },
   {
    "start": 19968,
-   "end": 20479,
+   "end": 20728,
    "type": "Byte"
   },
   {
-   "start": 20480,
+   "start": 20729,
    "end": 20735,
    "type": "Undefined"
   },
@@ -433,11 +663,11 @@
   },
   {
    "start": 24552,
-   "end": 24575,
+   "end": 24567,
    "type": "Undefined"
   },
   {
-   "start": 24576,
+   "start": 24568,
    "end": 32575,
    "type": "Byte"
   },
@@ -778,6 +1008,21 @@
   },
   {
    "start": 53179,
+   "end": 54783,
+   "type": "Undefined"
+  },
+  {
+   "start": 54784,
+   "end": 54824,
+   "type": "Byte"
+  },
+  {
+   "start": 54825,
+   "end": 54912,
+   "type": "Code"
+  },
+  {
+   "start": 54913,
    "end": 55295,
    "type": "Undefined"
   },
@@ -863,6 +1108,11 @@
   },
   {
    "start": 65409,
+   "end": 65410,
+   "type": "Byte"
+  },
+  {
+   "start": 65411,
    "end": 65533,
    "type": "Code"
   },
@@ -875,15 +1125,21 @@
  "symbols": [
   {
    "address": 0,
-   "name": "zpa_00",
+   "name": "cpu_io_direction",
    "type": "ZeroPageAbsoluteAddress",
-   "kind": "auto"
+   "kind": "user"
   },
   {
    "address": 1,
-   "name": "zpa_01",
+   "name": "cpu_banking_port",
    "type": "ZeroPageAbsoluteAddress",
-   "kind": "auto"
+   "kind": "user"
+  },
+  {
+   "address": 7,
+   "name": "retained_overlay_indirect_operand",
+   "type": "ZeroPagePointer",
+   "kind": "user"
   },
   {
    "address": 15,
@@ -899,9 +1155,9 @@
   },
   {
    "address": 17,
-   "name": "f_0011",
+   "name": "menu_voice_stream_pointer_high",
    "type": "Field",
-   "kind": "auto"
+   "kind": "user"
   },
   {
    "address": 22,
@@ -917,39 +1173,39 @@
   },
   {
    "address": 24,
-   "name": "zpf_18",
+   "name": "menu_voice_frequency_low",
    "type": "ZeroPageField",
-   "kind": "auto"
+   "kind": "user"
   },
   {
    "address": 27,
-   "name": "zpf_1B",
+   "name": "menu_voice_frequency_high",
    "type": "ZeroPageField",
-   "kind": "auto"
+   "kind": "user"
   },
   {
    "address": 30,
-   "name": "zpf_1E",
+   "name": "menu_voice_control",
    "type": "ZeroPageField",
-   "kind": "auto"
+   "kind": "user"
   },
   {
    "address": 33,
-   "name": "zpf_21",
+   "name": "menu_voice_suppress_gate_release",
    "type": "ZeroPageField",
-   "kind": "auto"
+   "kind": "user"
   },
   {
    "address": 36,
-   "name": "f_0024",
+   "name": "menu_voice_repeat_count",
    "type": "Field",
-   "kind": "auto"
+   "kind": "user"
   },
   {
    "address": 39,
-   "name": "f_0027",
+   "name": "menu_voice_loop_count",
    "type": "Field",
-   "kind": "auto"
+   "kind": "user"
   },
   {
    "address": 42,
@@ -995,9 +1251,9 @@
   },
   {
    "address": 49,
-   "name": "zpf_31",
+   "name": "menu_voice_note_countdown",
    "type": "ZeroPageField",
-   "kind": "auto"
+   "kind": "user"
   },
   {
    "address": 52,
@@ -1085,21 +1341,21 @@
   },
   {
    "address": 68,
-   "name": "f_0044",
+   "name": "menu_voice_pitch_step",
    "type": "Field",
-   "kind": "auto"
+   "kind": "user"
   },
   {
    "address": 73,
-   "name": "zpf_49",
+   "name": "menu_voice_pitch_countdown",
    "type": "ZeroPageField",
-   "kind": "auto"
+   "kind": "user"
   },
   {
    "address": 76,
-   "name": "zpf_4C",
+   "name": "music_pending_tune_by_group",
    "type": "ZeroPageField",
-   "kind": "auto"
+   "kind": "user"
   },
   {
    "address": 155,
@@ -1121,9 +1377,9 @@
   },
   {
    "address": 159,
-   "name": "zpa_9F",
+   "name": "name_entry_destination_high",
    "type": "ZeroPageAbsoluteAddress",
-   "kind": "auto"
+   "kind": "user"
   },
   {
    "address": 162,
@@ -1139,15 +1395,15 @@
   },
   {
    "address": 164,
-   "name": "zpa_A4",
+   "name": "option_strip_pointer_high",
    "type": "ZeroPageAbsoluteAddress",
-   "kind": "auto"
+   "kind": "user"
   },
   {
    "address": 198,
-   "name": "zpa_C6",
+   "name": "kernal_keyboard_queue_length",
    "type": "ZeroPageAbsoluteAddress",
-   "kind": "auto"
+   "kind": "user"
   },
   {
    "address": 251,
@@ -1181,9 +1437,9 @@
   },
   {
    "address": 631,
-   "name": "f_0277",
+   "name": "name_entry_keyboard_buffer",
    "type": "Field",
-   "kind": "auto"
+   "kind": "user"
   },
   {
    "address": 788,
@@ -1193,21 +1449,21 @@
   },
   {
    "address": 789,
-   "name": "a_0315",
+   "name": "menu_irq_vector_high",
    "type": "AbsoluteAddress",
-   "kind": "auto"
+   "kind": "user"
   },
   {
    "address": 792,
-   "name": "a_0318",
+   "name": "menu_nmi_vector_low",
    "type": "AbsoluteAddress",
-   "kind": "auto"
+   "kind": "user"
   },
   {
    "address": 793,
-   "name": "a_0319",
+   "name": "menu_nmi_vector_high",
    "type": "AbsoluteAddress",
-   "kind": "auto"
+   "kind": "user"
   },
   {
    "address": 820,
@@ -1259,9 +1515,9 @@
   },
   {
    "address": 828,
-   "name": "a_033C",
+   "name": "name_entry_key",
    "type": "AbsoluteAddress",
-   "kind": "auto"
+   "kind": "user"
   },
   {
    "address": 869,
@@ -1331,9 +1587,9 @@
   },
   {
    "address": 880,
-   "name": "f_0370",
+   "name": "team_settings_transfer_base",
    "type": "Field",
-   "kind": "auto"
+   "kind": "user"
   },
   {
    "address": 908,
@@ -1343,15 +1599,15 @@
   },
   {
    "address": 909,
-   "name": "f_038D",
+   "name": "draft_roster_clear_sign",
    "type": "Field",
-   "kind": "auto"
+   "kind": "user"
   },
   {
    "address": 912,
-   "name": "f_0390",
+   "name": "draft_roster_set_sign",
    "type": "Field",
-   "kind": "auto"
+   "kind": "user"
   },
   {
    "address": 915,
@@ -1361,15 +1617,15 @@
   },
   {
    "address": 916,
-   "name": "a_0394",
+   "name": "selected_court_number",
    "type": "AbsoluteAddress",
-   "kind": "auto"
+   "kind": "user"
   },
   {
    "address": 918,
-   "name": "a_0396",
+   "name": "selected_difficulty",
    "type": "AbsoluteAddress",
-   "kind": "auto"
+   "kind": "user"
   },
   {
    "address": 921,
@@ -1397,9 +1653,9 @@
   },
   {
    "address": 925,
-   "name": "a_039D",
+   "name": "clear_sprite_high_x_mask",
    "type": "AbsoluteAddress",
-   "kind": "auto"
+   "kind": "user"
   },
   {
    "address": 927,
@@ -1421,9 +1677,9 @@
   },
   {
    "address": 930,
-   "name": "a_03A2",
+   "name": "selection_panel_set_flag",
    "type": "AbsoluteAddress",
-   "kind": "auto"
+   "kind": "user"
   },
   {
    "address": 2048,
@@ -1540,6 +1796,12 @@
    "kind": "user"
   },
   {
+   "address": 2326,
+   "name": "pre_font_glyph",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
    "address": 2334,
    "name": "menu_glyphs",
    "type": "UserDefined",
@@ -1547,15 +1809,63 @@
   },
   {
    "address": 2870,
-   "name": "s_0B36",
+   "name": "draw_selection_backdrop",
    "type": "Subroutine",
-   "kind": "auto"
+   "kind": "user"
   },
   {
    "address": 2874,
    "name": "set_opening_picture_mode",
    "type": "Subroutine",
    "kind": "user"
+  },
+  {
+   "address": 2925,
+   "name": "erase_opening_bitmap",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 2940,
+   "name": "b_0B7C",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 2951,
+   "name": "clear_visible_colour_ram",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 2955,
+   "name": "b_0B8B",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 2969,
+   "name": "b_0B99",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 2976,
+   "name": "fill_visible_screen_matrix",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 2980,
+   "name": "b_0BA4",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 2994,
+   "name": "b_0BB2",
+   "type": "Branch",
+   "kind": "auto"
   },
   {
    "address": 3001,
@@ -1630,9 +1940,21 @@
    "kind": "user"
   },
   {
+   "address": 3120,
+   "name": "zero_words_after_bio_pointers",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
    "address": 3126,
    "name": "menu_prompt_pointers",
    "type": "Field",
+   "kind": "user"
+  },
+  {
+   "address": 3152,
+   "name": "zero_words_after_menu_prompt_pointers",
+   "type": "UserDefined",
    "kind": "user"
   },
   {
@@ -1726,10 +2048,16 @@
    "kind": "auto"
   },
   {
+   "address": 3378,
+   "name": "select_bank_zero_text_mode",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
    "address": 3419,
-   "name": "s_0D5B",
+   "name": "copy_team_name_workspace",
    "type": "Subroutine",
-   "kind": "auto"
+   "kind": "user"
   },
   {
    "address": 3423,
@@ -1949,9 +2277,9 @@
   },
   {
    "address": 4078,
-   "name": "s_0FEE",
+   "name": "draw_text_rectangle",
    "type": "Subroutine",
-   "kind": "auto"
+   "kind": "user"
   },
   {
    "address": 4101,
@@ -2117,9 +2445,9 @@
   },
   {
    "address": 4514,
-   "name": "s_11A2",
+   "name": "paint_option_word_highlighted",
    "type": "Subroutine",
-   "kind": "auto"
+   "kind": "user"
   },
   {
    "address": 4524,
@@ -2135,9 +2463,9 @@
   },
   {
    "address": 4565,
-   "name": "s_11D5",
+   "name": "paint_option_word_normal",
    "type": "Subroutine",
-   "kind": "auto"
+   "kind": "user"
   },
   {
    "address": 4575,
@@ -2237,9 +2565,9 @@
   },
   {
    "address": 4722,
-   "name": "s_1272",
+   "name": "delay_for_option_input",
    "type": "Subroutine",
-   "kind": "auto"
+   "kind": "user"
   },
   {
    "address": 4729,
@@ -2279,21 +2607,21 @@
   },
   {
    "address": 4780,
-   "name": "a_12AC",
+   "name": "menu_image_use_cursor_origin",
    "type": "AbsoluteAddress",
-   "kind": "auto"
+   "kind": "user"
   },
   {
    "address": 4781,
-   "name": "a_12AD",
+   "name": "menu_image_width",
    "type": "AbsoluteAddress",
-   "kind": "auto"
+   "kind": "user"
   },
   {
    "address": 4782,
-   "name": "a_12AE",
+   "name": "menu_image_height",
    "type": "AbsoluteAddress",
-   "kind": "auto"
+   "kind": "user"
   },
   {
    "address": 4791,
@@ -2375,9 +2703,9 @@
   },
   {
    "address": 5124,
-   "name": "s_1404",
+   "name": "advance_option_cell",
    "type": "Subroutine",
-   "kind": "auto"
+   "kind": "user"
   },
   {
    "address": 5143,
@@ -2435,9 +2763,9 @@
   },
   {
    "address": 5165,
-   "name": "a_142D",
+   "name": "draft_opposite_side_mask",
    "type": "AbsoluteAddress",
-   "kind": "auto"
+   "kind": "user"
   },
   {
    "address": 5171,
@@ -2705,9 +3033,9 @@
   },
   {
    "address": 6429,
-   "name": "f_191D",
+   "name": "draft_slot_to_character",
    "type": "Field",
-   "kind": "auto"
+   "kind": "user"
   },
   {
    "address": 6439,
@@ -2747,27 +3075,27 @@
   },
   {
    "address": 6483,
-   "name": "f_1953",
+   "name": "draft_roster_preview_positions",
    "type": "Field",
-   "kind": "auto"
+   "kind": "user"
   },
   {
    "address": 6495,
-   "name": "f_195F",
+   "name": "draft_pick_flags",
    "type": "Field",
-   "kind": "auto"
+   "kind": "user"
   },
   {
    "address": 6505,
-   "name": "f_1969",
+   "name": "draft_cursor_positions",
    "type": "Field",
-   "kind": "auto"
+   "kind": "user"
   },
   {
    "address": 6535,
-   "name": "f_1987",
+   "name": "computer_draft_choice_limits",
    "type": "Field",
-   "kind": "auto"
+   "kind": "user"
   },
   {
    "address": 6541,
@@ -2969,9 +3297,9 @@
   },
   {
    "address": 7151,
-   "name": "s_1BEF",
+   "name": "select_status_panel_bounds",
    "type": "Subroutine",
-   "kind": "auto"
+   "kind": "user"
   },
   {
    "address": 7161,
@@ -2987,9 +3315,9 @@
   },
   {
    "address": 7230,
-   "name": "s_1C3E",
+   "name": "select_prompt_line_bounds",
    "type": "Subroutine",
-   "kind": "auto"
+   "kind": "user"
   },
   {
    "address": 7269,
@@ -3083,9 +3411,9 @@
   },
   {
    "address": 7647,
-   "name": "s_1DDF",
+   "name": "initialise_cursor_sprite_pointers",
    "type": "Subroutine",
-   "kind": "auto"
+   "kind": "user"
   },
   {
    "address": 7680,
@@ -3101,9 +3429,9 @@
   },
   {
    "address": 7772,
-   "name": "s_1E5C",
+   "name": "position_cursor_sprite",
    "type": "Subroutine",
-   "kind": "auto"
+   "kind": "user"
   },
   {
    "address": 7793,
@@ -3125,15 +3453,15 @@
   },
   {
    "address": 7856,
-   "name": "f_1EB0",
+   "name": "coin_sprite_bit_masks",
    "type": "Field",
-   "kind": "auto"
+   "kind": "user"
   },
   {
    "address": 7864,
-   "name": "f_1EB8",
+   "name": "coin_sprite_clear_masks",
    "type": "Field",
-   "kind": "auto"
+   "kind": "user"
   },
   {
    "address": 7872,
@@ -3150,6 +3478,18 @@
   {
    "address": 7921,
    "name": "j_1EF1",
+   "type": "Jump",
+   "kind": "auto"
+  },
+  {
+   "address": 7949,
+   "name": "j_1F0D",
+   "type": "Jump",
+   "kind": "auto"
+  },
+  {
+   "address": 7974,
+   "name": "j_1F26",
    "type": "Jump",
    "kind": "auto"
   },
@@ -3178,10 +3518,22 @@
    "kind": "auto"
   },
   {
+   "address": 8032,
+   "name": "coin_indexed_expand_register_set",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
    "address": 8038,
    "name": "b_1F66",
    "type": "Branch",
    "kind": "auto"
+  },
+  {
+   "address": 8044,
+   "name": "coin_indexed_expand_register_clear",
+   "type": "UserDefined",
+   "kind": "user"
   },
   {
    "address": 8047,
@@ -3224,6 +3576,84 @@
    "name": "b_1FAD",
    "type": "Branch",
    "kind": "auto"
+  },
+  {
+   "address": 8112,
+   "name": "retained_coin_frame_loop_tail",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 8136,
+   "name": "r_1FC8",
+   "type": "Return",
+   "kind": "auto"
+  },
+  {
+   "address": 8137,
+   "name": "retained_coin_frame_delay",
+   "type": "Subroutine",
+   "kind": "user"
+  },
+  {
+   "address": 8141,
+   "name": "b_1FCD",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 8146,
+   "name": "b_1FD2",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 8151,
+   "name": "b_1FD7",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 8154,
+   "name": "retained_coin_frame_compare_suffix",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 8158,
+   "name": "retained_coin_frame_jump",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 8162,
+   "name": "retained_coin_delay_duplicate",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 8166,
+   "name": "b_1FE6",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 8171,
+   "name": "b_1FEB",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 8176,
+   "name": "b_1FF0",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 8179,
+   "name": "retained_coin_delay_loop_suffix",
+   "type": "UserDefined",
+   "kind": "user"
   },
   {
    "address": 8192,
@@ -3316,6 +3746,12 @@
    "kind": "user"
   },
   {
+   "address": 20480,
+   "name": "coin_coordinate_record_tail",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
    "address": 20731,
    "name": "coin_multicolour_two",
    "type": "AbsoluteAddress",
@@ -3376,6 +3812,12 @@
    "kind": "user"
   },
   {
+   "address": 24319,
+   "name": "f_5EFF",
+   "type": "Field",
+   "kind": "auto"
+  },
+  {
    "address": 24320,
    "name": "opening_colour_rows_19_to_24",
    "type": "Field",
@@ -3383,21 +3825,27 @@
   },
   {
    "address": 24568,
-   "name": "a_5FF8",
+   "name": "menu_sprite_pointer_zero",
    "type": "AbsoluteAddress",
-   "kind": "auto"
+   "kind": "user"
   },
   {
    "address": 24569,
-   "name": "a_5FF9",
+   "name": "menu_sprite_pointer_one",
    "type": "AbsoluteAddress",
-   "kind": "auto"
+   "kind": "user"
   },
   {
    "address": 24570,
-   "name": "a_5FFA",
+   "name": "menu_sprite_pointer_two",
    "type": "AbsoluteAddress",
-   "kind": "auto"
+   "kind": "user"
+  },
+  {
+   "address": 24571,
+   "name": "menu_sprite_pointers_three_to_seven",
+   "type": "UserDefined",
+   "kind": "user"
   },
   {
    "address": 24576,
@@ -3898,10 +4346,70 @@
    "kind": "user"
   },
   {
+   "address": 54784,
+   "name": "parked_selection_loader_trampolines",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 54824,
+   "name": "retained_selection_overlay_prefix_byte",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 54825,
+   "name": "retained_selection_overlay_copy_dispatch",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 54829,
+   "name": "retained_selection_f4_block_rearrangement",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 54831,
+   "name": "b_D62F",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
+   "address": 54872,
+   "name": "retained_selection_f9_block_rearrangement",
+   "type": "Branch",
+   "kind": "user"
+  },
+  {
+   "address": 54913,
+   "name": "b_D681",
+   "type": "Branch",
+   "kind": "auto"
+  },
+  {
    "address": 55296,
    "name": "opening_colour_source",
    "type": "UserDefined",
    "kind": "user"
+  },
+  {
+   "address": 55552,
+   "name": "f_D900",
+   "type": "Field",
+   "kind": "auto"
+  },
+  {
+   "address": 55808,
+   "name": "f_DA00",
+   "type": "Field",
+   "kind": "auto"
+  },
+  {
+   "address": 56063,
+   "name": "f_DAFF",
+   "type": "Field",
+   "kind": "auto"
   },
   {
    "address": 56320,
@@ -4421,9 +4929,9 @@
   },
   {
    "address": 58427,
-   "name": "f_E43B",
+   "name": "sid_command_pointer_high",
    "type": "Field",
-   "kind": "auto"
+   "kind": "user"
   },
   {
    "address": 58484,
@@ -4433,9 +4941,9 @@
   },
   {
    "address": 58485,
-   "name": "f_E475",
+   "name": "sid_reference_frequency_high",
    "type": "Field",
-   "kind": "auto"
+   "kind": "user"
   },
   {
    "address": 58508,
@@ -4457,9 +4965,9 @@
   },
   {
    "address": 58526,
-   "name": "f_E49E",
+   "name": "sid_stream_pointer_high",
    "type": "Field",
-   "kind": "auto"
+   "kind": "user"
   },
   {
    "address": 58533,
@@ -4486,8 +4994,20 @@
    "kind": "user"
   },
   {
+   "address": 59406,
+   "name": "retained_voice_event_section_one",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 59917,
+   "name": "retained_voice_event_section_two",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
    "address": 60160,
-   "name": "opening_voice_two_tail",
+   "name": "retained_voice_event_section_two_tail",
    "type": "UserDefined",
    "kind": "user"
   },
@@ -4528,9 +5048,153 @@
    "kind": "user"
   },
   {
+   "address": 62622,
+   "name": "selection_bitmap_rle_f49e",
+   "type": "Field",
+   "kind": "user"
+  },
+  {
+   "address": 62633,
+   "name": "selection_bitmap_rle_f4a9",
+   "type": "Field",
+   "kind": "user"
+  },
+  {
+   "address": 62644,
+   "name": "selection_bitmap_rle_f4b4",
+   "type": "Field",
+   "kind": "user"
+  },
+  {
+   "address": 62656,
+   "name": "selection_bitmap_rle_f4c0",
+   "type": "Field",
+   "kind": "user"
+  },
+  {
+   "address": 62667,
+   "name": "selection_bitmap_rle_f4cb",
+   "type": "Field",
+   "kind": "user"
+  },
+  {
+   "address": 62678,
+   "name": "selection_bitmap_rle_f4d6",
+   "type": "Field",
+   "kind": "user"
+  },
+  {
+   "address": 62720,
+   "name": "selection_bitmap_rle_f500",
+   "type": "Field",
+   "kind": "user"
+  },
+  {
+   "address": 62731,
+   "name": "selection_bitmap_rle_f50b",
+   "type": "Field",
+   "kind": "user"
+  },
+  {
+   "address": 62742,
+   "name": "selection_bitmap_rle_f516",
+   "type": "Field",
+   "kind": "user"
+  },
+  {
+   "address": 62750,
+   "name": "selection_bitmap_rle_f51e",
+   "type": "Field",
+   "kind": "user"
+  },
+  {
+   "address": 62761,
+   "name": "selection_bitmap_rle_f529",
+   "type": "Field",
+   "kind": "user"
+  },
+  {
+   "address": 62772,
+   "name": "selection_bitmap_rle_f534",
+   "type": "Field",
+   "kind": "user"
+  },
+  {
    "address": 63464,
    "name": "selection_rle_f7e8",
    "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 63774,
+   "name": "selection_bitmap_rle_f91e",
+   "type": "Field",
+   "kind": "user"
+  },
+  {
+   "address": 63785,
+   "name": "selection_bitmap_rle_f929",
+   "type": "Field",
+   "kind": "user"
+  },
+  {
+   "address": 63796,
+   "name": "selection_bitmap_rle_f934",
+   "type": "Field",
+   "kind": "user"
+  },
+  {
+   "address": 63808,
+   "name": "selection_bitmap_rle_f940",
+   "type": "Field",
+   "kind": "user"
+  },
+  {
+   "address": 63819,
+   "name": "selection_bitmap_rle_f94b",
+   "type": "Field",
+   "kind": "user"
+  },
+  {
+   "address": 63830,
+   "name": "selection_bitmap_rle_f956",
+   "type": "Field",
+   "kind": "user"
+  },
+  {
+   "address": 63872,
+   "name": "selection_bitmap_rle_f980",
+   "type": "Field",
+   "kind": "user"
+  },
+  {
+   "address": 63883,
+   "name": "selection_bitmap_rle_f98b",
+   "type": "Field",
+   "kind": "user"
+  },
+  {
+   "address": 63894,
+   "name": "selection_bitmap_rle_f996",
+   "type": "Field",
+   "kind": "user"
+  },
+  {
+   "address": 63902,
+   "name": "selection_bitmap_rle_f99e",
+   "type": "Field",
+   "kind": "user"
+  },
+  {
+   "address": 63913,
+   "name": "selection_bitmap_rle_f9a9",
+   "type": "Field",
+   "kind": "user"
+  },
+  {
+   "address": 63924,
+   "name": "selection_bitmap_rle_f9b4",
+   "type": "Field",
    "kind": "user"
   },
   {
@@ -4614,6 +5278,461 @@
  ],
  "comments": [
   {
+   "address": 0,
+   "type": "line",
+   "text": "Processor-port direction register. Startup at $080B writes $2F before using the banking control at $01."
+  },
+  {
+   "address": 1,
+   "type": "line",
+   "text": "Startup writes $26 here. The loader and drawing routines change the low banking bits to switch between ROM, I/O and underlying RAM."
+  },
+  {
+   "address": 7,
+   "type": "line",
+   "text": "Operand referenced by the retained indexed ADC at $D629. The fragment enters the page-copy branch based on the sum read through the zero-page pointer at $07."
+  },
+  {
+   "address": 15,
+   "type": "line",
+   "text": "Base operand of the indexed workspace clear at $E0B2. X counts from $40 down to one, so the first affected zero-page address is $10."
+  },
+  {
+   "address": 16,
+   "type": "line",
+   "text": "Low byte of voice one's event stream pointer. The selector at $E05A initializes it and the stream reader at $E426 advances it."
+  },
+  {
+   "address": 17,
+   "type": "line",
+   "text": "High byte of the first voice stream pointer. The remaining pairs are at $12/$13 and $14/$15. A zero high byte means the driver skips that voice."
+  },
+  {
+   "address": 22,
+   "type": "line",
+   "text": "Low byte of the title music command handler, loaded from $E43A,Y and stored at $E115."
+  },
+  {
+   "address": 23,
+   "type": "line",
+   "text": "High byte of the title music command handler, loaded from $E43B,Y before the indirect jump through $0016."
+  },
+  {
+   "address": 24,
+   "type": "line",
+   "text": "Three per-voice low frequency bytes. The pitch modulator adds or subtracts its step here and propagates a carry or borrow to the high bytes at $1B."
+  },
+  {
+   "address": 27,
+   "type": "line",
+   "text": "Three per-voice high frequency bytes, written to the SID frequency high registers after the low bytes at $18."
+  },
+  {
+   "address": 30,
+   "type": "line",
+   "text": "Three saved SID waveform and gate control bytes. The event player clears bit zero when releasing a voice."
+  },
+  {
+   "address": 33,
+   "type": "line",
+   "text": "Per-voice flag that skips clearing the gate when a note countdown expires."
+  },
+  {
+   "address": 36,
+   "type": "line",
+   "text": "Three repeat counters set by the stream command at $E2DD and decremented by the command at $E2E8."
+  },
+  {
+   "address": 39,
+   "type": "line",
+   "text": "Three per-voice counters used by the loop handler at $E2CE to decide whether to reload its stream pointer."
+  },
+  {
+   "address": 42,
+   "type": "line",
+   "text": "Saves the current voice index while the note path doubles it and reads its frequency word."
+  },
+  {
+   "address": 43,
+   "type": "line",
+   "text": "Octave countdown for generating the frequency table at $FE00. $E0A7 decrements it after filling each octave."
+  },
+  {
+   "address": 44,
+   "type": "line",
+   "text": "Low byte of the pitch during octave generation. Also holds the requested tune priority at $E038 and several music command operands."
+  },
+  {
+   "address": 45,
+   "type": "line",
+   "text": "High byte of the pitch during octave generation. $E088 shifts it before rotating the carry into $2C."
+  },
+  {
+   "address": 46,
+   "type": "line",
+   "text": "SID register offset for the active voice taken from $E1CC, either zero, seven or fourteen."
+  },
+  {
+   "address": 47,
+   "type": "line",
+   "text": "Doubled voice index, used to choose a two-byte event-stream pointer and saved across event dispatch."
+  },
+  {
+   "address": 48,
+   "type": "line",
+   "text": "Undoubled voice index. The three-voice tick stores it at $E0C2 and reloads it at $E121 after each event pass."
+  },
+  {
+   "address": 49,
+   "type": "line",
+   "text": "Three per-voice note duration counters. The driver fetches a stream event when the counter is zero."
+  },
+  {
+   "address": 52,
+   "type": "line",
+   "text": "Low routing bits of the SID filter register $D417. The two per-voice commands set or clear one bit and combine the result with $36."
+  },
+  {
+   "address": 53,
+   "type": "line",
+   "text": "High filter-mode bits for $D418. The command at $E296 updates them and combines them with the saved volume."
+  },
+  {
+   "address": 54,
+   "type": "line",
+   "text": "High nibble of $D417, combined with the voice routing mask before writing the SID register."
+  },
+  {
+   "address": 55,
+   "type": "line",
+   "text": "Low volume nibble of $D418, saved after both the absolute and relative volume commands."
+  },
+  {
+   "address": 56,
+   "type": "line",
+   "text": "Current stream event byte, saved at $E0E9 and read again by the note handler at $E3D0."
+  },
+  {
+   "address": 57,
+   "type": "line",
+   "text": "Saved high cutoff byte written to $D416. The frequency adjustment commands change this cached byte and write the result back to $D416."
+  },
+  {
+   "address": 58,
+   "type": "line",
+   "text": "Low byte of the swept pulse width, adjusted at $E134 and $E146 and written to the selected voice at $E166."
+  },
+  {
+   "address": 59,
+   "type": "line",
+   "text": "High byte of the swept pulse width. The tick uses it to decide when to reverse sweep direction."
+  },
+  {
+   "address": 60,
+   "type": "line",
+   "text": "Per-voice enable mask for the pulse sweep. The loop at $E15A tests one bit per voice before the SID writes."
+  },
+  {
+   "address": 61,
+   "type": "line",
+   "text": "Pulse-sweep direction flag. The sign selects subtraction at $E12C, and $E156 inverts it at the sweep bounds."
+  },
+  {
+   "address": 62,
+   "type": "line",
+   "text": "First of three per-voice downward frequency steps. The command at $E3A5 writes the step and the effect at $E401 subtracts it from the frequency low byte."
+  },
+  {
+   "address": 65,
+   "type": "line",
+   "text": "Per-voice mask for the single-byte downward pitch correction used at $E401."
+  },
+  {
+   "address": 66,
+   "type": "line",
+   "text": "Per-voice mask for periodic pitch steps. $E179 tests each selected voice and $E371 enables the command's current voice."
+  },
+  {
+   "address": 67,
+   "type": "line",
+   "text": "First voice's modulation period. Its matching step is at $44 and the command at $E365 stores the period for the current voice."
+  },
+  {
+   "address": 68,
+   "type": "line",
+   "text": "Step for the first voice, with the sign bit selecting subtraction. The other steps are at $46 and $48, interleaved with the remaining period bytes at $45 and $47."
+  },
+  {
+   "address": 73,
+   "type": "line",
+   "text": "Three countdowns for reversing the pitch step. Each reloads from its interleaved period field at $43, $45 or $47."
+  },
+  {
+   "address": 76,
+   "type": "line",
+   "text": "The music driver compares the tune request at $2C against this indexed slot at $E049, saves an accepted request at $E04D and clears the slot at $E0F8 when the stream terminates."
+  },
+  {
+   "address": 155,
+   "type": "line",
+   "text": "Low byte of the colour-cell destination. The calculation at $13AC shifts the row and $13CB adds the drawing column."
+  },
+  {
+   "address": 156,
+   "type": "line",
+   "text": "High byte of the destination pointer for the menu colour-cell writer. The offset arithmetic at $13A5\u2013$13E5 sets it and moves it into the colour RAM window."
+  },
+  {
+   "address": 158,
+   "type": "line",
+   "text": "Scratch low byte. The text entry point saves its source address here and the colour writer also uses it when multiplying the destination row by 40."
+  },
+  {
+   "address": 159,
+   "type": "line",
+   "text": "High byte of the working string pointer at $9E. The name editor advances and rewinds the pair as it edits the field."
+  },
+  {
+   "address": 162,
+   "type": "line",
+   "text": "Low byte of the KERNAL jiffy counter. The coin path at $17D6 uses its least significant bit. The draft path at $1A15 masks it to four bits."
+  },
+  {
+   "address": 163,
+   "type": "line",
+   "text": "Low byte of the menu option list pointer. $1038 stores Y here before the scan to the end marker at $1045."
+  },
+  {
+   "address": 164,
+   "type": "line",
+   "text": "High byte of the pointer at $A3. The option picker stores X here before scanning and highlighting the text strip."
+  },
+  {
+   "address": 198,
+   "type": "line",
+   "text": "The name editor clears this KERNAL field before emptying the key buffer at $0277."
+  },
+  {
+   "address": 251,
+   "type": "line",
+   "text": "Low byte of the text or image source pointer. In the backdrop expander it advances by two for each value/count pair."
+  },
+  {
+   "address": 252,
+   "type": "line",
+   "text": "High byte of the text or image source pointer. The backdrop expander increments it when the low byte wraps."
+  },
+  {
+   "address": 253,
+   "type": "line",
+   "text": "Low byte of the backdrop bitmap destination. Increments after each byte written by $0CC4."
+  },
+  {
+   "address": 254,
+   "type": "line",
+   "text": "High byte of the backdrop bitmap destination. The expansion ends when the pointer reaches $7F40."
+  },
+  {
+   "address": 255,
+   "type": "line",
+   "text": "Destination pointer high byte for the page exchange at $FFCE. $FFCA seeds it with $08 and $FFDD advances it after each page."
+  },
+  {
+   "address": 631,
+   "type": "line",
+   "text": "The name prompt clears ten bytes starting here before accepting input, using the descending index at $0EA1."
+  },
+  {
+   "address": 788,
+   "type": "line",
+   "text": "Low byte of the KERNAL IRQ vector. Menu startup reads it into the IRQ continuation before installing its own entry."
+  },
+  {
+   "address": 789,
+   "type": "line",
+   "text": "The incoming KERNAL vector's high byte. Startup saves it at $08F8 before replacing it with $08."
+  },
+  {
+   "address": 792,
+   "type": "line",
+   "text": "Startup replaces the low byte of the KERNAL RAM NMI vector with $D7."
+  },
+  {
+   "address": 793,
+   "type": "line",
+   "text": "Startup replaces the high byte of the KERNAL RAM NMI vector with $08. The pair then points to $08D7."
+  },
+  {
+   "address": 820,
+   "type": "line",
+   "text": "First row of the text window. Name input copies it to the drawing row before the first character."
+  },
+  {
+   "address": 821,
+   "type": "line",
+   "text": "First column of the text window. Copied to the drawing column at $0EB2."
+  },
+  {
+   "address": 822,
+   "type": "line",
+   "text": "Last row of the text window. The prompt routines copy their selected lower and upper rows to $0334 and this field."
+  },
+  {
+   "address": 823,
+   "type": "line",
+   "text": "Last column of the text window. $0FA2 compares it during cursor movement."
+  },
+  {
+   "address": 824,
+   "type": "line",
+   "text": "Current drawing row. The image renderer resets it from $036C at the start of a row group."
+  },
+  {
+   "address": 825,
+   "type": "line",
+   "text": "Current drawing column. The name editor advances it after glyph output and backs it up while deleting."
+  },
+  {
+   "address": 826,
+   "type": "line",
+   "text": "Low byte of the bitmap base used in the glyph address calculation at $0D94. Initialized to zero."
+  },
+  {
+   "address": 827,
+   "type": "line",
+   "text": "High byte of the bitmap base used by the glyph writer. The entry sets it to $60 and adds row-address carries."
+  },
+  {
+   "address": 828,
+   "type": "line",
+   "text": "Last byte read from KERNAL GETIN by the name editor. The editor also uses this byte for a converted character before drawing and storing it."
+  },
+  {
+   "address": 869,
+   "type": "line",
+   "text": "Menu row-display counter, cleared when a menu opens and updated while moving through the options."
+  },
+  {
+   "address": 870,
+   "type": "line",
+   "text": "Requested initial menu row. $107D compares it with the working row after each step to the initial choice."
+  },
+  {
+   "address": 871,
+   "type": "line",
+   "text": "Highlighted menu row. The court, opponent and difficulty handlers store a selection derived from this byte after calling $1035."
+  },
+  {
+   "address": 872,
+   "type": "line",
+   "text": "Menu row limit. Set from the option count minus one before input and used by the selection movement checks."
+  },
+  {
+   "address": 873,
+   "type": "line",
+   "text": "Option-list index after the initial scan at $104D, reloaded at $1146."
+  },
+  {
+   "address": 874,
+   "type": "line",
+   "text": "Low byte of the selected image source address supplied in X to $12E9."
+  },
+  {
+   "address": 875,
+   "type": "line",
+   "text": "High byte of the selected image source address supplied in Y to $12EE."
+  },
+  {
+   "address": 876,
+   "type": "line",
+   "text": "Image destination row in character cells. Copied to the vertical drawing cursor at $1345."
+  },
+  {
+   "address": 877,
+   "type": "line",
+   "text": "Image destination column in character cells. Copied to the horizontal drawing cursor at $134B."
+  },
+  {
+   "address": 878,
+   "type": "line",
+   "text": "Last drawing row computed from the image dimension at $12AE and the starting row at $036C."
+  },
+  {
+   "address": 879,
+   "type": "line",
+   "text": "Last drawing column computed from the image dimension at $12AD and the starting column at $036D."
+  },
+  {
+   "address": 880,
+   "type": "line",
+   "text": "Source of the 40-byte transfer into $FF00\u2013$FF27 at $0D5F. The menu copies these bytes before entering the loader."
+  },
+  {
+   "address": 908,
+   "type": "line",
+   "text": "Input-source flag captured in X at $15C3 and used with the coin and draft flags to assign the sides."
+  },
+  {
+   "address": 909,
+   "type": "line",
+   "text": "Three character indices for the branch at $1B22 with bit seven clear. Indexed by the pick count at $1929. Draft setup at $1D49 clears all three entries."
+  },
+  {
+   "address": 912,
+   "type": "line",
+   "text": "Three character indices for the branch at $1B22 with bit seven set. Indexed by the pick count at $192A. Draft setup at $1D49 clears all three entries."
+  },
+  {
+   "address": 915,
+   "type": "line",
+   "text": "Opponent-mode selection copied from the highlighted row at $15C9. The 40-byte settings copy carries this byte to $FF23 for match setup."
+  },
+  {
+   "address": 916,
+   "type": "line",
+   "text": "Receives the highlighted court index from $0367 at $158C. The settings transfer at $0D5F carries it to $FF24. The four court hand-overs contain values zero through three here."
+  },
+  {
+   "address": 918,
+   "type": "line",
+   "text": "Receives the highlighted difficulty after lookup at $161C. The store is at $1616 and the settings transfer at $0D5F carries this byte to $FF26."
+  },
+  {
+   "address": 921,
+   "type": "line",
+   "text": "Sprite index supplied to the sprite-position writer. $1E97 loads it and $1E9A doubles it to select the X and Y register pair."
+  },
+  {
+   "address": 922,
+   "type": "line",
+   "text": "Sprite X low byte copied to the indexed VIC register at $1E9F."
+  },
+  {
+   "address": 923,
+   "type": "line",
+   "text": "Sprite Y byte copied to the consecutive VIC register at $1EA6."
+  },
+  {
+   "address": 924,
+   "type": "line",
+   "text": "Single-bit mask built from sprite index $0399 at $1E75. The high-X set path ORs it into $D010 at $1E83."
+  },
+  {
+   "address": 925,
+   "type": "line",
+   "text": "Complement of the sprite-select bit at $039C. The unexpanded X path ANDs this mask with $D010 at $1E91 before writing the register."
+  },
+  {
+   "address": 927,
+   "type": "line",
+   "text": "Menu image source selection. $12CB tests for $80 to hide the KERNAL and $12DD tests for one to select the other image path."
+  },
+  {
+   "address": 930,
+   "type": "line",
+   "text": "The path at $0BE9 uses the sign bit to choose which panel layout to draw. The selection reset at $128A clears the byte, and the later draft path at $1905 can set its sign bit."
+  },
+  {
    "address": 2048,
    "type": "line",
    "text": "Sets up the 6510 port and stack, initializes the KERNAL and VIC, installs the menu's two IRQ entries and common NMI return, then initializes the RAM music driver and draws the opening screen."
@@ -4634,6 +5753,11 @@
    "text": "Clears VIC screen enable and jumps into the selection setup at $1288."
   },
   {
+   "address": 2262,
+   "type": "line",
+   "text": "Return opcode after the unconditional transfer to $1288."
+  },
+  {
    "address": 2263,
    "type": "line",
    "text": "RTI target installed in both the KERNAL NMI vector and the hardware NMI vector."
@@ -4642,6 +5766,16 @@
    "address": 2264,
    "type": "line",
    "text": "Decrements the opening-screen counter if it is nonzero, banks in the RAM music driver for one tick, restores the KERNAL and continues its normal IRQ at $EA31."
+  },
+  {
+   "address": 2295,
+   "type": "line",
+   "text": "Low byte of the IRQ continuation address. Menu setup saves it from $0314 before taking over the vector."
+  },
+  {
+   "address": 2296,
+   "type": "line",
+   "text": "High byte of the IRQ continuation address. Menu setup saves it from $0315 for the jump at $08F6."
   },
   {
    "address": 2297,
@@ -4659,14 +5793,79 @@
    "text": "Saves A, X, Y and the processor port, calls the same music tick with RAM visible at $E000, acknowledges CIA1, restores registers and returns from the interrupt directly."
   },
   {
+   "address": 2326,
+   "type": "line",
+   "text": "Eight bitmap rows stored between the IRQ return and the indexed font base at $091E. This shape duplicates the letter A glyph at $0926. The font printer adds an unsigned character index to $091E and therefore starts after this copy."
+  },
+  {
    "address": 2334,
    "type": "line",
    "text": "67 glyphs of eight bitmap bytes each. The menu uses screen-code indices for letters, digits and spaces, and index $40 for the name-entry cursor."
   },
   {
+   "address": 2870,
+   "type": "line",
+   "text": "Calls $0CA8 to expand the packed bitmap into the selection screen and copy its screen matrix colours, then returns to the caller."
+  },
+  {
    "address": 2874,
    "type": "line",
    "text": "Selects VIC bank $4000 via CIA2, sets the VIC memory pointers and enables multicolour bitmap mode with a grey background and black border."
+  },
+  {
+   "address": 2925,
+   "type": "line",
+   "text": "Clears 8000 bytes of bitmap RAM from $6000 through $7F3F before the next screen is drawn."
+  },
+  {
+   "address": 2951,
+   "type": "line",
+   "text": "Writes zero to the 1000 visible colour RAM cells."
+  },
+  {
+   "address": 2976,
+   "type": "line",
+   "text": "Sets the 1000 visible cells of the $5C00 screen matrix to $F0."
+  },
+  {
+   "address": 3001,
+   "type": "line",
+   "text": "First row of the full prompt-clearing window. Read at $1BF6 and copied to $0334."
+  },
+  {
+   "address": 3002,
+   "type": "line",
+   "text": "Last row of the full prompt-clearing window. The clear loop stops after matching it at $1C17."
+  },
+  {
+   "address": 3003,
+   "type": "line",
+   "text": "First column of the full prompt-clearing window. The clear path begins one column to its left."
+  },
+  {
+   "address": 3004,
+   "type": "line",
+   "text": "Last column of the full prompt-clearing window, copied to $0337 at $1C09."
+  },
+  {
+   "address": 3005,
+   "type": "line",
+   "text": "First row of the one-row prompt window used by $1C3E."
+  },
+  {
+   "address": 3006,
+   "type": "line",
+   "text": "Last row of the one-row prompt window, initialized to the same row as $0BBD."
+  },
+  {
+   "address": 3007,
+   "type": "line",
+   "text": "First column of the one-row prompt window. $1C54 backs it up by one before erasing."
+  },
+  {
+   "address": 3008,
+   "type": "line",
+   "text": "Last column of the one-row prompt window, copied to $0337 at $1C5B."
   },
   {
    "address": 3009,
@@ -4679,9 +5878,19 @@
    "text": "Ten little-endian pointers to the draft biographies, in the same order as the character choices."
   },
   {
+   "address": 3120,
+   "type": "line",
+   "text": "Three zero words after the ten draft biography pointers. The reader at $1D2E indexes the preceding pointers by twice the highlighted character number."
+  },
+  {
    "address": 3126,
    "type": "line",
    "text": "Little-endian pointers to the instruction panels for court, opponent, difficulty, side, naming, coin flip, draft and start."
+  },
+  {
+   "address": 3152,
+   "type": "line",
+   "text": "Three zero words between the thirteen populated prompt pointers and the court preview address bytes at $0C56."
   },
   {
    "address": 3158,
@@ -4724,6 +5933,16 @@
    "text": "Expands value and repeat-count pairs from RAM at $EFE8 into the bitmap starting at $6B40. Copies the $EC00-$EFFF screen-colour pages to $5C00 and banks between RAM at $DC00 and colour RAM to restore the second colour plane."
   },
   {
+   "address": 3378,
+   "type": "line",
+   "text": "Selects VIC bank $0000 through CIA2, sets the screen and character selector bits in $D018 and clears bitmap and multicolour mode."
+  },
+  {
+   "address": 3419,
+   "type": "line",
+   "text": "Copies forty bytes of team name workspace from $0370 to $FF00 and preserves X."
+  },
+  {
    "address": 3435,
    "type": "line",
    "text": "Returns the address $6000 + 320 times $0338 + eight times $0339 in $033A-$033B. Preserves A, X, Y and the two temporary pointer bytes on the stack."
@@ -4749,9 +5968,19 @@
    "text": "Skips $FF and $42. For other codes it computes the current bitmap cell address and calls the inverted glyph writer."
   },
   {
+   "address": 3726,
+   "type": "line",
+   "text": "Team-name editor mode byte. $0E98 clears it on entry. The path at $0FDD sets bit seven, which selects the alternate drawing path after $0EBF."
+  },
+  {
    "address": 3727,
    "type": "line",
    "text": "Clears the KERNAL key buffer and reads GETIN while updating a team-name field. It also polls for joystick confirmation before editing. RETURN accepts, DEL backs up and redraws the cursor, and the accepted name ends in $FF."
+  },
+  {
+   "address": 4078,
+   "type": "line",
+   "text": "Reads screen codes through $9B/$9C from the address in X:Y. Starts at row and column in $0334/$0335, wraps after the column in $0337, and stops at $FF. Calls $0E74 for each glyph and preserves A, X and Y."
   },
   {
    "address": 4149,
@@ -4769,6 +5998,16 @@
    "text": "Scans backward for the preceding selectable word and updates the option index and field position."
   },
   {
+   "address": 4514,
+   "type": "line",
+   "text": "Reads the current word from ($A3) using the index at $0365. Draws highlighted glyphs through $0E7F, then rewinds the index and column to the start of the word."
+  },
+  {
+   "address": 4565,
+   "type": "line",
+   "text": "Reads the current word from ($A3) using the index at $0365. Draws normal glyphs through $0E74, then rewinds the index and column to the start of the word."
+  },
+  {
    "address": 4616,
    "type": "line",
    "text": "Polls port 1 first, then port 2 if port 1 reports no horizontal direction or fire. Records which port reacted in $0399."
@@ -4782,6 +6021,11 @@
    "address": 4687,
    "type": "line",
    "text": "Unless $03A1 disables this side, decodes active-low direction bits from CIA1 port A into X and Y deltas and returns active-low fire in carry."
+  },
+  {
+   "address": 4722,
+   "type": "line",
+   "text": "Preserves X and Y while counting down complete 256-step X loops with Y."
   },
   {
    "address": 4744,
@@ -4799,6 +6043,26 @@
    "text": "Length supplied in A beside the SORTER string pointer."
   },
   {
+   "address": 4780,
+   "type": "line",
+   "text": "A nonzero value tells the image decoder to substitute the current cursor row and column for the record's stored origin."
+  },
+  {
+   "address": 4781,
+   "type": "line",
+   "text": "Width from image header byte zero. Used to determine when the drawing loop has copied the last cell of a row."
+  },
+  {
+   "address": 4782,
+   "type": "line",
+   "text": "The image decoder at $12FD stores header byte one here, then reads it when computing the last row at $132A."
+  },
+  {
+   "address": 4783,
+   "type": "line",
+   "text": "Eight zero bytes between the menu image dimensions and the decoder entry at $12B7. The header reads store to $12AC\u2013$12AE before the drawing loop."
+  },
+  {
    "address": 4791,
    "type": "line",
    "text": "Reads width, height and an origin from an image record in X:Y. Carry substitutes the current cursor origin. Each cell consumes eight bitmap bytes and a pair of colour bytes, and the source banking is chosen by $039F."
@@ -4807,6 +6071,51 @@
    "address": 5020,
    "type": "line",
    "text": "Calculates a 40-column cell index from the cursor row and column for the two colour planes."
+  },
+  {
+   "address": 5124,
+   "type": "line",
+   "text": "Advances the drawing cursor by one column. At the right edge in $036F, it wraps to $036D and advances the row unless already on the last row in $036E."
+  },
+  {
+   "address": 5159,
+   "type": "line",
+   "text": "Selection setup scratch byte cleared by $154C."
+  },
+  {
+   "address": 5160,
+   "type": "line",
+   "text": "Toss choice taken from the highlighted row at $1748. The prompt renderer tests it at $1773 to choose one of two strings."
+  },
+  {
+   "address": 5161,
+   "type": "line",
+   "text": "Sign of the toss input's source XORed with the assigned side at $038C, latched at $1764 and tested at $1792."
+  },
+  {
+   "address": 5162,
+   "type": "line",
+   "text": "Toss-side mask seeded at $171A, inverted from $038C on the alternate input branch at $175B and applied to the toss result at $17E6."
+  },
+  {
+   "address": 5163,
+   "type": "line",
+   "text": "Prompt and highlight mode. Menu setup selects a mode before calling $1C83, where zero selects the court drawing path."
+  },
+  {
+   "address": 5164,
+   "type": "line",
+   "text": "Sign bit of the coin result. Saved at $17E3 and tested at $17EE to select one of two result messages."
+  },
+  {
+   "address": 5165,
+   "type": "line",
+   "text": "The setup path at $17E9 stores the exclusive-or of the selected side bit and the mask at $142A. The draft reset copies it into $1928 and compares its sign with $038C to choose the side flag to set."
+  },
+  {
+   "address": 5166,
+   "type": "line",
+   "text": "Five bytes ($00 $00 $00 $AA $00) between the draft side workspace and the first court prompt at $1433. The two court prompt pointer operands are separate from this gap."
   },
   {
    "address": 5171,
@@ -4899,6 +6208,51 @@
    "text": "Runs the draft and offers Play Game or Start Over. Start Over jumps back into the menu at $1533 with the restart flag set."
   },
   {
+   "address": 6425,
+   "type": "line",
+   "text": "Current biography and draft pick index. The commit paths load it before writing the selected character to a roster slot."
+  },
+  {
+   "address": 6426,
+   "type": "line",
+   "text": "Total number of completed draft picks. Doubled to choose the prompt coordinates and incremented at $1B1C."
+  },
+  {
+   "address": 6427,
+   "type": "line",
+   "text": "Count of remaining entries to the end of the draft roster, initialized to nine and decremented when a character is taken."
+  },
+  {
+   "address": 6428,
+   "type": "line",
+   "text": "Highlighted position in the compacted draft list, saved from X at $1A9B and cleared when drafting starts."
+  },
+  {
+   "address": 6429,
+   "type": "line",
+   "text": "Ten working indices filled by the draft scan. The highlight, portrait and biography paths translate each selectable slot through this array to the character number."
+  },
+  {
+   "address": 6439,
+   "type": "line",
+   "text": "Remaining cursor moves for the computer draft choice. The selection reduces the random value by the number of available entries and then decrements it while moving the highlight."
+  },
+  {
+   "address": 6440,
+   "type": "line",
+   "text": "Sign selects which roster array receives the character at commit. Draft reset initializes it from the coin result stored at $142D."
+  },
+  {
+   "address": 6441,
+   "type": "line",
+   "text": "Next free pick position in the first team array at $038D. Its commit path increments it at $1B2D."
+  },
+  {
+   "address": 6442,
+   "type": "line",
+   "text": "Next free pick position in the second team array at $0390. Its commit path increments it at $1B3C."
+  },
+  {
    "address": 6443,
    "type": "line",
    "text": "Ten little-endian pointers to cells in $A000-$ACA7. The selection redraw places these pictures using their built-in starting columns."
@@ -4907,6 +6261,26 @@
    "address": 6463,
    "type": "line",
    "text": "Ten little-endian pointers to the separate player views at $B000-$BB17. The redraw can substitute roster positions for their built-in origin."
+  },
+  {
+   "address": 6483,
+   "type": "line",
+   "text": "Column and row overrides for placing drafted roster portraits. The draw path at $1AE0 loads the two coordinates into $0339 and $0338, then calls $12B7 with the selected player's roster portrait pointer."
+  },
+  {
+   "address": 6495,
+   "type": "line",
+   "text": "One byte per draft candidate. The setup loop at $1D50 clears ten entries and the placement path at $1B0E sets the selected entry to $80."
+  },
+  {
+   "address": 6505,
+   "type": "line",
+   "text": "Ten triples in character order. The first two bytes supply the sprite X low byte and Y, and bit zero of the third supplies the ninth X bit to $1E5C."
+  },
+  {
+   "address": 6535,
+   "type": "line",
+   "text": "The computer choice path subtracts four from the remaining-pick count in $191B to index this table. It uses the selected threshold to reduce the timer-derived candidate value in $1927."
   },
   {
    "address": 6541,
@@ -4954,6 +6328,16 @@
    "text": "Wait message shown while the computer chooses a roster member."
   },
   {
+   "address": 7151,
+   "type": "line",
+   "text": "Copies bounds from $0BB9\u2013$0BBC into $0334\u2013$0337. With carry set, first draws the blank strip at $1B7D across each row of those bounds. Preserves A, X and Y."
+  },
+  {
+   "address": 7230,
+   "type": "line",
+   "text": "Copies bounds from $0BBD\u2013$0BC0 into $0334\u2013$0337. With carry set, first draws the blank strip at $1B7D on the first row of those bounds. Preserves A, X and Y."
+  },
+  {
    "address": 7299,
    "type": "line",
    "text": "Dispatches on the preview mode at $142B. Draws a court, opponent, portrait or coin panel. During the draft it also updates the biography and positions the three-layer cursor using $1969."
@@ -4964,9 +6348,19 @@
    "text": "Converts the highlighted slot through $191D to a character number and selects its text via the pointer table at $0C1C."
   },
   {
+   "address": 7487,
+   "type": "line",
+   "text": "Zero byte between the biography renderer's return at $1D3E and the separate disk transition entry at $1D40."
+  },
+  {
    "address": 7488,
    "type": "line",
    "text": "Masks interrupts, selects bank value $25 and jumps into the transition entry in RAM at $FF83."
+  },
+  {
+   "address": 7496,
+   "type": "line",
+   "text": "RTS stored immediately after the unconditional jump to $FF83. The jump bypasses it on the transition path."
   },
   {
    "address": 7497,
@@ -4974,9 +6368,29 @@
    "text": "Clears the picked flags and both three-player rosters, restores selection positions, determines which port is enabled for first pick, and enables the three selection sprites."
   },
   {
+   "address": 7647,
+   "type": "line",
+   "text": "Disables sprites, clears their multicolour, expansion and priority flags, and installs shape pointers $30\u2013$32 for the draft cursor."
+  },
+  {
    "address": 7680,
    "type": "line",
    "text": "Clears the first two pointer sprite slots and writes their visible raster rows in three-byte groups."
+  },
+  {
+   "address": 7772,
+   "type": "line",
+   "text": "Takes the sprite index in A, the low X coordinate in X, the Y coordinate in Y and the ninth X bit in carry. Changes the selected bit in $D010 and writes both position bytes to the sprite's VIC registers. Restores A, X and Y."
+  },
+  {
+   "address": 7856,
+   "type": "line",
+   "text": "Eight single-bit masks for the sprite flags. The coin player ORs the selected bit into the VIC flags."
+  },
+  {
+   "address": 7864,
+   "type": "line",
+   "text": "Complements of the eight masks at $1EB0. The coin player ANDs these with the VIC flags to clear a selected bit."
   },
   {
    "address": 7872,
@@ -4984,9 +6398,49 @@
    "text": "Starts at the frame attribute table at $5B00 and coordinates at $4E00. Advances by 16 attribute bytes and 32 coordinate bytes per frame, passing each sprite to VIC registers and writing pointers in $5FF8-$5FFF."
   },
   {
+   "address": 8032,
+   "type": "line",
+   "text": "Sets the selected bit in the register at $D017 plus the sprite index. For index one the effective register is $D018 and the mask is $02, leaving the screen and bitmap fields alone."
+  },
+  {
+   "address": 8044,
+   "type": "line",
+   "text": "Clears the selected bit in the register at $D017 plus the sprite index. For index one the effective register is $D018 and the mask is $FD, leaving the screen and bitmap fields alone."
+  },
+  {
    "address": 8095,
    "type": "line",
    "text": "Preserves X and runs a nested delay loop. Called each animation frame and between coin panels."
+  },
+  {
+   "address": 8112,
+   "type": "line",
+   "text": "Alternate frame-loop tail after the return at $1FAF. Adds sixteen to the attribute pointer, calls the local delay, increments X and returns when it reaches the frame count at $50FF. Otherwise it jumps into the sprite attribute loop at $1F0D."
+  },
+  {
+   "address": 8137,
+   "type": "line",
+   "text": "Preserves X and delays with nested X and Y counters. The retained loop tail at $1FBC calls this copy."
+  },
+  {
+   "address": 8154,
+   "type": "line",
+   "text": "Four bytes $FF $50 $F0 $03 matching the operand and branch at $1FC1\u2013$1FC4."
+  },
+  {
+   "address": 8158,
+   "type": "line",
+   "text": "Jump to $1F26 followed by an RTS. The preceding bytes retain the end of a compare and conditional branch from the frame loop."
+  },
+  {
+   "address": 8162,
+   "type": "line",
+   "text": "Nested delay and X restore, byte for byte the same as the delay at $1FC9."
+  },
+  {
+   "address": 8179,
+   "type": "line",
+   "text": "Eleven bytes identical to the countdown and return at $1FE8\u2013$1FF2."
   },
   {
    "address": 8192,
@@ -5064,6 +6518,11 @@
    "text": "Sixteen 32-byte coordinate records used by the coin sprite player. Indexed loads pick each sprite's coordinate pair and add X and Y placement constants."
   },
   {
+   "address": 20480,
+   "type": "line",
+   "text": "Eight 32-byte coordinate record slots continue the format of the coin coordinate table at $4E00. The first 17 bytes repeat in all eight slots. The last slot has 25 bytes here before the neighbouring fields. The active count at $50FF stops the loop before these slots."
+  },
+  {
    "address": 20731,
    "type": "line",
    "text": "Global colour sent to VIC sprite multicolour register 1 before the coin animation."
@@ -5114,9 +6573,34 @@
    "text": "Third title colour page, beginning at cell 512 and covering most of the large outlined lettering."
   },
   {
+   "address": 24319,
+   "type": "line",
+   "text": "Authored title screen-matrix byte immediately before the indexed clear at $0BB2. X counts from $E8 down to one, so the stores begin at $5F00 and leave this byte intact."
+  },
+  {
    "address": 24320,
    "type": "line",
    "text": "Final visible portion of the title colour matrix, including the copyright row."
+  },
+  {
+   "address": 24568,
+   "type": "line",
+   "text": "VIC sprite pointer slot 0 in the screen matrix at $5C00. The entry byte $30 selects the 64-byte slot at $4C00 in bank $4000. The coin drawing loop replaces the pointer."
+  },
+  {
+   "address": 24569,
+   "type": "line",
+   "text": "VIC sprite pointer slot 1. The entry byte $31 selects the slot at $4C40. The draft cursor setup writes this pointer before enabling sprites."
+  },
+  {
+   "address": 24570,
+   "type": "line",
+   "text": "VIC sprite pointer slot 2. The entry byte $32 selects the slot at $4C80. The draft cursor setup writes this pointer before enabling sprites."
+  },
+  {
+   "address": 24571,
+   "type": "line",
+   "text": "VIC sprite pointer slots 3 through 7. The animation loop at $1F15 rewrites all eight slots from the frame shape indices before showing the frame."
   },
   {
    "address": 24576,
@@ -5534,6 +7018,31 @@
    "text": "$FF terminates the dana bio record."
   },
   {
+   "address": 54784,
+   "type": "line",
+   "text": "Two entry jumps stored in the last page of the parked overlay. After the page exchange their destinations are $0E06, which saves the menu workspace and returns to the menu overlay, and $0E19, which restores page three, loads file A and enters it at $1100."
+  },
+  {
+   "address": 54824,
+   "type": "line",
+   "text": "Byte $FF at file M offset $0840 immediately before the preserved instruction bytes at $D629."
+  },
+  {
+   "address": 54825,
+   "type": "line",
+   "text": "Fragment of the old disk overlay. It adds the value read through zero-page pointer $07 with Y to A, then takes the second copy path if the result is nonzero."
+  },
+  {
+   "address": 54829,
+   "type": "line",
+   "text": "Copies eleven bytes from each of six offsets in page $F4 into six destinations in $F5. The final DEY underflow takes the branch to $D681."
+  },
+  {
+   "address": 54872,
+   "type": "line",
+   "text": "Copies eleven bytes from each of six offsets within page $F9 to six higher destinations in the same page."
+  },
+  {
    "address": 55296,
    "type": "line",
    "text": "Four pages of RAM hidden under colour RAM. At startup the routine at $0C86 reads these bytes with I/O hidden and copies them to the visible colour plane."
@@ -5769,9 +7278,19 @@
    "text": "Twenty-nine little-endian handler addresses for stream commands $C0-$DC."
   },
   {
+   "address": 58427,
+   "type": "line",
+   "text": "High byte of the first command pointer at $E43A. The dispatcher uses $E43A,X and $E43B,X with an even X to read each little-endian address."
+  },
+  {
    "address": 58484,
    "type": "line",
    "text": "Twelve starting frequency words. Initialization repeatedly shifts them down to build the other octave entries."
+  },
+  {
+   "address": 58485,
+   "type": "line",
+   "text": "High byte of the first reference frequency word at $E474. The setup routine reads each little-endian word through $E474,X and $E475,X with an even X before dividing it down for the octave."
   },
   {
    "address": 58508,
@@ -5787,6 +7306,11 @@
    "address": 58525,
    "type": "line",
    "text": "Four stream entry addresses. Tune 1 selects three different streams and tune 2 selects the volume sequence."
+  },
+  {
+   "address": 58526,
+   "type": "line",
+   "text": "High byte of the first stream pointer in the table at $E49D. The tune selector reads the low and high bytes separately when assigning a stream to a voice."
   },
   {
    "address": 58533,
@@ -5806,12 +7330,22 @@
   {
    "address": 59221,
    "type": "line",
-   "text": "Beginning of the third opening voice, with an envelope, waveform, pulse-width and modulation changes interleaved with note events."
+   "text": "Third active opening stream. Following the event sizes and both exits of each pointer branch from this entry reaches its $FF terminator at $E80D."
+  },
+  {
+   "address": 59406,
+   "type": "line",
+   "text": "Additional parseable event sequence after the third active voice has stopped. Its branches reach the terminator at $EA0C. The four stream pointers at $E49D enter earlier sequences."
+  },
+  {
+   "address": 59917,
+   "type": "line",
+   "text": "Another parseable event sequence after $EA0C. Its local terminator is $EB69 and some branch destinations are in the earlier third voice."
   },
   {
    "address": 60160,
    "type": "line",
-   "text": "Tail of the third opening voice. Stream terminator is $FF at $EB69."
+   "text": "Continuation of the sequence beginning at $EA0D. Its local stop byte is $FF at $EB69."
   },
   {
    "address": 60416,
@@ -5844,9 +7378,129 @@
    "text": "512 selection bitmap value/count pairs expand to $6FDA-$7397 through the loop at $0CBC."
   },
   {
+   "address": 62622,
+   "type": "line",
+   "text": "Selection bitmap RLE bitmap value for the run beginning at $7092. The backdrop loop at $0CBC reads this pair from RAM."
+  },
+  {
+   "address": 62633,
+   "type": "line",
+   "text": "Selection bitmap RLE repeat count minus one for the run beginning at $7097. The backdrop loop at $0CBC reads this pair from RAM."
+  },
+  {
+   "address": 62644,
+   "type": "line",
+   "text": "Selection bitmap RLE bitmap value for the run beginning at $70A0. The backdrop loop at $0CBC reads this pair from RAM."
+  },
+  {
+   "address": 62656,
+   "type": "line",
+   "text": "Selection bitmap RLE bitmap value for the run beginning at $70AB. The backdrop loop at $0CBC reads this pair from RAM."
+  },
+  {
+   "address": 62667,
+   "type": "line",
+   "text": "Selection bitmap RLE repeat count minus one for the run beginning at $70B1. The backdrop loop at $0CBC reads this pair from RAM."
+  },
+  {
+   "address": 62678,
+   "type": "line",
+   "text": "Selection bitmap RLE bitmap value for the run beginning at $70BF. The backdrop loop at $0CBC reads this pair from RAM."
+  },
+  {
+   "address": 62720,
+   "type": "line",
+   "text": "Selection bitmap RLE bitmap value for the run beginning at $70E5. The backdrop loop at $0CBC reads this pair from RAM."
+  },
+  {
+   "address": 62731,
+   "type": "line",
+   "text": "Selection bitmap RLE repeat count minus one for the run beginning at $70EF. The backdrop loop at $0CBC reads this pair from RAM."
+  },
+  {
+   "address": 62742,
+   "type": "line",
+   "text": "Selection bitmap RLE bitmap value for the run beginning at $7103. The backdrop loop at $0CBC reads this pair from RAM."
+  },
+  {
+   "address": 62750,
+   "type": "line",
+   "text": "Selection bitmap RLE bitmap value for the run beginning at $7108. The backdrop loop at $0CBC reads this pair from RAM."
+  },
+  {
+   "address": 62761,
+   "type": "line",
+   "text": "Selection bitmap RLE repeat count minus one for the run beginning at $7110. The backdrop loop at $0CBC reads this pair from RAM."
+  },
+  {
+   "address": 62772,
+   "type": "line",
+   "text": "Selection bitmap RLE bitmap value for the run beginning at $7121. The backdrop loop at $0CBC reads this pair from RAM."
+  },
+  {
    "address": 63464,
    "type": "line",
    "text": "512 selection bitmap value/count pairs expand to $7398-$7B01 through the loop at $0CBC."
+  },
+  {
+   "address": 63774,
+   "type": "line",
+   "text": "Selection bitmap RLE bitmap value for the run beginning at $74FC. The backdrop loop at $0CBC reads this pair from RAM."
+  },
+  {
+   "address": 63785,
+   "type": "line",
+   "text": "Selection bitmap RLE repeat count minus one for the run beginning at $7504. The backdrop loop at $0CBC reads this pair from RAM."
+  },
+  {
+   "address": 63796,
+   "type": "line",
+   "text": "Selection bitmap RLE bitmap value for the run beginning at $750C. The backdrop loop at $0CBC reads this pair from RAM."
+  },
+  {
+   "address": 63808,
+   "type": "line",
+   "text": "Selection bitmap RLE bitmap value for the run beginning at $7519. The backdrop loop at $0CBC reads this pair from RAM."
+  },
+  {
+   "address": 63819,
+   "type": "line",
+   "text": "Selection bitmap RLE repeat count minus one for the run beginning at $752B. The backdrop loop at $0CBC reads this pair from RAM."
+  },
+  {
+   "address": 63830,
+   "type": "line",
+   "text": "Selection bitmap RLE bitmap value for the run beginning at $753A. The backdrop loop at $0CBC reads this pair from RAM."
+  },
+  {
+   "address": 63872,
+   "type": "line",
+   "text": "Selection bitmap RLE bitmap value for the run beginning at $756E. The backdrop loop at $0CBC reads this pair from RAM."
+  },
+  {
+   "address": 63883,
+   "type": "line",
+   "text": "Selection bitmap RLE repeat count minus one for the run beginning at $757D. The backdrop loop at $0CBC reads this pair from RAM."
+  },
+  {
+   "address": 63894,
+   "type": "line",
+   "text": "Selection bitmap RLE bitmap value for the run beginning at $758D. The backdrop loop at $0CBC reads this pair from RAM."
+  },
+  {
+   "address": 63902,
+   "type": "line",
+   "text": "Selection bitmap RLE bitmap value for the run beginning at $7596. The backdrop loop at $0CBC reads this pair from RAM."
+  },
+  {
+   "address": 63913,
+   "type": "line",
+   "text": "Selection bitmap RLE repeat count minus one for the run beginning at $75A5. The backdrop loop at $0CBC reads this pair from RAM."
+  },
+  {
+   "address": 63924,
+   "type": "line",
+   "text": "Selection bitmap RLE bitmap value for the run beginning at $75B5. The backdrop loop at $0CBC reads this pair from RAM."
   },
   {
    "address": 64488,
@@ -5857,6 +7511,11 @@
    "address": 65408,
    "type": "line",
    "text": "Calls the common disk overlay routine and enters the menu from $0800."
+  },
+  {
+   "address": 65409,
+   "type": "line",
+   "text": "In RAM these are the two operand bytes of the jump at $FF80 to $FF86. The startup call to this numerical address at $0825 runs the ROM KERNAL screen initializer."
   },
   {
    "address": 65411,

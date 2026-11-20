@@ -26,6 +26,51 @@
         "$F000",
         "$F4FF",
         "Remaining packed menu backdrop at match entry, identical to the pre-match snapshot. Match scroll code and the sprite compositor write the second screen and sprite workspace here."
+      ],
+      [
+        "$F500",
+        "$FD1B",
+        "Selection backdrop bytes identical to the menu hand-over and counted in its listing. In the match the sprite compositor writes into this range, as observed at $31F8."
+      ],
+      [
+        "$FD1C",
+        "$FD2F",
+        "Matches the selection hand-over. Load and store watchpoints on each byte from all four match hand-overs hit the compositor store at $2D95 as the first CPU access."
+      ],
+      [
+        "$0B00",
+        "$0DFF",
+        "Run-time copy of the menu zero page and pages two and three. Saved by $090C in the disk overlay and restored by $0E06 when returning to selection."
+      ],
+      [
+        "$07F8",
+        "$07FF",
+        "The XPB boot set these default screen sprite pointers before file M loaded. They match the pre-M snapshot through the match entry. The match selects bank $C000."
+      ],
+      [
+        "$0340",
+        "$03FF",
+        "Three XPB scroller sprite slots. The pre-M snapshot selects pointers $0D, $0E and $0F in the default screen matrix and all 192 bytes match at both part hand-overs. The parts reuse the page as writable state."
+      ],
+      [
+        "$D700",
+        "$D7FF",
+        "Matches the selection hand-over across all four match entries. The exchange at $FFDF\u2013$FFE3 terminates at page $D7 before swapping this page. The selection part documents the relocated page and its exclusion."
+      ],
+      [
+        "$096D",
+        "$09FF",
+        "Retained buffer contents from the parked serial overlay page at $D16D. All four hand-overs match it byte for byte. The old overlay only has an indexed store that can reach it, at $092F. A controlled step at X=$0B overwrites the first byte. The filename passed to SETNAM is the one byte at $096C, and no access to the tail stopped watches in the match setup and play windows."
+      ],
+      [
+        "$00C5",
+        "$00C8",
+        "Low-memory workspace adjacent to the last byte of the vector calculation at $C4. The four court hand-overs and saved school match agree. Execution, load and store watches did not stop through a 60-frame setup window."
+      ],
+      [
+        "$00ED",
+        "$00F0",
+        "Pre-load low RAM carried through match initialization, unchanged since the snapshot before M loads. The active match flag at $EC ends before these four bytes. No execution, load or store watch stopped in the setup window."
       ]
     ],
     "extra": [
