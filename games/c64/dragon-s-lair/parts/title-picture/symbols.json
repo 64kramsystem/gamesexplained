@@ -19,17 +19,22 @@
    ],
    [
     0,
+    17407,
+    "Resident game engine"
+   ],
+   [
+    20187,
+    20479,
+    "Resident game engine"
+   ],
+   [
+    20736,
     40703,
     "Resident game engine"
    ],
    [
     40735,
     49151,
-    "Resident game engine"
-   ],
-   [
-    49253,
-    49343,
     "Resident game engine"
    ],
    [
@@ -48,7 +53,18 @@
     "Resident game engine"
    ]
   ],
-  "extra": [],
+  "extra": [
+   [
+    17408,
+    20186,
+    "Title setup, scroll program and authored title text and tables"
+   ],
+   [
+    20480,
+    20735,
+    "Source glyph page for the scrolling prologue"
+   ]
+  ],
   "edges": [
    0,
    256,
@@ -66,17 +82,22 @@
   "elsewhere": [
    [
     0,
+    17407,
+    "Resident game engine"
+   ],
+   [
+    20187,
+    20479,
+    "Resident game engine"
+   ],
+   [
+    20736,
     40703,
     "Resident game engine"
    ],
    [
     40735,
     49151,
-    "Resident game engine"
-   ],
-   [
-    49253,
-    49343,
     "Resident game engine"
    ],
    [
@@ -98,6 +119,76 @@
  },
  "blocks": [
   {
+   "start": 17408,
+   "end": 17408,
+   "type": "Byte"
+  },
+  {
+   "start": 17409,
+   "end": 18172,
+   "type": "Code"
+  },
+  {
+   "start": 18173,
+   "end": 18175,
+   "type": "Byte"
+  },
+  {
+   "start": 18176,
+   "end": 19199,
+   "type": "PETSCII"
+  },
+  {
+   "start": 19200,
+   "end": 19548,
+   "type": "PETSCII"
+  },
+  {
+   "start": 19549,
+   "end": 19831,
+   "type": "PETSCII"
+  },
+  {
+   "start": 19832,
+   "end": 19832,
+   "type": "Byte"
+  },
+  {
+   "start": 19833,
+   "end": 19849,
+   "type": "Byte"
+  },
+  {
+   "start": 19850,
+   "end": 19896,
+   "type": "Byte"
+  },
+  {
+   "start": 19897,
+   "end": 19903,
+   "type": "Byte"
+  },
+  {
+   "start": 19904,
+   "end": 19904,
+   "type": "Byte"
+  },
+  {
+   "start": 19905,
+   "end": 20115,
+   "type": "PETSCII"
+  },
+  {
+   "start": 20116,
+   "end": 20186,
+   "type": "Byte"
+  },
+  {
+   "start": 20480,
+   "end": 20735,
+   "type": "Byte"
+  },
+  {
    "start": 40704,
    "end": 40734,
    "type": "Code"
@@ -106,6 +197,21 @@
    "start": 49152,
    "end": 49252,
    "type": "Code"
+  },
+  {
+   "start": 49253,
+   "end": 49263,
+   "type": "Byte"
+  },
+  {
+   "start": 49264,
+   "end": 49289,
+   "type": "Code"
+  },
+  {
+   "start": 49290,
+   "end": 49343,
+   "type": "Byte"
   },
   {
    "start": 49344,
@@ -125,6 +231,168 @@
  ],
  "symbols": [
   {
+   "address": 17408,
+   "name": "title_sound_update_gate",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 17409,
+   "name": "initialize_scrolling_prologue",
+   "type": "Subroutine",
+   "kind": "user"
+  },
+  {
+   "address": 17661,
+   "name": "tick_title_fine_scroll",
+   "type": "Subroutine",
+   "kind": "user"
+  },
+  {
+   "address": 17756,
+   "name": "leave_scrolling_prologue",
+   "type": "Subroutine",
+   "kind": "user"
+  },
+  {
+   "address": 17764,
+   "name": "scroll_title_text_one_row",
+   "type": "Subroutine",
+   "kind": "user"
+  },
+  {
+   "address": 17867,
+   "name": "copy_title_bitmap_scanlines",
+   "type": "Subroutine",
+   "kind": "user"
+  },
+  {
+   "address": 17997,
+   "name": "delay_title_scroll",
+   "type": "Subroutine",
+   "kind": "user"
+  },
+  {
+   "address": 18008,
+   "name": "display_title_debug_values",
+   "type": "Subroutine",
+   "kind": "user"
+  },
+  {
+   "address": 18044,
+   "name": "title_raster_interrupt",
+   "type": "Subroutine",
+   "kind": "user"
+  },
+  {
+   "address": 18063,
+   "name": "restore_title_interrupt_registers",
+   "type": "Subroutine",
+   "kind": "user"
+  },
+  {
+   "address": 18069,
+   "name": "draw_title_hex_byte",
+   "type": "Subroutine",
+   "kind": "user"
+  },
+  {
+   "address": 18109,
+   "name": "title_hex_digit_to_screen_code",
+   "type": "Subroutine",
+   "kind": "user"
+  },
+  {
+   "address": 18122,
+   "name": "service_title_sound_irq",
+   "type": "Subroutine",
+   "kind": "user"
+  },
+  {
+   "address": 18135,
+   "name": "multiply_title_address_stride",
+   "type": "Subroutine",
+   "kind": "user"
+  },
+  {
+   "address": 18172,
+   "name": "title_nmi_return",
+   "type": "Subroutine",
+   "kind": "user"
+  },
+  {
+   "address": 18173,
+   "name": "title_story_page_alignment",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 18176,
+   "name": "title_story_text_first",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 19200,
+   "name": "title_story_text_final",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 19549,
+   "name": "title_tape_notice_text",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 19832,
+   "name": "title_fine_scroll_phase",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 19833,
+   "name": "title_initial_sprite_positions",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 19850,
+   "name": "title_character_translation",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 19897,
+   "name": "title_scanline_copy_counters",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 19904,
+   "name": "title_tape_notice_prefix_byte",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 19905,
+   "name": "title_duplicate_tape_copyright_text",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 20116,
+   "name": "title_duplicate_scroll_settings",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 20480,
+   "name": "title_prologue_glyph_source",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
    "address": 40704,
    "name": "relocate_game_high_half",
    "type": "Subroutine",
@@ -140,6 +408,24 @@
    "address": 49235,
    "name": "poll_title_fire",
    "type": "Subroutine",
+   "kind": "user"
+  },
+  {
+   "address": 49253,
+   "name": "title_copy_routine_separator",
+   "type": "UserDefined",
+   "kind": "user"
+  },
+  {
+   "address": 49264,
+   "name": "title_page_copy_stub",
+   "type": "Subroutine",
+   "kind": "user"
+  },
+  {
+   "address": 49290,
+   "name": "title_colour_source_alignment",
+   "type": "UserDefined",
    "kind": "user"
   },
   {
@@ -223,6 +509,141 @@
  ],
  "comments": [
   {
+   "address": 17408,
+   "type": "line",
+   "text": "The title raster handler calls the resident sound player when the value here is below seven."
+  },
+  {
+   "address": 17409,
+   "type": "line",
+   "text": "Bank out ROMs while leaving I/O visible. Install the title interrupt vectors, select VIC bank zero, clear its screen and initialize the sound player. Set up the sprites and copy the scrolling glyph page before showing the text display."
+  },
+  {
+   "address": 17661,
+   "type": "line",
+   "text": "Wait through a busy delay, then advance the fine vertical scroll value modulo eight. Synchronize to the raster and insert another story row at wrap. Between rows, poll both joystick fire inputs and check the story source limit."
+  },
+  {
+   "address": 17756,
+   "type": "line",
+   "text": "Restore the character display control and jump to the resident engine initialization at $0C00."
+  },
+  {
+   "address": 17764,
+   "type": "line",
+   "text": "Move twenty rows up by one character row as six-bit glyph indices. Insert the next 40-cell row at $06F8 using the glyph translation table. A source byte with its high bit set inserts a blank row and advances the source by one byte."
+  },
+  {
+   "address": 17867,
+   "type": "line",
+   "text": "Use row and column counters and the product routine at $46D7 to address eight-byte bitmap cells. Copy the selected scanline byte with a destination displacement of minus $2100."
+  },
+  {
+   "address": 17997,
+   "type": "line",
+   "text": "Run nested decrement loops seeded with $50 before returning to the scrolling loop."
+  },
+  {
+   "address": 18008,
+   "type": "line",
+   "text": "Send bytes from $03, $02, $05, $04 and $0C to the two-digit hexadecimal renderer at five positions on the first screen row."
+  },
+  {
+   "address": 18044,
+   "type": "line",
+   "text": "Save A, X and Y. When the VIC raster flag is set, acknowledge it and call the title sound service before restoring the registers."
+  },
+  {
+   "address": 18063,
+   "type": "line",
+   "text": "Pull the saved Y, X and A from the stack and return from the interrupt."
+  },
+  {
+   "address": 18069,
+   "type": "line",
+   "text": "If Y is below 40, convert the two nibbles of A to screen codes and store them in adjacent cells with colour 7."
+  },
+  {
+   "address": 18109,
+   "type": "line",
+   "text": "Map values 0\u20139 to the screen-code range beginning at $B0, and the remaining values to the alphabet codes."
+  },
+  {
+   "address": 18122,
+   "type": "line",
+   "text": "Update the resident sound driver when the title gate at $4400 is below seven, then return through the IRQ epilogue."
+  },
+  {
+   "address": 18135,
+   "type": "line",
+   "text": "Shift the multiplier at $4DBC over eight bits, adding the multiplicand at $4DBB on each set bit. Store the 16-bit result in $4DBD/$4DBE."
+  },
+  {
+   "address": 18172,
+   "type": "line",
+   "text": "The title setup installs this single RTI as its temporary NMI handler."
+  },
+  {
+   "address": 18173,
+   "type": "line",
+   "text": "Three zero bytes fill the end of page $46 between the NMI return and the page-aligned story text."
+  },
+  {
+   "address": 18176,
+   "type": "line",
+   "text": "First portion of the scrolling prologue. The text is stored in 40-byte rows, with single high-bit bytes between rows to request blank lines."
+  },
+  {
+   "address": 19200,
+   "type": "line",
+   "text": "Remainder of the scroll source through $4C5C, including the prologue credits and the final blank-row markers."
+  },
+  {
+   "address": 19549,
+   "type": "line",
+   "text": "Three punctuation bytes followed by the seven 40-character rows of the Software Projects copyright notice and tape counter prompt. The disk scroll stops advancing at this address."
+  },
+  {
+   "address": 19832,
+   "type": "line",
+   "text": "Low three bits select the fine vertical scroll position. The loop subtracts one and masks to this range."
+  },
+  {
+   "address": 19833,
+   "type": "line",
+   "text": "Seventeen initial sprite position and high-X register bytes copied by $44A2."
+  },
+  {
+   "address": 19850,
+   "type": "line",
+   "text": "Forty-seven entries translate the six-bit indices seen in the story text to the title character codes."
+  },
+  {
+   "address": 19897,
+   "type": "line",
+   "text": "Two counters for the scanline and column, followed by the multiply operands, result and eight-bit loop counter."
+  },
+  {
+   "address": 19904,
+   "type": "line",
+   "text": "A single $EA byte after the product loop counter and before the second tape notice. The counter is at $4DBF and the following byte is the first notice character."
+  },
+  {
+   "address": 19905,
+   "type": "line",
+   "text": "Second copy of the copyright and tape counter notice held alongside the prologue."
+  },
+  {
+   "address": 20116,
+   "type": "line",
+   "text": "Second scroll settings block, repeating the initial VIC sprite positions and character remapping values after a phase byte of seven."
+  },
+  {
+   "address": 20480,
+   "type": "line",
+   "text": "Thirty-two eight-byte glyphs for the scrolling title character set. The setup copies this page to $2800 before selecting the custom glyph base."
+  },
+  {
    "address": 40704,
    "type": "line",
    "text": "Bank out ROM and I/O with $01=$34. Copy pages $60 through $9F to $C0 through $FF by advancing the high bytes of the load and store operands. Restore $37 and jump to $4401."
@@ -236,6 +657,21 @@
    "address": 49235,
    "type": "line",
    "text": "Wait for the exact port 1 value $EF at $DC01. After it arrives call the KERNAL and jump to the relocation loop."
+  },
+  {
+   "address": 49253,
+   "type": "line",
+   "text": "Eleven zero bytes separate the picture exit from the page copy at $C070."
+  },
+  {
+   "address": 49264,
+   "type": "line",
+   "text": "Set Y to zero and select memory configuration $36. The indexed copy loop increments both operand page bytes at wrap and tests the destination page for zero before jumping to $C000. The picture exits via $9F00."
+  },
+  {
+   "address": 49290,
+   "type": "line",
+   "text": "A zero-filled gap from the end of the page copy stub to the colour source at $C0C0."
   },
   {
    "address": 49344,

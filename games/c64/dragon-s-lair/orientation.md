@@ -16,7 +16,7 @@ The disk is catalogued by Planet Emulation as [Dragon's Lair (1986)(Software Pro
 4. For numbered scenes, stop in resident play, write the desired index 1 through 8 to `$26`, and set PC to `$0CD1`. The game's disk loader at `$0334` sets the filename and calls KERNAL LOAD. Break on `$FFD5` to inspect the name through `$BB/$BC` and count at `$B7`. Continue to the fire prompt at `$0CF2`, hold port 2 fire, break at `$1E01`, and release fire. Legal progress through the intervening scenes remains open.
 5. For scene 8, the additional break at `$FFD5` after entry sees `LI`. The post-load snapshot stops at `$1E12`. The play snapshot advances another 150 frames.
 
-The boot picture uses a multicolour bitmap in VIC bank `$C000`. Its exit at `$9F00` copies `$6000–$9FFF` to RAM at `$C000–$FFFF` with `$01=$34` and jumps to `$4401`. At scene entry the hardware NMI and IRQ vectors in RAM point to `$1566` and `$1647` respectively. The game writes `$05` to the processor port at `$0C1F` to bank the ROMs out while retaining I/O.
+The boot picture uses a multicolour bitmap in VIC bank `$C000`. Its exit at `$9F00` copies `$6000–$9FFF` to RAM at `$C000–$FFFF` with `$01=$34` and jumps to `$4401`. That entry displays the scrolling prologue, whose character source is at `$5000` and story stream begins at `$4700`. It jumps to resident initialization at `$0C00`. The title part uses the same pre-relocation capture for the picture and prologue code and data. Its resident references resolve against the later part, after relocation. At scene entry the hardware NMI and IRQ vectors in RAM point to `$1566` and `$1647` respectively. The game writes `$05` to the processor port at `$0C1F` to bank the ROMs out while retaining I/O.
 
 Part `work/entry.vsf` holds the stopped instruction at `$1E01` except for the title picture, which holds its title state, and the dragon part, which holds the stop immediately after `LI`. The corresponding `work/play.vsf` files hold scene frames from the same emulator. The scene captures follow the loader's return and raster synchronization. The disk was attached throughout. VICE v3.14.0 ran headless with dummy audio. The disassembler answered on the batch port and each part has a local Regenerator2000 project.
 
@@ -34,7 +34,7 @@ Part `work/entry.vsf` holds the stopped instruction at `$1E01` except for the ti
 | `LG` | `$8010` | Phantom Knight, copied to `$1E00` through `$2EBD` |
 | `LH` | `$8010` | The Dragon, copied to `$1E00` through `$31E5` |
 | `LI` | `$9A00` | Additional dragon scene bytes at `$9A00–$A1ED` |
-| `LJ` | `$8010` | One byte, zero. The normal gameplay path to this request remains open. |
+| `LJ` | `$8010` | One byte, zero. The Dragon exits to the score path before the next numbered request. |
 
 The directory accounts for all allocated sectors. The shared loader copies the scene record, then reads run-length-coded graphics from the page after `END OF CODE` into the bank beginning at `$4000`. For `LA`, `LB`, `LC`, `LE` and `LG`, decoding the disk stream reproduces all 16,383 destination bytes at the scene entry. `LD` matches 16,378, with five cells changed before entry. `LH` reproduces 23,154 bytes through the end of the file. This decode continues into RAM past the file, and its later request for `LI` changes part of that destination. `LF` has 16 bytes after its marker page, and the scene reinitializes its graphics from the embedded source.
 

@@ -2,6 +2,7 @@
 
 | Feature | Status | Expected behavior |
 |---|---|---|
+| Scrolling prologue | confirmed | After the castle picture, the game scrolls its opening story and credits on a custom character screen. |
 | Joystick | confirmed | The external title picture uses port 1 fire. The inter-scene prompt uses port 2 fire. Both were instruction-stepped. |
 | Falling platforms | live | Jump onto a descending disc and jump off at a ledge. |
 | Skull Hallway | live | Cross platforms and resist the wind. |
@@ -12,8 +13,8 @@
 | The Ramps | live | Cross disappearing platforms and fend off attackers. |
 | Phantom Knight | live | Ride another descending disc, then cross a board that the knight sets alight. |
 | The Dragon | live | Use rock cover, collect the magic sword, defeat Singe and release Daphne. |
-| Lives and bonus lives | open | Losing Dirk can restart a scene. Scene completion can award extra lives. |
-| Music and effects | open | The adaptation credits Colin Porch for music. |
+| Attempts | traced | The resident failure display consumes an attempt at $27. The successful scene-return path adds an attempt on scene indices 4–7 when the count is below four. |
+| Music and effects | traced | The resident SID driver at $C004 processes five logical channels on three voices. The prologue credits Colin Porch. |
 
 ## Sources
 

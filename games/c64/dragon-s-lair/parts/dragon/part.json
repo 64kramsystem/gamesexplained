@@ -21,7 +21,28 @@
     "charset": ""
   },
   "coverage": {
-    "exclude": [],
+    "exclude": [
+      [
+        "$AA3A",
+        "$B001",
+        "Packed LH input after the raw sprite source, reproduced in the preserved decoded bytes at $794F\u2013$81EA."
+      ],
+      [
+        "$B007",
+        "$B9FF",
+        "Packed LH input after the raw palette source, reproduced in the preserved decoded bytes at $81F0\u2013$9114."
+      ],
+      [
+        "$BAB0",
+        "$BBFF",
+        "Packed LH input between the two original picture-copy operands, reproduced in the decoded bytes at $91EF\u2013$94A1."
+      ],
+      [
+        "$BCB0",
+        "$BE9C",
+        "Packed LH input after the second picture operand span. It decodes through $99FE, before LI overwrites the remaining decoded tail."
+      ]
+    ],
     "include": [],
     "extra": [
       [
