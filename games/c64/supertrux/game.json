@@ -1,0 +1,143 @@
+{
+  "schema": 1,
+  "platform": "c64",
+  "slug": "supertrux",
+  "title": "Supertrux",
+  "year": 1989,
+  "publisher": "Elite Systems",
+  "developer": "Gargoyle Games",
+  "title_image": "reference/title.png",
+  "build": "Elite tape",
+  "tier": "bronze",
+  "coverage_percent": 100.0,
+  "copy": "agent-draft",
+  "steward": "",
+  "credits": [],
+  "tools": {
+    "emulator": "VICE v3.14.0 macOS arm64 headless",
+    "disassembler": "Regenerator2000"
+  },
+  "model": "gpt-6.2-sol",
+  "step_models": {
+    "10-orient": [
+      "gpt-6.2-sol"
+    ],
+    "12-media": [
+      "gpt-6.2-sol"
+    ],
+    "20-features": [
+      "gpt-6.2-sol"
+    ],
+    "40-sweep": [
+      "gpt-6.2-sol"
+    ],
+    "50-coverage": [
+      "gpt-6.2-sol"
+    ],
+    "30-text": [
+      "gpt-6.2-sol"
+    ],
+    "60-verify": [
+      "gpt-6.2-sol"
+    ]
+  },
+  "accuracy": [
+    {
+      "step": "research",
+      "web": true,
+      "models": [
+        "gpt-6.2-sol"
+      ]
+    },
+    {
+      "step": "annotate",
+      "models": [
+        "gpt-6.2-sol"
+      ]
+    },
+    {
+      "step": "sample",
+      "size": 60,
+      "wrong": 4,
+      "fixed": 4,
+      "seed": 20261120,
+      "models": [
+        "gpt-6.2-sol"
+      ]
+    }
+  ],
+  "kit_version": "0.0.360",
+  "created": "2026-11-20",
+  "video": {
+    "screen": "",
+    "charset": ""
+  },
+  "coverage": {
+    "exclude": [
+      [
+        "$0000",
+        "$03FF",
+        "CPU port, work variables, stack, bootloader and pointer arrays built by startup. The game tape image enters at $080D."
+      ],
+      [
+        "$0400",
+        "$07FF",
+        "Handoff holds the Novaload screen program and boot screen cells. The game builds shape lookup arrays here and assigns glyph indices at runtime."
+      ],
+      [
+        "$5C00",
+        "$5FFF",
+        "Title screen matrix: $3BEF initializes its 1000 cells and $1049 uploads the title sprite pointers when this screen is selected. The VIC ignores the gap between the cells and pointer slots."
+      ],
+      [
+        "$6800",
+        "$6FFF",
+        "Race display matrices and sprite pointer slots. Startup clears or derives the cells and pointers before play and uses the pages as map conversion scratch."
+      ],
+      [
+        "$7000",
+        "$7BFF",
+        "Startup copies the title staging image to $6900\u2013$7DFF before the first watchpoint read from this range in the transform at $1401. The freed region is rewritten as bitmap and race-character output."
+      ]
+    ],
+    "extra": [
+      [
+        "$0800",
+        "$FEFF",
+        "Elite tape blocks 3\u20138 at the point control enters the game. Keep the full loaded extent in the ledger while classifying its data."
+      ]
+    ],
+    "include": [
+      [
+        "$D000",
+        "$DFFF",
+        "Elite tape block 3 relocated here by the loader. Read as title map by $137D with I/O banked out."
+      ]
+    ]
+  },
+  "io": [
+    [
+      "$137D",
+      "$1460",
+      "ram",
+      "Startup banks out I/O while it reads the loaded map and rearranges the pixel and attribute arrays."
+    ],
+    [
+      "$3C11",
+      "$3C3B",
+      "ram",
+      "Title renderer copies map attributes from RAM beneath the chips."
+    ]
+  ],
+  "regions": [],
+  "links": {
+    "wiki": {
+      "title": "Supertrux \u2014 Lemon64",
+      "url": "https://www.lemon64.com/game/supertrux"
+    },
+    "manual": {
+      "title": "",
+      "url": ""
+    }
+  }
+}
