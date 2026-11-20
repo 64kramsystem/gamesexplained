@@ -9,7 +9,7 @@
   "title_image": "reference/title.png",
   "build": "The Wonderful Team disk release",
   "tier": "bronze",
-  "coverage_percent": null,
+  "coverage_percent": 100.0,
   "copy": "agent-draft",
   "steward": "",
   "credits": [],
@@ -39,9 +39,36 @@
     ],
     "50-coverage": [
       "gpt-6.2-sol"
+    ],
+    "60-verify": [
+      "gpt-6.2-sol"
     ]
   },
-  "accuracy": [],
+  "accuracy": [
+    {
+      "step": "research",
+      "web": true,
+      "models": [
+        "gpt-6.2-sol"
+      ]
+    },
+    {
+      "step": "annotate",
+      "models": [
+        "gpt-6.2-sol"
+      ]
+    },
+    {
+      "step": "sample",
+      "size": 75,
+      "wrong": 7,
+      "fixed": 7,
+      "seed": 20261120,
+      "models": [
+        "gpt-6.2-sol"
+      ]
+    }
+  ],
   "kit_version": "0.0.360",
   "created": "2026-11-20",
   "video": {
@@ -57,7 +84,7 @@
   "regions": [],
   "links": {
     "wiki": {
-      "title": "Ghouls 'n Ghosts — C64-Wiki",
+      "title": "Ghouls 'n Ghosts \u2014 C64-Wiki",
       "url": "https://www.c64-wiki.com/wiki/Ghouls_%27n_Ghosts"
     },
     "manual": {
